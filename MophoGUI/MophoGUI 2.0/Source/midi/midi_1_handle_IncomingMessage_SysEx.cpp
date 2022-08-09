@@ -75,7 +75,7 @@ void IncomingMessageHandler_SysEx::handleIncomingGlobalData(const uint8* sysExDa
         const int globalTransposeLSByte{ 4 };
         const int globalTransposeMSByte{ 5 };
         const int globalVoiceChangesByte{ 28 };
-        transmitOptions->dontTransmitParamChanges();
+        transmitOptions->setParamChangesShouldBeTransmitted(false);
 
         auto globalTranspose{ sysExData[globalTransposeMSByte] * 16 + sysExData[globalTransposeLSByte] };
         global->setGlobalTranspose((uint8)globalTranspose);
@@ -118,6 +118,6 @@ void IncomingMessageHandler_SysEx::handleIncomingGlobalData(const uint8* sysExDa
         auto hardwareOutputBalance{ sysExData[globalHardwareOutputBalanceByte] };
         global->setHardwareOutputBalance(hardwareOutputBalance);
 
-        transmitOptions->transmitParamChanges();
+        transmitOptions->setParamChangesShouldBeTransmitted(true);
     }
 }

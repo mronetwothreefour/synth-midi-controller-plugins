@@ -101,16 +101,16 @@ void IncomingMessageHandler_NRPN::handleControllerMessage_Value_LSB(const MidiMe
 }
 
 void IncomingMessageHandler_NRPN::applyIncomingValueToExposedParameter(const int nrpnType, const int newValue) {
-    transmitOptions->dontTransmitParamChanges();
+    transmitOptions->setParamChangesShouldBeTransmitted(false);
     auto paramIndex{ exposedParams->info->paramIndexForNRPN((uint8)nrpnType) };
     auto paramID{ exposedParams->info->IDfor(paramIndex) };
     auto paramPtr{ exposedParams->state->getParameter(paramID) };
     paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1((float)newValue));
-    transmitOptions->transmitParamChanges();
+    transmitOptions->setParamChangesShouldBeTransmitted(true);
 }
 
 void IncomingMessageHandler_NRPN::applyIncomingValueToGlobalOption(const int nrpnType, const int newValue) {
-    transmitOptions->dontTransmitParamChanges();
+    transmitOptions->setParamChangesShouldBeTransmitted(false);
     const int nrpnTypeForGlobalFineTune{ 385 };
     const int nrpnTypeForGlobalTranspose{ 384 };
     switch (nrpnType)
@@ -124,5 +124,5 @@ void IncomingMessageHandler_NRPN::applyIncomingValueToGlobalOption(const int nrp
     default:
         break;
     }
-    transmitOptions->transmitParamChanges();
+    transmitOptions->setParamChangesShouldBeTransmitted(true);
 }

@@ -7,8 +7,6 @@
 using namespace MophoConstants;
 using Track = SeqTrackNum;
 
-
-
 class SliderWithMouseWheelMoveOverride : 
 	public Slider
 {

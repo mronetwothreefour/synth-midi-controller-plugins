@@ -56,6 +56,22 @@
         <FILE id="nbKe9D" name="ep_3_facade_ExposedParameters.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_3_facade_ExposedParameters.h"/>
       </GROUP>
+      <GROUP id="{854E626A-C287-920D-EC76-255F795FEDA4}" name="gui">
+        <FILE id="Airyra" name="gui_comp_JuceSlidersWithMouseMods.cpp" compile="1"
+              resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.cpp"/>
+        <FILE id="FBDksN" name="gui_comp_JuceSlidersWithMouseMods.h" compile="0"
+              resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.h"/>
+      </GROUP>
+      <GROUP id="{EF3B146D-3659-DC15-ADE7-BF6892A35FBA}" name="unexposedParameters">
+        <FILE id="OQzWUF" name="up_0_tree_TooltipsOptions.cpp" compile="1"
+              resource="0" file="Source/unexposedParameters/up_0_tree_TooltipsOptions.cpp"/>
+        <FILE id="ZmZFMo" name="up_0_tree_TooltipsOptions.h" compile="0" resource="0"
+              file="Source/unexposedParameters/up_0_tree_TooltipsOptions.h"/>
+        <FILE id="AnFqIh" name="up_0_tree_VoiceTransmissionOptions.cpp" compile="1"
+              resource="0" file="Source/unexposedParameters/up_0_tree_VoiceTransmissionOptions.cpp"/>
+        <FILE id="dxLYE8" name="up_0_tree_VoiceTransmissionOptions.h" compile="0"
+              resource="0" file="Source/unexposedParameters/up_0_tree_VoiceTransmissionOptions.h"/>
+      </GROUP>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>

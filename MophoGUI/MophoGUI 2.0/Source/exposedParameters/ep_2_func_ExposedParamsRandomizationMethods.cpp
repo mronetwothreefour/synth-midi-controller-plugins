@@ -24,7 +24,7 @@ ExposedParamsRandomizationMethods::ExposedParamsRandomizationMethods(ExposedPara
 
 void ExposedParamsRandomizationMethods::randomizeAllUnlockedParameters() {
 	if (randomization->transmitMethodIsSysEx() == true) {
-		transmitOptions->dontTransmitParamChanges();
+		transmitOptions->setParamChangesShouldBeTransmitted(false);
 		for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
 			if (paramIndex != EP::indexForArpegOnOff && paramIndex != EP::indexForSeqOnOff) {
 				auto paramID{ info->IDfor(paramIndex) };
@@ -36,7 +36,7 @@ void ExposedParamsRandomizationMethods::randomizeAllUnlockedParameters() {
 		}
 		randomizeArpAndSeqOnOffParametersAfterDelay(0);
 		EditBufferDataMessage::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, outgoingMidiBuffers);
-		callAfterDelay(200, [this] { transmitOptions->transmitParamChanges(); });
+		callAfterDelay(200, [this] { transmitOptions->setParamChangesShouldBeTransmitted(true); });
 	}
 	else {
 		auto delayInMS{ 0 };

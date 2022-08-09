@@ -225,8 +225,8 @@ namespace MophoConstants
 		static const Identifier tree_GlobalOptions{ "tree_GlobalOptions" };
 		static const Identifier tree_RandomizationOptions{ "tree_RandomizationOptions" };
 		static const Identifier tree_TooltipsOptions{ "tree_TooltipsOptions" };
+		static const Identifier tree_VoiceTxOptions{ "tree_VoiceTxOptions" };
 
-		static const Identifier voiceTx_Options{ "voiceTx_Options" };
 		static const Identifier voiceTx_TransmitParamChanges{ "voiceTx_TransmitParamChanges" };
 		static const Identifier voiceTx_Time{ "voiceTx_Time" };
 	}

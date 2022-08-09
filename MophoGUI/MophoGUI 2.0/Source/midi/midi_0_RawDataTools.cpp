@@ -34,7 +34,7 @@ void RawDataTools::applyRawDataToExposedParameters(
 {
     auto info{ exposedParams->info.get() };
     auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
-    transmitOptions->dontTransmitParamChanges();
+    transmitOptions->setParamChangesShouldBeTransmitted(false);
     for (uint8 param = 0; param != EP::numberOfExposedParams; ++param) {
         auto paramID{ info->IDfor(param) };
         auto lsByteLocation{ info->lsByteLocationFor(param) };
@@ -51,7 +51,7 @@ void RawDataTools::applyRawDataToExposedParameters(
         auto paramPtr{ exposedParams->state->getParameter(paramID) };
         paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newValue));
     }
-    transmitOptions->transmitParamChanges();
+    transmitOptions->setParamChangesShouldBeTransmitted(true);
 }
 
 const std::vector<uint8> RawDataTools::extractRawDataFromExposedParameters(ExposedParameters* exposedParams) {

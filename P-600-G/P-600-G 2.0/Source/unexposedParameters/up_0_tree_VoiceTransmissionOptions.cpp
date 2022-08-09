@@ -2,13 +2,13 @@
 
 #include "../constants/constants_Identifiers.h"
 
-using namespace MophoConstants;
+using namespace P_600_G_Constants;
 
 VoiceTransmissionOptions::VoiceTransmissionOptions() :
 	voiceTransmissionOptionsTree{ ID::tree_VoiceTxOptions }
 {
 	setParamChangesShouldBeTransmitted(true);
-	setVoiceTransmitTime(300);
+	setVoiceTransmitTime(500);
 }
 
 const bool VoiceTransmissionOptions::paramChangesShouldBeTransmitted() {
@@ -25,6 +25,14 @@ const int VoiceTransmissionOptions::voiceTransmitTime() {
 
 void VoiceTransmissionOptions::setVoiceTransmitTime(const int timeInMilliseconds) {
 	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_Time, timeInMilliseconds, nullptr);
+}
+
+const bool VoiceTransmissionOptions::incomingVoiceShouldBeStored() {
+	return (bool)voiceTransmissionOptionsTree.getProperty(ID::voiceTx_IncomingVoiceShouldBeStored) == true;
+}
+
+void VoiceTransmissionOptions::setIncomingVoiceShouldBeStored(const bool shouldBeStored) {
+	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_IncomingVoiceShouldBeStored, shouldBeStored ? (bool)true : (bool)false, nullptr);
 }
 
 std::unique_ptr<XmlElement> VoiceTransmissionOptions::getStateXml() {

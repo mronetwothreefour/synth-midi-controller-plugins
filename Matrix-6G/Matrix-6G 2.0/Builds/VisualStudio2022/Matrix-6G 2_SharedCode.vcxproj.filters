@@ -17,6 +17,12 @@
     <Filter Include="Matrix-6G 2\Source\exposedParameters">
       <UniqueIdentifier>{4BCBC974-AF29-2DA2-9CE6-5A551E2BA80E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G 2\Source\gui">
+      <UniqueIdentifier>{2F6CE252-972C-3886-C397-BBF45D797DE2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matrix-6G 2\Source\unexposedParameters">
+      <UniqueIdentifier>{7B757C0E-25AA-F0C7-E195-AA6C5F944AA2}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Matrix-6G 2\Source">
       <UniqueIdentifier>{906E5EDC-CCE9-25B0-2423-9ED2CD03C9E0}</UniqueIdentifier>
     </Filter>
@@ -606,6 +612,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp">
+      <Filter>Matrix-6G 2\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp">
+      <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.cpp">
+      <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
@@ -2948,6 +2963,15 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h">
+      <Filter>Matrix-6G 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h">
+      <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.h">
+      <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>

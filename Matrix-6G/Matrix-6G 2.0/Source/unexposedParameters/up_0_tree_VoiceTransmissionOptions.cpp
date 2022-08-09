@@ -2,13 +2,13 @@
 
 #include "../constants/constants_Identifiers.h"
 
-using namespace MophoConstants;
-
 VoiceTransmissionOptions::VoiceTransmissionOptions() :
 	voiceTransmissionOptionsTree{ ID::tree_VoiceTxOptions }
 {
 	setParamChangesShouldBeTransmitted(true);
 	setVoiceTransmitTime(300);
+	setIncomingVoiceShouldNotBeStored();
+	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_CustomBankToStoreVoiceIn, (int)VoicesBank::customA, nullptr);
 }
 
 const bool VoiceTransmissionOptions::paramChangesShouldBeTransmitted() {
@@ -25,6 +25,24 @@ const int VoiceTransmissionOptions::voiceTransmitTime() {
 
 void VoiceTransmissionOptions::setVoiceTransmitTime(const int timeInMilliseconds) {
 	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_Time, timeInMilliseconds, nullptr);
+}
+
+const bool VoiceTransmissionOptions::incomingVoiceShouldBeStored() {
+	return (int)voiceTransmissionOptionsTree.getProperty(ID::voiceTx_IncomingVoiceShouldBeStored) == true;
+}
+
+const VoicesBank VoiceTransmissionOptions::bankToStoreIn() {
+	return VoicesBank{ (int)voiceTransmissionOptionsTree.getProperty(ID::voiceTx_CustomBankToStoreVoiceIn) };
+}
+
+void VoiceTransmissionOptions::setIncomingVoiceShouldBeStoredInCustomBank(const VoicesBank bank) {
+	jassert(bank == VoicesBank::customA || bank == VoicesBank::customB);
+	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_IncomingVoiceShouldBeStored, (bool)true, nullptr);
+	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_CustomBankToStoreVoiceIn, (int)bank, nullptr);
+}
+
+void VoiceTransmissionOptions::setIncomingVoiceShouldNotBeStored() {
+	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_IncomingVoiceShouldBeStored, (bool)false, nullptr);
 }
 
 std::unique_ptr<XmlElement> VoiceTransmissionOptions::getStateXml() {

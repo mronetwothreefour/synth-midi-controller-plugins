@@ -117,10 +117,10 @@ void PluginProcessor::setStateInformation(const void* data, int sizeInBytes) {
     if (pluginStateXml != nullptr) {
         auto exposedParamsStateXml{ pluginStateXml->getChildByName(ID::state_ExposedParams.toString()) };
         if (exposedParamsStateXml != nullptr) {
-            transmitOptions->dontTransmitParamChanges();
+            transmitOptions->setParamChangesShouldBeTransmitted(false);
             auto exposedParamsStateTree{ ValueTree::fromXml(*exposedParamsStateXml) };
             exposedParams->state->replaceState(exposedParamsStateTree);
-            transmitOptions->transmitParamChanges();
+            transmitOptions->setParamChangesShouldBeTransmitted(true);
         }
 
         auto randomizationStateXml{ pluginStateXml->getChildByName(ID::state_RandomizationOptions.toString()) };

@@ -17,4 +17,20 @@ namespace Matrix_6G_Constants
 		signed_6_bitValue,
 		signed_7_bitValue
 	};
+
+	enum class VoicesBank {
+		analogSynthsA = 0,
+		analogSynthsB,
+		basses,
+		brassAndWoodwinds,
+		customA,
+		customB,
+		fxAndPercussion,
+		keyboardsA,
+		keyboardsB,
+		leads,
+		miscellaneousA,
+		miscellaneousB,
+		strings
+	};
 }

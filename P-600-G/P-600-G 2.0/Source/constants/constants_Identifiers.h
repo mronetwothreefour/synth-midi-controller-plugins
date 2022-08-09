@@ -58,8 +58,22 @@ namespace P_600_G_Constants
 		static const Identifier property_ParamID{ "property_ParamID" };
 		static const Identifier property_Width{ "property_Width" };
 
+		static const Identifier state_TooltipsOptions{ "state_TooltipsOptions" };
+		static const Identifier state_UnexposedParams{ "state_UnexposedParams" };
+		static const Identifier state_VoiceTxOptions{ "state_VoiceTxOptions" };
+
+		static const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };
+		static const Identifier tooltips_ShouldShowCurrentChoice{ "tooltips_ShouldShowCurrentChoice" };
+		static const Identifier tooltips_ShouldShowDescription{ "tooltips_ShouldShowDescription" };
+
 		static const Identifier tree_ChoiceNames{ "tree_ChoiceNames" };
 		static const Identifier tree_ChoiceNames_Verbose{ "tree_ChoiceNames_Verbose" };
 		static const Identifier tree_ExposedParamsInfo{ "tree_ExposedParamsInfo" };
+		static const Identifier tree_TooltipsOptions{ "tree_TooltipsOptions" };
+		static const Identifier tree_VoiceTxOptions{ "tree_VoiceTxOptions" };
+
+		static const Identifier voiceTx_IncomingVoiceShouldBeStored{ "voiceTx_IncomingVoiceShouldBeStored" };
+		static const Identifier voiceTx_TransmitParamChanges{ "voiceTx_TransmitParamChanges" };
+		static const Identifier voiceTx_Time{ "voiceTx_Time" };
 	}
 }

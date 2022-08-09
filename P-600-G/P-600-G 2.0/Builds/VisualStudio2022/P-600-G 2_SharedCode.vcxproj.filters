@@ -17,6 +17,12 @@
     <Filter Include="P-600-G 2\Source\exposedParameters">
       <UniqueIdentifier>{1668C243-2841-A953-F0F3-CD43AB3A2540}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G 2\Source\gui">
+      <UniqueIdentifier>{6477914E-C4DC-ADB9-942C-3E6428000B7A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="P-600-G 2\Source\unexposedParameters">
+      <UniqueIdentifier>{621C7D79-7D45-2234-4F43-FC7D5871E018}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G 2\Source">
       <UniqueIdentifier>{5CE18680-527B-6D71-FCEB-BAE7474785B9}</UniqueIdentifier>
     </Filter>
@@ -606,6 +612,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp">
       <Filter>P-600-G 2\Source\exposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp">
+      <Filter>P-600-G 2\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp">
+      <Filter>P-600-G 2\Source\unexposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.cpp">
+      <Filter>P-600-G 2\Source\unexposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
@@ -2948,6 +2963,15 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h">
       <Filter>P-600-G 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h">
+      <Filter>P-600-G 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h">
+      <Filter>P-600-G 2\Source\unexposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.h">
+      <Filter>P-600-G 2\Source\unexposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>

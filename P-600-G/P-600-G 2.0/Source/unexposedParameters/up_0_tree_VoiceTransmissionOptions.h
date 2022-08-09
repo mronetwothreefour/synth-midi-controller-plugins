@@ -12,6 +12,8 @@ public:
 	void setParamChangesShouldBeTransmitted(const bool shouldBeTransmitted);
 	const int voiceTransmitTime();
 	void setVoiceTransmitTime(const int timeInMilliseconds);
+	const bool incomingVoiceShouldBeStored();
+	void setIncomingVoiceShouldBeStored(const bool shouldBeStored);
 	std::unique_ptr<XmlElement> getStateXml();
 	void replaceState(const ValueTree& newState);
 
