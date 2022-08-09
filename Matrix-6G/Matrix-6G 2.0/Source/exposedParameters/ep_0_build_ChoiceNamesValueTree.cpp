@@ -122,7 +122,8 @@ ValueTree ExposedParamChoiceNamesValueTree::buildForOscPitch(const bool verbose)
 
 ValueTree ExposedParamChoiceNamesValueTree::buildForOscType(const int oscNum, const bool verbose) {
     ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
-    for (auto choiceNum = 0; choiceNum != oscNum == 1 ? 4 : 5; ++choiceNum) {
+    auto numberOfChoices{ oscNum == 1 ? 4 : 5 };
+    for (auto choiceNum = 0; choiceNum != numberOfChoices; ++choiceNum) {
         String choiceName{ "" };
         if (choiceNum == 0)
             choiceName = verbose ? "Off" : "OFF";

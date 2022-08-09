@@ -1,9 +1,11 @@
 #include "core_0_PluginProcessor.h"
 
 #include "core_1_PluginEditor.h"
+#include "exposedParameters/ep_3_facade_ExposedParameters.h"
 
 PluginProcessor::PluginProcessor() :
-    AudioProcessor{ BusesProperties{} }
+    AudioProcessor{ BusesProperties{} },
+    exposedParams{ new ExposedParameters{ this/*, unexposedParams.get()*/ } }
 {
 }
 
@@ -76,6 +78,8 @@ void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInByte
 }
 
 PluginProcessor::~PluginProcessor() {
+    exposedParams->undoManager.clearUndoHistory();
+    exposedParams = nullptr;
 }
 
 // This creates new instances of the plugin..

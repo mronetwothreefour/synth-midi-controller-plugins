@@ -9,6 +9,9 @@ using namespace P_600_G_Constants;
 class InfoForExposedParameters
 {
 	ValueTree exposedParamsInfoTree;
+
+public:
+	InfoForExposedParameters();
 	Identifier IDfor(const uint8 paramIndex) const;
 	String exposedNameFor(const uint8 paramIndex) const;
 	ControlType controlTypeFor(const uint8 paramIndex) const;
@@ -26,9 +29,6 @@ class InfoForExposedParameters
 	StringArray choiceNamesListFor(const uint8 paramIndex) const;
 	StringArray verboseChoiceNamesListFor(const uint8 paramIndex) const;
 	int mouseDragSensitivityFor(const uint8 paramIndex) const;
-
-public:
-	InfoForExposedParameters();
 
 private:
 	//==============================================================================

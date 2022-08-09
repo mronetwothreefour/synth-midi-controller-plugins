@@ -234,27 +234,27 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					ValueTree{ ChoiceNames::buildForLeverControl(verbose) }
 				}
 			}, -1, nullptr);
-
-		exposedParamsInfoTree.addChild(
-			ValueTree{ "ep_20", {
-					{ ID::property_ParamID, ID::ep_20_OscBalance.toString() },
-					{ ID::property_ParamNum, 20 },
-					{ ID::property_ExposedName, "Oscillator " + (String)oscNum + " Balance" },
-					{ ID::property_ControlType, (int)ControlType::linearSlider },
-					{ ID::property_DataByteIndex, 12 },
-					{ ID::property_RangeType, (int)RangeType::unsignedValue },
-					{ ID::property_NumberOfChoices, 64 },
-					{ ID::property_DefaultChoice, 31 },
-					{ ID::property_Center_x, 163 },
-					{ ID::property_Center_y, controlsRow_11_y },
-					{ ID::property_Width, 126 },
-					{ ID::property_Description, Description::buildForOscBalance() },
-				}, {
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
-				}
-			}, -1, nullptr);
 	}
+
+	exposedParamsInfoTree.addChild(
+		ValueTree{ "ep_20", {
+				{ ID::property_ParamID, ID::ep_20_OscBalance.toString() },
+				{ ID::property_ParamNum, 20 },
+				{ ID::property_ExposedName, "Oscillator Balance" },
+				{ ID::property_ControlType, (int)ControlType::linearSlider },
+				{ ID::property_DataByteIndex, 12 },
+				{ ID::property_RangeType, (int)RangeType::unsignedValue },
+				{ ID::property_NumberOfChoices, 64 },
+				{ ID::property_DefaultChoice, 31 },
+				{ ID::property_Center_x, 163 },
+				{ ID::property_Center_y, controlsRow_11_y },
+				{ ID::property_Width, 126 },
+				{ ID::property_Description, Description::buildForOscBalance() },
+			}, {
+				ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
+				ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+			}
+		}, -1, nullptr);
 
 	// --------------------------------------------------------------------------------------------------------------------- VCF
 

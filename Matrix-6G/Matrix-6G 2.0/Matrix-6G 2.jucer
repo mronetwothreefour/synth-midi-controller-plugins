@@ -51,6 +51,10 @@
               resource="0" file="Source/exposedParameters/ep_1_tree_InfoForExposedParameters.cpp"/>
         <FILE id="SE9396" name="ep_1_tree_InfoForExposedParameters.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_1_tree_InfoForExposedParameters.h"/>
+        <FILE id="Q2vVj5" name="ep_2_build_ExposedParamsLayout.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_2_build_ExposedParamsLayout.h"/>
+        <FILE id="nbKe9D" name="ep_3_facade_ExposedParameters.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_3_facade_ExposedParameters.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>
