@@ -2,10 +2,13 @@
 
 #include "core_1_PluginEditor.h"
 #include "exposedParameters/ep_3_facade_ExposedParameters.h"
+#include "unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 PluginProcessor::PluginProcessor() :
     AudioProcessor{ BusesProperties{} },
-    exposedParams{ new ExposedParameters{ this/*, unexposedParams.get()*/ } }
+    unexposedParams{ new UnexposedParameters{} },
+    exposedParams{ new ExposedParameters{ this, unexposedParams.get() } },
+    transmitOptions{ unexposedParams->getVoiceTransmissionOptions() }
 {
 }
 
@@ -66,20 +69,19 @@ bool PluginProcessor::hasEditor() const {
 }
 
 AudioProcessorEditor* PluginProcessor::createEditor() {
-    return new PluginEditor (*this);
+    return new PluginEditor{ *this, exposedParams.get(), unexposedParams.get() };
 }
 
 void PluginProcessor::getStateInformation(MemoryBlock& /*destData*/) {
 }
 
 void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInBytes*/) {
-    //// You should use this method to restore your parameters from this memory block,
-    //// whose contents will have been created by the getStateInformation() call.
 }
 
 PluginProcessor::~PluginProcessor() {
     exposedParams->undoManager.clearUndoHistory();
     exposedParams = nullptr;
+    unexposedParams = nullptr;
 }
 
 // This creates new instances of the plugin..

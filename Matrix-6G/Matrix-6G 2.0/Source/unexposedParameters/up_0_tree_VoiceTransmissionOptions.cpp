@@ -28,7 +28,7 @@ void VoiceTransmissionOptions::setVoiceTransmitTime(const int timeInMilliseconds
 }
 
 const bool VoiceTransmissionOptions::incomingVoiceShouldBeStored() {
-	return (int)voiceTransmissionOptionsTree.getProperty(ID::voiceTx_IncomingVoiceShouldBeStored) == true;
+	return (bool)voiceTransmissionOptionsTree.getProperty(ID::voiceTx_IncomingVoiceShouldBeStored) == true;
 }
 
 const VoicesBank VoiceTransmissionOptions::bankToStoreIn() {

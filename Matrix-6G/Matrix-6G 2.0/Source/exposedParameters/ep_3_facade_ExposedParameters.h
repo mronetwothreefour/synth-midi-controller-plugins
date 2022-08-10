@@ -8,7 +8,7 @@
 using Layout = ExposedParametersLayout;
 using State = AudioProcessorValueTreeState;
 
-//class UnexposedParameters;
+class UnexposedParameters;
 
 class ExposedParameters
 {
@@ -21,7 +21,7 @@ public:
 
 	ExposedParameters() = delete;
 
-	ExposedParameters(AudioProcessor* processor/*, UnexposedParameters* unexposedParams*/) :
+	ExposedParameters(AudioProcessor* processor, UnexposedParameters* /*unexposedParams*/) :
 		info{ new InfoForExposedParameters },
 		state{ new State{ *processor, &undoManager, "exposedParams", Layout::build(info.get()) } }/*,
 		randomization{ new Randomization{ info.get() } },
