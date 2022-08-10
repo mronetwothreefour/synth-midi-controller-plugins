@@ -14,6 +14,9 @@
     <Filter Include="Matrix-6G 2\Source\descriptions">
       <UniqueIdentifier>{2CFCE182-8305-725C-8285-38EF38A6CA50}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G 2\Source\exposedParamControls">
+      <UniqueIdentifier>{97C9A50F-262E-7A74-D77B-D2DEF2CAD405}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Matrix-6G 2\Source\exposedParameters">
       <UniqueIdentifier>{4BCBC974-AF29-2DA2-9CE6-5A551E2BA80E}</UniqueIdentifier>
     </Filter>
@@ -606,6 +609,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp">
       <Filter>Matrix-6G 2\Source\descriptions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.cpp">
+      <Filter>Matrix-6G 2\Source\exposedParamControls</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.cpp">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
@@ -2954,6 +2960,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h">
       <Filter>Matrix-6G 2\Source\descriptions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.h">
+      <Filter>Matrix-6G 2\Source\exposedParamControls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.h">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>

@@ -14,6 +14,9 @@
     <Filter Include="P-600-G 2\Source\descriptions">
       <UniqueIdentifier>{9E2769FA-EB33-B06C-8ECE-FED6C40D2D33}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G 2\Source\exposedParamControls">
+      <UniqueIdentifier>{95AA8C42-838F-0FDB-9510-74377EBEBF66}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G 2\Source\exposedParameters">
       <UniqueIdentifier>{1668C243-2841-A953-F0F3-CD43AB3A2540}</UniqueIdentifier>
     </Filter>
@@ -606,6 +609,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp">
       <Filter>P-600-G 2\Source\descriptions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.cpp">
+      <Filter>P-600-G 2\Source\exposedParamControls</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.cpp">
       <Filter>P-600-G 2\Source\exposedParameters</Filter>
@@ -2954,6 +2960,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h">
       <Filter>P-600-G 2\Source\descriptions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.h">
+      <Filter>P-600-G 2\Source\exposedParamControls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.h">
       <Filter>P-600-G 2\Source\exposedParameters</Filter>
