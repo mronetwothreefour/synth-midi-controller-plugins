@@ -34,6 +34,8 @@
               file="Source/constants/constants_GUI_Dimensions.h"/>
         <FILE id="SpPmTp" name="constants_GUI_FontsAndSpecialCharacters.h"
               compile="0" resource="0" file="Source/constants/constants_GUI_FontsAndSpecialCharacters.h"/>
+        <FILE id="RxfjNJ" name="constants_GUI_PathData.h" compile="0" resource="0"
+              file="Source/constants/constants_GUI_PathData.h"/>
         <FILE id="P84JEh" name="constants_Identifiers.h" compile="0" resource="0"
               file="Source/constants/constants_Identifiers.h"/>
       </GROUP>
@@ -64,6 +66,8 @@
               resource="0" file="Source/exposedParameters/ep_3_facade_ExposedParameters.h"/>
       </GROUP>
       <GROUP id="{ADE51B93-2495-0CD5-5B92-E6A9C96629A6}" name="gui">
+        <FILE id="zHvNCC" name="gui_build_LED_NumeralPath.h" compile="0" resource="0"
+              file="Source/gui/gui_build_LED_NumeralPath.h"/>
         <FILE id="QINpLX" name="gui_comp_JuceSlidersWithMouseMods.cpp" compile="1"
               resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.cpp"/>
         <FILE id="UfBZWP" name="gui_comp_JuceSlidersWithMouseMods.h" compile="0"

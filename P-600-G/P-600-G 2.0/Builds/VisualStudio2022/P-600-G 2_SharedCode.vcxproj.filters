@@ -2955,6 +2955,9 @@
     <ClInclude Include="..\..\Source\constants\constants_GUI_FontsAndSpecialCharacters.h">
       <Filter>P-600-G 2\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_GUI_PathData.h">
+      <Filter>P-600-G 2\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h">
       <Filter>P-600-G 2\Source\constants</Filter>
     </ClInclude>
@@ -2975,6 +2978,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h">
       <Filter>P-600-G 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_build_LED_NumeralPath.h">
+      <Filter>P-600-G 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h">
       <Filter>P-600-G 2\Source\gui</Filter>

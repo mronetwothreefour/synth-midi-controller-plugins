@@ -2308,6 +2308,7 @@
     <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h"/>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Dimensions.h"/>
     <ClInclude Include="..\..\Source\constants\constants_GUI_FontsAndSpecialCharacters.h"/>
+    <ClInclude Include="..\..\Source\constants\constants_GUI_PathData.h"/>
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h"/>
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.h"/>
@@ -2315,6 +2316,7 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_2_build_ExposedParamsLayout.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_build_LED_NumeralPath.h"/>
     <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.h"/>

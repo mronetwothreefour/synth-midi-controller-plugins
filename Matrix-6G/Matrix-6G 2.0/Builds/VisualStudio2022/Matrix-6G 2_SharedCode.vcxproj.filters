@@ -619,6 +619,9 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_build_LED_Path.cpp">
+      <Filter>Matrix-6G 2\Source\gui</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClCompile>
@@ -2955,6 +2958,9 @@
     <ClInclude Include="..\..\Source\constants\constants_GUI_FontsAndSpecialCharacters.h">
       <Filter>Matrix-6G 2\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_GUI_PathData.h">
+      <Filter>Matrix-6G 2\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h">
       <Filter>Matrix-6G 2\Source\constants</Filter>
     </ClInclude>
@@ -2975,6 +2981,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_build_LED_Path.h">
+      <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h">
       <Filter>Matrix-6G 2\Source\gui</Filter>
