@@ -19,7 +19,6 @@ KnobForGlobalParameter::KnobForGlobalParameter(KnobType knobType, UnexposedParam
 	global{ unexposedParams->getGlobalOptions() },
 	unexposedParams{ unexposedParams }
 {
-	setComponentID(ID::comp_Knob.toString());
 	switch (knobType)
 	{
 	case KnobType::globalTranspose:

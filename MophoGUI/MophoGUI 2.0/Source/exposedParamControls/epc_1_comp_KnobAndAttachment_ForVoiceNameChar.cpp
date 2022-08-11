@@ -19,7 +19,6 @@ KnobAndAttachment_ForVoiceNameChar::KnobAndAttachment_ForVoiceNameChar(
 {
 	addAndMakeVisible(knob);
 	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
-	knob.setComponentID(ID::comp_Knob.toString());
 	knob.setAlpha(0.0f);
 	knob.isModifyingPitch = false;
 	setSize(GUI::voiceNameChars_w, GUI::voiceNameChars_h);

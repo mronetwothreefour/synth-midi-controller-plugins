@@ -1,13 +1,12 @@
 #include "epc_1_comp_KnobAndAttachment.h"
 
 #include "../constants/constants_GUI_Dimensions.h"
-#include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 
-using namespace MophoConstants;
+using namespace P_600_G_Constants;
 
 KnobAndAttachment::KnobAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
@@ -26,14 +25,8 @@ void KnobAndAttachment::paint(Graphics& g) {
 	auto currentChoice{ roundToInt(knob.getValue()) };
 	auto choiceNameString{ info->choiceNameFor((uint8)currentChoice, paramIndex) };
 	auto paramID{ info->IDfor(paramIndex).toString() };
-	if (paramID.contains("_LFO_") && paramID.endsWith("_Freq")) {
-		if (currentChoice >= EP::first_LFO_PitchedFreqChoice && currentChoice < EP::first_LFO_SyncedFreqChoice)
-			knob.isModifyingPitch = true;
-		else
-			knob.isModifyingPitch = false;
-	}
-	g.setFont(GUI::font_KnobValueDisplays);
-	g.setColour(GUI::color_White);
+	g.setFont(GUI::font_KnobValueDisplay);
+	g.setColour(GUI::color_OffWhite);
 	g.drawText(choiceNameString, getLocalBounds(), Justification::centred);
 }
 
@@ -48,4 +41,3 @@ void KnobAndAttachment::setKnobIsModifyingPitch(bool isModifyingPitch) {
 void KnobAndAttachment::deleteAttachmentBeforeKnobToPreventMemLeak() {
 	attachment = nullptr;
 }
-

@@ -29,6 +29,8 @@
               file="Source/constants/constants_Enum.h"/>
         <FILE id="FwfXpe" name="constants_ExposedParameters.h" compile="0"
               resource="0" file="Source/constants/constants_ExposedParameters.h"/>
+        <FILE id="HdWD8X" name="constants_GUI_Colors.h" compile="0" resource="0"
+              file="Source/constants/constants_GUI_Colors.h"/>
         <FILE id="WX4JBq" name="constants_GUI_Dimensions.h" compile="0" resource="0"
               file="Source/constants/constants_GUI_Dimensions.h"/>
         <FILE id="wO0rDk" name="constants_GUI_FontsAndSpecialCharacters.h"
@@ -49,6 +51,18 @@
               compile="1" resource="0" file="Source/exposedParamControls/epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"/>
         <FILE id="pjGtb4" name="epc_0_comp_TooltipUpdaterForExposedParamControl.h"
               compile="0" resource="0" file="Source/exposedParamControls/epc_0_comp_TooltipUpdaterForExposedParamControl.h"/>
+        <FILE id="g8cUdp" name="epc_1_comp_ComboBoxAndAttachment.cpp" compile="1"
+              resource="0" file="Source/exposedParamControls/epc_1_comp_ComboBoxAndAttachment.cpp"/>
+        <FILE id="zqQDww" name="epc_1_comp_ComboBoxAndAttachment.h" compile="0"
+              resource="0" file="Source/exposedParamControls/epc_1_comp_ComboBoxAndAttachment.h"/>
+        <FILE id="EehDU1" name="epc_1_comp_SliderAndAttachment.cpp" compile="1"
+              resource="0" file="Source/exposedParamControls/epc_1_comp_SliderAndAttachment.cpp"/>
+        <FILE id="gxMxTg" name="epc_1_comp_SliderAndAttachment.h" compile="0"
+              resource="0" file="Source/exposedParamControls/epc_1_comp_SliderAndAttachment.h"/>
+        <FILE id="o3awvd" name="epc_1_comp_SliderAndAttachment_ForOscBalance.cpp"
+              compile="1" resource="0" file="Source/exposedParamControls/epc_1_comp_SliderAndAttachment_ForOscBalance.cpp"/>
+        <FILE id="z05f66" name="epc_1_comp_SliderAndAttachment_ForOscBalance.h"
+              compile="0" resource="0" file="Source/exposedParamControls/epc_1_comp_SliderAndAttachment_ForOscBalance.h"/>
       </GROUP>
       <GROUP id="{7C2D81E1-8374-423C-0C7A-78855C0C47A8}" name="exposedParameters">
         <FILE id="oHBsEe" name="ep_0_build_ChoiceNamesValueTree.cpp" compile="1"

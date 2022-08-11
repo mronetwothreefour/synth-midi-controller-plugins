@@ -22,7 +22,6 @@ KnobAndAttachment_ForOscShape::KnobAndAttachment_ForOscShape(
 {
 	addAndMakeVisible(knob);
 	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
-	knob.setComponentID(ID::comp_Knob.toString());
 	knob.isModifyingPitch = false;
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 	knob.setBounds(getLocalBounds());

@@ -1,9 +1,10 @@
 #include "epc_1_comp_ComboBoxAndAttachment.h"
 
+#include "../constants/constants_GUI_Dimensions.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
-using namespace MophoConstants;
+using namespace Matrix_6G_Constants;
 
 ComboBoxAndAttachment::ComboBoxAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
@@ -14,9 +15,7 @@ ComboBoxAndAttachment::ComboBoxAndAttachment(const uint8 paramIndex, ExposedPara
 	auto choiceNamesList{ info->choiceNamesListFor(paramIndex) };
 	comboBox.addItemList(choiceNamesList, 1);
 	addAndMakeVisible(comboBox);
-	auto ctrlWidth{ info->widthFor(paramIndex) };
-	auto ctrlHeight{ info->heightFor(paramIndex) };
-	setSize(ctrlWidth, ctrlHeight);
+	setSize(info->widthFor(paramIndex), GUI::control_h);
 	comboBox.setBounds(getLocalBounds());
 }
 

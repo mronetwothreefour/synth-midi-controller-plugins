@@ -613,6 +613,15 @@
     <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.cpp">
       <Filter>Matrix-6G 2\Source\exposedParamControls</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_ComboBoxAndAttachment.cpp">
+      <Filter>Matrix-6G 2\Source\exposedParamControls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_SliderAndAttachment.cpp">
+      <Filter>Matrix-6G 2\Source\exposedParamControls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_SliderAndAttachment_ForOscBalance.cpp">
+      <Filter>Matrix-6G 2\Source\exposedParamControls</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.cpp">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClCompile>
@@ -2952,6 +2961,9 @@
     <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h">
       <Filter>Matrix-6G 2\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_GUI_Colors.h">
+      <Filter>Matrix-6G 2\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Dimensions.h">
       <Filter>Matrix-6G 2\Source\constants</Filter>
     </ClInclude>
@@ -2968,6 +2980,15 @@
       <Filter>Matrix-6G 2\Source\descriptions</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.h">
+      <Filter>Matrix-6G 2\Source\exposedParamControls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_ComboBoxAndAttachment.h">
+      <Filter>Matrix-6G 2\Source\exposedParamControls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_SliderAndAttachment.h">
+      <Filter>Matrix-6G 2\Source\exposedParamControls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_SliderAndAttachment_ForOscBalance.h">
       <Filter>Matrix-6G 2\Source\exposedParamControls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.h">

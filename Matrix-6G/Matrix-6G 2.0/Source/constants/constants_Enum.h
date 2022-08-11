@@ -6,9 +6,9 @@ namespace Matrix_6G_Constants
 {
 	enum class ControlType {
 		nullControl = -1,
-		rotarySlider,
-		rotarySliderForPitch,
-		linearSlider,
+		slider,
+		sliderForPitch,
+		sliderForOscBalance,
 		comboBox
 	};
 

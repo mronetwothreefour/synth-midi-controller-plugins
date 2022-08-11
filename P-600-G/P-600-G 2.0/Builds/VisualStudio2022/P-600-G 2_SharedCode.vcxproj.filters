@@ -613,6 +613,12 @@
     <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.cpp">
       <Filter>P-600-G 2\Source\exposedParamControls</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_KnobAndAttachment.cpp">
+      <Filter>P-600-G 2\Source\exposedParamControls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_SwitchSliderAndAttachment.cpp">
+      <Filter>P-600-G 2\Source\exposedParamControls</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.cpp">
       <Filter>P-600-G 2\Source\exposedParameters</Filter>
     </ClCompile>
@@ -2949,6 +2955,9 @@
     <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h">
       <Filter>P-600-G 2\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_GUI_Colors.h">
+      <Filter>P-600-G 2\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Dimensions.h">
       <Filter>P-600-G 2\Source\constants</Filter>
     </ClInclude>
@@ -2965,6 +2974,12 @@
       <Filter>P-600-G 2\Source\descriptions</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.h">
+      <Filter>P-600-G 2\Source\exposedParamControls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_KnobAndAttachment.h">
+      <Filter>P-600-G 2\Source\exposedParamControls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_SwitchSliderAndAttachment.h">
       <Filter>P-600-G 2\Source\exposedParamControls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.h">

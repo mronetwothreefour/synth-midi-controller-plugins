@@ -18,7 +18,6 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 {
 	addAndMakeVisible(knob);
 	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
-	knob.setComponentID(ID::comp_Knob.toString());
 	knob.isModifyingPitch = false;
 	knob.isModifyingSeqStep = true;
 	setSize(GUI::seqSteps_w, GUI::seqSteps_h);

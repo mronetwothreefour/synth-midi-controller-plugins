@@ -30,6 +30,8 @@
               file="Source/constants/constants_Enum.h"/>
         <FILE id="CRrmRk" name="constants_ExposedParameters.h" compile="0"
               resource="0" file="Source/constants/constants_ExposedParameters.h"/>
+        <FILE id="Wixjqr" name="constants_GUI_Colors.h" compile="0" resource="0"
+              file="Source/constants/constants_GUI_Colors.h"/>
         <FILE id="t7TitO" name="constants_GUI_Dimensions.h" compile="0" resource="0"
               file="Source/constants/constants_GUI_Dimensions.h"/>
         <FILE id="SpPmTp" name="constants_GUI_FontsAndSpecialCharacters.h"
@@ -50,6 +52,14 @@
               compile="1" resource="0" file="Source/exposedParamControls/epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"/>
         <FILE id="jNwsQ8" name="epc_0_comp_TooltipUpdaterForExposedParamControl.h"
               compile="0" resource="0" file="Source/exposedParamControls/epc_0_comp_TooltipUpdaterForExposedParamControl.h"/>
+        <FILE id="Ujl44L" name="epc_1_comp_KnobAndAttachment.cpp" compile="1"
+              resource="0" file="Source/exposedParamControls/epc_1_comp_KnobAndAttachment.cpp"/>
+        <FILE id="SFbhiE" name="epc_1_comp_KnobAndAttachment.h" compile="0"
+              resource="0" file="Source/exposedParamControls/epc_1_comp_KnobAndAttachment.h"/>
+        <FILE id="RHdU6l" name="epc_1_comp_SwitchSliderAndAttachment.cpp" compile="1"
+              resource="0" file="Source/exposedParamControls/epc_1_comp_SwitchSliderAndAttachment.cpp"/>
+        <FILE id="DQrmRw" name="epc_1_comp_SwitchSliderAndAttachment.h" compile="0"
+              resource="0" file="Source/exposedParamControls/epc_1_comp_SwitchSliderAndAttachment.h"/>
       </GROUP>
       <GROUP id="{BA9A0FC6-3FBC-8D36-E171-19EB5587F45F}" name="exposedParameters">
         <FILE id="vlITbb" name="ep_0_build_ChoiceNamesValueTree.cpp" compile="1"

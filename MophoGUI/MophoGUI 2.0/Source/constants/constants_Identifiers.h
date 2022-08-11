@@ -48,7 +48,6 @@ namespace MophoConstants
 		static const Identifier btn_Write_OverFile{ "btn_Write_OverFile" };
 
 		static const Identifier comp_ImportExportBrowser{ "comp_ImportExportBrowser" };
-		static const Identifier comp_Knob{ "comp_Knob" };
 		static const Identifier comp_RedToggle{ "comp_RedToggle" };
 		static const Identifier comp_SeqTrackStepSelector{ "comp_SeqTrackStepSelector" };
 		static const Identifier comp_TabbedComponentForAllBanks{ "comp_TabbedComponentForAllBanks" };
