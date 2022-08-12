@@ -15,11 +15,11 @@ SliderAndAttachment::SliderAndAttachment(const uint8 paramIndex, ExposedParamete
 	info{ exposedParams->info.get() },
 	slider{ &exposedParams->undoManager },
 	tooltipUpdater{ paramIndex, slider, exposedParams, unexposedParams },
-	sliderWidth{ info->widthFor(paramIndex) }
+	slider_w{ info->widthFor(paramIndex) }
 {
 	addAndMakeVisible(slider);
 	slider.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
-	setSize(sliderWidth, GUI::control_h);
+	setSize(slider_w, GUI::control_h);
 	slider.setBounds(getLocalBounds());
 }
 
@@ -27,15 +27,8 @@ void SliderAndAttachment::paint(Graphics& g) {
 	g.setColour(GUI::color_LED_Blue);
 	auto currentChoice{ roundToInt(slider.getValue()) };
 	auto choiceNameString{ info->choiceNameFor((uint8)currentChoice, paramIndex) };
-	Path positionPath;
-	auto lastCharacter_x{ sliderWidth - GUI::ledDisplayRightSideInset - GUI::ledDisplayCharacter_w };
-	auto lastCharacterIndex{ (int)choiceNameString.toStdString().size() - 1 };
-	for (auto i = lastCharacterIndex; i != -1; --i) {
-		auto charNum{ (uint8)choiceNameString[i] };
-		auto character_x{ lastCharacter_x - (GUI::ledDisplayCharacter_w * (lastCharacterIndex - i)) };
-		positionPath.addPath(LED_Path::buildForChar(charNum), AffineTransform::translation((float)character_x, (float)GUI::ledDisplay_y));
-	}
-	g.fillPath(positionPath);
+	auto choiceNamePath{ LED_Path::buildChoiceNameForControl(choiceNameString, slider_w) };
+	g.fillPath(choiceNamePath);
 }
 
 void SliderAndAttachment::attachSliderToExposedParameter() {

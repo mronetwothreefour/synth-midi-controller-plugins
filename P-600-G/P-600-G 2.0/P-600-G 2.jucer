@@ -8,6 +8,10 @@
               pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20">
   <MAINGROUP id="QgKzcN" name="P-600-G 2">
     <GROUP id="{349587B4-BC8D-9B3D-70F5-941FCF41BB5D}" name="BinaryResources">
+      <GROUP id="{38BC1DF0-5C64-3C05-BEAB-F655A75E5D97}" name="buttons">
+        <FILE id="L1rWAB" name="btn_SwitchTab.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_SwitchTab.png"/>
+      </GROUP>
       <FILE id="ogAMbU" name="bkgrnd_MainWindow.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_MainWindow.png"/>
       <FILE id="h4ZOcY" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
@@ -60,6 +64,12 @@
               resource="0" file="Source/exposedParamControls/epc_1_comp_SwitchSliderAndAttachment.cpp"/>
         <FILE id="DQrmRw" name="epc_1_comp_SwitchSliderAndAttachment.h" compile="0"
               resource="0" file="Source/exposedParamControls/epc_1_comp_SwitchSliderAndAttachment.h"/>
+        <FILE id="mZ2RsA" name="epc_2_comp_ExposedParamControl.cpp" compile="1"
+              resource="0" file="Source/exposedParamControls/epc_2_comp_ExposedParamControl.cpp"/>
+        <FILE id="vcbqNX" name="epc_2_comp_ExposedParamControl.h" compile="0"
+              resource="0" file="Source/exposedParamControls/epc_2_comp_ExposedParamControl.h"/>
+        <FILE id="C5uiN0" name="epc_3_vector_ExposedParamControlsServer.h"
+              compile="0" resource="0" file="Source/exposedParamControls/epc_3_vector_ExposedParamControlsServer.h"/>
       </GROUP>
       <GROUP id="{BA9A0FC6-3FBC-8D36-E171-19EB5587F45F}" name="exposedParameters">
         <FILE id="vlITbb" name="ep_0_build_ChoiceNamesValueTree.cpp" compile="1"
@@ -82,6 +92,12 @@
               resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.cpp"/>
         <FILE id="UfBZWP" name="gui_comp_JuceSlidersWithMouseMods.h" compile="0"
               resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.h"/>
+        <FILE id="m0aAdb" name="gui_layer_ExposedParamControls.h" compile="0"
+              resource="0" file="Source/gui/gui_layer_ExposedParamControls.h"/>
+        <FILE id="O4iALx" name="gui_P_600_LookAndFeel.cpp" compile="1" resource="0"
+              file="Source/gui/gui_P_600_LookAndFeel.cpp"/>
+        <FILE id="nUbgRp" name="gui_P_600_LookAndFeel.h" compile="0" resource="0"
+              file="Source/gui/gui_P_600_LookAndFeel.h"/>
       </GROUP>
       <GROUP id="{4D51FC72-E327-166D-BDB8-46949E9FB675}" name="unexposedParameters">
         <FILE id="o7Ax01" name="up_0_tree_TooltipsOptions.cpp" compile="1"

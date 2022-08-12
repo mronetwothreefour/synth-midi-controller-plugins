@@ -1,11 +1,12 @@
 #include "gui_build_LED_Path.h"
 
+#include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_GUI_PathData.h"
 
 using namespace Matrix_6G_Constants;
 
-Path LED_Path::buildForChar(uint8 charNum) {
+Path LED_Path::buildForChar(const uint8 charNum) {
 	jassert(charNum < EP::numberOfChoicesForVoiceNameChar);
 	auto charNumForSpace{ (uint8)32 };
 	if (charNum <= charNumForSpace)
@@ -547,10 +548,26 @@ Path LED_Path::buildForChar(uint8 charNum) {
 	}
 }
 
-Path LED_Path::buildForSliderTab() {
+Path LED_Path::buildChoiceNameForControl(const String choiceName, const int control_w) {
+	Path choiceNamePath;
+	auto lastCharacter_x{ control_w - GUI::ledDisplayRightSideInset - GUI::ledDisplayCharacter_w };
+	auto lastCharacterIndex{ (int)choiceName.toStdString().size() - 1 };
+	for (auto i = lastCharacterIndex; i != -1; --i) {
+		auto charNum{ (uint8)choiceName[i] };
+		auto character_x{ lastCharacter_x - (GUI::ledDisplayCharacter_w * (lastCharacterIndex - i)) };
+		choiceNamePath.addPath(LED_Path::buildForChar(charNum), AffineTransform::translation((float)character_x, (float)GUI::ledDisplay_y));
+	}
+	return choiceNamePath;
+}
+
+Path LED_Path::buildForVertBar() {
 	Path path_VertBar;
 	path_VertBar.loadPathFromData(GUI::verticalBarPathData.data(), GUI::verticalBarPathData.size());
 	return path_VertBar;
+}
+
+Path LED_Path::buildForSliderTab() {
+	auto path_VertBar{ buildForVertBar() };
 	Path tabPath;
 	for (auto i = 0; i != 6; ++i) {
 		tabPath.addPath(path_VertBar, AffineTransform::translation(i * 3.0f, 0.0f));

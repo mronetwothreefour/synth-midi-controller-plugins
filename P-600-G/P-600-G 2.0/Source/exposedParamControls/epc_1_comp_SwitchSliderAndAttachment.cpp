@@ -13,7 +13,6 @@ SwitchSliderAndAttachment::SwitchSliderAndAttachment(const uint8 paramIndex, Exp
 	tooltipUpdater{ paramIndex, switchSlider, exposedParams, unexposedParams }
 {
 	addAndMakeVisible(switchSlider);
-	switchSlider.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
 	auto controlType{ info->controlTypeFor(paramIndex) };
 	auto control_h{ controlType == ControlType::twoPoleSwitch ? GUI::switch_2_Pole_h : GUI::switch_3_Pole_h };
 	setSize(GUI::switch_w, control_h);

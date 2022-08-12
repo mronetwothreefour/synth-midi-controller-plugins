@@ -48,6 +48,6 @@ RotarySliderWithMouseWheelMoveOverride::RotarySliderWithMouseWheelMoveOverride(U
 LinearSliderWithMouseWheelMoveOverride::LinearSliderWithMouseWheelMoveOverride(UndoManager* undoManager) :
 	SliderWithMouseWheelMoveOverride{ undoManager }
 {
-	setSliderStyle(Slider::LinearHorizontal);
+	setSliderStyle(Slider::LinearVertical);
 	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
 }

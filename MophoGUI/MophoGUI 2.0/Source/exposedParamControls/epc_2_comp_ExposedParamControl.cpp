@@ -6,12 +6,9 @@
 #include "epc_1_comp_KnobAndAttachment_ForOscShape.h"
 #include "epc_1_comp_KnobAndAttachment_ForSeqStep.h"
 #include "epc_1_comp_KnobAndAttachment_ForVoiceNameChar.h"
-#include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 
 using Track = SeqTrackNum;
-
-
 
 ExposedParamControl::ExposedParamControl() :
 	paramIndex{ (uint8)255 },
@@ -29,7 +26,7 @@ ExposedParamControl::ExposedParamControl(
 	unexposedParams{ unexposedParams },
 	controlType{ exposedParams->info->controlTypeFor(paramIndex) }
 {
-	jassert((int)controlType > -1 && (int)controlType <= (int)ControlType::voiceNameChar);
+	jassert(controlType != ControlType::nullControl);
 	switch (controlType) {
 	case ControlType::knob:
 		buildKnobAndAttachmentControlForExposedParam();

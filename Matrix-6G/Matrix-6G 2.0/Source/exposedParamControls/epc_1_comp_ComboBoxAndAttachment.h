@@ -16,11 +16,13 @@ protected:
 	InfoForExposedParameters* info;
 	std::unique_ptr<ComboBoxAttachment> attachment;
 	TooltipUpdaterForExposedParamControl tooltipUpdater;
+	const int comboBox_w;
 
 public:
 	ComboBoxAndAttachment() = delete;
 
 	ComboBoxAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	void paint(Graphics& g) override;
 	void attachComboBoxToExposedParameter();
 	void deleteAttachmentBeforeComboBoxToPreventMemLeak();
 

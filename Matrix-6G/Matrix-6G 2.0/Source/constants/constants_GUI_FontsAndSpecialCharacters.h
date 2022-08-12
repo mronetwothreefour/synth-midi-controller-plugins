@@ -19,7 +19,7 @@ namespace Matrix_6G_Constants
 
 		const Font font_LabelEditors{ FontBuilder::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 16.0f, 0.0f) };
 		const Font font_VoiceAndSplitSlotRadioButtons{ FontBuilder::createFontFromTypeface_Size_Kerning(Swiss721_CndLt, 13.0f, 0.0f) };
-		const Font font_TooltipText{ FontBuilder::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 13.0f, 0.0f) };
+		const Font font_Tooltips{ FontBuilder::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 13.0f, 0.0f) };
 
 		const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };
 		const String openQuote{ CharPointer_UTF8("\xe2\x80\x9c") };

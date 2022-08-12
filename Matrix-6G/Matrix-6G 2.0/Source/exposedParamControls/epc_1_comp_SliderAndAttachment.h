@@ -16,7 +16,7 @@ class SliderAndAttachment :
 	RotarySliderWithMouseWheelMoveOverride slider;
 	std::unique_ptr<SliderAttachment> attachment;
 	TooltipUpdaterForExposedParamControl tooltipUpdater;
-	int sliderWidth;
+	const int slider_w;
 
 public:
 	SliderAndAttachment() = delete;

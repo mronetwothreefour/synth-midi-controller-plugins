@@ -2,6 +2,9 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="P-600-G 2\BinaryResources\buttons">
+      <UniqueIdentifier>{40262109-8FD3-BEB7-DA61-341FDFC4E618}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G 2\BinaryResources">
       <UniqueIdentifier>{742C1868-0950-0F34-AE3E-40639658D895}</UniqueIdentifier>
     </Filter>
@@ -619,6 +622,9 @@
     <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_SwitchSliderAndAttachment.cpp">
       <Filter>P-600-G 2\Source\exposedParamControls</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_2_comp_ExposedParamControl.cpp">
+      <Filter>P-600-G 2\Source\exposedParamControls</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.cpp">
       <Filter>P-600-G 2\Source\exposedParameters</Filter>
     </ClCompile>
@@ -626,6 +632,9 @@
       <Filter>P-600-G 2\Source\exposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp">
+      <Filter>P-600-G 2\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_P_600_LookAndFeel.cpp">
       <Filter>P-600-G 2\Source\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp">
@@ -2982,6 +2991,12 @@
     <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_SwitchSliderAndAttachment.h">
       <Filter>P-600-G 2\Source\exposedParamControls</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_2_comp_ExposedParamControl.h">
+      <Filter>P-600-G 2\Source\exposedParamControls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_3_vector_ExposedParamControlsServer.h">
+      <Filter>P-600-G 2\Source\exposedParamControls</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.h">
       <Filter>P-600-G 2\Source\exposedParameters</Filter>
     </ClInclude>
@@ -2998,6 +3013,12 @@
       <Filter>P-600-G 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h">
+      <Filter>P-600-G 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h">
+      <Filter>P-600-G 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_P_600_LookAndFeel.h">
       <Filter>P-600-G 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h">
@@ -5702,6 +5723,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\BinaryResources\buttons\btn_SwitchTab.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png">
       <Filter>P-600-G 2\BinaryResources</Filter>
     </None>

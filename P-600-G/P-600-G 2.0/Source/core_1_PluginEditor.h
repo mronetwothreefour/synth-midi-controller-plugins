@@ -4,12 +4,17 @@
 
 #include "core_0_PluginProcessor.h"
 
+class GUI_Layer_ExposedParamControls;
+class P_600_LookAndFeel;
+
 class PluginEditor :
     public AudioProcessorEditor,
     public Value::Listener,
     private Timer
 {
     PluginProcessor& processor;
+    std::unique_ptr<GUI_Layer_ExposedParamControls> layer_ExposedParamControls;
+    std::unique_ptr<P_600_LookAndFeel> lookAndFeel;
     std::unique_ptr<TooltipWindow> tooltipWindow;
     Value tooltipsDelayInMillisecondsValue;
 

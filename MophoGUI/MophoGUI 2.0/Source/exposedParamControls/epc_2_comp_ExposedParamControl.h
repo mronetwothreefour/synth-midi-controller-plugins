@@ -6,8 +6,6 @@
 
 using namespace MophoConstants;
 
-
-
 class ComboBoxAndAttachment;
 class ExposedParameters;
 class KnobAndAttachment;
