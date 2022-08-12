@@ -99,6 +99,10 @@
         <FILE id="nUbgRp" name="gui_P_600_LookAndFeel.h" compile="0" resource="0"
               file="Source/gui/gui_P_600_LookAndFeel.h"/>
       </GROUP>
+      <GROUP id="{EB1E0A58-9320-D101-F6C5-199228F8C6EE}" name="midi">
+        <FILE id="Bi6MRH" name="midi_0_OutgoingMidiBuffers.h" compile="0" resource="0"
+              file="Source/midi/midi_0_OutgoingMidiBuffers.h"/>
+      </GROUP>
       <GROUP id="{4D51FC72-E327-166D-BDB8-46949E9FB675}" name="unexposedParameters">
         <FILE id="o7Ax01" name="up_0_tree_TooltipsOptions.cpp" compile="1"
               resource="0" file="Source/unexposedParameters/up_0_tree_TooltipsOptions.cpp"/>

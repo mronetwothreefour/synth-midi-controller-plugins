@@ -6,8 +6,17 @@ using namespace Matrix_6G_Constants;
 
 UnexposedParameters::UnexposedParameters() :
     tooltipsOptions{ new TooltipsOptions{} },
+    outgoingMidiBuffers{ new OutgoingMidiBuffers{} },
     voiceTransmissionOptions{ new VoiceTransmissionOptions{} }
 {
+}
+
+Array<MidiBuffer, CriticalSection>* UnexposedParameters::getBundledOutgoingBuffers() {
+    return outgoingMidiBuffers->getBundledOutgoingBuffers();
+}
+
+OutgoingMidiBuffers* UnexposedParameters::getOutgoingMidiBuffers() {
+    return outgoingMidiBuffers.get();
 }
 
 TooltipsOptions* UnexposedParameters::getTooltipsOptions() {

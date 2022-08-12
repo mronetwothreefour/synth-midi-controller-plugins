@@ -38,6 +38,7 @@ class PluginProcessor :
 {
     std::unique_ptr<UnexposedParameters> unexposedParams;
     std::unique_ptr<ExposedParameters> exposedParams;
+    Array<MidiBuffer, CriticalSection>* bundledOutgoingBuffers;
     VoiceTransmissionOptions* transmitOptions;
 
 public:

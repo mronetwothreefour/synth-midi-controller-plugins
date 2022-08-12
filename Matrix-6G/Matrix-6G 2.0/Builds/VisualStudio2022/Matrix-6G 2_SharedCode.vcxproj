@@ -2332,6 +2332,7 @@
     <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h"/>
     <ClInclude Include="..\..\Source\gui\gui_MatrixLookAndFeel.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_0_OutgoingMidiBuffers.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.h"/>

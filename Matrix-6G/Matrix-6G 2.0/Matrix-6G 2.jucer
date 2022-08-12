@@ -100,6 +100,10 @@
         <FILE id="zvQrA4" name="gui_MatrixLookAndFeel.h" compile="0" resource="0"
               file="Source/gui/gui_MatrixLookAndFeel.h"/>
       </GROUP>
+      <GROUP id="{2955D2CE-3E34-022A-A523-FC88E078226B}" name="midi">
+        <FILE id="DxAryu" name="midi_0_OutgoingMidiBuffers.h" compile="0" resource="0"
+              file="Source/midi/midi_0_OutgoingMidiBuffers.h"/>
+      </GROUP>
       <GROUP id="{EF3B146D-3659-DC15-ADE7-BF6892A35FBA}" name="unexposedParameters">
         <FILE id="OQzWUF" name="up_0_tree_TooltipsOptions.cpp" compile="1"
               resource="0" file="Source/unexposedParameters/up_0_tree_TooltipsOptions.cpp"/>

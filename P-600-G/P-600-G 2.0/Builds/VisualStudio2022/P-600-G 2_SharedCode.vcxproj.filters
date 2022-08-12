@@ -26,6 +26,9 @@
     <Filter Include="P-600-G 2\Source\gui">
       <UniqueIdentifier>{6477914E-C4DC-ADB9-942C-3E6428000B7A}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G 2\Source\midi">
+      <UniqueIdentifier>{5339B3AF-B900-4F76-6894-9907E8C79167}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G 2\Source\unexposedParameters">
       <UniqueIdentifier>{621C7D79-7D45-2234-4F43-FC7D5871E018}</UniqueIdentifier>
     </Filter>
@@ -3020,6 +3023,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_P_600_LookAndFeel.h">
       <Filter>P-600-G 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_0_OutgoingMidiBuffers.h">
+      <Filter>P-600-G 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h">
       <Filter>P-600-G 2\Source\unexposedParameters</Filter>
