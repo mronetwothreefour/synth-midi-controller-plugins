@@ -9,7 +9,7 @@
 #include "../constants/constants_Voices.h"
 
 class ExposedParameters;
-class OutgoingMidiBuffers;
+class Outgoing_MIDI_Buffers;
 class UnexposedParameters;
 class VoicesBanks;
 
@@ -20,7 +20,7 @@ class VoiceSlots :
     const VoicesBank bank;
     ExposedParameters* exposedParams;
     UnexposedParameters* unexposedParams;
-    OutgoingMidiBuffers* outgoingMIDI;
+    Outgoing_MIDI_Buffers* outgoingMIDI;
     VoicesBanks* voicesBanks;
     std::vector<std::unique_ptr<VoiceSlotRadioButton>> voiceSlotButtons;
     const int voiceSlotRadioButtons_HorizGap{ 5 };

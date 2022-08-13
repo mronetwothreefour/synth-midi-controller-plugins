@@ -29,8 +29,8 @@ bool RawDataTools::isValidVoiceDataHexString(const String& hexString) {
         return true;
 }
 
-void RawDataTools::applyRawDataToExposedParameters(
-    const uint8* dumpData, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams)
+void RawDataTools::applyRawVoiceDataToExposedParameters(
+    const uint8* voiceData, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams)
 {
     auto info{ exposedParams->info.get() };
     auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
@@ -40,8 +40,8 @@ void RawDataTools::applyRawDataToExposedParameters(
         auto lsByteLocation{ info->lsByteLocationFor(param) };
         auto msBitLocation{ info->msBitPackedByteLocationFor(param) };
         auto msBitMask{ info->msBitMaskFor(param) };
-        auto newValue{ *(dumpData + lsByteLocation) };
-        auto msBitIsFlagged{ *(dumpData + msBitLocation) & msBitMask };
+        auto newValue{ *(voiceData + lsByteLocation) };
+        auto msBitIsFlagged{ *(voiceData + msBitLocation) & msBitMask };
         if (msBitIsFlagged)
             newValue += 128;
         if (paramID == ID::ep_095_ClockTempo)
@@ -54,7 +54,7 @@ void RawDataTools::applyRawDataToExposedParameters(
     transmitOptions->setParamChangesShouldBeTransmitted(true);
 }
 
-const std::vector<uint8> RawDataTools::extractRawDataFromExposedParameters(ExposedParameters* exposedParams) {
+const std::vector<uint8> RawDataTools::extractRawVoiceDataFromExposedParameters(ExposedParameters* exposedParams) {
     const int rawVoiceDataSize{ 229 };
     auto info{ exposedParams->info.get() };
     std::vector<uint8> voiceData;
@@ -90,7 +90,7 @@ bool RawDataTools::midiMessageIsSysExForMopho(const MidiMessage& midiMessage) {
         return false;
 }
 
-std::vector<uint8> RawDataTools::createRawDataVectorWithSysExIDheaderBytesForMopho() {
+std::vector<uint8> RawDataTools::createRawDataVectorWithMophoSysExID() {
     std::vector<uint8> rawDataVector;
     rawDataVector.push_back(daveSmithInstrumentsID);
     rawDataVector.push_back(mophoID);

@@ -5,7 +5,7 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
-#include "../midi/midi_1_GlobalParametersDataRequest.h"
+#include "../midi/midi_1_SysExMessages.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
@@ -16,7 +16,7 @@ class GUI_Layer_CommError_Base :
 {
 protected:
 	GlobalOptions* global;
-	OutgoingMidiBuffers* outgoingMIDI;
+	Outgoing_MIDI_Buffers* outgoingBuffers;
 	ButtonForHidingLayer btn_Close;
 	TextButton btn_RequestGlobalParamsDump;
 
@@ -25,7 +25,7 @@ public:
 
 	explicit GUI_Layer_CommError_Base(UnexposedParameters* unexposedParams) :
 		global{ unexposedParams->getGlobalOptions() },
-		outgoingMIDI{ unexposedParams->getOutgoingMidiBuffers() },
+		outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() },
 		btn_Close{ unexposedParams },
 		btn_RequestGlobalParamsDump{ "" }
 	{
@@ -43,7 +43,7 @@ public:
 
 private:
 	void requestGlobalParamsDump() {
-		GlobalParametersDataRequest::addToOutgoingMidiBuffers(outgoingMIDI);
+		SysExMessages::addRequestForGlobalParamsDataToOutgoingBuffers(outgoingBuffers);
 		callAfterDelay(300, [this] { checkHardwareSettings(); });
 	}
 

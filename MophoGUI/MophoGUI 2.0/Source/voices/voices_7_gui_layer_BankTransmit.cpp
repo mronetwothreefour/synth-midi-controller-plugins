@@ -5,7 +5,7 @@
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_Voices.h"
-#include "../midi/midi_1_VoiceDataMessage.h"
+#include "../midi/midi_1_SysExMessages.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using namespace BinaryData;
@@ -16,7 +16,6 @@ GUI_Layer_BankTransmit::GUI_Layer_BankTransmit(VoicesBank& bank, BankTransmitTyp
 	bank{ bank },
 	transmitType{ transmitType },
 	unexposedParams{ unexposedParams },
-	outgoingMIDI{ unexposedParams->getOutgoingMidiBuffers() },
 	progressMessage{ "" },
 	transmitTime{ unexposedParams->getVoiceTransmissionOptions()->voiceTransmitTime() },
 	voiceCounter{ VCS::numberOfSlotsInVoicesBank },
@@ -89,11 +88,12 @@ void GUI_Layer_BankTransmit::timerCallback() {
 }
 
 void GUI_Layer_BankTransmit::transmitMidiBufferForVoiceSlot(uint8 voiceSlot) {
+	auto outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() };
 	if (transmitType == BankTransmitType::pull)
-		VoiceDataMessage::addRequestForVoiceDataStoredInBankAndSlotToOutgoingBuffers(bank, voiceSlot, outgoingMIDI);
+		SysExMessages::addRequestForVoiceDataStoredInBankAndSlotToOutgoingBuffers(bank, voiceSlot, outgoingBuffers);
 	else {
-		auto voiceDataMessageVector{ VoiceDataMessage::createDataMessageForVoiceStoredInBankAndSlot(bank, voiceSlot, unexposedParams) };
-		outgoingMIDI->addDataMessage(voiceDataMessageVector);
+		auto voicesBanks{ unexposedParams->getVoicesBanks() };
+		SysExMessages::addDataMessageForVoiceStoredInBankAndSlotToOutgoingBuffers(voicesBanks, bank, voiceSlot, outgoingBuffers);
 	}
 }
 

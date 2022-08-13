@@ -34,7 +34,7 @@ void IncomingMessageHandler_SysEx::handleSysExData(const uint8* sysExData) {
 
 void IncomingMessageHandler_SysEx::handleIncomingEditBufferData(const uint8* sysExData) {
     if (sysExData[sysExMessageTypeByte] == (uint8)SysExMessageType::editBufferData)
-        RawDataTools::applyRawDataToExposedParameters(sysExData + 4, exposedParams, unexposedParams);
+        RawDataTools::applyRawVoiceDataToExposedParameters(sysExData + 4, exposedParams, unexposedParams);
     else
         handleIncomingVoiceData(sysExData);
 }

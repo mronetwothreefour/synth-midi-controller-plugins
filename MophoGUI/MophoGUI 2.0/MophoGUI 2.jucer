@@ -322,18 +322,14 @@
               file="Source/gui/gui_MophoLookAndFeel.h"/>
       </GROUP>
       <GROUP id="{870348E8-9A6F-B4B1-A571-D07FF055D8EB}" name="midi">
-        <FILE id="KFqR8H" name="midi_0_NRPNbufferWithLeadingMSBs.h" compile="0"
-              resource="0" file="Source/midi/midi_0_NRPNbufferWithLeadingMSBs.h"/>
-        <FILE id="Nr4AlN" name="midi_0_OutgoingMidiBuffers.h" compile="0" resource="0"
-              file="Source/midi/midi_0_OutgoingMidiBuffers.h"/>
+        <FILE id="KFqR8H" name="midi_0_NRPN_BufferWithLeading_MSBs.h" compile="0"
+              resource="0" file="Source/midi/midi_0_NRPN_BufferWithLeading_MSBs.h"/>
+        <FILE id="Nr4AlN" name="midi_0_Outgoing_MIDI_Buffers.h" compile="0"
+              resource="0" file="Source/midi/midi_0_Outgoing_MIDI_Buffers.h"/>
         <FILE id="TQMXPM" name="midi_0_RawDataTools.cpp" compile="1" resource="0"
               file="Source/midi/midi_0_RawDataTools.cpp"/>
         <FILE id="dLCdHc" name="midi_0_RawDataTools.h" compile="0" resource="0"
               file="Source/midi/midi_0_RawDataTools.h"/>
-        <FILE id="xZtNMl" name="midi_1_EditBufferDataMessage.h" compile="0"
-              resource="0" file="Source/midi/midi_1_EditBufferDataMessage.h"/>
-        <FILE id="mp1tH7" name="midi_1_GlobalParametersDataRequest.h" compile="0"
-              resource="0" file="Source/midi/midi_1_GlobalParametersDataRequest.h"/>
         <FILE id="Z4Tsem" name="midi_1_handle_IncomingMessage_NRPN.cpp" compile="1"
               resource="0" file="Source/midi/midi_1_handle_IncomingMessage_NRPN.cpp"/>
         <FILE id="hAXKNW" name="midi_1_handle_IncomingMessage_NRPN.h" compile="0"
@@ -344,8 +340,10 @@
               resource="0" file="Source/midi/midi_1_handle_IncomingMessage_SysEx.h"/>
         <FILE id="jeYPQ9" name="midi_1_ParameterChangeMessage.h" compile="0"
               resource="0" file="Source/midi/midi_1_ParameterChangeMessage.h"/>
-        <FILE id="raUkbx" name="midi_1_VoiceDataMessage.h" compile="0" resource="0"
-              file="Source/midi/midi_1_VoiceDataMessage.h"/>
+        <FILE id="RvkQyP" name="midi_1_SysExMessages.cpp" compile="1" resource="0"
+              file="Source/midi/midi_1_SysExMessages.cpp"/>
+        <FILE id="E8jXnR" name="midi_1_SysExMessages.h" compile="0" resource="0"
+              file="Source/midi/midi_1_SysExMessages.h"/>
       </GROUP>
       <GROUP id="{79B7413E-FF22-346A-DA84-217A5D8A7BC5}" name="randomization">
         <FILE id="ao3maO" name="rndm_0_comp_AllowChoiceToggles_Base.cpp" compile="1"

@@ -11,14 +11,13 @@
 #include "../global/global_1_gui_layer_CommError_NRPN.h"
 #include "../global/global_1_gui_layer_CommError_SysEx.h"
 #include "../global/global_2_gui_layer_GlobalParams.h"
-#include "../midi/midi_1_EditBufferDataMessage.h"
+#include "../midi/midi_1_SysExMessages.h"
 #include "../randomization/rndm_4_gui_layer_Randomization.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 #include "../voices/voices_8_gui_layer_VoicesBanks.h"
 
 using namespace MophoConstants;
 using Description = MainWindowButtonDescription;
-using EditBuffer = EditBufferDataMessage;
 
 GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
     exposedParams{ exposedParams },
@@ -61,7 +60,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     const int writeReadButtons_w{ 44 };
     btn_WriteEditBuffer.setComponentID(ID::btn_Write_EditBuffer.toString());
     btn_WriteEditBuffer.onClick = [exposedParams, outgoingBuffers] {
-        EditBuffer::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, outgoingBuffers);
+        SysExMessages::addEditBufferDataMessageToOutgoingBuffers(exposedParams, outgoingBuffers);
     };
     btn_WriteEditBuffer.setBounds(580, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
     btn_WriteEditBuffer.addShortcut(KeyPress{ 'w', ModifierKeys::ctrlModifier, 0 });
@@ -69,7 +68,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
 
     btn_ReadEditBuffer.setComponentID(ID::btn_Read.toString());
     btn_ReadEditBuffer.onClick = [outgoingBuffers] {
-        EditBuffer::addRequestForEditBufferDataMessageToOutgoingMidiBuffers(outgoingBuffers);
+        SysExMessages::addRequestForEditBufferDataToOutgoingBuffers(outgoingBuffers);
     };
     btn_ReadEditBuffer.setBounds(632, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
     btn_ReadEditBuffer.addShortcut(KeyPress{ 'r', ModifierKeys::ctrlModifier, 0 });
@@ -256,8 +255,8 @@ void GUI_Layer_MainWindowButtons::showVoicesBanksLayer() {
 void GUI_Layer_MainWindowButtons::prepareToShowGlobalParamsLayer() {
     layer_GlobalParams = nullptr;
     global->resetAllOptionsToDefaults();
-    auto outgoingMidiBuffers{ unexposedParams->getOutgoingMidiBuffers() };
-    GlobalParametersDataRequest::addToOutgoingMidiBuffers(outgoingMidiBuffers);
+    auto outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() };
+    SysExMessages::addRequestForGlobalParamsDataToOutgoingBuffers(outgoingBuffers);
     callAfterDelay(300, [this] {
         if (global->sysExIsEnabled()) {
             if (global->hardwareIsNotSetToReceiveNRPNcontrollers())

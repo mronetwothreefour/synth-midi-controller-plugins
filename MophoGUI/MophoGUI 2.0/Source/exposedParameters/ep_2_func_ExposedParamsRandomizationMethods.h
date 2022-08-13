@@ -12,7 +12,7 @@ using Track = SeqTrackNum;
 class ExposedParameters;
 class ExposedParamsRandomizationOptions;
 class InfoForExposedParameters;
-class OutgoingMidiBuffers;
+class Outgoing_MIDI_Buffers;
 class UnexposedParameters;
 class VoiceTransmissionOptions;
 
@@ -23,7 +23,7 @@ class ExposedParamsRandomizationMethods :
 	AudioProcessorValueTreeState* state;
 	ExposedParamsRandomizationOptions* randomization;
 	InfoForExposedParameters* info;
-	OutgoingMidiBuffers* outgoingMidiBuffers;
+	Outgoing_MIDI_Buffers* outgoingMidiBuffers;
 	VoiceTransmissionOptions* transmitOptions;
 
 

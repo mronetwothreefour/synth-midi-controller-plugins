@@ -10,7 +10,7 @@ using namespace MophoConstants;
 // messages come before the MSB messages. However, the Mopho sends
 // out NRPN messages with the MSBs preceding the LSBs, and I think
 // the NRPN messages sent to it should be ordered in the same way.
-struct NRPNbufferWithLeadingMSBs
+struct NRPN_BufferWithLeading_MSBs
 {
 public:
     static MidiBuffer from_Channel_NRPNtype_NewValue(const uint8 midiChannel, const uint16 NRPNtype, const uint8 newValue) {
@@ -39,4 +39,7 @@ private:
     static MidiMessage NRPNmessage4_Channel_ValueLSB(const uint8 midiChannel, const uint8 newValue) {
         return MidiMessage(controllerFlag + midiChannel, MIDI::nrpnValue_LSB, newValue % 128);
     }
+
+    //==============================================================================
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NRPN_BufferWithLeading_MSBs)
 };

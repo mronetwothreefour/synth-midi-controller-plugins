@@ -172,6 +172,7 @@
     <ClCompile Include="..\..\Source\midi\midi_0_RawDataTools.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingMessage_NRPN.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingMessage_SysEx.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_1_SysExMessages.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.cpp"/>
@@ -2416,15 +2417,13 @@
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_MainWindowButtons.h"/>
     <ClInclude Include="..\..\Source\gui\gui_MophoLookAndFeel.h"/>
-    <ClInclude Include="..\..\Source\midi\midi_0_NRPNbufferWithLeadingMSBs.h"/>
-    <ClInclude Include="..\..\Source\midi\midi_0_OutgoingMidiBuffers.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_0_NRPN_BufferWithLeading_MSBs.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_0_Outgoing_MIDI_Buffers.h"/>
     <ClInclude Include="..\..\Source\midi\midi_0_RawDataTools.h"/>
-    <ClInclude Include="..\..\Source\midi\midi_1_EditBufferDataMessage.h"/>
-    <ClInclude Include="..\..\Source\midi\midi_1_GlobalParametersDataRequest.h"/>
     <ClInclude Include="..\..\Source\midi\midi_1_handle_IncomingMessage_NRPN.h"/>
     <ClInclude Include="..\..\Source\midi\midi_1_handle_IncomingMessage_SysEx.h"/>
     <ClInclude Include="..\..\Source\midi\midi_1_ParameterChangeMessage.h"/>
-    <ClInclude Include="..\..\Source\midi\midi_1_VoiceDataMessage.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_1_SysExMessages.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesToggle_SeqTrackStep.h"/>

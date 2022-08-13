@@ -5,7 +5,7 @@
 #include "ep_3_facade_ExposedParameters.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
-#include "../midi/midi_1_EditBufferDataMessage.h"
+#include "../midi/midi_1_SysExMessages.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using Category = LFO_FreqCategory;
@@ -35,7 +35,7 @@ void ExposedParamsRandomizationMethods::randomizeAllUnlockedParameters() {
 			}
 		}
 		randomizeArpAndSeqOnOffParametersAfterDelay(0);
-		EditBufferDataMessage::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, outgoingMidiBuffers);
+		SysExMessages::addEditBufferDataMessageToOutgoingBuffers(exposedParams, outgoingMidiBuffers);
 		callAfterDelay(200, [this] { transmitOptions->setParamChangesShouldBeTransmitted(true); });
 	}
 	else {

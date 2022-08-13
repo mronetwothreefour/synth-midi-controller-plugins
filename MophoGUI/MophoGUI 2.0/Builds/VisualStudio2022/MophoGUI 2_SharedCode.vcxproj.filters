@@ -718,6 +718,9 @@
     <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingMessage_SysEx.cpp">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_1_SysExMessages.cpp">
+      <Filter>MophoGUI 2\Source\midi</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.cpp">
       <Filter>MophoGUI 2\Source\randomization</Filter>
     </ClCompile>
@@ -3300,19 +3303,13 @@
     <ClInclude Include="..\..\Source\gui\gui_MophoLookAndFeel.h">
       <Filter>MophoGUI 2\Source\gui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\midi_0_NRPNbufferWithLeadingMSBs.h">
+    <ClInclude Include="..\..\Source\midi\midi_0_NRPN_BufferWithLeading_MSBs.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\midi_0_OutgoingMidiBuffers.h">
+    <ClInclude Include="..\..\Source\midi\midi_0_Outgoing_MIDI_Buffers.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_0_RawDataTools.h">
-      <Filter>MophoGUI 2\Source\midi</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\midi\midi_1_EditBufferDataMessage.h">
-      <Filter>MophoGUI 2\Source\midi</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\midi\midi_1_GlobalParametersDataRequest.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_1_handle_IncomingMessage_NRPN.h">
@@ -3324,7 +3321,7 @@
     <ClInclude Include="..\..\Source\midi\midi_1_ParameterChangeMessage.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\midi_1_VoiceDataMessage.h">
+    <ClInclude Include="..\..\Source\midi\midi_1_SysExMessages.h">
       <Filter>MophoGUI 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.h">

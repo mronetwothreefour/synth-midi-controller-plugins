@@ -4,8 +4,7 @@
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_Voices.h"
 #include "../midi/midi_0_RawDataTools.h"
-#include "../midi/midi_1_EditBufferDataMessage.h"
-#include "../midi/midi_1_VoiceDataMessage.h"
+#include "../midi/midi_1_SysExMessages.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using Bank = VoicesBank;
@@ -32,7 +31,7 @@ VoiceSlots::VoiceSlots(VoicesBank bank, ExposedParameters* exposedParams, Unexpo
 
 void VoiceSlots::saveCurrentVoiceSettingsIntoSelectedSlot() {
 	if (selectedSlot < VCS::numberOfSlotsInVoicesBank) {
-		auto voiceDataVector{ RawDataTools::extractRawDataFromExposedParameters(exposedParams) };
+		auto voiceDataVector{ RawDataTools::extractRawVoiceDataFromExposedParameters(exposedParams) };
 		auto voiceDataHexString{ RawDataTools::convertDataVectorToHexString(voiceDataVector) };
 		voicesBanks->storeVoiceDataHexStringInCustomBankSlot(voiceDataHexString, bank, selectedSlot);
 	}
@@ -42,22 +41,22 @@ void VoiceSlots::loadVoiceFromSelectedSlot() {
 	if (selectedSlot < VCS::numberOfSlotsInVoicesBank) {
 		auto voiceDataHexString{ voicesBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot) };
 		auto voiceDataVector{ RawDataTools::convertHexStringToDataVector(voiceDataHexString) };
-		RawDataTools::applyRawDataToExposedParameters(voiceDataVector.data(), exposedParams, unexposedParams);
+		RawDataTools::applyRawVoiceDataToExposedParameters(voiceDataVector.data(), exposedParams, unexposedParams);
 		callAfterDelay(100, [this] { 
-			EditBufferDataMessage::addEditBufferDataMessageToOutgoingMidiBuffers(exposedParams, unexposedParams->getOutgoingMidiBuffers()); 
+			SysExMessages::addEditBufferDataMessageToOutgoingBuffers(exposedParams, unexposedParams->getOutgoingMidiBuffers()); 
 		});
 	}
 }
 
 void VoiceSlots::pullSelectedVoiceFromHardware() {
 	if (selectedSlot < VCS::numberOfSlotsInVoicesBank)
-		VoiceDataMessage::addRequestForVoiceDataStoredInBankAndSlotToOutgoingBuffers(bank, selectedSlot, outgoingMIDI);
+		SysExMessages::addRequestForVoiceDataStoredInBankAndSlotToOutgoingBuffers(bank, selectedSlot, outgoingMIDI);
 }
 
 void VoiceSlots::pushSelectedVoiceToHardware() {
 	if (selectedSlot < VCS::numberOfSlotsInVoicesBank) {
-		auto dumpDataVector{ VoiceDataMessage::createDataMessageForVoiceStoredInBankAndSlot(bank, selectedSlot, unexposedParams) };
-		outgoingMIDI->addDataMessage(dumpDataVector);
+		auto outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() };
+		SysExMessages::addDataMessageForVoiceStoredInBankAndSlotToOutgoingBuffers(voicesBanks, bank, selectedSlot, outgoingBuffers);
 	}
 }
 

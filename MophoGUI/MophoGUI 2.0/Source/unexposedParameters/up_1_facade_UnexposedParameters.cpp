@@ -6,7 +6,7 @@ using namespace MophoConstants;
 
 UnexposedParameters::UnexposedParameters() :
     globalOptions{ new GlobalOptions{} },
-    outgoingMidiBuffers{ new OutgoingMidiBuffers{} },
+    outgoingMidiBuffers{ new Outgoing_MIDI_Buffers{} },
     tooltipsOptions{ new TooltipsOptions{} },
     voicesBanks{ new VoicesBanks{} },
     voiceTransmissionOptions{ new VoiceTransmissionOptions{} }
@@ -21,7 +21,7 @@ GlobalOptions* UnexposedParameters::getGlobalOptions() {
     return globalOptions.get();
 }
 
-OutgoingMidiBuffers* UnexposedParameters::getOutgoingMidiBuffers() {
+Outgoing_MIDI_Buffers* UnexposedParameters::getOutgoingMidiBuffers() {
     return outgoingMidiBuffers.get();
 }
 
