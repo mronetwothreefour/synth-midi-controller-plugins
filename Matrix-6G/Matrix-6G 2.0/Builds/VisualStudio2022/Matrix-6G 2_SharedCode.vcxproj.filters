@@ -640,6 +640,9 @@
     <ClCompile Include="..\..\Source\gui\gui_build_LED_Path.cpp">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp">
+      <Filter>Matrix-6G 2\Source\gui</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClCompile>
@@ -3039,7 +3042,13 @@
     <ClInclude Include="..\..\Source\gui\gui_build_LED_Path.h">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_comp_EnvelopePainter.h">
+      <Filter>Matrix-6G 2\Source\gui</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h">
+      <Filter>Matrix-6G 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_layer_EnvelopePainters.h">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h">

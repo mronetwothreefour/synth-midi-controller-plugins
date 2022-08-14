@@ -152,6 +152,7 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_tree_CurrentVoiceOptions.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_build_LED_Path.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_MatrixLookAndFeel.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_0_RawDataTools.cpp"/>
@@ -2335,7 +2336,9 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_2_build_ExposedParamsLayout.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h"/>
     <ClInclude Include="..\..\Source\gui\gui_build_LED_Path.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_comp_EnvelopePainter.h"/>
     <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_layer_EnvelopePainters.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h"/>
     <ClInclude Include="..\..\Source\gui\gui_MatrixLookAndFeel.h"/>
     <ClInclude Include="..\..\Source\midi\midi_0_OutgoingMidiBuffers.h"/>

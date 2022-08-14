@@ -70,6 +70,21 @@ namespace Matrix_6G_Constants
 		static const Identifier ep_58_Ramp_2_Rate{ "ep_58_Ramp_2_Rate" };
 		static const Identifier ep_59_Ramp_2_Trig{ "ep_59_Ramp_2_Trig" };
 		static const Identifier ep_60_TrackInput{ "ep_60_TrackInput" };
+		static const Identifier ep_71_Env_1_Delay{ "ep_71_Env_1_Delay" };
+		static const Identifier ep_72_Env_1_Attack{ "ep_72_Env_1_Attack" };
+		static const Identifier ep_73_Env_1_Decay{ "ep_73_Env_1_Decay" };
+		static const Identifier ep_74_Env_1_Sustain{ "ep_74_Env_1_Sustain" };
+		static const Identifier ep_75_Env_1_Release{ "ep_75_Env_1_Release" };
+		static const Identifier ep_81_Env_2_Delay{ "ep_81_Env_2_Delay" };
+		static const Identifier ep_82_Env_2_Attack{ "ep_82_Env_2_Attack" };
+		static const Identifier ep_83_Env_2_Decay{ "ep_83_Env_2_Decay" };
+		static const Identifier ep_84_Env_2_Sustain{ "ep_84_Env_2_Sustain" };
+		static const Identifier ep_85_Env_2_Release{ "ep_85_Env_2_Release" };
+		static const Identifier ep_91_Env_3_Delay{ "ep_91_Env_3_Delay" };
+		static const Identifier ep_92_Env_3_Attack{ "ep_92_Env_3_Attack" };
+		static const Identifier ep_93_Env_3_Decay{ "ep_93_Env_3_Decay" };
+		static const Identifier ep_94_Env_3_Sustain{ "ep_94_Env_3_Sustain" };
+		static const Identifier ep_95_Env_3_Release{ "ep_95_Env_3_Release" };
 
 
 		static const Identifier global_BasicChannel{ "global_BasicChannel" };

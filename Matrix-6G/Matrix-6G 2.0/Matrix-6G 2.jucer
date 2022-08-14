@@ -95,10 +95,16 @@
               file="Source/gui/gui_build_LED_Path.cpp"/>
         <FILE id="EUFncg" name="gui_build_LED_Path.h" compile="0" resource="0"
               file="Source/gui/gui_build_LED_Path.h"/>
+        <FILE id="xTRh7m" name="gui_comp_EnvelopePainter.cpp" compile="1" resource="0"
+              file="Source/gui/gui_comp_EnvelopePainter.cpp"/>
+        <FILE id="mhoAQj" name="gui_comp_EnvelopePainter.h" compile="0" resource="0"
+              file="Source/gui/gui_comp_EnvelopePainter.h"/>
         <FILE id="Airyra" name="gui_comp_JuceSlidersWithMouseMods.cpp" compile="1"
               resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.cpp"/>
         <FILE id="FBDksN" name="gui_comp_JuceSlidersWithMouseMods.h" compile="0"
               resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.h"/>
+        <FILE id="F8OG6k" name="gui_layer_EnvelopePainters.h" compile="0" resource="0"
+              file="Source/gui/gui_layer_EnvelopePainters.h"/>
         <FILE id="FLt156" name="gui_layer_ExposedParamControls.h" compile="0"
               resource="0" file="Source/gui/gui_layer_ExposedParamControls.h"/>
         <FILE id="RWeSOP" name="gui_MatrixLookAndFeel.cpp" compile="1" resource="0"

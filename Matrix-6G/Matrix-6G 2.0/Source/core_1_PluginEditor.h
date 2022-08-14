@@ -4,6 +4,7 @@
 
 #include "core_0_PluginProcessor.h"
 
+class GUI_Layer_EnvelopePainters;
 class GUI_Layer_ExposedParamControls;
 class MatrixLookAndFeel;
 
@@ -13,6 +14,7 @@ class PluginEditor :
     private Timer
 {
     PluginProcessor& processor;
+    std::unique_ptr<GUI_Layer_EnvelopePainters> layer_EnvelopePainters;
     std::unique_ptr<GUI_Layer_ExposedParamControls> layer_ExposedParamControls;
     std::unique_ptr<MatrixLookAndFeel> lookAndFeel;
     std::unique_ptr<TooltipWindow> tooltipWindow;

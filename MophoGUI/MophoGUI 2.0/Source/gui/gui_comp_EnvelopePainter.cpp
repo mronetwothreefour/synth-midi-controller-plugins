@@ -4,8 +4,6 @@
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 
-using namespace MophoConstants;
-
 EnvelopePainter::EnvelopePainter(const EnvelopeType envType, ExposedParameters* exposedParams) :
 	attackStart_x{ 0.0f },
 	decayStart_x{ 0.0f },
@@ -91,8 +89,7 @@ void EnvelopePainter::paint(Graphics& g) {
 	path.lineTo(releaseStart_x, sustain_y);
 	path.lineTo(releaseEnd_x, envMin_y);
 	path.lineTo(envEnd_x, envMin_y);
-	PathStrokeType strokeType{ 2.0f, PathStrokeType::JointStyle::curved, PathStrokeType::EndCapStyle::rounded };
-	g.strokePath(path, strokeType);
+	g.strokePath(path, PathStrokeType{ 2.0f, PathStrokeType::JointStyle::curved, PathStrokeType::EndCapStyle::rounded });
 }
 
 void EnvelopePainter::deleteAttachmentsBeforeKnobsToPreventMemLeaks() {
