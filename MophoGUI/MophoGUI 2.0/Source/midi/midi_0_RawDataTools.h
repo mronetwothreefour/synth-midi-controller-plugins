@@ -6,8 +6,8 @@ class ExposedParameters;
 class UnexposedParameters;
 
 struct RawDataTools {
-    static const uint8 daveSmithInstrumentsID = 1;
-    static const uint8 mophoID = 37;
+    static const uint8 daveSmithInstruments_ID = 1;
+    static const uint8 mopho_ID = 37;
 
 
     static const std::vector<uint8> convertHexStringToDataVector(const String& hexString);

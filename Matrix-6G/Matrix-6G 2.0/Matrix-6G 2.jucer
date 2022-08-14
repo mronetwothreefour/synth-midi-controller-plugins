@@ -39,6 +39,8 @@
               file="Source/constants/constants_GUI_PathData.h"/>
         <FILE id="QbNxA6" name="constants_Identifiers.h" compile="0" resource="0"
               file="Source/constants/constants_Identifiers.h"/>
+        <FILE id="rve2OR" name="constants_Voices.h" compile="0" resource="0"
+              file="Source/constants/constants_Voices.h"/>
       </GROUP>
       <GROUP id="{80948424-0ECC-63C5-4F0A-A89D309A618C}" name="descriptions">
         <FILE id="dkpCPZ" name="build_ExposedParamDescription.cpp" compile="1"
@@ -75,6 +77,10 @@
               resource="0" file="Source/exposedParameters/ep_0_build_ChoiceNamesValueTree.cpp"/>
         <FILE id="pZ53AT" name="ep_0_build_ChoiceNamesValueTree.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_0_build_ChoiceNamesValueTree.h"/>
+        <FILE id="LDAP7D" name="ep_0_tree_CurrentVoiceOptions.cpp" compile="1"
+              resource="0" file="Source/exposedParameters/ep_0_tree_CurrentVoiceOptions.cpp"/>
+        <FILE id="JOFj8e" name="ep_0_tree_CurrentVoiceOptions.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_0_tree_CurrentVoiceOptions.h"/>
         <FILE id="QzNsJZ" name="ep_1_tree_InfoForExposedParameters.cpp" compile="1"
               resource="0" file="Source/exposedParameters/ep_1_tree_InfoForExposedParameters.cpp"/>
         <FILE id="SE9396" name="ep_1_tree_InfoForExposedParameters.h" compile="0"
@@ -103,8 +109,20 @@
       <GROUP id="{2955D2CE-3E34-022A-A523-FC88E078226B}" name="midi">
         <FILE id="DxAryu" name="midi_0_OutgoingMidiBuffers.h" compile="0" resource="0"
               file="Source/midi/midi_0_OutgoingMidiBuffers.h"/>
+        <FILE id="VuvaZu" name="midi_0_RawDataTools.cpp" compile="1" resource="0"
+              file="Source/midi/midi_0_RawDataTools.cpp"/>
+        <FILE id="uaeSBu" name="midi_0_RawDataTools.h" compile="0" resource="0"
+              file="Source/midi/midi_0_RawDataTools.h"/>
+        <FILE id="IEAcJv" name="midi_1_SysExMessages.cpp" compile="1" resource="0"
+              file="Source/midi/midi_1_SysExMessages.cpp"/>
+        <FILE id="DWH5cA" name="midi_1_SysExMessages.h" compile="0" resource="0"
+              file="Source/midi/midi_1_SysExMessages.h"/>
       </GROUP>
       <GROUP id="{EF3B146D-3659-DC15-ADE7-BF6892A35FBA}" name="unexposedParameters">
+        <FILE id="T2cbn2" name="up_0_tree_GlobalOptions.cpp" compile="1" resource="0"
+              file="Source/unexposedParameters/up_0_tree_GlobalOptions.cpp"/>
+        <FILE id="mEEDMm" name="up_0_tree_GlobalOptions.h" compile="0" resource="0"
+              file="Source/unexposedParameters/up_0_tree_GlobalOptions.h"/>
         <FILE id="OQzWUF" name="up_0_tree_TooltipsOptions.cpp" compile="1"
               resource="0" file="Source/unexposedParameters/up_0_tree_TooltipsOptions.cpp"/>
         <FILE id="ZmZFMo" name="up_0_tree_TooltipsOptions.h" compile="0" resource="0"

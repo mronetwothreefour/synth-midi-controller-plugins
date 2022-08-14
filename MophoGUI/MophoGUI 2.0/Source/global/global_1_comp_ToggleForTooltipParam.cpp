@@ -34,7 +34,7 @@ ToggleForTooltipParameter::ToggleForTooltipParameter(GlobalParamToggleType toggl
 	redToggle.setTopRightPosition(component_w, 0);
 	addAndMakeVisible(redToggle);
 
-	shouldShowDescriptionValue = tooltips->getTooltipsPropertyValue(ID::tooltips_ShouldShowDescription);
+	shouldShowDescriptionValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
 	shouldShowDescriptionValue.addListener(this);
 	updateTooltip();
 

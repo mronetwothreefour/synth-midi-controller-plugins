@@ -18,7 +18,7 @@ public:
 	const int delayInMilliseconds();
 	void setDelayInMilliseconds(const int newDelay);
 
-	Value getTooltipsPropertyValue(const Identifier propertyID);
+	Value getTooltipsPropertyAsValue(const Identifier propertyID);
 
 	std::unique_ptr<XmlElement> getStateXml();
 	void replaceState(const ValueTree& newState);

@@ -14,10 +14,10 @@ TooltipUpdaterForExposedParamControl::TooltipUpdaterForExposedParamControl(
     parameterValue = state->getParameterAsValue(paramID);
     parameterValue.addListener(this);
 
-    shouldShowDescriptionValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyValue(ID::tooltips_ShouldShowDescription);
+    shouldShowDescriptionValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
     shouldShowDescriptionValue.addListener(this);
 
-    shouldShowCurrentChoiceValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyValue(ID::tooltips_ShouldShowCurrentChoice);
+    shouldShowCurrentChoiceValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowCurrentChoice);
     shouldShowCurrentChoiceValue.addListener(this);
 
     updateTooltip();

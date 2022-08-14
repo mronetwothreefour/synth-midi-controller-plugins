@@ -47,7 +47,7 @@ DisplayLabelForGlobalParameter::DisplayLabelForGlobalParameter(GlobalParamDispla
 	globalParamValue.addListener(this);
 
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
-	shouldShowDescriptionValue = tooltips->getTooltipsPropertyValue(ID::tooltips_ShouldShowDescription);
+	shouldShowDescriptionValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
 	shouldShowDescriptionValue.addListener(this);
 	updateTooltip();
 

@@ -50,9 +50,9 @@ KnobForGlobalParameter::KnobForGlobalParameter(KnobType knobType, UnexposedParam
 	globalParamValue.addListener(this);
 
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
-	shouldShowDescriptionValue = tooltips->getTooltipsPropertyValue(ID::tooltips_ShouldShowDescription);
+	shouldShowDescriptionValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
 	shouldShowDescriptionValue.addListener(this);
-	shouldShowCurrentChoiceValue = tooltips->getTooltipsPropertyValue(ID::tooltips_ShouldShowCurrentChoice);
+	shouldShowCurrentChoiceValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowCurrentChoice);
 	shouldShowCurrentChoiceValue.addListener(this);
 	updateTooltip();
 

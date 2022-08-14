@@ -4,7 +4,7 @@
 
 namespace Matrix_6G_Constants
 {
-	enum class ControlType {
+	const enum class ControlType {
 		nullControl = -1,
 		slider,
 		sliderForPitch,
@@ -12,13 +12,31 @@ namespace Matrix_6G_Constants
 		comboBox
 	};
 
-	enum class RangeType {
+	const enum class RangeType {
 		unsignedValue = 0,
 		signed_6_bitValue,
 		signed_7_bitValue
 	};
 
-	enum class VoicesBank {
+	const enum class SysExMessageType {
+		voiceData = 1,
+		splitData,
+		globalData,
+		dataRequest,
+		activateQuickEdit,
+		parameterChange,
+		switchMode = 13
+	};
+
+
+	const enum class SysExDatatrRequestType {
+		voice = 1,
+		split,
+		global
+	};
+
+
+	const enum class VoicesBank {
 		analogSynthsA = 0,
 		analogSynthsB,
 		basses,

@@ -31,7 +31,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
 {
     setInterceptsMouseClicks(false, true);
 
-    shouldShowDescriptionValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyValue(ID::tooltips_ShouldShowDescription);
+    shouldShowDescriptionValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
     shouldShowDescriptionValue.addListener(this);
 
     voiceNameEditor.setInterceptsMouseClicks(false, true);

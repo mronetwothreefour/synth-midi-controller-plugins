@@ -5,10 +5,15 @@
 using namespace Matrix_6G_Constants;
 
 UnexposedParameters::UnexposedParameters() :
+    globalOptions{ new GlobalOptions{} },
     tooltipsOptions{ new TooltipsOptions{} },
     outgoingMidiBuffers{ new OutgoingMidiBuffers{} },
     voiceTransmissionOptions{ new VoiceTransmissionOptions{} }
 {
+}
+
+GlobalOptions* UnexposedParameters::getGlobalOptions() {
+    return globalOptions.get();
 }
 
 Array<MidiBuffer, CriticalSection>* UnexposedParameters::getBundledOutgoingBuffers() {

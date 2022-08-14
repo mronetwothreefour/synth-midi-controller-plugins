@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "ep_0_tree_CurrentVoiceOptions.h"
 #include "ep_1_tree_InfoForExposedParameters.h"
 #include "ep_2_build_ExposedParamsLayout.h"
 
@@ -13,6 +14,7 @@ class UnexposedParameters;
 class ExposedParameters
 {
 public:
+	std::unique_ptr <CurrentVoiceOptions> currentVoiceOptions;
 	std::unique_ptr <InfoForExposedParameters> info;
 	std::unique_ptr<State> state;
 	//std::unique_ptr <Randomization> randomization;
@@ -22,6 +24,7 @@ public:
 	ExposedParameters() = delete;
 
 	ExposedParameters(AudioProcessor* processor, UnexposedParameters* /*unexposedParams*/) :
+		currentVoiceOptions{ new CurrentVoiceOptions{ &undoManager } },
 		info{ new InfoForExposedParameters },
 		state{ new State{ *processor, &undoManager, "exposedParams", Layout::build(info.get()) } }/*,
 		randomization{ new Randomization{ info.get() } },

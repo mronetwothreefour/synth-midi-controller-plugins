@@ -1142,7 +1142,7 @@ Identifier InfoForExposedParameters::IDfor(const uint8 paramIndex) const {
 uint8 InfoForExposedParameters::paramNumFor(const uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return uint8((int)paramTree.getProperty(ID::property_ParamNum));
+	return (uint8)(int)paramTree.getProperty(ID::property_ParamNum);
 }
 
 String InfoForExposedParameters::exposedNameFor(const uint8 paramIndex) const {
@@ -1160,7 +1160,7 @@ ControlType InfoForExposedParameters::controlTypeFor(const uint8 paramIndex) con
 uint8 InfoForExposedParameters::dataByteIndexFor(const uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return uint8((int)paramTree.getProperty(ID::property_DataByteIndex));
+	return (uint8)(int)paramTree.getProperty(ID::property_DataByteIndex);
 }
 
 RangeType InfoForExposedParameters::rangeTypeFor(const uint8 paramIndex) const {
@@ -1172,13 +1172,13 @@ RangeType InfoForExposedParameters::rangeTypeFor(const uint8 paramIndex) const {
 uint8 InfoForExposedParameters::numberOfChoicesFor(const uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return uint8((int)paramTree.getProperty(ID::property_NumberOfChoices));
+	return (uint8)(int)paramTree.getProperty(ID::property_NumberOfChoices);
 }
 
 uint8 InfoForExposedParameters::defaultChoiceFor(const uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return uint8((int)paramTree.getProperty(ID::property_DefaultChoice));
+	return (uint8)(int)paramTree.getProperty(ID::property_DefaultChoice);
 }
 
 Point<int> InfoForExposedParameters::centerPointFor(const uint8 paramIndex) const {

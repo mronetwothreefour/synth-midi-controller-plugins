@@ -631,6 +631,9 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.cpp">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_0_tree_CurrentVoiceOptions.cpp">
+      <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClCompile>
@@ -642,6 +645,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_MatrixLookAndFeel.cpp">
       <Filter>Matrix-6G 2\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_0_RawDataTools.cpp">
+      <Filter>Matrix-6G 2\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_1_SysExMessages.cpp">
+      <Filter>Matrix-6G 2\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp">
+      <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp">
       <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
@@ -2985,6 +2997,9 @@
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h">
       <Filter>Matrix-6G 2\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_Voices.h">
+      <Filter>Matrix-6G 2\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h">
       <Filter>Matrix-6G 2\Source\descriptions</Filter>
     </ClInclude>
@@ -3007,6 +3022,9 @@
       <Filter>Matrix-6G 2\Source\exposedParamControls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.h">
+      <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_0_tree_CurrentVoiceOptions.h">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.h">
@@ -3032,6 +3050,15 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_0_OutgoingMidiBuffers.h">
       <Filter>Matrix-6G 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_0_RawDataTools.h">
+      <Filter>Matrix-6G 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_1_SysExMessages.h">
+      <Filter>Matrix-6G 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h">
+      <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h">
       <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>

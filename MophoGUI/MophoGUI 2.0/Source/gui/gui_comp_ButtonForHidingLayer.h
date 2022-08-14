@@ -21,7 +21,7 @@ public:
 	explicit ButtonForHidingLayer(UnexposedParameters* unexposedParams) :
 		tooltips{ unexposedParams->getTooltipsOptions() }
 	{
-		shouldShowDescriptionValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyValue(ID::tooltips_ShouldShowDescription);
+		shouldShowDescriptionValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
 		shouldShowDescriptionValue.addListener(this);
 		setComponentID(ID::btn_Close.toString());
 		onClick = [this] {

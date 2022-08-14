@@ -6,6 +6,9 @@ namespace Matrix_6G_Constants
 {
 	namespace ID
 	{
+		static const Identifier currentVoice_Name{ "currentVoice_Name" };
+		static const Identifier currentVoice_Number{ "currentVoice_Number" };
+
 		static const Identifier ep_00_Osc_1_Pitch{ "ep_00_Osc_1_Pitch" };
 		static const Identifier ep_01_Osc_1_Type{ "ep_01_Osc_1_Type" };
 		static const Identifier ep_02_Osc_1_PulseWidth{ "ep_02_Osc_1_PulseWidth" };
@@ -68,6 +71,9 @@ namespace Matrix_6G_Constants
 		static const Identifier ep_59_Ramp_2_Trig{ "ep_59_Ramp_2_Trig" };
 		static const Identifier ep_60_TrackInput{ "ep_60_TrackInput" };
 
+
+		static const Identifier global_BasicChannel{ "global_BasicChannel" };
+
 		static const Identifier property_Center_x{ "property_ControlCenter_x" };
 		static const Identifier property_Center_y{ "property_ControlCenter_y" };
 		static const Identifier property_ControlType{ "property_ControlType" };
@@ -81,6 +87,7 @@ namespace Matrix_6G_Constants
 		static const Identifier property_ParamID{ "property_ParamID" };
 		static const Identifier property_Width{ "property_Width" };
 
+		static const Identifier state_CurrentVoiceOptions{ "state_CurrentVoiceOptions" };
 		static const Identifier state_TooltipsOptions{ "state_TooltipsOptions" };
 		static const Identifier state_UnexposedParams{ "state_UnexposedParams" };
 		static const Identifier state_VoiceTxOptions{ "state_VoiceTxOptions" };
@@ -91,7 +98,9 @@ namespace Matrix_6G_Constants
 
 		static const Identifier tree_ChoiceNames{ "tree_ChoiceNames" };
 		static const Identifier tree_ChoiceNames_Verbose{ "tree_ChoiceNames_Verbose" };
+		static const Identifier tree_CurrentVoiceOptions{ "tree_CurrentVoiceOptions" };
 		static const Identifier tree_ExposedParamsInfo{ "tree_ExposedParamsInfo" };
+		static const Identifier tree_GlobalOptions{ "tree_GlobalOptions" };
 		static const Identifier tree_TooltipsOptions{ "tree_TooltipsOptions" };
 		static const Identifier tree_VoiceTxOptions{ "tree_VoiceTxOptions" };
 

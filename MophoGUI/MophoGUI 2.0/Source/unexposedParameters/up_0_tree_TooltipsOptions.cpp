@@ -36,7 +36,7 @@ void TooltipsOptions::setDelayInMilliseconds(const int newDelay) {
 	tooltipsOptionsTree.setProperty(ID::tooltips_DelayInMilliseconds, newDelay, nullptr);
 }
 
-Value TooltipsOptions::getTooltipsPropertyValue(const Identifier propertyID) {
+Value TooltipsOptions::getTooltipsPropertyAsValue(const Identifier propertyID) {
 	return tooltipsOptionsTree.getPropertyAsValue(propertyID, nullptr);
 }
 

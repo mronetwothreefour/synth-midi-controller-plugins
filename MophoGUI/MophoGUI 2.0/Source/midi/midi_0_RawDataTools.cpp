@@ -84,7 +84,7 @@ bool RawDataTools::midiMessageIsSysExForMopho(const MidiMessage& midiMessage) {
         auto sysExData{ midiMessage.getSysExData() };
         auto manufacturerID{ sysExData[1] };
         auto synthID{ sysExData[2] };
-        return (manufacturerID == daveSmithInstrumentsID && synthID == mophoID);
+        return (manufacturerID == daveSmithInstruments_ID && synthID == mopho_ID);
     }
     else
         return false;
@@ -92,7 +92,7 @@ bool RawDataTools::midiMessageIsSysExForMopho(const MidiMessage& midiMessage) {
 
 std::vector<uint8> RawDataTools::createRawDataVectorWithMophoSysExID() {
     std::vector<uint8> rawDataVector;
-    rawDataVector.push_back(daveSmithInstrumentsID);
-    rawDataVector.push_back(mophoID);
+    rawDataVector.push_back(daveSmithInstruments_ID);
+    rawDataVector.push_back(mopho_ID);
     return rawDataVector;
 }

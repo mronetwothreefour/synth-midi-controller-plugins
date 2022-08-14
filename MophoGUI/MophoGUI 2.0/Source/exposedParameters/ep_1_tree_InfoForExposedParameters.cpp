@@ -2230,7 +2230,7 @@ ControlType InfoForExposedParameters::controlTypeFor(const uint8 paramIndex) con
 uint8 InfoForExposedParameters::NRPNfor(const uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return uint8((int)paramTree.getProperty(ID::property_NRPN));
+	return (uint8)(int)paramTree.getProperty(ID::property_NRPN);
 }
 
 const uint8 InfoForExposedParameters::paramIndexForNRPN(const uint8 NRPN) const {
@@ -2244,13 +2244,13 @@ const uint8 InfoForExposedParameters::paramIndexForNRPN(const uint8 NRPN) const 
 uint8 InfoForExposedParameters::numberOfChoicesFor(const uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return uint8((int)paramTree.getProperty(ID::property_NumberOfChoices));
+	return (uint8)(int)paramTree.getProperty(ID::property_NumberOfChoices);
 }
 
 uint8 InfoForExposedParameters::defaultChoiceFor(const uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return uint8((int)paramTree.getProperty(ID::property_DefaultChoice));
+	return (uint8)(int)paramTree.getProperty(ID::property_DefaultChoice);
 }
 
 Point<int> InfoForExposedParameters::centerPointFor(const uint8 paramIndex) const {
@@ -2335,7 +2335,7 @@ uint16 InfoForExposedParameters::msBitPackedByteLocationFor(const uint8 paramInd
 uint8 InfoForExposedParameters::msBitMaskFor(const uint8 paramIndex) const {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
-	return uint8((int)paramTree.getProperty(ID::property_MSBitMask));
+	return (uint8)(int)paramTree.getProperty(ID::property_MSBitMask);
 }
 
 uint16 InfoForExposedParameters::lsByteLocationFor(const uint8 paramIndex) const {

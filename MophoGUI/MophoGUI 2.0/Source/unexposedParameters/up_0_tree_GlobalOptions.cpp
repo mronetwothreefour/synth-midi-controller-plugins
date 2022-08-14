@@ -25,7 +25,7 @@ void GlobalOptions::resetAllOptionsToDefaults() {
 }
 
 const uint8 GlobalOptions::globalTranspose() {
-    return uint8((int)globalOptionsTree.getProperty(ID::global_Transpose));
+    return (uint8)(int)globalOptionsTree.getProperty(ID::global_Transpose);
 }
 
 void GlobalOptions::setGlobalTranspose(const uint8 newTransposition) {

@@ -114,7 +114,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForStandardOrVo
 	auto allowedChoices{ randomization->getCopyOfAllowedChoicesTreeForParam(paramIndex) };
 	if (randomization->onlyOneChoiceIsAllowedForParam(paramIndex)) {
 		auto allowedChoiceName{ allowedChoices.getPropertyName(0).toString() };
-		return uint8((int)allowedChoices[allowedChoiceName]);
+		return (uint8)(int)allowedChoices[allowedChoiceName];
 	}
 	else {
 		if (randomization->repeatChoicesAreForbiddenForParam(paramIndex)) {
@@ -130,7 +130,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForStandardOrVo
 		Random rndmNumGenerator{};
 		auto newSettingIndex{ (int)floor(rndmNumGenerator.nextFloat() * numberOfChoices) };
 		auto newSettingName{ allowedChoices.getPropertyName(newSettingIndex).toString() };
-		return uint8((int)allowedChoices[newSettingName]);
+		return (uint8)(int)allowedChoices[newSettingName];
 	}
 }
 
@@ -176,7 +176,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForOscShapePara
 		auto newShapeName{ allowedShapes.getPropertyName(newShapeIndex).toString() };
 		auto newShape{ Shape{ (int)allowedShapes[newShapeName] } };
 		if (newShape != Shape::pulse)
-			return uint8((int)allowedShapes[newShapeName]);
+			return (uint8)(int)allowedShapes[newShapeName];
 		else {
 			if (repeatsAreForbidden && currentShape == Shape::pulse) {
 				auto currentWidthPropertyID{ "choice_" + (String)currentChoiceNum };
@@ -187,7 +187,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForOscShapePara
 			Random rndmNumGeneratorForWidth{};
 			auto newWidthIndex{ (int)floor(rndmNumGeneratorForWidth.nextFloat() * numberOfWidths) };
 			auto newWidthName{ allowedWidths.getPropertyName(newWidthIndex).toString() };
-			return uint8((int)allowedWidths[newWidthName]);
+			return (uint8)(int)allowedWidths[newWidthName];
 		}
 	}
 }
@@ -220,15 +220,15 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingFor_LFO_FreqPar
 		{
 		case Category::unsynced: {
 			auto allowedFreqName{ allowedUnsyncedFreq.getPropertyName(0).toString() };
-			return uint8((int)allowedUnsyncedFreq[allowedFreqName]);
+			return (uint8)(int)allowedUnsyncedFreq[allowedFreqName];
 		}
 		case Category::pitched: {
 			auto allowedFreqName{ allowedPitchedFreq.getPropertyName(0).toString() };
-			return uint8((int)allowedPitchedFreq[allowedFreqName]);
+			return (uint8)(int)allowedPitchedFreq[allowedFreqName];
 		}
 		case Category::synced: {
 			auto allowedFreqName{ allowedSyncedFreq.getPropertyName(0).toString() };
-			return uint8((int)allowedSyncedFreq[allowedFreqName]);
+			return (uint8)(int)allowedSyncedFreq[allowedFreqName];
 		}
 		default:
 			return (uint8)255;
@@ -295,19 +295,19 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingFor_LFO_FreqPar
 				auto numberOfAllowedFreq{ allowedUnsyncedFreq.getNumProperties() };
 				auto newFreqChoiceIndex{ (int)floor(rndmNumGeneratorForFreq.nextFloat() * numberOfAllowedFreq) };
 				auto newFreqChoiceName{ allowedUnsyncedFreq.getPropertyName(newFreqChoiceIndex).toString() };
-				return uint8((int)allowedUnsyncedFreq[newFreqChoiceName]);
+				return (uint8)(int)allowedUnsyncedFreq[newFreqChoiceName];
 			}
 			case Category::pitched: {
 				auto numberOfAllowedFreq{ allowedPitchedFreq.getNumProperties() };
 				auto newFreqChoiceIndex{ (int)floor(rndmNumGeneratorForFreq.nextFloat() * numberOfAllowedFreq) };
 				auto newFreqChoiceName{ allowedPitchedFreq.getPropertyName(newFreqChoiceIndex).toString() };
-				return uint8((int)allowedPitchedFreq[newFreqChoiceName]);
+				return (uint8)(int)allowedPitchedFreq[newFreqChoiceName];
 			}
 			case Category::synced: {
 				auto numberOfAllowedFreq{ allowedSyncedFreq.getNumProperties() };
 				auto newFreqChoiceIndex{ (int)floor(rndmNumGeneratorForFreq.nextFloat() * numberOfAllowedFreq) };
 				auto newFreqChoiceName{ allowedSyncedFreq.getPropertyName(newFreqChoiceIndex).toString() };
-				return uint8((int)allowedSyncedFreq[newFreqChoiceName]);
+				return (uint8)(int)allowedSyncedFreq[newFreqChoiceName];
 			}
 			default:
 				return (uint8)255;
@@ -372,7 +372,7 @@ uint8 ExposedParamsRandomizationMethods::randomlyChooseNewSettingForSeqTrackStep
 			Random rndmNumGeneratorForChoice{};
 			auto choiceIndex{ (int)floor(rndmNumGeneratorForChoice.nextFloat() * numberOfChoices) };
 			auto newChoiceName{ allowedChoices.getPropertyName(choiceIndex) };
-			return uint8((int)allowedChoices[newChoiceName]);
+			return (uint8)(int)allowedChoices[newChoiceName];
 		}
 		else
 			return (uint8)255;

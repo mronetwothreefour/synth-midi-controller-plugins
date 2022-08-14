@@ -69,7 +69,7 @@ namespace MophoConstants
 	};
 
 
-	enum class ImportExportType {
+	const enum class ImportExportType {
 		exportVoice = 0,
 		exportVoicesBank,
 		importVoice,
@@ -77,14 +77,14 @@ namespace MophoConstants
 	};
 
 
-	enum class LFO_FreqCategory {
+	const enum class LFO_FreqCategory {
 		unsynced = 0,
 		pitched,
 		synced
 	};
 
 
-	enum class LockStateGroup {
+	const enum class LockStateGroup {
 		all = 0,
 		osc,
 		lpf,

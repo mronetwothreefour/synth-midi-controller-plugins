@@ -80,6 +80,7 @@ AudioProcessorEditor* PluginProcessor::createEditor() {
 }
 
 void PluginProcessor::getStateInformation(MemoryBlock& /*destData*/) {
+    //TODO: remember to include the state of currentVoiceOptions in exposedParams
 }
 
 void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInBytes*/) {

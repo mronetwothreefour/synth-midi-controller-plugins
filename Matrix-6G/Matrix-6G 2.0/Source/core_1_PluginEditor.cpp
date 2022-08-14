@@ -14,7 +14,7 @@ PluginEditor::PluginEditor (PluginProcessor& processor, ExposedParameters* expos
     processor{ processor },
     layer_ExposedParamControls{ new GUI_Layer_ExposedParamControls{ exposedParams, unexposedParams } },
     lookAndFeel{ new MatrixLookAndFeel{} },
-    tooltipsDelayInMillisecondsValue{ unexposedParams->getTooltipsOptions()->getTooltipsPropertyValue(ID::tooltips_DelayInMilliseconds) },
+    tooltipsDelayInMillisecondsValue{ unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_DelayInMilliseconds) },
     tooltipWindow{ new TooltipWindow{} }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());

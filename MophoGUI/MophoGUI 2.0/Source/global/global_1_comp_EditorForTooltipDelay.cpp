@@ -35,7 +35,7 @@ EditorForTooltipDelay::EditorForTooltipDelay(UnexposedParameters* unexposedParam
 		tooltipDelayEditor.setText((String)tooltips->delayInMilliseconds() + " ms", dontSendNotification);
 	};
 
-	shouldShowDescriptionValue = tooltips->getTooltipsPropertyValue(ID::tooltips_ShouldShowDescription);
+	shouldShowDescriptionValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
 	shouldShowDescriptionValue.addListener(this);
 	updateTooltip();
 
