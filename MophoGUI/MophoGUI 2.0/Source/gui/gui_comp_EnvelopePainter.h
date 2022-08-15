@@ -39,6 +39,8 @@ class EnvelopePainter :
 	const float env_h{ envMin_y - envMax_y };
 	const float envSegmentMax_w{ 43.0f };
 	const float sustainSegment_w{ 28.0f };
+	const int envelopePainters_w{ 210 };
+	const int envelopePainters_h{ 90 };
 
 public:
 	EnvelopePainter() = delete;

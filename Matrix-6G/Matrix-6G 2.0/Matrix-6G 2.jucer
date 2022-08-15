@@ -107,6 +107,10 @@
               file="Source/gui/gui_layer_EnvelopePainters.h"/>
         <FILE id="FLt156" name="gui_layer_ExposedParamControls.h" compile="0"
               resource="0" file="Source/gui/gui_layer_ExposedParamControls.h"/>
+        <FILE id="WCsDZh" name="gui_layer_TrackingGraphPainter.cpp" compile="1"
+              resource="0" file="Source/gui/gui_layer_TrackingGraphPainter.cpp"/>
+        <FILE id="QeVzXa" name="gui_layer_TrackingGraphPainter.h" compile="0"
+              resource="0" file="Source/gui/gui_layer_TrackingGraphPainter.h"/>
         <FILE id="RWeSOP" name="gui_MatrixLookAndFeel.cpp" compile="1" resource="0"
               file="Source/gui/gui_MatrixLookAndFeel.cpp"/>
         <FILE id="zvQrA4" name="gui_MatrixLookAndFeel.h" compile="0" resource="0"
@@ -129,6 +133,10 @@
               file="Source/unexposedParameters/up_0_tree_GlobalOptions.cpp"/>
         <FILE id="mEEDMm" name="up_0_tree_GlobalOptions.h" compile="0" resource="0"
               file="Source/unexposedParameters/up_0_tree_GlobalOptions.h"/>
+        <FILE id="QjceXT" name="up_0_tree_MatrixModOptions.cpp" compile="1"
+              resource="0" file="Source/unexposedParameters/up_0_tree_MatrixModOptions.cpp"/>
+        <FILE id="QJuKCx" name="up_0_tree_MatrixModOptions.h" compile="0" resource="0"
+              file="Source/unexposedParameters/up_0_tree_MatrixModOptions.h"/>
         <FILE id="OQzWUF" name="up_0_tree_TooltipsOptions.cpp" compile="1"
               resource="0" file="Source/unexposedParameters/up_0_tree_TooltipsOptions.cpp"/>
         <FILE id="ZmZFMo" name="up_0_tree_TooltipsOptions.h" compile="0" resource="0"

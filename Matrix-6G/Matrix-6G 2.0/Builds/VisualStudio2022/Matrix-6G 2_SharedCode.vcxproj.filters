@@ -646,6 +646,9 @@
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_layer_TrackingGraphPainter.cpp">
+      <Filter>Matrix-6G 2\Source\gui</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_MatrixLookAndFeel.cpp">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClCompile>
@@ -656,6 +659,9 @@
       <Filter>Matrix-6G 2\Source\midi</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp">
+      <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_MatrixModOptions.cpp">
       <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp">
@@ -3054,6 +3060,9 @@
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_layer_TrackingGraphPainter.h">
+      <Filter>Matrix-6G 2\Source\gui</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_MatrixLookAndFeel.h">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClInclude>
@@ -3067,6 +3076,9 @@
       <Filter>Matrix-6G 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h">
+      <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_MatrixModOptions.h">
       <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h">

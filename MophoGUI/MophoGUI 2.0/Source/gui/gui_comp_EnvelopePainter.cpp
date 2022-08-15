@@ -58,8 +58,6 @@ EnvelopePainter::EnvelopePainter(const EnvelopeType envType, ExposedParameters* 
 	sustainAttachment.reset( new SliderAttachment{ *state, sustainParamID, sustain } );
 	releaseAttachment.reset( new SliderAttachment{ *state, releaseParamID, release } );
 
-	const int envelopePainters_w{ 210 };
-	const int envelopePainters_h{ 90 };
 	setSize(envelopePainters_w, envelopePainters_h);
 
 	sliderValueChanged(&delay);

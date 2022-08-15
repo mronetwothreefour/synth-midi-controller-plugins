@@ -18,7 +18,7 @@ class GUI_Layer_EnvelopePainters :
 public:
 	GUI_Layer_EnvelopePainters() = delete;
 
-	GUI_Layer_EnvelopePainters(ExposedParameters* exposedParams) :
+	explicit GUI_Layer_EnvelopePainters(ExposedParameters* exposedParams) :
 		envelope_1_Painter{ 1, exposedParams, },
 		envelope_2_Painter{ 2, exposedParams, },
 		envelope_3_Painter{ 3, exposedParams, }
@@ -42,9 +42,9 @@ public:
 	}
 
 	~GUI_Layer_EnvelopePainters() {
-		envelope_1_Painter.deleteAttachmentsBeforeKnobsToPreventMemLeaks();
-		envelope_2_Painter.deleteAttachmentsBeforeKnobsToPreventMemLeaks();
-		envelope_3_Painter.deleteAttachmentsBeforeKnobsToPreventMemLeaks();
+		envelope_1_Painter.deleteAttachmentsBeforeSlidersToPreventMemLeaks();
+		envelope_2_Painter.deleteAttachmentsBeforeSlidersToPreventMemLeaks();
+		envelope_3_Painter.deleteAttachmentsBeforeSlidersToPreventMemLeaks();
 	}
 
 private:

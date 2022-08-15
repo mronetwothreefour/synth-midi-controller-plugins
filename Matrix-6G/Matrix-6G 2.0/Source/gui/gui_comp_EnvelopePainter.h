@@ -35,6 +35,8 @@ class EnvelopePainter :
 	const float env_h{ envMin_y - envMax_y };
 	const float envSegmentMax_w{ 43.0f };
 	const float sustainSegment_w{ 34.0f };
+	const int envelopePainters_w{ 228 };
+	const int envelopePainters_h{ 108 };
 
 public:
 	EnvelopePainter() = delete;
@@ -47,7 +49,7 @@ private:
 	void paint(Graphics& g) override;
 
 public:
-	void deleteAttachmentsBeforeKnobsToPreventMemLeaks();
+	void deleteAttachmentsBeforeSlidersToPreventMemLeaks();
 	~EnvelopePainter();
 
 private:

@@ -6,6 +6,7 @@
 
 class GUI_Layer_EnvelopePainters;
 class GUI_Layer_ExposedParamControls;
+class GUI_Layer_TrackingGraphPainter;
 class MatrixLookAndFeel;
 
 class PluginEditor :
@@ -15,6 +16,7 @@ class PluginEditor :
 {
     PluginProcessor& processor;
     std::unique_ptr<GUI_Layer_EnvelopePainters> layer_EnvelopePainters;
+    std::unique_ptr<GUI_Layer_TrackingGraphPainter> layer_TrackingGraphPainter;
     std::unique_ptr<GUI_Layer_ExposedParamControls> layer_ExposedParamControls;
     std::unique_ptr<MatrixLookAndFeel> lookAndFeel;
     std::unique_ptr<TooltipWindow> tooltipWindow;

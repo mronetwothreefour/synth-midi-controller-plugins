@@ -4,6 +4,7 @@
 #include "constants/constants_GUI_Dimensions.h"
 #include "gui/gui_layer_EnvelopePainters.h"
 #include "gui/gui_layer_ExposedParamControls.h"
+#include "gui/gui_layer_TrackingGraphPainter.h"
 #include "gui/gui_MatrixLookAndFeel.h"
 #include "unexposedParameters/up_1_facade_UnexposedParameters.h"
 
@@ -13,6 +14,7 @@ PluginEditor::PluginEditor (PluginProcessor& processor, ExposedParameters* expos
     AudioProcessorEditor{ &processor },
     processor{ processor },
     layer_EnvelopePainters{ new GUI_Layer_EnvelopePainters{ exposedParams } },
+    layer_TrackingGraphPainter{ new GUI_Layer_TrackingGraphPainter{ exposedParams } },
     layer_ExposedParamControls{ new GUI_Layer_ExposedParamControls{ exposedParams, unexposedParams } },
     lookAndFeel{ new MatrixLookAndFeel{} },
     tooltipsDelayInMillisecondsValue{ unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_DelayInMilliseconds) },
@@ -22,6 +24,9 @@ PluginEditor::PluginEditor (PluginProcessor& processor, ExposedParameters* expos
 
     layer_EnvelopePainters->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
     addAndMakeVisible(layer_EnvelopePainters.get());
+
+    layer_TrackingGraphPainter->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
+    addAndMakeVisible(layer_TrackingGraphPainter.get());
 
     layer_ExposedParamControls->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
     addAndMakeVisible(layer_ExposedParamControls.get());
@@ -53,6 +58,7 @@ void PluginEditor::valueChanged(Value& /*value*/) {
 
 PluginEditor::~PluginEditor() {
     layer_EnvelopePainters = nullptr;
+    layer_TrackingGraphPainter = nullptr;
     layer_ExposedParamControls = nullptr;
     tooltipsDelayInMillisecondsValue.removeListener(this);
     tooltipWindow = nullptr;

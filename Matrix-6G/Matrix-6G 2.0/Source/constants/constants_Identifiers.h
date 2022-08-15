@@ -70,6 +70,11 @@ namespace Matrix_6G_Constants
 		static const Identifier ep_58_Ramp_2_Rate{ "ep_58_Ramp_2_Rate" };
 		static const Identifier ep_59_Ramp_2_Trig{ "ep_59_Ramp_2_Trig" };
 		static const Identifier ep_60_TrackInput{ "ep_60_TrackInput" };
+		static const Identifier ep_61_TrackPoint_1{ "ep_61_TrackPoint_1" };
+		static const Identifier ep_62_TrackPoint_2{ "ep_62_TrackPoint_2" };
+		static const Identifier ep_63_TrackPoint_3{ "ep_63_TrackPoint_3" };
+		static const Identifier ep_64_TrackPoint_4{ "ep_64_TrackPoint_4" };
+		static const Identifier ep_65_TrackPoint_5{ "ep_65_TrackPoint_5" };
 		static const Identifier ep_71_Env_1_Delay{ "ep_71_Env_1_Delay" };
 		static const Identifier ep_72_Env_1_Attack{ "ep_72_Env_1_Attack" };
 		static const Identifier ep_73_Env_1_Decay{ "ep_73_Env_1_Decay" };

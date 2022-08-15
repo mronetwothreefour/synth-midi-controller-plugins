@@ -60,8 +60,6 @@ EnvelopePainter::EnvelopePainter(const int envNum, ExposedParameters* exposedPar
 	sustainAttachment.reset(new SliderAttachment{ *state, sustainParamID, sustain });
 	releaseAttachment.reset(new SliderAttachment{ *state, releaseParamID, release });
 
-	const int envelopePainters_w{ 228 };
-	const int envelopePainters_h{ 108 };
 	setSize(envelopePainters_w, envelopePainters_h);
 
 	sliderValueChanged(&delay);
@@ -94,7 +92,7 @@ void EnvelopePainter::paint(Graphics& g) {
 	g.strokePath(path, PathStrokeType{ 2.0f, PathStrokeType::JointStyle::curved, PathStrokeType::EndCapStyle::rounded });
 }
 
-void EnvelopePainter::deleteAttachmentsBeforeKnobsToPreventMemLeaks() {
+void EnvelopePainter::deleteAttachmentsBeforeSlidersToPreventMemLeaks() {
 	delayAttachment = nullptr;
 	attackAttachment = nullptr;
 	decayAttachment = nullptr;
