@@ -12,19 +12,18 @@ using ChoiceNames = ExposedParamChoiceNamesValueTree;
 InfoForExposedParameters::InfoForExposedParameters() :
 	exposedParamsInfoTree{ ID::tree_ExposedParamsInfo }
 {
-	const auto vertDistBtwnRows{ 28 };
 	const auto controlsRow_1_y{ 69 };
-	const auto controlsRow_2_y{ controlsRow_1_y + vertDistBtwnRows };
-	const auto controlsRow_3_y{ controlsRow_2_y + vertDistBtwnRows };
-	const auto controlsRow_4_y{ controlsRow_3_y + vertDistBtwnRows };
-	const auto controlsRow_5_y{ controlsRow_4_y + vertDistBtwnRows };
-	const auto controlsRow_6_y{ controlsRow_5_y + vertDistBtwnRows };
-	const auto controlsRow_7_y{ controlsRow_6_y + vertDistBtwnRows };
-	const auto controlsRow_8_y{ controlsRow_7_y + vertDistBtwnRows };
-	const auto controlsRow_9_y{ controlsRow_8_y + vertDistBtwnRows };
-	const auto controlsRow_10_y{ controlsRow_9_y + vertDistBtwnRows };
-	const auto controlsRow_11_y{ controlsRow_10_y + vertDistBtwnRows };
-	const auto controlsRow_12_y{ controlsRow_11_y + vertDistBtwnRows };
+	const auto controlsRow_2_y{ controlsRow_1_y + GUI::vertDistBtwnRows };
+	const auto controlsRow_3_y{ controlsRow_2_y + GUI::vertDistBtwnRows };
+	const auto controlsRow_4_y{ controlsRow_3_y + GUI::vertDistBtwnRows };
+	const auto controlsRow_5_y{ controlsRow_4_y + GUI::vertDistBtwnRows };
+	const auto controlsRow_6_y{ controlsRow_5_y + GUI::vertDistBtwnRows };
+	const auto controlsRow_7_y{ controlsRow_6_y + GUI::vertDistBtwnRows };
+	const auto controlsRow_8_y{ controlsRow_7_y + GUI::vertDistBtwnRows };
+	const auto controlsRow_9_y{ controlsRow_8_y + GUI::vertDistBtwnRows };
+	const auto controlsRow_10_y{ controlsRow_9_y + GUI::vertDistBtwnRows };
+	const auto controlsRow_11_y{ controlsRow_10_y + GUI::vertDistBtwnRows };
+	const auto controlsRow_12_y{ controlsRow_11_y + GUI::vertDistBtwnRows };
 
 	auto concise{ false };
 	auto verbose{ true };
@@ -910,10 +909,10 @@ InfoForExposedParameters::InfoForExposedParameters() :
 	const auto env_1_Sustain_x{ env_1_Decay_x + env_DADSR_horizSpacing };
 	const auto env_1_Release_x{ env_1_Sustain_x + env_DADSR_horizSpacing };
 	const auto envControlsRow_1_y{ 450 };
-	const auto envControlsRow_2_y{ envControlsRow_1_y + vertDistBtwnRows };
-	const auto envControlsRow_3_y{ envControlsRow_2_y + vertDistBtwnRows };
-	const auto envControlsRow_4_y{ envControlsRow_3_y + vertDistBtwnRows };
-	const auto envControlsRow_5_y{ envControlsRow_4_y + vertDistBtwnRows };
+	const auto envControlsRow_2_y{ envControlsRow_1_y + GUI::vertDistBtwnRows };
+	const auto envControlsRow_3_y{ envControlsRow_2_y + GUI::vertDistBtwnRows };
+	const auto envControlsRow_4_y{ envControlsRow_3_y + GUI::vertDistBtwnRows };
+	const auto envControlsRow_5_y{ envControlsRow_4_y + GUI::vertDistBtwnRows };
 	const auto envControls_w{ 72 };
 	const auto envControls_DADSR_w{ 28 };
 	for (auto envNum = 0; envNum != 3; ++envNum) {

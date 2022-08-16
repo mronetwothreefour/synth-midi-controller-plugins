@@ -2,7 +2,8 @@
 
 #include <JuceHeader.h>
 
-struct ExposedParamChoiceNamesValueTree {
+struct ExposedParamChoiceNamesValueTree
+{
 	static String convertIntToPitchName(const uint8& i) noexcept;
 	static String convertIntToSeqStepPitchName(const uint8& i) noexcept;
 

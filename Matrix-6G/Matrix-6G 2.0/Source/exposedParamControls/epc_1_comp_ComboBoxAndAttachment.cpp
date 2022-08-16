@@ -23,8 +23,8 @@ ComboBoxAndAttachment::ComboBoxAndAttachment(const uint8 paramIndex, ExposedPara
 }
 
 void ComboBoxAndAttachment::paint(Graphics& g) {
-	auto currentValue{ (uint8)roundToInt(comboBox.getSelectedItemIndex()) };
-	auto choiceNameString{ info->choiceNameFor(currentValue, paramIndex) };
+	auto currentChoice{ (uint8)roundToInt(comboBox.getSelectedItemIndex()) };
+	auto choiceNameString{ info->choiceNameFor(currentChoice, paramIndex) };
 	auto choiceNamePath{ LED_Path::buildChoiceNameForControl(choiceNameString, comboBox_w) };
 	g.setColour(GUI::color_LED_Blue);
 	g.fillPath(choiceNamePath);

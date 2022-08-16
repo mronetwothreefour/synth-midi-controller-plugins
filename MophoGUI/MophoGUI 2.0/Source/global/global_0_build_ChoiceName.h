@@ -6,7 +6,8 @@
 
 using namespace MophoConstants;
 
-struct GlobalParamChoiceName {
+struct GlobalParamChoiceName
+{
 	static String buildForAudioOutput(bool isMono);
 	static String buildForHardwareOutputBalance(int choiceNum);
 	static String buildForGlobalFineTune(int choiceNum, bool verbose);

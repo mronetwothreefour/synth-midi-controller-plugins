@@ -108,6 +108,7 @@ namespace Matrix_6G_Constants
 		static const Identifier property_Width{ "property_Width" };
 
 		static const Identifier state_CurrentVoiceOptions{ "state_CurrentVoiceOptions" };
+		static const Identifier state_MatrixModOptions{ "state_MatrixModOptions" };
 		static const Identifier state_TooltipsOptions{ "state_TooltipsOptions" };
 		static const Identifier state_UnexposedParams{ "state_UnexposedParams" };
 		static const Identifier state_VoiceTxOptions{ "state_VoiceTxOptions" };
@@ -121,6 +122,7 @@ namespace Matrix_6G_Constants
 		static const Identifier tree_CurrentVoiceOptions{ "tree_CurrentVoiceOptions" };
 		static const Identifier tree_ExposedParamsInfo{ "tree_ExposedParamsInfo" };
 		static const Identifier tree_GlobalOptions{ "tree_GlobalOptions" };
+		static const Identifier tree_MatrixModOptions{ "tree_MatrixModOptions" };
 		static const Identifier tree_TooltipsOptions{ "tree_TooltipsOptions" };
 		static const Identifier tree_VoiceTxOptions{ "tree_VoiceTxOptions" };
 

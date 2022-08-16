@@ -5,7 +5,6 @@
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
-#include "../midi/midi_0_NRPNbufferWithLeadingMSBs.h"
 
 using namespace MophoConstants;
 using ChoiceName = GlobalParamChoiceName;

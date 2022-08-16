@@ -23,6 +23,9 @@
     <Filter Include="Matrix-6G 2\Source\gui">
       <UniqueIdentifier>{2F6CE252-972C-3886-C397-BBF45D797DE2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G 2\Source\matrixMod">
+      <UniqueIdentifier>{79F1FF3E-DC19-AF85-5B59-95979EEBB167}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Matrix-6G 2\Source\midi">
       <UniqueIdentifier>{AC46BDE4-178E-D14E-BB04-E4CFAEAA8B5F}</UniqueIdentifier>
     </Filter>
@@ -634,6 +637,9 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_tree_CurrentVoiceOptions.cpp">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_0_tree_MatrixModOptions.cpp">
+      <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClCompile>
@@ -652,6 +658,21 @@
     <ClCompile Include="..\..\Source\gui\gui_MatrixLookAndFeel.cpp">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\matrixMod\mMod_0_build_ChoiceName.cpp">
+      <Filter>Matrix-6G 2\Source\matrixMod</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\matrixMod\mMod_1_comp_ComboBoxForMatrixModDestination.cpp">
+      <Filter>Matrix-6G 2\Source\matrixMod</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\matrixMod\mMod_1_comp_ComboBoxForMatrixModSource.cpp">
+      <Filter>Matrix-6G 2\Source\matrixMod</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\matrixMod\mMod_1_comp_SliderForMatrixModAmount.cpp">
+      <Filter>Matrix-6G 2\Source\matrixMod</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\matrixMod\mMod_3_gui_layer_MatrixMod.cpp">
+      <Filter>Matrix-6G 2\Source\matrixMod</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_0_RawDataTools.cpp">
       <Filter>Matrix-6G 2\Source\midi</Filter>
     </ClCompile>
@@ -659,9 +680,6 @@
       <Filter>Matrix-6G 2\Source\midi</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp">
-      <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_MatrixModOptions.cpp">
       <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp">
@@ -3006,6 +3024,9 @@
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h">
       <Filter>Matrix-6G 2\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_MatrixMod.h">
+      <Filter>Matrix-6G 2\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_Voices.h">
       <Filter>Matrix-6G 2\Source\constants</Filter>
     </ClInclude>
@@ -3034,6 +3055,9 @@
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_0_tree_CurrentVoiceOptions.h">
+      <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_0_tree_MatrixModOptions.h">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.h">
@@ -3066,6 +3090,24 @@
     <ClInclude Include="..\..\Source\gui\gui_MatrixLookAndFeel.h">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\matrixMod\mMod_0_build_ChoiceName.h">
+      <Filter>Matrix-6G 2\Source\matrixMod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\matrixMod\mMod_1_comp_ComboBoxForMatrixModDestination.h">
+      <Filter>Matrix-6G 2\Source\matrixMod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\matrixMod\mMod_1_comp_ComboBoxForMatrixModSource.h">
+      <Filter>Matrix-6G 2\Source\matrixMod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\matrixMod\mMod_1_comp_SliderForMatrixModAmount.h">
+      <Filter>Matrix-6G 2\Source\matrixMod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\matrixMod\mMod_2_comp_MatrixModControlBlock.h">
+      <Filter>Matrix-6G 2\Source\matrixMod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\matrixMod\mMod_3_gui_layer_MatrixMod.h">
+      <Filter>Matrix-6G 2\Source\matrixMod</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_0_OutgoingMidiBuffers.h">
       <Filter>Matrix-6G 2\Source\midi</Filter>
     </ClInclude>
@@ -3076,9 +3118,6 @@
       <Filter>Matrix-6G 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h">
-      <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_MatrixModOptions.h">
       <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h">

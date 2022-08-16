@@ -39,6 +39,8 @@
               file="Source/constants/constants_GUI_PathData.h"/>
         <FILE id="QbNxA6" name="constants_Identifiers.h" compile="0" resource="0"
               file="Source/constants/constants_Identifiers.h"/>
+        <FILE id="ABE7F9" name="constants_MatrixMod.h" compile="0" resource="0"
+              file="Source/constants/constants_MatrixMod.h"/>
         <FILE id="rve2OR" name="constants_Voices.h" compile="0" resource="0"
               file="Source/constants/constants_Voices.h"/>
       </GROUP>
@@ -81,6 +83,10 @@
               resource="0" file="Source/exposedParameters/ep_0_tree_CurrentVoiceOptions.cpp"/>
         <FILE id="JOFj8e" name="ep_0_tree_CurrentVoiceOptions.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_0_tree_CurrentVoiceOptions.h"/>
+        <FILE id="Sp1VEm" name="ep_0_tree_MatrixModOptions.cpp" compile="1"
+              resource="0" file="Source/exposedParameters/ep_0_tree_MatrixModOptions.cpp"/>
+        <FILE id="CpFj3o" name="ep_0_tree_MatrixModOptions.h" compile="0" resource="0"
+              file="Source/exposedParameters/ep_0_tree_MatrixModOptions.h"/>
         <FILE id="QzNsJZ" name="ep_1_tree_InfoForExposedParameters.cpp" compile="1"
               resource="0" file="Source/exposedParameters/ep_1_tree_InfoForExposedParameters.cpp"/>
         <FILE id="SE9396" name="ep_1_tree_InfoForExposedParameters.h" compile="0"
@@ -116,6 +122,30 @@
         <FILE id="zvQrA4" name="gui_MatrixLookAndFeel.h" compile="0" resource="0"
               file="Source/gui/gui_MatrixLookAndFeel.h"/>
       </GROUP>
+      <GROUP id="{280C0962-161A-5B41-A687-BFF4C33522BD}" name="matrixMod">
+        <FILE id="e0W5ks" name="mMod_0_build_ChoiceName.cpp" compile="1" resource="0"
+              file="Source/matrixMod/mMod_0_build_ChoiceName.cpp"/>
+        <FILE id="JEA2l8" name="mMod_0_build_ChoiceName.h" compile="0" resource="0"
+              file="Source/matrixMod/mMod_0_build_ChoiceName.h"/>
+        <FILE id="YFuN26" name="mMod_1_comp_ComboBoxForMatrixModDestination.cpp"
+              compile="1" resource="0" file="Source/matrixMod/mMod_1_comp_ComboBoxForMatrixModDestination.cpp"/>
+        <FILE id="sx8oGA" name="mMod_1_comp_ComboBoxForMatrixModDestination.h"
+              compile="0" resource="0" file="Source/matrixMod/mMod_1_comp_ComboBoxForMatrixModDestination.h"/>
+        <FILE id="N9WlCW" name="mMod_1_comp_ComboBoxForMatrixModSource.cpp"
+              compile="1" resource="0" file="Source/matrixMod/mMod_1_comp_ComboBoxForMatrixModSource.cpp"/>
+        <FILE id="V7FYGC" name="mMod_1_comp_ComboBoxForMatrixModSource.h" compile="0"
+              resource="0" file="Source/matrixMod/mMod_1_comp_ComboBoxForMatrixModSource.h"/>
+        <FILE id="TD2ar0" name="mMod_1_comp_SliderForMatrixModAmount.cpp" compile="1"
+              resource="0" file="Source/matrixMod/mMod_1_comp_SliderForMatrixModAmount.cpp"/>
+        <FILE id="z7ZrrS" name="mMod_1_comp_SliderForMatrixModAmount.h" compile="0"
+              resource="0" file="Source/matrixMod/mMod_1_comp_SliderForMatrixModAmount.h"/>
+        <FILE id="MS98VU" name="mMod_2_comp_MatrixModControlBlock.h" compile="0"
+              resource="0" file="Source/matrixMod/mMod_2_comp_MatrixModControlBlock.h"/>
+        <FILE id="UeC6uh" name="mMod_3_gui_layer_MatrixMod.cpp" compile="1"
+              resource="0" file="Source/matrixMod/mMod_3_gui_layer_MatrixMod.cpp"/>
+        <FILE id="DZZ4iK" name="mMod_3_gui_layer_MatrixMod.h" compile="0" resource="0"
+              file="Source/matrixMod/mMod_3_gui_layer_MatrixMod.h"/>
+      </GROUP>
       <GROUP id="{2955D2CE-3E34-022A-A523-FC88E078226B}" name="midi">
         <FILE id="DxAryu" name="midi_0_OutgoingMidiBuffers.h" compile="0" resource="0"
               file="Source/midi/midi_0_OutgoingMidiBuffers.h"/>
@@ -133,10 +163,6 @@
               file="Source/unexposedParameters/up_0_tree_GlobalOptions.cpp"/>
         <FILE id="mEEDMm" name="up_0_tree_GlobalOptions.h" compile="0" resource="0"
               file="Source/unexposedParameters/up_0_tree_GlobalOptions.h"/>
-        <FILE id="QjceXT" name="up_0_tree_MatrixModOptions.cpp" compile="1"
-              resource="0" file="Source/unexposedParameters/up_0_tree_MatrixModOptions.cpp"/>
-        <FILE id="QJuKCx" name="up_0_tree_MatrixModOptions.h" compile="0" resource="0"
-              file="Source/unexposedParameters/up_0_tree_MatrixModOptions.h"/>
         <FILE id="OQzWUF" name="up_0_tree_TooltipsOptions.cpp" compile="1"
               resource="0" file="Source/unexposedParameters/up_0_tree_TooltipsOptions.cpp"/>
         <FILE id="ZmZFMo" name="up_0_tree_TooltipsOptions.h" compile="0" resource="0"
