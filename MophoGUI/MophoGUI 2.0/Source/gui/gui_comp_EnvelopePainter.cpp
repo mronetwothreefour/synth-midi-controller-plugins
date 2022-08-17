@@ -45,11 +45,11 @@ EnvelopePainter::EnvelopePainter(const EnvelopeType envType, ExposedParameters* 
 		break;
 	}
 
-	delay.addListener(this);
-	attack.addListener(this);
-	decay.addListener(this);
-	sustain.addListener(this);
-	release.addListener(this);
+	delay.onValueChange = [this] { setEnvelopeCoordinates(); };
+	attack.onValueChange = [this] { setEnvelopeCoordinates(); };
+	decay.onValueChange = [this] { setEnvelopeCoordinates(); };
+	sustain.onValueChange = [this] { setEnvelopeCoordinates(); };
+	release.onValueChange = [this] { setEnvelopeCoordinates(); };
 
 	auto state{ exposedParams->state.get() };
 	delayAttachment.reset( new SliderAttachment{ *state, delayParamID, delay } );
@@ -58,14 +58,9 @@ EnvelopePainter::EnvelopePainter(const EnvelopeType envType, ExposedParameters* 
 	sustainAttachment.reset( new SliderAttachment{ *state, sustainParamID, sustain } );
 	releaseAttachment.reset( new SliderAttachment{ *state, releaseParamID, release } );
 
-	setSize(envelopePainters_w, envelopePainters_h);
-
-	sliderValueChanged(&delay);
-}
-
-void EnvelopePainter::sliderValueChanged(Slider* /*slider*/) {
 	setEnvelopeCoordinates();
-	repaint();
+
+	setSize(envelopePainters_w, envelopePainters_h);
 }
 
 void EnvelopePainter::setEnvelopeCoordinates() {
@@ -75,6 +70,7 @@ void EnvelopePainter::setEnvelopeCoordinates() {
 	sustain_y = envMin_y - (((float)sustain.getValue() / 127.0f) * env_h);
 	releaseStart_x = sustainStart_x + sustainSegment_w;
 	releaseEnd_x = releaseStart_x + (((float)release.getValue() / 127.0f) * envSegmentMax_w);
+	repaint();
 }
 
 void EnvelopePainter::paint(Graphics& g) {
@@ -96,12 +92,4 @@ void EnvelopePainter::deleteAttachmentsBeforeKnobsToPreventMemLeaks() {
 	decayAttachment = nullptr;
 	sustainAttachment = nullptr;
 	releaseAttachment = nullptr;
-}
-
-EnvelopePainter::~EnvelopePainter() {
-	delay.removeListener(this);
-	attack.removeListener(this);
-	decay.removeListener(this);
-	sustain.removeListener(this);
-	release.removeListener(this);
 }

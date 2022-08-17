@@ -7,10 +7,7 @@ using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 class ExposedParameters;
 
 class GUI_Layer_TrackingGraphPainter :
-	public Component,
-	public Slider::Listener
-	// Note: listening to a slider with an exposed parameter attachment is
-	// much, much faster than listening directly to an exposed parameter
+	public Component
 {
 	Slider point_1;
 	Slider point_2;
@@ -41,7 +38,6 @@ public:
 	GUI_Layer_TrackingGraphPainter() = delete;
 
 	explicit GUI_Layer_TrackingGraphPainter(ExposedParameters* exposedParams);
-	void sliderValueChanged(Slider* slider) override;
 
 private:
 	void setPointCoordinates();
@@ -49,7 +45,6 @@ private:
 
 public:
 	void deleteAttachmentsBeforeSlidersToPreventMemLeaks();
-	~GUI_Layer_TrackingGraphPainter();
 
 private:
 	//==============================================================================

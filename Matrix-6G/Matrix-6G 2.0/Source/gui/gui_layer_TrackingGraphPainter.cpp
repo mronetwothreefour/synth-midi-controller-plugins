@@ -16,17 +16,17 @@ GUI_Layer_TrackingGraphPainter::GUI_Layer_TrackingGraphPainter(ExposedParameters
 {
 	setInterceptsMouseClicks(false, false);
 
+	point_1.onValueChange = [this] { setPointCoordinates(); };
+	point_2.onValueChange = [this] { setPointCoordinates(); };
+	point_3.onValueChange = [this] { setPointCoordinates(); };
+	point_4.onValueChange = [this] { setPointCoordinates(); };
+	point_5.onValueChange = [this] { setPointCoordinates(); };
+
 	String point_1_ParamID{ ID::ep_61_TrackPoint_1.toString() };
 	String point_2_ParamID{ ID::ep_62_TrackPoint_2.toString() };
 	String point_3_ParamID{ ID::ep_63_TrackPoint_3.toString() };
 	String point_4_ParamID{ ID::ep_64_TrackPoint_4.toString() };
 	String point_5_ParamID{ ID::ep_65_TrackPoint_5.toString() };
-
-	point_1.addListener(this);
-	point_2.addListener(this);
-	point_3.addListener(this);
-	point_4.addListener(this);
-	point_5.addListener(this);
 
 	auto state{ exposedParams->state.get() };
 	point_1_Attachment.reset(new SliderAttachment{ *state, point_1_ParamID, point_1 });
@@ -35,12 +35,7 @@ GUI_Layer_TrackingGraphPainter::GUI_Layer_TrackingGraphPainter(ExposedParameters
 	point_4_Attachment.reset(new SliderAttachment{ *state, point_4_ParamID, point_4 });
 	point_5_Attachment.reset(new SliderAttachment{ *state, point_5_ParamID, point_5 });
 
-	sliderValueChanged(&point_1);
-}
-
-void GUI_Layer_TrackingGraphPainter::sliderValueChanged(Slider* /*slider*/) {
 	setPointCoordinates();
-	repaint();
 }
 
 void GUI_Layer_TrackingGraphPainter::setPointCoordinates() {
@@ -49,6 +44,7 @@ void GUI_Layer_TrackingGraphPainter::setPointCoordinates() {
 	point_3_y = graphMin_y - (((float)point_3.getValue() / 63.0f) * graph_h);
 	point_4_y = graphMin_y - (((float)point_4.getValue() / 63.0f) * graph_h);
 	point_5_y = graphMin_y - (((float)point_5.getValue() / 63.0f) * graph_h);
+	repaint();
 }
 
 void GUI_Layer_TrackingGraphPainter::paint(Graphics& g) {
@@ -70,10 +66,3 @@ void GUI_Layer_TrackingGraphPainter::deleteAttachmentsBeforeSlidersToPreventMemL
 	point_5_Attachment = nullptr;
 }
 
-GUI_Layer_TrackingGraphPainter::~GUI_Layer_TrackingGraphPainter() {
-	point_1.removeListener(this);
-	point_2.removeListener(this);
-	point_3.removeListener(this);
-	point_4.removeListener(this);
-	point_5.removeListener(this);
-}

@@ -11,10 +11,7 @@ using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 class ExposedParameters;
 
 class EnvelopePainter :
-	public Component,
-	public Slider::Listener
-	// Note: listening to a slider with an exposed parameter attachment is
-	// much, much faster than listening directly to an exposed parameter
+	public Component
 {
 	Slider delay;
 	Slider attack;
@@ -46,7 +43,6 @@ public:
 	EnvelopePainter() = delete;
 
 	EnvelopePainter(const EnvelopeType envType, ExposedParameters* exposedParams);
-	void sliderValueChanged(Slider* slider) override;
 
 private:
 	void setEnvelopeCoordinates();
@@ -54,7 +50,6 @@ private:
 
 public:
 	void deleteAttachmentsBeforeKnobsToPreventMemLeaks();
-	~EnvelopePainter();
 
 private:
 	//==============================================================================
