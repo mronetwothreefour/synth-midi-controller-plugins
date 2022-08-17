@@ -11,8 +11,7 @@ using SliderAttachment = AudioProcessorValueTreeState::SliderAttachment;
 using Track = SeqTrackNum;
 
 class KnobAndAttachment_ForSeqStep :
-	public Component,
-	public Slider::Listener
+	public Component
 {
 	const uint8 paramIndex;
 	AudioProcessorValueTreeState* state;
@@ -34,9 +33,7 @@ public:
 	void paintChoiceNameString(Graphics& g, String stepChoiceName);
 	void attachKnobsToExposedParameters();
 	void setKnobIsModifyingPitch(bool isModifyingPitch);
-	void sliderValueChanged(Slider* slider) override;
 	void deleteAttachmentsBeforeKnobsToPreventMemLeaks();
-	~KnobAndAttachment_ForSeqStep();
 
 private:
 	//==============================================================================

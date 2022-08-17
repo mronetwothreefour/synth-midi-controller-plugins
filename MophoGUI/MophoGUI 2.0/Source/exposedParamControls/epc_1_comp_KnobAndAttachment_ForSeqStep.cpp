@@ -16,17 +16,20 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 	tooltipUpdater{ paramIndex, knob, exposedParams, unexposedParams },
 	trackDestID{ info->IDfor(uint8(EP::firstSeqTrackDestParamIndex + ((int)track - 1))) }
 {
+	trackDestination.onValueChange = [this] {
+		auto destination{ roundToInt(trackDestination.getValue()) };
+		knob.isModifyingPitch = destination > 0 && destination < 4 ? true : false;
+		repaint();
+	};
+
 	addAndMakeVisible(knob);
 	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
 	knob.isModifyingPitch = false;
 	knob.isModifyingSeqStep = true;
-	setSize(GUI::seqSteps_w, GUI::seqSteps_h);
 	knob.setAlpha(0.0f);
+
+	setSize(GUI::seqSteps_w, GUI::seqSteps_h);
 	knob.setBounds(getLocalBounds());
-
-	trackDestination.addListener(this);
-
-	sliderValueChanged(&trackDestination);
 }
 
 void KnobAndAttachment_ForSeqStep::paint(Graphics& g) {
@@ -73,17 +76,8 @@ void KnobAndAttachment_ForSeqStep::setKnobIsModifyingPitch(bool isModifyingPitch
 	knob.isModifyingPitch = isModifyingPitch;
 }
 
-void KnobAndAttachment_ForSeqStep::sliderValueChanged(Slider* /*slider*/) {
-	auto destination{ roundToInt(trackDestination.getValue()) };
-	knob.isModifyingPitch = destination > 0 && destination < 4 ? true : false;
-	repaint();
-}
-
 void KnobAndAttachment_ForSeqStep::deleteAttachmentsBeforeKnobsToPreventMemLeaks() {
 	knobAttachment = nullptr;
 	trackDestinationAttachment = nullptr;
 }
 
-KnobAndAttachment_ForSeqStep::~KnobAndAttachment_ForSeqStep() {
-	trackDestination.removeListener(this);
-}
