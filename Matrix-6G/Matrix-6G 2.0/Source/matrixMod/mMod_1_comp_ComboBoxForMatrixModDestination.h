@@ -19,7 +19,6 @@ public:
 
 	ComboBoxForMatrixModDestination(int modNum, MatrixModOptions* matrixModOptions, TooltipsOptions* tooltips);
 	void updateTooltip();
-	void paint(Graphics& g) override;
 	void valueChanged(Value& value) override;
 	~ComboBoxForMatrixModDestination();
 

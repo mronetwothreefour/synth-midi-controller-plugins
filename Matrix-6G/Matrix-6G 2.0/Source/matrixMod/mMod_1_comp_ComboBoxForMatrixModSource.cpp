@@ -56,15 +56,6 @@ void ComboBoxForMatrixModSource::updateTooltip() {
 	setTooltip(tip);
 }
 
-void ComboBoxForMatrixModSource::paint(Graphics& g) {
-	auto concise{ (bool)false };
-	auto currentChoice{ (uint8)getSelectedItemIndex() };
-	auto choiceNameString{ ChoiceName::buildForModSource(currentChoice, concise) };
-	auto choiceNamePath{ LED_Path::buildChoiceNameForControl(choiceNameString, GUI::matrixModComboBox_w) };
-	g.setColour(GUI::color_LED_Blue);
-	g.fillPath(choiceNamePath);
-}
-
 void ComboBoxForMatrixModSource::valueChanged(Value& value) {
 	if (value.refersToSameSourceAs(modSourceValue))
 		setSelectedItemIndex((int)value.getValue());

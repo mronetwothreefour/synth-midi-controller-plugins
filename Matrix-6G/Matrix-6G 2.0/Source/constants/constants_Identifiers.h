@@ -6,6 +6,8 @@ namespace Matrix_6G_Constants
 {
 	namespace ID
 	{
+		static const Identifier comp_VoiceNameEditor{ "comp_VoiceNameEditor" };
+
 		static const Identifier currentVoice_Name{ "currentVoice_Name" };
 		static const Identifier currentVoice_Number{ "currentVoice_Number" };
 

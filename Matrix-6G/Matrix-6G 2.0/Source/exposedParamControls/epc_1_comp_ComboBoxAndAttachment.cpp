@@ -22,14 +22,6 @@ ComboBoxAndAttachment::ComboBoxAndAttachment(const uint8 paramIndex, ExposedPara
 	comboBox.setBounds(getLocalBounds());
 }
 
-void ComboBoxAndAttachment::paint(Graphics& g) {
-	auto currentChoice{ (uint8)roundToInt(comboBox.getSelectedItemIndex()) };
-	auto choiceNameString{ info->choiceNameFor(currentChoice, paramIndex) };
-	auto choiceNamePath{ LED_Path::buildChoiceNameForControl(choiceNameString, comboBox_w) };
-	g.setColour(GUI::color_LED_Blue);
-	g.fillPath(choiceNamePath);
-}
-
 void ComboBoxAndAttachment::attachComboBoxToExposedParameter() {
 	attachment.reset(new ComboBoxAttachment{ *state, info->IDfor(paramIndex).toString(), comboBox });
 }

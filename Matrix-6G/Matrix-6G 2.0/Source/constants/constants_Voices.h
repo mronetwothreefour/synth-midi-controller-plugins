@@ -6,6 +6,7 @@ namespace Matrix_6G_Constants
 {
 	namespace VCS
 	{
+		const int numberOfCharsInVoiceName{ 8 };
 		const int numberOfSlotsInBank{ 100 };
 		const int rawVoiceDataVectorChecksumByteIndex{ 272 };
 

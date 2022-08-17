@@ -94,6 +94,10 @@
               resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.h"/>
         <FILE id="m0aAdb" name="gui_layer_ExposedParamControls.h" compile="0"
               resource="0" file="Source/gui/gui_layer_ExposedParamControls.h"/>
+        <FILE id="Uufbrb" name="gui_layer_MainWindowButtons.cpp" compile="1"
+              resource="0" file="Source/gui/gui_layer_MainWindowButtons.cpp"/>
+        <FILE id="hyCuLH" name="gui_layer_MainWindowButtons.h" compile="0"
+              resource="0" file="Source/gui/gui_layer_MainWindowButtons.h"/>
         <FILE id="O4iALx" name="gui_P_600_LookAndFeel.cpp" compile="1" resource="0"
               file="Source/gui/gui_P_600_LookAndFeel.cpp"/>
         <FILE id="nUbgRp" name="gui_P_600_LookAndFeel.h" compile="0" resource="0"

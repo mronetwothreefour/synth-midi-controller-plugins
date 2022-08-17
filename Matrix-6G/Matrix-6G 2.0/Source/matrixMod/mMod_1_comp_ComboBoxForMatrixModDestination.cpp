@@ -19,7 +19,7 @@ ComboBoxForMatrixModDestination::ComboBoxForMatrixModDestination(int modNum, Mat
 	modDestValue = matrixModOptions->getMatrixModPropertyAsValue("matrixMod_Mod_" + (String)modNum + "_Dest");
 	modDestValue.addListener(this);
 
-	const auto concise{ (bool)false };
+	auto concise{ (bool)false };
 	StringArray choiceNamesList{};
 	for (auto choiceNum = (uint8)0; choiceNum != MMOD::numberOfDestChoices; ++choiceNum)
 		choiceNamesList.add(ChoiceName::buildForModDest(choiceNum, concise));
@@ -54,15 +54,6 @@ void ComboBoxForMatrixModDestination::updateTooltip() {
 		tip += "Current Setting: " + ChoiceName::buildForModDest(currentChoice, verbose);
 	}
 	setTooltip(tip);
-}
-
-void ComboBoxForMatrixModDestination::paint(Graphics& g) {
-	const auto concise{ (bool)false };
-	auto currentChoice{ (uint8)getSelectedItemIndex() };
-	auto choiceNameString{ ChoiceName::buildForModDest(currentChoice, concise) };
-	auto choiceNamePath{ LED_Path::buildChoiceNameForControl(choiceNameString, GUI::matrixModComboBox_w) };
-	g.setColour(GUI::color_LED_Blue);
-	g.fillPath(choiceNamePath);
 }
 
 void ComboBoxForMatrixModDestination::valueChanged(Value& value) {

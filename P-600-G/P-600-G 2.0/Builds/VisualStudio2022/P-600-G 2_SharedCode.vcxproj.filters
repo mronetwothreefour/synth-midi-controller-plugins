@@ -637,6 +637,9 @@
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp">
       <Filter>P-600-G 2\Source\gui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_layer_MainWindowButtons.cpp">
+      <Filter>P-600-G 2\Source\gui</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_P_600_LookAndFeel.cpp">
       <Filter>P-600-G 2\Source\gui</Filter>
     </ClCompile>
@@ -3019,6 +3022,9 @@
       <Filter>P-600-G 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h">
+      <Filter>P-600-G 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_layer_MainWindowButtons.h">
       <Filter>P-600-G 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_P_600_LookAndFeel.h">

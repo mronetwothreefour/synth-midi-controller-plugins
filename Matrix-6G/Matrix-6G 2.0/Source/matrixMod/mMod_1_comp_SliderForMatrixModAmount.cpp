@@ -55,7 +55,7 @@ void SliderForMatrixModAmount::paint(Graphics& g) {
 	g.setColour(GUI::color_LED_Blue);
 	auto currentChoice{ (uint8)roundToInt(getValue()) };
 	auto choiceNameString{ ChoiceName::buildForModAmount(currentChoice) };
-	auto choiceNamePath{ LED_Path::buildChoiceNameForControl(choiceNameString, GUI::matrixModSlider_w) };
+	auto choiceNamePath{ LED_Path::buildLabelText(choiceNameString, GUI::matrixModSlider_w) };
 	g.fillPath(choiceNamePath);
 }
 

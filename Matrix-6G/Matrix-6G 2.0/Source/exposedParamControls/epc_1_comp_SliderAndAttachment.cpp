@@ -27,7 +27,7 @@ void SliderAndAttachment::paint(Graphics& g) {
 	g.setColour(GUI::color_LED_Blue);
 	auto currentChoice{ roundToInt(slider.getValue()) };
 	auto choiceNameString{ info->choiceNameFor((uint8)currentChoice, paramIndex) };
-	auto choiceNamePath{ LED_Path::buildChoiceNameForControl(choiceNameString, slider_w) };
+	auto choiceNamePath{ LED_Path::buildLabelText(choiceNameString, slider_w) };
 	g.fillPath(choiceNamePath);
 }
 

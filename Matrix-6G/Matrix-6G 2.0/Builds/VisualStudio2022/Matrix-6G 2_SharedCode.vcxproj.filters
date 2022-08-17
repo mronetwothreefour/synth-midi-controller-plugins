@@ -652,6 +652,12 @@
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_layer_CurrentVoiceNameAndNumber.cpp">
+      <Filter>Matrix-6G 2\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_layer_MainWindowButtons.cpp">
+      <Filter>Matrix-6G 2\Source\gui</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_layer_TrackingGraphPainter.cpp">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClCompile>
@@ -3078,10 +3084,16 @@
     <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_layer_CurrentVoiceNameAndNumber.h">
+      <Filter>Matrix-6G 2\Source\gui</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_layer_EnvelopePainters.h">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h">
+      <Filter>Matrix-6G 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_layer_MainWindowButtons.h">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_layer_TrackingGraphPainter.h">

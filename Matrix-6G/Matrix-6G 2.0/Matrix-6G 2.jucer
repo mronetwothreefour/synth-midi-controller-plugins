@@ -109,10 +109,18 @@
               resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.cpp"/>
         <FILE id="FBDksN" name="gui_comp_JuceSlidersWithMouseMods.h" compile="0"
               resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.h"/>
+        <FILE id="tKeKDk" name="gui_layer_CurrentVoiceNameAndNumber.cpp" compile="1"
+              resource="0" file="Source/gui/gui_layer_CurrentVoiceNameAndNumber.cpp"/>
+        <FILE id="cvuPrJ" name="gui_layer_CurrentVoiceNameAndNumber.h" compile="0"
+              resource="0" file="Source/gui/gui_layer_CurrentVoiceNameAndNumber.h"/>
         <FILE id="F8OG6k" name="gui_layer_EnvelopePainters.h" compile="0" resource="0"
               file="Source/gui/gui_layer_EnvelopePainters.h"/>
         <FILE id="FLt156" name="gui_layer_ExposedParamControls.h" compile="0"
               resource="0" file="Source/gui/gui_layer_ExposedParamControls.h"/>
+        <FILE id="EUFpTn" name="gui_layer_MainWindowButtons.cpp" compile="1"
+              resource="0" file="Source/gui/gui_layer_MainWindowButtons.cpp"/>
+        <FILE id="IeGbvV" name="gui_layer_MainWindowButtons.h" compile="0"
+              resource="0" file="Source/gui/gui_layer_MainWindowButtons.h"/>
         <FILE id="WCsDZh" name="gui_layer_TrackingGraphPainter.cpp" compile="1"
               resource="0" file="Source/gui/gui_layer_TrackingGraphPainter.cpp"/>
         <FILE id="QeVzXa" name="gui_layer_TrackingGraphPainter.h" compile="0"

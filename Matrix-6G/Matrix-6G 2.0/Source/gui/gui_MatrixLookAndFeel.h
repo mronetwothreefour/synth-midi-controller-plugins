@@ -9,6 +9,8 @@ public:
 	MatrixLookAndFeel() = default;
 
 	void drawLabel(Graphics& g, Label& label) override;
+	void fillTextEditorBackground(Graphics& g, int w, int h, TextEditor& textEditor) override;
+	void drawTextEditorOutline(Graphics& g, int w, int h, TextEditor& textEditor) override;
 
 	void drawRotarySlider(
 		Graphics& g, int x, int y, int w, int h, float sliderPos, const float startAngle, const float endAngle, Slider& slider) override;
@@ -18,6 +20,7 @@ public:
 		float maxSliderPos, const Slider::SliderStyle style, Slider& slider) override;
 
 	void drawComboBox(Graphics& g, int width, int height, bool isDown, int x, int y, int w, int h, ComboBox& comboBox) override;
+	void positionComboBoxText(ComboBox& comboBox, Label& label) override;
 	PopupMenu::Options getOptionsForComboBoxPopupMenu(ComboBox& box, Label& label) override;
 	void drawPopupMenuBackground(Graphics& g, int w, int h) override;
 	void drawPopupMenuItem(

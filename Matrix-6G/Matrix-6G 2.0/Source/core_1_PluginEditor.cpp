@@ -2,8 +2,11 @@
 
 #include "core_0_PluginProcessor.h"
 #include "constants/constants_GUI_Dimensions.h"
+#include "exposedParameters/ep_3_facade_ExposedParameters.h"
+#include "gui/gui_layer_CurrentVoiceNameAndNumber.h"
 #include "gui/gui_layer_EnvelopePainters.h"
 #include "gui/gui_layer_ExposedParamControls.h"
+#include "gui/gui_layer_MainWindowButtons.h"
 #include "gui/gui_layer_TrackingGraphPainter.h"
 #include "gui/gui_MatrixLookAndFeel.h"
 #include "matrixMod/mMod_3_gui_layer_MatrixMod.h"
@@ -18,6 +21,8 @@ PluginEditor::PluginEditor (PluginProcessor& processor, ExposedParameters* expos
     layer_TrackingGraphPainter{ new GUI_Layer_TrackingGraphPainter{ exposedParams } },
     layer_ExposedParamControls{ new GUI_Layer_ExposedParamControls{ exposedParams, unexposedParams } },
     layer_MatrixMod{ new GUI_Layer_MatrixMod{ exposedParams, unexposedParams->getTooltipsOptions() } },
+    layer_MainWindowButtons{ new GUI_Layer_MainWindowButtons{ exposedParams, unexposedParams } },
+    layer_CurrentVoiceNameAndNumber{ new GUI_Layer_CurrentVoiceNameAndNumber{ exposedParams->currentVoiceOptions.get(), unexposedParams->getTooltipsOptions()}},
     lookAndFeel{ new MatrixLookAndFeel{} },
     tooltipsDelayInMillisecondsValue{ unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_DelayInMilliseconds) },
     tooltipWindow{ new TooltipWindow{} }
@@ -35,6 +40,12 @@ PluginEditor::PluginEditor (PluginProcessor& processor, ExposedParameters* expos
 
     layer_MatrixMod->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
     addAndMakeVisible(layer_MatrixMod.get());
+
+    layer_MainWindowButtons->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
+    addAndMakeVisible(layer_MainWindowButtons.get());
+
+    layer_CurrentVoiceNameAndNumber->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
+    addAndMakeVisible(layer_CurrentVoiceNameAndNumber.get());
 
     tooltipsDelayInMillisecondsValue.addListener(this);
     addChildComponent(tooltipWindow.get());
@@ -66,6 +77,8 @@ PluginEditor::~PluginEditor() {
     layer_TrackingGraphPainter = nullptr;
     layer_ExposedParamControls = nullptr;
     layer_MatrixMod = nullptr;
+    layer_MainWindowButtons = nullptr;
+    layer_CurrentVoiceNameAndNumber = nullptr;
     tooltipsDelayInMillisecondsValue.removeListener(this);
     tooltipWindow = nullptr;
 }

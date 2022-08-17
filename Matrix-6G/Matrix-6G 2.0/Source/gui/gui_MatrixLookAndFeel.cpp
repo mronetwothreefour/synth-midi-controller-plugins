@@ -11,7 +11,23 @@ using namespace BinaryData;
 using MemBlock = MemoryBlock;
 using s_t = size_t;
 
-void MatrixLookAndFeel::drawLabel(Graphics& /*g*/, Label& /*label*/) {
+void MatrixLookAndFeel::drawLabel(Graphics& g, Label& label) {
+	if (label.isBeingEdited()) {
+	}
+	else {
+		g.setColour(GUI::color_LED_Blue);
+		auto text{ label.getText() };
+		auto isRightJustified{ label.getComponentID() == ID::comp_VoiceNameEditor.toString() ? false : true};
+		auto textPath{ LED_Path::buildLabelText(text, label.getWidth(), isRightJustified) };
+		g.fillPath(textPath);
+	}
+}
+
+void MatrixLookAndFeel::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h*/, TextEditor& /*textEditor*/) {
+	g.fillAll(GUI::color_Black);
+}
+
+void MatrixLookAndFeel::drawTextEditorOutline(Graphics& /*g*/, int /*w*/, int /*h*/, TextEditor& /*textEditor*/) {
 }
 
 void MatrixLookAndFeel::drawRotarySlider(
@@ -32,6 +48,10 @@ void MatrixLookAndFeel::drawLinearSlider(
 void MatrixLookAndFeel::drawComboBox(
 	Graphics& /*g*/, int /*width*/, int /*height*/, bool /*isDown*/, int /*x*/, int /*y*/, int /*w*/, int /*h*/, ComboBox& /*comboBox*/) 
 {
+}
+
+void MatrixLookAndFeel::positionComboBoxText(ComboBox& comboBox, Label& label) {
+	label.setBounds(0, 0, comboBox.getWidth(), comboBox.getHeight());
 }
 
 PopupMenu::Options MatrixLookAndFeel::getOptionsForComboBoxPopupMenu(ComboBox& box, Label& label) {
@@ -61,16 +81,8 @@ void MatrixLookAndFeel::drawPopupMenuItem(
 		auto vertBarTick{ LED_Path::buildForVertBar() };
 		g.fillPath(vertBarTick, AffineTransform::translation(1.0f, 0.0f));
 	}
-	auto lastCharacter_x{ area.getWidth() - GUI::ledDisplayRightSideInset - GUI::ledDisplayCharacter_w };
-	Path positionPath;
-	auto lastCharacterIndex{ (int)text.toStdString().size() - 1 };
-	for (auto i = lastCharacterIndex; i != -1; --i) {
-		auto charNum{ (uint8)text[i] };
-		auto character_x{ lastCharacter_x - GUI::ledDisplayCharacter_w * (lastCharacterIndex - i) };
-		auto charPath{ LED_Path::buildForChar(charNum) };
-		positionPath.addPath(charPath, AffineTransform::translation((float)character_x, GUI::ledDisplay_y));
-	}
-	g.fillPath(positionPath);
+	auto textPath{ LED_Path::buildLabelText(text, area.getWidth()) };
+	g.fillPath(textPath);
 }
 
 void MatrixLookAndFeel::getIdealPopupMenuItemSize(

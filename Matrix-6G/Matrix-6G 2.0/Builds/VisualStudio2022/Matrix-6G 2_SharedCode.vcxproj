@@ -155,6 +155,8 @@
     <ClCompile Include="..\..\Source\gui\gui_build_LED_Path.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_layer_CurrentVoiceNameAndNumber.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_layer_MainWindowButtons.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_layer_TrackingGraphPainter.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_MatrixLookAndFeel.cpp"/>
     <ClCompile Include="..\..\Source\matrixMod\mMod_0_build_ChoiceName.cpp"/>
@@ -2347,8 +2349,10 @@
     <ClInclude Include="..\..\Source\gui\gui_build_LED_Path.h"/>
     <ClInclude Include="..\..\Source\gui\gui_comp_EnvelopePainter.h"/>
     <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_layer_CurrentVoiceNameAndNumber.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_EnvelopePainters.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_layer_MainWindowButtons.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_TrackingGraphPainter.h"/>
     <ClInclude Include="..\..\Source\gui\gui_MatrixLookAndFeel.h"/>
     <ClInclude Include="..\..\Source\matrixMod\mMod_0_build_ChoiceName.h"/>

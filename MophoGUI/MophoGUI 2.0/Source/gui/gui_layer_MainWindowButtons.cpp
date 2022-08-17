@@ -31,7 +31,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
 {
     setInterceptsMouseClicks(false, true);
 
-    shouldShowDescriptionValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
+    shouldShowDescriptionValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
     shouldShowDescriptionValue.addListener(this);
 
     voiceNameEditor.setInterceptsMouseClicks(false, true);
@@ -168,7 +168,7 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
 void GUI_Layer_MainWindowButtons::showVoiceNameEditor() {
     voiceNameEditor.setText(getVoiceNameFromExposedParemeters(), dontSendNotification);
     voiceNameEditor.showEditor();
-    voiceNameEditor.getCurrentTextEditor()->setInputRestrictions(VCS::numberOfCharsInVoiceName, basicASCIIcharacters);
+    voiceNameEditor.getCurrentTextEditor()->setInputRestrictions(VCS::numberOfCharsInVoiceName, basic_ASCII_Characters);
     auto shouldShow{ tooltips->shouldShowDescription() };
     auto tipFor_VoiceNameEditor{ shouldShow ? Description::buildForVoiceNameEditor() : String{ "" } };
     voiceNameEditor.getCurrentTextEditor()->setTooltip(tipFor_VoiceNameEditor);

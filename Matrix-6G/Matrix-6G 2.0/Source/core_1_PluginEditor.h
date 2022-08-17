@@ -6,8 +6,10 @@
 
 class GUI_Layer_EnvelopePainters;
 class GUI_Layer_ExposedParamControls;
+class GUI_Layer_MainWindowButtons;
 class GUI_Layer_MatrixMod;
 class GUI_Layer_TrackingGraphPainter;
+class GUI_Layer_CurrentVoiceNameAndNumber;
 class MatrixLookAndFeel;
 
 class PluginEditor :
@@ -20,6 +22,8 @@ class PluginEditor :
     std::unique_ptr<GUI_Layer_TrackingGraphPainter> layer_TrackingGraphPainter;
     std::unique_ptr<GUI_Layer_ExposedParamControls> layer_ExposedParamControls;
     std::unique_ptr<GUI_Layer_MatrixMod> layer_MatrixMod;
+    std::unique_ptr<GUI_Layer_MainWindowButtons> layer_MainWindowButtons;
+    std::unique_ptr<GUI_Layer_CurrentVoiceNameAndNumber> layer_CurrentVoiceNameAndNumber;
     std::unique_ptr<MatrixLookAndFeel> lookAndFeel;
     std::unique_ptr<TooltipWindow> tooltipWindow;
     Value tooltipsDelayInMillisecondsValue;

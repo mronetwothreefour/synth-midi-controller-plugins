@@ -548,14 +548,24 @@ Path LED_Path::buildForChar(const uint8 charNum) {
 	}
 }
 
-Path LED_Path::buildChoiceNameForControl(const String choiceName, const int control_w) {
+Path LED_Path::buildLabelText(const String text, const int control_w, bool rightJustified) {
 	Path choiceNamePath;
-	auto lastCharacter_x{ control_w - GUI::ledDisplayRightSideInset - GUI::ledDisplayCharacter_w };
-	auto lastCharacterIndex{ (int)choiceName.toStdString().size() - 1 };
-	for (auto i = lastCharacterIndex; i != -1; --i) {
-		auto charNum{ (uint8)choiceName[i] };
-		auto character_x{ lastCharacter_x - (GUI::ledDisplayCharacter_w * (lastCharacterIndex - i)) };
-		choiceNamePath.addPath(LED_Path::buildForChar(charNum), AffineTransform::translation((float)character_x, (float)GUI::ledDisplay_y));
+	auto numberOfChars{ (int)text.toStdString().size() };
+	if (rightJustified) {
+		auto lastCharacter_x{ control_w - GUI::ledDisplayRightSideInset - GUI::ledDisplayCharacter_w };
+		auto lastCharacterIndex{ numberOfChars - 1 };
+		for (auto i = lastCharacterIndex; i != -1; --i) {
+			auto charNum{ (uint8)text[i] };
+			auto character_x{ lastCharacter_x - (GUI::ledDisplayCharacter_w * (lastCharacterIndex - i)) };
+			choiceNamePath.addPath(LED_Path::buildForChar(charNum), AffineTransform::translation((float)character_x, (float)GUI::ledDisplay_y));
+		}
+	}
+	else {
+		for (auto i = 0; i != numberOfChars; ++i) {
+			auto charNum{ (uint8)text[i] };
+			auto character_x{ GUI::ledDisplayLeftSideInset + (GUI::ledDisplayCharacter_w * i) };
+			choiceNamePath.addPath(LED_Path::buildForChar(charNum), AffineTransform::translation((float)character_x, (float)GUI::ledDisplay_y));
+		}
 	}
 	return choiceNamePath;
 }
