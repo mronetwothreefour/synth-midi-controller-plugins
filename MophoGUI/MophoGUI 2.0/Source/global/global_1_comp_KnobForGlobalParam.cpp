@@ -24,21 +24,18 @@ KnobForGlobalParameter::KnobForGlobalParameter(KnobType knobType, UnexposedParam
 	case KnobType::globalTranspose:
 		paramID = ID::global_Transpose;
 		setRange(0.0, 24.0, 1.0);
-		setDoubleClickReturnValue(true, 12.0);
 		setValue((double)global->globalTranspose(), dontSendNotification);
 		setMouseDragSensitivity(90);
 		break;
 	case KnobType::globalFineTune:
 		paramID = ID::global_FineTune;
 		setRange(0.0, 100.0, 1.0);
-		setDoubleClickReturnValue(true, 50.0);
 		setValue((double)global->globalFineTune(), dontSendNotification);
 		setMouseDragSensitivity(105);
 		break;
 	case KnobType::hardwareReceiveChannel:
 		paramID = ID::global_HardwareReceiveChannel;
 		setRange(0.0, 16.0, 1.0);
-		setDoubleClickReturnValue(true, 0.0);
 		setValue((double)global->hardwareReceiveChannel(), dontSendNotification);
 		setMouseDragSensitivity(90);
 		break;

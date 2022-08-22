@@ -59,10 +59,6 @@ void MophoLookAndFeel::drawLabel(Graphics& g, Label& label) {
 				g.setColour(GUI::color_Black.withAlpha(0.0f));
 				g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 			}
-			if (label.getComponentID() == ID::comp_KnobValueEditor.toString()) {
-				if (label.isBeingEdited())
-					g.fillAll(GUI::color_ToggleOn);
-			}
 		}
 		else
 			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
@@ -76,7 +72,13 @@ void MophoLookAndFeel::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h*
 	};
 	if (editorIsInImportExportBrowser || editorIsInPathComboBoxInImportExportBrowser)
 		textEditor.applyFontToAllText(GUI::font_BrowserText);
-	g.fillAll(GUI::color_Black);
+	if (textEditor.getParentComponent()->getComponentID() == ID::comp_TextEditorForKnob.toString()) {
+		textEditor.setJustification(Justification::centred);
+		g.setColour(GUI::color_Black);
+		g.fillEllipse(5.0f, 5.0f, 30.0f, 30.0f);
+	}
+	else
+		g.fillAll(GUI::color_Black);
 }
 
 void MophoLookAndFeel::drawTextEditorOutline(Graphics& /*g*/, int /*w*/, int /*h*/, TextEditor& /*textEditor*/) {

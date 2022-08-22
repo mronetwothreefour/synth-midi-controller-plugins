@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "epc_0_comp_TextEditorForExposedParamKnob.h"
 #include "epc_0_comp_TooltipUpdaterForExposedParamControl.h"
 #include "../gui/gui_comp_JuceSlidersWithMouseMods.h"
 
@@ -15,15 +16,15 @@ class KnobAndAttachment :
 	InfoForExposedParameters* info;
 	RotarySliderWithMouseWheelMoveOverride knob;
 	std::unique_ptr<SliderAttachment> attachment;
+	TextEditorForExposedParamKnob textEditor;
 	TooltipUpdaterForExposedParamControl tooltipUpdater;
-	Label valueEditor;
 
 public:
 	KnobAndAttachment() = delete;
 
 	KnobAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
-	void mouseDown(const MouseEvent& event) override;
+	void mouseDoubleClick(const MouseEvent& event) override;
 	void attachKnobToExposedParameter();
 	void setKnobIsModifyingPitch(bool isModifyingPitch);
 	void deleteAttachmentBeforeKnobToPreventMemLeak();

@@ -36,8 +36,8 @@ String TooltipUpdaterForExposedParamControl::generateTooltipText() {
         tip += info->descriptionFor(paramIndex) + "\n";
     if (shouldShowCurrentChoice) {
         auto paramID{ info->IDfor(paramIndex) };
-        auto paramaterPtr{ state->getParameter(paramID) };
-        auto currentChoice{ roundToInt(paramaterPtr->convertFrom0to1(paramaterPtr->getValue())) };
+        auto paramPtr{ state->getParameter(paramID) };
+        auto currentChoice{ roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue())) };
         auto choiceName{ info->verboseChoiceNameFor((uint8)currentChoice, paramIndex) };
         tip += "Current Setting: " + choiceName;
     }

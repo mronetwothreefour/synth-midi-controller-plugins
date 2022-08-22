@@ -73,9 +73,9 @@ namespace MophoConstants
 		fineTune,
 		globalFineTune,
 		lfoFrequencies,
-		oscShapes,
+		oscPitch,
+		oscShape,
 		oscSlop,
-		pitches,
 		posNeg_127,
 		posNumbers
 	};

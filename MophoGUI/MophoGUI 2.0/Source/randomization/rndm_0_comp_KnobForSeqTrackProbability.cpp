@@ -31,13 +31,10 @@ KnobForSeqTrackProbability::KnobForSeqTrackProbability(
 			setValue(0.0, dontSendNotification);
 			setEnabled(false);
 		}
-		else {
+		else
 			setValue((double)randomization->probabilityOfResetForSeqTrackStep(track, targetStep), dontSendNotification);
-			setDoubleClickReturnValue(true, 0.0);
-		}
 		break;
 	case KnobType::rest:
-		setDoubleClickReturnValue(true, 10.0);
 		setValue((double)randomization->probabilityOfRestForSeqTrack_1_Step(targetStep), dontSendNotification);
 		break;
 	default:

@@ -6,6 +6,7 @@
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
+#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
 
@@ -14,6 +15,7 @@ KnobAndAttachment::KnobAndAttachment(const uint8 paramIndex, ExposedParameters* 
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
 	knob{ &exposedParams->undoManager },
+	textEditor{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
 	tooltipUpdater{ paramIndex, knob, exposedParams, unexposedParams }
 {
 	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
@@ -23,10 +25,8 @@ KnobAndAttachment::KnobAndAttachment(const uint8 paramIndex, ExposedParameters* 
 
 	knob.addMouseListener(this, false);
 
-	valueEditor.setComponentID(ID::comp_KnobValueEditor.toString());
-	valueEditor.setInterceptsMouseClicks(false, true);
-	valueEditor.setBounds(getLocalBounds());
-	addAndMakeVisible(valueEditor);
+	textEditor.setTopLeftPosition(0, 0);
+	addAndMakeVisible(textEditor);
 }
 
 void KnobAndAttachment::paint(Graphics& g) {
@@ -44,13 +44,13 @@ void KnobAndAttachment::paint(Graphics& g) {
 	g.drawText(choiceNameString, getLocalBounds(), Justification::centred);
 }
 
-void KnobAndAttachment::mouseDown(const MouseEvent& event) {
-	if (event.mods == ModifierKeys::leftButtonModifier + ModifierKeys::ctrlModifier)
-		valueEditor.showEditor();
+void KnobAndAttachment::mouseDoubleClick(const MouseEvent& /*event*/) {
+	textEditor.showEditor();
 }
 
 void KnobAndAttachment::attachKnobToExposedParameter() {
 	attachment.reset(new SliderAttachment{ *state, info->IDfor(paramIndex).toString(), knob });
+	knob.setDoubleClickReturnValue(false, 0.0, ModifierKeys::noModifiers);
 }
 
 void KnobAndAttachment::setKnobIsModifyingPitch(bool isModifyingPitch) {
