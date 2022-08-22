@@ -16,10 +16,17 @@ KnobAndAttachment::KnobAndAttachment(const uint8 paramIndex, ExposedParameters* 
 	knob{ &exposedParams->undoManager },
 	tooltipUpdater{ paramIndex, knob, exposedParams, unexposedParams }
 {
-	addAndMakeVisible(knob);
 	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 	knob.setBounds(getLocalBounds());
+	addAndMakeVisible(knob);
+
+	knob.addMouseListener(this, false);
+
+	valueEditor.setComponentID(ID::comp_KnobValueEditor.toString());
+	valueEditor.setInterceptsMouseClicks(false, true);
+	valueEditor.setBounds(getLocalBounds());
+	addAndMakeVisible(valueEditor);
 }
 
 void KnobAndAttachment::paint(Graphics& g) {
@@ -37,6 +44,11 @@ void KnobAndAttachment::paint(Graphics& g) {
 	g.drawText(choiceNameString, getLocalBounds(), Justification::centred);
 }
 
+void KnobAndAttachment::mouseDown(const MouseEvent& event) {
+	if (event.mods == ModifierKeys::leftButtonModifier + ModifierKeys::ctrlModifier)
+		valueEditor.showEditor();
+}
+
 void KnobAndAttachment::attachKnobToExposedParameter() {
 	attachment.reset(new SliderAttachment{ *state, info->IDfor(paramIndex).toString(), knob });
 }
@@ -47,5 +59,9 @@ void KnobAndAttachment::setKnobIsModifyingPitch(bool isModifyingPitch) {
 
 void KnobAndAttachment::deleteAttachmentBeforeKnobToPreventMemLeak() {
 	attachment = nullptr;
+}
+
+KnobAndAttachment::~KnobAndAttachment() {
+	knob.removeMouseListener(this);	
 }
 

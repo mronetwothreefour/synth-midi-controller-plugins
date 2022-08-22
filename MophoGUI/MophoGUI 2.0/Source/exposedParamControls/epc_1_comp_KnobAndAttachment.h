@@ -16,15 +16,18 @@ class KnobAndAttachment :
 	RotarySliderWithMouseWheelMoveOverride knob;
 	std::unique_ptr<SliderAttachment> attachment;
 	TooltipUpdaterForExposedParamControl tooltipUpdater;
+	Label valueEditor;
 
 public:
 	KnobAndAttachment() = delete;
 
 	KnobAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
+	void mouseDown(const MouseEvent& event) override;
 	void attachKnobToExposedParameter();
 	void setKnobIsModifyingPitch(bool isModifyingPitch);
 	void deleteAttachmentBeforeKnobToPreventMemLeak();
+	~KnobAndAttachment();
 
 private:
 	//==============================================================================

@@ -308,6 +308,10 @@
               resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.cpp"/>
         <FILE id="VfjDbm" name="gui_comp_JuceSlidersWithMouseMods.h" compile="0"
               resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.h"/>
+        <FILE id="LYI90Z" name="gui_comp_TextEditorForKnobs.cpp" compile="1"
+              resource="0" file="Source/gui/gui_comp_TextEditorForKnobs.cpp"/>
+        <FILE id="sL1cYQ" name="gui_comp_TextEditorForKnobs.h" compile="0"
+              resource="0" file="Source/gui/gui_comp_TextEditorForKnobs.h"/>
         <FILE id="uHk99i" name="gui_layer_EnvelopePainters.h" compile="0" resource="0"
               file="Source/gui/gui_layer_EnvelopePainters.h"/>
         <FILE id="vmTb5V" name="gui_layer_ExposedParamControls.h" compile="0"

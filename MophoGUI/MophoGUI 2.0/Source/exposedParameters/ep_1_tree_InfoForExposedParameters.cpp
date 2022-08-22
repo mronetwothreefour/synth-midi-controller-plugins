@@ -281,6 +281,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_ParamID, ID::ep_014_OscSlop.toString() },
 				{ ID::property_ExposedName, "Oscillator Slop" },
 				{ ID::property_ControlType, (int)ControlType::knob },
+				{ ID::property_KnobValueRangeType, (int)KnobValueRangeType::posNumbers },
 				{ ID::property_NRPN, 12 },
 				{ ID::property_NumberOfChoices, 6 },
 				{ ID::property_DefaultChoice, 2 },
@@ -2225,6 +2226,13 @@ ControlType InfoForExposedParameters::controlTypeFor(const uint8 paramIndex) con
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
 	return ControlType{ (int)paramTree.getProperty(ID::property_ControlType) };
+}
+
+KnobValueRangeType InfoForExposedParameters::knobValueRangeTypeFor(const uint8 paramIndex) const {
+	auto controlType{ controlTypeFor(paramIndex) };
+	jassert(controlType == ControlType::knob || controlType == ControlType::knobForOscShape || controlType == ControlType::knobForPitch);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	return KnobValueRangeType{ (int)paramTree.getProperty(ID::property_KnobValueRangeType) };
 }
 
 uint8 InfoForExposedParameters::NRPNfor(const uint8 paramIndex) const {

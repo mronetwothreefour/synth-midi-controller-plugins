@@ -59,6 +59,10 @@ void MophoLookAndFeel::drawLabel(Graphics& g, Label& label) {
 				g.setColour(GUI::color_Black.withAlpha(0.0f));
 				g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 			}
+			if (label.getComponentID() == ID::comp_KnobValueEditor.toString()) {
+				if (label.isBeingEdited())
+					g.fillAll(GUI::color_ToggleOn);
+			}
 		}
 		else
 			g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);

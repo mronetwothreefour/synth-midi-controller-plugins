@@ -69,6 +69,18 @@ namespace MophoConstants
 	};
 
 
+	const enum class KnobValueRangeType {
+		fineTune,
+		globalFineTune,
+		lfoFrequencies,
+		oscShapes,
+		oscSlop,
+		pitches,
+		posNeg_127,
+		posNumbers
+	};
+
+
 	const enum class ImportExportType {
 		exportVoice = 0,
 		exportVoicesBank,
