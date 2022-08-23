@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "epc_0_comp_TextEditorForExposedParamKnob.h"
 #include "epc_0_comp_TooltipUpdaterForExposedParamControl.h"
 #include "../gui/gui_comp_JuceSlidersWithMouseMods.h"
 
@@ -15,6 +16,7 @@ class KnobAndAttachment_ForOscShape :
 	InfoForExposedParameters* info;
 	RotarySliderWithMouseDownModForOscShape knob;
 	std::unique_ptr<SliderAttachment> attachment;
+	TextEditorForExposedParamKnob textEditor;
 	TooltipUpdaterForExposedParamControl tooltipUpdater;
 	int choiceNum;
 	const PathStrokeType strokeType;
@@ -29,8 +31,10 @@ public:
 	void paintTriangle(Graphics& g, Path path);
 	void paintSawTriMix(Graphics& g, Path path);
 	void paintPulse(Graphics& g, Path path, int pulseWidth);
+	void mouseDoubleClick(const MouseEvent& event) override;
 	void attachKnobToExposedParameter();
 	void deleteAttachmentBeforeKnobToPreventMemLeak();
+	~KnobAndAttachment_ForOscShape();
 
 private:
 	//==============================================================================

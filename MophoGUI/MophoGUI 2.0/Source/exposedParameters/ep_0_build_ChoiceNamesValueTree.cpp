@@ -371,15 +371,19 @@ ValueTree ExposedParamChoiceNamesValueTree::buildForOscShape(const bool verbose)
     for (auto choiceNum = 0; choiceNum != EP::numberOfChoicesForOscWaveShape; ++choiceNum) {
         String choiceName{ "" };
         if (choiceNum == 0)
-            choiceName = verbose ? "Oscillator Off" : "Off";
+            choiceName = verbose ? "Oscillator Off" : "OFF";
         if (choiceNum == 1)
-            choiceName = verbose ? "Sawtooth" : "Saw";
+            choiceName = verbose ? "Sawtooth" : "SAW";
         if (choiceNum == 2)
-            choiceName = verbose ? "Triangle" : "Tri";
+            choiceName = verbose ? "Triangle" : "TRI";
         if (choiceNum == 3)
-            choiceName = verbose ? "Sawtooth/Triangle Mix" : "Saw/Tri";
-        if (choiceNum > 3)
-            choiceName = verbose ? "Pulse (Width: " + String(choiceNum - 4) + ")" : "PW " + String(choiceNum - 4);
+            choiceName = verbose ? "Sawtooth/Triangle Mix" : "S/T";
+        if (choiceNum > 3) {
+            if (choiceNum == 54)
+                choiceName = verbose ? "Square (Pulse: Width 50)" : "SQR";
+            else
+                choiceName = verbose ? "Pulse: Width " + String(choiceNum - 4) : "PW" + String(choiceNum - 4);
+        }
         choiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);
     }
     return choiceNamesTree;

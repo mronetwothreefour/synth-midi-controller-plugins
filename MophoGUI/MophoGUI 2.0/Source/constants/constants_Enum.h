@@ -70,9 +70,8 @@ namespace MophoConstants
 
 
 	const enum class KnobValueRangeType {
-		fineTune,
-		globalFineTune,
-		lfoFrequencies,
+		lfoFrequency,
+		oscFineTune,
 		oscPitch,
 		oscShape,
 		oscSlop,

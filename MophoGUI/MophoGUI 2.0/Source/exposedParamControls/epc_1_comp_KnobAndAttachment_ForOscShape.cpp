@@ -7,6 +7,7 @@
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
+#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
 
@@ -16,15 +17,21 @@ KnobAndAttachment_ForOscShape::KnobAndAttachment_ForOscShape(
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
 	knob{ &exposedParams->undoManager },
+	textEditor{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
 	tooltipUpdater{ paramIndex, knob, exposedParams, unexposedParams },
 	strokeType{ 1.0f, PathStrokeType::mitered, PathStrokeType::rounded },
 	choiceNum{ 0 }
 {
-	addAndMakeVisible(knob);
+	knob.addMouseListener(this, false);
 	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
 	knob.isModifyingPitch = false;
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 	knob.setBounds(getLocalBounds());
+	addAndMakeVisible(knob);
+
+
+	textEditor.setTopLeftPosition(0, 0);
+	addAndMakeVisible(textEditor);
 }
 
 void KnobAndAttachment_ForOscShape::paint(Graphics& g) {
@@ -100,11 +107,20 @@ void KnobAndAttachment_ForOscShape::paintPulse(Graphics& g, Path path, int pulse
 	g.drawText((String)(pulseWidth), pwTextArea, Justification::centred);
 }
 
+void KnobAndAttachment_ForOscShape::mouseDoubleClick(const MouseEvent& /*event*/) {
+	textEditor.showEditor();
+}
+
 void KnobAndAttachment_ForOscShape::attachKnobToExposedParameter() {
 	attachment.reset(new SliderAttachment{ *state, info->IDfor(paramIndex).toString(), knob });
+	knob.setDoubleClickReturnValue(false, 0.0, ModifierKeys::noModifiers);
 }
 
 void KnobAndAttachment_ForOscShape::deleteAttachmentBeforeKnobToPreventMemLeak() {
 	attachment = nullptr;
+}
+
+KnobAndAttachment_ForOscShape::~KnobAndAttachment_ForOscShape() {
+	knob.removeMouseListener(this);
 }
 

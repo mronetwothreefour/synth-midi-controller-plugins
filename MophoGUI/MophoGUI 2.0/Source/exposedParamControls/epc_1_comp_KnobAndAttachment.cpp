@@ -18,12 +18,11 @@ KnobAndAttachment::KnobAndAttachment(const uint8 paramIndex, ExposedParameters* 
 	textEditor{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
 	tooltipUpdater{ paramIndex, knob, exposedParams, unexposedParams }
 {
+	knob.addMouseListener(this, false);
 	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 	knob.setBounds(getLocalBounds());
 	addAndMakeVisible(knob);
-
-	knob.addMouseListener(this, false);
 
 	textEditor.setTopLeftPosition(0, 0);
 	addAndMakeVisible(textEditor);

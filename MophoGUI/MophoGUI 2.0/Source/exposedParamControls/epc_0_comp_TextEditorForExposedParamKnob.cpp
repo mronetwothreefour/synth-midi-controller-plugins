@@ -24,14 +24,29 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 	auto currentChoice{ (uint8)roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue())) };
 	switch (rangeType)
 	{
-	case RangeType::fineTune:
+	case RangeType::lfoFrequency:
 		break;
-	case RangeType::globalFineTune:
-		break;
-	case RangeType::lfoFrequencies:
+	case RangeType::oscFineTune:
+		textEditor.setText(info->choiceNameFor(currentChoice, paramIndex), dontSendNotification);
+		textEditor.onEditorShow = [this, tooltipsOptions] {
+			auto editor{ textEditor.getCurrentTextEditor() };
+			editor->setInputRestrictions(3, "-0123456789");
+			if (tooltipsOptions->shouldShowDescription())
+				editor->setTooltip("Type in a new setting.\n(Range: -50 to 50)");
+		};
+		textEditor.onTextChange = [this, paramIndex] {
+			auto newSettingString{ textEditor.getText() };
+			if (newSettingString.isNotEmpty()) {
+				auto newSetting{ newSettingString.getFloatValue() + 50.0f };
+				if (newSetting < 0.0f)
+					newSetting = 0.0f;
+				if (newSetting > 101.0f)
+					newSetting = 101.0f;
+				paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
+			}
+		};
 		break;
 	case RangeType::oscPitch:
-	{
 		textEditor.setText(info->choiceNameFor(currentChoice, paramIndex).removeCharacters(" "), dontSendNotification);
 		textEditor.onEditorShow = [this, tooltipsOptions] {
 			auto editor{ textEditor.getCurrentTextEditor() };
@@ -47,25 +62,70 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 		textEditor.onTextChange = [this, paramIndex] {
 			auto newSettingString{ textEditor.getText() };
 			if (newSettingString.isNotEmpty()) {
-				auto newSetting{ (float)EP::numberOfChoicesForOscPitch };
+				auto newSetting{ -1.0f };
 				if (newSettingString.containsAnyOf("abcdefgABCDEFG#")) {
 					newSettingString = newSettingString.toUpperCase();
-					for (auto choiceNum = (uint8)0; choiceNum < EP::numberOfChoicesForOscPitch; ++choiceNum) {
+					for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForOscPitch; ++choiceNum) {
 						if (info->choiceNameFor(choiceNum, paramIndex).removeCharacters(" ") == newSettingString) {
 							newSetting = (float)choiceNum;
 							break;
 						}
 					}
 				}
-				else
+				else 				{
 					newSetting = newSettingString.getFloatValue();
-				if (newSetting < (float)EP::numberOfChoicesForOscPitch)
+					if (newSetting >= (float)EP::numberOfChoicesForOscPitch)
+						newSetting = (float)EP::numberOfChoicesForOscPitch - 1.0f;
+				}
+				if (newSetting > -1.0f)
 					paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
 			}
 		};
-	}
 		break;
 	case RangeType::oscShape:
+		textEditor.setText(info->choiceNameFor(currentChoice, paramIndex), dontSendNotification);
+		textEditor.onEditorShow = [this, tooltipsOptions] {
+			auto editor{ textEditor.getCurrentTextEditor() };
+			editor->setInputRestrictions(4, "afiopqrstwAFIOPQRSTW0123456789/");
+			if (tooltipsOptions->shouldShowDescription()) {
+				String description{ "" };
+				description += "Type in a new shape setting.\n";
+				description += "Off: " + GUI::openQuote + "OFF" + GUI::closeQuote + " or " + GUI::openQuote + "0" + GUI::closeQuote + "\n";
+				description += "Sawtooth: " + GUI::openQuote + "SAW" + GUI::closeQuote + " or " + GUI::openQuote + "1" + GUI::closeQuote + "\n";
+				description += "Triangle: " + GUI::openQuote + "TRI" + GUI::closeQuote + " or " + GUI::openQuote + "2" + GUI::closeQuote + "\n";
+				description += "Sawtooth/Triangle Mix: " + GUI::openQuote + "S/T" + GUI::closeQuote + " or " + GUI::openQuote + "3" + GUI::closeQuote + "\n";
+				description += "Square (Pulse Width 50): " + GUI::openQuote + "SQR" + GUI::closeQuote + " or " + GUI::openQuote + "54" + GUI::closeQuote + "\n";
+				description += "Pulse Width 0..99: " + GUI::openQuote + "PW0" + GUI::closeQuote + ".." + GUI::openQuote + "PW99" + GUI::closeQuote + " or " + GUI::openQuote + "4" + GUI::closeQuote + ".." + GUI::openQuote + "104" + GUI::closeQuote;
+				editor->setTooltip(description);
+			}
+		};
+		textEditor.onTextChange = [this, paramIndex] {
+			auto newSettingString{ textEditor.getText().toUpperCase() };
+			if (newSettingString.isNotEmpty()) {
+				auto newSetting{ -1.0f };
+				if (newSettingString.containsAnyOf("AFIOPQRSTW/")) {
+					if (newSettingString == "OFF")
+						newSetting = 0.0f;
+					if (newSettingString == "SAW")
+						newSetting = 1.0f;
+					if (newSettingString == "TRI")
+						newSetting = 2.0f;
+					if (newSettingString == "S/T" || newSettingString == "ST")
+						newSetting = 3.0f;
+					if (newSettingString == "SQR")
+						newSetting = 54.0f;
+					if (newSettingString.startsWith("PW"))
+						newSetting = newSettingString.fromFirstOccurrenceOf("PW", false, false).getFloatValue() + 4.0f;
+				}
+				else
+					newSetting = newSettingString.getFloatValue();
+				if (newSetting > -1.0f) {
+					if (newSetting >= (float)EP::numberOfChoicesForOscWaveShape)
+						newSetting = (float)EP::numberOfChoicesForOscWaveShape;
+					paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
+				}
+			}
+		};
 		break;
 	case RangeType::oscSlop:
 		textEditor.setText((String)currentChoice, dontSendNotification);
@@ -104,13 +164,13 @@ void TextEditorForExposedParamKnob::valueChanged(Value& /*value*/) {
 	auto currentChoice{ (uint8)roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue())) };
 	switch (rangeType)
 	{
-	case RangeType::fineTune:
+	case RangeType::lfoFrequency:
 		break;
-	case RangeType::globalFineTune:
-		break;
-	case RangeType::lfoFrequencies:
+	case RangeType::oscFineTune:
+		textEditor.setText(info->choiceNameFor(currentChoice, paramIndex), dontSendNotification);
 		break;
 	case RangeType::oscShape:
+		textEditor.setText(info->choiceNameFor(currentChoice, paramIndex), dontSendNotification);
 		break;
 	case RangeType::oscPitch:
 		textEditor.setText(info->choiceNameFor(currentChoice, paramIndex).removeCharacters(" "), dontSendNotification);
