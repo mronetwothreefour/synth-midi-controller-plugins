@@ -20,14 +20,14 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 	textEditor.setInterceptsMouseClicks(false, true);
 	textEditor.setComponentID(ID::comp_TextEditorForKnob.toString());
 	textEditor.setFont(GUI::font_KnobValueDisplays);
-	
-	auto currentChoice{ (uint8)roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue())) };
+	setEditorText();
 	switch (rangeType)
 	{
+	case RangeType::clockTempo:
+		break;
 	case RangeType::lfoFrequency:
 		break;
 	case RangeType::oscFineTune:
-		textEditor.setText(info->choiceNameFor(currentChoice, paramIndex), dontSendNotification);
 		textEditor.onEditorShow = [this, tooltipsOptions] {
 			auto editor{ textEditor.getCurrentTextEditor() };
 			editor->setInputRestrictions(3, "-0123456789");
@@ -47,7 +47,6 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 		};
 		break;
 	case RangeType::oscPitch:
-		textEditor.setText(info->choiceNameFor(currentChoice, paramIndex).removeCharacters(" "), dontSendNotification);
 		textEditor.onEditorShow = [this, tooltipsOptions] {
 			auto editor{ textEditor.getCurrentTextEditor() };
 			editor->setInputRestrictions(4, "abcdefgABCDEFG0123456789#");
@@ -83,7 +82,6 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 		};
 		break;
 	case RangeType::oscShape:
-		textEditor.setText(info->choiceNameFor(currentChoice, paramIndex), dontSendNotification);
 		textEditor.onEditorShow = [this, tooltipsOptions] {
 			auto editor{ textEditor.getCurrentTextEditor() };
 			editor->setInputRestrictions(4, "afiopqrstwAFIOPQRSTW0123456789/");
@@ -128,7 +126,6 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 		};
 		break;
 	case RangeType::oscSlop:
-		textEditor.setText((String)currentChoice, dontSendNotification);
 		textEditor.onEditorShow = [this, tooltipsOptions] {
 			auto editor{ textEditor.getCurrentTextEditor() };
 			editor->setInputRestrictions(1, "012345");
@@ -144,8 +141,40 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 		};
 		break;
 	case RangeType::posNeg_127:
+		textEditor.onEditorShow = [this, tooltipsOptions] {
+			auto editor{ textEditor.getCurrentTextEditor() };
+			editor->setInputRestrictions(4, "-0123456789");
+			if (tooltipsOptions->shouldShowDescription())
+				editor->setTooltip("Type in a new setting.\n(Range: -127 to 127)");
+		};
+		textEditor.onTextChange = [this] {
+			auto newSettingString{ textEditor.getText() };
+			if (newSettingString.isNotEmpty()) {
+				auto newSetting{ newSettingString.getFloatValue() + 127.0f };
+				if (newSetting < 0.0f)
+					newSetting = 0.0f;
+				if (newSetting > 254.0f)
+					newSetting = 254.0f;
+				paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
+			}
+		};
 		break;
-	case RangeType::posNumbers:
+	case RangeType::pos_127:
+		textEditor.onEditorShow = [this, tooltipsOptions] {
+			auto editor{ textEditor.getCurrentTextEditor() };
+			editor->setInputRestrictions(3, "0123456789");
+			if (tooltipsOptions->shouldShowDescription())
+				editor->setTooltip("Type in a new setting.\n(Range: 0 to 127)");
+		};
+		textEditor.onTextChange = [this] {
+			auto newSettingString{ textEditor.getText() };
+			if (newSettingString.isNotEmpty()) {
+				auto newSetting{ newSettingString.getFloatValue() };
+				if (newSetting > 127.0f)
+					newSetting = 127.0f;
+				paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
+			}
+		};
 		break;
 	default:
 		break;
@@ -156,35 +185,20 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 	addAndMakeVisible(textEditor);
 }
 
+void TextEditorForExposedParamKnob::setEditorText() {
+	auto currentChoice{ (uint8)roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue())) };
+	auto currentChoiceName{ info->choiceNameFor(currentChoice, paramIndex) };
+	if (rangeType == RangeType::oscPitch)
+		currentChoiceName = currentChoiceName.removeCharacters(" ");
+	textEditor.setText(currentChoiceName, dontSendNotification);
+}
+
 void TextEditorForExposedParamKnob::showEditor() {
 	textEditor.showEditor();
 }
 
 void TextEditorForExposedParamKnob::valueChanged(Value& /*value*/) {
-	auto currentChoice{ (uint8)roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue())) };
-	switch (rangeType)
-	{
-	case RangeType::lfoFrequency:
-		break;
-	case RangeType::oscFineTune:
-		textEditor.setText(info->choiceNameFor(currentChoice, paramIndex), dontSendNotification);
-		break;
-	case RangeType::oscShape:
-		textEditor.setText(info->choiceNameFor(currentChoice, paramIndex), dontSendNotification);
-		break;
-	case RangeType::oscPitch:
-		textEditor.setText(info->choiceNameFor(currentChoice, paramIndex).removeCharacters(" "), dontSendNotification);
-		break;
-	case RangeType::oscSlop:
-		textEditor.setText((String)currentChoice, dontSendNotification);
-		break;
-	case RangeType::posNeg_127:
-		break;
-	case RangeType::posNumbers:
-		break;
-	default:
-		break;
-	}
+	setEditorText();
 }
 
 TextEditorForExposedParamKnob::~TextEditorForExposedParamKnob() {

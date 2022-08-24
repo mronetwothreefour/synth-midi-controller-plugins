@@ -70,13 +70,14 @@ namespace MophoConstants
 
 
 	const enum class KnobValueRangeType {
+		clockTempo,
 		lfoFrequency,
 		oscFineTune,
 		oscPitch,
 		oscShape,
 		oscSlop,
 		posNeg_127,
-		posNumbers
+		pos_127
 	};
 
 
