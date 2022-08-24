@@ -72,6 +72,7 @@ namespace MophoConstants
 	const enum class KnobValueRangeType {
 		clockTempo,
 		lfoFrequency,
+		lpfFrequency,
 		oscFineTune,
 		oscPitch,
 		oscShape,

@@ -24,8 +24,62 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 	switch (rangeType)
 	{
 	case RangeType::clockTempo:
+		textEditor.onEditorShow = [this, tooltipsOptions] {
+			auto editor{ textEditor.getCurrentTextEditor() };
+			editor->setInputRestrictions(3, "0123456789");
+			if (tooltipsOptions->shouldShowDescription())
+				editor->setTooltip("Type in a new setting.\n(Range: 30 to 250)");
+		};
+		textEditor.onTextChange = [this] {
+			auto newSettingString{ textEditor.getText() };
+			if (newSettingString.isNotEmpty()) {
+				auto newSetting{ newSettingString.getFloatValue() - 30.0f };
+				if (newSetting < 0.0f)
+					newSetting = 0.0f;
+				if (newSetting > 220.0f)
+					newSetting = 220.0f;
+				paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
+			}
+		};
 		break;
 	case RangeType::lfoFrequency:
+		break;
+	case RangeType::lpfFrequency:
+		textEditor.onEditorShow = [this, tooltipsOptions] {
+			auto editor{ textEditor.getCurrentTextEditor() };
+			editor->setInputRestrictions(4, "abcdefgABCDEFG0123456789#");
+			if (tooltipsOptions->shouldShowDescription()) {
+				String description{ "" };
+				description += "Type in either a pitch name and octave number\n";
+				description += "(e.g. " + GUI::openQuote + "C#5" + GUI::closeQuote + ") or a MIDI note number (e.g. " + GUI::openQuote + "61" + GUI::closeQuote + ").\n";
+				description += "Range: C0 (0) to G#13 (164)";
+				editor->setTooltip(description);
+			}
+		};
+		textEditor.onTextChange = [this, paramIndex] {
+			auto newSettingString{ textEditor.getText() };
+			if (newSettingString.isNotEmpty()) {
+				auto newSetting{ -1.0f };
+				if (newSettingString.containsAnyOf("abcdefgABCDEFG#")) {
+					newSettingString = newSettingString.toUpperCase();
+					for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesFor_LPF_Freq; ++choiceNum) {
+						if (info->choiceNameFor(choiceNum, paramIndex).removeCharacters(" ") == newSettingString) {
+							newSetting = (float)choiceNum;
+							break;
+						}
+					}
+				}
+				else {
+					newSetting = newSettingString.getFloatValue();
+					if (newSetting >= (float)EP::numberOfChoicesFor_LPF_Freq)
+						newSetting = (float)EP::numberOfChoicesFor_LPF_Freq - 1.0f;
+				}
+				if (newSetting > -1.0f)
+					paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
+				else
+					setEditorText();
+			}
+		};
 		break;
 	case RangeType::oscFineTune:
 		textEditor.onEditorShow = [this, tooltipsOptions] {
@@ -78,6 +132,8 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 				}
 				if (newSetting > -1.0f)
 					paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
+				else
+					setEditorText();
 			}
 		};
 		break;
@@ -122,6 +178,8 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 						newSetting = (float)EP::numberOfChoicesForOscWaveShape;
 					paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
 				}
+				else
+					setEditorText();
 			}
 		};
 		break;
@@ -188,7 +246,7 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 void TextEditorForExposedParamKnob::setEditorText() {
 	auto currentChoice{ (uint8)roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue())) };
 	auto currentChoiceName{ info->choiceNameFor(currentChoice, paramIndex) };
-	if (rangeType == RangeType::oscPitch)
+	if (rangeType == RangeType::oscPitch || rangeType == RangeType::lpfFrequency)
 		currentChoiceName = currentChoiceName.removeCharacters(" ");
 	textEditor.setText(currentChoiceName, dontSendNotification);
 }
