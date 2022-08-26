@@ -48,12 +48,13 @@ namespace MophoConstants
 		static const Identifier btn_Write_OverFile{ "btn_Write_OverFile" };
 
 		static const Identifier comp_ImportExportBrowser{ "comp_ImportExportBrowser" };
-		static const Identifier comp_TextEditorForKnob{ "comp_TextEditorForKnob" };
 		static const Identifier comp_RedToggle{ "comp_RedToggle" };
 		static const Identifier comp_SeqTrackStepSelector{ "comp_SeqTrackStepSelector" };
 		static const Identifier comp_TabbedComponentForAllBanks{ "comp_TabbedComponentForAllBanks" };
 		static const Identifier comp_TabbedComponentForCustomBanks{ "comp_TabbedComponentForCustomBanks" };
 		static const Identifier comp_TabbedComponentForFactoryBanks{ "comp_TabbedComponentForFactoryBanks" };
+		static const Identifier comp_TextEditorForKnob{ "comp_TextEditorForKnob" };
+		static const Identifier comp_TextEditorForSeqStep{ "comp_TextEditorForSeqStep" };
 		static const Identifier comp_ToggleAllow_{ "comp_ToggleAllow_" };
 		static const Identifier comp_ToggleAllow_Choice_{ "comp_ToggleAllow_Choice_" };
 		static const Identifier comp_ToggleLock_ComboBox_Param_{ "comp_ToggleLock_ComboBox_Param_" };

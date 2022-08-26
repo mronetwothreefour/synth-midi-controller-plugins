@@ -21,6 +21,7 @@ class KnobAndAttachment_ForSeqStep :
 	Slider trackDestination;
 	std::unique_ptr<SliderAttachment> trackDestinationAttachment;
 	TooltipUpdaterForExposedParamControl tooltipUpdater;
+	std::unique_ptr<Label> textEditor;
 	const Identifier trackDestID;
 
 public:
@@ -31,7 +32,9 @@ public:
 	void paintResetSequenceArrow(Graphics& g);
 	void paintTrack1RestDot(Graphics& g);
 	void paintChoiceNameString(Graphics& g, String stepChoiceName);
+	void mouseDoubleClick(const MouseEvent& event) override;
 	void attachKnobsToExposedParameters();
+	void setEditorText();
 	void setKnobIsModifyingPitch(bool isModifyingPitch);
 	void deleteAttachmentsBeforeKnobsToPreventMemLeaks();
 

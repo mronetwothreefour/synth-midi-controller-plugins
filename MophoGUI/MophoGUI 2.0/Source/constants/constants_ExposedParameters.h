@@ -30,6 +30,7 @@ namespace MophoConstants
 		const uint8 numberOfChoicesForSeqTrackSteps{ 126 };
 		const uint8 numberOfChoicesForSeqTracks_2_4_Dest{ 48 };
 		const uint8 numberOfChoicesForVoiceNameChar{ 128 };
+		const uint8 numberOfChoicesFor_LFO_Freq{ 167 };
 		const uint8 numberOfChoicesFor_LPF_Freq{ 165 };
 		const uint8 numberOfExposedParams{ 189 };
 		const uint8 numberOfPitched_LFO_Frequencies{ 61 };

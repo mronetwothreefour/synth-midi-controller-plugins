@@ -72,10 +72,14 @@ void MophoLookAndFeel::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h*
 	};
 	if (editorIsInImportExportBrowser || editorIsInPathComboBoxInImportExportBrowser)
 		textEditor.applyFontToAllText(GUI::font_BrowserText);
-	if (textEditor.getParentComponent()->getComponentID() == ID::comp_TextEditorForKnob.toString()) {
+	if (textEditor.getParentComponent()->getComponentID() == ID::comp_TextEditorForKnob.toString() ||
+		textEditor.getParentComponent()->getComponentID() == ID::comp_TextEditorForSeqStep.toString()) {
 		textEditor.setJustification(Justification::centred);
 		g.setColour(GUI::color_Black);
-		g.fillEllipse(5.0f, 5.0f, 30.0f, 30.0f);
+		if (textEditor.getParentComponent()->getComponentID() == ID::comp_TextEditorForKnob.toString())
+			g.fillEllipse(5.0f, 5.0f, 30.0f, 30.0f);
+		else
+			g.fillAll();
 	}
 	else
 		g.fillAll(GUI::color_Black);

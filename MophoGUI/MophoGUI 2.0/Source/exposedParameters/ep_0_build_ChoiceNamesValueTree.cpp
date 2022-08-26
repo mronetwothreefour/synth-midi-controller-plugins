@@ -420,10 +420,11 @@ ValueTree ExposedParamChoiceNamesValueTree::buildForSeqTrackStep(const bool verb
     for (auto choiceNum = 0; choiceNum != 126; ++choiceNum)
         choiceNamesTree.setProperty(
             "choice_" + (String)choiceNum,
-            (String)choiceNum + " (" + convertIntToSeqStepPitchName((uint8)choiceNum) + ")",
+            verbose ? (String)choiceNum + " (" + convertIntToSeqStepPitchName((uint8)choiceNum) + ")" :
+            convertIntToSeqStepPitchName((uint8)choiceNum),
             nullptr);
-    choiceNamesTree.setProperty("choice_126", "Reset Sequence", nullptr);
-    choiceNamesTree.setProperty("choice_127", "Rest", nullptr);
+    choiceNamesTree.setProperty("choice_126", verbose ? "Reset Sequence" : "<-", nullptr);
+    choiceNamesTree.setProperty("choice_127", verbose ? "Rest" : "R", nullptr);
     return choiceNamesTree;
 }
 

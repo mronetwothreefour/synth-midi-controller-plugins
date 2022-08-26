@@ -77,6 +77,7 @@ namespace MophoConstants
 		oscPitch,
 		oscShape,
 		oscSlop,
+		pitchBend,
 		posNeg_127,
 		pos_127
 	};
