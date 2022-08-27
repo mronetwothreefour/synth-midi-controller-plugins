@@ -17,7 +17,6 @@ class VoiceTransmissionOptions;
 
 class GUI_Layer_VoicesBanks :
     public Component,
-    public Label::Listener,
     public Button::Listener
 {
     TabbedComponentForAllVoicesBanks voicesBanksTabs;
@@ -37,8 +36,6 @@ public:
 
     GUI_Layer_VoicesBanks(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
     void paint(Graphics& g) override;
-    void editorShown(Label* label, TextEditor& editor) override;
-    void labelTextChanged(Label* label) override;
     void buttonClicked(Button* button) override;
 
 private:

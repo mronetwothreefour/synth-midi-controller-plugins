@@ -44,7 +44,11 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     voiceNameEditor.setColour(Label::textWhenEditingColourId, GUI::color_White);
     voiceNameEditor.setColour(Label::backgroundWhenEditingColourId, GUI::color_Black);
     voiceNameEditor.setColour(Label::outlineWhenEditingColourId, GUI::color_Black);
-    voiceNameEditor.addListener(this);
+    voiceNameEditor.onTextChange = [this] {
+        String newName{ voiceNameEditor.getText() };
+        newName = newName.paddedRight(' ', VCS::numberOfCharsInVoiceName);
+        startUpdatingVoiceName(newName);
+    };
     voiceNameEditor.setText(getVoiceNameFromExposedParemeters(), dontSendNotification);
     voiceNameEditor.setBounds(590, 38, 222, 26);
     addAndMakeVisible(voiceNameEditor);
@@ -183,12 +187,6 @@ String GUI_Layer_MainWindowButtons::getVoiceNameFromExposedParemeters() {
             currentVoiceName += std::string(1, char(roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue()))));
     }
     return currentVoiceName;
-}
-
-void GUI_Layer_MainWindowButtons::labelTextChanged(Label* labelThatHasChanged) {
-    String newName{ labelThatHasChanged->getText() };
-    newName = newName.paddedRight(' ', VCS::numberOfCharsInVoiceName);
-    startUpdatingVoiceName(newName);
 }
 
 void GUI_Layer_MainWindowButtons::startUpdatingVoiceName(String newName) {
@@ -333,7 +331,6 @@ GUI_Layer_MainWindowButtons::~GUI_Layer_MainWindowButtons() {
     layer_GlobalParams = nullptr;
     layer_Randomization = nullptr;
     shouldShowDescriptionValue.removeListener(this);
-    voiceNameEditor.removeListener(this);
     btn_Randomize.removeListener(this);
     btn_Randomize.removeMouseListener(this);
 }

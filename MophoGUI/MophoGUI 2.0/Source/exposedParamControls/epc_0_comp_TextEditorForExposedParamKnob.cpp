@@ -19,7 +19,6 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 	textEditor.setInterceptsMouseClicks(false, true);
 	textEditor.setComponentID(ID::comp_TextEditorForKnob.toString());
 	textEditor.setFont(GUI::font_KnobValueDisplays);
-	setEditorText();
 	switch (rangeType)
 	{
 	case RangeType::clockTempo:
@@ -65,6 +64,7 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 	default:
 		break;
 	}
+	textEditor.onTextChange();
 
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 	textEditor.setBounds(getLocalBounds());

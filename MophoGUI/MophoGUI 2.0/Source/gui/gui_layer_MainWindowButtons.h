@@ -17,7 +17,6 @@ class UnexposedParameters;
 class GUI_Layer_MainWindowButtons :
 	public Component,
 	public Button::Listener,
-	public Label::Listener,
 	public Value::Listener,
 	private MultiTimer,
 	private Timer
@@ -62,7 +61,6 @@ private:
 	void updateTooltips();
 	void showVoiceNameEditor();
 	String getVoiceNameFromExposedParemeters();
-	void labelTextChanged(Label* labelThatHasChanged) override;
 	void startUpdatingVoiceName(String newName);
 	void startClearingSeqTrack(int trackNum);
 	void timerCallback(int timerID) override;

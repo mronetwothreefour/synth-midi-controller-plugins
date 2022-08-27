@@ -29,7 +29,6 @@ GUI_Layer_VoicesBanks::GUI_Layer_VoicesBanks(ExposedParameters* exposedParams, U
 	btn_Close.setBounds(1130, 117, btn_Close.getWidth(), GUI::redButton_h);
 	btn_Close.setAlwaysOnTop(true);
 
-	label_txTimeEditor.addListener(this);
 	label_txTimeEditor.setComponentID(ID::label_EditLabel.toString());
 	label_txTimeEditor.setEditable(true);
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
@@ -41,9 +40,24 @@ GUI_Layer_VoicesBanks::GUI_Layer_VoicesBanks(ExposedParameters* exposedParams, U
 		tip += "Minimum time: 50 ms; Maximum time: 5000 ms.";
 	}
 	label_txTimeEditor.setTooltip(tip);
-	addAndMakeVisible(label_txTimeEditor);
+	label_txTimeEditor.onEditorShow = [this] {
+		auto editor{ label_txTimeEditor.getCurrentTextEditor() };
+		editor->setInputRestrictions(4, "0123456789");
+		editor->setFont(GUI::font_Labels);
+		editor->setText((String)voiceTransmit->voiceTransmitTime());
+		editor->setTooltip("Type a new transmit\ntime in milliseconds.\n(Range: 50 to 5000)");
+	};
+	label_txTimeEditor.onTextChange = [this] {
+		if (label_txTimeEditor.getText().isNotEmpty()) {
+			auto newValue{ label_txTimeEditor.getText().getIntValue() };
+			if (newValue > 49 && newValue < 5001)
+				voiceTransmit->setVoiceTransmitTime(newValue);
+		}
+		label_txTimeEditor.setText((String)voiceTransmit->voiceTransmitTime() + " ms", dontSendNotification);
+	};
 	label_txTimeEditor.setBounds(1119, 477, 50, GUI::redButton_h);
-	labelTextChanged(&label_txTimeEditor);
+	addAndMakeVisible(label_txTimeEditor);
+	label_txTimeEditor.onTextChange();
 
 	setSize(GUI::editor_w, GUI::editor_h);
 }
@@ -53,22 +67,6 @@ void GUI_Layer_VoicesBanks::paint(Graphics& g) {
 	g.setOpacity(1.0f);
 	Rectangle<int> bkgrndBounds{ voicesBanksTabs.getBounds().expanded(2) };
 	g.fillRect(bkgrndBounds);
-}
-
-void GUI_Layer_VoicesBanks::editorShown(Label* /*label*/, TextEditor& editor) {
-	editor.setInputRestrictions(4, "0123456789");
-	editor.setFont(GUI::font_Labels);
-	editor.setText((String)voiceTransmit->voiceTransmitTime());
-	editor.selectAll();
-}
-
-void GUI_Layer_VoicesBanks::labelTextChanged(Label* label) {
-	if (label->getText().isNotEmpty()) {
-		auto newValue{ label->getText().getIntValue() };
-		if (newValue > 49 && newValue < 5001)
-			voiceTransmit->setVoiceTransmitTime(newValue);
-	}
-	label->setText((String)voiceTransmit->voiceTransmitTime() + " ms", dontSendNotification);
 }
 
 void GUI_Layer_VoicesBanks::buttonClicked(Button* button) {
