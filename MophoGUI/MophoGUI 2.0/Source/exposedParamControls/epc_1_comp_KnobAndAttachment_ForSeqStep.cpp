@@ -37,13 +37,13 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 	textEditor.reset(new Label{});
 	textEditor->setInterceptsMouseClicks(false, true);
 	textEditor->setComponentID(ID::comp_TextEditorForSeqStep.toString());
-	textEditor->setFont(GUI::font_KnobValueDisplays);
+	textEditor->setFont(GUI::font_SeqSteps);
 	textEditor->onEditorShow = [this, track, unexposedParams] {
 		auto editor{ textEditor->getCurrentTextEditor() };
 		auto maxLength{ knob.isModifyingPitch ? 4 : 3 };
-		String allowedChar{ knob.isModifyingPitch ? "abcdefgABCDEFG012345#+<-" : "0123456789<-" };
+		String allowedChar{ knob.isModifyingPitch ? "abcdefgABCDEFG012345#+<" : "0123456789<" };
 		if (track == Track::one)
-			allowedChar.append(".", 1);
+			allowedChar += ".";
 		editor->setInputRestrictions(maxLength, allowedChar);
 		if (unexposedParams->getTooltipsOptions()->shouldShowDescription()) {
 			String description{ "" };
@@ -56,7 +56,7 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 				description += "Type in a new setting.\n";
 				description += "range (0 to 125)\n";
 			}
-			description += "Reset: " + GUI::openQuote + "<-" + GUI::closeQuote + " or " + GUI::openQuote + "126" + GUI::closeQuote;
+			description += "Reset: " + GUI::openQuote + "<" + GUI::closeQuote + " or " + GUI::openQuote + "126" + GUI::closeQuote;
 			if (track == Track::one)
 				description += "\nRest: " + GUI::openQuote + "." + GUI::closeQuote + " or " + GUI::openQuote + "127" + GUI::closeQuote;
 			editor->setTooltip(description);
@@ -66,7 +66,7 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 		auto newSettingString{ textEditor->getText() };
 		if (newSettingString.isNotEmpty()) {
 			auto newSetting{ -1.0 };
-			if (newSettingString.containsAnyOf("abcdefgABCDEFG#+.<-")) {
+			if (newSettingString.containsAnyOf("abcdefgABCDEFG#+.<")) {
 				newSettingString = newSettingString.toUpperCase();
 				for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForSeqTrackSteps; ++choiceNum) {
 					if (info->choiceNameFor(choiceNum, paramIndex).removeCharacters(" ") == newSettingString) {
@@ -74,7 +74,7 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 						break;
 					}
 				}
-				if (newSettingString.startsWith("<"))
+				if (newSettingString == "<")
 					newSetting = 126.0;
 				if (newSettingString == ".")
 					newSetting = 127.0;
@@ -93,6 +93,14 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 	setSize(GUI::seqSteps_w, GUI::seqSteps_h);
 	knob.setBounds(getLocalBounds());
 	textEditor->setBounds(getLocalBounds());
+}
+
+void KnobAndAttachment_ForSeqStep::setEditorText() {
+	auto currentChoice{ (uint8)roundToInt(knob.getValue()) };
+	if (knob.isModifyingPitch || currentChoice >= EP::choiceNumForSeqTrackStep_Reset)
+		textEditor->setText(info->choiceNameFor(currentChoice, paramIndex), dontSendNotification);
+	else
+		textEditor->setText((String)currentChoice, dontSendNotification);
 }
 
 void KnobAndAttachment_ForSeqStep::paint(Graphics& g) {
@@ -137,14 +145,6 @@ void KnobAndAttachment_ForSeqStep::attachKnobsToExposedParameters() {
 	knob.setDoubleClickReturnValue(false, 0.0, ModifierKeys::noModifiers);
 	trackDestinationAttachment.reset(new SliderAttachment{ *state, trackDestID.toString(), trackDestination });
 	trackDestination.setDoubleClickReturnValue(false, 0.0, ModifierKeys::noModifiers);
-}
-
-void KnobAndAttachment_ForSeqStep::setEditorText() {
-	auto currentChoice{ (uint8)roundToInt(knob.getValue()) };
-	if (knob.isModifyingPitch || currentChoice >= EP::choiceNumForSeqTrackStep_Reset)
-		textEditor->setText(info->choiceNameFor(currentChoice, paramIndex), dontSendNotification);
-	else
-		textEditor->setText((String)currentChoice, dontSendNotification);
 }
 
 void KnobAndAttachment_ForSeqStep::setKnobIsModifyingPitch(bool isModifyingPitch) {

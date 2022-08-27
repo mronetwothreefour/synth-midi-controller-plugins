@@ -28,13 +28,13 @@ public:
 	KnobAndAttachment_ForSeqStep() = delete;
 
 	KnobAndAttachment_ForSeqStep(const uint8 paramIndex, const Track track, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	void setEditorText();
 	void paint(Graphics& g) override;
 	void paintResetSequenceArrow(Graphics& g);
 	void paintTrack1RestDot(Graphics& g);
 	void paintChoiceNameString(Graphics& g, String stepChoiceName);
 	void mouseDoubleClick(const MouseEvent& event) override;
 	void attachKnobsToExposedParameters();
-	void setEditorText();
 	void setKnobIsModifyingPitch(bool isModifyingPitch);
 	void deleteAttachmentsBeforeKnobsToPreventMemLeaks();
 

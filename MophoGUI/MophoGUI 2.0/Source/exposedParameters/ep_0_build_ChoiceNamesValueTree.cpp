@@ -423,8 +423,8 @@ ValueTree ExposedParamChoiceNamesValueTree::buildForSeqTrackStep(const bool verb
             verbose ? (String)choiceNum + " (" + convertIntToSeqStepPitchName((uint8)choiceNum) + ")" :
             convertIntToSeqStepPitchName((uint8)choiceNum),
             nullptr);
-    choiceNamesTree.setProperty("choice_126", verbose ? "Reset Sequence" : "<-", nullptr);
-    choiceNamesTree.setProperty("choice_127", verbose ? "Rest" : "R", nullptr);
+    choiceNamesTree.setProperty("choice_126", verbose ? "Reset Sequence" : "<", nullptr);
+    choiceNamesTree.setProperty("choice_127", verbose ? "Rest" : ".", nullptr);
     return choiceNamesTree;
 }
 
