@@ -4,6 +4,29 @@
 
 using namespace MophoConstants;
 
+String GlobalParamChoiceName::buildForAudioOutput(bool isMono) {
+    if (isMono)
+        return "AUDIO OUTPUT : MONO";
+    else
+        return "AUDIO OUTPUT : STEREO";
+}
+
+String GlobalParamChoiceName::buildForGlobalFineTune(int choiceNum, bool verbose) {
+    jassert(choiceNum < 101);
+    if (choiceNum < 49)
+        return (String)(choiceNum - 50) + (verbose ? " cents" : "");
+    if (choiceNum == 49)
+        return verbose ? "-1 cent" : "-1";
+    if (choiceNum == 50)
+        return verbose ? "No Detune" : "0";
+    if (choiceNum == 51)
+        return verbose ? "+1 cent" : "+1";
+    if (choiceNum > 51 && choiceNum < 101)
+        return "+" + (String)(choiceNum - 50) + (verbose ? " cents" : "");
+    else
+        return verbose ? "range error" : "err";
+}
+
 String GlobalParamChoiceName::buildForGlobalTranspose(int choiceNum, bool verbose) {
     jassert(choiceNum > -1 && choiceNum < 25);
     if (choiceNum < 11)
@@ -18,6 +41,18 @@ String GlobalParamChoiceName::buildForGlobalTranspose(int choiceNum, bool verbos
         return "+" + (String)(choiceNum - 12) + (verbose ? " semitones" : "");
     else
         return verbose ? "range error" : "err";
+}
+
+String GlobalParamChoiceName::buildForHardwareOutputBalance(int choiceNum) {
+    jassert(choiceNum < 15);
+    if (choiceNum < 7)
+        return "BALANCE TWEAK : " + (String)(choiceNum - 7);
+    if (choiceNum == 7)
+        return "BALANCE TWEAK : NONE";
+    if (choiceNum > 7 && choiceNum < 15)
+        return "BALANCE TWEAK : +" + (String)(choiceNum - 7);
+    else
+        return "range error";
 }
 
 String GlobalParamChoiceName::buildForHardwareReceiveChannel(int choiceNum, bool verbose) {
@@ -102,39 +137,4 @@ String GlobalParamChoiceName::buildForVoiceChanges(bool isEnabled) {
         return "Enabled";
     else
         return "Disabled";
-}
-
-String GlobalParamChoiceName::buildForAudioOutput(bool isMono) {
-    if (isMono)
-        return "AUDIO OUTPUT : MONO";
-    else
-        return "AUDIO OUTPUT : STEREO";
-}
-
-String GlobalParamChoiceName::buildForHardwareOutputBalance(int choiceNum) {
-    jassert(choiceNum < 15);
-    if (choiceNum < 7)
-        return "BALANCE TWEAK : " + (String)(choiceNum - 7);
-    if (choiceNum == 7)
-        return "BALANCE TWEAK : NONE";
-    if (choiceNum > 7 && choiceNum < 15)
-        return "BALANCE TWEAK : +" + (String)(choiceNum - 7);
-    else
-        return "range error";
-}
-
-String GlobalParamChoiceName::buildForGlobalFineTune(int choiceNum, bool verbose) {
-    jassert(choiceNum < 101);
-    if (choiceNum < 49)
-        return (String)(choiceNum - 50) + (verbose ? " cents" : "");
-    if (choiceNum == 49)
-        return verbose ? "-1 cent" : "-1";
-    if (choiceNum == 50)
-        return verbose ? "No Detune" : "0";
-    if (choiceNum == 51)
-        return verbose ? "+1 cent" : "+1";
-    if (choiceNum > 51 && choiceNum < 101)
-        return "+" + (String)(choiceNum - 50) + (verbose ? " cents" : "");
-    else
-        return verbose ? "range error" : "err";
 }

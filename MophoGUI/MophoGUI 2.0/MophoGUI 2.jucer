@@ -198,10 +198,10 @@
               resource="0" file="Source/descriptions/build_MainWindowButtonDescription.h"/>
       </GROUP>
       <GROUP id="{96F7C4E7-ECDA-7DA9-881A-D2A5B27DEC92}" name="exposedParamControls">
-        <FILE id="kkelo6" name="epc_0_comp_TextEditorForExposedParamKnob.h"
-              compile="0" resource="0" file="Source/exposedParamControls/epc_0_comp_TextEditorForExposedParamKnob.h"/>
         <FILE id="BKqvi6" name="epc_0_comp_TextEditorForExposedParamKnob.cpp"
               compile="1" resource="0" file="Source/exposedParamControls/epc_0_comp_TextEditorForExposedParamKnob.cpp"/>
+        <FILE id="kkelo6" name="epc_0_comp_TextEditorForExposedParamKnob.h"
+              compile="0" resource="0" file="Source/exposedParamControls/epc_0_comp_TextEditorForExposedParamKnob.h"/>
         <FILE id="ak6MuF" name="epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"
               compile="1" resource="0" file="Source/exposedParamControls/epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"/>
         <FILE id="ne96UT" name="epc_0_comp_TooltipUpdaterForExposedParamControl.h"
@@ -268,6 +268,10 @@
               resource="0" file="Source/global/global_0_build_ChoiceName.cpp"/>
         <FILE id="vT0bix" name="global_0_build_ChoiceName.h" compile="0" resource="0"
               file="Source/global/global_0_build_ChoiceName.h"/>
+        <FILE id="On3k2U" name="global_0_comp_TextEditorForGlobalParamKnob.cpp"
+              compile="1" resource="0" file="Source/global/global_0_comp_TextEditorForGlobalParamKnob.cpp"/>
+        <FILE id="Hgj9qP" name="global_0_comp_TextEditorForGlobalParamKnob.h"
+              compile="0" resource="0" file="Source/global/global_0_comp_TextEditorForGlobalParamKnob.h"/>
         <FILE id="h1y8vi" name="global_0_gui_layer_CommError_Base.h" compile="0"
               resource="0" file="Source/global/global_0_gui_layer_CommError_Base.h"/>
         <FILE id="VgUHVJ" name="global_1_comp_ComboBoxForGlobalParam.cpp" compile="1"

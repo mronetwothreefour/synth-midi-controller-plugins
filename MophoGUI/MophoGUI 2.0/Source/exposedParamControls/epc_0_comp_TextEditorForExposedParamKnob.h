@@ -18,7 +18,7 @@ class TextEditorForExposedParamKnob :
 {
 	const uint8 paramIndex;
 	InfoForExposedParameters* info;
-	KnobValueRangeType rangeType;
+	RangeType rangeType;
 	RangedAudioParameter* paramPtr;
 	Label textEditor;
 	Value parameterValue;

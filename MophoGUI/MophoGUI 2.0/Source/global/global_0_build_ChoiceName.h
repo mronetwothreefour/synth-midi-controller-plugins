@@ -9,9 +9,9 @@ using namespace MophoConstants;
 struct GlobalParamChoiceName
 {
 	static String buildForAudioOutput(bool isMono);
-	static String buildForHardwareOutputBalance(int choiceNum);
 	static String buildForGlobalFineTune(int choiceNum, bool verbose);
 	static String buildForGlobalTranspose(int choiceNum, bool verbose);
+	static String buildForHardwareOutputBalance(int choiceNum);
 	static String buildForHardwareReceiveChannel(int choiceNum, bool verbose);
 	static String buildForMIDI_ClockSource(MIDI_ClockSource sourceType, bool verbose);
 	static String buildForMIDI_Controllers(bool areEnabled);

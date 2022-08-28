@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "global_0_comp_TextEditorForGlobalParamKnob.h"
 #include "../constants/constants_Enum.h"
 #include "../gui/gui_comp_JuceSlidersWithMouseMods.h"
 
@@ -19,6 +20,7 @@ class KnobForGlobalParameter :
 	Identifier paramID;
 	GlobalOptions* global;
 	UnexposedParameters* unexposedParams;
+	TextEditorForGlobalParamKnob textEditor;
 	Value globalParamValue;
 	Value shouldShowDescriptionValue;
 	Value shouldShowCurrentChoiceValue;
@@ -28,6 +30,7 @@ public:
 
 	KnobForGlobalParameter(KnobType knobType, UnexposedParameters* unexposedParams);
 	void updateTooltip();
+	void mouseDoubleClick(const MouseEvent& event) override;
 	void valueChanged() override;
 	void valueChanged(Value& value) override;
 	~KnobForGlobalParameter();

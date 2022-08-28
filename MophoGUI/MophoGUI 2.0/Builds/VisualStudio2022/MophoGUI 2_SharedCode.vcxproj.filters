@@ -682,6 +682,9 @@
     <ClCompile Include="..\..\Source\global\global_0_build_ChoiceName.cpp">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_0_comp_TextEditorForGlobalParamKnob.cpp">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\global\global_1_comp_ComboBoxForGlobalParam.cpp">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClCompile>
@@ -3256,6 +3259,9 @@
       <Filter>MophoGUI 2\Source\exposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\global\global_0_build_ChoiceName.h">
+      <Filter>MophoGUI 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_0_comp_TextEditorForGlobalParamKnob.h">
       <Filter>MophoGUI 2\Source\global</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\global\global_0_gui_layer_CommError_Base.h">

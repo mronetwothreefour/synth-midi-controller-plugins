@@ -17,6 +17,7 @@ KnobForGlobalParameter::KnobForGlobalParameter(KnobType knobType, UnexposedParam
 	RotarySliderWithMouseWheelMoveOverride{ nullptr },
 	knobType{ knobType },
 	global{ unexposedParams->getGlobalOptions() },
+	textEditor{ knobType, unexposedParams },
 	unexposedParams{ unexposedParams }
 {
 	switch (knobType)
@@ -42,6 +43,9 @@ KnobForGlobalParameter::KnobForGlobalParameter(KnobType knobType, UnexposedParam
 	default:
 		break;
 	}
+
+	textEditor.setTopLeftPosition(0, 0);
+	addAndMakeVisible(textEditor);
 
 	globalParamValue = global->getGobalParamValue(paramID);
 	globalParamValue.addListener(this);
@@ -86,6 +90,10 @@ void KnobForGlobalParameter::updateTooltip() {
 		break;
 	}
 	setTooltip(tip);
+}
+
+void KnobForGlobalParameter::mouseDoubleClick(const MouseEvent& /*event*/) {
+	textEditor.showEditor();
 }
 
 void KnobForGlobalParameter::valueChanged() {
