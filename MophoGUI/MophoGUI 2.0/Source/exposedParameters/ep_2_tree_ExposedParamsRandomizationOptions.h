@@ -104,9 +104,11 @@ public:
 	const float probabilityOfRestForSeqTrack_1_Step(Step step);
 	void setProbabilityOfRestForAllSeqTrack_1_Steps(float newProb);
 	void setProbabilityOfRestForSeqTrack_1_Step(float newProb, Step step);
+	Value getProbabilityOfRestForSeqTrack_1_StepValue(Step step);
 	const float probabilityOfResetForSeqTrackStep(Track track, Step step);
 	void setProbabilityOfResetForAllSeqTrackSteps(float newProb, Track track);
 	void setProbabilityOfResetForSeqTrackStep(float newProb, Track track, Step step);
+	Value getProbabilityOfResetForSeqTrackStepValue(Track track, Step step);
 	const bool choiceIsAllowedForSeqTrackStep(uint8 choiceNum, Track track, Step step);
 	void setChoiceIsAllowedForAllSeqTrackSteps(uint8 choiceNum, bool shouldBeAllowed, Track track);
 	void setChoiceIsAllowedForSeqTrackStep(uint8 choiceNum, bool shouldBeAllowed, Track track, Step step);

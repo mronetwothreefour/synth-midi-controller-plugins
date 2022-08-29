@@ -7,7 +7,6 @@
 using namespace MophoConstants;
 using KnobType = GlobalParamKnobType;
 
-class GlobalOptions;
 class UnexposedParameters;
 
 class TextEditorForGlobalParamKnob :

@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "rndm_0_comp_TextEditorForSeqTrackProbabilityKnob.h"
 #include "../constants/constants_Enum.h"
 #include "../gui/gui_comp_JuceSlidersWithMouseMods.h"
 
@@ -22,7 +23,9 @@ class KnobForSeqTrackProbability :
 	KnobType knobType;
 	Track track;
 	ExposedParamsRandomizationOptions* randomization;
+	TextEditorForSeqTrackProbabilityKnob textEditor;
 	Value targetStepForSeqTrackValue;
+	Value seqTrackProbValue;
 	TooltipsOptions* tooltips;
 
 public:
@@ -30,6 +33,7 @@ public:
 
 	KnobForSeqTrackProbability(KnobType knobType, Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams);
 	void updateTooltip();
+	void mouseDoubleClick(const MouseEvent& event) override;
 	void valueChanged() override;
 	void valueChanged(Value& value) override;
 	~KnobForSeqTrackProbability();

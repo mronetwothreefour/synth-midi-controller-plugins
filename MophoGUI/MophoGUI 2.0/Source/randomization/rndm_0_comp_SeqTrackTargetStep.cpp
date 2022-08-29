@@ -27,10 +27,10 @@ SeqTrackTargetStep::SeqTrackTargetStep(Track track, ExposedParamsRandomizationOp
 		tip += "track " + String((int)track) + " is targeted for editing.";
 		stepSelector.setTooltip(tip);
 	}
-	stepSelector.setBounds(22, 22, 38, GUI::comboBox_h);
+	stepSelector.setBounds(22, 22, 46, GUI::comboBox_h);
 	addAndMakeVisible(stepSelector);
 
-	setSize(90, 38);
+	setSize(90, 46);
 }
 
 void SeqTrackTargetStep::paint(Graphics& g) {

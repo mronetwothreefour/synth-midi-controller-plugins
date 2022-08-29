@@ -12,6 +12,7 @@ KnobForSeqTrackProbability::KnobForSeqTrackProbability(
 	knobType{ knobType },
 	track{ track },
 	randomization{ randomization },
+	textEditor{ knobType, track, randomization, unexposedParams->getTooltipsOptions() },
 	tooltips{ unexposedParams->getTooltipsOptions() }
 {
 	if (knobType == KnobType::rest)
@@ -24,22 +25,23 @@ KnobForSeqTrackProbability::KnobForSeqTrackProbability(
 	setMouseDragSensitivity(130);
 
 	auto targetStep{ randomization->targetStepForSeqTrack(track) };
-	switch (knobType)
-	{
-	case KnobType::reset:
+	if (knobType == KnobType::reset) {
+		seqTrackProbValue = randomization->getProbabilityOfResetForSeqTrackStepValue(track, targetStep);
 		if (targetStep == Step::one) {
 			setValue(0.0, dontSendNotification);
 			setEnabled(false);
 		}
 		else
 			setValue((double)randomization->probabilityOfResetForSeqTrackStep(track, targetStep), dontSendNotification);
-		break;
-	case KnobType::rest:
-		setValue((double)randomization->probabilityOfRestForSeqTrack_1_Step(targetStep), dontSendNotification);
-		break;
-	default:
-		break;
 	}
+	else {
+		seqTrackProbValue = randomization->getProbabilityOfRestForSeqTrack_1_StepValue(targetStep);
+		setValue((double)randomization->probabilityOfRestForSeqTrack_1_Step(targetStep), dontSendNotification);
+	}
+	seqTrackProbValue.addListener(this);
+
+	textEditor.setTopLeftPosition(0, 0);
+	addAndMakeVisible(textEditor);
 
 	updateTooltip();
 
@@ -83,6 +85,12 @@ void KnobForSeqTrackProbability::updateTooltip() {
 	setTooltip(tip);
 }
 
+void KnobForSeqTrackProbability::mouseDoubleClick(const MouseEvent& /*event*/) {
+	auto targetStep{ randomization->targetStepForSeqTrack(track) };
+	if (knobType == KnobType::rest || targetStep != Step::one)
+		textEditor.showEditor();
+}
+
 void KnobForSeqTrackProbability::valueChanged() {
 	auto targetStep{ randomization->targetStepForSeqTrack(track) };
 	auto newProbability{ (float)getValue() };
@@ -119,11 +127,15 @@ void KnobForSeqTrackProbability::valueChanged() {
 	}
 }
 
-void KnobForSeqTrackProbability::valueChanged(Value& /*value*/) {
+void KnobForSeqTrackProbability::valueChanged(Value& value) {
 	auto targetStep{ randomization->targetStepForSeqTrack(track) };
-	switch (knobType)
-	{
-	case KnobType::reset:
+	if (value.refersToSameSourceAs(targetStepForSeqTrackValue)) {
+		if (knobType == KnobType::reset)
+			seqTrackProbValue = randomization->getProbabilityOfResetForSeqTrackStepValue(track, targetStep);
+		else
+			seqTrackProbValue = randomization->getProbabilityOfRestForSeqTrack_1_StepValue(targetStep);
+	}
+	if (knobType == KnobType::reset) {
 		if (targetStep == Step::one) {
 			setValue(0.0, dontSendNotification);
 			setEnabled(false);
@@ -132,16 +144,14 @@ void KnobForSeqTrackProbability::valueChanged(Value& /*value*/) {
 			setEnabled(true);
 			setValue((double)randomization->probabilityOfResetForSeqTrackStep(track, targetStep), dontSendNotification);
 		}
-		break;
-	case KnobType::rest:
+	}
+	else {
 		setValue((double)randomization->probabilityOfRestForSeqTrack_1_Step(targetStep), dontSendNotification);
-		break;
-	default:
-		break;
 	}
 	updateTooltip();
 }
 
 KnobForSeqTrackProbability::~KnobForSeqTrackProbability() {
 	targetStepForSeqTrackValue.removeListener(this);
+	seqTrackProbValue.removeListener(this);
 }

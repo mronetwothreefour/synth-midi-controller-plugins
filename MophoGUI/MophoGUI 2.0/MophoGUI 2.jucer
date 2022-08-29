@@ -382,6 +382,10 @@
               resource="0" file="Source/randomization/rndm_0_comp_SeqTrackTargetStep.cpp"/>
         <FILE id="ThciwA" name="rndm_0_comp_SeqTrackTargetStep.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_comp_SeqTrackTargetStep.h"/>
+        <FILE id="Z6Ak3p" name="rndm_0_comp_TextEditorForSeqTrackProbabilityKnob.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_0_comp_TextEditorForSeqTrackProbabilityKnob.cpp"/>
+        <FILE id="JQTByZ" name="rndm_0_comp_TextEditorForSeqTrackProbabilityKnob.h"
+              compile="0" resource="0" file="Source/randomization/rndm_0_comp_TextEditorForSeqTrackProbabilityKnob.h"/>
         <FILE id="xE7hlO" name="rndm_0_comp_TransmitTypeToggles.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_comp_TransmitTypeToggles.h"/>
         <FILE id="xSoGUU" name="rndm_0_comp_TransmitTypeToggles.cpp" compile="1"
