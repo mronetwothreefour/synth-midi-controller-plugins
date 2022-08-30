@@ -69,8 +69,16 @@ namespace MophoConstants
 	};
 
 
-	const enum class KnobValueRangeType {
-		clockTempo,
+	const enum class ImportExportType {
+		exportVoice = 0,
+		exportVoicesBank,
+		importVoice,
+		importVoicesBank
+	};
+
+
+	const enum class KnobTextEditorType {
+		clockTempo = 0,
 		lfoFrequency,
 		lpfFrequency,
 		oscFineTune,
@@ -80,14 +88,6 @@ namespace MophoConstants
 		pitchBend,
 		posNeg_127,
 		pos_127
-	};
-
-
-	const enum class ImportExportType {
-		exportVoice = 0,
-		exportVoicesBank,
-		importVoice,
-		importVoicesBank
 	};
 
 

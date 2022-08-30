@@ -24,7 +24,7 @@ public:
 	Identifier IDfor(Track track, Step step) const;
 	String exposedNameFor(const uint8 paramIndex) const;
 	ControlType controlTypeFor(const uint8 paramIndex) const;
-	KnobValueRangeType knobValueRangeTypeFor(const uint8 paramIndex) const;
+	KnobTextEditorType knobTextEditorTypeFor(const uint8 paramIndex) const;
 	uint8 NRPNfor(const uint8 paramIndex) const;
 	const uint8 paramIndexForNRPN(const uint8 NRPN) const;
 	uint8 numberOfChoicesFor(const uint8 paramIndex) const;

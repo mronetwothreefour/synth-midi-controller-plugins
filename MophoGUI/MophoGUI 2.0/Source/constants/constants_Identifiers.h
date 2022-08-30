@@ -163,7 +163,7 @@ namespace MophoConstants
 		static const Identifier property_ExposedName{ "property_ExposedName" };
 		static const Identifier property_FirstAllowChoiceToggleRow{ "property_FirstAllowChoiceToggleRow" };
 		static const Identifier property_Height{ "property_Height" };
-		static const Identifier property_KnobValueRangeType{ "property_KnobValueRangeType" };
+		static const Identifier property_KnobTextEditorType{ "property_KnobTextEditorType" };
 		static const Identifier property_LSByteLocation{ "property_LSByteLocation" };
 		static const Identifier property_MSBitMask{ "property_MSBitMask" };
 		static const Identifier property_MSBitPackedByteLocation{ "property_MSbitPackedByteLocation" };

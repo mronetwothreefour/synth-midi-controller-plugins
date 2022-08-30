@@ -6,7 +6,7 @@
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 
 using namespace MophoConstants;
-using RangeType = KnobValueRangeType;
+using EditorType = KnobTextEditorType;
 
 class ExposedParameters;
 class InfoForExposedParameters;
@@ -18,7 +18,7 @@ class TextEditorForExposedParamKnob :
 {
 	const uint8 paramIndex;
 	InfoForExposedParameters* info;
-	RangeType rangeType;
+	EditorType editorType;
 	RangedAudioParameter* paramPtr;
 	Label textEditor;
 	Value parameterValue;

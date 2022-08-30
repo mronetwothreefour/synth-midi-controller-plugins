@@ -9,7 +9,7 @@
 TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltipsOptions) :
 	paramIndex{ paramIndex },
 	info{ exposedParams->info.get() },
-	rangeType{ info->knobValueRangeTypeFor(paramIndex) },
+	editorType{ info->knobTextEditorTypeFor(paramIndex) },
 	paramPtr{ exposedParams->state->getParameter(info->IDfor(paramIndex)) }
 {
 	parameterValue = exposedParams->state->getParameterAsValue(info->IDfor(paramIndex));
@@ -19,45 +19,45 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 	textEditor.setInterceptsMouseClicks(false, true);
 	textEditor.setComponentID(ID::comp_TextEditorForKnob.toString());
 	textEditor.setFont(GUI::font_KnobValueDisplays);
-	switch (rangeType)
+	switch (editorType)
 	{
-	case RangeType::clockTempo:
+	case EditorType::clockTempo:
 		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_ClockTempo(tooltipsOptions); };
 		textEditor.onTextChange = [this] { onTextChange_NumericRanges(); };
 		break;
-	case RangeType::lfoFrequency:
+	case EditorType::lfoFrequency:
 		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_LFO_Freq(tooltipsOptions); };
 		textEditor.onTextChange = [this] { onTextChange_PitchAndFreqRanges(); };
 		break;
-	case RangeType::lpfFrequency:
+	case EditorType::lpfFrequency:
 		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_LPF_Freq(tooltipsOptions); };
 		textEditor.onTextChange = [this] { onTextChange_PitchAndFreqRanges(); };
 		break;
-	case RangeType::oscFineTune:
+	case EditorType::oscFineTune:
 		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_OscFineTune(tooltipsOptions); };
 		textEditor.onTextChange = [this] { onTextChange_NumericRanges(); };
 		break;
-	case RangeType::oscPitch:
+	case EditorType::oscPitch:
 		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_OscPitch(tooltipsOptions); };
 		textEditor.onTextChange = [this] { onTextChange_PitchAndFreqRanges(); };
 		break;
-	case RangeType::oscShape:
+	case EditorType::oscShape:
 		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_OscShape(tooltipsOptions); };
 		textEditor.onTextChange = [this] { onTextChange_OscShape(); };
 		break;
-	case RangeType::oscSlop:
+	case EditorType::oscSlop:
 		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_OscSlop(tooltipsOptions); };
 		textEditor.onTextChange = [this] { onTextChange_NumericRanges(); };
 		break;
-	case RangeType::pitchBend:
+	case EditorType::pitchBend:
 		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_PitchBend(tooltipsOptions); };
 		textEditor.onTextChange = [this] { onTextChange_NumericRanges(); };
 		break;
-	case RangeType::posNeg_127:
+	case EditorType::posNeg_127:
 		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_PosNeg_127(tooltipsOptions); };
 		textEditor.onTextChange = [this] { onTextChange_NumericRanges(); };
 		break;
-	case RangeType::pos_127:
+	case EditorType::pos_127:
 		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_Pos_127(tooltipsOptions); };
 		textEditor.onTextChange = [this] { onTextChange_NumericRanges(); };
 		break;
@@ -74,7 +74,7 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 void TextEditorForExposedParamKnob::setEditorText() {
 	auto currentChoice{ (uint8)roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue())) };
 	auto currentChoiceName{ info->choiceNameFor(currentChoice, paramIndex).removeCharacters(" ") };
-	if (rangeType == RangeType::pitchBend)
+	if (editorType == EditorType::pitchBend)
 		currentChoiceName = currentChoiceName.removeCharacters("+/-");
 	textEditor.setText(currentChoiceName, dontSendNotification);
 }
@@ -178,11 +178,11 @@ void TextEditorForExposedParamKnob::onTextChange_NumericRanges() {
 	auto newSettingString{ textEditor.getText() };
 	if (newSettingString.isNotEmpty()) {
 		auto newSetting{ newSettingString.getFloatValue() };
-		if (rangeType == RangeType::clockTempo)
+		if (editorType == EditorType::clockTempo)
 			newSetting -= 30.0f;
-		if (rangeType == RangeType::oscFineTune)
+		if (editorType == EditorType::oscFineTune)
 			newSetting += 50.0f;
-		if (rangeType == RangeType::posNeg_127)
+		if (editorType == EditorType::posNeg_127)
 			newSetting += 127.0f;
 		paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
 	}
@@ -197,9 +197,9 @@ void TextEditorForExposedParamKnob::onTextChange_PitchAndFreqRanges() {
 		if (newSettingString.containsAnyOf("abcdefgABCDEFG#:.")) {
 			newSettingString = newSettingString.toUpperCase();
 			auto numberOfChoices{ EP::numberOfChoicesForOscPitch };
-			if (rangeType == RangeType::lfoFrequency)
+			if (editorType == EditorType::lfoFrequency)
 				numberOfChoices = EP::numberOfChoicesFor_LFO_Freq;
-			if (rangeType == RangeType::lpfFrequency)
+			if (editorType == EditorType::lpfFrequency)
 				numberOfChoices = EP::numberOfChoicesFor_LPF_Freq;
 			for (auto choiceNum = (uint8)0; choiceNum != numberOfChoices; ++choiceNum) {
 				if (info->choiceNameFor(choiceNum, paramIndex).removeCharacters(" ") == newSettingString) {
