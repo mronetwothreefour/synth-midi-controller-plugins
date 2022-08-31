@@ -18,6 +18,7 @@ public:
 	ControlType controlTypeFor(const uint8 paramIndex) const;
 	uint8 dataByteIndexFor(const uint8 paramIndex) const;
 	RangeType rangeTypeFor(const uint8 paramIndex) const;
+	SliderTextEditorType sliderTextEditorTypeFor(const uint8 paramIndex) const;
 	uint8 numberOfChoicesFor(const uint8 paramIndex) const;
 	uint8 defaultChoiceFor(const uint8 paramIndex) const;
 	Point<int> centerPointFor(const uint8 paramIndex) const;

@@ -143,6 +143,7 @@
     <ClCompile Include="..\..\Source\core_0_PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\core_1_PluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamSlider.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_ComboBoxAndAttachment.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_SliderAndAttachment.cpp"/>
@@ -2334,6 +2335,7 @@
     <ClInclude Include="..\..\Source\constants\constants_MatrixMod.h"/>
     <ClInclude Include="..\..\Source\constants\constants_Voices.h"/>
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h"/>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamSlider.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_ComboBoxAndAttachment.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_SliderAndAttachment.h"/>

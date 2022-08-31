@@ -12,12 +12,10 @@ using MemBlock = MemoryBlock;
 using s_t = size_t;
 
 void MatrixLookAndFeel::drawLabel(Graphics& g, Label& label) {
-	if (label.isBeingEdited()) {
-	}
-	else {
+	if (label.getComponentID() != ID::comp_TextEditorForSlider.toString()) {
+		auto isRightJustified{ label.getComponentID() == ID::comp_VoiceNameEditor.toString() ? false : true};
 		g.setColour(GUI::color_LED_Blue);
 		auto text{ label.getText() };
-		auto isRightJustified{ label.getComponentID() == ID::comp_VoiceNameEditor.toString() ? false : true};
 		auto textPath{ LED_Path::buildLabelText(text, label.getWidth(), isRightJustified) };
 		g.fillPath(textPath);
 	}

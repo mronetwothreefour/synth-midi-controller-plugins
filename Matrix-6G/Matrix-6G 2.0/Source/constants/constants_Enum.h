@@ -18,6 +18,13 @@ namespace Matrix_6G_Constants
 		signed_7_bitValue
 	};
 
+	const enum class SliderTextEditorType {
+		oscPitch,
+		signed_6_bitValue,
+		signed_7_bitValue,
+		unsignedValue
+	};
+
 	const enum class SysExMessageType {
 		voiceData = 1,
 		splitData,

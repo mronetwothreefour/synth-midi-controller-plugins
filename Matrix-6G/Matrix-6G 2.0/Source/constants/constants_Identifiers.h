@@ -6,6 +6,7 @@ namespace Matrix_6G_Constants
 {
 	namespace ID
 	{
+		static const Identifier comp_TextEditorForSlider{ "comp_TextEditorForSlider" };
 		static const Identifier comp_VoiceNameEditor{ "comp_VoiceNameEditor" };
 
 		static const Identifier currentVoice_Name{ "currentVoice_Name" };
@@ -107,6 +108,7 @@ namespace Matrix_6G_Constants
 		static const Identifier property_NumberOfChoices{ "property_NumberOfChoices" };
 		static const Identifier property_ParamNum{ "property_ParamNum" };
 		static const Identifier property_ParamID{ "property_ParamID" };
+		static const Identifier property_SliderTextEditorType{ "property_SliderTextEditorType" };
 		static const Identifier property_Width{ "property_Width" };
 
 		static const Identifier state_CurrentVoiceOptions{ "state_CurrentVoiceOptions" };

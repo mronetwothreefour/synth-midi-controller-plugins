@@ -616,6 +616,9 @@
     <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp">
       <Filter>Matrix-6G 2\Source\descriptions</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamSlider.cpp">
+      <Filter>Matrix-6G 2\Source\exposedParamControls</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.cpp">
       <Filter>Matrix-6G 2\Source\exposedParamControls</Filter>
     </ClCompile>
@@ -3038,6 +3041,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h">
       <Filter>Matrix-6G 2\Source\descriptions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamSlider.h">
+      <Filter>Matrix-6G 2\Source\exposedParamControls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.h">
       <Filter>Matrix-6G 2\Source\exposedParamControls</Filter>

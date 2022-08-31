@@ -51,6 +51,10 @@
               resource="0" file="Source/descriptions/build_ExposedParamDescription.h"/>
       </GROUP>
       <GROUP id="{967321A4-7159-92CE-A124-8C9B4B0528A9}" name="exposedParamControls">
+        <FILE id="rURhEK" name="epc_0_comp_TextEditorForExposedParamSlider.cpp"
+              compile="1" resource="0" file="Source/exposedParamControls/epc_0_comp_TextEditorForExposedParamSlider.cpp"/>
+        <FILE id="ch8zqw" name="epc_0_comp_TextEditorForExposedParamSlider.h"
+              compile="0" resource="0" file="Source/exposedParamControls/epc_0_comp_TextEditorForExposedParamSlider.h"/>
         <FILE id="JCtYhB" name="epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"
               compile="1" resource="0" file="Source/exposedParamControls/epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"/>
         <FILE id="pjGtb4" name="epc_0_comp_TooltipUpdaterForExposedParamControl.h"
