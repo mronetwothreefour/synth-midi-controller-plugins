@@ -5,6 +5,7 @@
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
+#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using namespace P_600_G_Constants;
 
@@ -13,12 +14,17 @@ KnobAndAttachment::KnobAndAttachment(const uint8 paramIndex, ExposedParameters* 
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
 	knob{ &exposedParams->undoManager },
+	textEditor{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
 	tooltipUpdater{ paramIndex, knob, exposedParams, unexposedParams }
 {
-	addAndMakeVisible(knob);
+	knob.addMouseListener(this, false);
 	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 	knob.setBounds(getLocalBounds());
+	addAndMakeVisible(knob);
+
+	textEditor.setTopLeftPosition(0, 0);
+	addAndMakeVisible(textEditor);
 }
 
 void KnobAndAttachment::paint(Graphics& g) {
@@ -30,8 +36,13 @@ void KnobAndAttachment::paint(Graphics& g) {
 	g.drawText(choiceNameString, getLocalBounds(), Justification::centred);
 }
 
+void KnobAndAttachment::mouseDoubleClick(const MouseEvent& /*event*/) {
+	textEditor.showEditor();
+}
+
 void KnobAndAttachment::attachKnobToExposedParameter() {
 	attachment.reset(new SliderAttachment{ *state, info->IDfor(paramIndex).toString(), knob });
+	knob.setDoubleClickReturnValue(false, 0.0, ModifierKeys::noModifiers);
 }
 
 void KnobAndAttachment::setKnobIsModifyingPitch(bool isModifyingPitch) {
@@ -40,4 +51,8 @@ void KnobAndAttachment::setKnobIsModifyingPitch(bool isModifyingPitch) {
 
 void KnobAndAttachment::deleteAttachmentBeforeKnobToPreventMemLeak() {
 	attachment = nullptr;
+}
+
+KnobAndAttachment::~KnobAndAttachment() {
+	knob.removeMouseListener(this);
 }

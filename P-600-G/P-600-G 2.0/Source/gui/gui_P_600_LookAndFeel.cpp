@@ -38,6 +38,21 @@ void P_600_LookAndFeel::drawLinearSlider(
 	g.drawImageAt(switchTab, x, h - (currentValue * switchTab_h) + offsetForLinearSliderTab);
 }
 
+void P_600_LookAndFeel::drawLabel(Graphics& /*g*/, Label& /*label*/) {
+}
+
+void P_600_LookAndFeel::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h*/, TextEditor& textEditor) {
+	if (textEditor.getParentComponent()->getComponentID() == ID::comp_TextEditorForKnob.toString()) {
+		g.setColour(GUI::color_KnobGray);
+		g.fillEllipse(4.0f, 4.0f, 26.0f, 26.0f);
+	}
+	else
+		g.fillAll(GUI::color_Black);
+}
+
+void P_600_LookAndFeel::drawTextEditorOutline(Graphics& /*g*/, int /*w*/, int /*h*/, TextEditor& /*textEditor*/) {
+}
+
 void P_600_LookAndFeel::drawTooltip(Graphics& g, const String& text, int width, int height) {
 	Rectangle<int> bounds(width, height);
 	g.setColour(GUI::color_KnobGray);

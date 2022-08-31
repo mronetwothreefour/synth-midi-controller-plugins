@@ -616,6 +616,9 @@
     <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp">
       <Filter>P-600-G 2\Source\descriptions</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamKnob.cpp">
+      <Filter>P-600-G 2\Source\exposedParamControls</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.cpp">
       <Filter>P-600-G 2\Source\exposedParamControls</Filter>
     </ClCompile>
@@ -2987,6 +2990,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h">
       <Filter>P-600-G 2\Source\descriptions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamKnob.h">
+      <Filter>P-600-G 2\Source\exposedParamControls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.h">
       <Filter>P-600-G 2\Source\exposedParamControls</Filter>

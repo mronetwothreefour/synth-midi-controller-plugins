@@ -143,6 +143,7 @@
     <ClCompile Include="..\..\Source\core_0_PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\core_1_PluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamKnob.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_KnobAndAttachment.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_SwitchSliderAndAttachment.cpp"/>
@@ -2317,6 +2318,7 @@
     <ClInclude Include="..\..\Source\constants\constants_GUI_PathData.h"/>
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h"/>
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h"/>
+    <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamKnob.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_KnobAndAttachment.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_SwitchSliderAndAttachment.h"/>

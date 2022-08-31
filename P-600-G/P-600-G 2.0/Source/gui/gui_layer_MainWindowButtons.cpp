@@ -28,7 +28,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
 void GUI_Layer_MainWindowButtons::updateTooltips() {
 }
 
-void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& event) {
+void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& /*event*/) {
 }
 
 void GUI_Layer_MainWindowButtons::buttonClicked(Button* /*button*/) {

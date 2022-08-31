@@ -15,6 +15,10 @@ public:
 		Graphics& g, int x, int y, int width, int height, float sliderPos, float minSliderPos,
 		float maxSliderPos, const Slider::SliderStyle style, Slider& slider) override;
 
+	void drawLabel(Graphics& g, Label& label) override;
+	void fillTextEditorBackground(Graphics& g, int w, int h, TextEditor& textEditor) override;
+	void drawTextEditorOutline(Graphics& g, int w, int h, TextEditor& textEditor) override;
+
 	void drawTooltip(Graphics& g, const String& text, int width, int height) override;
 	Rectangle<int> getTooltipBounds(const String& tipText, Point<int> screenPos, Rectangle<int> parentArea) override;
 	TextLayout layoutTooltipText(const String& text, Colour colour) noexcept;

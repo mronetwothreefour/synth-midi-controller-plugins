@@ -6,6 +6,8 @@ namespace P_600_G_Constants
 {
 	namespace ID
 	{
+		static const Identifier comp_TextEditorForKnob{ "comp_TextEditorForKnob" };
+
 		static const Identifier ep_00_Osc_A_Freq{ "ep_00_Osc_A_Freq" };
 		static const Identifier ep_01_Osc_A_Sync{ "ep_01_Osc_A_Sync" };
 		static const Identifier ep_02_Osc_A_Saw{ "ep_02_Osc_A_Saw" };
@@ -53,6 +55,7 @@ namespace P_600_G_Constants
 		static const Identifier property_FirstBitIndex{ "property_FirstBitIndex" };
 		static const Identifier property_FirstNybbleIndex{ "property_FirstNybbleIndex" };
 		static const Identifier property_Height{ "property_Height" };
+		static const Identifier property_KnobTextEditorType{ "property_KnobTextEditorType" };
 		static const Identifier property_NumberOfBits{ "property_NumberOfBits" };
 		static const Identifier property_NumberOfChoices{ "property_NumberOfChoices" };
 		static const Identifier property_ParamID{ "property_ParamID" };

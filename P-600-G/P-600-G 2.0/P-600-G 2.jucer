@@ -52,6 +52,10 @@
               resource="0" file="Source/descriptions/build_ExposedParamDescription.h"/>
       </GROUP>
       <GROUP id="{636CF01F-46CC-2BA9-0238-08E668E5DC4F}" name="exposedParamControls">
+        <FILE id="xiXPDa" name="epc_0_comp_TextEditorForExposedParamKnob.cpp"
+              compile="1" resource="0" file="Source/exposedParamControls/epc_0_comp_TextEditorForExposedParamKnob.cpp"/>
+        <FILE id="U8jCSS" name="epc_0_comp_TextEditorForExposedParamKnob.h"
+              compile="0" resource="0" file="Source/exposedParamControls/epc_0_comp_TextEditorForExposedParamKnob.h"/>
         <FILE id="AtpKz5" name="epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"
               compile="1" resource="0" file="Source/exposedParamControls/epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"/>
         <FILE id="jNwsQ8" name="epc_0_comp_TooltipUpdaterForExposedParamControl.h"
