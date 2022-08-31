@@ -16,10 +16,10 @@ SliderAndAttachment_ForOscBalance::SliderAndAttachment_ForOscBalance(ExposedPara
 	tooltipUpdater{ paramIndex, slider, exposedParams, unexposedParams }
 {
 	slider.addMouseListener(this, false);
-	addAndMakeVisible(slider);
 	slider.setMouseDragSensitivity(exposedParams->info->mouseDragSensitivityFor(paramIndex));
 	setSize(exposedParams->info->widthFor(paramIndex), GUI::control_h);
 	slider.setBounds(getLocalBounds());
+	addAndMakeVisible(slider);
 
 	textEditor.setTopLeftPosition(0, 0);
 	addAndMakeVisible(textEditor);
