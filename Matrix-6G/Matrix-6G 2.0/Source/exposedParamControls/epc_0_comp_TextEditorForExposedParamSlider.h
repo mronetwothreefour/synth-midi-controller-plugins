@@ -29,15 +29,19 @@ public:
 	TextEditorForExposedParamSlider() = delete;
 
 	TextEditorForExposedParamSlider(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltipsOptions);
+
+private:
 	void setEditorText();
 
-	void onEditorShow_Pitch(TooltipsOptions* tooltipsOptions);
-	void onEditorShow_SignedRanges(TooltipsOptions* tooltipsOptions);
-	void onEditorShow_UnsignedRanges(TooltipsOptions* tooltipsOptions);
+	void onEditorShow_Pitch(TooltipsOptions* tooltips);
+	void onEditorShow_SignedRanges(TooltipsOptions* tooltips);
+	void onEditorShow_UnsignedRanges(TooltipsOptions* tooltips);
 
 	void onTextChange_Pitch();
 	void onTextChange_NumericRanges();
 
+
+public:
 	void showEditor();
 	void valueChanged(Value& value) override;
 	~TextEditorForExposedParamSlider();

@@ -53,11 +53,11 @@ void TextEditorForExposedParamSlider::setEditorText() {
 	textEditor.setText(currentChoiceName, dontSendNotification);
 }
 
-void TextEditorForExposedParamSlider::onEditorShow_Pitch(TooltipsOptions* tooltipsOptions) {
+void TextEditorForExposedParamSlider::onEditorShow_Pitch(TooltipsOptions* tooltips) {
 	auto editor{ textEditor.getCurrentTextEditor() };
 	editor->setInputRestrictions(4, "abcdefgABCDEFG0123456789#");
 	editor->setJustification(Justification::centredRight);
-	if (tooltipsOptions->shouldShowDescription()) {
+	if (tooltips->shouldShowDescription()) {
 		String description{ "" };
 		description += "Type in either a pitch name and octave number\n";
 		description += "(e.g. " + oq + "C#5" + cq + ") or a MIDI note number (e.g. " + oq + "61" + cq + ").\n";
@@ -66,24 +66,24 @@ void TextEditorForExposedParamSlider::onEditorShow_Pitch(TooltipsOptions* toolti
 	}
 }
 
-void TextEditorForExposedParamSlider::onEditorShow_SignedRanges(TooltipsOptions* tooltipsOptions) {
+void TextEditorForExposedParamSlider::onEditorShow_SignedRanges(TooltipsOptions* tooltips) {
 	auto editor{ textEditor.getCurrentTextEditor() };
 	editor->setInputRestrictions(3, "-0123456789");
 	editor->setJustification(Justification::centredRight);
-	if (tooltipsOptions->shouldShowDescription()) {
+	if (tooltips->shouldShowDescription()) {
 		String valueRangeString{ editorType == EditorType::signed_7_bitValue ? "-63 to 63" : "-31 to 31" };
 		editor->setTooltip("Type in a new setting.\n(Range: " + valueRangeString + ")");
 	}
 }
 
-void TextEditorForExposedParamSlider::onEditorShow_UnsignedRanges(TooltipsOptions* tooltipsOptions) {
+void TextEditorForExposedParamSlider::onEditorShow_UnsignedRanges(TooltipsOptions* tooltips) {
 	auto editor{ textEditor.getCurrentTextEditor() };
 	editor->setInputRestrictions(3, "0123456789");
 	if (info->controlTypeFor(paramIndex) == ControlType::sliderForOscBalance)
 		editor->setJustification(Justification::centred);
 	else
 		editor->setJustification(Justification::centredRight);
-	if (tooltipsOptions->shouldShowDescription()) {
+	if (tooltips->shouldShowDescription()) {
 		auto maxValue{ info->numberOfChoicesFor(paramIndex) - 1 };
 		editor->setTooltip("Type in a new setting.\n(Range: 0 to " + (String)maxValue + ")");
 	}

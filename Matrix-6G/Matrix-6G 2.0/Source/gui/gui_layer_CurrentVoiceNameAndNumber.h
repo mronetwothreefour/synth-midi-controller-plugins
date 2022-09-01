@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+#include "gui_comp_JuceSlidersWithMouseMods.h"
+
 class CurrentVoiceOptions;
 class TooltipsOptions;
 
@@ -12,6 +14,8 @@ class GUI_Layer_CurrentVoiceNameAndNumber :
 	CurrentVoiceOptions* currentVoiceOptions;
 	TooltipsOptions* tooltips;
 	Label voiceNameEditor;
+	RotarySliderWithMouseWheelMoveOverride voiceNumber;
+	Label voiceNumberEditor;
 	Value shouldShowDescriptionValue;
 	Value currentVoiceNameValue;
 	Value currentVoiceNumberValue;
@@ -24,9 +28,11 @@ public:
 	GUI_Layer_CurrentVoiceNameAndNumber(CurrentVoiceOptions* currentVoiceOptions, TooltipsOptions* tooltips);
 
 private:
+	void setVoiceNumberEditorText();
 	void updateTooltips();
 
 public:
+	void mouseDoubleClick(const MouseEvent& event) override;
 	void valueChanged(Value& value) override;
 	~GUI_Layer_CurrentVoiceNameAndNumber();
 
