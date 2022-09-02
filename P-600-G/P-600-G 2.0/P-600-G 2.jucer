@@ -96,6 +96,10 @@
               resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.cpp"/>
         <FILE id="UfBZWP" name="gui_comp_JuceSlidersWithMouseMods.h" compile="0"
               resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.h"/>
+        <FILE id="lQL8xA" name="gui_layer_CurrentVoiceNumber.cpp" compile="1"
+              resource="0" file="Source/gui/gui_layer_CurrentVoiceNumber.cpp"/>
+        <FILE id="lf3gCd" name="gui_layer_CurrentVoiceNumber.h" compile="0"
+              resource="0" file="Source/gui/gui_layer_CurrentVoiceNumber.h"/>
         <FILE id="m0aAdb" name="gui_layer_ExposedParamControls.h" compile="0"
               resource="0" file="Source/gui/gui_layer_ExposedParamControls.h"/>
         <FILE id="Uufbrb" name="gui_layer_MainWindowButtons.cpp" compile="1"

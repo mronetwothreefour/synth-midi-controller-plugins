@@ -12,14 +12,18 @@ class VoiceTransmissionOptions
 
 public:
 	VoiceTransmissionOptions();
+
 	const bool paramChangesShouldBeTransmitted();
 	void setParamChangesShouldBeTransmitted(const bool shouldBeTransmitted);
+
 	const int voiceTransmitTime();
 	void setVoiceTransmitTime(const int timeInMilliseconds);
+
 	const bool incomingVoiceShouldBeStored();
 	const VoicesBank bankToStoreIn();
 	void setIncomingVoiceShouldBeStoredInCustomBank(const VoicesBank bank);
 	void setIncomingVoiceShouldNotBeStored();
+
 	std::unique_ptr<XmlElement> getStateXml();
 	void replaceState(const ValueTree& newState);
 

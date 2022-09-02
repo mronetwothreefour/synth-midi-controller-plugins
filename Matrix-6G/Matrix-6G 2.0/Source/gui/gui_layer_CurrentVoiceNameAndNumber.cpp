@@ -5,15 +5,15 @@
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_Voices.h"
-#include "../exposedParameters/ep_0_tree_CurrentVoiceOptions.h"
+#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../gui/gui_build_LED_Path.h"
 #include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 using namespace Matrix_6G_Constants;
 
-GUI_Layer_CurrentVoiceNameAndNumber::GUI_Layer_CurrentVoiceNameAndNumber(CurrentVoiceOptions* currentVoiceOptions, TooltipsOptions* tooltips) :
-    voiceNumber{ nullptr },
-    currentVoiceOptions{ currentVoiceOptions },
+GUI_Layer_CurrentVoiceNameAndNumber::GUI_Layer_CurrentVoiceNameAndNumber(ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
+    voiceNumber{ &exposedParams->undoManager },
+    currentVoiceOptions{ exposedParams->currentVoiceOptions.get() },
     tooltips{ tooltips }
 {
     setInterceptsMouseClicks(false, true);
@@ -34,7 +34,7 @@ GUI_Layer_CurrentVoiceNameAndNumber::GUI_Layer_CurrentVoiceNameAndNumber(Current
     voiceNumber.setValue((double)currentVoiceOptions->currentVoiceNumber());
     voiceNumber.setMouseDragSensitivity(160);
     voiceNumber.setDoubleClickReturnValue(false, 0.0, ModifierKeys::noModifiers);
-    voiceNumber.onValueChange = [this, currentVoiceOptions] { 
+    voiceNumber.onValueChange = [this] { 
         auto newSetting{ (uint8)roundToInt(voiceNumber.getValue()) };
         currentVoiceOptions->setCurrentVoiceNumber(newSetting);
     };
@@ -50,7 +50,7 @@ GUI_Layer_CurrentVoiceNameAndNumber::GUI_Layer_CurrentVoiceNameAndNumber(Current
         if (tooltips->shouldShowDescription())
             editor->setTooltip("Type in a new setting.\n(Range: 0 to 99)");
     };
-    voiceNumberEditor.onTextChange = [this, currentVoiceOptions] {
+    voiceNumberEditor.onTextChange = [this] {
         auto newSettingString{ voiceNumberEditor.getText() };
         if (newSettingString.isNotEmpty()) {
             auto newSetting{ (uint8)newSettingString.getIntValue() };
@@ -71,7 +71,7 @@ GUI_Layer_CurrentVoiceNameAndNumber::GUI_Layer_CurrentVoiceNameAndNumber(Current
         auto editor{ voiceNameEditor.getCurrentTextEditor() };
         editor->setInputRestrictions(VCS::numberOfCharsInVoiceName, allowed_ASCII_Characters);
     };
-    voiceNameEditor.onTextChange = [this, currentVoiceOptions] {
+    voiceNameEditor.onTextChange = [this] {
         String labelText{ voiceNameEditor.getText() };
         String newName(labelText.toUpperCase());
         newName = newName.paddedRight(' ', VCS::numberOfCharsInVoiceName);

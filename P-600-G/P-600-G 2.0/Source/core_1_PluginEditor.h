@@ -4,6 +4,7 @@
 
 #include "core_0_PluginProcessor.h"
 
+class GUI_Layer_CurrentVoiceNumber;
 class GUI_Layer_ExposedParamControls;
 class P_600_LookAndFeel;
 
@@ -14,6 +15,7 @@ class PluginEditor :
 {
     PluginProcessor& processor;
     std::unique_ptr<GUI_Layer_ExposedParamControls> layer_ExposedParamControls;
+    std::unique_ptr<GUI_Layer_CurrentVoiceNumber> layer_CurrentVoiceNumber;
     std::unique_ptr<P_600_LookAndFeel> lookAndFeel;
     std::unique_ptr<TooltipWindow> tooltipWindow;
     Value tooltipsDelayInMillisecondsValue;

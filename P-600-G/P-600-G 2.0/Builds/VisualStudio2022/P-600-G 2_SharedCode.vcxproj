@@ -151,6 +151,7 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_build_ChoiceNamesValueTree.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_layer_CurrentVoiceNumber.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_layer_MainWindowButtons.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_P_600_LookAndFeel.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp"/>
@@ -2330,6 +2331,7 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h"/>
     <ClInclude Include="..\..\Source\gui\gui_build_LED_NumeralPath.h"/>
     <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_layer_CurrentVoiceNumber.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_MainWindowButtons.h"/>
     <ClInclude Include="..\..\Source\gui\gui_P_600_LookAndFeel.h"/>

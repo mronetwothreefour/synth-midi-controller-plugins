@@ -11,6 +11,18 @@ VoiceTransmissionOptions::VoiceTransmissionOptions() :
 	setVoiceTransmitTime(500);
 }
 
+const uint8 VoiceTransmissionOptions::currentVoiceNumber() {
+	return (uint8)(int)voiceTransmissionOptionsTree.getProperty(ID::voiceTx_CurrentVoiceNumber);
+}
+
+void VoiceTransmissionOptions::setCurrentVoiceNumber(uint8 newNumber) {
+	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_CurrentVoiceNumber, newNumber, nullptr);
+}
+
+Value VoiceTransmissionOptions::getCurrentVoiceNumberAsValue() {
+	return voiceTransmissionOptionsTree.getPropertyAsValue(ID::voiceTx_CurrentVoiceNumber, nullptr);
+}
+
 const bool VoiceTransmissionOptions::paramChangesShouldBeTransmitted() {
 	return (bool)voiceTransmissionOptionsTree.getProperty(ID::voiceTx_TransmitParamChanges) == true;
 }

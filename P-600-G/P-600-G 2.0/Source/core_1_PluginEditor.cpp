@@ -3,6 +3,7 @@
 #include "core_0_PluginProcessor.h"
 #include "constants/constants_GUI_Dimensions.h"
 #include "constants/constants_Identifiers.h"
+#include "gui/gui_layer_CurrentVoiceNumber.h"
 #include "gui/gui_layer_ExposedParamControls.h"
 #include "gui/gui_P_600_LookAndFeel.h"
 #include "unexposedParameters/up_1_facade_UnexposedParameters.h"
@@ -13,6 +14,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, ExposedParameters* expose
     AudioProcessorEditor{ &processor },
     processor{ processor },
     layer_ExposedParamControls{ new GUI_Layer_ExposedParamControls{ exposedParams, unexposedParams } },
+    layer_CurrentVoiceNumber{ new GUI_Layer_CurrentVoiceNumber{ unexposedParams } },
     lookAndFeel{ new P_600_LookAndFeel{} },
     tooltipsDelayInMillisecondsValue{ unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_DelayInMilliseconds) },
     tooltipWindow{ new TooltipWindow{} }
@@ -21,6 +23,9 @@ PluginEditor::PluginEditor(PluginProcessor& processor, ExposedParameters* expose
 
     layer_ExposedParamControls->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
     addAndMakeVisible(layer_ExposedParamControls.get());
+
+    layer_CurrentVoiceNumber->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
+    addAndMakeVisible(layer_CurrentVoiceNumber.get());
 
     tooltipsDelayInMillisecondsValue.addListener(this);
     addChildComponent(tooltipWindow.get());
@@ -49,6 +54,7 @@ void PluginEditor::valueChanged(Value& /*value*/) {
 
 PluginEditor::~PluginEditor() {
     layer_ExposedParamControls = nullptr;
+    layer_CurrentVoiceNumber = nullptr;
     tooltipsDelayInMillisecondsValue.removeListener(this);
     tooltipWindow = nullptr;
 }

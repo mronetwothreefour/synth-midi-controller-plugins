@@ -22,7 +22,7 @@ PluginEditor::PluginEditor (PluginProcessor& processor, ExposedParameters* expos
     layer_ExposedParamControls{ new GUI_Layer_ExposedParamControls{ exposedParams, unexposedParams } },
     layer_MatrixMod{ new GUI_Layer_MatrixMod{ exposedParams, unexposedParams->getTooltipsOptions() } },
     layer_MainWindowButtons{ new GUI_Layer_MainWindowButtons{ exposedParams, unexposedParams } },
-    layer_CurrentVoiceNameAndNumber{ new GUI_Layer_CurrentVoiceNameAndNumber{ exposedParams->currentVoiceOptions.get(), unexposedParams->getTooltipsOptions()}},
+    layer_CurrentVoiceNameAndNumber{ new GUI_Layer_CurrentVoiceNameAndNumber{ exposedParams, unexposedParams->getTooltipsOptions()}},
     lookAndFeel{ new MatrixLookAndFeel{} },
     tooltipsDelayInMillisecondsValue{ unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_DelayInMilliseconds) },
     tooltipWindow{ new TooltipWindow{} }

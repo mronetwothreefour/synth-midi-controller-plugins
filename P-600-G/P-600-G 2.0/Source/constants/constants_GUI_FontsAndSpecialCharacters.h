@@ -19,10 +19,10 @@ namespace P_600_G_Constants
 		static const Typeface::Ptr Swiss721_CndLt{ Typeface::createSystemTypefaceFor(BinaryData::SWISSCL_TTF, BinaryData::SWISSCL_TTFSize) };
 
 		static const Font font_BrowserText{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 16.0f, 0.0f) };
-		static const Font font_LCDdisplayEditor{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 36.0f, 0.0f) };
 		static const Font font_KnobValueDisplay{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_CndBk, 14.0f, 0.0f) };
 		static const Font font_VoiceSlotRadioButtons{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_CndBk, 13.0f, 0.0f) };
 		static const Font font_Tooltips{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 13.0f, 0.0f) };
+		static const Font font_VoiceNumberEditor{ FontCreator::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 36.0f, 0.0f) };
 
 		static const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };
 		static const String openQuote{ CharPointer_UTF8("\xe2\x80\x9c") };

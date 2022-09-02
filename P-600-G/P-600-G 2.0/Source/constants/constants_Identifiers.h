@@ -7,6 +7,8 @@ namespace P_600_G_Constants
 	namespace ID
 	{
 		static const Identifier comp_TextEditorForKnob{ "comp_TextEditorForKnob" };
+		static const Identifier comp_TextEditorForVoiceNumberSlider{ "comp_TextEditorForVoiceNumberSlider" };
+		static const Identifier comp_VoiceNumberSlider{ "comp_VoiceNumberSlider" };
 
 		static const Identifier ep_00_Osc_A_Freq{ "ep_00_Osc_A_Freq" };
 		static const Identifier ep_01_Osc_A_Sync{ "ep_01_Osc_A_Sync" };
@@ -75,6 +77,7 @@ namespace P_600_G_Constants
 		static const Identifier tree_TooltipsOptions{ "tree_TooltipsOptions" };
 		static const Identifier tree_VoiceTxOptions{ "tree_VoiceTxOptions" };
 
+		static const Identifier voiceTx_CurrentVoiceNumber{ "voiceTx_CurrentVoiceNumber" };
 		static const Identifier voiceTx_IncomingVoiceShouldBeStored{ "voiceTx_IncomingVoiceShouldBeStored" };
 		static const Identifier voiceTx_TransmitParamChanges{ "voiceTx_TransmitParamChanges" };
 		static const Identifier voiceTx_Time{ "voiceTx_Time" };

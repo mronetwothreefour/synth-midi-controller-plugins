@@ -1,5 +1,6 @@
 #include "gui_P_600_LookAndFeel.h"
 
+#include "gui_build_LED_NumeralPath.h"
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
@@ -11,18 +12,20 @@ using MemBlock = MemoryBlock;
 using s_t = size_t;
 
 void P_600_LookAndFeel::drawRotarySlider(
-	Graphics& g, int /*x*/, int y, int w, int /*h*/, float sliderPos, const float startAngle, const float endAngle, Slider& /*slider*/) 
+	Graphics& g, int /*x*/, int y, int w, int /*h*/, float sliderPos, const float startAngle, const float endAngle, Slider& slider) 
 {
-	Point<float> sliderCenter{ float(w) / 2.0f, float(w) / 2.0f };
-	auto pointerAngle = startAngle + sliderPos * (endAngle - startAngle);
-	Line<float> line;
-	line.setStart(sliderCenter.x, float(y + 34));
-	line.setEnd(sliderCenter.x, float(y + 30));
-	Path pointerPath;
-	pointerPath.addLineSegment(line, 1.5f);
-	g.setColour(GUI::color_OffWhite);
-	PathStrokeType stroke{ 1.5f, PathStrokeType::mitered };
-	g.strokePath(pointerPath, stroke, AffineTransform::rotation(pointerAngle, sliderCenter.x, sliderCenter.y));
+	if (slider.getComponentID() != ID::comp_VoiceNumberSlider.toString()) {
+		Point<float> sliderCenter{ float(w) / 2.0f, float(w) / 2.0f };
+		auto pointerAngle = startAngle + sliderPos * (endAngle - startAngle);
+		Line<float> line;
+		line.setStart(sliderCenter.x, float(y + 34));
+		line.setEnd(sliderCenter.x, float(y + 30));
+		Path pointerPath;
+		pointerPath.addLineSegment(line, 1.5f);
+		g.setColour(GUI::color_OffWhite);
+		PathStrokeType stroke{ 1.5f, PathStrokeType::mitered };
+		g.strokePath(pointerPath, stroke, AffineTransform::rotation(pointerAngle, sliderCenter.x, sliderCenter.y));
+	}
 }
 
 void P_600_LookAndFeel::drawLinearSlider(
@@ -38,7 +41,25 @@ void P_600_LookAndFeel::drawLinearSlider(
 	g.drawImageAt(switchTab, x, h - (currentValue * switchTab_h) + offsetForLinearSliderTab);
 }
 
-void P_600_LookAndFeel::drawLabel(Graphics& /*g*/, Label& /*label*/) {
+void P_600_LookAndFeel::drawLabel(Graphics& g, Label& label) {
+	if (label.getComponentID() == ID::comp_TextEditorForVoiceNumberSlider.toString()) {
+		g.setColour(GUI::color_LED_RedUnlit);
+		Path unlitSegmentsPath;
+		auto firstDigit_x{ 4.0f };
+		auto secondDigit_x{ 30.0f };
+		auto digits_y{ 8.0f };
+		unlitSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)8), AffineTransform::translation(firstDigit_x, digits_y));
+		unlitSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)8), AffineTransform::translation(secondDigit_x, digits_y));
+		g.fillPath(unlitSegmentsPath);
+		g.setColour(GUI::color_LED_Red);
+		auto numberString{ label.getText() };
+		auto firstDigit{ String().charToString(numberString[0]).getIntValue() };
+		auto secondDigit{ String().charToString(numberString[1]).getIntValue() };
+		Path litSegmentsPath;
+		litSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)firstDigit), AffineTransform::translation(firstDigit_x, digits_y));
+		litSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)secondDigit), AffineTransform::translation(secondDigit_x, digits_y));
+		g.fillPath(litSegmentsPath);
+	}
 }
 
 void P_600_LookAndFeel::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h*/, TextEditor& textEditor) {
@@ -47,7 +68,7 @@ void P_600_LookAndFeel::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h
 		g.fillEllipse(4.0f, 4.0f, 26.0f, 26.0f);
 	}
 	else
-		g.fillAll(GUI::color_Black);
+		g.fillAll(GUI::color_LED_RedUnlit);
 }
 
 void P_600_LookAndFeel::drawTextEditorOutline(Graphics& /*g*/, int /*w*/, int /*h*/, TextEditor& /*textEditor*/) {

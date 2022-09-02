@@ -8,12 +8,20 @@ class VoiceTransmissionOptions
 
 public:
 	VoiceTransmissionOptions();
+
+	const uint8 currentVoiceNumber();
+	void setCurrentVoiceNumber(uint8 newNumber);
+	Value getCurrentVoiceNumberAsValue();
+
 	const bool paramChangesShouldBeTransmitted();
 	void setParamChangesShouldBeTransmitted(const bool shouldBeTransmitted);
+
 	const int voiceTransmitTime();
 	void setVoiceTransmitTime(const int timeInMilliseconds);
+
 	const bool incomingVoiceShouldBeStored();
 	void setIncomingVoiceShouldBeStored(const bool shouldBeStored);
+
 	std::unique_ptr<XmlElement> getStateXml();
 	void replaceState(const ValueTree& newState);
 

@@ -4,6 +4,7 @@
 
 #include "gui_comp_JuceSlidersWithMouseMods.h"
 
+class ExposedParameters;
 class CurrentVoiceOptions;
 class TooltipsOptions;
 
@@ -25,7 +26,7 @@ class GUI_Layer_CurrentVoiceNameAndNumber :
 public:
 	GUI_Layer_CurrentVoiceNameAndNumber() = delete;
 
-	GUI_Layer_CurrentVoiceNameAndNumber(CurrentVoiceOptions* currentVoiceOptions, TooltipsOptions* tooltips);
+	GUI_Layer_CurrentVoiceNameAndNumber(ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 
 private:
 	void setVoiceNumberEditorText();
