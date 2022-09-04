@@ -35,11 +35,11 @@ void RawDataTools::applyRawVoiceDataToExposedParameters(
     auto info{ exposedParams->info.get() };
     auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
     transmitOptions->setParamChangesShouldBeTransmitted(false);
-    for (uint8 param = 0; param != EP::numberOfExposedParams; ++param) {
-        auto paramID{ info->IDfor(param) };
-        auto lsByteLocation{ info->lsByteLocationFor(param) };
-        auto msBitLocation{ info->msBitPackedByteLocationFor(param) };
-        auto msBitMask{ info->msBitMaskFor(param) };
+    for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
+        auto paramID{ info->IDfor(paramIndex) };
+        auto lsByteLocation{ info->lsByteLocationFor(paramIndex) };
+        auto msBitLocation{ info->msBitPackedByteLocationFor(paramIndex) };
+        auto msBitMask{ info->msBitMaskFor(paramIndex) };
         auto newValue{ *(voiceData + lsByteLocation) };
         auto msBitIsFlagged{ *(voiceData + msBitLocation) & msBitMask };
         if (msBitIsFlagged)
@@ -56,11 +56,11 @@ void RawDataTools::applyRawVoiceDataToExposedParameters(
 
 const std::vector<uint8> RawDataTools::extractRawVoiceDataFromExposedParameters(ExposedParameters* exposedParams) {
     const int rawVoiceDataSize{ 229 };
-    auto info{ exposedParams->info.get() };
     std::vector<uint8> voiceData;
     for (auto i = 0; i != rawVoiceDataSize; ++i) {
         voiceData.push_back((uint8)0);
     }
+    auto info{ exposedParams->info.get() };
     for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
         auto paramID{ info->IDfor(paramIndex) };
         auto paramPtr{ exposedParams->state->getParameter(paramID) };

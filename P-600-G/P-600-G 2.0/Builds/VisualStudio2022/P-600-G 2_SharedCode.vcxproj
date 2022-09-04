@@ -154,6 +154,7 @@
     <ClCompile Include="..\..\Source\gui\gui_layer_CurrentVoiceNumber.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_layer_MainWindowButtons.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_P_600_LookAndFeel.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_0_RawDataTools.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.cpp"/>
@@ -2318,6 +2319,8 @@
     <ClInclude Include="..\..\Source\constants\constants_GUI_FontsAndSpecialCharacters.h"/>
     <ClInclude Include="..\..\Source\constants\constants_GUI_PathData.h"/>
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h"/>
+    <ClInclude Include="..\..\Source\constants\constants_MIDI.h"/>
+    <ClInclude Include="..\..\Source\constants\constants_Voices.h"/>
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamKnob.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.h"/>
@@ -2336,6 +2339,7 @@
     <ClInclude Include="..\..\Source\gui\gui_layer_MainWindowButtons.h"/>
     <ClInclude Include="..\..\Source\gui\gui_P_600_LookAndFeel.h"/>
     <ClInclude Include="..\..\Source\midi\midi_0_OutgoingMidiBuffers.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_0_RawDataTools.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.h"/>

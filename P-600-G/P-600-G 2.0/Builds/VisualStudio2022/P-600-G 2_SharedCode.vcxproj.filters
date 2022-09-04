@@ -649,6 +649,9 @@
     <ClCompile Include="..\..\Source\gui\gui_P_600_LookAndFeel.cpp">
       <Filter>P-600-G 2\Source\gui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_0_RawDataTools.cpp">
+      <Filter>P-600-G 2\Source\midi</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp">
       <Filter>P-600-G 2\Source\unexposedParameters</Filter>
     </ClCompile>
@@ -2991,6 +2994,12 @@
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h">
       <Filter>P-600-G 2\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_MIDI.h">
+      <Filter>P-600-G 2\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_Voices.h">
+      <Filter>P-600-G 2\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h">
       <Filter>P-600-G 2\Source\descriptions</Filter>
     </ClInclude>
@@ -3043,6 +3052,9 @@
       <Filter>P-600-G 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_0_OutgoingMidiBuffers.h">
+      <Filter>P-600-G 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_0_RawDataTools.h">
       <Filter>P-600-G 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h">

@@ -44,6 +44,10 @@
               file="Source/constants/constants_GUI_PathData.h"/>
         <FILE id="P84JEh" name="constants_Identifiers.h" compile="0" resource="0"
               file="Source/constants/constants_Identifiers.h"/>
+        <FILE id="FIPTkn" name="constants_MIDI.h" compile="0" resource="0"
+              file="Source/constants/constants_MIDI.h"/>
+        <FILE id="ax1sp8" name="constants_Voices.h" compile="0" resource="0"
+              file="Source/constants/constants_Voices.h"/>
       </GROUP>
       <GROUP id="{08F39EC5-8D87-0EFA-F3A0-483D23EEE650}" name="descriptions">
         <FILE id="qhGtc3" name="build_ExposedParamDescription.cpp" compile="1"
@@ -114,6 +118,10 @@
       <GROUP id="{EB1E0A58-9320-D101-F6C5-199228F8C6EE}" name="midi">
         <FILE id="Bi6MRH" name="midi_0_OutgoingMidiBuffers.h" compile="0" resource="0"
               file="Source/midi/midi_0_OutgoingMidiBuffers.h"/>
+        <FILE id="ATEY4Y" name="midi_0_RawDataTools.cpp" compile="1" resource="0"
+              file="Source/midi/midi_0_RawDataTools.cpp"/>
+        <FILE id="KWrJZk" name="midi_0_RawDataTools.h" compile="0" resource="0"
+              file="Source/midi/midi_0_RawDataTools.h"/>
       </GROUP>
       <GROUP id="{4D51FC72-E327-166D-BDB8-46949E9FB675}" name="unexposedParameters">
         <FILE id="o7Ax01" name="up_0_tree_TooltipsOptions.cpp" compile="1"
