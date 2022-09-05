@@ -11,7 +11,7 @@
 class UnexposedParameters
 {
 	std::unique_ptr<GlobalOptions> globalOptions;
-	std::unique_ptr<Outgoing_MIDI_Buffers> outgoingMidiBuffers;
+	std::unique_ptr<Outgoing_MIDI_Buffers> outgoing_MIDI_Buffers;
 	std::unique_ptr<TooltipsOptions> tooltipsOptions;
 	std::unique_ptr<VoicesBanks> voicesBanks;
 	std::unique_ptr<VoiceTransmissionOptions> voiceTransmissionOptions;
@@ -20,7 +20,7 @@ public:
 	UnexposedParameters();
 	Array<MidiBuffer, CriticalSection>* getBundledOutgoingBuffers();
 	GlobalOptions* getGlobalOptions();
-	Outgoing_MIDI_Buffers* getOutgoingMidiBuffers();
+	Outgoing_MIDI_Buffers* getOutgoing_MIDI_Buffers();
 	TooltipsOptions* getTooltipsOptions();
 	VoicesBanks* getVoicesBanks();
 	VoiceTransmissionOptions* getVoiceTransmissionOptions();

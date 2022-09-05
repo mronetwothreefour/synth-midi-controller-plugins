@@ -15,7 +15,7 @@ ExposedParamsRandomizationMethods::ExposedParamsRandomizationMethods(ExposedPara
 	state{ exposedParams->state.get() },
 	randomization{ exposedParams->randomization.get() },
 	info{ exposedParams->info.get() },
-	outgoingMidiBuffers{ unexposedParams->getOutgoingMidiBuffers() },
+	outgoing_MIDI_Buffers{ unexposedParams->getOutgoing_MIDI_Buffers() },
 	transmitOptions{ unexposedParams->getVoiceTransmissionOptions() }
 {
 }
@@ -33,7 +33,7 @@ void ExposedParamsRandomizationMethods::randomizeAllUnlockedParameters() {
 			}
 		}
 		randomizeArpAndSeqOnOffParametersAfterDelay(0);
-		SysExMessages::addEditBufferDataMessageToOutgoingBuffers(exposedParams, outgoingMidiBuffers);
+		SysExMessages::addEditBufferDataMessageToOutgoingBuffers(exposedParams, outgoing_MIDI_Buffers);
 		callAfterDelay(200, [this] { transmitOptions->setParamChangesShouldBeTransmitted(true); });
 	}
 	else {

@@ -159,8 +159,8 @@
               file="Source/matrixMod/mMod_3_gui_layer_MatrixMod.h"/>
       </GROUP>
       <GROUP id="{2955D2CE-3E34-022A-A523-FC88E078226B}" name="midi">
-        <FILE id="DxAryu" name="midi_0_OutgoingMidiBuffers.h" compile="0" resource="0"
-              file="Source/midi/midi_0_OutgoingMidiBuffers.h"/>
+        <FILE id="DxAryu" name="midi_0_Outgoing_MIDI_Buffers.h" compile="0"
+              resource="0" file="Source/midi/midi_0_Outgoing_MIDI_Buffers.h"/>
         <FILE id="VuvaZu" name="midi_0_RawDataTools.cpp" compile="1" resource="0"
               file="Source/midi/midi_0_RawDataTools.cpp"/>
         <FILE id="uaeSBu" name="midi_0_RawDataTools.h" compile="0" resource="0"

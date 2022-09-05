@@ -2,15 +2,15 @@
 
 #include <JuceHeader.h>
 
-class OutgoingMidiBuffers :
+class Outgoing_MIDI_Buffers :
 	private Timer
 {
-	std::unique_ptr<MidiBuffer> outgoingMidiBuffer;
+	std::unique_ptr<MidiBuffer> outgoingBuffer;
 	std::unique_ptr<Array<MidiBuffer, CriticalSection>> bundledOutgoingBuffers;
 
 public:
-	OutgoingMidiBuffers() :
-		outgoingMidiBuffer{ new MidiBuffer{} },
+	Outgoing_MIDI_Buffers() :
+		outgoingBuffer{ new MidiBuffer{} },
 		bundledOutgoingBuffers{ new Array<MidiBuffer, CriticalSection>{} }
 	{
 	}
@@ -29,10 +29,10 @@ public:
 
 private:
 	void bundleBuffersAddedWithin_10ms_ToPreventLoss(const MidiBuffer& midiBuffer) {
-		outgoingMidiBuffer->addEvents(midiBuffer, 0, -1, 0);
+		outgoingBuffer->addEvents(midiBuffer, 0, -1, 0);
 		if (!isTimerRunning()) {
-			bundledOutgoingBuffers->add(*outgoingMidiBuffer);
-			outgoingMidiBuffer->clear();
+			bundledOutgoingBuffers->add(*outgoingBuffer);
+			outgoingBuffer->clear();
 			startTimer(10);
 		}
 	}
@@ -46,12 +46,12 @@ public:
 		return bundledOutgoingBuffers.get();
 	}
 
-	~OutgoingMidiBuffers() {
+	~Outgoing_MIDI_Buffers() {
 		bundledOutgoingBuffers = nullptr;
-		outgoingMidiBuffer = nullptr;
+		outgoingBuffer = nullptr;
 	}
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OutgoingMidiBuffers)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Outgoing_MIDI_Buffers)
 };

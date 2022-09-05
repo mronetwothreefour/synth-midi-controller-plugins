@@ -2363,7 +2363,7 @@
     <ClInclude Include="..\..\Source\matrixMod\mMod_1_comp_SliderForMatrixModAmount.h"/>
     <ClInclude Include="..\..\Source\matrixMod\mMod_2_comp_MatrixModControlBlock.h"/>
     <ClInclude Include="..\..\Source\matrixMod\mMod_3_gui_layer_MatrixMod.h"/>
-    <ClInclude Include="..\..\Source\midi\midi_0_OutgoingMidiBuffers.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_0_Outgoing_MIDI_Buffers.h"/>
     <ClInclude Include="..\..\Source\midi\midi_0_RawDataTools.h"/>
     <ClInclude Include="..\..\Source\midi\midi_1_SysExMessages.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h"/>

@@ -6,7 +6,7 @@ using namespace MophoConstants;
 
 UnexposedParameters::UnexposedParameters() :
     globalOptions{ new GlobalOptions{} },
-    outgoingMidiBuffers{ new Outgoing_MIDI_Buffers{} },
+    outgoing_MIDI_Buffers{ new Outgoing_MIDI_Buffers{} },
     tooltipsOptions{ new TooltipsOptions{} },
     voicesBanks{ new VoicesBanks{} },
     voiceTransmissionOptions{ new VoiceTransmissionOptions{} }
@@ -14,15 +14,15 @@ UnexposedParameters::UnexposedParameters() :
 }
 
 Array<MidiBuffer, CriticalSection>* UnexposedParameters::getBundledOutgoingBuffers() {
-    return outgoingMidiBuffers->getBundledOutgoingBuffers();
+    return outgoing_MIDI_Buffers->getBundledOutgoingBuffers();
 }
 
 GlobalOptions* UnexposedParameters::getGlobalOptions() {
     return globalOptions.get();
 }
 
-Outgoing_MIDI_Buffers* UnexposedParameters::getOutgoingMidiBuffers() {
-    return outgoingMidiBuffers.get();
+Outgoing_MIDI_Buffers* UnexposedParameters::getOutgoing_MIDI_Buffers() {
+    return outgoing_MIDI_Buffers.get();
 }
 
 TooltipsOptions* UnexposedParameters::getTooltipsOptions() {
@@ -73,7 +73,7 @@ void UnexposedParameters::replaceState(const ValueTree& newState) {
 
 UnexposedParameters::~UnexposedParameters() {
     globalOptions = nullptr;
-    outgoingMidiBuffers = nullptr;
+    outgoing_MIDI_Buffers = nullptr;
     tooltipsOptions = nullptr;
     voicesBanks = nullptr;
     voiceTransmissionOptions = nullptr;

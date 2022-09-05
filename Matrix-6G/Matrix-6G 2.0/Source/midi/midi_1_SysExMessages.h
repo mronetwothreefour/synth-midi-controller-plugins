@@ -2,9 +2,9 @@
 
 #include <JuceHeader.h>
 
-#include "midi_0_OutgoingMidiBuffers.h"
+#include "midi_0_Outgoing_MIDI_Buffers.h"
 
-using OutgoingBuffers = OutgoingMidiBuffers;
+using OutgoingBuffers = Outgoing_MIDI_Buffers;
 
 struct SysExMessages
 {

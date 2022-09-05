@@ -3126,7 +3126,7 @@
     <ClInclude Include="..\..\Source\matrixMod\mMod_3_gui_layer_MatrixMod.h">
       <Filter>Matrix-6G 2\Source\matrixMod</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\midi_0_OutgoingMidiBuffers.h">
+    <ClInclude Include="..\..\Source\midi\midi_0_Outgoing_MIDI_Buffers.h">
       <Filter>Matrix-6G 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_0_RawDataTools.h">

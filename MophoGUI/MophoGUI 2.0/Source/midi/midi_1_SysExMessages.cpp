@@ -1,6 +1,7 @@
 #include "midi_1_SysExMessages.h"
 
 #include "midi_0_RawDataTools.h"
+#include "../constants/constants_Voices.h"
 #include "../voices/voices_1_tree_VoicesBanks.h"
 
 void SysExMessages::addRequestForEditBufferDataToOutgoingBuffers(OutgoingBuffers* outgoingBuffers) {
@@ -29,6 +30,7 @@ void SysExMessages::addRequestForGlobalParamsDataToOutgoingBuffers(OutgoingBuffe
 
 void SysExMessages::addRequestForVoiceDataStoredInBankAndSlotToOutgoingBuffers(VoicesBank bank, uint8 slotNum, OutgoingBuffers* outgoingBuffers) {
     jassert(bank >= VoicesBank::custom_1);
+    jassert(slotNum < VCS::numberOfSlotsInVoicesBank);
     auto requestVector{ RawDataTools::createRawDataVectorWithMophoSysExID() };
     requestVector.push_back((uint8)SysExMessageType::voiceDataRequest);
     requestVector.push_back((int)bank % 3);

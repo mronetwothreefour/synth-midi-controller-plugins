@@ -7,7 +7,7 @@ using namespace Matrix_6G_Constants;
 UnexposedParameters::UnexposedParameters() :
     globalOptions{ new GlobalOptions{} },
     tooltipsOptions{ new TooltipsOptions{} },
-    outgoingMidiBuffers{ new OutgoingMidiBuffers{} },
+    outgoing_MIDI_Buffers{ new Outgoing_MIDI_Buffers{} },
     voiceTransmissionOptions{ new VoiceTransmissionOptions{} }
 {
 }
@@ -17,11 +17,11 @@ GlobalOptions* UnexposedParameters::getGlobalOptions() {
 }
 
 Array<MidiBuffer, CriticalSection>* UnexposedParameters::getBundledOutgoingBuffers() {
-    return outgoingMidiBuffers->getBundledOutgoingBuffers();
+    return outgoing_MIDI_Buffers->getBundledOutgoingBuffers();
 }
 
-OutgoingMidiBuffers* UnexposedParameters::getOutgoingMidiBuffers() {
-    return outgoingMidiBuffers.get();
+Outgoing_MIDI_Buffers* UnexposedParameters::getOutgoing_MIDI_Buffers() {
+    return outgoing_MIDI_Buffers.get();
 }
 
 TooltipsOptions* UnexposedParameters::getTooltipsOptions() {

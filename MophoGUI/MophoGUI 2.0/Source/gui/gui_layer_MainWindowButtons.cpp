@@ -58,7 +58,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     btn_ShowVoiceNameEditor.setBounds(708, 11, 34, 18);
     addAndMakeVisible(btn_ShowVoiceNameEditor);
 
-    auto outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() };
+    auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
 
     const int rowBeneathProgramName_y{ 83 };
     const int writeReadButtons_w{ 44 };
@@ -253,7 +253,7 @@ void GUI_Layer_MainWindowButtons::showVoicesBanksLayer() {
 void GUI_Layer_MainWindowButtons::prepareToShowGlobalParamsLayer() {
     layer_GlobalParams = nullptr;
     global->resetAllOptionsToDefaults();
-    auto outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() };
+    auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
     SysExMessages::addRequestForGlobalParamsDataToOutgoingBuffers(outgoingBuffers);
     callAfterDelay(300, [this] {
         if (global->sysExIsEnabled()) {

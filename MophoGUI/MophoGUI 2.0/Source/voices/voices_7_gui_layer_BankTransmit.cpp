@@ -88,7 +88,7 @@ void GUI_Layer_BankTransmit::timerCallback() {
 }
 
 void GUI_Layer_BankTransmit::transmitMidiBufferForVoiceSlot(uint8 voiceSlot) {
-	auto outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() };
+	auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
 	if (transmitType == BankTransmitType::pull)
 		SysExMessages::addRequestForVoiceDataStoredInBankAndSlotToOutgoingBuffers(bank, voiceSlot, outgoingBuffers);
 	else {

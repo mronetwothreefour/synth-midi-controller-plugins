@@ -25,7 +25,7 @@ public:
 
 	explicit GUI_Layer_CommError_Base(UnexposedParameters* unexposedParams) :
 		global{ unexposedParams->getGlobalOptions() },
-		outgoingBuffers{ unexposedParams->getOutgoingMidiBuffers() },
+		outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() },
 		btn_Close{ unexposedParams },
 		btn_RequestGlobalParamsDump{ "" }
 	{

@@ -23,7 +23,7 @@ class ExposedParamsRandomizationMethods :
 	AudioProcessorValueTreeState* state;
 	ExposedParamsRandomizationOptions* randomization;
 	InfoForExposedParameters* info;
-	Outgoing_MIDI_Buffers* outgoingMidiBuffers;
+	Outgoing_MIDI_Buffers* outgoing_MIDI_Buffers;
 	VoiceTransmissionOptions* transmitOptions;
 
 

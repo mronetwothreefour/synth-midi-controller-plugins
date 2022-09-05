@@ -2994,9 +2994,6 @@
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h">
       <Filter>P-600-G 2\Source\constants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\constants\constants_MIDI.h">
-      <Filter>P-600-G 2\Source\constants</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_Voices.h">
       <Filter>P-600-G 2\Source\constants</Filter>
     </ClInclude>
@@ -3051,10 +3048,13 @@
     <ClInclude Include="..\..\Source\gui\gui_P_600_LookAndFeel.h">
       <Filter>P-600-G 2\Source\gui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\midi\midi_0_OutgoingMidiBuffers.h">
+    <ClInclude Include="..\..\Source\midi\midi_0_Outgoing_MIDI_Buffers.h">
       <Filter>P-600-G 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_0_RawDataTools.h">
+      <Filter>P-600-G 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_1_SysExMessages.h">
       <Filter>P-600-G 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h">
