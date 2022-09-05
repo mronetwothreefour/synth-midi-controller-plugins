@@ -5,7 +5,7 @@
 #include "voices_0_tree_FactoryVoiceDataHexStrings.h"
 #include "../constants/constants_Enum.h"
 
-using namespace MophoConstants;
+using namespace Matrix_6G_Constants;
 
 class VoicesBanks :
 	public ValueTree::Listener

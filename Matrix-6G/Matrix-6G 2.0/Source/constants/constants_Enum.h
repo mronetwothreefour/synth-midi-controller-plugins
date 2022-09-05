@@ -44,18 +44,18 @@ namespace Matrix_6G_Constants
 
 
 	const enum class VoicesBank {
-		analogSynthsA = 0,
-		analogSynthsB,
+		analogSynths_A = 0,
+		analogSynths_B,
 		basses,
 		brassAndWoodwinds,
-		customA,
-		customB,
 		fxAndPercussion,
-		keyboardsA,
-		keyboardsB,
+		keyboards_A,
+		keyboards_B,
 		leads,
-		miscellaneousA,
-		miscellaneousB,
-		strings
+		miscellaneous_A,
+		miscellaneous_B,
+		strings,
+		custom_A,
+		custom_B
 	};
 }

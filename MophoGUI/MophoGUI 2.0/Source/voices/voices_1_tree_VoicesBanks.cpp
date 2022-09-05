@@ -63,7 +63,7 @@ void VoicesBanks::storeVoiceDataHexStringInCustomBankSlot(const String voiceData
 	}
 }
 
-Value VoicesBanks::getVoiceNameValueForCustomBankSlot(const VoicesBank bank, const uint8 slotNum) {
+Value VoicesBanks::getVoiceNameAsValueForCustomBankSlot(const VoicesBank bank, const uint8 slotNum) {
 	jassert(bank >= VoicesBank::custom_1);
 	jassert(slotNum < VCS::numberOfSlotsInVoicesBank);
 	auto bankTree{ customVoiceNameStrings.getChild((int)bank % 3) };

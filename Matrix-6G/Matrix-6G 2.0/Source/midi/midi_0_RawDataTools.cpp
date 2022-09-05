@@ -29,6 +29,15 @@ const String RawDataTools::convertDataVectorToHexString(const std::vector<uint8>
     return hexString;
 }
 
+void RawDataTools::removeSeventhBitFrom_ASCII_Value(uint8& value) {
+    value %= 64;
+}
+
+void RawDataTools::restoreSeventhBitTo_ASCII_Value(uint8& value) {
+    if (value < 32)
+        value += 64;
+}
+
 bool RawDataTools::midiMessageIsSysExForMatrix(const MidiMessage& midiMessage) {
     if (midiMessage.isSysEx()) {
         auto sysExData{ midiMessage.getSysExData() };

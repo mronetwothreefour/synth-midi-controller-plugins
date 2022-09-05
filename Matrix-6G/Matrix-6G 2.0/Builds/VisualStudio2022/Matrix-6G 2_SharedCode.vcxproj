@@ -171,6 +171,7 @@
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_1_tree_VoicesBanks.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2371,6 +2372,7 @@
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.h"/>
     <ClInclude Include="..\..\Source\voices\voices_0_tree_FactoryVoiceDataHexStrings.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_1_tree_VoicesBanks.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

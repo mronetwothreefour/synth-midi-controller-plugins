@@ -6,7 +6,10 @@ namespace Matrix_6G_Constants
 {
 	namespace ID
 	{
+		static const Identifier banks_CustomVoiceDataHexStrings{ "banks_CustomVoiceDataHexStrings" };
+		static const Identifier banks_CustomVoiceNameStrings{ "banks_CustomVoiceNameStrings" };
 		static const Identifier banks_FactoryVoiceDataHexStrings{ "banks_FactoryVoiceDataHexStrings" };
+		static const Identifier banks_FactoryVoiceNameStrings{ "banks_FactoryVoiceNameStrings" };
 
 		static const Identifier comp_TextEditorForSlider{ "comp_TextEditorForSlider" };
 		static const Identifier comp_VoiceNameEditor{ "comp_VoiceNameEditor" };
@@ -114,6 +117,9 @@ namespace Matrix_6G_Constants
 		static const Identifier property_Width{ "property_Width" };
 
 		static const Identifier state_CurrentVoiceOptions{ "state_CurrentVoiceOptions" };
+		static const Identifier state_CustomVoiceDataHexStrings{ "state_CustomVoiceDataHexStrings" };
+		static const Identifier state_CustomVoiceNameStrings{ "state_CustomVoiceNameStrings" };
+		static const Identifier state_CustomVoicesBanks{ "state_CustomVoicesBanks" };
 		static const Identifier state_MatrixModOptions{ "state_MatrixModOptions" };
 		static const Identifier state_TooltipsOptions{ "state_TooltipsOptions" };
 		static const Identifier state_UnexposedParams{ "state_UnexposedParams" };

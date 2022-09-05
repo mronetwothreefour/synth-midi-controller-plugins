@@ -9,9 +9,13 @@ struct RawDataTools
 {
     static const uint8 oberheim_ID{ 1 };
     static const uint8 matrix_ID{ 37 };
+    static const uint8 valueForBarSymbol{ 29 };
 
     static const std::vector<uint8> convertHexStringToDataVector(const String& hexString);
     static const String convertDataVectorToHexString(const std::vector<uint8>& dataVector);
+
+    static void removeSeventhBitFrom_ASCII_Value(uint8& value);
+    static void restoreSeventhBitTo_ASCII_Value(uint8& value);
 
     //static void applyRawVoiceDataTo_GUI(const uint8* voiceData, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
     //static const std::vector<uint8> extractRawVoiceDataFrom_GUI(ExposedParameters* exposedParams);
