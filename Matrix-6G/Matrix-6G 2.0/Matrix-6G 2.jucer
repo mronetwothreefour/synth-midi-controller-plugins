@@ -188,6 +188,10 @@
         <FILE id="Twuep7" name="up_1_facade_UnexposedParameters.h" compile="0"
               resource="0" file="Source/unexposedParameters/up_1_facade_UnexposedParameters.h"/>
       </GROUP>
+      <GROUP id="{65684C61-9F2C-422D-140E-9879A6F4B719}" name="voices">
+        <FILE id="UNCz3Y" name="voices_0_tree_FactoryVoiceDataHexStrings.h"
+              compile="0" resource="0" file="Source/voices/voices_0_tree_FactoryVoiceDataHexStrings.h"/>
+      </GROUP>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>

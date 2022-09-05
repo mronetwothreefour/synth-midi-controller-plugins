@@ -32,6 +32,9 @@
     <Filter Include="Matrix-6G 2\Source\unexposedParameters">
       <UniqueIdentifier>{7B757C0E-25AA-F0C7-E195-AA6C5F944AA2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G 2\Source\voices">
+      <UniqueIdentifier>{B653C471-0F6B-40B0-6A20-112C61BD496C}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Matrix-6G 2\Source">
       <UniqueIdentifier>{906E5EDC-CCE9-25B0-2423-9ED2CD03C9E0}</UniqueIdentifier>
     </Filter>
@@ -3146,6 +3149,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.h">
       <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_0_tree_FactoryVoiceDataHexStrings.h">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>

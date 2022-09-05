@@ -32,6 +32,9 @@
     <Filter Include="P-600-G 2\Source\unexposedParameters">
       <UniqueIdentifier>{621C7D79-7D45-2234-4F43-FC7D5871E018}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G 2\Source\voices">
+      <UniqueIdentifier>{52A8A504-22A7-87CD-7F88-AD74ADB30824}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G 2\Source">
       <UniqueIdentifier>{5CE18680-527B-6D71-FCEB-BAE7474785B9}</UniqueIdentifier>
     </Filter>
@@ -3065,6 +3068,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.h">
       <Filter>P-600-G 2\Source\unexposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_0_tree_FactoryVoiceDataHexStrings.h">
+      <Filter>P-600-G 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>

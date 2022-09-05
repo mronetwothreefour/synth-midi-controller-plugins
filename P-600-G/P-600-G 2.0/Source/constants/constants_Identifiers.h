@@ -6,6 +6,8 @@ namespace P_600_G_Constants
 {
 	namespace ID
 	{
+		static const Identifier banks_FactoryVoiceDataHexStrings{ "banks_FactoryVoiceDataHexStrings" };
+
 		static const Identifier comp_TextEditorForKnob{ "comp_TextEditorForKnob" };
 		static const Identifier comp_TextEditorForVoiceNumberSlider{ "comp_TextEditorForVoiceNumberSlider" };
 		static const Identifier comp_VoiceNumberSlider{ "comp_VoiceNumberSlider" };
