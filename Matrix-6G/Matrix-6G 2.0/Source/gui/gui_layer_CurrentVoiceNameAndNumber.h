@@ -17,9 +17,9 @@ class GUI_Layer_CurrentVoiceNameAndNumber :
 	Label voiceNameEditor;
 	RotarySliderWithMouseWheelMoveOverride voiceNumber;
 	Label voiceNumberEditor;
-	Value shouldShowDescriptionValue;
-	Value currentVoiceNameValue;
-	Value currentVoiceNumberValue;
+	Value shouldShowDescriptionAsValue;
+	Value currentVoiceNameAsValue;
+	Value currentVoiceNumberAsValue;
 	String voiceName;
 	const String allowed_ASCII_Characters{ "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ?<>;:.,-+*/=()'\"&%$#!_^\\|[" };
 

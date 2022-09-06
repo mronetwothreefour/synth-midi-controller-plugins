@@ -21,8 +21,8 @@ VoiceSlotRadioButton::VoiceSlotRadioButton(const VoicesBank bank, const uint8 sl
 	unexposedParams{ unexposedParams }
 {
 	if (bank >= VoicesBank::custom_1) {
-		voiceNameValue = unexposedParams->getVoicesBanks()->getVoiceNameAsValueForCustomBankSlot(bank, slotNum);
-		voiceNameValue.addListener(this);
+		voiceNameAsValue = unexposedParams->getVoicesBanks()->getVoiceNameAsValueForCustomBankSlot(bank, slotNum);
+		voiceNameAsValue.addListener(this);
 	}
 	setRadioGroupId((int)bank + 1);
 	auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
@@ -42,12 +42,12 @@ VoiceSlotRadioButton::VoiceSlotRadioButton(const VoicesBank bank, const uint8 sl
 }
 
 void VoiceSlotRadioButton::valueChanged(Value& /*value*/) {
-	auto voiceName{ voiceNameValue.getValue().toString() };
+	auto voiceName{ voiceNameAsValue.getValue().toString() };
 	setName(slotNumString + " " + voiceName);
 	repaint();
 }
 
 VoiceSlotRadioButton::~VoiceSlotRadioButton() {
 	if (bank >= VoicesBank::custom_1)
-		voiceNameValue.removeListener(this);
+		voiceNameAsValue.removeListener(this);
 }

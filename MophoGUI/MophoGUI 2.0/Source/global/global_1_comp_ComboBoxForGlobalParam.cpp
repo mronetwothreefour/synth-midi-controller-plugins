@@ -76,22 +76,22 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		break;
 	}
 
-	globalParamValue = global->getGobalParamValue(paramID);
-	globalParamValue.addListener(this);
+	globalParamAsValue = global->getGobalParamAsValue(paramID);
+	globalParamAsValue.addListener(this);
 
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
-	shouldShowDescriptionValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
-	shouldShowDescriptionValue.addListener(this);
-	shouldShowCurrentChoiceValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowCurrentChoice);
-	shouldShowCurrentChoiceValue.addListener(this);
+	shouldShowDescriptionAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
+	shouldShowDescriptionAsValue.addListener(this);
+	shouldShowCurrentChoiceAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowCurrentChoice);
+	shouldShowCurrentChoiceAsValue.addListener(this);
 	updateTooltip();
 
 	setSize(117, GUI::comboBox_h);
 }
 
 void ComboBoxForGlobalParameter::updateTooltip() {
-	auto shouldShowDescription{ (bool)shouldShowDescriptionValue.getValue() };
-	auto shouldShowCurrentChoice{ (bool)shouldShowCurrentChoiceValue.getValue() };
+	auto shouldShowDescription{ (bool)shouldShowDescriptionAsValue.getValue() };
+	auto shouldShowCurrentChoice{ (bool)shouldShowCurrentChoiceAsValue.getValue() };
 	auto verbose{ (bool)true };
 	String tip{ "" };
 	switch (comboBoxType)
@@ -136,13 +136,13 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 
 void ComboBoxForGlobalParameter::valueChanged(Value& value) {
 	MessageManagerLock mmLock;
-	if (value.refersToSameSourceAs(globalParamValue))
+	if (value.refersToSameSourceAs(globalParamAsValue))
 		setSelectedItemIndex((int)value.getValue());
 	updateTooltip();
 }
 
 ComboBoxForGlobalParameter::~ComboBoxForGlobalParameter() {
-	globalParamValue.removeListener(this);
-	shouldShowDescriptionValue.removeListener(this);
-	shouldShowCurrentChoiceValue.removeListener(this);
+	globalParamAsValue.removeListener(this);
+	shouldShowDescriptionAsValue.removeListener(this);
+	shouldShowCurrentChoiceAsValue.removeListener(this);
 }

@@ -15,7 +15,7 @@ class GUI_Layer_MainWindowButtons :
 	ExposedParameters* exposedParams;
 	UnexposedParameters* unexposedParams;
 	TooltipsOptions* tooltips;
-	Value shouldShowDescriptionValue;
+	Value shouldShowDescriptionAsValue;
 
 public:
 	GUI_Layer_MainWindowButtons() = delete;

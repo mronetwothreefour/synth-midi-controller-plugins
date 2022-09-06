@@ -13,7 +13,7 @@ class ButtonForHidingLayer :
 	public Value::Listener
 {
 	TooltipsOptions* tooltips;
-	Value shouldShowDescriptionValue;
+	Value shouldShowDescriptionAsValue;
 
 public:
 	ButtonForHidingLayer() = delete;
@@ -21,8 +21,8 @@ public:
 	explicit ButtonForHidingLayer(UnexposedParameters* unexposedParams) :
 		tooltips{ unexposedParams->getTooltipsOptions() }
 	{
-		shouldShowDescriptionValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
-		shouldShowDescriptionValue.addListener(this);
+		shouldShowDescriptionAsValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
+		shouldShowDescriptionAsValue.addListener(this);
 		setComponentID(ID::btn_Close.toString());
 		onClick = [this] {
 			getParentComponent()->getParentComponent()->grabKeyboardFocus();
@@ -42,7 +42,7 @@ public:
 	}
 
 	~ButtonForHidingLayer() {
-		shouldShowDescriptionValue.removeListener(this);
+		shouldShowDescriptionAsValue.removeListener(this);
 	}
 
 private:

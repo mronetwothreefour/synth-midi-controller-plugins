@@ -14,8 +14,8 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 	auto controlType{ info->controlTypeFor(paramIndex) };
 	jassert(controlType == ControlType::knob || controlType == ControlType::knobForPitch);
 
-	parameterValue = exposedParams->state->getParameterAsValue(info->IDfor(paramIndex));
-	parameterValue.addListener(this);
+	paramAsValue = exposedParams->state->getParameterAsValue(info->IDfor(paramIndex));
+	paramAsValue.addListener(this);
 
 	setInterceptsMouseClicks(false, true);
 	textEditor.setInterceptsMouseClicks(false, true);
@@ -97,5 +97,5 @@ void TextEditorForExposedParamKnob::valueChanged(Value& /*value*/) {
 }
 
 TextEditorForExposedParamKnob::~TextEditorForExposedParamKnob() {
-	parameterValue.removeListener(this);
+	paramAsValue.removeListener(this);
 }

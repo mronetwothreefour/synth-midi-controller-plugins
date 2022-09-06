@@ -14,7 +14,7 @@ class ToggleForTooltipParameter :
 {
 	GlobalParamToggleType toggleType;
 	ToggleButton redToggle;
-	Value shouldShowDescriptionValue;
+	Value shouldShowDescriptionAsValue;
 
 public:
 	ToggleForTooltipParameter() = delete;

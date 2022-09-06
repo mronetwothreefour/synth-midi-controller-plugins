@@ -38,7 +38,7 @@ class GUI_Layer_AllowedChoices_SeqTrack :
 	int background_w;
 	int background_h;
 	int center_x;
-	Value targetStepForSeqTrackValue;
+	Value targetStepForSeqTrackAsValue;
 
 public:
 	GUI_Layer_AllowedChoices_SeqTrack() = delete;

@@ -17,26 +17,26 @@ SliderForMatrixModAmount::SliderForMatrixModAmount(int modNum, ExposedParameters
 	modNum{ modNum },
 	matrixModOptions{ exposedParams->matrixModOptions.get() }
 {
-	modAmountValue = matrixModOptions->getMatrixModPropertyAsValue("matrixMod_Mod_" + (String)modNum + "_Amount");
-	modAmountValue.addListener(this);
+	modAmountAsValue = matrixModOptions->getMatrixModPropertyAsValue("matrixMod_Mod_" + (String)modNum + "_Amount");
+	modAmountAsValue.addListener(this);
 
 	setRange(0.0, (double)(MMOD::numberOfAmountChoices - 1), 1.0);
 	setDoubleClickReturnValue(true, 63.0);
 	setValue((double)matrixModOptions->modAmount(modNum), dontSendNotification);
 	setMouseDragSensitivity(144);
 
-	shouldShowCurrentChoiceValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowCurrentChoice);
-	shouldShowCurrentChoiceValue.addListener(this);
-	shouldShowDescriptionValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
-	shouldShowDescriptionValue.addListener(this);
+	shouldShowCurrentChoiceAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowCurrentChoice);
+	shouldShowCurrentChoiceAsValue.addListener(this);
+	shouldShowDescriptionAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
+	shouldShowDescriptionAsValue.addListener(this);
 	updateTooltip();
 
 	setSize(GUI::matrixModSlider_w, GUI::control_h);
 }
 
 void SliderForMatrixModAmount::updateTooltip() {
-	auto shouldShowDescription{ (bool)shouldShowDescriptionValue.getValue() };
-	auto shouldShowCurrentChoice{ (bool)shouldShowCurrentChoiceValue.getValue() };
+	auto shouldShowDescription{ (bool)shouldShowDescriptionAsValue.getValue() };
+	auto shouldShowCurrentChoice{ (bool)shouldShowCurrentChoiceAsValue.getValue() };
 	String tip{ "" };
 	if (shouldShowDescription) {
 		tip += "Sets whether and to what degree the selected source\n";
@@ -66,13 +66,13 @@ void SliderForMatrixModAmount::valueChanged() {
 
 void SliderForMatrixModAmount::valueChanged(Value& value) {
 	MessageManagerLock mmLock;
-	if (value.refersToSameSourceAs(modAmountValue))
+	if (value.refersToSameSourceAs(modAmountAsValue))
 		setValue((double)value.getValue(), sendNotification);
 	updateTooltip();
 }
 
 SliderForMatrixModAmount::~SliderForMatrixModAmount() {
-	modAmountValue.removeListener(this);
-	shouldShowCurrentChoiceValue.removeListener(this);
-	shouldShowDescriptionValue.removeListener(this);
+	modAmountAsValue.removeListener(this);
+	shouldShowCurrentChoiceAsValue.removeListener(this);
+	shouldShowDescriptionAsValue.removeListener(this);
 }

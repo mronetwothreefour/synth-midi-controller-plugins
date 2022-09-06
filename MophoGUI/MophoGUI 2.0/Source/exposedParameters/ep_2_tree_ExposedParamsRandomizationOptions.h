@@ -27,7 +27,7 @@ public:
 	const bool paramIsLocked(uint8 paramIndex);
 	const bool paramIsUnlocked(uint8 paramIndex);
 	void setParamIsLocked(uint8 paramIndex, bool shouldBeLocked);
-	Value getParamIsLockedValueForParam(uint8 paramIndex);
+	Value getParamIsLockedAsValue(uint8 paramIndex);
 
 	const bool choiceIsAllowedForParam(uint8 choiceNum, uint8 paramIndex);
 	void setChoiceIsAllowedForParam(uint8 choiceNum, bool shouldBeAllowed, uint8 paramIndex);
@@ -88,7 +88,7 @@ private:
 
 public:
 	const bool onlyOneChoiceIsAllowedForParam(uint8 paramIndex);
-	Value getOnlyOneChoiceIsAllowedValueForParam(uint8 paramIndex);
+	Value getOnlyOneChoiceIsAllowedForParamAsValue(uint8 paramIndex);
 	const bool noChoiceIsAllowedForParam(uint8 paramIndex);
 
 	const bool repeatChoicesAreAllowedForParam(uint8 paramIndex);
@@ -100,15 +100,15 @@ public:
 
 	Step targetStepForSeqTrack(Track track);
 	void setTargetStepForSeqTrack(Step step, Track track);
-	Value getTargetStepForSeqTrackValue(Track track);
+	Value getTargetStepForSeqTrackAsValue(Track track);
 	const float probabilityOfRestForSeqTrack_1_Step(Step step);
 	void setProbabilityOfRestForAllSeqTrack_1_Steps(float newProb);
 	void setProbabilityOfRestForSeqTrack_1_Step(float newProb, Step step);
-	Value getProbabilityOfRestForSeqTrack_1_StepValue(Step step);
+	Value getProbabilityOfRestForSeqTrack_1_StepAsValue(Step step);
 	const float probabilityOfResetForSeqTrackStep(Track track, Step step);
 	void setProbabilityOfResetForAllSeqTrackSteps(float newProb, Track track);
 	void setProbabilityOfResetForSeqTrackStep(float newProb, Track track, Step step);
-	Value getProbabilityOfResetForSeqTrackStepValue(Track track, Step step);
+	Value getProbabilityOfResetForSeqTrackStepAsValue(Track track, Step step);
 	const bool choiceIsAllowedForSeqTrackStep(uint8 choiceNum, Track track, Step step);
 	void setChoiceIsAllowedForAllSeqTrackSteps(uint8 choiceNum, bool shouldBeAllowed, Track track);
 	void setChoiceIsAllowedForSeqTrackStep(uint8 choiceNum, bool shouldBeAllowed, Track track, Step step);
@@ -117,7 +117,7 @@ public:
 	void allowAllChoicesForAllSeqTrackSteps(Track track);
 	void allowAllChoicesForSeqTrackStep(Track track, Step step);
 	const bool repeatsMustBeAllowedForSeqTrackStep(Track track, Step step);
-	Value getRepeatsMustBeAllowedForSeqTrackStepValue(Track track, Step step);
+	Value getRepeatsMustBeAllowedForSeqTrackStepAsValue(Track track, Step step);
 	const bool noChoiceIsAllowedForSeqTrackStep(Track track, Step step);
 
 private:

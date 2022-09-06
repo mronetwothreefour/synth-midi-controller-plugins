@@ -35,8 +35,8 @@ EditorForTooltipDelay::EditorForTooltipDelay(UnexposedParameters* unexposedParam
 		tooltipDelayEditor.setText((String)tooltips->delayInMilliseconds() + " ms", dontSendNotification);
 	};
 
-	shouldShowDescriptionValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
-	shouldShowDescriptionValue.addListener(this);
+	shouldShowDescriptionAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
+	shouldShowDescriptionAsValue.addListener(this);
 	updateTooltip();
 
 	setSize(50, GUI::comboBox_h);
@@ -45,7 +45,7 @@ EditorForTooltipDelay::EditorForTooltipDelay(UnexposedParameters* unexposedParam
 }
 
 void EditorForTooltipDelay::updateTooltip() {
-	auto shouldShowDescription{ (bool)shouldShowDescriptionValue.getValue() };
+	auto shouldShowDescription{ (bool)shouldShowDescriptionAsValue.getValue() };
 	String tip{ shouldShowDescription ? Description::buildForTooltipDelay() : ""};
 	tooltipDelayEditor.setTooltip(tip);
 }
@@ -56,5 +56,5 @@ void EditorForTooltipDelay::valueChanged(Value& /*value*/) {
 }
 
 EditorForTooltipDelay::~EditorForTooltipDelay() {
-	shouldShowDescriptionValue.removeListener(this);
+	shouldShowDescriptionAsValue.removeListener(this);
 }

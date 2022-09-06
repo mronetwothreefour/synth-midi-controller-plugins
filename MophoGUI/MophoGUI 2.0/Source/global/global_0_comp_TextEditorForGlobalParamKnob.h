@@ -15,7 +15,7 @@ class TextEditorForGlobalParamKnob :
 {
 	KnobType knobType;
 	Label textEditor;
-	Value globalParamValue;
+	Value globalParamAsValue;
 
 public:
 	TextEditorForGlobalParamKnob() = delete;

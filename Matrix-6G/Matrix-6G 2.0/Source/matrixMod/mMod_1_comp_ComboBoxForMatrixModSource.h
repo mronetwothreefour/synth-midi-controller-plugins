@@ -11,8 +11,8 @@ class ComboBoxForMatrixModSource :
 	int modNum;
 	MatrixModOptions* matrixModOptions;
 	Value modSourceValue;
-	Value shouldShowDescriptionValue;
-	Value shouldShowCurrentChoiceValue;
+	Value shouldShowDescriptionAsValue;
+	Value shouldShowCurrentChoiceAsValue;
 
 public:
 	ComboBoxForMatrixModSource() = delete;

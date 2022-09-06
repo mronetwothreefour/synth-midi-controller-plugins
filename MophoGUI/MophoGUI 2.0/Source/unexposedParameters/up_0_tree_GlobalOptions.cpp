@@ -141,6 +141,6 @@ void GlobalOptions::setHardwareOutputBalance(const uint8 newBalance) {
     globalOptionsTree.setProperty(ID::global_HardwareOutputBalance, newBalance, nullptr);
 }
 
-Value GlobalOptions::getGobalParamValue(const Identifier paramID) {
+Value GlobalOptions::getGobalParamAsValue(const Identifier paramID) {
     return globalOptionsTree.getPropertyAsValue(paramID, nullptr);
 }

@@ -10,7 +10,7 @@ class EditorForTooltipDelay :
 {
 	Identifier parameterID;
 	Label tooltipDelayEditor;
-	Value shouldShowDescriptionValue;
+	Value shouldShowDescriptionAsValue;
 
 public:
 	EditorForTooltipDelay() = delete;

@@ -15,7 +15,7 @@ class VoiceSlotRadioButton :
 	const uint8 slotNum;
 	const String slotNumString;
 	UnexposedParameters* unexposedParams;
-	Value voiceNameValue;
+	Value voiceNameAsValue;
 
 	VoiceSlotRadioButton();
 

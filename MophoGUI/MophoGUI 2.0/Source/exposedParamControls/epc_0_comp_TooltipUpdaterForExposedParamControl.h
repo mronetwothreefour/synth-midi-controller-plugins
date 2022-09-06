@@ -14,9 +14,9 @@ class TooltipUpdaterForExposedParamControl :
 	SettableTooltipClient& clientComponent;
 	AudioProcessorValueTreeState* state;
 	InfoForExposedParameters* info;
-	Value parameterValue;
-	Value shouldShowDescriptionValue;
-	Value shouldShowCurrentChoiceValue;
+	Value paramAsValue;
+	Value shouldShowDescriptionAsValue;
+	Value shouldShowCurrentChoiceAsValue;
 
 public:
 	TooltipUpdaterForExposedParamControl() = delete;

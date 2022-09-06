@@ -14,9 +14,9 @@ class SliderForMatrixModAmount :
 {
 	int modNum;
 	MatrixModOptions* matrixModOptions;
-	Value modAmountValue;
-	Value shouldShowDescriptionValue;
-	Value shouldShowCurrentChoiceValue;
+	Value modAmountAsValue;
+	Value shouldShowDescriptionAsValue;
+	Value shouldShowCurrentChoiceAsValue;
 
 public:
 	SliderForMatrixModAmount() = delete;

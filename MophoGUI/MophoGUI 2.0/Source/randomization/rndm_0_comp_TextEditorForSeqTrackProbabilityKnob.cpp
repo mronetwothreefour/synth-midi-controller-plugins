@@ -12,8 +12,8 @@ TextEditorForSeqTrackProbabilityKnob::TextEditorForSeqTrackProbabilityKnob(
 	track{ track },
 	randomization{ randomization }
 {
-	targetStepForSeqTrackValue = randomization->getTargetStepForSeqTrackValue(track);
-	targetStepForSeqTrackValue.addListener(this);
+	targetStepForSeqTrackAsValue = randomization->getTargetStepForSeqTrackAsValue(track);
+	targetStepForSeqTrackAsValue.addListener(this);
 
 	setInterceptsMouseClicks(false, true);
 	textEditor.setInterceptsMouseClicks(false, true);
@@ -54,10 +54,10 @@ TextEditorForSeqTrackProbabilityKnob::TextEditorForSeqTrackProbabilityKnob(
 	setEditorText();
 	auto targetStep{ randomization->targetStepForSeqTrack(track) };
 	if (knobType == KnobType::reset)
-		seqTrackProbValue = randomization->getProbabilityOfResetForSeqTrackStepValue(track, targetStep);
+		seqTrackProbAsValue = randomization->getProbabilityOfResetForSeqTrackStepAsValue(track, targetStep);
 	else
-		seqTrackProbValue = randomization->getProbabilityOfRestForSeqTrack_1_StepValue(targetStep);
-	seqTrackProbValue.addListener(this);
+		seqTrackProbAsValue = randomization->getProbabilityOfRestForSeqTrack_1_StepAsValue(targetStep);
+	seqTrackProbAsValue.addListener(this);
 
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 	textEditor.setBounds(getLocalBounds());
@@ -79,17 +79,17 @@ void TextEditorForSeqTrackProbabilityKnob::showEditor() {
 }
 
 void TextEditorForSeqTrackProbabilityKnob::valueChanged(Value& value) {
-	if (value.refersToSameSourceAs(targetStepForSeqTrackValue)) {
+	if (value.refersToSameSourceAs(targetStepForSeqTrackAsValue)) {
 		auto targetStep{ randomization->targetStepForSeqTrack(track) };
 		if (knobType == KnobType::reset)
-			seqTrackProbValue = randomization->getProbabilityOfResetForSeqTrackStepValue(track, targetStep);
+			seqTrackProbAsValue = randomization->getProbabilityOfResetForSeqTrackStepAsValue(track, targetStep);
 		else
-			seqTrackProbValue = randomization->getProbabilityOfRestForSeqTrack_1_StepValue(targetStep);
+			seqTrackProbAsValue = randomization->getProbabilityOfRestForSeqTrack_1_StepAsValue(targetStep);
 	}
     setEditorText();
 }
 
 TextEditorForSeqTrackProbabilityKnob::~TextEditorForSeqTrackProbabilityKnob() {
-	targetStepForSeqTrackValue.removeListener(this);
-	seqTrackProbValue.removeListener(this);
+	targetStepForSeqTrackAsValue.removeListener(this);
+	seqTrackProbAsValue.removeListener(this);
 }

@@ -30,18 +30,18 @@ ComboBoxForMatrixModSource::ComboBoxForMatrixModSource(int modNum, MatrixModOpti
 		matrixModOptions->setModSource(modNum, currentChoice);
 	};
 
-	shouldShowCurrentChoiceValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowCurrentChoice);
-	shouldShowCurrentChoiceValue.addListener(this);
-	shouldShowDescriptionValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
-	shouldShowDescriptionValue.addListener(this);
+	shouldShowCurrentChoiceAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowCurrentChoice);
+	shouldShowCurrentChoiceAsValue.addListener(this);
+	shouldShowDescriptionAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
+	shouldShowDescriptionAsValue.addListener(this);
 	updateTooltip();
 
 	setSize(GUI::matrixModComboBox_w, GUI::control_h);
 }
 
 void ComboBoxForMatrixModSource::updateTooltip() {
-	auto shouldShowDescription{ (bool)shouldShowDescriptionValue.getValue() };
-	auto shouldShowCurrentChoice{ (bool)shouldShowCurrentChoiceValue.getValue() };
+	auto shouldShowDescription{ (bool)shouldShowDescriptionAsValue.getValue() };
+	auto shouldShowCurrentChoice{ (bool)shouldShowCurrentChoiceAsValue.getValue() };
 	auto verbose{ (bool)true };
 	String tip{ "" };
 	if (shouldShowDescription) {
@@ -64,6 +64,6 @@ void ComboBoxForMatrixModSource::valueChanged(Value& value) {
 
 ComboBoxForMatrixModSource::~ComboBoxForMatrixModSource() {
 	modSourceValue.removeListener(this);
-	shouldShowCurrentChoiceValue.removeListener(this);
-	shouldShowDescriptionValue.removeListener(this);
+	shouldShowCurrentChoiceAsValue.removeListener(this);
+	shouldShowDescriptionAsValue.removeListener(this);
 }

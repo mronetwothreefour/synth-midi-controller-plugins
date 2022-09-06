@@ -9,7 +9,7 @@ class LockToggleForParam :
 	public Value::Listener
 {
 	uint8 paramIndex;
-	Value paramIsLockedValue;
+	Value paramIsLockedAsValue;
 
 public:
 	LockToggleForParam() = delete;

@@ -21,9 +21,9 @@ class KnobForGlobalParameter :
 	GlobalOptions* global;
 	UnexposedParameters* unexposedParams;
 	TextEditorForGlobalParamKnob textEditor;
-	Value globalParamValue;
-	Value shouldShowDescriptionValue;
-	Value shouldShowCurrentChoiceValue;
+	Value globalParamAsValue;
+	Value shouldShowDescriptionAsValue;
+	Value shouldShowCurrentChoiceAsValue;
 
 public:
 	KnobForGlobalParameter() = delete;

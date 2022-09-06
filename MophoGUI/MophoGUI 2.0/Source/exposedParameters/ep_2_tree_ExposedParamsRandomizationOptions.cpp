@@ -81,7 +81,7 @@ void ExposedParamsRandomizationOptions::setParamIsLocked(uint8 paramIndex, bool 
 	paramTree.setProperty(ID::rndm_ParamIsLocked, shouldBeLocked ? true : false, nullptr);
 }
 
-Value ExposedParamsRandomizationOptions::getParamIsLockedValueForParam(uint8 paramIndex) {
+Value ExposedParamsRandomizationOptions::getParamIsLockedAsValue(uint8 paramIndex) {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info->IDfor(paramIndex)) };
 	return paramTree.getPropertyAsValue(ID::rndm_ParamIsLocked, nullptr);
@@ -535,7 +535,7 @@ const bool ExposedParamsRandomizationOptions::onlyOneChoiceIsAllowedForParam(uin
 	return (bool)paramTree.getProperty(ID::rndm_OnlyOneChoiceIsAllowed) == true;
 }
 
-Value ExposedParamsRandomizationOptions::getOnlyOneChoiceIsAllowedValueForParam(uint8 paramIndex) {
+Value ExposedParamsRandomizationOptions::getOnlyOneChoiceIsAllowedForParamAsValue(uint8 paramIndex) {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto paramTree{ randomizationOptionsTree.getChildWithName(info->IDfor(paramIndex)) };
 	return paramTree.getPropertyAsValue(ID::rndm_OnlyOneChoiceIsAllowed, nullptr);
@@ -596,7 +596,7 @@ void ExposedParamsRandomizationOptions::setTargetStepForSeqTrack(Step step, Trac
 	trackTree.setProperty(ID::rndm_SeqTrackTargetStep, (int)step, nullptr);
 }
 
-Value ExposedParamsRandomizationOptions::getTargetStepForSeqTrackValue(Track track) {
+Value ExposedParamsRandomizationOptions::getTargetStepForSeqTrackAsValue(Track track) {
 	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
 	return trackTree.getPropertyAsValue(ID::rndm_SeqTrackTargetStep, nullptr);
@@ -626,7 +626,7 @@ void ExposedParamsRandomizationOptions::setProbabilityOfRestForSeqTrack_1_Step(f
 	checkProbabilitiesAndNumberOfChoicesAllowedForSeqTrackStep(Track::one, step);
 }
 
-Value ExposedParamsRandomizationOptions::getProbabilityOfRestForSeqTrack_1_StepValue(Step step) {
+Value ExposedParamsRandomizationOptions::getProbabilityOfRestForSeqTrack_1_StepAsValue(Step step) {
 	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + "1" };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
 	auto stepTreeID{ trackTreeID + (step == Step::all ? "_AllSteps" : "_Step_" + String((int)step)) };
@@ -661,7 +661,7 @@ void ExposedParamsRandomizationOptions::setProbabilityOfResetForSeqTrackStep(flo
 	checkProbabilitiesAndNumberOfChoicesAllowedForSeqTrackStep(track, step);
 }
 
-Value ExposedParamsRandomizationOptions::getProbabilityOfResetForSeqTrackStepValue(Track track, Step step) {
+Value ExposedParamsRandomizationOptions::getProbabilityOfResetForSeqTrackStepAsValue(Track track, Step step) {
 	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
 	auto stepTreeID{ trackTreeID + (step == Step::all ? "_AllSteps" : "_Step_" + String((int)step)) };
@@ -733,7 +733,7 @@ const bool ExposedParamsRandomizationOptions::repeatsMustBeAllowedForSeqTrackSte
 	return (bool)stepTree.getProperty(ID::rndm_RepeatChoicesMustBeAllowed) == true;
 }
 
-Value ExposedParamsRandomizationOptions::getRepeatsMustBeAllowedForSeqTrackStepValue(Track track, Step step) {
+Value ExposedParamsRandomizationOptions::getRepeatsMustBeAllowedForSeqTrackStepAsValue(Track track, Step step) {
 	auto trackTreeID{ ID::rndm_SeqTrack_.toString() + String((int)track) };
 	auto trackTree{ randomizationOptionsTree.getChildWithName(trackTreeID) };
 	auto stepTreeID{ trackTreeID + (step == Step::all ? "_AllSteps" : "_Step_" + String((int)step)) };

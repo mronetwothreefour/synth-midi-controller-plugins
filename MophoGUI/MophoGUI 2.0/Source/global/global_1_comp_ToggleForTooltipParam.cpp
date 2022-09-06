@@ -34,15 +34,15 @@ ToggleForTooltipParameter::ToggleForTooltipParameter(GlobalParamToggleType toggl
 	redToggle.setTopRightPosition(component_w, 0);
 	addAndMakeVisible(redToggle);
 
-	shouldShowDescriptionValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
-	shouldShowDescriptionValue.addListener(this);
+	shouldShowDescriptionAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
+	shouldShowDescriptionAsValue.addListener(this);
 	updateTooltip();
 
 	setSize(component_w, GUI::redToggle_diameter);
 }
 
 void ToggleForTooltipParameter::updateTooltip() {
-	auto shouldShowDescription{ (bool)shouldShowDescriptionValue.getValue() };
+	auto shouldShowDescription{ (bool)shouldShowDescriptionAsValue.getValue() };
 	String tip{ "" };
 	switch (toggleType)
 	{
@@ -68,5 +68,5 @@ void ToggleForTooltipParameter::valueChanged(Value& /*value*/) {
 }
 
 ToggleForTooltipParameter::~ToggleForTooltipParameter() {
-	shouldShowDescriptionValue.removeListener(this);
+	shouldShowDescriptionAsValue.removeListener(this);
 }

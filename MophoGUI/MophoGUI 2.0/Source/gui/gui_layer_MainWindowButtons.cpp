@@ -31,8 +31,8 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
 {
     setInterceptsMouseClicks(false, true);
 
-    shouldShowDescriptionValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
-    shouldShowDescriptionValue.addListener(this);
+    shouldShowDescriptionAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
+    shouldShowDescriptionAsValue.addListener(this);
 
     voiceNameEditor.setInterceptsMouseClicks(false, true);
     voiceNameEditor.setFont(GUI::font_VoiceNameEditorText);
@@ -330,7 +330,7 @@ GUI_Layer_MainWindowButtons::~GUI_Layer_MainWindowButtons() {
     layer_CommError_SysEx = nullptr;
     layer_GlobalParams = nullptr;
     layer_Randomization = nullptr;
-    shouldShowDescriptionValue.removeListener(this);
+    shouldShowDescriptionAsValue.removeListener(this);
     btn_Randomize.removeListener(this);
     btn_Randomize.removeMouseListener(this);
 }

@@ -44,7 +44,7 @@ class GUI_Layer_MainWindowButtons :
 	std::unique_ptr<GUI_Layer_CommError_NRPN> layer_CommError_NRPN;
 	std::unique_ptr<GUI_Layer_CommError_SysEx> layer_CommError_SysEx;
 	std::unique_ptr<GUI_Layer_Randomization> layer_Randomization;
-	Value shouldShowDescriptionValue;
+	Value shouldShowDescriptionAsValue;
 	int nameCharNum{ -1 };
 	int sequencerStep{ -1 };
 	const int timerID_VoiceNameEdit{ 4 };

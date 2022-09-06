@@ -18,14 +18,14 @@ GUI_Layer_CurrentVoiceNameAndNumber::GUI_Layer_CurrentVoiceNameAndNumber(Exposed
 {
     setInterceptsMouseClicks(false, true);
 
-    shouldShowDescriptionValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
-    shouldShowDescriptionValue.addListener(this);
+    shouldShowDescriptionAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
+    shouldShowDescriptionAsValue.addListener(this);
 
-    currentVoiceNameValue = currentVoiceOptions->getCurrentVoicePropertyAsValue(ID::currentVoice_Name);
-    currentVoiceNameValue.addListener(this);
+    currentVoiceNameAsValue = currentVoiceOptions->getCurrentVoicePropertyAsValue(ID::currentVoice_Name);
+    currentVoiceNameAsValue.addListener(this);
 
-    currentVoiceNumberValue = currentVoiceOptions->getCurrentVoicePropertyAsValue(ID::currentVoice_Number);
-    currentVoiceNumberValue.addListener(this);
+    currentVoiceNumberAsValue = currentVoiceOptions->getCurrentVoicePropertyAsValue(ID::currentVoice_Number);
+    currentVoiceNumberAsValue.addListener(this);
 
     Rectangle<int> voiceNumberBounds{ 840, 367, 28, 20 };
 
@@ -113,18 +113,18 @@ void GUI_Layer_CurrentVoiceNameAndNumber::mouseDoubleClick(const MouseEvent& /*e
 }
 
 void GUI_Layer_CurrentVoiceNameAndNumber::valueChanged(Value& value) {
-    if (value.refersToSameSourceAs(currentVoiceNumberValue)) {
+    if (value.refersToSameSourceAs(currentVoiceNumberAsValue)) {
         auto currentVoiceNumber{ currentVoiceOptions->currentVoiceNumber() };
         voiceNumber.setValue((double)currentVoiceNumber, dontSendNotification);
         setVoiceNumberEditorText();
     }
-    if (value.refersToSameSourceAs(shouldShowDescriptionValue))
+    if (value.refersToSameSourceAs(shouldShowDescriptionAsValue))
         updateTooltips();
 }
 
 GUI_Layer_CurrentVoiceNameAndNumber::~GUI_Layer_CurrentVoiceNameAndNumber() {
-    shouldShowDescriptionValue.removeListener(this);
-    currentVoiceNameValue.removeListener(this);
-    currentVoiceNumberValue.removeListener(this);
+    shouldShowDescriptionAsValue.removeListener(this);
+    currentVoiceNameAsValue.removeListener(this);
+    currentVoiceNumberAsValue.removeListener(this);
     voiceNumber.removeMouseListener(this);
 }

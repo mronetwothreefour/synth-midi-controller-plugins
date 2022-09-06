@@ -26,7 +26,7 @@ class PluginEditor :
     std::unique_ptr<GUI_Layer_CurrentVoiceNameAndNumber> layer_CurrentVoiceNameAndNumber;
     std::unique_ptr<MatrixLookAndFeel> lookAndFeel;
     std::unique_ptr<TooltipWindow> tooltipWindow;
-    Value tooltipsDelayInMillisecondsValue;
+    Value tooltipsDelayInMillisecondsAsValue;
 
 public:
     PluginEditor(PluginProcessor& processor, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);

@@ -14,7 +14,7 @@ class AllowRepeatChoicesToggle :
 	uint8 paramIndex;
 	InfoForExposedParameters* info;
 	ExposedParamsRandomizationOptions* randomization;
-	Value onlyOneChoiceIsAllowedValue;
+	Value onlyOneChoiceIsAllowedForParamAsValue;
 	ToggleButton toggle_AllowRepeatChoices;
 
 public:

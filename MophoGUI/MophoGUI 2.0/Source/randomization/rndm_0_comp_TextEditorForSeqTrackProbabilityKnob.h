@@ -20,8 +20,8 @@ class TextEditorForSeqTrackProbabilityKnob :
 	Track track;
 	ExposedParamsRandomizationOptions* randomization;
 	Label textEditor;
-	Value targetStepForSeqTrackValue;
-	Value seqTrackProbValue;
+	Value targetStepForSeqTrackAsValue;
+	Value seqTrackProbAsValue;
 
 public:
 	TextEditorForSeqTrackProbabilityKnob() = delete;

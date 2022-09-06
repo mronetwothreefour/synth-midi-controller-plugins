@@ -43,12 +43,12 @@ DisplayLabelForGlobalParameter::DisplayLabelForGlobalParameter(GlobalParamDispla
 		break;
 	}
 
-	globalParamValue = global->getGobalParamValue(paramID);
-	globalParamValue.addListener(this);
+	globalParamAsValue = global->getGobalParamAsValue(paramID);
+	globalParamAsValue.addListener(this);
 
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
-	shouldShowDescriptionValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
-	shouldShowDescriptionValue.addListener(this);
+	shouldShowDescriptionAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
+	shouldShowDescriptionAsValue.addListener(this);
 	updateTooltip();
 
 	setSize(245, GUI::comboBox_h);
@@ -98,7 +98,7 @@ void DisplayLabelForGlobalParameter::setTextAccordingToParameterSetting() {
 }
 
 void DisplayLabelForGlobalParameter::updateTooltip() {
-	auto shouldShowDescription{ (bool)shouldShowDescriptionValue.getValue() };
+	auto shouldShowDescription{ (bool)shouldShowDescriptionAsValue.getValue() };
 	String tip{ "" };
 	switch (labelType)
 	{
@@ -129,13 +129,13 @@ void DisplayLabelForGlobalParameter::updateTooltip() {
 }
 
 void DisplayLabelForGlobalParameter::valueChanged(Value& value) {
-	if (value.refersToSameSourceAs(globalParamValue))
+	if (value.refersToSameSourceAs(globalParamAsValue))
 		setTextAccordingToParameterSetting();
 	else
 		updateTooltip();
 }
 
 DisplayLabelForGlobalParameter::~DisplayLabelForGlobalParameter() {
-	globalParamValue.removeListener(this);
-	shouldShowDescriptionValue.removeListener(this);
+	globalParamAsValue.removeListener(this);
+	shouldShowDescriptionAsValue.removeListener(this);
 }

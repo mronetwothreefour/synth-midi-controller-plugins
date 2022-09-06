@@ -16,8 +16,8 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, ExposedPara
 	auto allowedChoicesType{ info->allowedChoicesTypeFor(paramIndex) };
 	jassert(allowedChoicesType != AllowedChoicesType::seqTrackStep);
 	if (allowedChoicesType != AllowedChoicesType::binary) {
-		onlyOneChoiceIsAllowedValue = randomization->getOnlyOneChoiceIsAllowedValueForParam(paramIndex);
-		onlyOneChoiceIsAllowedValue.addListener(this);
+		onlyOneChoiceIsAllowedForParamAsValue = randomization->getOnlyOneChoiceIsAllowedForParamAsValue(paramIndex);
+		onlyOneChoiceIsAllowedForParamAsValue.addListener(this);
 	}
 
 	setInterceptsMouseClicks(true, false);
@@ -57,7 +57,7 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, ExposedPara
 		toggle_AllowRepeatChoices.setToggleState(repeatsAreAllowed ? true : false, dontSendNotification);
 	}
 	else
-		valueChanged(onlyOneChoiceIsAllowedValue);
+		valueChanged(onlyOneChoiceIsAllowedForParamAsValue);
 
 	setSize(GUI::allowRepeatChoicesToggleComponent_w, GUI::allowRepeatChoicesToggleComponent_h);
 }
@@ -74,7 +74,7 @@ void AllowRepeatChoicesToggle::mouseDown(const MouseEvent& /*event*/) {
 }
 
 void AllowRepeatChoicesToggle::valueChanged(Value& /*value*/) {
-	if ((bool)onlyOneChoiceIsAllowedValue.getValue() == true) {
+	if ((bool)onlyOneChoiceIsAllowedForParamAsValue.getValue() == true) {
 		toggle_AllowRepeatChoices.setToggleState(true, dontSendNotification);
 		setEnabled(false);
 	}
@@ -86,5 +86,5 @@ void AllowRepeatChoicesToggle::valueChanged(Value& /*value*/) {
 
 AllowRepeatChoicesToggle::~AllowRepeatChoicesToggle() {
 	if (info->allowedChoicesTypeFor(paramIndex) != AllowedChoicesType::binary)
-		onlyOneChoiceIsAllowedValue.removeListener(this);
+		onlyOneChoiceIsAllowedForParamAsValue.removeListener(this);
 }

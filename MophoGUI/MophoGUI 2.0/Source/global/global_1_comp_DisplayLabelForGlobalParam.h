@@ -17,8 +17,8 @@ class DisplayLabelForGlobalParameter :
 	Identifier paramID;
 	GlobalOptions* global;
 	Label label_GlobalParam;
-	Value globalParamValue;
-	Value shouldShowDescriptionValue;
+	Value globalParamAsValue;
+	Value shouldShowDescriptionAsValue;
 
 public:
 	DisplayLabelForGlobalParameter() = delete;

@@ -13,8 +13,8 @@ AllowRepeatChoicesToggle_SeqTrackStep::AllowRepeatChoicesToggle_SeqTrackStep(
 	step{ randomization->targetStepForSeqTrack(track) },
 	randomization{ randomization }
 {
-	repeatsMustBeAllowedForStepValue = randomization->getRepeatsMustBeAllowedForSeqTrackStepValue(track, step);
-	repeatsMustBeAllowedForStepValue.addListener(this);
+	repeatsMustBeAllowedForStepAsValue = randomization->getRepeatsMustBeAllowedForSeqTrackStepAsValue(track, step);
+	repeatsMustBeAllowedForStepAsValue.addListener(this);
 
 	setInterceptsMouseClicks(true, false);
 
@@ -39,7 +39,7 @@ AllowRepeatChoicesToggle_SeqTrackStep::AllowRepeatChoicesToggle_SeqTrackStep(
 	toggle_AllowRepeatChoices.setBounds(0, 0, GUI::redToggle_diameter, GUI::redToggle_diameter);
 	addAndMakeVisible(toggle_AllowRepeatChoices);
 
-	valueChanged(repeatsMustBeAllowedForStepValue);
+	valueChanged(repeatsMustBeAllowedForStepAsValue);
 
 	setSize(GUI::allowRepeatChoicesToggleComponent_w, GUI::allowRepeatChoicesToggleComponent_h);
 }
@@ -56,7 +56,7 @@ void AllowRepeatChoicesToggle_SeqTrackStep::mouseDown(const MouseEvent& /*event*
 }
 
 void AllowRepeatChoicesToggle_SeqTrackStep::valueChanged(Value& /*value*/) {
-	if ((bool)repeatsMustBeAllowedForStepValue.getValue() == true) {
+	if ((bool)repeatsMustBeAllowedForStepAsValue.getValue() == true) {
 		toggle_AllowRepeatChoices.setToggleState(true, dontSendNotification);
 		setEnabled(false);
 	}
@@ -67,5 +67,5 @@ void AllowRepeatChoicesToggle_SeqTrackStep::valueChanged(Value& /*value*/) {
 }
 
 AllowRepeatChoicesToggle_SeqTrackStep::~AllowRepeatChoicesToggle_SeqTrackStep() {
-	repeatsMustBeAllowedForStepValue.removeListener(this);
+	repeatsMustBeAllowedForStepAsValue.removeListener(this);
 }

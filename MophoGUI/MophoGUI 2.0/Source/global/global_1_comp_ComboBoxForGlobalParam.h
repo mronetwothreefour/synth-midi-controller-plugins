@@ -15,9 +15,9 @@ class ComboBoxForGlobalParameter :
 	GlobalParamComboBoxType comboBoxType;
 	Identifier paramID;
 	GlobalOptions* global;
-	Value globalParamValue;
-	Value shouldShowDescriptionValue;
-	Value shouldShowCurrentChoiceValue;
+	Value globalParamAsValue;
+	Value shouldShowDescriptionAsValue;
+	Value shouldShowCurrentChoiceAsValue;
 
 public:
 	ComboBoxForGlobalParameter() = delete;

@@ -18,15 +18,15 @@ KnobForSeqTrackProbability::KnobForSeqTrackProbability(
 	if (knobType == KnobType::rest)
 		jassert(track == Track::one);
 
-	targetStepForSeqTrackValue = randomization->getTargetStepForSeqTrackValue(track);
-	targetStepForSeqTrackValue.addListener(this);
+	targetStepForSeqTrackAsValue = randomization->getTargetStepForSeqTrackAsValue(track);
+	targetStepForSeqTrackAsValue.addListener(this);
 
 	setRange(0.0, 1.0, 0.01);
 	setMouseDragSensitivity(130);
 
 	auto targetStep{ randomization->targetStepForSeqTrack(track) };
 	if (knobType == KnobType::reset) {
-		seqTrackProbValue = randomization->getProbabilityOfResetForSeqTrackStepValue(track, targetStep);
+		seqTrackProbAsValue = randomization->getProbabilityOfResetForSeqTrackStepAsValue(track, targetStep);
 		if (targetStep == Step::one) {
 			setValue(0.0, dontSendNotification);
 			setEnabled(false);
@@ -35,10 +35,10 @@ KnobForSeqTrackProbability::KnobForSeqTrackProbability(
 			setValue((double)randomization->probabilityOfResetForSeqTrackStep(track, targetStep), dontSendNotification);
 	}
 	else {
-		seqTrackProbValue = randomization->getProbabilityOfRestForSeqTrack_1_StepValue(targetStep);
+		seqTrackProbAsValue = randomization->getProbabilityOfRestForSeqTrack_1_StepAsValue(targetStep);
 		setValue((double)randomization->probabilityOfRestForSeqTrack_1_Step(targetStep), dontSendNotification);
 	}
-	seqTrackProbValue.addListener(this);
+	seqTrackProbAsValue.addListener(this);
 
 	textEditor.setTopLeftPosition(0, 0);
 	addAndMakeVisible(textEditor);
@@ -129,11 +129,11 @@ void KnobForSeqTrackProbability::valueChanged() {
 
 void KnobForSeqTrackProbability::valueChanged(Value& value) {
 	auto targetStep{ randomization->targetStepForSeqTrack(track) };
-	if (value.refersToSameSourceAs(targetStepForSeqTrackValue)) {
+	if (value.refersToSameSourceAs(targetStepForSeqTrackAsValue)) {
 		if (knobType == KnobType::reset)
-			seqTrackProbValue = randomization->getProbabilityOfResetForSeqTrackStepValue(track, targetStep);
+			seqTrackProbAsValue = randomization->getProbabilityOfResetForSeqTrackStepAsValue(track, targetStep);
 		else
-			seqTrackProbValue = randomization->getProbabilityOfRestForSeqTrack_1_StepValue(targetStep);
+			seqTrackProbAsValue = randomization->getProbabilityOfRestForSeqTrack_1_StepAsValue(targetStep);
 	}
 	if (knobType == KnobType::reset) {
 		if (targetStep == Step::one) {
@@ -152,6 +152,6 @@ void KnobForSeqTrackProbability::valueChanged(Value& value) {
 }
 
 KnobForSeqTrackProbability::~KnobForSeqTrackProbability() {
-	targetStepForSeqTrackValue.removeListener(this);
-	seqTrackProbValue.removeListener(this);
+	targetStepForSeqTrackAsValue.removeListener(this);
+	seqTrackProbAsValue.removeListener(this);
 }

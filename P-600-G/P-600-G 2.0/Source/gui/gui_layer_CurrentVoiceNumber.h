@@ -16,8 +16,8 @@ class GUI_Layer_CurrentVoiceNumber :
 	VoiceTransmissionOptions* transmitOptions;
 	RotarySliderWithMouseWheelMoveOverride voiceNumber;
 	Label voiceNumberEditor;
-	Value shouldShowDescriptionValue;
-	Value currentVoiceNumberValue;
+	Value shouldShowDescriptionAsValue;
+	Value currentVoiceNumberAsValue;
 
 public:
 	GUI_Layer_CurrentVoiceNumber() = delete;

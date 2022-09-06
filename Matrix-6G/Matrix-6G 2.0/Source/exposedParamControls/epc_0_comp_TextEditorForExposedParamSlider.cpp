@@ -12,8 +12,8 @@ TextEditorForExposedParamSlider::TextEditorForExposedParamSlider(uint8 paramInde
 	editorType{ info->sliderTextEditorTypeFor(paramIndex) },
 	paramPtr{ exposedParams->state->getParameter(info->IDfor(paramIndex)) }
 {
-	parameterValue = exposedParams->state->getParameterAsValue(info->IDfor(paramIndex));
-	parameterValue.addListener(this);
+	paramAsValue = exposedParams->state->getParameterAsValue(info->IDfor(paramIndex));
+	paramAsValue.addListener(this);
 
 	setInterceptsMouseClicks(false, true);
 	textEditor.setInterceptsMouseClicks(false, true);
@@ -136,5 +136,5 @@ void TextEditorForExposedParamSlider::valueChanged(Value& /*value*/) {
 }
 
 TextEditorForExposedParamSlider::~TextEditorForExposedParamSlider() {
-	parameterValue.removeListener(this);
+	paramAsValue.removeListener(this);
 }

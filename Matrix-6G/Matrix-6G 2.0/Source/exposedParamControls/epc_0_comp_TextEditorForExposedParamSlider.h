@@ -21,7 +21,7 @@ class TextEditorForExposedParamSlider :
 	EditorType editorType;
 	RangedAudioParameter* paramPtr;
 	Label textEditor;
-	Value parameterValue;
+	Value paramAsValue;
 	const String oq{ GUI::openQuote };
 	const String cq{ GUI::closeQuote };
 

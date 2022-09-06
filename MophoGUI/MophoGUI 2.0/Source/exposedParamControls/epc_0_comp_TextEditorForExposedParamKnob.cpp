@@ -12,8 +12,8 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 	editorType{ info->knobTextEditorTypeFor(paramIndex) },
 	paramPtr{ exposedParams->state->getParameter(info->IDfor(paramIndex)) }
 {
-	parameterValue = exposedParams->state->getParameterAsValue(info->IDfor(paramIndex));
-	parameterValue.addListener(this);
+	paramAsValue = exposedParams->state->getParameterAsValue(info->IDfor(paramIndex));
+	paramAsValue.addListener(this);
 
 	setInterceptsMouseClicks(false, true);
 	textEditor.setInterceptsMouseClicks(false, true);
@@ -257,5 +257,5 @@ void TextEditorForExposedParamKnob::valueChanged(Value& /*value*/) {
 }
 
 TextEditorForExposedParamKnob::~TextEditorForExposedParamKnob() {
-	parameterValue.removeListener(this);
+	paramAsValue.removeListener(this);
 }

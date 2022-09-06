@@ -17,7 +17,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, ExposedParameters* expose
     layer_ExposedParamControls{ new GUI_Layer_ExposedParamControls{ exposedParams, unexposedParams } },
     layer_Buttons{ new GUI_Layer_MainWindowButtons(exposedParams, unexposedParams) },
     lookAndFeel{ new MophoLookAndFeel{} },
-    tooltipsDelayInMillisecondsValue{ unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_DelayInMilliseconds) },
+    tooltipsDelayInMillisecondsAsValue{ unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_DelayInMilliseconds) },
     tooltipWindow{ new TooltipWindow{} }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
@@ -31,9 +31,9 @@ PluginEditor::PluginEditor(PluginProcessor& processor, ExposedParameters* expose
     layer_Buttons->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
     addAndMakeVisible(layer_Buttons.get());
 
-    tooltipsDelayInMillisecondsValue.addListener(this);
+    tooltipsDelayInMillisecondsAsValue.addListener(this);
     addChildComponent(tooltipWindow.get());
-    tooltipWindow->setMillisecondsBeforeTipAppears((int)tooltipsDelayInMillisecondsValue.getValue());
+    tooltipWindow->setMillisecondsBeforeTipAppears((int)tooltipsDelayInMillisecondsAsValue.getValue());
     tooltipWindow->setComponentEffect(nullptr);
 
     setSize(GUI::editor_w, GUI::editor_h);
@@ -53,13 +53,13 @@ void PluginEditor::timerCallback() {
 }
 
 void PluginEditor::valueChanged(Value& /*value*/) {
-    tooltipWindow->setMillisecondsBeforeTipAppears((int)tooltipsDelayInMillisecondsValue.getValue());
+    tooltipWindow->setMillisecondsBeforeTipAppears((int)tooltipsDelayInMillisecondsAsValue.getValue());
 }
 
 PluginEditor::~PluginEditor() {
     layer_EnvelopePainters = nullptr;
     layer_ExposedParamControls = nullptr;
     layer_Buttons = nullptr;
-    tooltipsDelayInMillisecondsValue.removeListener(this);
+    tooltipsDelayInMillisecondsAsValue.removeListener(this);
     tooltipWindow = nullptr;
 }

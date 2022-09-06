@@ -13,11 +13,11 @@ GUI_Layer_CurrentVoiceNumber::GUI_Layer_CurrentVoiceNumber(UnexposedParameters* 
 {
     setInterceptsMouseClicks(false, true);
 
-    shouldShowDescriptionValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
-    shouldShowDescriptionValue.addListener(this);
+    shouldShowDescriptionAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
+    shouldShowDescriptionAsValue.addListener(this);
 
-    currentVoiceNumberValue = transmitOptions->getCurrentVoiceNumberAsValue();
-    currentVoiceNumberValue.addListener(this);
+    currentVoiceNumberAsValue = transmitOptions->getCurrentVoiceNumberAsValue();
+    currentVoiceNumberAsValue.addListener(this);
 
     Rectangle<int> voiceNumberBounds{ 408, 42, 60, 50 };
 
@@ -85,17 +85,17 @@ void GUI_Layer_CurrentVoiceNumber::mouseDoubleClick(const MouseEvent& /*event*/)
 }
 
 void GUI_Layer_CurrentVoiceNumber::valueChanged(Value& value) {
-    if (value.refersToSameSourceAs(currentVoiceNumberValue)) {
+    if (value.refersToSameSourceAs(currentVoiceNumberAsValue)) {
         auto currentVoiceNumber{ transmitOptions->currentVoiceNumber() };
         voiceNumber.setValue((double)currentVoiceNumber, dontSendNotification);
         setVoiceNumberEditorText();
     }
-    if (value.refersToSameSourceAs(shouldShowDescriptionValue))
+    if (value.refersToSameSourceAs(shouldShowDescriptionAsValue))
         updateTooltip();
 }
 
 GUI_Layer_CurrentVoiceNumber::~GUI_Layer_CurrentVoiceNumber() {
-    shouldShowDescriptionValue.removeListener(this);
-    currentVoiceNumberValue.removeListener(this);
+    shouldShowDescriptionAsValue.removeListener(this);
+    currentVoiceNumberAsValue.removeListener(this);
     voiceNumber.removeMouseListener(this);
 }

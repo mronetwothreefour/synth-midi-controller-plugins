@@ -18,7 +18,7 @@ TextEditorForGlobalParamKnob::TextEditorForGlobalParamKnob(KnobType knobType, Un
 	switch (knobType)
 	{
 	case KnobType::globalTranspose:
-		globalParamValue = globalOptions->getGobalParamValue(ID::global_Transpose);
+		globalParamAsValue = globalOptions->getGobalParamAsValue(ID::global_Transpose);
 		textEditor.onEditorShow = [this, globalOptions, tooltipsOptions] {
 			auto editor{ textEditor.getCurrentTextEditor() };
 			editor->setInputRestrictions(3, "-0123456789");
@@ -38,7 +38,7 @@ TextEditorForGlobalParamKnob::TextEditorForGlobalParamKnob(KnobType knobType, Un
 		};
 		break;
 	case KnobType::globalFineTune:
-		globalParamValue = globalOptions->getGobalParamValue(ID::global_FineTune);
+		globalParamAsValue = globalOptions->getGobalParamAsValue(ID::global_FineTune);
 		textEditor.onEditorShow = [this, globalOptions, tooltipsOptions] {
 			auto editor{ textEditor.getCurrentTextEditor() };
 			editor->setInputRestrictions(3, "-0123456789");
@@ -58,7 +58,7 @@ TextEditorForGlobalParamKnob::TextEditorForGlobalParamKnob(KnobType knobType, Un
 		};
 		break;
 	case KnobType::hardwareReceiveChannel:
-		globalParamValue = globalOptions->getGobalParamValue(ID::global_HardwareReceiveChannel);
+		globalParamAsValue = globalOptions->getGobalParamAsValue(ID::global_HardwareReceiveChannel);
 		textEditor.onEditorShow = [this, globalOptions, tooltipsOptions] {
 			auto editor{ textEditor.getCurrentTextEditor() };
 			editor->setInputRestrictions(3, "alAL0123456789");
@@ -85,7 +85,7 @@ TextEditorForGlobalParamKnob::TextEditorForGlobalParamKnob(KnobType knobType, Un
 		break;
 	}
 	setEditorText();
-	globalParamValue.addListener(this);
+	globalParamAsValue.addListener(this);
 
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 	textEditor.setBounds(getLocalBounds());
@@ -93,7 +93,7 @@ TextEditorForGlobalParamKnob::TextEditorForGlobalParamKnob(KnobType knobType, Un
 }
 
 void TextEditorForGlobalParamKnob::setEditorText() {
-	auto paramValue{ (int)globalParamValue.getValue() };
+	auto paramValue{ (int)globalParamAsValue.getValue() };
 	switch (knobType)
 	{
 	case MophoConstants::GlobalParamKnobType::globalTranspose:
@@ -122,5 +122,5 @@ void TextEditorForGlobalParamKnob::valueChanged(Value& /*value*/) {
 }
 
 TextEditorForGlobalParamKnob::~TextEditorForGlobalParamKnob() {
-	globalParamValue.removeListener(this);
+	globalParamAsValue.removeListener(this);
 }

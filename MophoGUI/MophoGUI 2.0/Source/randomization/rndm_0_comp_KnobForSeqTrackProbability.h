@@ -24,8 +24,8 @@ class KnobForSeqTrackProbability :
 	Track track;
 	ExposedParamsRandomizationOptions* randomization;
 	TextEditorForSeqTrackProbabilityKnob textEditor;
-	Value targetStepForSeqTrackValue;
-	Value seqTrackProbValue;
+	Value targetStepForSeqTrackAsValue;
+	Value seqTrackProbAsValue;
 	TooltipsOptions* tooltips;
 
 public:

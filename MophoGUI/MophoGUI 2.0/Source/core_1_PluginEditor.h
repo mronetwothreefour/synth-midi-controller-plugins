@@ -20,7 +20,7 @@ class PluginEditor :
     std::unique_ptr<GUI_Layer_MainWindowButtons> layer_Buttons;
     std::unique_ptr<MophoLookAndFeel> lookAndFeel;
     std::unique_ptr<TooltipWindow> tooltipWindow;
-    Value tooltipsDelayInMillisecondsValue;
+    Value tooltipsDelayInMillisecondsAsValue;
 
 public:
     PluginEditor(PluginProcessor& processor, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);

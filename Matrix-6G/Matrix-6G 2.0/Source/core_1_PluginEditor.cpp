@@ -24,7 +24,7 @@ PluginEditor::PluginEditor (PluginProcessor& processor, ExposedParameters* expos
     layer_MainWindowButtons{ new GUI_Layer_MainWindowButtons{ exposedParams, unexposedParams } },
     layer_CurrentVoiceNameAndNumber{ new GUI_Layer_CurrentVoiceNameAndNumber{ exposedParams, unexposedParams->getTooltipsOptions()}},
     lookAndFeel{ new MatrixLookAndFeel{} },
-    tooltipsDelayInMillisecondsValue{ unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_DelayInMilliseconds) },
+    tooltipsDelayInMillisecondsAsValue{ unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_DelayInMilliseconds) },
     tooltipWindow{ new TooltipWindow{} }
 {
     LookAndFeel::setDefaultLookAndFeel(lookAndFeel.get());
@@ -47,9 +47,9 @@ PluginEditor::PluginEditor (PluginProcessor& processor, ExposedParameters* expos
     layer_CurrentVoiceNameAndNumber->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
     addAndMakeVisible(layer_CurrentVoiceNameAndNumber.get());
 
-    tooltipsDelayInMillisecondsValue.addListener(this);
+    tooltipsDelayInMillisecondsAsValue.addListener(this);
     addChildComponent(tooltipWindow.get());
-    tooltipWindow->setMillisecondsBeforeTipAppears((int)tooltipsDelayInMillisecondsValue.getValue());
+    tooltipWindow->setMillisecondsBeforeTipAppears((int)tooltipsDelayInMillisecondsAsValue.getValue());
     tooltipWindow->setComponentEffect(nullptr);
 
     setSize(GUI::editor_w, GUI::editor_h);
@@ -69,7 +69,7 @@ void PluginEditor::timerCallback() {
 }
 
 void PluginEditor::valueChanged(Value& /*value*/) {
-    tooltipWindow->setMillisecondsBeforeTipAppears((int)tooltipsDelayInMillisecondsValue.getValue());
+    tooltipWindow->setMillisecondsBeforeTipAppears((int)tooltipsDelayInMillisecondsAsValue.getValue());
 }
 
 PluginEditor::~PluginEditor() {
@@ -79,6 +79,6 @@ PluginEditor::~PluginEditor() {
     layer_MatrixMod = nullptr;
     layer_MainWindowButtons = nullptr;
     layer_CurrentVoiceNameAndNumber = nullptr;
-    tooltipsDelayInMillisecondsValue.removeListener(this);
+    tooltipsDelayInMillisecondsAsValue.removeListener(this);
     tooltipWindow = nullptr;
 }

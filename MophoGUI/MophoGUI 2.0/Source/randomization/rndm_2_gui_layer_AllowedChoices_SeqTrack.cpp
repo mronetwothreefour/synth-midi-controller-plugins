@@ -18,8 +18,8 @@ GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
 	targetStepSelector{ track, randomization, unexposedParams },
 	btn_Randomize{ track, exposedParams, unexposedParams}
 {
-	targetStepForSeqTrackValue = { randomization->getTargetStepForSeqTrackValue(track) };
-	targetStepForSeqTrackValue.addListener(this);
+	targetStepForSeqTrackAsValue = { randomization->getTargetStepForSeqTrackAsValue(track) };
+	targetStepForSeqTrackAsValue.addListener(this);
 
 	auto targetStep_x{ 0 };
 	auto btn_Randomize_center_y{ 0 };
@@ -131,7 +131,7 @@ void GUI_Layer_AllowedChoices_SeqTrack::valueChanged(Value& /*value*/) {
 }
 
 GUI_Layer_AllowedChoices_SeqTrack::~GUI_Layer_AllowedChoices_SeqTrack() {
-	targetStepForSeqTrackValue.removeListener(this);
+	targetStepForSeqTrackAsValue.removeListener(this);
 	repeatChoices = nullptr;
 	probabilities = nullptr;
 	allowChoiceToggles = nullptr;

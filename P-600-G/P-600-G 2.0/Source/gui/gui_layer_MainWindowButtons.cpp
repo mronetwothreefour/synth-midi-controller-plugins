@@ -17,8 +17,8 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
 {
     setInterceptsMouseClicks(false, true);
 
-    shouldShowDescriptionValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
-    shouldShowDescriptionValue.addListener(this);
+    shouldShowDescriptionAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
+    shouldShowDescriptionAsValue.addListener(this);
 
     updateTooltips();
 
@@ -39,5 +39,5 @@ void GUI_Layer_MainWindowButtons::valueChanged(Value& /*value*/) {
 }
 
 GUI_Layer_MainWindowButtons::~GUI_Layer_MainWindowButtons() {
-    shouldShowDescriptionValue.removeListener(this);
+    shouldShowDescriptionAsValue.removeListener(this);
 }

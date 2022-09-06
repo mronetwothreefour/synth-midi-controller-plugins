@@ -11,14 +11,14 @@ TooltipUpdaterForExposedParamControl::TooltipUpdaterForExposedParamControl(
     info{ exposedParams->info.get() }
 {
     auto paramID{ info->IDfor(paramIndex) };
-    parameterValue = state->getParameterAsValue(paramID);
-    parameterValue.addListener(this);
+    paramAsValue = state->getParameterAsValue(paramID);
+    paramAsValue.addListener(this);
 
-    shouldShowDescriptionValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
-    shouldShowDescriptionValue.addListener(this);
+    shouldShowDescriptionAsValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
+    shouldShowDescriptionAsValue.addListener(this);
 
-    shouldShowCurrentChoiceValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowCurrentChoice);
-    shouldShowCurrentChoiceValue.addListener(this);
+    shouldShowCurrentChoiceAsValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowCurrentChoice);
+    shouldShowCurrentChoiceAsValue.addListener(this);
 
     updateTooltip();
 }
@@ -29,8 +29,8 @@ void TooltipUpdaterForExposedParamControl::updateTooltip() {
 }
 
 String TooltipUpdaterForExposedParamControl::generateTooltipText() {
-    auto shouldShowDescription{ (bool)shouldShowDescriptionValue.getValue() };
-    auto shouldShowCurrentChoice{ (bool)shouldShowCurrentChoiceValue.getValue() };
+    auto shouldShowDescription{ (bool)shouldShowDescriptionAsValue.getValue() };
+    auto shouldShowCurrentChoice{ (bool)shouldShowCurrentChoiceAsValue.getValue() };
     String tip{ "" };
     if (shouldShowDescription)
         tip += info->descriptionFor(paramIndex) + "\n";
@@ -49,7 +49,7 @@ void TooltipUpdaterForExposedParamControl::valueChanged(Value& /*value*/) {
 }
 
 TooltipUpdaterForExposedParamControl::~TooltipUpdaterForExposedParamControl() {
-    parameterValue.removeListener(this);
-    shouldShowDescriptionValue.removeListener(this);
-    shouldShowCurrentChoiceValue.removeListener(this);
+    paramAsValue.removeListener(this);
+    shouldShowDescriptionAsValue.removeListener(this);
+    shouldShowCurrentChoiceAsValue.removeListener(this);
 }

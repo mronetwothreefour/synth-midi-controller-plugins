@@ -56,7 +56,7 @@ public:
 	const uint8 hardwareOutputBalance();
 	void setHardwareOutputBalance(const uint8 newBalance);
 
-	Value getGobalParamValue(const Identifier paramID);
+	Value getGobalParamAsValue(const Identifier paramID);
 
 private:
 	//==============================================================================
