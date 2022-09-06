@@ -6,7 +6,9 @@ namespace P_600_G_Constants
 {
 	namespace ID
 	{
-		static const Identifier banks_FactoryVoiceDataHexStrings{ "banks_FactoryVoiceDataHexStrings" };
+		static const Identifier bank_FactoryVoiceDataHexStrings{ "bank_FactoryVoiceDataHexStrings" };
+		static const Identifier bank_VoiceDataHexStrings{ "bank_VoiceDataHexStrings" };
+		static const Identifier bank_VoiceNameStrings{ "bank_VoiceNameStrings" };
 
 		static const Identifier comp_TextEditorForKnob{ "comp_TextEditorForKnob" };
 		static const Identifier comp_TextEditorForVoiceNumberSlider{ "comp_TextEditorForVoiceNumberSlider" };
@@ -67,6 +69,7 @@ namespace P_600_G_Constants
 
 		static const Identifier state_TooltipsOptions{ "state_TooltipsOptions" };
 		static const Identifier state_UnexposedParams{ "state_UnexposedParams" };
+		static const Identifier state_VoicesBank{ "state_VoicesBank" };
 		static const Identifier state_VoiceTxOptions{ "state_VoiceTxOptions" };
 
 		static const Identifier tooltips_DelayInMilliseconds{ "tooltips_DelayInMilliseconds" };

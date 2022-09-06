@@ -22,11 +22,11 @@ const String RawDataTools::convertDataVectorToHexString(const std::vector<uint8>
 
 bool RawDataTools::isValidVoiceDataHexString(const String& hexString)
 {
-    auto isNotCorrectLength{ hexString.length() != VCS::lengthOfVoiceDataHexString };
+    auto isNotCorrectLength{ hexString.length() != VCS::indexOfFirstNameCharInVoiceDataHexString };
     if (isNotCorrectLength)
         return false;
     auto notAll_MS_bytesAre_0{ false };
-    for (int indexOfMSByte = 0; indexOfMSByte < VCS::lengthOfVoiceDataHexString; indexOfMSByte += 2) {
+    for (int indexOfMSByte = 0; indexOfMSByte < VCS::indexOfFirstNameCharInVoiceDataHexString; indexOfMSByte += 2) {
         if (hexString[indexOfMSByte] != '0') {
             notAll_MS_bytesAre_0 = true;
             break;

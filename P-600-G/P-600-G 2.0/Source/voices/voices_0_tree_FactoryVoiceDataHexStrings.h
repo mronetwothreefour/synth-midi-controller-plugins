@@ -9,7 +9,7 @@ using namespace P_600_G_Constants;
 struct FactoryVoiceDataHexStrings
 {
 	ValueTree tree{
-		ID::banks_FactoryVoiceDataHexStrings,
+		ID::bank_FactoryVoiceDataHexStrings,
 		{
 			{ "slot_00", "000408040000000608010000080604000B00000000000E010000060607050400Organ I" },
 			{ "slot_01", "000400050000000608010000080004000C0C0C040B0A06010100000804030D00Classical Brass" },

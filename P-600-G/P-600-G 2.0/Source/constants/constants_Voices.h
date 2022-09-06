@@ -6,7 +6,8 @@ namespace P_600_G_Constants
 {
 	namespace VCS
 	{
-		const int lengthOfVoiceDataHexString{ 64 };
+		const int indexOfFirstNameCharInVoiceDataHexString{ 64 };
+		const int maxLengthOfVoiceName{ 20 };
 		const int numberOfVoiceSlots{ 100 };
 	}
 }

@@ -664,6 +664,9 @@
     <ClCompile Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.cpp">
       <Filter>P-600-G 2\Source\unexposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_1_tree_VoicesBank.cpp">
+      <Filter>P-600-G 2\Source\voices</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
     </ClCompile>
@@ -3070,6 +3073,9 @@
       <Filter>P-600-G 2\Source\unexposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voices\voices_0_tree_FactoryVoiceDataHexStrings.h">
+      <Filter>P-600-G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_1_tree_VoicesBank.h">
       <Filter>P-600-G 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

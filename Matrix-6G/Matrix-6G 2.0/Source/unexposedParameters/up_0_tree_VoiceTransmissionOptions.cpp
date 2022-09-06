@@ -8,7 +8,7 @@ VoiceTransmissionOptions::VoiceTransmissionOptions() :
 	setParamChangesShouldBeTransmitted(true);
 	setVoiceTransmitTime(300);
 	setIncomingVoiceShouldNotBeStored();
-	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_CustomBankToStoreVoiceIn, (int)VoicesBank::customA, nullptr);
+	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_CustomBankToStoreVoiceIn, (int)VoicesBank::custom_A, nullptr);
 }
 
 const bool VoiceTransmissionOptions::paramChangesShouldBeTransmitted() {
@@ -36,7 +36,7 @@ const VoicesBank VoiceTransmissionOptions::bankToStoreIn() {
 }
 
 void VoiceTransmissionOptions::setIncomingVoiceShouldBeStoredInCustomBank(const VoicesBank bank) {
-	jassert(bank == VoicesBank::customA || bank == VoicesBank::customB);
+	jassert(bank == VoicesBank::custom_A || bank == VoicesBank::custom_B);
 	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_IncomingVoiceShouldBeStored, (bool)true, nullptr);
 	voiceTransmissionOptionsTree.setProperty(ID::voiceTx_CustomBankToStoreVoiceIn, (int)bank, nullptr);
 }
