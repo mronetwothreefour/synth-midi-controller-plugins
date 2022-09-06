@@ -14,6 +14,7 @@ public:
 	const String nameOfVoiceInSlot(const uint8 slotNum) const;
 	void setNameOfVoiceInSlot(const String newName, const uint8 slotNum);
 	const String getVoiceDataHexStringFromSlot(const uint8 slotNum) const;
+	const String getVoiceDataHexStringWithoutNameFromSlot(const uint8 slotNum) const;
 	void storeVoiceDataHexStringInSlot(const String voiceDataHexString, const uint8 slotNum);
 	Value getVoiceDataHexStringAsValueForSlot(const uint8 slotNum);
 	void restoreFactoryVoicesBank();

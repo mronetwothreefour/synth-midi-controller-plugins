@@ -23,14 +23,19 @@ const String VoicesBank::nameOfVoiceInSlot(const uint8 slotNum) const {
 void VoicesBank::setNameOfVoiceInSlot(const String newName, const uint8 slotNum) {
     jassert(newName.length() <= VCS::maxLengthOfVoiceName);
     jassert(slotNum < VCS::numberOfVoiceSlots);
-    auto dataHexString{ getVoiceDataHexStringFromSlot(slotNum) };
-    auto dataHexStringWithoutName(dataHexString.substring(0, VCS::indexOfFirstNameCharInVoiceDataHexString));
+    auto dataHexStringWithoutName{ getVoiceDataHexStringWithoutNameFromSlot(slotNum) };
     storeVoiceDataHexStringInSlot(dataHexStringWithoutName + newName, slotNum);
 }
 
 const String VoicesBank::getVoiceDataHexStringFromSlot(const uint8 slotNum) const {
     jassert(slotNum < VCS::numberOfVoiceSlots);
     return voiceDataHexStrings.getProperty("slot_" + String(slotNum).paddedLeft('0', 2));
+}
+
+const String VoicesBank::getVoiceDataHexStringWithoutNameFromSlot(const uint8 slotNum) const {
+    jassert(slotNum < VCS::numberOfVoiceSlots);
+    auto dataHexString{ (String)voiceDataHexStrings.getProperty("slot_" + String(slotNum).paddedLeft('0', 2)) };
+    return dataHexString.substring(0, VCS::indexOfFirstNameCharInVoiceDataHexString);
 }
 
 void VoicesBank::storeVoiceDataHexStringInSlot(const String voiceDataHexString, const uint8 slotNum) {
