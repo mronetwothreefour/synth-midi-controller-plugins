@@ -3,13 +3,23 @@
 #include <JuceHeader.h>
 
 #include "midi_0_Outgoing_MIDI_Buffers.h"
+#include "../constants/constants_Enum.h"
 
+using namespace Matrix_6G_Constants;
 using OutgoingBuffers = Outgoing_MIDI_Buffers;
+
+class ExposedParameters;
+class VoicesBanks;
 
 struct SysExMessages
 {
     static void addActivateQuickEditMessageToOutgoingBuffers(OutgoingBuffers* outgoingBuffers);
     static void addParamValueChangeMessageToOutgoingBuffers(uint8 paramIndex, uint8 newValue, OutgoingBuffers* outgoingBuffers);
+
+    static void addRequestForVoiceDataStoredInSlotToOutgoingBuffers(uint8 slotNum, OutgoingBuffers* outgoingBuffers);
+    static void addDataMessageForCurrentVoiceToOutgoingBuffers(ExposedParameters* exposedParams, OutgoingBuffers* outgoingBuffers);
+    static void addDataMessageForVoiceStoredInBankAndSlotToOutgoingBuffers(
+        VoicesBanks* voicesBanks, VoicesBank bank, uint8 slotNum, OutgoingBuffers* outgoingBuffers);
 
 private:
     //==============================================================================

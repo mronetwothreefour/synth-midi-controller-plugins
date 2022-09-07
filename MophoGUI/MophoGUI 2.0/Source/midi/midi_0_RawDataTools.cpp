@@ -57,9 +57,8 @@ void RawDataTools::applyRawVoiceDataToExposedParameters(
 const std::vector<uint8> RawDataTools::extractRawVoiceDataFromExposedParameters(ExposedParameters* exposedParams) {
     const int rawVoiceDataSize{ 229 };
     std::vector<uint8> voiceData;
-    for (auto i = 0; i != rawVoiceDataSize; ++i) {
+    for (auto i = 0; i != rawVoiceDataSize; ++i)
         voiceData.push_back((uint8)0);
-    }
     auto info{ exposedParams->info.get() };
     for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
         auto paramID{ info->IDfor(paramIndex) };
