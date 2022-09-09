@@ -4,8 +4,6 @@
 
 using namespace MophoConstants;
 
-
-
 String MainWindowButtonDescription::buildForClearSeqTrack(int trackNum) {
     ++trackNum;
     String descriptionString{ "" };

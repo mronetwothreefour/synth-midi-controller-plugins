@@ -48,7 +48,7 @@ const String RawDataTools::convertDataVectorToHexString(const std::vector<uint8>
     return hexString;
 }
 
-void RawDataTools::applyRawVoiceDataTo_GUI(const uint8* voiceData, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams)
+void RawDataTools::applyRawVoiceDataTo_GUI(const uint8* /*voiceData*/, ExposedParameters* /*exposedParams*/, UnexposedParameters* /*unexposedParams*/)
 {
 }
 
@@ -63,8 +63,18 @@ const std::vector<uint8> RawDataTools::extractRawVoiceDataFrom_GUI(ExposedParame
     return voiceData;
 }
 
+void RawDataTools::removeSeventhBitFrom_ASCII_Value(uint8& value) {
+    value %= 64;
+}
+
+void RawDataTools::restoreSeventhBitTo_ASCII_Value(uint8& value) {
+    if (value < 32)
+        value += 64;
+}
+
 void RawDataTools::addVoiceOrSplitNameDataToVectorAndUpdateChecksum(bool isVoiceName, String& name, std::vector<uint8>& dataVector, uint8& checksum) {
-    for (auto charNum = 0; charNum != isVoiceName ? 8 : 6; ++charNum) {
+    auto maxLength{ isVoiceName ? 8 : 6 };
+    for (auto charNum = 0; charNum != maxLength; ++charNum) {
         auto asciiValue{ (uint8)name[charNum] };
         removeSeventhBitFrom_ASCII_Value(asciiValue);
         dataVector.push_back((uint8)0);
@@ -86,9 +96,9 @@ void RawDataTools::addExposedParamDataToVectorAndUpdateChecksum(ExposedParameter
         auto lsbByteLocation{ dataByteIndex * 2 };
         auto rangeType{ info->rangeTypeFor(paramIndex) };
         if (rangeType == RangeType::signed_6_bitValue)
-            formatSignedValueForSendingToMatrix(is_6_bit, paramValue);
+            formatSignedValueForSendingToMatrix(uses_6_bits, paramValue);
         if (rangeType == RangeType::signed_7_bitValue)
-            formatSignedValueForSendingToMatrix(is_7_bit, paramValue);
+            formatSignedValueForSendingToMatrix(uses_7_bits, paramValue);
         exposedParamsData[lsbByteLocation] = uint8(paramValue % 16);
         exposedParamsData[lsbByteLocation + 1] = uint8(paramValue / 16);
         checksum += paramValue;
@@ -105,7 +115,7 @@ void RawDataTools::addMatrixModDataToVectorAndUpdateChecksum(MatrixModOptions* m
         checksum += modSource;
 
         auto modAmount{ matrixModOptions->modAmount(modNum) };
-        formatSignedValueForSendingToMatrix(is_7_bit, modAmount);
+        formatSignedValueForSendingToMatrix(uses_7_bits, modAmount);
         dataVector.push_back(modAmount);
         checksum += modAmount;
 
@@ -113,15 +123,6 @@ void RawDataTools::addMatrixModDataToVectorAndUpdateChecksum(MatrixModOptions* m
         dataVector.push_back(modDest);
         checksum += modDest;
     }
-}
-
-void RawDataTools::removeSeventhBitFrom_ASCII_Value(uint8& value) {
-    value %= 64;
-}
-
-void RawDataTools::restoreSeventhBitTo_ASCII_Value(uint8& value) {
-    if (value < 32)
-        value += 64;
 }
 
 void RawDataTools::formatSignedValueForSendingToMatrix(bool is_7_bit, uint8& value) {

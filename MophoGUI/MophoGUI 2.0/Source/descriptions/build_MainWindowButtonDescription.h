@@ -2,8 +2,6 @@
 
 #include <JuceHeader.h>
 
-
-
 struct MainWindowButtonDescription
 {
 	static String buildForClearSeqTrack(int trackNum);

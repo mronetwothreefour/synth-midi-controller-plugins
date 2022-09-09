@@ -3,20 +3,29 @@
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
+#include "../descriptions/build_MainWindowButtonDescription.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
+#include "../midi/midi_1_SysExMessages.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using namespace Matrix_6G_Constants;
+using Description = MainWindowButtonDescription;
 
 GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
-    tooltips{ unexposedParams->getTooltipsOptions() }
+    tooltips{ unexposedParams->getTooltipsOptions() },
+    btn_ActivateQuickEdit{ unexposedParams }
 {
     setInterceptsMouseClicks(false, true);
 
     shouldShowDescriptionAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
     shouldShowDescriptionAsValue.addListener(this);
+
+    const int smallButtons_h{ 20 };
+    const int smallButtons_y{ 367 };
+    btn_ActivateQuickEdit.setBounds(596, smallButtons_y, 34, smallButtons_h);
+    addAndMakeVisible(btn_ActivateQuickEdit);
 
     updateTooltips();
 
@@ -24,6 +33,10 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
 }
 
 void GUI_Layer_MainWindowButtons::updateTooltips() {
+    auto shouldShow{ tooltips->shouldShowDescription() };
+
+    auto tipFor_btn_ActivateQuickEdit{ shouldShow ? Description::buildForActivateQuickEdit() : String{ "" } };
+    btn_ActivateQuickEdit.setTooltip(tipFor_btn_ActivateQuickEdit);
 }
 
 void GUI_Layer_MainWindowButtons::timerCallback() {

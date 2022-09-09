@@ -1,12 +1,12 @@
 #include "gui_layer_MainWindowButtons.h"
 
-#include "../descriptions/build_MainWindowButtonDescription.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_Voices.h"
+#include "../descriptions/build_MainWindowButtonDescription.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../global/global_1_gui_layer_CommError_NRPN.h"
 #include "../global/global_1_gui_layer_CommError_SysEx.h"

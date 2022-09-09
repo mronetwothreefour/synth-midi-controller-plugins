@@ -19,6 +19,9 @@ public:
 		Graphics& g, int x, int y, int width, int height, float sliderPos, float minSliderPos, 
 		float maxSliderPos, const Slider::SliderStyle style, Slider& slider) override;
 
+	void drawButtonBackground(Graphics& g, Button& button, const Colour& background, bool isHighlighted, bool isDown) override;
+	void drawButtonText(Graphics& g, TextButton& button, bool isHighlighted, bool isDown) override;
+
 	void drawComboBox(Graphics& g, int width, int height, bool isDown, int x, int y, int w, int h, ComboBox& comboBox) override;
 	void positionComboBoxText(ComboBox& comboBox, Label& label) override;
 	PopupMenu::Options getOptionsForComboBoxPopupMenu(ComboBox& box, Label& label) override;

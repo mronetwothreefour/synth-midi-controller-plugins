@@ -43,6 +43,25 @@ void MatrixLookAndFeel::drawLinearSlider(
 	g.fillPath(sliderTab, AffineTransform::translation(sliderPos - 8.0f, 0.0f));
 }
 
+void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Colour& /*background*/, bool /*isHighlighted*/, bool isDown) {
+	auto buttonID{ button.getComponentID() };
+	MemBlock mBlock{};
+
+	if (buttonID == ID::btn_ActivateQuickEdit.toString())
+		mBlock = MemBlock{ isDown ? btn_ActivateQuickEdit_Dn_png : btn_ActivateQuickEdit_Up_png, isDown ? (s_t)btn_ActivateQuickEdit_Dn_pngSize : (s_t)btn_ActivateQuickEdit_Up_pngSize };
+
+	if (buttonID == ID::btn_ActivateQuickEdit_Flash.toString())
+		mBlock = MemBlock{ btn_ActivateQuickEdit_Flash_png, (s_t)btn_ActivateQuickEdit_Flash_pngSize };
+
+	PNGImageFormat imageFormat;
+	MemoryInputStream memInputStream{ mBlock, false };
+	auto buttonImage{ imageFormat.decodeImage(memInputStream) };
+	g.drawImageAt(buttonImage, 0, 0);
+}
+
+void MatrixLookAndFeel::drawButtonText(Graphics& /*g*/, TextButton& /*button*/, bool /*isHighlighted*/, bool /*isDown*/) {
+}
+
 void MatrixLookAndFeel::drawComboBox(
 	Graphics& /*g*/, int /*width*/, int /*height*/, bool /*isDown*/, int /*x*/, int /*y*/, int /*w*/, int /*h*/, ComboBox& /*comboBox*/) 
 {

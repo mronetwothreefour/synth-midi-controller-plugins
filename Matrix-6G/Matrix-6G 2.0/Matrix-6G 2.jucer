@@ -8,6 +8,14 @@
               pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20">
   <MAINGROUP id="p5MNd4" name="Matrix-6G 2">
     <GROUP id="{6320515F-D3C6-723F-F40B-7ABF4C366D9D}" name="BinaryResources">
+      <GROUP id="{C6EF1779-DEA9-A584-9A7C-6A3BE0CF87BC}" name="buttons">
+        <FILE id="crjoii" name="btn_ActivateQuickEdit_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_ActivateQuickEdit_Dn.png"/>
+        <FILE id="z4DH3V" name="btn_ActivateQuickEdit_Flash.png" compile="0"
+              resource="1" file="BinaryResources/buttons/btn_ActivateQuickEdit_Flash.png"/>
+        <FILE id="czSwj9" name="btn_ActivateQuickEdit_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_ActivateQuickEdit_Up.png"/>
+      </GROUP>
       <FILE id="JyyaUF" name="bkgrnd_MainWindow.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_MainWindow.png"/>
       <FILE id="SAozmE" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
@@ -49,6 +57,10 @@
               resource="0" file="Source/descriptions/build_ExposedParamDescription.cpp"/>
         <FILE id="G1k5S0" name="build_ExposedParamDescription.h" compile="0"
               resource="0" file="Source/descriptions/build_ExposedParamDescription.h"/>
+        <FILE id="YugoQu" name="build_MainWindowButtonDescription.cpp" compile="1"
+              resource="0" file="Source/descriptions/build_MainWindowButtonDescription.cpp"/>
+        <FILE id="yW6eyK" name="build_MainWindowButtonDescription.h" compile="0"
+              resource="0" file="Source/descriptions/build_MainWindowButtonDescription.h"/>
       </GROUP>
       <GROUP id="{967321A4-7159-92CE-A124-8C9B4B0528A9}" name="exposedParamControls">
         <FILE id="rURhEK" name="epc_0_comp_TextEditorForExposedParamSlider.cpp"
@@ -105,6 +117,8 @@
               file="Source/gui/gui_build_LED_Path.cpp"/>
         <FILE id="EUFncg" name="gui_build_LED_Path.h" compile="0" resource="0"
               file="Source/gui/gui_build_LED_Path.h"/>
+        <FILE id="rxqKaD" name="gui_comp_ButtonForActivatingQuickEdit.h" compile="0"
+              resource="0" file="Source/gui/gui_comp_ButtonForActivatingQuickEdit.h"/>
         <FILE id="xTRh7m" name="gui_comp_EnvelopePainter.cpp" compile="1" resource="0"
               file="Source/gui/gui_comp_EnvelopePainter.cpp"/>
         <FILE id="mhoAQj" name="gui_comp_EnvelopePainter.h" compile="0" resource="0"

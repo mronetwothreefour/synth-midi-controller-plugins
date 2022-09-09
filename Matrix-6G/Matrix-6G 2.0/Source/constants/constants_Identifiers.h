@@ -11,6 +11,9 @@ namespace Matrix_6G_Constants
 		static const Identifier banks_FactoryVoiceDataHexStrings{ "banks_FactoryVoiceDataHexStrings" };
 		static const Identifier banks_FactoryVoiceNameStrings{ "banks_FactoryVoiceNameStrings" };
 
+		static const Identifier btn_ActivateQuickEdit{ "btn_ActivateQuickEdit" };
+		static const Identifier btn_ActivateQuickEdit_Flash{ "btn_ActivateQuickEdit_Flash" };
+
 		static const Identifier comp_TextEditorForSlider{ "comp_TextEditorForSlider" };
 		static const Identifier comp_VoiceNameEditor{ "comp_VoiceNameEditor" };
 
