@@ -21,9 +21,9 @@ public:
 		bundleBuffersAddedWithin_10ms_ToPreventLoss(localMidiBuffer);
 	}
 
-	void addProgramChangeMessage(int channel, int programNum) {
+	void addProgramChangeMessage(int programNum) {
 		MidiBuffer localMidiBuffer;
-		localMidiBuffer.addEvent(MidiMessage::programChange(channel, programNum), 0);
+		localMidiBuffer.addEvent(MidiMessage::programChange(1, programNum), 0);
 		bundleBuffersAddedWithin_10ms_ToPreventLoss(localMidiBuffer);
 	}
 

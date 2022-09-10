@@ -41,6 +41,25 @@ void P_600_LookAndFeel::drawLinearSlider(
 	g.drawImageAt(switchTab, x, h - (currentValue * switchTab_h) + offsetForLinearSliderTab);
 }
 
+void P_600_LookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Colour& /*background*/, bool /*isHighlighted*/, bool isDown) {
+	auto buttonID{ button.getComponentID() };
+	MemBlock mBlock{};
+
+	if (buttonID == ID::btn_Pull.toString())
+		mBlock = MemBlock{ isDown ? btn_Pull_Dn_png : btn_Pull_Up_png, isDown ? (s_t)btn_Pull_Dn_pngSize : (s_t)btn_Pull_Up_pngSize };
+
+	if (buttonID == ID::btn_Push.toString())
+		mBlock = MemBlock{ isDown ? btn_Push_Dn_png : btn_Push_Up_png, isDown ? (s_t)btn_Push_Dn_pngSize : (s_t)btn_Push_Up_pngSize };
+
+	PNGImageFormat imageFormat;
+	MemoryInputStream memInputStream{ mBlock, false };
+	auto buttonImage{ imageFormat.decodeImage(memInputStream) };
+	g.drawImageAt(buttonImage, 0, 0);
+}
+
+void P_600_LookAndFeel::drawButtonText(Graphics& /*g*/, TextButton& /*button*/, bool /*isHighlighted*/, bool /*isDown*/) {
+}
+
 void P_600_LookAndFeel::drawLabel(Graphics& g, Label& label) {
 	if (label.getComponentID() == ID::comp_TextEditorForVoiceNumberSlider.toString()) {
 		g.setColour(GUI::color_LED_RedUnlit);

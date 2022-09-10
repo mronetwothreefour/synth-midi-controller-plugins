@@ -27,6 +27,7 @@ struct RawDataTools
 private:
     static const bool uses_6_bits{ false };
     static const bool uses_7_bits{ true };
+    static const int voiceDataSize{ 268 };
     static const int exposedParamsDataSize{ 192 };
     static const int matrixModDataSize{ 60 };
     static const int negativeValueOffset{ 256 };

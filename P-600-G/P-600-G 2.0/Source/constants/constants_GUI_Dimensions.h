@@ -6,6 +6,8 @@ namespace P_600_G_Constants
 {
 	namespace GUI
 	{
+		const int buttons_h{ 40 };
+		const int buttons_w{ buttons_h };
 		const int editor_w{ 1402 };
 		const int editor_h{ 392 };
 		const int knob_diameter{ 34 };

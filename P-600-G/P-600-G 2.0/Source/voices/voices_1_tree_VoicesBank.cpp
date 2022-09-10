@@ -34,7 +34,8 @@ const String VoicesBank::getVoiceDataHexStringFromSlot(const uint8 slotNum) cons
 
 const String VoicesBank::getVoiceDataHexStringWithoutNameFromSlot(const uint8 slotNum) const {
     jassert(slotNum < VCS::numberOfVoiceSlots);
-    auto dataHexString{ (String)voiceDataHexStrings.getProperty("slot_" + String(slotNum).paddedLeft('0', 2)) };
+    auto slotName{ "slot_" + String(slotNum).paddedLeft('0', 2) };
+    auto dataHexString{ voiceDataHexStrings.getProperty(slotName).toString()};
     return dataHexString.substring(0, VCS::indexOfFirstNameCharInVoiceDataHexString);
 }
 

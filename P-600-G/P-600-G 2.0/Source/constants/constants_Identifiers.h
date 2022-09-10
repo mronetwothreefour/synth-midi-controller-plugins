@@ -10,6 +10,9 @@ namespace P_600_G_Constants
 		static const Identifier bank_VoiceDataHexStrings{ "bank_VoiceDataHexStrings" };
 		static const Identifier bank_VoiceNameStrings{ "bank_VoiceNameStrings" };
 
+		static const Identifier btn_Pull{ "btn_Pull" };
+		static const Identifier btn_Push{ "btn_Push" };
+
 		static const Identifier comp_TextEditorForKnob{ "comp_TextEditorForKnob" };
 		static const Identifier comp_TextEditorForVoiceNumberSlider{ "comp_TextEditorForVoiceNumberSlider" };
 		static const Identifier comp_VoiceNumberSlider{ "comp_VoiceNumberSlider" };

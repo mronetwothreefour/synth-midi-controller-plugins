@@ -6,6 +6,7 @@
 
 class GUI_Layer_CurrentVoiceNumber;
 class GUI_Layer_ExposedParamControls;
+class GUI_Layer_MainWindowButtons;
 class P_600_LookAndFeel;
 
 class PluginEditor :
@@ -15,6 +16,7 @@ class PluginEditor :
 {
     PluginProcessor& processor;
     std::unique_ptr<GUI_Layer_ExposedParamControls> layer_ExposedParamControls;
+    std::unique_ptr<GUI_Layer_MainWindowButtons> layer_MainWindowButtons;
     std::unique_ptr<GUI_Layer_CurrentVoiceNumber> layer_CurrentVoiceNumber;
     std::unique_ptr<P_600_LookAndFeel> lookAndFeel;
     std::unique_ptr<TooltipWindow> tooltipWindow;

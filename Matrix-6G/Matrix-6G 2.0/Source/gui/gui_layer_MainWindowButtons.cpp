@@ -27,6 +27,29 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     btn_ActivateQuickEdit.setBounds(596, smallButtons_y, 34, smallButtons_h);
     addAndMakeVisible(btn_ActivateQuickEdit);
 
+    const int pullAndPushButtons_w{ 28 };
+    btn_Pull.setComponentID(ID::btn_Pull.toString());
+    btn_Pull.onClick = [this, exposedParams, unexposedParams] {
+        auto currentVoiceNumber{ exposedParams->currentVoiceOptions->currentVoiceNumber() };
+        auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
+        SysExMessages::addRequestForVoiceDataStoredInSlotToOutgoingBuffers(currentVoiceNumber, outgoingBuffers);
+        auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
+        addProgramChangeMessageToOutgoingBuffersAfterDelay(transmitOptions->voiceTransmitTime());
+    };
+    btn_Pull.setBounds(633, smallButtons_y, pullAndPushButtons_w, smallButtons_h);
+    btn_Pull.addShortcut(KeyPress{ 'p', ModifierKeys::ctrlModifier, 0 });
+    addAndMakeVisible(btn_Pull);
+
+    btn_Push.setComponentID(ID::btn_Push.toString());
+    btn_Push.onClick = [this, exposedParams, unexposedParams] {
+        auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
+        SysExMessages::addDataMessageForCurrentVoiceToOutgoingBuffers(exposedParams, outgoingBuffers);
+        addProgramChangeMessageToOutgoingBuffersAfterDelay(10);
+    };
+    btn_Push.setBounds(664, smallButtons_y, pullAndPushButtons_w, smallButtons_h);
+    btn_Push.addShortcut(KeyPress{ 'p', ModifierKeys::ctrlModifier + ModifierKeys::altModifier, 0 });
+    addAndMakeVisible(btn_Push);
+
     updateTooltips();
 
     setSize(GUI::editor_w, GUI::editor_h);
@@ -37,9 +60,23 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
 
     auto tipFor_btn_ActivateQuickEdit{ shouldShow ? Description::buildForActivateQuickEdit() : String{ "" } };
     btn_ActivateQuickEdit.setTooltip(tipFor_btn_ActivateQuickEdit);
+
+    auto tipFor_btn_Pull{ shouldShow ? Description::buildForPull() : String{ "" } };
+    btn_Pull.setTooltip(tipFor_btn_Pull);
+
+    auto tipFor_btn_Push{ shouldShow ? Description::buildForPush() : String{ "" } };
+    btn_Push.setTooltip(tipFor_btn_Push);
 }
 
 void GUI_Layer_MainWindowButtons::timerCallback() {
+}
+
+void GUI_Layer_MainWindowButtons::addProgramChangeMessageToOutgoingBuffersAfterDelay(int delayInMilliseconds) {
+    callAfterDelay(delayInMilliseconds, [this] {
+        auto channel{ unexposedParams->getGlobalOptions()->basicChannel() };
+        auto currentVoiceNumber{ exposedParams->currentVoiceOptions.get()->currentVoiceNumber()};
+        unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessage(channel, currentVoiceNumber);
+    });
 }
 
 void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& /*event*/) {

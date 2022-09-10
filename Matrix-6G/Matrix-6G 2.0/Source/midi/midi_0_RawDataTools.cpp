@@ -59,6 +59,8 @@ const std::vector<uint8> RawDataTools::extractRawVoiceDataFrom_GUI(ExposedParame
     addVoiceOrSplitNameDataToVectorAndUpdateChecksum(true, currentVoiceName, voiceData, checksum);
     addExposedParamDataToVectorAndUpdateChecksum(exposedParams, voiceData, checksum);
     addMatrixModDataToVectorAndUpdateChecksum(exposedParams->matrixModOptions.get(), voiceData, checksum);
+    for (auto i = voiceData.size(); i < voiceDataSize; ++i)
+        voiceData.push_back((uint8)0);
     voiceData.push_back(checksum % (uint8)128);
     return voiceData;
 }
@@ -77,8 +79,8 @@ void RawDataTools::addVoiceOrSplitNameDataToVectorAndUpdateChecksum(bool isVoice
     for (auto charNum = 0; charNum != maxLength; ++charNum) {
         auto asciiValue{ (uint8)name[charNum] };
         removeSeventhBitFrom_ASCII_Value(asciiValue);
-        dataVector.push_back((uint8)0);
-        dataVector.push_back(asciiValue);
+        dataVector.push_back(asciiValue % 16);
+        dataVector.push_back(asciiValue / 16);
         checksum += asciiValue;
     }
 }
@@ -111,16 +113,19 @@ void RawDataTools::addMatrixModDataToVectorAndUpdateChecksum(MatrixModOptions* m
     std::vector<uint8> exposedParamsData;
     for (auto modNum = 0; modNum != 10; ++modNum) {
         auto modSource{ matrixModOptions->modSource(modNum) };
-        dataVector.push_back(modSource);
+        dataVector.push_back(modSource % 16);
+        dataVector.push_back(modSource / 16);
         checksum += modSource;
 
         auto modAmount{ matrixModOptions->modAmount(modNum) };
         formatSignedValueForSendingToMatrix(uses_7_bits, modAmount);
-        dataVector.push_back(modAmount);
+        dataVector.push_back(modAmount % 16);
+        dataVector.push_back(modAmount / 16);
         checksum += modAmount;
 
         auto modDest{ matrixModOptions->modDest(modNum) };
-        dataVector.push_back(modDest);
+        dataVector.push_back(modDest % 16);
+        dataVector.push_back(modDest / 16);
         checksum += modDest;
     }
 }

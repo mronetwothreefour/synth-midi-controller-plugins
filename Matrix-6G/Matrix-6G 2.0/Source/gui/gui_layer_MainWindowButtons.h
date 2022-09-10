@@ -18,6 +18,8 @@ class GUI_Layer_MainWindowButtons :
 	UnexposedParameters* unexposedParams;
 	TooltipsOptions* tooltips;
 	ButtonForActivatingQuickEdit btn_ActivateQuickEdit;
+	TextButton btn_Pull;
+	TextButton btn_Push;
 	Value shouldShowDescriptionAsValue;
 
 public:
@@ -28,6 +30,7 @@ public:
 private:
 	void updateTooltips();
 	void timerCallback() override;
+	void addProgramChangeMessageToOutgoingBuffersAfterDelay(int delayInMilliseconds);
 
 public:
 	void mouseDown(const MouseEvent& event) override;

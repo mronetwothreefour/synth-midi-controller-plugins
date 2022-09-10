@@ -15,6 +15,10 @@
               resource="1" file="BinaryResources/buttons/btn_ActivateQuickEdit_Flash.png"/>
         <FILE id="czSwj9" name="btn_ActivateQuickEdit_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_ActivateQuickEdit_Up.png"/>
+        <FILE id="Mdkys2" name="btn_Pull_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Dn.png"/>
+        <FILE id="epolsU" name="btn_Pull_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Up.png"/>
+        <FILE id="Kmf6D0" name="btn_Push_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Dn.png"/>
+        <FILE id="gwkq7e" name="btn_Push_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Up.png"/>
       </GROUP>
       <FILE id="JyyaUF" name="bkgrnd_MainWindow.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_MainWindow.png"/>

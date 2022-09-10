@@ -3278,6 +3278,10 @@
     <None Include="..\..\BinaryResources\buttons\btn_ActivateQuickEdit_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_ActivateQuickEdit_Flash.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_ActivateQuickEdit_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Pull_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Pull_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Push_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Push_Up.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF"/>

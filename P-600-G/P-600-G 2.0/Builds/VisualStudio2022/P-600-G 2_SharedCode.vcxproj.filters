@@ -619,6 +619,9 @@
     <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp">
       <Filter>P-600-G 2\Source\descriptions</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\descriptions\build_MainWindowButtonDescription.cpp">
+      <Filter>P-600-G 2\Source\descriptions</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamKnob.cpp">
       <Filter>P-600-G 2\Source\exposedParamControls</Filter>
     </ClCompile>
@@ -3004,6 +3007,9 @@
       <Filter>P-600-G 2\Source\constants</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h">
+      <Filter>P-600-G 2\Source\descriptions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\descriptions\build_MainWindowButtonDescription.h">
       <Filter>P-600-G 2\Source\descriptions</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamKnob.h">
@@ -5771,6 +5777,18 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\BinaryResources\buttons\btn_Pull_Dn.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Pull_Up.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Push_Dn.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Push_Up.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
     <None Include="..\..\BinaryResources\buttons\btn_SwitchTab.png">
       <Filter>P-600-G 2\BinaryResources\buttons</Filter>
     </None>

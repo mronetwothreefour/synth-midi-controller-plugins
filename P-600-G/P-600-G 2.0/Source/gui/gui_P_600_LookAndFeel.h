@@ -15,6 +15,9 @@ public:
 		Graphics& g, int x, int y, int width, int height, float sliderPos, float minSliderPos,
 		float maxSliderPos, const Slider::SliderStyle style, Slider& slider) override;
 
+	void drawButtonBackground(Graphics& g, Button& button, const Colour& background, bool isHighlighted, bool isDown) override;
+	void drawButtonText(Graphics& g, TextButton& button, bool isHighlighted, bool isDown) override;
+
 	void drawLabel(Graphics& g, Label& label) override;
 	void fillTextEditorBackground(Graphics& g, int w, int h, TextEditor& textEditor) override;
 	void drawTextEditorOutline(Graphics& g, int w, int h, TextEditor& textEditor) override;

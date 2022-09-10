@@ -126,7 +126,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_FirstBitIndex, oscNum == 0 ? 0 : 1 },
 					{ ID::property_NumberOfBits, 1 },
 					{ ID::property_NumberOfChoices, 2 },
-					{ ID::property_DefaultChoice, 1 },
+					{ ID::property_DefaultChoice, 0 },
 					{ ID::property_Center_x, oscCol_5_x },
 					{ ID::property_Center_y, oscNum == 0 ? switchRow_1_y : switchRow_2_y },
 					{ ID::property_Width, GUI::switch_w },

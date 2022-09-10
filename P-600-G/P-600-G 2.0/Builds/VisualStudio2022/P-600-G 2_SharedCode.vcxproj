@@ -143,6 +143,7 @@
     <ClCompile Include="..\..\Source\core_0_PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\core_1_PluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp"/>
+    <ClCompile Include="..\..\Source\descriptions\build_MainWindowButtonDescription.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamKnob.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_KnobAndAttachment.cpp"/>
@@ -2322,6 +2323,7 @@
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h"/>
     <ClInclude Include="..\..\Source\constants\constants_Voices.h"/>
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h"/>
+    <ClInclude Include="..\..\Source\descriptions\build_MainWindowButtonDescription.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamKnob.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_KnobAndAttachment.h"/>
@@ -3245,6 +3247,10 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\BinaryResources\buttons\btn_Pull_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Pull_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Push_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Push_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_SwitchTab.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF"/>

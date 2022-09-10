@@ -9,6 +9,10 @@
   <MAINGROUP id="QgKzcN" name="P-600-G 2">
     <GROUP id="{349587B4-BC8D-9B3D-70F5-941FCF41BB5D}" name="BinaryResources">
       <GROUP id="{38BC1DF0-5C64-3C05-BEAB-F655A75E5D97}" name="buttons">
+        <FILE id="nev8b4" name="btn_Pull_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Dn.png"/>
+        <FILE id="Kx9v7U" name="btn_Pull_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Up.png"/>
+        <FILE id="feOLRz" name="btn_Push_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Dn.png"/>
+        <FILE id="XDoREn" name="btn_Push_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Up.png"/>
         <FILE id="L1rWAB" name="btn_SwitchTab.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_SwitchTab.png"/>
       </GROUP>
@@ -52,6 +56,10 @@
               resource="0" file="Source/descriptions/build_ExposedParamDescription.cpp"/>
         <FILE id="xuHauO" name="build_ExposedParamDescription.h" compile="0"
               resource="0" file="Source/descriptions/build_ExposedParamDescription.h"/>
+        <FILE id="Uw0qDD" name="build_MainWindowButtonDescription.cpp" compile="1"
+              resource="0" file="Source/descriptions/build_MainWindowButtonDescription.cpp"/>
+        <FILE id="zYWbwR" name="build_MainWindowButtonDescription.h" compile="0"
+              resource="0" file="Source/descriptions/build_MainWindowButtonDescription.h"/>
       </GROUP>
       <GROUP id="{636CF01F-46CC-2BA9-0238-08E668E5DC4F}" name="exposedParamControls">
         <FILE id="xiXPDa" name="epc_0_comp_TextEditorForExposedParamKnob.cpp"

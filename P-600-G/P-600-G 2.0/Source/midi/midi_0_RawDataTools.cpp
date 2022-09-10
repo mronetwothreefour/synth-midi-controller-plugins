@@ -94,7 +94,7 @@ const std::vector<uint8> RawDataTools::extractRawVoiceDataFromExposedParameters(
                 voiceData[firstNybbleIndex] += 4;
         }
         else {
-            auto numberOfBits{ info->numberOfBitsFor(firstBitIndex) };
+            auto numberOfBits{ info->numberOfBitsFor(paramIndex) };
             for (uint8 bitCounter = 0; bitCounter != numberOfBits; ++bitCounter) {
                 auto currentBit{ firstBitIndex + bitCounter };
                 if (currentBit == 4 || currentBit == 8)

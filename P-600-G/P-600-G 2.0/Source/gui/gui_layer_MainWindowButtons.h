@@ -9,13 +9,14 @@ class UnexposedParameters;
 class GUI_Layer_MainWindowButtons :
 	public Component,
 	public Button::Listener,
-	public Label::Listener,
 	public Value::Listener,
 	private Timer
 {
 	ExposedParameters* exposedParams;
 	UnexposedParameters* unexposedParams;
 	TooltipsOptions* tooltips;
+	TextButton btn_Pull;
+	TextButton btn_Push;
 	Value shouldShowDescriptionAsValue;
 
 public:
@@ -25,6 +26,8 @@ public:
 
 private:
 	void updateTooltips();
+	void timerCallback() override;
+	void addProgramChangeMessageToOutgoingBuffersAfterDelay(int delayInMilliseconds);
 
 public:
 	void mouseDown(const MouseEvent& event) override;
