@@ -14,10 +14,10 @@ void SysExMessages::addActivateQuickEditMessageToOutgoingBuffers(OutgoingBuffers
     outgoingBuffers->addDataMessage(activateQuickEditVector);
 }
 
-void SysExMessages::addParamValueChangeMessageToOutgoingBuffers(uint8 paramIndex, uint8 newValue, OutgoingBuffers* outgoingBuffers) {
+void SysExMessages::addParamValueChangeMessageToOutgoingBuffers(uint8 paramNum, uint8 newValue, OutgoingBuffers* outgoingBuffers) {
     auto paramChangeVector{ RawDataTools::createRawDataVectorWithMatrix_6_SysExID() };
     paramChangeVector.push_back((uint8)(int)SysExMessageType::parameterChange);
-    paramChangeVector.push_back(paramIndex);
+    paramChangeVector.push_back(paramNum);
     paramChangeVector.push_back(newValue);
     outgoingBuffers->addDataMessage(paramChangeVector);
 }

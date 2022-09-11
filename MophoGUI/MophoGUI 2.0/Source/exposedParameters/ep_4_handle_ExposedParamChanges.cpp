@@ -5,7 +5,6 @@
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_MIDI.h"
 #include "../midi/midi_1_ParameterChangeMessage.h"
-#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
@@ -17,7 +16,7 @@ ExposedParamChangesHandler::ExposedParamChangesHandler(ExposedParameters* expose
 	unexposedParams{ unexposedParams },
 	transmitOptions{ unexposedParams->getVoiceTransmissionOptions() }
 {
-	for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
+	for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
 		auto paramID{ info->IDfor(paramIndex) };
 		auto paramPtr{ state->getParameter(paramID) };
 		paramPtr->addListener(this);
@@ -69,7 +68,7 @@ void ExposedParamChangesHandler::arpeggiatorAndSequencerCannotBothBeOn(const Ide
 }
 
 ExposedParamChangesHandler::~ExposedParamChangesHandler() {
-	for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
+	for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
 		auto paramID{ info->IDfor(paramIndex) };
 		auto paramPtr{ state->getParameter(paramID) };
 		paramPtr->removeListener(this);

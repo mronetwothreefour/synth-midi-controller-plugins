@@ -98,6 +98,10 @@
               resource="0" file="Source/exposedParameters/ep_2_build_ExposedParamsLayout.h"/>
         <FILE id="nEpRce" name="ep_3_facade_ExposedParameters.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_3_facade_ExposedParameters.h"/>
+        <FILE id="iSSLKX" name="ep_4_handle_ExposedParamChanges.cpp" compile="1"
+              resource="0" file="Source/exposedParameters/ep_4_handle_ExposedParamChanges.cpp"/>
+        <FILE id="GSAJFT" name="ep_4_handle_ExposedParamChanges.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_4_handle_ExposedParamChanges.h"/>
       </GROUP>
       <GROUP id="{ADE51B93-2495-0CD5-5B92-E6A9C96629A6}" name="gui">
         <FILE id="zHvNCC" name="gui_build_LED_NumeralPath.h" compile="0" resource="0"

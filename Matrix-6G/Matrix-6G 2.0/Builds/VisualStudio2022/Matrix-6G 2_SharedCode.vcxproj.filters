@@ -655,6 +655,9 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.cpp">
+      <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_build_LED_Path.cpp">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClCompile>
@@ -3094,6 +3097,9 @@
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h">
+      <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.h">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_build_LED_Path.h">

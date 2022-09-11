@@ -115,6 +115,10 @@
               resource="0" file="Source/exposedParameters/ep_2_build_ExposedParamsLayout.h"/>
         <FILE id="nbKe9D" name="ep_3_facade_ExposedParameters.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_3_facade_ExposedParameters.h"/>
+        <FILE id="CgMHQR" name="ep_4_handle_ExposedParamChanges.cpp" compile="1"
+              resource="0" file="Source/exposedParameters/ep_4_handle_ExposedParamChanges.cpp"/>
+        <FILE id="ldggRR" name="ep_4_handle_ExposedParamChanges.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_4_handle_ExposedParamChanges.h"/>
       </GROUP>
       <GROUP id="{854E626A-C287-920D-EC76-255F795FEDA4}" name="gui">
         <FILE id="EX1IZ1" name="gui_build_LED_Path.cpp" compile="1" resource="0"

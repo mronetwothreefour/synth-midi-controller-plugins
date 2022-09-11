@@ -154,6 +154,7 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_tree_CurrentVoiceOptions.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_tree_MatrixModOptions.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_build_LED_Path.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp"/>
@@ -2351,6 +2352,7 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_2_build_ExposedParamsLayout.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h"/>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.h"/>
     <ClInclude Include="..\..\Source\gui\gui_build_LED_Path.h"/>
     <ClInclude Include="..\..\Source\gui\gui_comp_ButtonForActivatingQuickEdit.h"/>
     <ClInclude Include="..\..\Source\gui\gui_comp_EnvelopePainter.h"/>

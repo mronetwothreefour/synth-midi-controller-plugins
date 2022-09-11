@@ -6,25 +6,27 @@ using namespace Matrix_6G_Constants;
 
 String MainWindowButtonDescription::buildForActivateQuickEdit() {
     String descriptionString{ "" };
-    descriptionString += "The Matrix must be set to Quick Patch Edit mode in order\n";
-    descriptionString += "for it to respond to remote parameter changes. Click this\n";
-    descriptionString += "button before making any edits in the GUI (the hardware" + GUI::apostrophe + "s\n";
-    descriptionString += "front panel display should switch to PATCH EDIT).";
+    descriptionString += "The Matrix must be set to Quick Patch Edit mode in\n";
+    descriptionString += "order for it to respond to remote parameter changes.\n";
+    descriptionString += "Click this button before making any edits in the GUI\n";
+    descriptionString += "(the hardware" + GUI::apostrophe + "s front panel display should switch\n";
+    descriptionString += "to PATCH EDIT). Shortcut key: CTRL+Q";
     return descriptionString;
 }
 
 String MainWindowButtonDescription::buildForPull() {
     String descriptionString{ "" };
-    descriptionString += "Pull the data from the selected patch storage slot in\n";
-    descriptionString += "the Matrix-6R hardware and apply it to the plugin GUI.";
+    descriptionString += "Pull the data from the selected patch storage slot in the Matrix-6R\n";
+    descriptionString += "hardware and apply it to the plugin GUI. Shortcut key: CTRL+P";
     return descriptionString;
 }
 
 String MainWindowButtonDescription::buildForPush() {
     String descriptionString{ "" };
-    descriptionString += "Sends a dump of the current patch data to the hardware\n";
-    descriptionString += "storage slot specified by the patch number control to\n";
-    descriptionString += "the right, NOTE: This overwrites the data that is cur-\n";
-    descriptionString += "rently stored in the slot and cannot be undone.";
+    descriptionString += "Sends a dump of the current patch data to the hard-\n";
+    descriptionString += "ware storage slot specified by the patch number\n";
+    descriptionString += "control to the right, NOTE: This overwrites the\n";
+    descriptionString += "data that is currently stored in the slot and\n";
+    descriptionString += "cannot be undone. Shortcut key: CTRL+ALT+P";
     return descriptionString;
 }

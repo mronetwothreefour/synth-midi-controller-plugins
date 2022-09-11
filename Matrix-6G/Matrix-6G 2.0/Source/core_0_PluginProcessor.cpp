@@ -2,6 +2,7 @@
 
 #include "core_1_PluginEditor.h"
 #include "exposedParameters/ep_3_facade_ExposedParameters.h"
+#include "exposedParameters/ep_4_handle_ExposedParamChanges.h"
 #include "unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 PluginProcessor::PluginProcessor() :
@@ -9,6 +10,7 @@ PluginProcessor::PluginProcessor() :
     unexposedParams{ new UnexposedParameters{} },
     exposedParams{ new ExposedParameters{ this, unexposedParams.get() } },
     bundledOutgoingBuffers{ unexposedParams->getBundledOutgoingBuffers() },
+    exposedParamChangesHandler{ new ExposedParamChangesHandler{ exposedParams.get(), unexposedParams.get() } },
     transmitOptions{ unexposedParams->getVoiceTransmissionOptions() }
 {
 }
@@ -80,13 +82,14 @@ AudioProcessorEditor* PluginProcessor::createEditor() {
 }
 
 void PluginProcessor::getStateInformation(MemoryBlock& /*destData*/) {
-    //TODO: remember to include the states of currentVoiceOptions and matrixModOptions in exposedParams
+    // TODO: remember to include the states of currentVoiceOptions and matrixModOptions in exposedParams
 }
 
 void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInBytes*/) {
 }
 
 PluginProcessor::~PluginProcessor() {
+    exposedParamChangesHandler = nullptr;
     exposedParams->undoManager.clearUndoHistory();
     exposedParams = nullptr;
     unexposedParams = nullptr;

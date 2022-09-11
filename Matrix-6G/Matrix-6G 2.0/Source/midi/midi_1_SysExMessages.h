@@ -14,7 +14,7 @@ class VoicesBanks;
 struct SysExMessages
 {
     static void addActivateQuickEditMessageToOutgoingBuffers(OutgoingBuffers* outgoingBuffers);
-    static void addParamValueChangeMessageToOutgoingBuffers(uint8 paramIndex, uint8 newValue, OutgoingBuffers* outgoingBuffers);
+    static void addParamValueChangeMessageToOutgoingBuffers(uint8 paramNum, uint8 newValue, OutgoingBuffers* outgoingBuffers);
 
     static void addRequestForVoiceDataStoredInSlotToOutgoingBuffers(uint8 slotNum, OutgoingBuffers* outgoingBuffers);
     static void addDataMessageForCurrentVoiceToOutgoingBuffers(ExposedParameters* exposedParams, OutgoingBuffers* outgoingBuffers);
