@@ -118,6 +118,10 @@ void GUI_Layer_CurrentVoiceNameAndNumber::valueChanged(Value& value) {
         voiceNumber.setValue((double)currentVoiceNumber, dontSendNotification);
         setVoiceNumberEditorText();
     }
+    if (value.refersToSameSourceAs(currentVoiceNameAsValue)) {
+        voiceNameEditor.setText(currentVoiceOptions->currentVoiceName(), dontSendNotification);
+        setVoiceNumberEditorText();
+    }
     if (value.refersToSameSourceAs(shouldShowDescriptionAsValue))
         updateTooltips();
 }

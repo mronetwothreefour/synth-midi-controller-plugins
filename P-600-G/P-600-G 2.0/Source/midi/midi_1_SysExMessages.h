@@ -14,13 +14,10 @@ using OutgoingBuffers = Outgoing_MIDI_Buffers;
 
 struct SysExMessages
 {
-    static const uint8 messageType_VoiceData{ 2 };
-    static const uint8 messageType_VoiceDataRequest{ 0 };
-
     static void addRequestForVoiceDataStoredInSlotToOutgoingBuffers(uint8 slotNum, OutgoingBuffers* outgoingBuffers) {
         jassert(slotNum < VCS::numberOfVoiceSlots);
         auto requestVector{ RawDataTools::createRawDataVectorWithSequentialCircuitsSysExID() };
-        requestVector.push_back(messageType_VoiceDataRequest);
+        requestVector.push_back(RawDataTools::messageType_VoiceDataRequest);
         requestVector.push_back(slotNum);;
         outgoingBuffers->addDataMessage(requestVector);
     }
@@ -29,7 +26,7 @@ struct SysExMessages
         ExposedParameters* exposedParams, VoiceTransmissionOptions* transmitOptions, OutgoingBuffers* outgoingBuffers)
     {
         auto voiceDataMessageVector{ RawDataTools::createRawDataVectorWithSequentialCircuitsSysExID() };
-        voiceDataMessageVector.push_back(messageType_VoiceData);
+        voiceDataMessageVector.push_back(RawDataTools::messageType_VoiceData);
         auto currentVoiceNum{ transmitOptions->currentVoiceNumber() };
         voiceDataMessageVector.push_back(currentVoiceNum);
         auto rawVoiceData{ RawDataTools::extractRawVoiceDataFromExposedParameters(exposedParams) };
@@ -41,7 +38,7 @@ struct SysExMessages
     static void addDataMessageForVoiceStoredInSlotToOutgoingBuffers(VoicesBank* voicesBank, uint8 slotNum, OutgoingBuffers* outgoingBuffers) {
         jassert(slotNum < VCS::numberOfVoiceSlots);
         auto voiceDataMessageVector{ RawDataTools::createRawDataVectorWithSequentialCircuitsSysExID() };
-        voiceDataMessageVector.push_back(messageType_VoiceData);
+        voiceDataMessageVector.push_back(RawDataTools::messageType_VoiceData);
         voiceDataMessageVector.push_back(slotNum);
         auto voiceDataHexString{ voicesBank->getVoiceDataHexStringWithoutNameFromSlot(slotNum) };
         auto rawVoiceData{ RawDataTools::convertHexStringToDataVector(voiceDataHexString) };

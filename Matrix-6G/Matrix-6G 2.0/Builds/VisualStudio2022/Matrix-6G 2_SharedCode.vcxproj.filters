@@ -697,6 +697,9 @@
     <ClCompile Include="..\..\Source\midi\midi_0_RawDataTools.cpp">
       <Filter>Matrix-6G 2\Source\midi</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.cpp">
+      <Filter>Matrix-6G 2\Source\midi</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_1_SysExMessages.cpp">
       <Filter>Matrix-6G 2\Source\midi</Filter>
     </ClCompile>
@@ -3154,6 +3157,9 @@
       <Filter>Matrix-6G 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_0_RawDataTools.h">
+      <Filter>Matrix-6G 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.h">
       <Filter>Matrix-6G 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_1_SysExMessages.h">

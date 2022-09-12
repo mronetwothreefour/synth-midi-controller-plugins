@@ -2,7 +2,7 @@
 
 #include "../constants/constants_Voices.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_VoiceTransmissionOptions.h"
 
 using namespace P_600_G_Constants;
 
@@ -38,10 +38,9 @@ bool RawDataTools::isValidVoiceDataHexString(const String& hexString)
 }
 
 void RawDataTools::applyRawVoiceDataToExposedParameters(
-    const uint8* voiceData, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams)
+    const uint8* voiceData, ExposedParameters* exposedParams, VoiceTransmissionOptions* transmitOptions)
 {
     auto info{ exposedParams->info.get() };
-    auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
     transmitOptions->setParamChangesShouldBeTransmitted(false);
     for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
         auto paramID{ info->IDfor(paramIndex) };
@@ -57,7 +56,7 @@ void RawDataTools::applyRawVoiceDataToExposedParameters(
                 newValue = 1;
         }
         else {
-            auto numberOfBits{ info->numberOfBitsFor(firstBitIndex) };
+            auto numberOfBits{ info->numberOfBitsFor(paramIndex) };
             for (uint8 bitCounter = 0; bitCounter != numberOfBits; ++bitCounter) {
                 auto currentBit{ firstBitIndex + bitCounter };
                 if (currentBit == 4 || currentBit == 8)

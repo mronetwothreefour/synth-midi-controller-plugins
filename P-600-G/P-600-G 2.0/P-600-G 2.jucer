@@ -132,6 +132,10 @@
               file="Source/midi/midi_0_RawDataTools.cpp"/>
         <FILE id="KWrJZk" name="midi_0_RawDataTools.h" compile="0" resource="0"
               file="Source/midi/midi_0_RawDataTools.h"/>
+        <FILE id="mRLlEV" name="midi_1_handle_IncomingSysExMessage.cpp" compile="1"
+              resource="0" file="Source/midi/midi_1_handle_IncomingSysExMessage.cpp"/>
+        <FILE id="yE22dn" name="midi_1_handle_IncomingSysExMessage.h" compile="0"
+              resource="0" file="Source/midi/midi_1_handle_IncomingSysExMessage.h"/>
         <FILE id="pxPpzj" name="midi_1_SysExMessages.h" compile="0" resource="0"
               file="Source/midi/midi_1_SysExMessages.h"/>
       </GROUP>

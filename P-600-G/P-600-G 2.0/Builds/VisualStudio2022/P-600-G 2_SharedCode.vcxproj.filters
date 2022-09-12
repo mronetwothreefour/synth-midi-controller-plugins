@@ -661,6 +661,9 @@
     <ClCompile Include="..\..\Source\midi\midi_0_RawDataTools.cpp">
       <Filter>P-600-G 2\Source\midi</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.cpp">
+      <Filter>P-600-G 2\Source\midi</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp">
       <Filter>P-600-G 2\Source\unexposedParameters</Filter>
     </ClCompile>
@@ -3070,6 +3073,9 @@
       <Filter>P-600-G 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_0_RawDataTools.h">
+      <Filter>P-600-G 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.h">
       <Filter>P-600-G 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_1_SysExMessages.h">

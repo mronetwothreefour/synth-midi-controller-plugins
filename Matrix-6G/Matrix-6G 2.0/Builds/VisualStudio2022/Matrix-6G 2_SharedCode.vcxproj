@@ -168,6 +168,7 @@
     <ClCompile Include="..\..\Source\matrixMod\mMod_1_comp_SliderForMatrixModAmount.cpp"/>
     <ClCompile Include="..\..\Source\matrixMod\mMod_3_gui_layer_MatrixMod.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_0_RawDataTools.cpp"/>
+    <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_1_SysExMessages.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp"/>
@@ -2371,6 +2372,7 @@
     <ClInclude Include="..\..\Source\matrixMod\mMod_3_gui_layer_MatrixMod.h"/>
     <ClInclude Include="..\..\Source\midi\midi_0_Outgoing_MIDI_Buffers.h"/>
     <ClInclude Include="..\..\Source\midi\midi_0_RawDataTools.h"/>
+    <ClInclude Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.h"/>
     <ClInclude Include="..\..\Source\midi\midi_1_SysExMessages.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h"/>

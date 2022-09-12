@@ -3,6 +3,7 @@
 #include "core_1_PluginEditor.h"
 #include "exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "exposedParameters/ep_4_handle_ExposedParamChanges.h"
+#include "midi/midi_1_handle_IncomingSysExMessage.h"
 #include "unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 PluginProcessor::PluginProcessor() :
@@ -11,6 +12,7 @@ PluginProcessor::PluginProcessor() :
     exposedParams{ new ExposedParameters{ this, unexposedParams.get() } },
     bundledOutgoingBuffers{ unexposedParams->getBundledOutgoingBuffers() },
     exposedParamChangesHandler{ new ExposedParamChangesHandler{ exposedParams.get(), unexposedParams.get() } },
+    incomingSysExMessageHandler{ new IncomingSysExMessageHandler{ exposedParams.get(), unexposedParams.get() } },
     transmitOptions{ unexposedParams->getVoiceTransmissionOptions() }
 {
 }
@@ -52,6 +54,12 @@ void PluginProcessor::changeProgramName(int /*index*/, const String& /*newName*/
 void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) {
     buffer.clear();
 
+    if (midiMessages.isEmpty() == false) {
+        MidiBuffer midiMessagesToPassThrough;
+        midiMessagesToPassThrough = incomingSysExMessageHandler->pullMessageForMatrixOutOfBuffer(midiMessages);
+        midiMessages.swapWith(midiMessagesToPassThrough);
+    }
+
     if (bundledOutgoingBuffers->isEmpty() == false) {
         for (auto event : bundledOutgoingBuffers->removeAndReturn(0)) {
             midiMessages.addEvent(event.getMessage(), event.samplePosition);
@@ -90,6 +98,7 @@ void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInByte
 
 PluginProcessor::~PluginProcessor() {
     exposedParamChangesHandler = nullptr;
+    incomingSysExMessageHandler = nullptr;
     exposedParams->undoManager.clearUndoHistory();
     exposedParams = nullptr;
     unexposedParams = nullptr;

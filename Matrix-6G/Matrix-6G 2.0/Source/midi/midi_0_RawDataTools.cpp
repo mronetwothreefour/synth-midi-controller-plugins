@@ -2,8 +2,10 @@
 
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
+#include "../constants/constants_Voices.h"
 #include "../exposedParameters/ep_0_tree_MatrixModOptions.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
+#include "../unexposedParameters/up_0_tree_VoiceTransmissionOptions.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 bool RawDataTools::midiMessageIsSysExForMatrix(const MidiMessage& midiMessage) {
@@ -48,8 +50,25 @@ const String RawDataTools::convertDataVectorToHexString(const std::vector<uint8>
     return hexString;
 }
 
-void RawDataTools::applyRawVoiceDataTo_GUI(const uint8* /*voiceData*/, ExposedParameters* /*exposedParams*/, UnexposedParameters* /*unexposedParams*/)
-{
+void RawDataTools::applyRawVoiceDataTo_GUI(const uint8 voiceNum, const uint8* voiceData, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) {
+    auto currentVoiceOptions{ exposedParams->currentVoiceOptions.get() };
+    currentVoiceOptions->setCurrentVoiceNumber(voiceNum);
+
+    String voiceName{ "" };
+    for (auto byte = 0; byte != VCS::numberOfCharsInVoiceName * 2; byte += 2) {
+        auto lsbByteValue{ (uint8)voiceData[byte] };
+        auto msbByteValue{ (uint8)voiceData[byte + 1] };
+        auto storedASCIIvalue{ uint8(lsbByteValue + (msbByteValue * 16)) };
+        restoreSeventhBitTo_ASCII_Value(storedASCIIvalue);
+        voiceName += convertStored_ASCII_ValueToString(storedASCIIvalue);
+    }
+    currentVoiceOptions->setCurrentVoiceName(voiceName);
+
+    auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
+    applyRawVoiceDataToExposedParameters(voiceData + VCS::indexOfFirstExposedParamsDataByte, exposedParams, transmitOptions);
+
+    auto matrixModOptions{ exposedParams->matrixModOptions.get() };
+    applyRawVoiceDataToMatrixModOptions(voiceData + VCS::indexOfFirstMatrixModDataByte, matrixModOptions);
 }
 
 const std::vector<uint8> RawDataTools::extractRawVoiceDataFrom_GUI(ExposedParameters* exposedParams) {
@@ -70,8 +89,47 @@ void RawDataTools::removeSeventhBitFrom_ASCII_Value(uint8& value) {
 }
 
 void RawDataTools::restoreSeventhBitTo_ASCII_Value(uint8& value) {
-    if (value < 32)
+    if (value < 32 && value != valueForBarSymbol)
         value += 64;
+}
+
+void RawDataTools::applyRawVoiceDataToExposedParameters(const uint8* voiceData, ExposedParameters* exposedParams, VoiceTransmissionOptions* transmitOptions) {
+    transmitOptions->setParamChangesShouldBeTransmitted(false);
+    auto info{ exposedParams->info.get() };
+    for (uint8 param = 0; param != EP::numberOfExposedParams; ++param) {
+        auto paramID{ info->IDfor(param) };
+        auto lsByteLocation{ info->dataByteIndexFor(param) * 2 };
+        auto lsByteValue{ voiceData[lsByteLocation] };
+        auto msByteValue{ voiceData[lsByteLocation + 1] * 16 };
+        auto newValue{ uint8(lsByteValue + msByteValue) };
+        if (info->rangeTypeFor(param) == RangeType::signed_6_bitValue)
+            formatSignedValueForStoringInPlugin(uses_6_bits, newValue);
+        if (info->rangeTypeFor(param) == RangeType::signed_7_bitValue)
+            formatSignedValueForStoringInPlugin(uses_7_bits, newValue);
+        auto paramPtr{ exposedParams->state->getParameter(paramID) };
+        paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newValue));
+    }
+    transmitOptions->setParamChangesShouldBeTransmitted(true);
+}
+
+void RawDataTools::applyRawVoiceDataToMatrixModOptions(const uint8* voiceData, MatrixModOptions* matrixModOptions) {
+    for (auto modNum = 0; modNum != 10; ++modNum) {
+        auto modSource_LS_ByteValue{ voiceData[modNum * 6] };
+        auto modSource_MS_ByteValue{ voiceData[(modNum * 6) + 1] * 16 };
+        auto modSource{ modSource_LS_ByteValue + modSource_MS_ByteValue };
+        matrixModOptions->setModSource(modNum, (uint8)modSource);
+
+        auto modAmount_LS_ByteValue{ voiceData[(modNum * 6) + 2] };
+        auto modAmount_MS_ByteValue{ voiceData[(modNum * 6) + 3] * 16 };
+        auto modAmount{ uint8(modAmount_LS_ByteValue + modAmount_MS_ByteValue) };
+        formatSignedValueForStoringInPlugin(uses_7_bits, modAmount);
+        matrixModOptions->setModAmount(modNum, modAmount);
+
+        auto modDest_LS_ByteValue{ voiceData[(modNum * 6) + 4] };
+        auto modDest_MS_ByteValue{ voiceData[(modNum * 6) + 5] * 16 };
+        auto modDest{ modDest_LS_ByteValue + modDest_MS_ByteValue };
+        matrixModOptions->setModDest(modNum, (uint8)modDest);
+    }
 }
 
 void RawDataTools::addVoiceOrSplitNameDataToVectorAndUpdateChecksum(bool isVoiceName, String& name, std::vector<uint8>& dataVector, uint8& checksum) {
@@ -135,5 +193,25 @@ void RawDataTools::formatSignedValueForSendingToMatrix(bool is_7_bit, uint8& val
     if (valueWithOffset < 0)
         valueWithOffset += negativeValueOffset;
     value = (uint8)valueWithOffset;
+}
+
+void RawDataTools::formatSignedValueForStoringInPlugin(bool is_7_bit, uint8& value) {
+    int valueWithOffset{ value };
+    if (valueWithOffset > 127)
+        valueWithOffset -= negativeValueOffset;
+    valueWithOffset += (is_7_bit ? EP::offsetForSigned_7_BitRange : EP::offsetForSigned_6_BitRange);
+    value = (uint8)valueWithOffset;
+}
+
+String RawDataTools::convertStored_ASCII_ValueToString(const uint8& value) {
+    String characterString;
+    if (value == valueForBarSymbol)
+        characterString = "|";
+    else {
+        auto splitNameCharASCIIValue{ value };
+        restoreSeventhBitTo_ASCII_Value(splitNameCharASCIIValue);
+        characterString = (String)std::string(1, splitNameCharASCIIValue);
+    }
+    return characterString;
 }
 

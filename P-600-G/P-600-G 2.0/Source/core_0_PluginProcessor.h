@@ -31,6 +31,7 @@ are the only hosts known to be compatible with MophoGUI.vst3 at this time.
 
 class ExposedParamChangesHandler;
 class ExposedParameters;
+class IncomingSysExMessageHandler;
 class UnexposedParameters;
 class VoiceTransmissionOptions;
 
@@ -41,6 +42,7 @@ class PluginProcessor :
     std::unique_ptr<ExposedParameters> exposedParams;
     Array<MidiBuffer, CriticalSection>* bundledOutgoingBuffers;
     std::unique_ptr<ExposedParamChangesHandler> exposedParamChangesHandler;
+    std::unique_ptr<IncomingSysExMessageHandler> incomingSysExMessageHandler;
     VoiceTransmissionOptions* transmitOptions;
 
 public:

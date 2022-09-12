@@ -8,6 +8,7 @@ UnexposedParameters::UnexposedParameters() :
     globalOptions{ new GlobalOptions{} },
     tooltipsOptions{ new TooltipsOptions{} },
     outgoing_MIDI_Buffers{ new Outgoing_MIDI_Buffers{} },
+    voicesBanks{ new VoicesBanks{} },
     voiceTransmissionOptions{ new VoiceTransmissionOptions{} }
 {
 }
@@ -28,6 +29,10 @@ TooltipsOptions* UnexposedParameters::getTooltipsOptions() {
     return tooltipsOptions.get();
 }
 
+VoicesBanks* UnexposedParameters::getVoicesBanks() {
+    return voicesBanks.get();
+}
+
 VoiceTransmissionOptions* UnexposedParameters::getVoiceTransmissionOptions() {
     return voiceTransmissionOptions.get();
 }
@@ -38,6 +43,10 @@ std::unique_ptr<XmlElement> UnexposedParameters::getStateXml() {
     auto tooltipOptionsStateXml{ tooltipsOptions->getStateXml() };
     if (tooltipOptionsStateXml != nullptr)
         unexposedParamsStateXml->addChildElement(tooltipOptionsStateXml.release());
+
+    auto customVoicesBanksStateXml{ voicesBanks->getStateXml() };
+    if (customVoicesBanksStateXml != nullptr)
+        unexposedParamsStateXml->addChildElement(customVoicesBanksStateXml.release());
 
     auto voiceTxOptionsStateXml{ voiceTransmissionOptions->getStateXml() };
     if (voiceTxOptionsStateXml != nullptr)
@@ -53,6 +62,10 @@ void UnexposedParameters::replaceState(const ValueTree& newState) {
             tooltipsOptions->replaceState(tooltipOptionsState);
     }
 
+    auto customVoicesBanksState{ newState.getChildWithName(ID::state_CustomVoicesBanks) };
+    if (customVoicesBanksState.isValid())
+        voicesBanks->replaceState(customVoicesBanksState);
+
     auto voiceTxOptionsState{ newState.getChildWithName(ID::state_VoiceTxOptions) };
     if (voiceTxOptionsState.isValid())
         voiceTransmissionOptions->replaceState(voiceTxOptionsState);
@@ -60,5 +73,6 @@ void UnexposedParameters::replaceState(const ValueTree& newState) {
 
 UnexposedParameters::~UnexposedParameters() {
     tooltipsOptions = nullptr;
+    voicesBanks = nullptr;
     voiceTransmissionOptions = nullptr;
 }
