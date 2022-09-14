@@ -2,8 +2,6 @@
 
 #include <JuceHeader.h>
 
-
-
 class VoiceDataFileFilter :
 	public FileFilter
 {

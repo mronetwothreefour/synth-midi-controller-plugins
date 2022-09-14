@@ -38,6 +38,9 @@
     <Filter Include="Matrix-6G 2\Source\voices">
       <UniqueIdentifier>{B653C471-0F6B-40B0-6A20-112C61BD496C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G 2\Source\voicesImportExport">
+      <UniqueIdentifier>{4E905A66-A1C3-81FC-27D7-6A19758A87D4}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Matrix-6G 2\Source">
       <UniqueIdentifier>{906E5EDC-CCE9-25B0-2423-9ED2CD03C9E0}</UniqueIdentifier>
     </Filter>
@@ -3183,6 +3186,9 @@
     <ClInclude Include="..\..\Source\voices\voices_1_tree_VoicesBanks.h">
       <Filter>Matrix-6G 2\Source\voices</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h">
+      <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
     </ClInclude>
@@ -5885,6 +5891,24 @@
     <None Include="..\..\BinaryResources\buttons\btn_ActivateQuickEdit_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Cancel_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Cancel_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Export_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Export_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Dn.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
@@ -5896,6 +5920,9 @@
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_ImportExportWindow.png">
+      <Filter>Matrix-6G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png">
       <Filter>Matrix-6G 2\BinaryResources</Filter>

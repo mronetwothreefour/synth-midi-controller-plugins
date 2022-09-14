@@ -8,6 +8,24 @@
 
 namespace BinaryData
 {
+    extern const char*   btn_Esc_Dn_png;
+    const int            btn_Esc_Dn_pngSize = 658;
+
+    extern const char*   btn_Esc_Up_png;
+    const int            btn_Esc_Up_pngSize = 677;
+
+    extern const char*   btn_NewFldr_Dn_png;
+    const int            btn_NewFldr_Dn_pngSize = 905;
+
+    extern const char*   btn_NewFldr_Up_png;
+    const int            btn_NewFldr_Up_pngSize = 927;
+
+    extern const char*   btn_OK_Dn_png;
+    const int            btn_OK_Dn_pngSize = 637;
+
+    extern const char*   btn_OK_Up_png;
+    const int            btn_OK_Up_pngSize = 652;
+
     extern const char*   btn_Pull_Dn_png;
     const int            btn_Pull_Dn_pngSize = 597;
 
@@ -23,6 +41,21 @@ namespace BinaryData
     extern const char*   btn_SwitchTab_png;
     const int            btn_SwitchTab_pngSize = 139;
 
+    extern const char*   lbl_ExportVoice_png;
+    const int            lbl_ExportVoice_pngSize = 2401;
+
+    extern const char*   lbl_ExportVoicesBank_png;
+    const int            lbl_ExportVoicesBank_pngSize = 2931;
+
+    extern const char*   lbl_ImportVoice_png;
+    const int            lbl_ImportVoice_pngSize = 2234;
+
+    extern const char*   lbl_ImportVoicesBank_png;
+    const int            lbl_ImportVoicesBank_pngSize = 2721;
+
+    extern const char*   bkgrnd_ImportExportWindow_png;
+    const int            bkgrnd_ImportExportWindow_pngSize = 152409;
+
     extern const char*   bkgrnd_MainWindow_png;
     const int            bkgrnd_MainWindow_pngSize = 1136073;
 
@@ -36,7 +69,7 @@ namespace BinaryData
     const int            SWISSCL_TTFSize = 35064;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 9;
+    const int namedResourceListSize = 20;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

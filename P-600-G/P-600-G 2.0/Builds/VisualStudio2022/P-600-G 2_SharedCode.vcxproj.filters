@@ -5,6 +5,9 @@
     <Filter Include="P-600-G 2\BinaryResources\buttons">
       <UniqueIdentifier>{40262109-8FD3-BEB7-DA61-341FDFC4E618}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G 2\BinaryResources\labels">
+      <UniqueIdentifier>{5CDE5909-B889-FEB8-10A2-84DA130D8314}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G 2\BinaryResources">
       <UniqueIdentifier>{742C1868-0950-0F34-AE3E-40639658D895}</UniqueIdentifier>
     </Filter>
@@ -34,6 +37,9 @@
     </Filter>
     <Filter Include="P-600-G 2\Source\voices">
       <UniqueIdentifier>{52A8A504-22A7-87CD-7F88-AD74ADB30824}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="P-600-G 2\Source\voicesImportExport">
+      <UniqueIdentifier>{508F9B1F-6524-F535-557C-395EEDFAE936}</UniqueIdentifier>
     </Filter>
     <Filter Include="P-600-G 2\Source">
       <UniqueIdentifier>{5CE18680-527B-6D71-FCEB-BAE7474785B9}</UniqueIdentifier>
@@ -3096,6 +3102,9 @@
     <ClInclude Include="..\..\Source\voices\voices_1_tree_VoicesBank.h">
       <Filter>P-600-G 2\Source\voices</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h">
+      <Filter>P-600-G 2\Source\voicesImportExport</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
     </ClInclude>
@@ -5789,6 +5798,24 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\BinaryResources\buttons\btn_Esc_Dn.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Esc_Up.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_NewFldr_Dn.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_NewFldr_Up.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_OK_Dn.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_OK_Up.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Dn.png">
       <Filter>P-600-G 2\BinaryResources\buttons</Filter>
     </None>
@@ -5803,6 +5830,21 @@
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_SwitchTab.png">
       <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\labels\lbl_ExportVoice.png">
+      <Filter>P-600-G 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\labels\lbl_ExportVoicesBank.png">
+      <Filter>P-600-G 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\labels\lbl_ImportVoice.png">
+      <Filter>P-600-G 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\labels\lbl_ImportVoicesBank.png">
+      <Filter>P-600-G 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_ImportExportWindow.png">
+      <Filter>P-600-G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png">
       <Filter>P-600-G 2\BinaryResources</Filter>

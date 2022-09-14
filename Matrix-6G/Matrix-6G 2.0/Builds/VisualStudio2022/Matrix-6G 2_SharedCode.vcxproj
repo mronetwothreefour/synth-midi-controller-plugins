@@ -2380,6 +2380,7 @@
     <ClInclude Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.h"/>
     <ClInclude Include="..\..\Source\voices\voices_0_tree_FactoryVoiceDataHexStrings.h"/>
     <ClInclude Include="..\..\Source\voices\voices_1_tree_VoicesBanks.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
@@ -3282,10 +3283,17 @@
     <None Include="..\..\BinaryResources\buttons\btn_ActivateQuickEdit_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_ActivateQuickEdit_Flash.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_ActivateQuickEdit_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Cancel_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Cancel_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Export_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Export_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Up.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_ImportExportWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF"/>

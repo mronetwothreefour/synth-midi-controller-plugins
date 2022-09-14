@@ -9,6 +9,14 @@
   <MAINGROUP id="QgKzcN" name="P-600-G 2">
     <GROUP id="{349587B4-BC8D-9B3D-70F5-941FCF41BB5D}" name="BinaryResources">
       <GROUP id="{38BC1DF0-5C64-3C05-BEAB-F655A75E5D97}" name="buttons">
+        <FILE id="hxZ4Me" name="btn_Esc_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Esc_Dn.png"/>
+        <FILE id="mrPMsv" name="btn_Esc_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Esc_Up.png"/>
+        <FILE id="pDly9f" name="btn_NewFldr_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_NewFldr_Dn.png"/>
+        <FILE id="vzrdN4" name="btn_NewFldr_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_NewFldr_Up.png"/>
+        <FILE id="MhMYqA" name="btn_OK_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_OK_Dn.png"/>
+        <FILE id="YlHzmB" name="btn_OK_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_OK_Up.png"/>
         <FILE id="nev8b4" name="btn_Pull_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Dn.png"/>
         <FILE id="Kx9v7U" name="btn_Pull_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Up.png"/>
         <FILE id="feOLRz" name="btn_Push_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Dn.png"/>
@@ -16,6 +24,18 @@
         <FILE id="L1rWAB" name="btn_SwitchTab.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_SwitchTab.png"/>
       </GROUP>
+      <GROUP id="{F5983AB5-758F-7D11-54F4-125D555DF7D5}" name="labels">
+        <FILE id="Dvq9Qt" name="lbl_ExportVoice.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_ExportVoice.png"/>
+        <FILE id="i9WCnu" name="lbl_ExportVoicesBank.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_ExportVoicesBank.png"/>
+        <FILE id="p2eB49" name="lbl_ImportVoice.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_ImportVoice.png"/>
+        <FILE id="WUQwfo" name="lbl_ImportVoicesBank.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_ImportVoicesBank.png"/>
+      </GROUP>
+      <FILE id="sqovvW" name="bkgrnd_ImportExportWindow.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_ImportExportWindow.png"/>
       <FILE id="ogAMbU" name="bkgrnd_MainWindow.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_MainWindow.png"/>
       <FILE id="h4ZOcY" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
@@ -160,6 +180,10 @@
               file="Source/voices/voices_1_tree_VoicesBank.cpp"/>
         <FILE id="WafpMu" name="voices_1_tree_VoicesBank.h" compile="0" resource="0"
               file="Source/voices/voices_1_tree_VoicesBank.h"/>
+      </GROUP>
+      <GROUP id="{D94CB483-4214-AFE0-3CF6-0A4CD55E84D7}" name="voicesImportExport">
+        <FILE id="TRcnjp" name="imEx_0_FileFilters.h" compile="0" resource="0"
+              file="Source/voicesImportExport/imEx_0_FileFilters.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>

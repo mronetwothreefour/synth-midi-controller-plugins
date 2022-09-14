@@ -15,11 +15,25 @@
               resource="1" file="BinaryResources/buttons/btn_ActivateQuickEdit_Flash.png"/>
         <FILE id="czSwj9" name="btn_ActivateQuickEdit_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_ActivateQuickEdit_Up.png"/>
+        <FILE id="AT3Wos" name="btn_Cancel_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Cancel_Dn.png"/>
+        <FILE id="luPzCa" name="btn_Cancel_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Cancel_Up.png"/>
+        <FILE id="Ml9hIV" name="btn_Export_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Export_Dn.png"/>
+        <FILE id="Fr8iVF" name="btn_Export_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Export_Up.png"/>
+        <FILE id="YPteQA" name="btn_NewFolder_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_NewFolder_Dn.png"/>
+        <FILE id="x1kEEd" name="btn_NewFolder_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_NewFolder_Up.png"/>
         <FILE id="Mdkys2" name="btn_Pull_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Dn.png"/>
         <FILE id="epolsU" name="btn_Pull_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Up.png"/>
         <FILE id="Kmf6D0" name="btn_Push_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Dn.png"/>
         <FILE id="gwkq7e" name="btn_Push_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Up.png"/>
       </GROUP>
+      <FILE id="DIIZ5o" name="bkgrnd_ImportExportWindow.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_ImportExportWindow.png"/>
       <FILE id="JyyaUF" name="bkgrnd_MainWindow.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_MainWindow.png"/>
       <FILE id="SAozmE" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
@@ -221,6 +235,10 @@
               resource="0" file="Source/voices/voices_1_tree_VoicesBanks.cpp"/>
         <FILE id="VZpy0T" name="voices_1_tree_VoicesBanks.h" compile="0" resource="0"
               file="Source/voices/voices_1_tree_VoicesBanks.h"/>
+      </GROUP>
+      <GROUP id="{479D0EB5-491F-51AB-CFC7-84E0F4A91330}" name="voicesImportExport">
+        <FILE id="sMzO5t" name="imEx_0_FileFilters.h" compile="0" resource="0"
+              file="Source/voicesImportExport/imEx_0_FileFilters.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>
