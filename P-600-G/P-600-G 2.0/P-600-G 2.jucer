@@ -34,6 +34,10 @@
         <FILE id="WUQwfo" name="lbl_ImportVoicesBank.png" compile="0" resource="1"
               file="BinaryResources/labels/lbl_ImportVoicesBank.png"/>
       </GROUP>
+      <FILE id="AeHQzB" name="bkgrnd_FileOverwriteDialog.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_FileOverwriteDialog.png"/>
+      <FILE id="sYM8rw" name="bkgrnd_FileNotValidAlert.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_FileNotValidAlert.png"/>
       <FILE id="sqovvW" name="bkgrnd_ImportExportWindow.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_ImportExportWindow.png"/>
       <FILE id="ogAMbU" name="bkgrnd_MainWindow.png" compile="0" resource="1"
@@ -184,6 +188,12 @@
       <GROUP id="{D94CB483-4214-AFE0-3CF6-0A4CD55E84D7}" name="voicesImportExport">
         <FILE id="TRcnjp" name="imEx_0_FileFilters.h" compile="0" resource="0"
               file="Source/voicesImportExport/imEx_0_FileFilters.h"/>
+        <FILE id="CJuwGC" name="imEx_0_gui_layer_FileNotValidAlert.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileNotValidAlert.h"/>
+        <FILE id="GQBtXo" name="imEx_0_gui_layer_FileOverwriteDialog.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileOverwriteDialog.cpp"/>
+        <FILE id="U6ybZu" name="imEx_0_gui_layer_FileOverwriteDialog.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileOverwriteDialog.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>

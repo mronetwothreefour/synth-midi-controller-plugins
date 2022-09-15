@@ -19,6 +19,10 @@
               file="BinaryResources/buttons/btn_Cancel_Dn.png"/>
         <FILE id="luPzCa" name="btn_Cancel_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Cancel_Up.png"/>
+        <FILE id="l4mEVk" name="btn_Close_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Close_Dn.png"/>
+        <FILE id="xMjTPB" name="btn_Close_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Close_Up.png"/>
         <FILE id="Ml9hIV" name="btn_Export_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Export_Dn.png"/>
         <FILE id="Fr8iVF" name="btn_Export_Up.png" compile="0" resource="1"
@@ -31,7 +35,25 @@
         <FILE id="epolsU" name="btn_Pull_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Up.png"/>
         <FILE id="Kmf6D0" name="btn_Push_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Dn.png"/>
         <FILE id="gwkq7e" name="btn_Push_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Up.png"/>
+        <FILE id="VXItcU" name="btn_Write_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Write_Dn.png"/>
+        <FILE id="uHspmm" name="btn_Write_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Write_Up.png"/>
       </GROUP>
+      <GROUP id="{C61D6FF1-A700-7B0E-0D55-4C36A8AFE3C4}" name="labels">
+        <FILE id="xICB0m" name="lbl_ExportVoice.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_ExportVoice.png"/>
+        <FILE id="g3OQUx" name="lbl_ExportVoicesBank.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_ExportVoicesBank.png"/>
+        <FILE id="cYPpoo" name="lbl_ImportVoice.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_ImportVoice.png"/>
+        <FILE id="rHbVUZ" name="lbl_ImportVoicesBank.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_ImportVoicesBank.png"/>
+      </GROUP>
+      <FILE id="qLeA7R" name="bkgrnd_FileNotValidAlert.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_FileNotValidAlert.png"/>
+      <FILE id="q398oy" name="bkgrnd_FileOverwriteDialog.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_FileOverwriteDialog.png"/>
       <FILE id="DIIZ5o" name="bkgrnd_ImportExportWindow.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_ImportExportWindow.png"/>
       <FILE id="JyyaUF" name="bkgrnd_MainWindow.png" compile="0" resource="1"
@@ -239,6 +261,12 @@
       <GROUP id="{479D0EB5-491F-51AB-CFC7-84E0F4A91330}" name="voicesImportExport">
         <FILE id="sMzO5t" name="imEx_0_FileFilters.h" compile="0" resource="0"
               file="Source/voicesImportExport/imEx_0_FileFilters.h"/>
+        <FILE id="SAQkji" name="imEx_0_gui_layer_FileNotValidAlert.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileNotValidAlert.h"/>
+        <FILE id="Y8QHJc" name="imEx_0_gui_layer_FileOverwriteDialog.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileOverwriteDialog.cpp"/>
+        <FILE id="b4TyKx" name="imEx_0_gui_layer_FileOverwriteDialog.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileOverwriteDialog.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>

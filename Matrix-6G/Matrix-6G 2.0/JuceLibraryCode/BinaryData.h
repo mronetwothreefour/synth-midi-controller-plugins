@@ -23,6 +23,12 @@ namespace BinaryData
     extern const char*   btn_Cancel_Up_png;
     const int            btn_Cancel_Up_pngSize = 613;
 
+    extern const char*   btn_Close_Dn_png;
+    const int            btn_Close_Dn_pngSize = 612;
+
+    extern const char*   btn_Close_Up_png;
+    const int            btn_Close_Up_pngSize = 586;
+
     extern const char*   btn_Export_Dn_png;
     const int            btn_Export_Dn_pngSize = 642;
 
@@ -47,8 +53,32 @@ namespace BinaryData
     extern const char*   btn_Push_Up_png;
     const int            btn_Push_Up_pngSize = 504;
 
+    extern const char*   btn_Write_Dn_png;
+    const int            btn_Write_Dn_pngSize = 549;
+
+    extern const char*   btn_Write_Up_png;
+    const int            btn_Write_Up_pngSize = 548;
+
+    extern const char*   lbl_ExportVoice_png;
+    const int            lbl_ExportVoice_pngSize = 2102;
+
+    extern const char*   lbl_ExportVoicesBank_png;
+    const int            lbl_ExportVoicesBank_pngSize = 2438;
+
+    extern const char*   lbl_ImportVoice_png;
+    const int            lbl_ImportVoice_pngSize = 2057;
+
+    extern const char*   lbl_ImportVoicesBank_png;
+    const int            lbl_ImportVoicesBank_pngSize = 2405;
+
+    extern const char*   bkgrnd_FileNotValidAlert_png;
+    const int            bkgrnd_FileNotValidAlert_pngSize = 1294;
+
+    extern const char*   bkgrnd_FileOverwriteDialog_png;
+    const int            bkgrnd_FileOverwriteDialog_pngSize = 3089;
+
     extern const char*   bkgrnd_ImportExportWindow_png;
-    const int            bkgrnd_ImportExportWindow_pngSize = 4164;
+    const int            bkgrnd_ImportExportWindow_pngSize = 1954;
 
     extern const char*   bkgrnd_MainWindow_png;
     const int            bkgrnd_MainWindow_pngSize = 51402;
@@ -60,7 +90,7 @@ namespace BinaryData
     const int            SWISSCL_TTFSize = 35064;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 17;
+    const int namedResourceListSize = 27;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

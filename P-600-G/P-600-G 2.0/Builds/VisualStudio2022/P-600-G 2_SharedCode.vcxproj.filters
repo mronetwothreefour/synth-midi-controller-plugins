@@ -682,6 +682,9 @@
     <ClCompile Include="..\..\Source\voices\voices_1_tree_VoicesBank.cpp">
       <Filter>P-600-G 2\Source\voices</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp">
+      <Filter>P-600-G 2\Source\voicesImportExport</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
     </ClCompile>
@@ -3103,6 +3106,12 @@
       <Filter>P-600-G 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h">
+      <Filter>P-600-G 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileNotValidAlert.h">
+      <Filter>P-600-G 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.h">
       <Filter>P-600-G 2\Source\voicesImportExport</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5842,6 +5851,12 @@
     </None>
     <None Include="..\..\BinaryResources\labels\lbl_ImportVoicesBank.png">
       <Filter>P-600-G 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_FileOverwriteDialog.png">
+      <Filter>P-600-G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_FileNotValidAlert.png">
+      <Filter>P-600-G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_ImportExportWindow.png">
       <Filter>P-600-G 2\BinaryResources</Filter>

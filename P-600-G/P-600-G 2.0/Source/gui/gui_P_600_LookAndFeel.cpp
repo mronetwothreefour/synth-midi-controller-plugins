@@ -45,6 +45,12 @@ void P_600_LookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	auto buttonID{ button.getComponentID() };
 	MemBlock mBlock{};
 
+	if (buttonID.startsWith("btn_Esc"))
+		mBlock = MemBlock{ isDown ? btn_Esc_Dn_png : btn_Esc_Up_png, isDown ? (s_t)btn_Esc_Dn_pngSize : (s_t)btn_Esc_Up_pngSize };
+
+	if (buttonID.startsWith("btn_OK"))
+		mBlock = MemBlock{ isDown ? btn_OK_Dn_png : btn_OK_Up_png, isDown ? (s_t)btn_OK_Dn_pngSize : (s_t)btn_OK_Up_pngSize };
+
 	if (buttonID == ID::btn_Pull.toString())
 		mBlock = MemBlock{ isDown ? btn_Pull_Dn_png : btn_Pull_Up_png, isDown ? (s_t)btn_Pull_Dn_pngSize : (s_t)btn_Pull_Up_pngSize };
 

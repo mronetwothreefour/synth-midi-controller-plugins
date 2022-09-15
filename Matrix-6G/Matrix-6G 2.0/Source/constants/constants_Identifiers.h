@@ -13,8 +13,11 @@ namespace Matrix_6G_Constants
 
 		static const Identifier btn_ActivateQuickEdit{ "btn_ActivateQuickEdit" };
 		static const Identifier btn_ActivateQuickEdit_Flash{ "btn_ActivateQuickEdit_Flash" };
+		static const Identifier btn_Cancel_FileOverwrite{ "btn_Cancel_FileOverwrite" };
+		static const Identifier btn_Close{ "btn_Close" };
 		static const Identifier btn_Pull{ "btn_Pull" };
 		static const Identifier btn_Push{ "btn_Push" };
+		static const Identifier btn_Write{ "btn_Write" };
 
 		static const Identifier comp_TextEditorForSlider{ "comp_TextEditorForSlider" };
 		static const Identifier comp_VoiceNameEditor{ "comp_VoiceNameEditor" };

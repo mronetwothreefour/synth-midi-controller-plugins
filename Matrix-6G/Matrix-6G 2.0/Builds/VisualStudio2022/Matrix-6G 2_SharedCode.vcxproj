@@ -175,6 +175,7 @@
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\voices\voices_1_tree_VoicesBanks.cpp"/>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2381,6 +2382,8 @@
     <ClInclude Include="..\..\Source\voices\voices_0_tree_FactoryVoiceDataHexStrings.h"/>
     <ClInclude Include="..\..\Source\voices\voices_1_tree_VoicesBanks.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileNotValidAlert.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
@@ -3285,6 +3288,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_ActivateQuickEdit_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Cancel_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Cancel_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Close_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Close_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Export_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Export_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Dn.png"/>
@@ -3293,6 +3298,14 @@
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Write_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Write_Up.png"/>
+    <None Include="..\..\BinaryResources\labels\lbl_ExportVoice.png"/>
+    <None Include="..\..\BinaryResources\labels\lbl_ExportVoicesBank.png"/>
+    <None Include="..\..\BinaryResources\labels\lbl_ImportVoice.png"/>
+    <None Include="..\..\BinaryResources\labels\lbl_ImportVoicesBank.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_FileNotValidAlert.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_FileOverwriteDialog.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_ImportExportWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF"/>

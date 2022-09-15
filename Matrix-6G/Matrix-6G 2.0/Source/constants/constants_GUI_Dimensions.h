@@ -8,6 +8,7 @@ namespace Matrix_6G_Constants
 	{
 		const float ledDisplay_y{ 3 };
 
+		const int btn_Small_h{ 20 };
 		const int control_h{ 20 };
 		const int editor_w{ 1252 };
 		const int editor_h{ 596 };

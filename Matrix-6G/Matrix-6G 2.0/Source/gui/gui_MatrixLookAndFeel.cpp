@@ -53,11 +53,20 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID == ID::btn_ActivateQuickEdit_Flash.toString())
 		mBlock = MemBlock{ btn_ActivateQuickEdit_Flash_png, (s_t)btn_ActivateQuickEdit_Flash_pngSize };
 
+	if (buttonID.startsWith("btn_Cancel"))
+		mBlock = MemBlock{ isDown ? btn_Cancel_Dn_png : btn_Cancel_Up_png, isDown ? (s_t)btn_Cancel_Dn_pngSize : (s_t)btn_Cancel_Up_pngSize };
+
+	if (buttonID == ID::btn_Close.toString())
+		mBlock = MemBlock{ isDown ? btn_Close_Dn_png : btn_Close_Up_png, isDown ? (s_t)btn_Close_Dn_pngSize : (s_t)btn_Close_Up_pngSize };
+
 	if (buttonID == ID::btn_Pull.toString())
 		mBlock = MemBlock{ isDown ? btn_Pull_Dn_png : btn_Pull_Up_png, isDown ? (s_t)btn_Pull_Dn_pngSize : (s_t)btn_Pull_Up_pngSize };
 
 	if (buttonID == ID::btn_Push.toString())
 		mBlock = MemBlock{ isDown ? btn_Push_Dn_png : btn_Push_Up_png, isDown ? (s_t)btn_Push_Dn_pngSize : (s_t)btn_Push_Up_pngSize };
+
+	if (buttonID == ID::btn_Write.toString())
+		mBlock = MemBlock{ isDown ? btn_Write_Dn_png : btn_Write_Up_png, isDown ? (s_t)btn_Write_Dn_pngSize : (s_t)btn_Write_Up_pngSize };
 
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ mBlock, false };
