@@ -18,7 +18,7 @@ GUI_Layer_VoicesBanks::GUI_Layer_VoicesBanks(ExposedParameters* exposedParams, U
 	voicesBanksTabs{ exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
 	voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() },
-	btn_Close{ unexposedParams }
+	btn_Close{ unexposedParams->getTooltipsOptions() }
 {
 	voicesBanksTabs.addListenerToButtonsInAllTabs(this);
 

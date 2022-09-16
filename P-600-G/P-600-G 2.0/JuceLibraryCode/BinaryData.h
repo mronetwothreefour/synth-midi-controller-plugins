@@ -59,11 +59,17 @@ namespace BinaryData
     extern const char*   bkgrnd_FileNotValidAlert_png;
     const int            bkgrnd_FileNotValidAlert_pngSize = 38538;
 
+    extern const char*   bkgrnd_FolderExistsAlert_png;
+    const int            bkgrnd_FolderExistsAlert_pngSize = 47038;
+
     extern const char*   bkgrnd_ImportExportWindow_png;
     const int            bkgrnd_ImportExportWindow_pngSize = 152409;
 
     extern const char*   bkgrnd_MainWindow_png;
     const int            bkgrnd_MainWindow_pngSize = 1136073;
+
+    extern const char*   bkgrnd_NewFolderDialog_png;
+    const int            bkgrnd_NewFolderDialog_pngSize = 51632;
 
     extern const char*   SWISSB_TTF;
     const int            SWISSB_TTFSize = 36852;
@@ -75,7 +81,7 @@ namespace BinaryData
     const int            SWISSCL_TTFSize = 35064;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 22;
+    const int namedResourceListSize = 24;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

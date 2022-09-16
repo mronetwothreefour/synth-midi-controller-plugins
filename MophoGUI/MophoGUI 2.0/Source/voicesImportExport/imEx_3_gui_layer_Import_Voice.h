@@ -4,12 +4,15 @@
 
 #include "imEx_2_gui_layer_ImportExport_Base.h"
 
+class VoicesBanks;
 class VoiceSlots;
 class UnexposedParameters;
 
 class GUI_Layer_Import_Voice :
 	public GUI_Layer_ImportExport_Base
 {
+	VoicesBanks* voicesBanks;
+
 public:
 	GUI_Layer_Import_Voice() = delete;
 

@@ -13,7 +13,7 @@ GUI_Layer_ImportExport_Base::GUI_Layer_ImportExport_Base(
 	type{ type },
 	bank{ bank },
 	voiceSlots{ voiceSlots },
-	unexposedParams{ unexposedParams }
+	tooltips{ unexposedParams->getTooltipsOptions() }
 {
 	String userDocsPath{ File::getSpecialLocation(File::userDocumentsDirectory).getFullPathName() };
 	String mophoGUIdir{ "\\MophoGUI\\" };
@@ -110,7 +110,7 @@ void GUI_Layer_ImportExport_Base::browserRootChanged(const File& /*file*/) {
 }
 
 void GUI_Layer_ImportExport_Base::showNewFolderDialog() {
-	newFolderDialog.reset(new GUI_Layer_NewFolderDialog(browserComponent.get(), unexposedParams));
+	newFolderDialog.reset(new GUI_Layer_NewFolderDialog(browserComponent.get(), tooltips));
 	addAndMakeVisible(newFolderDialog.get());
 	newFolderDialog->setBounds(getLocalBounds());
 	newFolderDialog->grabKeyboardFocus();
@@ -128,7 +128,7 @@ File GUI_Layer_ImportExport_Base::createFileToWriteTo(File& file) {
 }
 
 void GUI_Layer_ImportExport_Base::showFileIsNotValidAlert() {
-	fileNotValidAlert.reset(new GUI_Layer_FileNotValidAlert(unexposedParams));
+	fileNotValidAlert.reset(new GUI_Layer_FileNotValidAlert(tooltips));
 	addAndMakeVisible(fileNotValidAlert.get());
 	fileNotValidAlert->setBounds(getLocalBounds());
 	fileNotValidAlert->grabKeyboardFocus();

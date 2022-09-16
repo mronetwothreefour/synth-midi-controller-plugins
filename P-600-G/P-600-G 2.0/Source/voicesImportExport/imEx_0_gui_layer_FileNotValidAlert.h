@@ -37,7 +37,7 @@ public:
 		MemoryInputStream memInputStream{ BinaryData::bkgrnd_FileNotValidAlert_png, BinaryData::bkgrnd_FileNotValidAlert_pngSize, false };
 		PNGImageFormat imageFormat;
 		auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
-		g.drawImageAt(backgroundImage, 545, 256);
+		g.drawImageAt(backgroundImage, 611, 133);
 	}
 
 private:

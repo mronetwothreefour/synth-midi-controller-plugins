@@ -163,6 +163,7 @@
     <ClCompile Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\voices\voices_1_tree_VoicesBank.cpp"/>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp"/>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2356,6 +2357,8 @@
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileNotValidAlert.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FolderExistsAlert.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
@@ -3272,8 +3275,10 @@
     <None Include="..\..\BinaryResources\labels\lbl_ImportVoicesBank.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_FileOverwriteDialog.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_FileNotValidAlert.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_FolderExistsAlert.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_ImportExportWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCK.TTF"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF"/>

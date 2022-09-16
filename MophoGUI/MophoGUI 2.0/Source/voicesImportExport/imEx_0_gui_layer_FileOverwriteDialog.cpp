@@ -3,11 +3,11 @@
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 using namespace MophoConstants;
 
-GUI_Layer_FileOverwriteDialog::GUI_Layer_FileOverwriteDialog(UnexposedParameters* unexposedParams)
+GUI_Layer_FileOverwriteDialog::GUI_Layer_FileOverwriteDialog(TooltipsOptions* tooltips)
 {
 	addAndMakeVisible(btn_Cancel);
 	btn_Cancel.setComponentID(ID::btn_Cancel_FileOverwrite.toString());
@@ -17,7 +17,6 @@ GUI_Layer_FileOverwriteDialog::GUI_Layer_FileOverwriteDialog(UnexposedParameters
 	btn_Write.setComponentID(ID::btn_Write_OverFile.toString());
 	btn_Write.addShortcut(KeyPress(KeyPress::returnKey));
 
-	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	if (tooltips->shouldShowDescription()) {
 		btn_Cancel.setTooltip("Cancel file overwrite.");
 		btn_Write.setTooltip("Confirm file overwrite.");

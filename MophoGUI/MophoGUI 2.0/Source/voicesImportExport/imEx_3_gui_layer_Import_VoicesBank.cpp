@@ -8,10 +8,10 @@
 
 
 GUI_Layer_Import_VoicesBank::GUI_Layer_Import_VoicesBank(VoicesBank bank, VoiceSlots* voiceSlots, UnexposedParameters* unexposedParams) :
-	GUI_Layer_ImportExport_Base{ ImportExportType::importVoicesBank, bank, voiceSlots, unexposedParams }
+	GUI_Layer_ImportExport_Base{ ImportExportType::importVoicesBank, bank, voiceSlots, unexposedParams },
+	voicesBanks{ unexposedParams->getVoicesBanks() }
 {
 	jassert(bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3);
-	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	if (tooltips->shouldShowDescription()) {
 		btn_Cancel.setTooltip("Click to cancel the data import.");
 		btn_Proceed.setTooltip("Click to import the program data\nbank from the selected file.");
@@ -54,9 +54,7 @@ void GUI_Layer_Import_VoicesBank::proceedButtonClicked() {
 }
 
 void GUI_Layer_Import_VoicesBank::importVoiceDataFromStringArray(StringArray stringArray) {
-	for (uint8 slot = 0; slot != VCS::numberOfSlotsInVoicesBank; ++slot) {
-		auto voicesBanks{ unexposedParams->getVoicesBanks() };
+	for (uint8 slot = 0; slot != VCS::numberOfSlotsInVoicesBank; ++slot)
 		voicesBanks->storeVoiceDataHexStringInCustomBankSlot(stringArray[slot], bank, slot);
-	}
 	hideThisLayer();
 }

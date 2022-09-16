@@ -13,7 +13,7 @@ GUI_Layer_AllowedChoices_Standard::GUI_Layer_AllowedChoices_Standard(
 	exposedParams{ exposedParams },
 	info{ exposedParams->info.get() },
 	allowChoiceToggles{ paramIndex, exposedParams, unexposedParams },
-	btn_Close{ unexposedParams },
+	btn_Close{ unexposedParams->getTooltipsOptions() },
 	repeatChoicesToggle{ paramIndex, exposedParams, unexposedParams },
 	btn_Randomize{ paramIndex, exposedParams, unexposedParams },
 	childrenShouldBeStackedVertically{ false },

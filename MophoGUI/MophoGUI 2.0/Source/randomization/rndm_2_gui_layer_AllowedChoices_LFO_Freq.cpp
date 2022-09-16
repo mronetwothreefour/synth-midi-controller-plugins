@@ -12,7 +12,7 @@ GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
 	info{ exposedParams->info.get() },
 	randomization{ exposedParams->randomization.get() },
 	repeatChoices{ paramIndex, exposedParams, unexposedParams },
-	btn_Close{ unexposedParams },
+	btn_Close{ unexposedParams->getTooltipsOptions() },
 	allowUnsyncedFreqToggles{ paramIndex, exposedParams, unexposedParams },
 	allowPitchedFreqToggles{ paramIndex, exposedParams, unexposedParams },
 	allowSyncedFreqToggles{ paramIndex, exposedParams, unexposedParams },

@@ -25,7 +25,7 @@ public:
 			setVisible(false);
 		};
 		btn_Close.setTooltip(tooltips->shouldShowDescription() ? "Click to close this alert." : "");
-		btn_Close.setBounds(605, 302, 42, GUI::btn_Small_h);
+		btn_Close.setBounds(605, 301, 42, GUI::buttons_small_h);
 		addAndMakeVisible(btn_Close);
 		setSize(GUI::editor_w, GUI::editor_h);
 	}
@@ -37,7 +37,7 @@ public:
 		MemoryInputStream memInputStream{ BinaryData::bkgrnd_FileNotValidAlert_png, BinaryData::bkgrnd_FileNotValidAlert_pngSize, false };
 		PNGImageFormat imageFormat;
 		auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
-		g.drawImageAt(backgroundImage, 545, 256);
+		g.drawImageAt(backgroundImage, 545, 255);
 	}
 
 private:

@@ -26,7 +26,7 @@ public:
 	explicit GUI_Layer_CommError_Base(UnexposedParameters* unexposedParams) :
 		global{ unexposedParams->getGlobalOptions() },
 		outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() },
-		btn_Close{ unexposedParams },
+		btn_Close{ unexposedParams->getTooltipsOptions() },
 		btn_RequestGlobalParamsDump{ "" }
 	{
 		addAndMakeVisible(btn_Close);

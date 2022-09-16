@@ -4,7 +4,7 @@
 
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 using namespace MophoConstants;
 
@@ -18,10 +18,10 @@ class ButtonForHidingLayer :
 public:
 	ButtonForHidingLayer() = delete;
 
-	explicit ButtonForHidingLayer(UnexposedParameters* unexposedParams) :
-		tooltips{ unexposedParams->getTooltipsOptions() }
+	explicit ButtonForHidingLayer(TooltipsOptions* tooltips) :
+		tooltips{ tooltips }
 	{
-		shouldShowDescriptionAsValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
+		shouldShowDescriptionAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
 		shouldShowDescriptionAsValue.addListener(this);
 		setComponentID(ID::btn_Close.toString());
 		onClick = [this] {

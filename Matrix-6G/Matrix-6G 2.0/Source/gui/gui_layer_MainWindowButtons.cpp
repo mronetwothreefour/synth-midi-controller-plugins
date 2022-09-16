@@ -23,7 +23,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     shouldShowDescriptionAsValue.addListener(this);
 
     const int smallButtons_y{ 367 };
-    btn_ActivateQuickEdit.setBounds(596, smallButtons_y, 34, GUI::btn_Small_h);
+    btn_ActivateQuickEdit.setBounds(596, smallButtons_y, 34, GUI::buttons_small_h);
     addAndMakeVisible(btn_ActivateQuickEdit);
 
     const int pullAndPushButtons_w{ 28 };
@@ -35,7 +35,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
         auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
         addProgramChangeMessageToOutgoingBuffersAfterDelay(transmitOptions->voiceTransmitTime());
     };
-    btn_Pull.setBounds(633, smallButtons_y, pullAndPushButtons_w, GUI::btn_Small_h);
+    btn_Pull.setBounds(633, smallButtons_y, pullAndPushButtons_w, GUI::buttons_small_h);
     btn_Pull.addShortcut(KeyPress{ 'p', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_Pull);
 
@@ -45,7 +45,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
         SysExMessages::addDataMessageForCurrentVoiceToOutgoingBuffers(exposedParams, outgoingBuffers);
         addProgramChangeMessageToOutgoingBuffersAfterDelay(10);
     };
-    btn_Push.setBounds(664, smallButtons_y, pullAndPushButtons_w, GUI::btn_Small_h);
+    btn_Push.setBounds(664, smallButtons_y, pullAndPushButtons_w, GUI::buttons_small_h);
     btn_Push.addShortcut(KeyPress{ 'p', ModifierKeys::ctrlModifier + ModifierKeys::altModifier, 0 });
     addAndMakeVisible(btn_Push);
 

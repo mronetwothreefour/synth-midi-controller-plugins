@@ -3,12 +3,12 @@
 #include <JuceHeader.h>
 
 class GUI_Layer_FolderExistsAlert;
-class UnexposedParameters;
+class TooltipsOptions;
 
 class GUI_Layer_NewFolderDialog :
 	public Component
 {
-	UnexposedParameters* unexposedParams;
+	TooltipsOptions* tooltips;
 	FileBrowserComponent* browserComponent;
 	TextEditor label_FolderNameEditor;
 	TextButton btn_Cancel;
@@ -18,7 +18,7 @@ class GUI_Layer_NewFolderDialog :
 public:
 	GUI_Layer_NewFolderDialog() = delete;
 
-	GUI_Layer_NewFolderDialog(FileBrowserComponent* browserComponent, UnexposedParameters* unexposedParams);
+	GUI_Layer_NewFolderDialog(FileBrowserComponent* browserComponent, TooltipsOptions* tooltips);
 	void paint(Graphics& g) override;
 
 private:

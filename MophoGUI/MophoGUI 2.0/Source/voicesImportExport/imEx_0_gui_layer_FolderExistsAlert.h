@@ -14,8 +14,8 @@ class GUI_Layer_FolderExistsAlert :
 	ButtonForHidingLayer btn_Close;
 
 public:
-	GUI_Layer_FolderExistsAlert(UnexposedParameters* unexposedParams) :
-		btn_Close{ unexposedParams }
+	GUI_Layer_FolderExistsAlert(TooltipsOptions* tooltips) :
+		btn_Close{ tooltips }
 	{
 		btn_Close.setTopLeftPosition(612, 310);
 		addAndMakeVisible(btn_Close);

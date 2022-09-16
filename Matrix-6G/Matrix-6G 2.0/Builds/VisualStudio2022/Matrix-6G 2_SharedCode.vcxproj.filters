@@ -727,6 +727,9 @@
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp">
       <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.cpp">
+      <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
     </ClCompile>
@@ -3199,6 +3202,12 @@
       <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.h">
+      <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FolderExistsAlert.h">
+      <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.h">
       <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5915,6 +5924,12 @@
     <None Include="..\..\BinaryResources\buttons\btn_Close_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Create_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Create_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
     <None Include="..\..\BinaryResources\buttons\btn_Export_Dn.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
@@ -5963,10 +5978,16 @@
     <None Include="..\..\BinaryResources\bkgrnd_FileOverwriteDialog.png">
       <Filter>Matrix-6G 2\BinaryResources</Filter>
     </None>
+    <None Include="..\..\BinaryResources\bkgrnd_FolderExistsAlert.png">
+      <Filter>Matrix-6G 2\BinaryResources</Filter>
+    </None>
     <None Include="..\..\BinaryResources\bkgrnd_ImportExportWindow.png">
       <Filter>Matrix-6G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png">
+      <Filter>Matrix-6G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png">
       <Filter>Matrix-6G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF">

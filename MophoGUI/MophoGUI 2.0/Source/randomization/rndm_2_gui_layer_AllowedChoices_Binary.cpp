@@ -11,7 +11,7 @@ GUI_Layer_AllowedChoices_Binary::GUI_Layer_AllowedChoices_Binary(
 	paramIndex{ paramIndex },
 	repeatChoicesToggle{ paramIndex, exposedParams, unexposedParams },
 	btn_Randomize{ paramIndex, exposedParams, unexposedParams },
-	btn_Close{ unexposedParams },
+	btn_Close{ unexposedParams->getTooltipsOptions() },
 	background_x{ info->allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ info->allowedChoicesBackground_y_For(paramIndex) }
 {

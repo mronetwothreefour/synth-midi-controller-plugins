@@ -18,7 +18,7 @@ GUI_Layer_Randomization::GUI_Layer_Randomization(ExposedParameters* exposedParam
 	exposedParams{ exposedParams },
 	info{ exposedParams->info.get() },
 	randomization{ exposedParams->randomization.get() },
-	btn_Close{ unexposedParams },
+	btn_Close{ unexposedParams->getTooltipsOptions() },
 	transmitType{ randomization, unexposedParams },
 	allowedChoicesLayers{ exposedParams, unexposedParams },
 	lockStateButtons_All{ LockStateGroup::all, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },

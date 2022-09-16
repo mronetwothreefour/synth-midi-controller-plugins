@@ -11,6 +11,7 @@ namespace P_600_G_Constants
 		static const Identifier bank_VoiceNameStrings{ "bank_VoiceNameStrings" };
 
 		static const Identifier btn_Esc_FileOverwrite{ "btn_Esc_FileOverwrite" };
+		static const Identifier btn_Esc_NewFolder{ "btn_Esc_NewFolder" };
 		static const Identifier btn_OK{ "btn_OK" };
 		static const Identifier btn_OK_FileOverwrite{ "btn_OK_FileOverwrite" };
 		static const Identifier btn_Pull{ "btn_Pull" };
@@ -57,6 +58,8 @@ namespace P_600_G_Constants
 		static const Identifier ep_34_LFO_Dest_Freq{ "ep_34_LFO_Dest_Freq" };
 		static const Identifier ep_35_LFO_Dest_PW{ "ep_35_LFO_Dest_PW" };
 		static const Identifier ep_36_LFO_Dest_Filter{ "ep_36_LFO_Dest_Filter" };
+
+		static const Identifier label_FolderNameEditor{ "label_FolderNameEditor" };
 
 		static const Identifier property_Center_x{ "property_ControlCenter_x" };
 		static const Identifier property_Center_y{ "property_ControlCenter_y" };

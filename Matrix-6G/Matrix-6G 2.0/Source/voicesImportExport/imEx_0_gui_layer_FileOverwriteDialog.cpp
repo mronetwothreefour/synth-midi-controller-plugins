@@ -25,8 +25,8 @@ GUI_Layer_FileOverwriteDialog::GUI_Layer_FileOverwriteDialog(UnexposedParameters
 
 	const int buttons_w{ 46 };
 	const int buttons_y{ 313 };
-	btn_Cancel.setBounds(577, buttons_y, buttons_w, GUI::btn_Small_h);
-	btn_Write.setBounds(629, buttons_y, buttons_w, GUI::btn_Small_h);
+	btn_Cancel.setBounds(577, buttons_y, buttons_w, GUI::buttons_small_h);
+	btn_Write.setBounds(629, buttons_y, buttons_w, GUI::buttons_small_h);
 
 	setSize(GUI::editor_w, GUI::editor_h);
 }

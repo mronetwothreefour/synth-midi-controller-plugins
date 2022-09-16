@@ -23,6 +23,10 @@
               file="BinaryResources/buttons/btn_Close_Dn.png"/>
         <FILE id="xMjTPB" name="btn_Close_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Close_Up.png"/>
+        <FILE id="H1zLp1" name="btn_Create_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Create_Dn.png"/>
+        <FILE id="Chlqlz" name="btn_Create_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Create_Up.png"/>
         <FILE id="Ml9hIV" name="btn_Export_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Export_Dn.png"/>
         <FILE id="Fr8iVF" name="btn_Export_Up.png" compile="0" resource="1"
@@ -54,10 +58,14 @@
             file="BinaryResources/bkgrnd_FileNotValidAlert.png"/>
       <FILE id="q398oy" name="bkgrnd_FileOverwriteDialog.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_FileOverwriteDialog.png"/>
+      <FILE id="Eijvvv" name="bkgrnd_FolderExistsAlert.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_FolderExistsAlert.png"/>
       <FILE id="DIIZ5o" name="bkgrnd_ImportExportWindow.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_ImportExportWindow.png"/>
       <FILE id="JyyaUF" name="bkgrnd_MainWindow.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_MainWindow.png"/>
+      <FILE id="wAz6I0" name="bkgrnd_NewFolderDialog.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_NewFolderDialog.png"/>
       <FILE id="SAozmE" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
       <FILE id="M2aKqo" name="SWISSCL.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCL.TTF"/>
     </GROUP>
@@ -267,6 +275,12 @@
               resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileOverwriteDialog.cpp"/>
         <FILE id="b4TyKx" name="imEx_0_gui_layer_FileOverwriteDialog.h" compile="0"
               resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileOverwriteDialog.h"/>
+        <FILE id="x4PVlT" name="imEx_0_gui_layer_FolderExistsAlert.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FolderExistsAlert.h"/>
+        <FILE id="fGXFkc" name="imEx_1_gui_layer_NewFolderDialog.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_1_gui_layer_NewFolderDialog.cpp"/>
+        <FILE id="hQgceg" name="imEx_1_gui_layer_NewFolderDialog.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_1_gui_layer_NewFolderDialog.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>

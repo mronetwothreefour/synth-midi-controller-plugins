@@ -7,8 +7,8 @@
 #include "../constants/constants_Identifiers.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
-GUI_Layer_NewFolderDialog::GUI_Layer_NewFolderDialog(FileBrowserComponent* browserComponent, UnexposedParameters* unexposedParams) :
-	unexposedParams{ unexposedParams },
+GUI_Layer_NewFolderDialog::GUI_Layer_NewFolderDialog(FileBrowserComponent* browserComponent, TooltipsOptions* tooltips) :
+	tooltips{ tooltips },
 	browserComponent{ browserComponent }
 {
 	label_FolderNameEditor.setComponentID(ID::label_FolderNameEditor.toString());
@@ -35,8 +35,6 @@ GUI_Layer_NewFolderDialog::GUI_Layer_NewFolderDialog(FileBrowserComponent* brows
 	btn_Create.setBounds(639, buttonsRow_y, buttons_w, GUI::redButton_h);
 	addAndMakeVisible(btn_Create);
 
-
-	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	if (tooltips->shouldShowDescription()) {
 		label_FolderNameEditor.setTooltip("Type in the name of the new folder.");
 		btn_Cancel.setTooltip("Cancel new folder creation.");
@@ -73,7 +71,7 @@ void GUI_Layer_NewFolderDialog::createNewFolder() {
 }
 
 void GUI_Layer_NewFolderDialog::showFolderExistsAlert() {
-	folderExistsAlert.reset(new GUI_Layer_FolderExistsAlert(unexposedParams));
+	folderExistsAlert.reset(new GUI_Layer_FolderExistsAlert(tooltips));
 	addAndMakeVisible(folderExistsAlert.get());
 	folderExistsAlert->setBounds(getLocalBounds());
 	folderExistsAlert->grabKeyboardFocus();

@@ -8,7 +8,8 @@
 
 
 GUI_Layer_Import_Voice::GUI_Layer_Import_Voice(VoicesBank bank, VoiceSlots* voiceSlots, UnexposedParameters* unexposedParams) :
-	GUI_Layer_ImportExport_Base{ ImportExportType::importVoice, bank, voiceSlots, unexposedParams }
+	GUI_Layer_ImportExport_Base{ ImportExportType::importVoice, bank, voiceSlots, unexposedParams },
+	voicesBanks{ unexposedParams->getVoicesBanks() }
 {
 	jassert(bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3);
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
@@ -46,7 +47,6 @@ void GUI_Layer_Import_Voice::proceedButtonClicked() {
 
 void GUI_Layer_Import_Voice::importVoiceDataFromString(String incomingString) {
 	auto slot{ voiceSlots->selectedSlot };
-	auto voicesBanks{ unexposedParams->getVoicesBanks() };
 	voicesBanks->storeVoiceDataHexStringInCustomBankSlot(incomingString, bank, slot);
 	hideThisLayer();
 }

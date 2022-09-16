@@ -7,9 +7,9 @@
 #include "../voices/voices_3_comp_VoiceSlots.h"
 
 GUI_Layer_Export_Voice::GUI_Layer_Export_Voice(VoicesBank bank, VoiceSlots * voiceSlots, UnexposedParameters* unexposedParams) :
-	GUI_Layer_ImportExport_Base{ ImportExportType::exportVoice, bank, voiceSlots, unexposedParams }
+	GUI_Layer_ImportExport_Base{ ImportExportType::exportVoice, bank, voiceSlots, unexposedParams },
+	voicesBanks{ unexposedParams->getVoicesBanks() }
 {
-	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	if (tooltips->shouldShowDescription()) {
 		btn_NewFolder.setTooltip("Click to create a new folder\nin the current directory.");
 		btn_Cancel.setTooltip("Click to cancel the file export.");
@@ -36,7 +36,7 @@ void GUI_Layer_Export_Voice::proceedButtonClicked() {
 }
 
 void GUI_Layer_Export_Voice::showFileOverwriteDialog() {
-	fileOverwriteDialog.reset(new GUI_Layer_FileOverwriteDialog(unexposedParams));
+	fileOverwriteDialog.reset(new GUI_Layer_FileOverwriteDialog(tooltips));
 	fileOverwriteDialog->addListenerToButtons(this);
 	addAndMakeVisible(fileOverwriteDialog.get());
 	fileOverwriteDialog->setBounds(getLocalBounds());
@@ -64,7 +64,6 @@ void GUI_Layer_Export_Voice::writeVoiceDataIntoFile(File& file) {
 		outStream.setPosition(0);
 		outStream.truncate();
 		auto slot{ voiceSlots->selectedSlot };
-		auto voicesBanks{ unexposedParams->getVoicesBanks() };
 		auto voiceDataHexString{ voicesBanks->getVoiceDataHexStringFromBankSlot(bank, slot) };
 		outStream.writeText(voiceDataHexString, false, false, nullptr);
 		hideThisLayer();

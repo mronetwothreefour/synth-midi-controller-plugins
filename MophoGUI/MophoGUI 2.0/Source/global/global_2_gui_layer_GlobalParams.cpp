@@ -5,6 +5,7 @@
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
+#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
 using ChoiceName = GlobalParamChoiceName;
@@ -15,7 +16,7 @@ using ToggleType = GlobalParamToggleType;
 
 
 GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unexposedParams) :
-	btn_Close{ unexposedParams },
+	btn_Close{ unexposedParams->getTooltipsOptions() },
 	knob_GlobalTranspose{ KnobType::globalTranspose, unexposedParams },
 	knob_GlobalFineTune{ KnobType::globalFineTune, unexposedParams },
 	knob_HardwareReceiveChannel{ KnobType::hardwareReceiveChannel, unexposedParams },

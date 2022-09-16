@@ -22,7 +22,7 @@ GUI_Layer_BankTransmit::GUI_Layer_BankTransmit(VoicesBank& bank, BankTransmitTyp
 	progress{ 0.0 },
 	progressBar{ progress },
 	btn_Stop{ "" },
-	btn_Close{ unexposedParams }
+	btn_Close{ unexposedParams->getTooltipsOptions() }
 {
 	bankName = (bank < VoicesBank::custom_1 ? "Factory " : "Custom ") + String((int)bank % 3 + 1);
 

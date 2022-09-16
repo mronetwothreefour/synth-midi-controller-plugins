@@ -14,7 +14,9 @@ namespace Matrix_6G_Constants
 		static const Identifier btn_ActivateQuickEdit{ "btn_ActivateQuickEdit" };
 		static const Identifier btn_ActivateQuickEdit_Flash{ "btn_ActivateQuickEdit_Flash" };
 		static const Identifier btn_Cancel_FileOverwrite{ "btn_Cancel_FileOverwrite" };
+		static const Identifier btn_Cancel_NewFolder{ "btn_Cancel_NewFolder" };
 		static const Identifier btn_Close{ "btn_Close" };
+		static const Identifier btn_Create{ "btn_Create" };
 		static const Identifier btn_Pull{ "btn_Pull" };
 		static const Identifier btn_Push{ "btn_Push" };
 		static const Identifier btn_Write{ "btn_Write" };
@@ -109,6 +111,8 @@ namespace Matrix_6G_Constants
 
 
 		static const Identifier global_BasicChannel{ "global_BasicChannel" };
+
+		static const Identifier label_FolderNameEditor{ "label_FolderNameEditor" };
 
 		static const Identifier property_Center_x{ "property_ControlCenter_x" };
 		static const Identifier property_Center_y{ "property_ControlCenter_y" };

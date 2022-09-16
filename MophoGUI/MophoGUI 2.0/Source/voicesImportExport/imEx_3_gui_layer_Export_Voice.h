@@ -5,6 +5,8 @@
 #include "imEx_2_gui_layer_ImportExport_Base.h"
 
 class GUI_Layer_FileOverwriteDialog;
+class TooltipsOptions;
+class VoicesBanks;
 class VoiceSlots;
 class UnexposedParameters;
 
@@ -12,6 +14,7 @@ class GUI_Layer_Export_Voice :
 	public GUI_Layer_ImportExport_Base,
 	public Button::Listener
 {
+	VoicesBanks* voicesBanks;
 	std::unique_ptr<GUI_Layer_FileOverwriteDialog> fileOverwriteDialog;
 
 public:

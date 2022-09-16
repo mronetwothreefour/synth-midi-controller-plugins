@@ -12,7 +12,7 @@ GUI_Layer_AllowedChoices_VoiceNameChar::GUI_Layer_AllowedChoices_VoiceNameChar(
 	paramIndex{ paramIndex },
 	info{ exposedParams->info.get() },
 	allowChoiceToggles{ paramIndex, exposedParams, unexposedParams },
-	btn_Close{ unexposedParams },
+	btn_Close{ unexposedParams->getTooltipsOptions() },
 	repeatChoicesToggle{ paramIndex, exposedParams, unexposedParams },
 	btn_Randomize{ paramIndex, exposedParams, unexposedParams },
 	background_x{ info->allowedChoicesBackground_x_For(paramIndex) },

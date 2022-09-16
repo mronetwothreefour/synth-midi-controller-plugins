@@ -17,6 +17,7 @@ namespace Matrix_6G_Constants
 		const Typeface::Ptr Swiss721_Bd{ Typeface::createSystemTypefaceFor(BinaryData::SWISSB_TTF, BinaryData::SWISSB_TTFSize) };
 		const Typeface::Ptr Swiss721_CndLt{ Typeface::createSystemTypefaceFor(BinaryData::SWISSCL_TTF, BinaryData::SWISSCL_TTFSize) };
 
+		const Font font_BrowserText{ FontBuilder::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 16.0f, 0.0f) };
 		const Font font_LabelEditors{ FontBuilder::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 16.0f, 0.0f) };
 		const Font font_VoiceAndSplitSlotRadioButtons{ FontBuilder::createFontFromTypeface_Size_Kerning(Swiss721_CndLt, 13.0f, 0.0f) };
 		const Font font_Tooltips{ FontBuilder::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 13.0f, 0.0f) };

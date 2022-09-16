@@ -14,7 +14,7 @@ GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
 	destIsPitched{ destIsPitched },
 	unexposedParams{ unexposedParams },
 	randomization{ exposedParams->randomization.get() },
-	btn_Close{ unexposedParams },
+	btn_Close{ unexposedParams->getTooltipsOptions() },
 	targetStepSelector{ track, randomization, unexposedParams },
 	btn_Randomize{ track, exposedParams, unexposedParams}
 {

@@ -8,6 +8,7 @@
 
 class GUI_Layer_FileNotValidAlert;
 class GUI_Layer_NewFolderDialog;
+class TooltipsOptions;
 class UnexposedParameters;
 class VoiceSlots;
 
@@ -19,7 +20,7 @@ protected:
 	ImportExportType type;
 	VoicesBank bank;
 	VoiceSlots* voiceSlots;
-	UnexposedParameters* unexposedParams;
+	TooltipsOptions* tooltips;
 	TextButton btn_NewFolder;
 	TextButton btn_Cancel;
 	TextButton btn_Proceed;

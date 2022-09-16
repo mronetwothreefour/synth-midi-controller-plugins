@@ -13,7 +13,7 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 	randomization{ exposedParams->randomization.get() },
 	repeatChoices{ paramIndex, exposedParams, unexposedParams },
 	allowPulseWidthToggles{ paramIndex, exposedParams, unexposedParams },
-	btn_Close{ unexposedParams },
+	btn_Close{ unexposedParams->getTooltipsOptions() },
 	btn_Randomize{ paramIndex, exposedParams, unexposedParams },
 	background_x{ info->allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ info->allowedChoicesBackground_y_For(paramIndex) },

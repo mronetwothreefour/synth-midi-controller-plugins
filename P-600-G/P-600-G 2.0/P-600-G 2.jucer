@@ -38,10 +38,14 @@
             resource="1" file="BinaryResources/bkgrnd_FileOverwriteDialog.png"/>
       <FILE id="sYM8rw" name="bkgrnd_FileNotValidAlert.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_FileNotValidAlert.png"/>
+      <FILE id="QCUFN0" name="bkgrnd_FolderExistsAlert.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_FolderExistsAlert.png"/>
       <FILE id="sqovvW" name="bkgrnd_ImportExportWindow.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_ImportExportWindow.png"/>
       <FILE id="ogAMbU" name="bkgrnd_MainWindow.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_MainWindow.png"/>
+      <FILE id="cHIT77" name="bkgrnd_NewFolderDialog.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_NewFolderDialog.png"/>
       <FILE id="h4ZOcY" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
       <FILE id="UazGl9" name="SWISSCK.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCK.TTF"/>
       <FILE id="Jv8T7b" name="SWISSCL.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCL.TTF"/>
@@ -194,6 +198,12 @@
               resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileOverwriteDialog.cpp"/>
         <FILE id="U6ybZu" name="imEx_0_gui_layer_FileOverwriteDialog.h" compile="0"
               resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FileOverwriteDialog.h"/>
+        <FILE id="jiEom5" name="imEx_0_gui_layer_FolderExistsAlert.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_0_gui_layer_FolderExistsAlert.h"/>
+        <FILE id="jlwqgi" name="imEx_1_gui_layer_NewFolderDialog.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_1_gui_layer_NewFolderDialog.cpp"/>
+        <FILE id="kiD9xD" name="imEx_1_gui_layer_NewFolderDialog.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_1_gui_layer_NewFolderDialog.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>
