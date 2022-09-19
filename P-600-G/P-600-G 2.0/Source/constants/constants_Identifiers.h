@@ -12,11 +12,17 @@ namespace P_600_G_Constants
 
 		static const Identifier btn_Esc_FileOverwrite{ "btn_Esc_FileOverwrite" };
 		static const Identifier btn_Esc_NewFolder{ "btn_Esc_NewFolder" };
+		static const Identifier btn_Esc_ImportExport{ "btn_Esc_ImportExport" };
+		static const Identifier btn_NewFolder{ "btn_NewFolder" };
 		static const Identifier btn_OK{ "btn_OK" };
 		static const Identifier btn_OK_FileOverwrite{ "btn_OK_FileOverwrite" };
+		static const Identifier btn_OK_ExportFile{ "btn_OK_ExportFile" };
+		static const Identifier btn_OK_ImportFile{ "btn_OK_ExportFile" };
 		static const Identifier btn_Pull{ "btn_Pull" };
 		static const Identifier btn_Push{ "btn_Push" };
+		static const Identifier btn_VoiceSlotRadioButton{ "btn_VoiceSlotRadioButton" };
 
+		static const Identifier comp_ImportExportBrowser{ "comp_ImportExportBrowser" };
 		static const Identifier comp_TextEditorForKnob{ "comp_TextEditorForKnob" };
 		static const Identifier comp_TextEditorForVoiceNumberSlider{ "comp_TextEditorForVoiceNumberSlider" };
 		static const Identifier comp_VoiceNumberSlider{ "comp_VoiceNumberSlider" };

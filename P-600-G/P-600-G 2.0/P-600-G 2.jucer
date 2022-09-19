@@ -188,6 +188,14 @@
               file="Source/voices/voices_1_tree_VoicesBank.cpp"/>
         <FILE id="WafpMu" name="voices_1_tree_VoicesBank.h" compile="0" resource="0"
               file="Source/voices/voices_1_tree_VoicesBank.h"/>
+        <FILE id="NkXB11" name="voices_2_comp_VoiceSlotRadioButton.cpp" compile="1"
+              resource="0" file="Source/voices/voices_2_comp_VoiceSlotRadioButton.cpp"/>
+        <FILE id="APDlB7" name="voices_2_comp_VoiceSlotRadioButton.h" compile="0"
+              resource="0" file="Source/voices/voices_2_comp_VoiceSlotRadioButton.h"/>
+        <FILE id="u7CzSB" name="voices_3_comp_VoiceSlots.cpp" compile="1" resource="0"
+              file="Source/voices/voices_3_comp_VoiceSlots.cpp"/>
+        <FILE id="duEYYV" name="voices_3_comp_VoiceSlots.h" compile="0" resource="0"
+              file="Source/voices/voices_3_comp_VoiceSlots.h"/>
       </GROUP>
       <GROUP id="{D94CB483-4214-AFE0-3CF6-0A4CD55E84D7}" name="voicesImportExport">
         <FILE id="TRcnjp" name="imEx_0_FileFilters.h" compile="0" resource="0"
@@ -204,6 +212,10 @@
               resource="0" file="Source/voicesImportExport/imEx_1_gui_layer_NewFolderDialog.cpp"/>
         <FILE id="kiD9xD" name="imEx_1_gui_layer_NewFolderDialog.h" compile="0"
               resource="0" file="Source/voicesImportExport/imEx_1_gui_layer_NewFolderDialog.h"/>
+        <FILE id="JcG49t" name="imEx_2_gui_layer_ImportExport_Base.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_2_gui_layer_ImportExport_Base.cpp"/>
+        <FILE id="LINPxa" name="imEx_2_gui_layer_ImportExport_Base.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_2_gui_layer_ImportExport_Base.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>

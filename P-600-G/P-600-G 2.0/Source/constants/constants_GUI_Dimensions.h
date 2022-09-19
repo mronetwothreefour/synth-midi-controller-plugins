@@ -14,5 +14,7 @@ namespace P_600_G_Constants
 		const int switch_2_Pole_h{ 32 };
 		const int switch_3_Pole_h{ 48 };
 		const int switch_w{ 20 };
+		const int voiceSlotRadioButtton_w{ 135 };
+		const int voiceSlotRadioButtton_h{ 16 };
 	}
 }

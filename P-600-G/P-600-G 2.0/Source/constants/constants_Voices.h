@@ -8,6 +8,6 @@ namespace P_600_G_Constants
 	{
 		const int indexOfFirstNameCharInVoiceDataHexString{ 64 };
 		const int maxLengthOfVoiceName{ 20 };
-		const int numberOfVoiceSlots{ 100 };
+		const int numberOfSlotsInVoicesBank{ 100 };
 	}
 }

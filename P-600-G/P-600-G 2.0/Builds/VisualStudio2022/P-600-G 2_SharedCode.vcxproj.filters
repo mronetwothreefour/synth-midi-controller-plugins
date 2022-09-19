@@ -682,10 +682,19 @@
     <ClCompile Include="..\..\Source\voices\voices_1_tree_VoicesBank.cpp">
       <Filter>P-600-G 2\Source\voices</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_2_comp_VoiceSlotRadioButton.cpp">
+      <Filter>P-600-G 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_3_comp_VoiceSlots.cpp">
+      <Filter>P-600-G 2\Source\voices</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp">
       <Filter>P-600-G 2\Source\voicesImportExport</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.cpp">
+      <Filter>P-600-G 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.cpp">
       <Filter>P-600-G 2\Source\voicesImportExport</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -3108,6 +3117,12 @@
     <ClInclude Include="..\..\Source\voices\voices_1_tree_VoicesBank.h">
       <Filter>P-600-G 2\Source\voices</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_2_comp_VoiceSlotRadioButton.h">
+      <Filter>P-600-G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_3_comp_VoiceSlots.h">
+      <Filter>P-600-G 2\Source\voices</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h">
       <Filter>P-600-G 2\Source\voicesImportExport</Filter>
     </ClInclude>
@@ -3121,6 +3136,9 @@
       <Filter>P-600-G 2\Source\voicesImportExport</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.h">
+      <Filter>P-600-G 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.h">
       <Filter>P-600-G 2\Source\voicesImportExport</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

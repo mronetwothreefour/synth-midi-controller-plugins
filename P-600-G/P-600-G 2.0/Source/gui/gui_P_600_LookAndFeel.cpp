@@ -5,6 +5,7 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../constants/constants_Identifiers.h"
+#include "../constants/constants_GUI_PathData.h"
 
 using namespace P_600_G_Constants;
 using namespace BinaryData;
@@ -41,6 +42,9 @@ void P_600_LookAndFeel::drawLinearSlider(
 	g.drawImageAt(switchTab, x, h - (currentValue * switchTab_h) + offsetForLinearSliderTab);
 }
 
+
+
+
 void P_600_LookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Colour& /*background*/, bool /*isHighlighted*/, bool isDown) {
 	auto buttonID{ button.getComponentID() };
 	MemBlock mBlock{};
@@ -50,6 +54,9 @@ void P_600_LookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 
 	if (buttonID.startsWith("btn_OK"))
 		mBlock = MemBlock{ isDown ? btn_OK_Dn_png : btn_OK_Up_png, isDown ? (s_t)btn_OK_Dn_pngSize : (s_t)btn_OK_Up_pngSize };
+
+	if (buttonID == ID::btn_NewFolder.toString())
+		mBlock = MemBlock{ isDown ? btn_NewFldr_Dn_png : btn_NewFldr_Up_png, isDown ? (s_t)btn_NewFldr_Dn_pngSize : (s_t)btn_NewFldr_Up_pngSize };
 
 	if (buttonID == ID::btn_Pull.toString())
 		mBlock = MemBlock{ isDown ? btn_Pull_Dn_png : btn_Pull_Up_png, isDown ? (s_t)btn_Pull_Dn_pngSize : (s_t)btn_Pull_Up_pngSize };
@@ -65,6 +72,88 @@ void P_600_LookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 
 void P_600_LookAndFeel::drawButtonText(Graphics& /*g*/, TextButton& /*button*/, bool /*isHighlighted*/, bool /*isDown*/) {
 }
+
+void P_600_LookAndFeel::drawToggleButton(Graphics& g, ToggleButton& button, bool isHighlighted, bool isDown) {
+	drawTickBox(g, button, 0.0f, 0.0f, (float)button.getWidth(), (float)button.getHeight(),
+		button.getToggleState(), button.isEnabled(), isHighlighted, isDown);
+}
+
+void P_600_LookAndFeel::drawTickBox(Graphics& g, Component& component, float x, float y, float w, float h, 
+	const bool isTicked, const bool /*isEnabled*/, const bool isHighlighted, const bool /*isDown*/)
+{
+	auto componentID{ component.getComponentID() };
+	if (componentID == ID::btn_VoiceSlotRadioButton.toString()) {
+		auto buttonColor{ GUI::color_OffWhite.withAlpha(0.0f) };
+		if (isHighlighted)
+			buttonColor = buttonColor.withAlpha(0.1f);
+		if (isTicked)
+			buttonColor = buttonColor.withAlpha(0.25f);
+		g.setColour(buttonColor);
+		g.fillRect(x, y, w, h);
+		g.setColour(GUI::color_OffWhite);
+		g.setFont(GUI::font_VoiceSlotRadioButtons);
+		Rectangle<float> textArea{ x + 2, y, w, h };
+		g.drawText(component.getName(), textArea, Justification::centredLeft);
+	}
+}
+
+
+
+
+void P_600_LookAndFeel::layoutFileBrowserComponent(
+	Browser& /*browser*/, DirContents* dirContents, Preview* /*preview*/, ComboBox* currentPath, TextEditor* fileName, Button* goUpButton)
+{
+	const int browser_w{ 470 };
+	currentPath->setBounds(0, 0, browser_w, 26);
+	currentPath->setJustificationType(Justification::centredLeft);
+	goUpButton->setBounds(450, 0, 20, currentPath->getHeight());
+	setColour(ListBox::backgroundColourId, GUI::color_Black.withAlpha(0.0f));
+	setColour(ListBox::outlineColourId, GUI::color_Black.withAlpha(0.0f));
+	if (auto* listAsComp = dynamic_cast<Component*> (dirContents))
+		listAsComp->setBounds(0, 36, browser_w, 173);
+	fileName->setBounds(86, 219, 385, currentPath->getHeight());
+	fileName->applyFontToAllText(GUI::font_BrowserText, true);
+}
+
+void P_600_LookAndFeel::drawFileBrowserRow(Graphics& g, int w, int h, const File& /*file*/, const String& fileName, Image* /*icon*/,
+	const String& fileSizeString, const String& fileTimeString, bool isDirectory, bool isSelected, int /*itemIndex*/, DirContents& /*dirContents*/)
+{
+	if (isSelected)
+		g.fillAll(GUI::color_Black.brighter(0.3f));
+	Path iconPath;
+	if (isDirectory)
+		iconPath.loadPathFromData(GUI::pathDataForFolderIcon.data(), GUI::pathDataForFolderIcon.size());
+	else
+		iconPath.loadPathFromData(GUI::pathDataForFileIcon.data(), GUI::pathDataForFileIcon.size());
+	g.setColour(GUI::color_OffWhite);
+	g.fillPath(iconPath);
+	g.setFont(GUI::font_BrowserText);
+	const int browserIcon_w{ 32 };
+	if (w > 450 && !isDirectory) {
+		auto sizeX = roundToInt((float)w * 0.7f);
+		auto dateX = roundToInt((float)w * 0.8f);
+		g.drawFittedText(fileName, browserIcon_w, 0, sizeX - browserIcon_w, h, Justification::centredLeft, 1);
+		g.drawFittedText(fileSizeString, sizeX, 0, dateX - sizeX - 8, h, Justification::centredRight, 1);
+		g.drawFittedText(fileTimeString, dateX, 0, w - 8 - dateX, h, Justification::centredRight, 1);
+	}
+	else {
+		g.drawFittedText(fileName, browserIcon_w, 0, w - browserIcon_w, h, Justification::centredLeft, 1);
+	}
+}
+
+Button* P_600_LookAndFeel::createFileBrowserGoUpButton() {
+	auto* goUpButton = new DrawableButton("up", DrawableButton::ImageOnButtonBackgroundOriginalSize);
+	Path arrowPath;
+	arrowPath.addArrow({ 10, 22, 10, 4 }, 7, 15, 10);
+	DrawablePath arrowImage;
+	arrowImage.setFill(GUI::color_OffWhite);
+	arrowImage.setPath(arrowPath);
+	goUpButton->setImages(&arrowImage);
+	return goUpButton;
+}
+
+
+
 
 void P_600_LookAndFeel::drawLabel(Graphics& g, Label& label) {
 	if (label.getComponentID() == ID::comp_TextEditorForVoiceNumberSlider.toString()) {
@@ -98,6 +187,9 @@ void P_600_LookAndFeel::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h
 
 void P_600_LookAndFeel::drawTextEditorOutline(Graphics& /*g*/, int /*w*/, int /*h*/, TextEditor& /*textEditor*/) {
 }
+
+
+
 
 void P_600_LookAndFeel::drawTooltip(Graphics& g, const String& text, int width, int height) {
 	Rectangle<int> bounds(width, height);

@@ -9,15 +9,14 @@
 #include "../voices/voices_3_comp_VoiceSlots.h"
 
 GUI_Layer_ImportExport_Base::GUI_Layer_ImportExport_Base(
-	ImportExportType type, VoicesBank bank, VoiceSlots* voiceSlots, UnexposedParameters* unexposedParams) :
+	ImportExportType type, VoiceSlots* voiceSlots, UnexposedParameters* unexposedParams) :
 	type{ type },
-	bank{ bank },
 	voiceSlots{ voiceSlots },
 	tooltips{ unexposedParams->getTooltipsOptions() }
 {
 	String userDocsPath{ File::getSpecialLocation(File::userDocumentsDirectory).getFullPathName() };
-	String mophoGUIdir{ "\\MophoGUI\\" };
-	auto defaultDirectory{ userDocsPath + mophoGUIdir };
+	String p_600_G_dir{ "\\P-600-G\\" };
+	auto defaultDirectory{ userDocsPath + p_600_G_dir };
 
 	if (type == ImportExportType::importVoice || type == ImportExportType::importVoicesBank) {
 		auto browserFlags{ FileBrowserComponent::openMode | FileBrowserComponent::canSelectFiles };
@@ -32,14 +31,14 @@ GUI_Layer_ImportExport_Base::GUI_Layer_ImportExport_Base(
 		String defaultFileName{ "" };
 		if (type == ImportExportType::exportVoice) {
 			auto slot{ voiceSlots->selectedSlot };
-			auto voicesBanks{ unexposedParams->getVoicesBanks() };
-			auto selectedVoiceName{ voicesBanks->nameOfVoiceInBankSlot(bank, slot) };
+			auto voicesBank{ unexposedParams->getVoicesBank() };
+			auto selectedVoiceName{ voicesBank->nameOfVoiceInSlot(slot) };
 			selectedVoiceName = selectedVoiceName.trimCharactersAtEnd(" ");
 			defaultFileName = File::createLegalFileName(selectedVoiceName) + voiceDataFileFilter.getDescription();
 			browserComponent.reset(new FileBrowserComponent(browserFlags, defaultDirectory + defaultFileName, &voiceDataFileFilter, nullptr));
 		}
 		else {
-			defaultFileName = "MophoGUI Program Data Bank" + voicesBankFileFilter.getDescription();
+			defaultFileName = "P-600-G Program Data Bank" + voicesBankFileFilter.getDescription();
 			browserComponent.reset(new FileBrowserComponent(browserFlags, defaultDirectory + defaultFileName, &voicesBankFileFilter, nullptr));
 		}
 	}
@@ -52,28 +51,28 @@ GUI_Layer_ImportExport_Base::GUI_Layer_ImportExport_Base(
 		addAndMakeVisible(browserComponent.get());
 	}
 
-	const int buttonsRow_y{ 442 };
+	const int buttonsRow_y{ 316 };
 	if (type == ImportExportType::exportVoice || type == ImportExportType::exportVoicesBank) {
 		btn_NewFolder.setComponentID(ID::btn_NewFolder.toString());
 		btn_NewFolder.onClick = [this] { showNewFolderDialog(); };
-		btn_NewFolder.setBounds(401, buttonsRow_y, 78, GUI::redButton_h);
+		btn_NewFolder.setBounds(466, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
 		addAndMakeVisible(btn_NewFolder);
 	}
 
-	btn_Cancel.setComponentID(ID::btn_Cancel_ImportExport.toString());
-	btn_Cancel.addShortcut(KeyPress(KeyPress::escapeKey));
-	btn_Cancel.onClick = [this] { hideThisLayer(); };
-	btn_Cancel.setBounds(763, buttonsRow_y, GUI::btn_Cancel_w, GUI::redButton_h);
-	addAndMakeVisible(btn_Cancel);
+	btn_Esc.setComponentID(ID::btn_Esc_ImportExport.toString());
+	btn_Esc.addShortcut(KeyPress(KeyPress::escapeKey));
+	btn_Esc.onClick = [this] { hideThisLayer(); };
+	btn_Esc.setBounds(846, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
+	addAndMakeVisible(btn_Esc);
 
 	if (type == ImportExportType::exportVoice || type == ImportExportType::exportVoicesBank)
-		btn_Proceed.setComponentID(ID::btn_Export_File.toString());
-	else
-		btn_Proceed.setComponentID(ID::btn_Import_File.toString());
-	btn_Proceed.addShortcut(KeyPress(KeyPress::returnKey));
-	btn_Proceed.onClick = [this] { proceedButtonClicked(); };
-	btn_Proceed.setBounds(820, buttonsRow_y, GUI::btn_Cancel_w, GUI::redButton_h);
-	addAndMakeVisible(btn_Proceed);
+		btn_OK.setComponentID(ID::btn_OK_ExportFile.toString());
+	else	
+		btn_OK.setComponentID(ID::btn_OK_ImportFile.toString());
+	btn_OK.addShortcut(KeyPress(KeyPress::returnKey));
+	btn_OK.onClick = [this] { okButtonClicked(); };
+	btn_OK.setBounds(896, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
+	addAndMakeVisible(btn_OK);
 
 	setSize(GUI::editor_w, GUI::editor_h);
 }
@@ -102,7 +101,7 @@ void GUI_Layer_ImportExport_Base::fileDoubleClicked(const File& file) {
 	if (!file.isDirectory()) {
 		auto fileName{ file.getFileName() };
 		browserComponent->setFileName(fileName);
-		proceedButtonClicked();
+		okButtonClicked();
 	}
 }
 

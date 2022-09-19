@@ -41,6 +41,12 @@ namespace BinaryData
     extern const char*   btn_Export_Up_png;
     const int            btn_Export_Up_pngSize = 628;
 
+    extern const char*   btn_Import_Dn_png;
+    const int            btn_Import_Dn_pngSize = 583;
+
+    extern const char*   btn_Import_Up_png;
+    const int            btn_Import_Up_pngSize = 572;
+
     extern const char*   btn_NewFolder_Dn_png;
     const int            btn_NewFolder_Dn_pngSize = 834;
 
@@ -102,7 +108,7 @@ namespace BinaryData
     const int            SWISSCL_TTFSize = 35064;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 31;
+    const int namedResourceListSize = 33;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

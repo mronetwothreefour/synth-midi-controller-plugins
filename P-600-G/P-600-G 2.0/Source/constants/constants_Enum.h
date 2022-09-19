@@ -12,8 +12,17 @@ namespace P_600_G_Constants
 		threePoleSwitch
 	};
 
+
 	enum class EnvelopeType {
 		amplifier = 0,
 		filter,
+	};
+
+
+	const enum class ImportExportType {
+		exportVoice = 0,
+		exportVoicesBank,
+		importVoice,
+		importVoicesBank
 	};
 }

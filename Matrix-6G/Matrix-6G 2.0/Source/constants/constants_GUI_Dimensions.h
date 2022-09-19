@@ -18,5 +18,7 @@ namespace Matrix_6G_Constants
 		const int matrixModComboBox_w{ 82 };
 		const int matrixModSlider_w{ 40 };
 		const int vertDistBtwnRows{ 28 };
+		const int voiceSlotRadioButtton_w{ 83 };
+		const int voiceSlotRadioButtton_h{ 16 };
 	}
 }

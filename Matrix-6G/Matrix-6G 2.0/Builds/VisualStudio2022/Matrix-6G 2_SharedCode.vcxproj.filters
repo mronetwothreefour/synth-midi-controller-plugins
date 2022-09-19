@@ -724,10 +724,19 @@
     <ClCompile Include="..\..\Source\voices\voices_1_tree_VoicesBanks.cpp">
       <Filter>Matrix-6G 2\Source\voices</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_2_comp_VoiceSlotRadioButton.cpp">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_3_comp_VoiceSlots.cpp">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp">
       <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.cpp">
+      <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.cpp">
       <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -3195,6 +3204,12 @@
     <ClInclude Include="..\..\Source\voices\voices_1_tree_VoicesBanks.h">
       <Filter>Matrix-6G 2\Source\voices</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_2_comp_VoiceSlotRadioButton.h">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_3_comp_VoiceSlots.h">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h">
       <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
     </ClInclude>
@@ -3208,6 +3223,9 @@
       <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.h">
+      <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.h">
       <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5934,6 +5952,12 @@
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Export_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Import_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Import_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Dn.png">

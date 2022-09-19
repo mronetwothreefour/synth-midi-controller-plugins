@@ -175,8 +175,11 @@
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\voices\voices_1_tree_VoicesBanks.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_2_comp_VoiceSlotRadioButton.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_3_comp_VoiceSlots.cpp"/>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp"/>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.cpp"/>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2382,11 +2385,14 @@
     <ClInclude Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.h"/>
     <ClInclude Include="..\..\Source\voices\voices_0_tree_FactoryVoiceDataHexStrings.h"/>
     <ClInclude Include="..\..\Source\voices\voices_1_tree_VoicesBanks.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_2_comp_VoiceSlotRadioButton.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_3_comp_VoiceSlots.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileNotValidAlert.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FolderExistsAlert.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
@@ -3297,6 +3303,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_Create_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Export_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Export_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Import_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Import_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Dn.png"/>

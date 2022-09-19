@@ -15,7 +15,7 @@ using OutgoingBuffers = Outgoing_MIDI_Buffers;
 struct SysExMessages
 {
     static void addRequestForVoiceDataStoredInSlotToOutgoingBuffers(uint8 slotNum, OutgoingBuffers* outgoingBuffers) {
-        jassert(slotNum < VCS::numberOfVoiceSlots);
+        jassert(slotNum < VCS::numberOfSlotsInVoicesBank);
         auto requestVector{ RawDataTools::createRawDataVectorWithSequentialCircuitsSysExID() };
         requestVector.push_back(RawDataTools::messageType_VoiceDataRequest);
         requestVector.push_back(slotNum);;
@@ -36,7 +36,7 @@ struct SysExMessages
     }
 
     static void addDataMessageForVoiceStoredInSlotToOutgoingBuffers(VoicesBank* voicesBank, uint8 slotNum, OutgoingBuffers* outgoingBuffers) {
-        jassert(slotNum < VCS::numberOfVoiceSlots);
+        jassert(slotNum < VCS::numberOfSlotsInVoicesBank);
         auto voiceDataMessageVector{ RawDataTools::createRawDataVectorWithSequentialCircuitsSysExID() };
         voiceDataMessageVector.push_back(RawDataTools::messageType_VoiceData);
         voiceDataMessageVector.push_back(slotNum);

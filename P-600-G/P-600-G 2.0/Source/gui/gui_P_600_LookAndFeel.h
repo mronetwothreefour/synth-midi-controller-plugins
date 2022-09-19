@@ -2,6 +2,10 @@
 
 #include <JuceHeader.h>
 
+using Browser = FileBrowserComponent;
+using DirContents = DirectoryContentsDisplayComponent;
+using Preview = FilePreviewComponent;
+
 class P_600_LookAndFeel :
 	public LookAndFeel_V4
 {
@@ -17,6 +21,17 @@ public:
 
 	void drawButtonBackground(Graphics& g, Button& button, const Colour& background, bool isHighlighted, bool isDown) override;
 	void drawButtonText(Graphics& g, TextButton& button, bool isHighlighted, bool isDown) override;
+
+	void drawToggleButton(Graphics& g, ToggleButton& button, bool isHighlighted, bool isDown) override;
+	void drawTickBox(
+		Graphics& g, Component& component, float x, float y, float w, float h, const bool isTicked,
+		const bool isEnabled, const bool isHighlighted, const bool isDown) override;
+
+	void layoutFileBrowserComponent(
+		Browser& browser, DirContents* dirContents, Preview* preview, ComboBox* currentPath, TextEditor* fileName, Button* goUpButton) override;
+	void drawFileBrowserRow(Graphics& g, int w, int h, const File& file, const String& fileName, Image* icon, const String& fileSizeString,
+		const String& fileTimeString, bool isDirectory, bool isSelected, int itemIndex, DirContents& dirContents) override;
+	Button* createFileBrowserGoUpButton() override;
 
 	void drawLabel(Graphics& g, Label& label) override;
 	void fillTextEditorBackground(Graphics& g, int w, int h, TextEditor& textEditor) override;

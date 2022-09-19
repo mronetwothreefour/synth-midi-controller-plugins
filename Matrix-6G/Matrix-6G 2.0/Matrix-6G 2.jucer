@@ -31,6 +31,10 @@
               file="BinaryResources/buttons/btn_Export_Dn.png"/>
         <FILE id="Fr8iVF" name="btn_Export_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Export_Up.png"/>
+        <FILE id="vugG0N" name="btn_Import_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Import_Dn.png"/>
+        <FILE id="Y24Un3" name="btn_Import_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Import_Up.png"/>
         <FILE id="YPteQA" name="btn_NewFolder_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_NewFolder_Dn.png"/>
         <FILE id="x1kEEd" name="btn_NewFolder_Up.png" compile="0" resource="1"
@@ -265,6 +269,14 @@
               resource="0" file="Source/voices/voices_1_tree_VoicesBanks.cpp"/>
         <FILE id="VZpy0T" name="voices_1_tree_VoicesBanks.h" compile="0" resource="0"
               file="Source/voices/voices_1_tree_VoicesBanks.h"/>
+        <FILE id="yIjjcK" name="voices_2_comp_VoiceSlotRadioButton.cpp" compile="1"
+              resource="0" file="Source/voices/voices_2_comp_VoiceSlotRadioButton.cpp"/>
+        <FILE id="r0bnqL" name="voices_2_comp_VoiceSlotRadioButton.h" compile="0"
+              resource="0" file="Source/voices/voices_2_comp_VoiceSlotRadioButton.h"/>
+        <FILE id="YMlhHp" name="voices_3_comp_VoiceSlots.cpp" compile="1" resource="0"
+              file="Source/voices/voices_3_comp_VoiceSlots.cpp"/>
+        <FILE id="U84Ewr" name="voices_3_comp_VoiceSlots.h" compile="0" resource="0"
+              file="Source/voices/voices_3_comp_VoiceSlots.h"/>
       </GROUP>
       <GROUP id="{479D0EB5-491F-51AB-CFC7-84E0F4A91330}" name="voicesImportExport">
         <FILE id="sMzO5t" name="imEx_0_FileFilters.h" compile="0" resource="0"
@@ -281,6 +293,10 @@
               resource="0" file="Source/voicesImportExport/imEx_1_gui_layer_NewFolderDialog.cpp"/>
         <FILE id="hQgceg" name="imEx_1_gui_layer_NewFolderDialog.h" compile="0"
               resource="0" file="Source/voicesImportExport/imEx_1_gui_layer_NewFolderDialog.h"/>
+        <FILE id="RvHXr6" name="imEx_2_gui_layer_ImportExport_Base.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_2_gui_layer_ImportExport_Base.cpp"/>
+        <FILE id="kSs521" name="imEx_2_gui_layer_ImportExport_Base.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_2_gui_layer_ImportExport_Base.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>

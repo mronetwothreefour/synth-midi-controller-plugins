@@ -16,8 +16,8 @@ GUI_Layer_ImportExport_Base::GUI_Layer_ImportExport_Base(
 	tooltips{ unexposedParams->getTooltipsOptions() }
 {
 	String userDocsPath{ File::getSpecialLocation(File::userDocumentsDirectory).getFullPathName() };
-	String mophoGUIdir{ "\\MophoGUI\\" };
-	auto defaultDirectory{ userDocsPath + mophoGUIdir };
+	String matrix_6G_dir{ "\\Matrix-6G\\" };
+	auto defaultDirectory{ userDocsPath + matrix_6G_dir };
 
 	if (type == ImportExportType::importVoice || type == ImportExportType::importVoicesBank) {
 		auto browserFlags{ FileBrowserComponent::openMode | FileBrowserComponent::canSelectFiles };
@@ -39,7 +39,7 @@ GUI_Layer_ImportExport_Base::GUI_Layer_ImportExport_Base(
 			browserComponent.reset(new FileBrowserComponent(browserFlags, defaultDirectory + defaultFileName, &voiceDataFileFilter, nullptr));
 		}
 		else {
-			defaultFileName = "MophoGUI Program Data Bank" + voicesBankFileFilter.getDescription();
+			defaultFileName = "Matrix-6G Patch Data Bank" + voicesBankFileFilter.getDescription();
 			browserComponent.reset(new FileBrowserComponent(browserFlags, defaultDirectory + defaultFileName, &voicesBankFileFilter, nullptr));
 		}
 	}
@@ -52,18 +52,19 @@ GUI_Layer_ImportExport_Base::GUI_Layer_ImportExport_Base(
 		addAndMakeVisible(browserComponent.get());
 	}
 
-	const int buttonsRow_y{ 442 };
+	const int buttonsRow_y{ 428 };
 	if (type == ImportExportType::exportVoice || type == ImportExportType::exportVoicesBank) {
 		btn_NewFolder.setComponentID(ID::btn_NewFolder.toString());
 		btn_NewFolder.onClick = [this] { showNewFolderDialog(); };
-		btn_NewFolder.setBounds(401, buttonsRow_y, 78, GUI::redButton_h);
+		btn_NewFolder.setBounds(394, buttonsRow_y, 72, GUI::buttons_small_h);
 		addAndMakeVisible(btn_NewFolder);
 	}
 
+	const int cancelAndProceed_w{ 46 };
 	btn_Cancel.setComponentID(ID::btn_Cancel_ImportExport.toString());
 	btn_Cancel.addShortcut(KeyPress(KeyPress::escapeKey));
 	btn_Cancel.onClick = [this] { hideThisLayer(); };
-	btn_Cancel.setBounds(763, buttonsRow_y, GUI::btn_Cancel_w, GUI::redButton_h);
+	btn_Cancel.setBounds(760, buttonsRow_y, cancelAndProceed_w, GUI::buttons_small_h);
 	addAndMakeVisible(btn_Cancel);
 
 	if (type == ImportExportType::exportVoice || type == ImportExportType::exportVoicesBank)
@@ -72,7 +73,7 @@ GUI_Layer_ImportExport_Base::GUI_Layer_ImportExport_Base(
 		btn_Proceed.setComponentID(ID::btn_Import_File.toString());
 	btn_Proceed.addShortcut(KeyPress(KeyPress::returnKey));
 	btn_Proceed.onClick = [this] { proceedButtonClicked(); };
-	btn_Proceed.setBounds(820, buttonsRow_y, GUI::btn_Cancel_w, GUI::redButton_h);
+	btn_Proceed.setBounds(812, buttonsRow_y, cancelAndProceed_w, GUI::buttons_small_h);
 	addAndMakeVisible(btn_Proceed);
 
 	setSize(GUI::editor_w, GUI::editor_h);

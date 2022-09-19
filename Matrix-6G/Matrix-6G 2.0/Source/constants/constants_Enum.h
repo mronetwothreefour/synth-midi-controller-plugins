@@ -12,11 +12,21 @@ namespace Matrix_6G_Constants
 		comboBox
 	};
 
+
+	const enum class ImportExportType {
+		exportVoice = 0,
+		exportVoicesBank,
+		importVoice,
+		importVoicesBank
+	};
+
+
 	const enum class RangeType {
 		unsignedValue = 0,
 		signed_6_bitValue,
 		signed_7_bitValue
 	};
+
 
 	const enum class SliderTextEditorType {
 		oscPitch,
@@ -24,6 +34,7 @@ namespace Matrix_6G_Constants
 		signed_7_bitValue,
 		unsignedValue
 	};
+
 
 	const enum class SysExMessageType {
 		voiceData = 1,
@@ -44,6 +55,7 @@ namespace Matrix_6G_Constants
 
 
 	const enum class VoicesBank {
+		nullBank = -1, // needed by VoiceSlotRadioButton's default constructor
 		analogSynths_A = 0,
 		analogSynths_B,
 		basses,

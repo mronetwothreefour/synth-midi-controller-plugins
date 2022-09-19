@@ -14,13 +14,20 @@ namespace Matrix_6G_Constants
 		static const Identifier btn_ActivateQuickEdit{ "btn_ActivateQuickEdit" };
 		static const Identifier btn_ActivateQuickEdit_Flash{ "btn_ActivateQuickEdit_Flash" };
 		static const Identifier btn_Cancel_FileOverwrite{ "btn_Cancel_FileOverwrite" };
+		static const Identifier btn_Cancel_ImportExport{ "btn_Cancel_ImportExport" };
 		static const Identifier btn_Cancel_NewFolder{ "btn_Cancel_NewFolder" };
 		static const Identifier btn_Close{ "btn_Close" };
 		static const Identifier btn_Create{ "btn_Create" };
+		static const Identifier btn_Export_File{ "btn_Export_File" };
+		static const Identifier btn_Import_File{ "btn_Import_File" };
+		static const Identifier btn_NewFolder{ "btn_NewFolder" };
 		static const Identifier btn_Pull{ "btn_Pull" };
 		static const Identifier btn_Push{ "btn_Push" };
+		static const Identifier btn_RadioButton_SplitSlot{ "btn_RadioButton_SplitSlot" };
+		static const Identifier btn_RadioButton_VoiceSlot{ "btn_RadioButton_VoiceSlot" };
 		static const Identifier btn_Write{ "btn_Write" };
 
+		static const Identifier comp_ImportExportBrowser{ "comp_ImportExportBrowser" };
 		static const Identifier comp_TextEditorForSlider{ "comp_TextEditorForSlider" };
 		static const Identifier comp_VoiceNameEditor{ "comp_VoiceNameEditor" };
 
