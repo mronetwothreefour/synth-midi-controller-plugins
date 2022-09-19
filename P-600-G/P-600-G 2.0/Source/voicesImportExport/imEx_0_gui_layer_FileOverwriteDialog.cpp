@@ -3,11 +3,11 @@
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 using namespace P_600_G_Constants;
 
-GUI_Layer_FileOverwriteDialog::GUI_Layer_FileOverwriteDialog(UnexposedParameters* unexposedParams)
+GUI_Layer_FileOverwriteDialog::GUI_Layer_FileOverwriteDialog(TooltipsOptions* tooltips)
 {
 	addAndMakeVisible(btn_Esc);
 	btn_Esc.setComponentID(ID::btn_Esc_FileOverwrite.toString());
@@ -17,7 +17,6 @@ GUI_Layer_FileOverwriteDialog::GUI_Layer_FileOverwriteDialog(UnexposedParameters
 	btn_OK.setComponentID(ID::btn_OK_FileOverwrite.toString());
 	btn_OK.addShortcut(KeyPress(KeyPress::returnKey));
 
-	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	if (tooltips->shouldShowDescription()) {
 		btn_Esc.setTooltip("Cancel file overwrite.");
 		btn_OK.setTooltip("Confirm file overwrite.");

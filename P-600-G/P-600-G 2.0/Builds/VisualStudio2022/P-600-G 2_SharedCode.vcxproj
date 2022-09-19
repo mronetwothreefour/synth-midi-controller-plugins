@@ -167,6 +167,10 @@
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp"/>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.cpp"/>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.cpp"/>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_Voice.cpp"/>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_VoicesBank.cpp"/>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_Voice.cpp"/>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_VoicesBank.cpp"/>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2365,6 +2369,10 @@
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FolderExistsAlert.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_Voice.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_VoicesBank.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_Voice.h"/>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_VoicesBank.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
@@ -3266,6 +3274,18 @@
   <ItemGroup>
     <None Include="..\..\BinaryResources\buttons\btn_Esc_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Esc_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Exit_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Exit_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Expt_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Expt_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Fact_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Fact_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Impt_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Impt_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Load_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Load_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Name_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Name_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_NewFldr_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_NewFldr_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_OK_Dn.png"/>
@@ -3274,6 +3294,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Save_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Save_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_SwitchTab.png"/>
     <None Include="..\..\BinaryResources\labels\lbl_ExportVoice.png"/>
     <None Include="..\..\BinaryResources\labels\lbl_ExportVoicesBank.png"/>

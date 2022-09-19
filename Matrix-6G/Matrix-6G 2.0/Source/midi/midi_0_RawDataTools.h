@@ -23,6 +23,7 @@ struct RawDataTools
 
     static void applyRawVoiceDataTo_GUI(const uint8 voiceNum, const uint8* voiceData, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
     static const std::vector<uint8> extractRawVoiceDataFrom_GUI(ExposedParameters* exposedParams);
+    static bool isValidVoiceDataHexString(const String& hexString);
 
     static void removeSeventhBitFrom_ASCII_Value(uint8& value);
     static void restoreSeventhBitTo_ASCII_Value(uint8& value);

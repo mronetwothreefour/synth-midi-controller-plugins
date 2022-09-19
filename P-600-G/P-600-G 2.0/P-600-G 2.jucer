@@ -11,6 +11,18 @@
       <GROUP id="{38BC1DF0-5C64-3C05-BEAB-F655A75E5D97}" name="buttons">
         <FILE id="hxZ4Me" name="btn_Esc_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Esc_Dn.png"/>
         <FILE id="mrPMsv" name="btn_Esc_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Esc_Up.png"/>
+        <FILE id="FEoICk" name="btn_Exit_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Exit_Dn.png"/>
+        <FILE id="GAAaJw" name="btn_Exit_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Exit_Up.png"/>
+        <FILE id="fYMea5" name="btn_Expt_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Expt_Dn.png"/>
+        <FILE id="Xbpeju" name="btn_Expt_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Expt_Up.png"/>
+        <FILE id="NwDWwr" name="btn_Fact_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Fact_Dn.png"/>
+        <FILE id="qSuTZ3" name="btn_Fact_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Fact_Up.png"/>
+        <FILE id="gA8vAA" name="btn_Impt_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Impt_Dn.png"/>
+        <FILE id="TXeMCU" name="btn_Impt_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Impt_Up.png"/>
+        <FILE id="bhXV0p" name="btn_Load_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Load_Dn.png"/>
+        <FILE id="uNh8I7" name="btn_Load_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Load_Up.png"/>
+        <FILE id="IuDmga" name="btn_Name_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Name_Dn.png"/>
+        <FILE id="mA3u5k" name="btn_Name_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Name_Up.png"/>
         <FILE id="pDly9f" name="btn_NewFldr_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_NewFldr_Dn.png"/>
         <FILE id="vzrdN4" name="btn_NewFldr_Up.png" compile="0" resource="1"
@@ -21,6 +33,8 @@
         <FILE id="Kx9v7U" name="btn_Pull_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Up.png"/>
         <FILE id="feOLRz" name="btn_Push_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Dn.png"/>
         <FILE id="XDoREn" name="btn_Push_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Up.png"/>
+        <FILE id="rZ3Kng" name="btn_Save_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Save_Dn.png"/>
+        <FILE id="LDpvJJ" name="btn_Save_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Save_Up.png"/>
         <FILE id="L1rWAB" name="btn_SwitchTab.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_SwitchTab.png"/>
       </GROUP>
@@ -216,6 +230,22 @@
               resource="0" file="Source/voicesImportExport/imEx_2_gui_layer_ImportExport_Base.cpp"/>
         <FILE id="LINPxa" name="imEx_2_gui_layer_ImportExport_Base.h" compile="0"
               resource="0" file="Source/voicesImportExport/imEx_2_gui_layer_ImportExport_Base.h"/>
+        <FILE id="OJr34s" name="imEx_3_gui_layer_Export_Voice.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Export_Voice.cpp"/>
+        <FILE id="VOFKaJ" name="imEx_3_gui_layer_Export_Voice.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Export_Voice.h"/>
+        <FILE id="pl9cj5" name="imEx_3_gui_layer_Export_VoicesBank.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Export_VoicesBank.cpp"/>
+        <FILE id="ffJCBB" name="imEx_3_gui_layer_Export_VoicesBank.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Export_VoicesBank.h"/>
+        <FILE id="y9PSuX" name="imEx_3_gui_layer_Import_Voice.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Import_Voice.cpp"/>
+        <FILE id="wCgv6v" name="imEx_3_gui_layer_Import_Voice.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Import_Voice.h"/>
+        <FILE id="MShAGP" name="imEx_3_gui_layer_Import_VoicesBank.cpp" compile="1"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Import_VoicesBank.cpp"/>
+        <FILE id="l7Ruv2" name="imEx_3_gui_layer_Import_VoicesBank.h" compile="0"
+              resource="0" file="Source/voicesImportExport/imEx_3_gui_layer_Import_VoicesBank.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>

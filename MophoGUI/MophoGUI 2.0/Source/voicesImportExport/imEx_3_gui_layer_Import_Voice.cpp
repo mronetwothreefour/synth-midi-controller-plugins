@@ -5,8 +5,6 @@
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 #include "../voices/voices_3_comp_VoiceSlots.h"
 
-
-
 GUI_Layer_Import_Voice::GUI_Layer_Import_Voice(VoicesBank bank, VoiceSlots* voiceSlots, UnexposedParameters* unexposedParams) :
 	GUI_Layer_ImportExport_Base{ ImportExportType::importVoice, bank, voiceSlots, unexposedParams },
 	voicesBanks{ unexposedParams->getVoicesBanks() }

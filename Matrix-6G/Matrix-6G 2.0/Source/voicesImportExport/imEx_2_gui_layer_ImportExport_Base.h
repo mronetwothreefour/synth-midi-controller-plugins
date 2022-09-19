@@ -31,6 +31,7 @@ protected:
 	std::unique_ptr<GUI_Layer_FileNotValidAlert> fileNotValidAlert;
 	const int importExportBackground_x{ 369 };
 	const int importExportBackground_y{ 123 };
+	const int border_w{ 10 };
 
 public:
 	GUI_Layer_ImportExport_Base() = delete;

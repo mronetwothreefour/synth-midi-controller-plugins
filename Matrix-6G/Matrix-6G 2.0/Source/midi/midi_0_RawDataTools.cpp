@@ -84,6 +84,14 @@ const std::vector<uint8> RawDataTools::extractRawVoiceDataFrom_GUI(ExposedParame
     return voiceData;
 }
 
+bool RawDataTools::isValidVoiceDataHexString(const String& hexString) {
+    auto isNotCorrectLength{ hexString.length() != VCS::lengthOfVoiceDataHexString };
+    if (isNotCorrectLength)
+        return false;
+    else
+        return true;
+}
+
 void RawDataTools::removeSeventhBitFrom_ASCII_Value(uint8& value) {
     value %= 64;
 }

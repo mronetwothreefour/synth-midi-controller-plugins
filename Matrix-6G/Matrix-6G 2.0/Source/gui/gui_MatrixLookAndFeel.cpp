@@ -84,7 +84,7 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID == ID::btn_Push.toString())
 		mBlock = MemBlock{ isDown ? btn_Push_Dn_png : btn_Push_Up_png, isDown ? (s_t)btn_Push_Dn_pngSize : (s_t)btn_Push_Up_pngSize };
 
-	if (buttonID == ID::btn_Write.toString())
+	if (buttonID == ID::btn_Write_OverFile.toString())
 		mBlock = MemBlock{ isDown ? btn_Write_Dn_png : btn_Write_Up_png, isDown ? (s_t)btn_Write_Dn_pngSize : (s_t)btn_Write_Up_pngSize };
 
 	PNGImageFormat imageFormat;

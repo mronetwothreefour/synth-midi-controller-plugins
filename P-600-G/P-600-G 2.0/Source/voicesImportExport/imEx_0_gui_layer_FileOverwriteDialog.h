@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-class UnexposedParameters;
+class TooltipsOptions;
 
 class GUI_Layer_FileOverwriteDialog :
 	public Component
@@ -13,7 +13,7 @@ class GUI_Layer_FileOverwriteDialog :
 public:
 	GUI_Layer_FileOverwriteDialog() = delete;
 
-	explicit GUI_Layer_FileOverwriteDialog(UnexposedParameters* unexposedParams);
+	explicit GUI_Layer_FileOverwriteDialog(TooltipsOptions* tooltips);
 	void addListenerToButtons(Button::Listener* listener);
 	void removeListenerFromButtons(Button::Listener* listener);
 	void paint(Graphics& g) override;

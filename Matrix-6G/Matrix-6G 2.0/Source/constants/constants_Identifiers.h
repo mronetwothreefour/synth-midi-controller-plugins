@@ -22,10 +22,16 @@ namespace Matrix_6G_Constants
 		static const Identifier btn_Import_File{ "btn_Import_File" };
 		static const Identifier btn_NewFolder{ "btn_NewFolder" };
 		static const Identifier btn_Pull{ "btn_Pull" };
+		static const Identifier btn_PullPatch{ "btn_PullPatch" };
+		static const Identifier btn_PullPatchBank{ "btn_PullPatchBank" };
+		static const Identifier btn_PullSplit{ "btn_PullSplit" };
 		static const Identifier btn_Push{ "btn_Push" };
+		static const Identifier btn_PushPatch{ "btn_PushPatch" };
+		static const Identifier btn_PushPatchBank{ "btn_PushPatchBank" };
+		static const Identifier btn_PushSplit{ "btn_PushSplit" };
 		static const Identifier btn_RadioButton_SplitSlot{ "btn_RadioButton_SplitSlot" };
 		static const Identifier btn_RadioButton_VoiceSlot{ "btn_RadioButton_VoiceSlot" };
-		static const Identifier btn_Write{ "btn_Write" };
+		static const Identifier btn_Write_OverFile{ "btn_Write_OverFile" };
 
 		static const Identifier comp_ImportExportBrowser{ "comp_ImportExportBrowser" };
 		static const Identifier comp_TextEditorForSlider{ "comp_TextEditorForSlider" };

@@ -739,6 +739,18 @@
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.cpp">
       <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_Voice.cpp">
+      <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_VoicesBank.cpp">
+      <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_Voice.cpp">
+      <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_VoicesBank.cpp">
+      <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
     </ClCompile>
@@ -3226,6 +3238,18 @@
       <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.h">
+      <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_Voice.h">
+      <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Export_VoicesBank.h">
+      <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_Voice.h">
+      <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voicesImportExport\imEx_3_gui_layer_Import_VoicesBank.h">
       <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -5954,10 +5978,28 @@
     <None Include="..\..\BinaryResources\buttons\btn_Export_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Expt_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Expt_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
     <None Include="..\..\BinaryResources\buttons\btn_Import_Dn.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Import_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Impt_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Impt_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_LoadPatch_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_LoadPatch_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Dn.png">
@@ -5972,10 +6014,28 @@
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
+    <None Include="..\..\BinaryResources\buttons\btn_PullPatch_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_PullPatch_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Dn.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_PushPatch_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_PushPatch_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_SavePatch_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_SavePatch_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Write_Dn.png">
