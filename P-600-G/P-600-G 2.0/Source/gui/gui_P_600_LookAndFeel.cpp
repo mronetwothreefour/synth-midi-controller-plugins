@@ -52,17 +52,35 @@ void P_600_LookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID.startsWith("btn_Esc"))
 		mBlock = MemBlock{ isDown ? btn_Esc_Dn_png : btn_Esc_Up_png, isDown ? (s_t)btn_Esc_Dn_pngSize : (s_t)btn_Esc_Up_pngSize };
 
-	if (buttonID.startsWith("btn_OK"))
-		mBlock = MemBlock{ isDown ? btn_OK_Dn_png : btn_OK_Up_png, isDown ? (s_t)btn_OK_Dn_pngSize : (s_t)btn_OK_Up_pngSize };
+	if (buttonID == ID::btn_Exit.toString())
+		mBlock = MemBlock{ isDown ? btn_Exit_Dn_png : btn_Exit_Up_png, isDown ? (s_t)btn_Exit_Dn_pngSize : (s_t)btn_Exit_Up_pngSize };
+
+	if (buttonID.startsWith("btn_Expt"))
+		mBlock = MemBlock{ isDown ? btn_Expt_Dn_png : btn_Expt_Up_png, isDown ? (s_t)btn_Expt_Dn_pngSize : (s_t)btn_Expt_Up_pngSize };
+
+	if (buttonID.startsWith("btn_Impt"))
+		mBlock = MemBlock{ isDown ? btn_Impt_Dn_png : btn_Impt_Up_png, isDown ? (s_t)btn_Impt_Dn_pngSize : (s_t)btn_Impt_Up_pngSize };
+
+	if (buttonID == ID::btn_Load.toString())
+		mBlock = MemBlock{ isDown ? btn_Load_Dn_png : btn_Load_Up_png, isDown ? (s_t)btn_Load_Dn_pngSize : (s_t)btn_Load_Up_pngSize };
 
 	if (buttonID == ID::btn_NewFolder.toString())
 		mBlock = MemBlock{ isDown ? btn_NewFldr_Dn_png : btn_NewFldr_Up_png, isDown ? (s_t)btn_NewFldr_Dn_pngSize : (s_t)btn_NewFldr_Up_pngSize };
 
-	if (buttonID == ID::btn_Pull.toString())
+	if (buttonID.startsWith("btn_OK"))
+		mBlock = MemBlock{ isDown ? btn_OK_Dn_png : btn_OK_Up_png, isDown ? (s_t)btn_OK_Dn_pngSize : (s_t)btn_OK_Up_pngSize };
+
+	if (buttonID.startsWith("btn_Pull"))
 		mBlock = MemBlock{ isDown ? btn_Pull_Dn_png : btn_Pull_Up_png, isDown ? (s_t)btn_Pull_Dn_pngSize : (s_t)btn_Pull_Up_pngSize };
 
-	if (buttonID == ID::btn_Push.toString())
+	if (buttonID.startsWith("btn_Push"))
 		mBlock = MemBlock{ isDown ? btn_Push_Dn_png : btn_Push_Up_png, isDown ? (s_t)btn_Push_Dn_pngSize : (s_t)btn_Push_Up_pngSize };
+
+	if (buttonID == ID::btn_RestoreFactoryVoices.toString())
+		mBlock = MemBlock{ isDown ? btn_Fact_Dn_png : btn_Fact_Up_png, isDown ? (s_t)btn_Fact_Dn_pngSize : (s_t)btn_Fact_Up_pngSize };
+
+	if (buttonID == ID::btn_Save.toString())
+		mBlock = MemBlock{ isDown ? btn_Save_Dn_png : btn_Save_Up_png, isDown ? (s_t)btn_Save_Dn_pngSize : (s_t)btn_Save_Up_pngSize };
 
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ mBlock, false };

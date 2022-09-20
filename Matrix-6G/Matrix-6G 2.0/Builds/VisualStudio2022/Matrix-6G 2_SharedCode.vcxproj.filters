@@ -3144,6 +3144,9 @@
     <ClInclude Include="..\..\Source\gui\gui_comp_ButtonForActivatingQuickEdit.h">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_comp_ButtonForHidingLayer.h">
+      <Filter>Matrix-6G 2\Source\gui</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_comp_EnvelopePainter.h">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClInclude>
@@ -3220,6 +3223,9 @@
       <Filter>Matrix-6G 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voices\voices_3_comp_VoiceSlots.h">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_4_comp_ButtonsForVoicesBankTab.h">
       <Filter>Matrix-6G 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h">
@@ -5996,10 +6002,10 @@
     <None Include="..\..\BinaryResources\buttons\btn_Impt_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
-    <None Include="..\..\BinaryResources\buttons\btn_LoadPatch_Dn.png">
+    <None Include="..\..\BinaryResources\buttons\btn_LoadVoice_Dn.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
-    <None Include="..\..\BinaryResources\buttons\btn_LoadPatch_Up.png">
+    <None Include="..\..\BinaryResources\buttons\btn_LoadVoice_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Dn.png">
@@ -6014,10 +6020,10 @@
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
-    <None Include="..\..\BinaryResources\buttons\btn_PullPatch_Dn.png">
+    <None Include="..\..\BinaryResources\buttons\btn_PullVoice_Dn.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
-    <None Include="..\..\BinaryResources\buttons\btn_PullPatch_Up.png">
+    <None Include="..\..\BinaryResources\buttons\btn_PullVoice_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Dn.png">
@@ -6026,22 +6032,40 @@
     <None Include="..\..\BinaryResources\buttons\btn_Push_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
-    <None Include="..\..\BinaryResources\buttons\btn_PushPatch_Dn.png">
+    <None Include="..\..\BinaryResources\buttons\btn_PushVoice_Dn.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
-    <None Include="..\..\BinaryResources\buttons\btn_PushPatch_Up.png">
+    <None Include="..\..\BinaryResources\buttons\btn_PushVoice_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
-    <None Include="..\..\BinaryResources\buttons\btn_SavePatch_Dn.png">
+    <None Include="..\..\BinaryResources\buttons\btn_SaveVoice_Dn.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
-    <None Include="..\..\BinaryResources\buttons\btn_SavePatch_Up.png">
+    <None Include="..\..\BinaryResources\buttons\btn_SaveVoice_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Write_Dn.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Write_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_X_Blue_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_X_Blue_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_X_Grey_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_X_Grey_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_X_Orange_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_X_Orange_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\labels\lbl_ExportVoice.png">

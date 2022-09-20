@@ -24,7 +24,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     shouldShowDescriptionAsValue.addListener(this);
 
     const int buttonsRow_y{ 47 };
-    btn_Pull.setComponentID(ID::btn_Pull.toString());
+    btn_Pull.setComponentID(ID::btn_Pull_Voice.toString());
     btn_Pull.onClick = [this, unexposedParams] {
         auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
         auto currentVoiceNumber{ transmitOptions->currentVoiceNumber() };
@@ -36,7 +36,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     btn_Pull.addShortcut(KeyPress{ 'p', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_Pull);
 
-    btn_Push.setComponentID(ID::btn_Push.toString());
+    btn_Push.setComponentID(ID::btn_Push_Voice.toString());
     btn_Push.onClick = [this, exposedParams, unexposedParams] {
         auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
         auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };

@@ -3087,6 +3087,9 @@
     <ClInclude Include="..\..\Source\gui\gui_build_LED_NumeralPath.h">
       <Filter>P-600-G 2\Source\gui</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_comp_ButtonForHidingLayer.h">
+      <Filter>P-600-G 2\Source\gui</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h">
       <Filter>P-600-G 2\Source\gui</Filter>
     </ClInclude>
@@ -3133,6 +3136,9 @@
       <Filter>P-600-G 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voices\voices_3_comp_VoiceSlots.h">
+      <Filter>P-600-G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_4_comp_ButtonsForVoicesBank.h">
       <Filter>P-600-G 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h">

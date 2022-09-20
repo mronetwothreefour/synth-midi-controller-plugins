@@ -148,6 +148,8 @@
       <GROUP id="{ADE51B93-2495-0CD5-5B92-E6A9C96629A6}" name="gui">
         <FILE id="zHvNCC" name="gui_build_LED_NumeralPath.h" compile="0" resource="0"
               file="Source/gui/gui_build_LED_NumeralPath.h"/>
+        <FILE id="COR74E" name="gui_comp_ButtonForHidingLayer.h" compile="0"
+              resource="0" file="Source/gui/gui_comp_ButtonForHidingLayer.h"/>
         <FILE id="QINpLX" name="gui_comp_JuceSlidersWithMouseMods.cpp" compile="1"
               resource="0" file="Source/gui/gui_comp_JuceSlidersWithMouseMods.cpp"/>
         <FILE id="UfBZWP" name="gui_comp_JuceSlidersWithMouseMods.h" compile="0"
@@ -210,6 +212,8 @@
               file="Source/voices/voices_3_comp_VoiceSlots.cpp"/>
         <FILE id="duEYYV" name="voices_3_comp_VoiceSlots.h" compile="0" resource="0"
               file="Source/voices/voices_3_comp_VoiceSlots.h"/>
+        <FILE id="okIGs4" name="voices_4_comp_ButtonsForVoicesBank.h" compile="0"
+              resource="0" file="Source/voices/voices_4_comp_ButtonsForVoicesBank.h"/>
       </GROUP>
       <GROUP id="{D94CB483-4214-AFE0-3CF6-0A4CD55E84D7}" name="voicesImportExport">
         <FILE id="TRcnjp" name="imEx_0_FileFilters.h" compile="0" resource="0"

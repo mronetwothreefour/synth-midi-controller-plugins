@@ -72,8 +72,17 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID.startsWith("btn_Export"))
 		mBlock = MemBlock{ isDown ? btn_Export_Dn_png : btn_Export_Up_png, isDown ? (s_t)btn_Export_Dn_pngSize : (s_t)btn_Export_Up_pngSize };
 
+	if (buttonID.startsWith("btn_Expt_"))
+		mBlock = MemBlock{ isDown ? btn_Expt_Dn_png : btn_Expt_Up_png, isDown ? (s_t)btn_Expt_Dn_pngSize : (s_t)btn_Expt_Up_pngSize };
+
 	if (buttonID.startsWith("btn_Import"))
 		mBlock = MemBlock{ isDown ? btn_Import_Dn_png : btn_Import_Up_png, isDown ? (s_t)btn_Import_Dn_pngSize : (s_t)btn_Import_Up_pngSize };
+
+	if (buttonID.startsWith("btn_Impt_"))
+		mBlock = MemBlock{ isDown ? btn_Impt_Dn_png : btn_Impt_Up_png, isDown ? (s_t)btn_Impt_Dn_pngSize : (s_t)btn_Impt_Up_pngSize };
+
+	if (buttonID == ID::btn_Load_Voice.toString())
+		mBlock = MemBlock{ isDown ? btn_LoadVoice_Dn_png : btn_LoadVoice_Up_png, isDown ? (s_t)btn_LoadVoice_Dn_pngSize : (s_t)btn_LoadVoice_Up_pngSize };
 
 	if (buttonID == ID::btn_NewFolder.toString())
 		mBlock = MemBlock{ isDown ? btn_NewFolder_Dn_png : btn_NewFolder_Up_png, isDown ? (s_t)btn_NewFolder_Dn_pngSize : (s_t)btn_NewFolder_Up_pngSize };
@@ -81,8 +90,14 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID == ID::btn_Pull.toString())
 		mBlock = MemBlock{ isDown ? btn_Pull_Dn_png : btn_Pull_Up_png, isDown ? (s_t)btn_Pull_Dn_pngSize : (s_t)btn_Pull_Up_pngSize };
 
+	if (buttonID.startsWith("btn_Pull_Voice"))
+		mBlock = MemBlock{ isDown ? btn_PullVoice_Dn_png : btn_PullVoice_Up_png, isDown ? (s_t)btn_PullVoice_Dn_pngSize : (s_t)btn_PullVoice_Up_pngSize };
+
 	if (buttonID == ID::btn_Push.toString())
 		mBlock = MemBlock{ isDown ? btn_Push_Dn_png : btn_Push_Up_png, isDown ? (s_t)btn_Push_Dn_pngSize : (s_t)btn_Push_Up_pngSize };
+
+	if (buttonID == ID::btn_Save_Voice.toString())
+		mBlock = MemBlock{ isDown ? btn_SaveVoice_Dn_png : btn_SaveVoice_Up_png, isDown ? (s_t)btn_SaveVoice_Dn_pngSize : (s_t)btn_SaveVoice_Up_pngSize };
 
 	if (buttonID == ID::btn_Write_OverFile.toString())
 		mBlock = MemBlock{ isDown ? btn_Write_Dn_png : btn_Write_Up_png, isDown ? (s_t)btn_Write_Dn_pngSize : (s_t)btn_Write_Up_pngSize };

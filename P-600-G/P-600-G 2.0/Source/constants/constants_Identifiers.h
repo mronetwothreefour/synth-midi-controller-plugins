@@ -13,13 +13,23 @@ namespace P_600_G_Constants
 		static const Identifier btn_Esc_FileOverwrite{ "btn_Esc_FileOverwrite" };
 		static const Identifier btn_Esc_NewFolder{ "btn_Esc_NewFolder" };
 		static const Identifier btn_Esc_ImportExport{ "btn_Esc_ImportExport" };
+		static const Identifier btn_Exit{ "btn_Exit" };
+		static const Identifier btn_Expt_Voice{ "btn_Expt_Voice" };
+		static const Identifier btn_Expt_VoicesBank{ "btn_Expt_VoicesBank" };
+		static const Identifier btn_Impt_Voice{ "btn_Expt_Voice" };
+		static const Identifier btn_Impt_VoicesBank{ "btn_Expt_VoicesBank" };
+		static const Identifier btn_Load{ "btn_Load" };
 		static const Identifier btn_NewFolder{ "btn_NewFolder" };
 		static const Identifier btn_OK{ "btn_OK" };
 		static const Identifier btn_OK_FileOverwrite{ "btn_OK_FileOverwrite" };
 		static const Identifier btn_OK_ExportFile{ "btn_OK_ExportFile" };
 		static const Identifier btn_OK_ImportFile{ "btn_OK_ExportFile" };
-		static const Identifier btn_Pull{ "btn_Pull" };
-		static const Identifier btn_Push{ "btn_Push" };
+		static const Identifier btn_Pull_Voice{ "btn_Pull_Voice" };
+		static const Identifier btn_Pull_VoicesBank{ "btn_Pull_VoicesBank" };
+		static const Identifier btn_Push_Voice{ "btn_Push_Voice" };
+		static const Identifier btn_Push_VoicesBank{ "btn_Push_VoicesBank" };
+		static const Identifier btn_RestoreFactoryVoices{ "btn_RestoreFactoryVoices" };
+		static const Identifier btn_Save{ "btn_Save" };
 		static const Identifier btn_VoiceSlotRadioButton{ "btn_VoiceSlotRadioButton" };
 
 		static const Identifier comp_ImportExportBrowser{ "comp_ImportExportBrowser" };

@@ -2347,6 +2347,7 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.h"/>
     <ClInclude Include="..\..\Source\gui\gui_build_LED_NumeralPath.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_comp_ButtonForHidingLayer.h"/>
     <ClInclude Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_CurrentVoiceNumber.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h"/>
@@ -2363,6 +2364,7 @@
     <ClInclude Include="..\..\Source\voices\voices_1_tree_VoicesBank.h"/>
     <ClInclude Include="..\..\Source\voices\voices_2_comp_VoiceSlotRadioButton.h"/>
     <ClInclude Include="..\..\Source\voices\voices_3_comp_VoiceSlots.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_4_comp_ButtonsForVoicesBank.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileNotValidAlert.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.h"/>

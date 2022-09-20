@@ -39,34 +39,46 @@
               file="BinaryResources/buttons/btn_Import_Up.png"/>
         <FILE id="iIsJi9" name="btn_Impt_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Impt_Dn.png"/>
         <FILE id="ZcmW9H" name="btn_Impt_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Impt_Up.png"/>
-        <FILE id="xyIHbQ" name="btn_LoadPatch_Dn.png" compile="0" resource="1"
-              file="BinaryResources/buttons/btn_LoadPatch_Dn.png"/>
-        <FILE id="d5BDT2" name="btn_LoadPatch_Up.png" compile="0" resource="1"
-              file="BinaryResources/buttons/btn_LoadPatch_Up.png"/>
+        <FILE id="xyIHbQ" name="btn_LoadVoice_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_LoadVoice_Dn.png"/>
+        <FILE id="d5BDT2" name="btn_LoadVoice_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_LoadVoice_Up.png"/>
         <FILE id="YPteQA" name="btn_NewFolder_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_NewFolder_Dn.png"/>
         <FILE id="x1kEEd" name="btn_NewFolder_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_NewFolder_Up.png"/>
         <FILE id="Mdkys2" name="btn_Pull_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Dn.png"/>
         <FILE id="epolsU" name="btn_Pull_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Up.png"/>
-        <FILE id="kybb5H" name="btn_PullPatch_Dn.png" compile="0" resource="1"
-              file="BinaryResources/buttons/btn_PullPatch_Dn.png"/>
-        <FILE id="PeYwjg" name="btn_PullPatch_Up.png" compile="0" resource="1"
-              file="BinaryResources/buttons/btn_PullPatch_Up.png"/>
+        <FILE id="kybb5H" name="btn_PullVoice_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_PullVoice_Dn.png"/>
+        <FILE id="PeYwjg" name="btn_PullVoice_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_PullVoice_Up.png"/>
         <FILE id="Kmf6D0" name="btn_Push_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Dn.png"/>
         <FILE id="gwkq7e" name="btn_Push_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Up.png"/>
-        <FILE id="awKtRw" name="btn_PushPatch_Dn.png" compile="0" resource="1"
-              file="BinaryResources/buttons/btn_PushPatch_Dn.png"/>
-        <FILE id="b3dAMg" name="btn_PushPatch_Up.png" compile="0" resource="1"
-              file="BinaryResources/buttons/btn_PushPatch_Up.png"/>
-        <FILE id="OHlj4u" name="btn_SavePatch_Dn.png" compile="0" resource="1"
-              file="BinaryResources/buttons/btn_SavePatch_Dn.png"/>
-        <FILE id="xxaf5e" name="btn_SavePatch_Up.png" compile="0" resource="1"
-              file="BinaryResources/buttons/btn_SavePatch_Up.png"/>
+        <FILE id="awKtRw" name="btn_PushVoice_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_PushVoice_Dn.png"/>
+        <FILE id="b3dAMg" name="btn_PushVoice_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_PushVoice_Up.png"/>
+        <FILE id="OHlj4u" name="btn_SaveVoice_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_SaveVoice_Dn.png"/>
+        <FILE id="xxaf5e" name="btn_SaveVoice_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_SaveVoice_Up.png"/>
         <FILE id="VXItcU" name="btn_Write_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Write_Dn.png"/>
         <FILE id="uHspmm" name="btn_Write_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Write_Up.png"/>
+        <FILE id="s6SgMU" name="btn_X_Blue_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_X_Blue_Dn.png"/>
+        <FILE id="XkKHbU" name="btn_X_Blue_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_X_Blue_Up.png"/>
+        <FILE id="QCkqNC" name="btn_X_Grey_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_X_Grey_Dn.png"/>
+        <FILE id="HjJLHx" name="btn_X_Grey_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_X_Grey_Up.png"/>
+        <FILE id="WUsa60" name="btn_X_Orange_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_X_Orange_Dn.png"/>
+        <FILE id="sdVuRi" name="btn_X_Orange_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_X_Orange_Up.png"/>
       </GROUP>
       <GROUP id="{C61D6FF1-A700-7B0E-0D55-4C36A8AFE3C4}" name="labels">
         <FILE id="xICB0m" name="lbl_ExportVoice.png" compile="0" resource="1"
@@ -195,6 +207,8 @@
               file="Source/gui/gui_build_LED_Path.h"/>
         <FILE id="rxqKaD" name="gui_comp_ButtonForActivatingQuickEdit.h" compile="0"
               resource="0" file="Source/gui/gui_comp_ButtonForActivatingQuickEdit.h"/>
+        <FILE id="gRqgOJ" name="gui_comp_ButtonForHidingLayer.h" compile="0"
+              resource="0" file="Source/gui/gui_comp_ButtonForHidingLayer.h"/>
         <FILE id="xTRh7m" name="gui_comp_EnvelopePainter.cpp" compile="1" resource="0"
               file="Source/gui/gui_comp_EnvelopePainter.cpp"/>
         <FILE id="mhoAQj" name="gui_comp_EnvelopePainter.h" compile="0" resource="0"
@@ -297,6 +311,8 @@
               file="Source/voices/voices_3_comp_VoiceSlots.cpp"/>
         <FILE id="U84Ewr" name="voices_3_comp_VoiceSlots.h" compile="0" resource="0"
               file="Source/voices/voices_3_comp_VoiceSlots.h"/>
+        <FILE id="xhy0cl" name="voices_4_comp_ButtonsForVoicesBankTab.h" compile="0"
+              resource="0" file="Source/voices/voices_4_comp_ButtonsForVoicesBankTab.h"/>
       </GROUP>
       <GROUP id="{479D0EB5-491F-51AB-CFC7-84E0F4A91330}" name="voicesImportExport">
         <FILE id="sMzO5t" name="imEx_0_FileFilters.h" compile="0" resource="0"

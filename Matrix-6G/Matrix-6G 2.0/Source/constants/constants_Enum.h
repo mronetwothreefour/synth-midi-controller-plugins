@@ -4,6 +4,13 @@
 
 namespace Matrix_6G_Constants
 {
+	const enum class BorderColor {
+		blue = 0,
+		grey,
+		orange
+	};
+
+
 	const enum class ControlType {
 		nullControl = -1,
 		slider,
