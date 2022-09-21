@@ -6,8 +6,6 @@
 #include "voices_3_comp_VoiceSlots.h"
 #include "voices_4_comp_ButtonsForVoicesBankTab.h"
 
-
-
 class ExposedParameters;
 class UnexposedParameters;
 class VoicesBanks;
@@ -19,11 +17,11 @@ class TabForFactoryVoicesBank :
     VoicesBank bank;
     VoiceSlots voiceSlots;
     VoicesBanks* voicesBanks;
-    ButtonForLoadingSelectedVoice button_LoadSelected;
-    ButtonForPushingSelectedVoiceToHardware button_PushSelected;
-    ButtonForExportingSelectedVoiceToFile button_ExportSelected;
-    ButtonForPushingEntireBankToHardware button_PushBank;
-    ButtonForExportingEntireBankToFile button_ExportBank;
+    ButtonForLoadingSelectedVoice btn_LoadSelected;
+    ButtonForPushingSelectedVoiceToHardware btn_PushSelected;
+    ButtonForExportingSelectedVoiceToFile btn_ExportSelected;
+    ButtonForPushingEntireBankToHardware btn_PushBank;
+    ButtonForExportingEntireBankToFile btn_ExportBank;
     ApplicationCommandManager commandManager;
     String& voiceCopyBuffer;
 

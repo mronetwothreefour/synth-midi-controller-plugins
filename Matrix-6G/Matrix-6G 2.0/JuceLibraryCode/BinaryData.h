@@ -155,6 +155,15 @@ namespace BinaryData
     extern const char*   bkgrnd_NewFolderDialog_png;
     const int            bkgrnd_NewFolderDialog_pngSize = 1783;
 
+    extern const char*   bkgrnd_VoicesBankFooter_Custom_png;
+    const int            bkgrnd_VoicesBankFooter_Custom_pngSize = 1061;
+
+    extern const char*   bkgrnd_VoicesBankFooter_Factory_png;
+    const int            bkgrnd_VoicesBankFooter_Factory_pngSize = 1063;
+
+    extern const char*   bkgrnd_VoicesBanksHeader_png;
+    const int            bkgrnd_VoicesBanksHeader_pngSize = 2528;
+
     extern const char*   SWISSB_TTF;
     const int            SWISSB_TTFSize = 36852;
 
@@ -162,7 +171,7 @@ namespace BinaryData
     const int            SWISSCL_TTFSize = 35064;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 51;
+    const int namedResourceListSize = 54;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

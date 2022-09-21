@@ -29,7 +29,7 @@ public:
         addTab("FACTORY   BANKS", GUI::color_Device, &tabbedComponentForFactoryVoicesBanks, true, 1);
         addTab("CUSTOM   BANKS", GUI::color_Device, &tabbedComponentForCustomVoicesBanks, true, 1);
         setColour(backgroundColourId, GUI::color_Device.darker(0.25f));
-        setSize(GUI::tabbedComponentForVoicesBanks_w, GUI::tabbedComponentForVoicesBanks_h + GUI::tabBarDepth);
+        setSize(GUI::voicesBanksTabbedComponent_w, GUI::voicesBanksTabbedComponent_h + GUI::tabBarDepth);
     }
 
     void addListenerToButtonsInAllTabs(Button::Listener* listener) {

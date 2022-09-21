@@ -10,7 +10,6 @@ GUI_Layer_Import_Voice::GUI_Layer_Import_Voice(VoicesBank bank, VoiceSlots* voic
 	voicesBanks{ unexposedParams->getVoicesBanks() }
 {
 	jassert(bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3);
-	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	if (tooltips->shouldShowDescription()) {
 		btn_Cancel.setTooltip("Click to cancel the data import.");
 		btn_Proceed.setTooltip("Click to import the program\ndata from the selected file.");

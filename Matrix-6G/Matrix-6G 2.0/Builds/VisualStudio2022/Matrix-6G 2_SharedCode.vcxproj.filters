@@ -730,6 +730,12 @@
     <ClCompile Include="..\..\Source\voices\voices_3_comp_VoiceSlots.cpp">
       <Filter>Matrix-6G 2\Source\voices</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_5_comp_TabForCustomVoicesBank.cpp">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_5_comp_TabForFactoryVoicesBank.cpp">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp">
       <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
     </ClCompile>
@@ -3226,6 +3232,12 @@
       <Filter>Matrix-6G 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voices\voices_4_comp_ButtonsForVoicesBankTab.h">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_5_comp_TabForCustomVoicesBank.h">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_5_comp_TabForFactoryVoicesBank.h">
       <Filter>Matrix-6G 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h">
@@ -6096,6 +6108,15 @@
       <Filter>Matrix-6G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png">
+      <Filter>Matrix-6G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_VoicesBankFooter_Custom.png">
+      <Filter>Matrix-6G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_VoicesBankFooter_Factory.png">
+      <Filter>Matrix-6G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_VoicesBanksHeader.png">
       <Filter>Matrix-6G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF">

@@ -32,7 +32,7 @@ public:
 		addTab("2", GUI::color_Device, &bank_2, true, 2);
 		addTab("3", GUI::color_Device, &bank_3, true, 3);
 		setColour(backgroundColourId, GUI::color_Device.darker(0.25f));
-		setSize(GUI::tabbedComponentForVoicesBanks_w, GUI::tabbedComponentForVoicesBanks_h);
+		setSize(GUI::voicesBanksTabbedComponent_w, GUI::voicesBanksTabbedComponent_h);
 	}
 
     void addListenerToButtonsInAllCustomTabs(Button::Listener* listener) {

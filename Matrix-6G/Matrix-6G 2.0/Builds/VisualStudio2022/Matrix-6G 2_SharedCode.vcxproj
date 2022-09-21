@@ -177,6 +177,8 @@
     <ClCompile Include="..\..\Source\voices\voices_1_tree_VoicesBanks.cpp"/>
     <ClCompile Include="..\..\Source\voices\voices_2_comp_VoiceSlotRadioButton.cpp"/>
     <ClCompile Include="..\..\Source\voices\voices_3_comp_VoiceSlots.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_5_comp_TabForCustomVoicesBank.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_5_comp_TabForFactoryVoicesBank.cpp"/>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp"/>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.cpp"/>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.cpp"/>
@@ -2393,6 +2395,8 @@
     <ClInclude Include="..\..\Source\voices\voices_2_comp_VoiceSlotRadioButton.h"/>
     <ClInclude Include="..\..\Source\voices\voices_3_comp_VoiceSlots.h"/>
     <ClInclude Include="..\..\Source\voices\voices_4_comp_ButtonsForVoicesBankTab.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_5_comp_TabForCustomVoicesBank.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_5_comp_TabForFactoryVoicesBank.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileNotValidAlert.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.h"/>
@@ -3351,6 +3355,9 @@
     <None Include="..\..\BinaryResources\bkgrnd_ImportExportWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_VoicesBankFooter_Custom.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_VoicesBankFooter_Factory.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_VoicesBanksHeader.png"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>

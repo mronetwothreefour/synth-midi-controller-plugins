@@ -19,7 +19,14 @@ namespace Matrix_6G_Constants
 		const int matrixModComboBox_w{ 82 };
 		const int matrixModSlider_w{ 40 };
 		const int vertDistBtwnRows{ 28 };
+		const int voicesBankTabButtons_x_spacing{ 35 };
+		const int voicesBankTabButtons_y{ 427 };
+		const int voicesBankTabFooter_y{ 422 };
+		const int voicesBankTab_h{ 466 };
+		const int voicesBankTab_w{ 428 };
 		const int voiceSlotRadioButtton_w{ 83 };
 		const int voiceSlotRadioButtton_h{ 16 };
+		const int voiceSlots_x{ 15 };
+		const int voiceSlots_y{ 11 };
 	}
 }

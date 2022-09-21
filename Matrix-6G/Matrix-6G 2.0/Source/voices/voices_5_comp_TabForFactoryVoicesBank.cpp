@@ -6,31 +6,27 @@
 #include "../constants/constants_Voices.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
-TabForFactoryVoicesBank::TabForFactoryVoicesBank(
-	VoicesBank bank, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer) :
+TabForFactoryVoicesBank::TabForFactoryVoicesBank(VoicesBank bank, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams, String& voiceCopyBuffer) :
 	bank{ bank },
 	voiceSlots{ bank, exposedParams, unexposedParams },
 	voicesBanks{ unexposedParams->getVoicesBanks() },
 	voiceCopyBuffer{ voiceCopyBuffer },
 	btn_LoadSelected{ &voiceSlots, unexposedParams },
-	btn_PushSelected{ &voiceSlots, unexposedParams },
 	btn_ExportSelected{ bank, unexposedParams },
 	btn_PushBank{ bank, unexposedParams },
 	btn_ExportBank{ bank, unexposedParams }
 {
-	jassert(bank <= VoicesBank::factory_3);
+	jassert(bank <= VoicesBank::strings);
 
 	voiceSlots.setTopLeftPosition(GUI::voiceSlots_x, GUI::voiceSlots_y);
 	addAndMakeVisible(voiceSlots);
 
-	btn_LoadSelected.setTopLeftPosition(183, GUI::voicesBankTabButtons_y);
+	btn_LoadSelected.setTopLeftPosition(131, GUI::voicesBankTabButtons_y);
 	addAndMakeVisible(btn_LoadSelected);
-	btn_PushSelected.setTopLeftPosition(btn_LoadSelected.getX() + GUI::voicesBankTabButtons_x_spacing, GUI::voicesBankTabButtons_y);
-	addAndMakeVisible(btn_PushSelected);
-	btn_ExportSelected.setTopLeftPosition(btn_PushSelected.getX() + GUI::voicesBankTabButtons_x_spacing, GUI::voicesBankTabButtons_y);
+	btn_ExportSelected.setTopLeftPosition(btn_LoadSelected.getX() + GUI::voicesBankTabButtons_x_spacing, GUI::voicesBankTabButtons_y);
 	addAndMakeVisible(btn_ExportSelected);
 
-	btn_PushBank.setTopLeftPosition(638, GUI::voicesBankTabButtons_y);
+	btn_PushBank.setTopLeftPosition(261, GUI::voicesBankTabButtons_y);
 	addAndMakeVisible(btn_PushBank);
 	btn_ExportBank.setTopLeftPosition(btn_PushBank.getX() + GUI::voicesBankTabButtons_x_spacing, GUI::voicesBankTabButtons_y);
 	addAndMakeVisible(btn_ExportBank);
@@ -43,9 +39,9 @@ TabForFactoryVoicesBank::TabForFactoryVoicesBank(
 
 void TabForFactoryVoicesBank::paint(Graphics& g) {
 	PNGImageFormat imageFormat;
-	MemoryInputStream memInputStream{ BinaryData::bkgrnd_TabForVoicesBank_png, BinaryData::bkgrnd_TabForVoicesBank_pngSize, false };
+	MemoryInputStream memInputStream{ BinaryData::bkgrnd_VoicesBankFooter_Factory_png, BinaryData::bkgrnd_VoicesBankFooter_Factory_pngSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(backgroundImage, 0, 0);
+	g.drawImageAt(backgroundImage, 0, GUI::voicesBankTabFooter_y);
 }
 
 ApplicationCommandTarget* TabForFactoryVoicesBank::getNextCommandTarget() {
@@ -61,7 +57,7 @@ void TabForFactoryVoicesBank::getCommandInfo(CommandID commandID, ApplicationCom
 	switch (commandID)
 	{
 	case copyVoice:
-		result.setInfo("Copy Program", "Copy the program in the selected storage slot", "CopyAndPaste", 0);
+		result.setInfo("Copy Program", "Copy the patch in the selected storage slot", "CopyAndPaste", 0);
 		result.addDefaultKeypress('c', ModifierKeys::commandModifier);
 		break;
 	default:

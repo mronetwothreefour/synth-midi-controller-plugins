@@ -14,7 +14,6 @@ TabForCustomVoicesBank::TabForCustomVoicesBank(
 	voiceCopyBuffer{ voiceCopyBuffer },
 	btn_LoadSelected{ &voiceSlots, unexposedParams },
 	btn_SaveIntoSelected{ &voiceSlots, unexposedParams },
-	btn_PushSelected{ &voiceSlots, unexposedParams },
 	btn_PullSelected{ &voiceSlots, unexposedParams },
 	btn_ExportSelected{ bank, unexposedParams },
 	btn_ImportSelected{ bank, unexposedParams },
@@ -23,25 +22,23 @@ TabForCustomVoicesBank::TabForCustomVoicesBank(
 	btn_ExportBank{ bank, unexposedParams },
 	btn_ImportBank{ bank, unexposedParams }
 {
-	jassert(bank >= VoicesBank::custom_1);
+	jassert(bank >= VoicesBank::custom_A);
 
 	voiceSlots.setTopLeftPosition(GUI::voiceSlots_x, GUI::voiceSlots_y);
 	addAndMakeVisible(voiceSlots);
 
-	btn_LoadSelected.setTopLeftPosition(183, GUI::voicesBankTabButtons_y);
+	btn_LoadSelected.setTopLeftPosition(44, GUI::voicesBankTabButtons_y);
 	addAndMakeVisible(btn_LoadSelected);
 	btn_SaveIntoSelected.setTopLeftPosition(btn_LoadSelected.getX() + GUI::voicesBankTabButtons_x_spacing, GUI::voicesBankTabButtons_y);
 	addAndMakeVisible(btn_SaveIntoSelected);
-	btn_PushSelected.setTopLeftPosition(btn_SaveIntoSelected.getX() + GUI::voicesBankTabButtons_x_spacing, GUI::voicesBankTabButtons_y);
-	addAndMakeVisible(btn_PushSelected);
-	btn_PullSelected.setTopLeftPosition(btn_PushSelected.getX() + GUI::voicesBankTabButtons_x_spacing, GUI::voicesBankTabButtons_y);
+	btn_PullSelected.setTopLeftPosition(btn_SaveIntoSelected.getX() + GUI::voicesBankTabButtons_x_spacing, GUI::voicesBankTabButtons_y);
 	addAndMakeVisible(btn_PullSelected);
 	btn_ExportSelected.setTopLeftPosition(btn_PullSelected.getX() + GUI::voicesBankTabButtons_x_spacing, GUI::voicesBankTabButtons_y);
 	addAndMakeVisible(btn_ExportSelected);
 	btn_ImportSelected.setTopLeftPosition(btn_ExportSelected.getX() + GUI::voicesBankTabButtons_x_spacing, GUI::voicesBankTabButtons_y);
 	addAndMakeVisible(btn_ImportSelected);
 
-	btn_PushBank.setTopLeftPosition(638, GUI::voicesBankTabButtons_y);
+	btn_PushBank.setTopLeftPosition(278, GUI::voicesBankTabButtons_y);
 	addAndMakeVisible(btn_PushBank);
 	btn_PullBank.setTopLeftPosition(btn_PushBank.getX() + GUI::voicesBankTabButtons_x_spacing, GUI::voicesBankTabButtons_y);
 	addAndMakeVisible(btn_PullBank);
@@ -58,9 +55,9 @@ TabForCustomVoicesBank::TabForCustomVoicesBank(
 
 void TabForCustomVoicesBank::paint(Graphics& g) {
 	PNGImageFormat imageFormat;
-	MemoryInputStream memInputStream{ BinaryData::bkgrnd_TabForVoicesBank_png, BinaryData::bkgrnd_TabForVoicesBank_pngSize, false };
+	MemoryInputStream memInputStream{ BinaryData::bkgrnd_VoicesBankFooter_Custom_png, BinaryData::bkgrnd_VoicesBankFooter_Custom_pngSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(backgroundImage, 0, 0);
+	g.drawImageAt(backgroundImage, 0, GUI::voicesBankTabFooter_y);
 }
 
 ApplicationCommandTarget* TabForCustomVoicesBank::getNextCommandTarget() {
@@ -76,11 +73,11 @@ void TabForCustomVoicesBank::getCommandInfo(CommandID commandID, ApplicationComm
 	switch (commandID)
 	{
 	case copyVoice:
-		result.setInfo("Copy Program", "Copy the program in the selected storage slot", "CopyAndPaste", 0);
+		result.setInfo("Copy Program", "Copy the patch in the selected storage slot", "CopyAndPaste", 0);
 		result.addDefaultKeypress('c', ModifierKeys::commandModifier);
 		break;
 	case pasteVoice:
-		result.setInfo("Paste Program", "Replace the program in the selected storage slot with the program in the clipboard", "CopyAndPaste", 0);
+		result.setInfo("Paste Program", "Replace the patch in the selected storage slot with the patch in the clipboard", "CopyAndPaste", 0);
 		result.addDefaultKeypress('v', ModifierKeys::commandModifier);
 		break;
 	default:

@@ -19,7 +19,6 @@ class TabForCustomVoicesBank :
     VoicesBanks* voicesBanks;
     ButtonForLoadingSelectedVoice btn_LoadSelected;
     ButtonForSavingVoiceIntoSelectedSlot btn_SaveIntoSelected;
-    ButtonForPushingSelectedVoiceToHardware btn_PushSelected;
     ButtonForPullingSelectedVoiceFromHardware btn_PullSelected;;
     ButtonForExportingSelectedVoiceToFile btn_ExportSelected;
     ButtonForImportingVoiceFromFile btn_ImportSelected;

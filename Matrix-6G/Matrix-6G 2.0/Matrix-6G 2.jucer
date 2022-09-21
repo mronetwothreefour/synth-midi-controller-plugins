@@ -102,6 +102,12 @@
             file="BinaryResources/bkgrnd_MainWindow.png"/>
       <FILE id="wAz6I0" name="bkgrnd_NewFolderDialog.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_NewFolderDialog.png"/>
+      <FILE id="E6mox2" name="bkgrnd_VoicesBankFooter_Custom.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_VoicesBankFooter_Custom.png"/>
+      <FILE id="MVqErL" name="bkgrnd_VoicesBankFooter_Factory.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_VoicesBankFooter_Factory.png"/>
+      <FILE id="YpGvIH" name="bkgrnd_VoicesBanksHeader.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_VoicesBanksHeader.png"/>
       <FILE id="SAozmE" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
       <FILE id="M2aKqo" name="SWISSCL.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCL.TTF"/>
     </GROUP>
@@ -313,6 +319,14 @@
               file="Source/voices/voices_3_comp_VoiceSlots.h"/>
         <FILE id="xhy0cl" name="voices_4_comp_ButtonsForVoicesBankTab.h" compile="0"
               resource="0" file="Source/voices/voices_4_comp_ButtonsForVoicesBankTab.h"/>
+        <FILE id="AKW74j" name="voices_5_comp_TabForCustomVoicesBank.cpp" compile="1"
+              resource="0" file="Source/voices/voices_5_comp_TabForCustomVoicesBank.cpp"/>
+        <FILE id="Fjgk7K" name="voices_5_comp_TabForCustomVoicesBank.h" compile="0"
+              resource="0" file="Source/voices/voices_5_comp_TabForCustomVoicesBank.h"/>
+        <FILE id="Nn4x55" name="voices_5_comp_TabForFactoryVoicesBank.cpp"
+              compile="1" resource="0" file="Source/voices/voices_5_comp_TabForFactoryVoicesBank.cpp"/>
+        <FILE id="cOkDhA" name="voices_5_comp_TabForFactoryVoicesBank.h" compile="0"
+              resource="0" file="Source/voices/voices_5_comp_TabForFactoryVoicesBank.h"/>
       </GROUP>
       <GROUP id="{479D0EB5-491F-51AB-CFC7-84E0F4A91330}" name="voicesImportExport">
         <FILE id="sMzO5t" name="imEx_0_FileFilters.h" compile="0" resource="0"

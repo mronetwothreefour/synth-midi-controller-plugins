@@ -30,14 +30,18 @@ namespace MophoConstants
 		const int redButton_h{ 22 };
 		const int redToggle_diameter{ 14 };
 		const int tabBarDepth{ 30 };
-		const int tabForVoicesBank_h{ 370 };
-		const int tabForVoicesBank_w{ 1065 };
-		const int tabbedComponentForVoicesBanks_w{ tabForVoicesBank_w + tabBarDepth };
-		const int tabbedComponentForVoicesBanks_h{ tabForVoicesBank_h };
 		const int voiceNameChars_h{ 17 };
 		const int voiceNameChars_w{ 12 };
+		const int voicesBanksLayerButtons_w{ 50 };
+		const int voicesBankTabButtons_x_spacing{ 55 };
+		const int voicesBankTabButtons_y{ 334 };
+		const int voicesBankTab_h{ 370 };
+		const int voicesBankTab_w{ 1065 };
+		const int voicesBanksTabbedComponent_w{ voicesBankTab_w + tabBarDepth };
+		const int voicesBanksTabbedComponent_h{ voicesBankTab_h };
 		const int voiceSlotRadioButtton_w{ 125 };
 		const int voiceSlotRadioButtton_h{ 19 };
-		const int voicesBanksLayerButtons_w{ 50 };
+		const int voiceSlots_x{ 15 };
+		const int voiceSlots_y{ 14 };
 	}
 }
