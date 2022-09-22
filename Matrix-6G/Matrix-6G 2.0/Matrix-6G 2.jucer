@@ -63,6 +63,8 @@
               file="BinaryResources/buttons/btn_SaveVoice_Dn.png"/>
         <FILE id="xxaf5e" name="btn_SaveVoice_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_SaveVoice_Up.png"/>
+        <FILE id="N34dea" name="btn_Stop_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Stop_Dn.png"/>
+        <FILE id="lV9u4I" name="btn_Stop_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Stop_Up.png"/>
         <FILE id="VXItcU" name="btn_Write_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Write_Dn.png"/>
         <FILE id="uHspmm" name="btn_Write_Up.png" compile="0" resource="1"
@@ -89,6 +91,10 @@
               file="BinaryResources/labels/lbl_ImportVoice.png"/>
         <FILE id="rHbVUZ" name="lbl_ImportVoicesBank.png" compile="0" resource="1"
               file="BinaryResources/labels/lbl_ImportVoicesBank.png"/>
+        <FILE id="fTPl1q" name="lbl_PullingEntireBank.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_PullingEntireBank.png"/>
+        <FILE id="lAedzT" name="lbl_PushingEntireBank.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_PushingEntireBank.png"/>
       </GROUP>
       <FILE id="qLeA7R" name="bkgrnd_FileNotValidAlert.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_FileNotValidAlert.png"/>
@@ -327,6 +333,14 @@
               compile="1" resource="0" file="Source/voices/voices_5_comp_TabForFactoryVoicesBank.cpp"/>
         <FILE id="cOkDhA" name="voices_5_comp_TabForFactoryVoicesBank.h" compile="0"
               resource="0" file="Source/voices/voices_5_comp_TabForFactoryVoicesBank.h"/>
+        <FILE id="LSCUtk" name="voices_6_comp_TabbedComponentForVoicesBanks.cpp"
+              compile="1" resource="0" file="Source/voices/voices_6_comp_TabbedComponentForVoicesBanks.cpp"/>
+        <FILE id="nrMaLz" name="voices_6_comp_TabbedComponentForVoicesBanks.h"
+              compile="0" resource="0" file="Source/voices/voices_6_comp_TabbedComponentForVoicesBanks.h"/>
+        <FILE id="iTHC92" name="voices_6_gui_layer_BankTransmit.cpp" compile="1"
+              resource="0" file="Source/voices/voices_6_gui_layer_BankTransmit.cpp"/>
+        <FILE id="jLtbCn" name="voices_6_gui_layer_BankTransmit.h" compile="0"
+              resource="0" file="Source/voices/voices_6_gui_layer_BankTransmit.h"/>
       </GROUP>
       <GROUP id="{479D0EB5-491F-51AB-CFC7-84E0F4A91330}" name="voicesImportExport">
         <FILE id="sMzO5t" name="imEx_0_FileFilters.h" compile="0" resource="0"

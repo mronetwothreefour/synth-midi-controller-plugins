@@ -1,4 +1,4 @@
-#include "voices_7_gui_layer_BankTransmit.h"
+#include "voices_6_gui_layer_BankTransmit.h"
 
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
@@ -16,25 +16,33 @@ GUI_Layer_BankTransmit::GUI_Layer_BankTransmit(VoicesBank& bank, BankTransmitTyp
 	bank{ bank },
 	transmitType{ transmitType },
 	unexposedParams{ unexposedParams },
-	progressMessage{ "" },
 	transmitTime{ unexposedParams->getVoiceTransmissionOptions()->voiceTransmitTime() },
 	voiceCounter{ VCS::numberOfSlotsInVoicesBank },
 	progress{ 0.0 },
 	progressBar{ progress },
 	btn_Stop{ "" },
-	btn_Close{ unexposedParams->getTooltipsOptions() }
+	btn_Close{ "" }
 {
-	bankName = (bank < VoicesBank::custom_1 ? "Factory " : "Custom ") + String((int)bank % 3 + 1);
-
 	addAndMakeVisible(progressBar);
-	progressBar.setBounds(461, 319, 351, 18);
+	progressBar.setBounds(461, 289, 330, 18);
 
+	auto button_y{ 317 };
 	btn_Stop.setComponentID(ID::btn_Stop.toString());
 	btn_Stop.onClick = [this] { cancelTransmission(); };
-	btn_Stop.setBounds(buttonBounds);
+	btn_Stop.setBounds(607, button_y, 38, GUI::buttons_small_h);
 	addAndMakeVisible(btn_Stop);
 
-	btn_Close.setBounds(buttonBounds);
+	btn_Close.setComponentID(ID::btn_Close.toString());
+	btn_Close.addShortcut(KeyPress{ KeyPress::escapeKey });
+	btn_Close.onClick = [this, transmitType, unexposedParams] {
+		if (transmitType == BankTransmitType::pull) {
+			auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
+			transmitOptions->setIncomingVoiceShouldNotBeStored();
+		}
+		getParentComponent()->grabKeyboardFocus();
+		setVisible(false); 
+	};
+	btn_Close.setBounds(605, button_y, 42, GUI::buttons_small_h);
 	addChildComponent(btn_Close);
 
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -46,11 +54,12 @@ GUI_Layer_BankTransmit::GUI_Layer_BankTransmit(VoicesBank& bank, BankTransmitTyp
 void GUI_Layer_BankTransmit::paint(Graphics& g) {
 	g.setColour(GUI::color_Black.withAlpha(0.4f));
 	g.fillRect(getParentComponent()->getBounds());
-	g.setOpacity(1.0f);
-	Rectangle<int> bkgrndBounds{ 444, 251, 385, 124 };
-	g.fillRect(bkgrndBounds);
+	g.setColour(GUI::color_ButtonBlue);
+	Rectangle<int> componentBounds{ 441, 239, 370, 118 };
+	g.fillRect(componentBounds);
 	g.setColour(GUI::color_Device);
-	g.fillRect(bkgrndBounds.reduced(2));
+	componentBounds.reduce(GUI::borders_w, GUI::borders_w);
+	g.fillRect(componentBounds);
 
 	MemBlock mBlock{};
 	if (transmitType == BankTransmitType::pull)
@@ -60,12 +69,7 @@ void GUI_Layer_BankTransmit::paint(Graphics& g) {
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ mBlock, false };
 	auto titleImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(titleImage, 454, 260);
-
-	g.setColour(GUI::color_Black);
-	g.setFont(GUI::font_ProgressDisplayMessage);
-	const Rectangle<int> progressMessageBounds{ 461, 290, 351, 28 };
-	g.drawFittedText(progressMessage, progressMessageBounds, Justification::centred, 1, 1.0f);
+	g.drawImageAt(titleImage, componentBounds.getX(), componentBounds.getY());
 }
 
 void GUI_Layer_BankTransmit::timerCallback() {
@@ -74,14 +78,10 @@ void GUI_Layer_BankTransmit::timerCallback() {
 		transmitMidiBufferForVoiceSlot(voiceCounter);
 		++voiceCounter;
 		progress = voiceCounter / (double)VCS::numberOfSlotsInVoicesBank;
-		progressMessage = transmitType == BankTransmitType::push ? "Pushing " : "Pulling ";
-		progressMessage += bankName + " Program " + (String)voiceCounter;
-		progressMessage += transmitType == BankTransmitType::push ? " To Hardware" : " From Hardware";
 		repaint();
 		startTimer(transmitTime);
 	}
 	else {
-		progressMessage = "Transmission Complete";
 		makeCloseButtonVisible();
 		repaint();
 	}
@@ -89,17 +89,25 @@ void GUI_Layer_BankTransmit::timerCallback() {
 
 void GUI_Layer_BankTransmit::transmitMidiBufferForVoiceSlot(uint8 voiceSlot) {
 	auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
-	if (transmitType == BankTransmitType::pull)
-		SysExMessages::addRequestForVoiceDataStoredInBankAndSlotToOutgoingBuffers(bank, voiceSlot, outgoingBuffers);
+	if (transmitType == BankTransmitType::pull) {
+		auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
+		transmitOptions->setIncomingVoiceShouldBeStoredInCustomBank(bank);
+		SysExMessages::addRequestForVoiceDataStoredInSlotToOutgoingBuffers(voiceSlot, outgoingBuffers);
+	}
 	else {
 		auto voicesBanks{ unexposedParams->getVoicesBanks() };
 		SysExMessages::addDataMessageForVoiceStoredInBankAndSlotToOutgoingBuffers(voicesBanks, bank, voiceSlot, outgoingBuffers);
+		callAfterDelay(10, [this, outgoingBuffers, voiceSlot] {
+				auto globalOptions{ unexposedParams->getGlobalOptions() };
+				auto basicChannel{ globalOptions->basicChannel() };
+				outgoingBuffers->addProgramChangeMessage(basicChannel, voiceSlot);
+			}
+		);
 	}
 }
 
 void GUI_Layer_BankTransmit::cancelTransmission() {
 	stopTimer();
-	progressMessage = "Transmission Canceled";
 	makeCloseButtonVisible();
 	repaint();
 }

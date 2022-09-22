@@ -736,6 +736,12 @@
     <ClCompile Include="..\..\Source\voices\voices_5_comp_TabForFactoryVoicesBank.cpp">
       <Filter>Matrix-6G 2\Source\voices</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_6_comp_TabbedComponentForVoicesBanks.cpp">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_6_gui_layer_BankTransmit.cpp">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp">
       <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
     </ClCompile>
@@ -3238,6 +3244,12 @@
       <Filter>Matrix-6G 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voices\voices_5_comp_TabForFactoryVoicesBank.h">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_6_comp_TabbedComponentForVoicesBanks.h">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_6_gui_layer_BankTransmit.h">
       <Filter>Matrix-6G 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h">
@@ -6056,6 +6068,12 @@
     <None Include="..\..\BinaryResources\buttons\btn_SaveVoice_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Stop_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Stop_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
     <None Include="..\..\BinaryResources\buttons\btn_Write_Dn.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
@@ -6090,6 +6108,12 @@
       <Filter>Matrix-6G 2\BinaryResources\labels</Filter>
     </None>
     <None Include="..\..\BinaryResources\labels\lbl_ImportVoicesBank.png">
+      <Filter>Matrix-6G 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\labels\lbl_PullingEntireBank.png">
+      <Filter>Matrix-6G 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\labels\lbl_PushingEntireBank.png">
       <Filter>Matrix-6G 2\BinaryResources\labels</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_FileNotValidAlert.png">

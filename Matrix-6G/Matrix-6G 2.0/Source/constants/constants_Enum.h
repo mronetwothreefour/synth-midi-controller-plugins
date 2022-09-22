@@ -4,6 +4,12 @@
 
 namespace Matrix_6G_Constants
 {
+	const enum class BankTransmitType {
+		push = 0,
+		pull
+	};
+
+
 	const enum class BorderColor {
 		blue = 0,
 		grey,

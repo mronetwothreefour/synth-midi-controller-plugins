@@ -93,7 +93,7 @@ void GUI_Layer_VoicesBanks::buttonClicked(Button* button) {
 }
 
 void GUI_Layer_VoicesBanks::showExportVoiceLayerForBank(VoicesBank bank) {
-	auto slotsComponent{ voicesBanksTabs.getVoiceSlotsForBank(bank) };
+	auto slotsComponent{ voicesBanksTabs.getVoiceSlotsComponentForBank(bank) };
 	auto slot{ slotsComponent->selectedSlot };
 	if (slot < VCS::numberOfSlotsInVoicesBank) {
 		exportVoiceLayer.reset(new GUI_Layer_Export_Voice(bank, slotsComponent, unexposedParams));
@@ -107,7 +107,7 @@ void GUI_Layer_VoicesBanks::showExportVoiceLayerForBank(VoicesBank bank) {
 }
 
 void GUI_Layer_VoicesBanks::showImportVoiceLayerForBank(VoicesBank bank) {
-	auto slotsComponent{ voicesBanksTabs.getVoiceSlotsForBank(bank) };
+	auto slotsComponent{ voicesBanksTabs.getVoiceSlotsComponentForBank(bank) };
 	auto slot{ slotsComponent->selectedSlot };
 	if (slot < VCS::numberOfSlotsInVoicesBank) {
 		importVoiceLayer.reset(new GUI_Layer_Import_Voice(bank, slotsComponent, unexposedParams));
@@ -141,7 +141,7 @@ void GUI_Layer_VoicesBanks::showPullBankLayerForBank(VoicesBank bank) {
 }
 
 void GUI_Layer_VoicesBanks::showExportBankLayerForBank(VoicesBank bank) {
-	auto slotsComponent{ voicesBanksTabs.getVoiceSlotsForBank(bank) };
+	auto slotsComponent{ voicesBanksTabs.getVoiceSlotsComponentForBank(bank) };
 	exportBankLayer.reset(new GUI_Layer_Export_VoicesBank(bank, slotsComponent, unexposedParams));
 	if (exportBankLayer != nullptr) {
 		addAndMakeVisible(exportBankLayer.get());
@@ -152,7 +152,7 @@ void GUI_Layer_VoicesBanks::showExportBankLayerForBank(VoicesBank bank) {
 }
 
 void GUI_Layer_VoicesBanks::showImportBankLayerForBank(VoicesBank bank) {
-	auto slotsComponent{ voicesBanksTabs.getVoiceSlotsForBank(bank) };
+	auto slotsComponent{ voicesBanksTabs.getVoiceSlotsComponentForBank(bank) };
 	importBankLayer.reset(new GUI_Layer_Import_VoicesBank(bank, slotsComponent, unexposedParams));
 	if (importBankLayer != nullptr) {
 		addAndMakeVisible(importBankLayer.get());

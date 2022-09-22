@@ -38,12 +38,14 @@ namespace Matrix_6G_Constants
 		static const Identifier btn_RadioButton_VoiceSlot{ "btn_RadioButton_VoiceSlot" };
 		static const Identifier btn_Save_Split{ "btn_Save_Split" };
 		static const Identifier btn_Save_Voice{ "btn_Save_Voice" };
+		static const Identifier btn_Stop{ "btn_Stop" };
 		static const Identifier btn_Write_OverFile{ "btn_Write_OverFile" };
 		static const Identifier btn_X_Blue{ "btn_X_Blue" };
 		static const Identifier btn_X_Grey{ "btn_X_Grey" };
 		static const Identifier btn_X_Orange{ "btn_X_Orange" };
 
 		static const Identifier comp_ImportExportBrowser{ "comp_ImportExportBrowser" };
+		static const Identifier comp_TabbedComponentForVoicesBanks{ "comp_TabbedComponentForVoicesBanks" };
 		static const Identifier comp_TextEditorForSlider{ "comp_TextEditorForSlider" };
 		static const Identifier comp_VoiceNameEditor{ "comp_VoiceNameEditor" };
 

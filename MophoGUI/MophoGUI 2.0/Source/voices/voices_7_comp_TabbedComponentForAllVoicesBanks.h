@@ -42,7 +42,7 @@ public:
         tabbedComponentForFactoryVoicesBanks.removeListenerFromButtonsInAllFactoryTabs(listener);
     }
 
-    VoiceSlots* getVoiceSlotsForBank(VoicesBank bank) {
+    VoiceSlots* getVoiceSlotsComponentForBank(VoicesBank bank) {
         if (bank >= VoicesBank::custom_1)
             return tabbedComponentForCustomVoicesBanks.getVoiceSlotsComponentForCustomBank(bank);
         else

@@ -4,9 +4,8 @@
 
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Enum.h"
-#include "../gui/gui_comp_ButtonForHidingLayer.h"
 
-using namespace MophoConstants;
+using namespace Matrix_6G_Constants;
 
 class Outgoing_MIDI_Buffers;
 class UnexposedParameters;
@@ -16,17 +15,14 @@ class GUI_Layer_BankTransmit :
 	private Timer
 {
 	VoicesBank bank;
-	String bankName;
 	BankTransmitType transmitType;
 	UnexposedParameters* unexposedParams;
-	String progressMessage;
 	int transmitTime;
 	uint8 voiceCounter;
 	double progress;
 	ProgressBar progressBar;
 	TextButton btn_Stop;
-	ButtonForHidingLayer btn_Close;
-	const Rectangle<int> buttonBounds{ 611, 344, btn_Close.getWidth(), GUI::redButton_h};
+	TextButton btn_Close;
 
 public:
 	GUI_Layer_BankTransmit() = delete;

@@ -28,7 +28,7 @@ public:
 			getParentComponent()->getParentComponent()->grabKeyboardFocus();
 			getParentComponent()->setVisible(false);
 		};
-		addShortcut(KeyPress(KeyPress::escapeKey));
+		addShortcut(KeyPress{ KeyPress::escapeKey });
 		updateTooltip();
 		setSize(GUI::buttons_w, GUI::buttons_h);
 	}
