@@ -33,6 +33,11 @@ public:
 		const String& fileTimeString, bool isDirectory, bool isSelected, int itemIndex, DirContents& dirContents) override;
 	Button* createFileBrowserGoUpButton() override;
 
+	int getDefaultScrollbarWidth() override;
+	void drawScrollbar(
+		Graphics& g, ScrollBar& scrollbar, int x, int y, int w, int h, bool isVertical,
+		int thumbStartPosition, int thumbSize, bool mouseIsOver, bool mouseIsDown) override;
+
 	void drawLabel(Graphics& g, Label& label) override;
 	void fillTextEditorBackground(Graphics& g, int w, int h, TextEditor& textEditor) override;
 	void drawTextEditorOutline(Graphics& g, int w, int h, TextEditor& textEditor) override;

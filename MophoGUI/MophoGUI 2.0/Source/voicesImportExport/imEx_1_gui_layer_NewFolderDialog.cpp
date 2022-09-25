@@ -11,15 +11,15 @@ GUI_Layer_NewFolderDialog::GUI_Layer_NewFolderDialog(FileBrowserComponent* brows
 	tooltips{ tooltips },
 	browserComponent{ browserComponent }
 {
-	label_FolderNameEditor.setComponentID(ID::label_FolderNameEditor.toString());
-	label_FolderNameEditor.applyFontToAllText(GUI::font_BrowserText);
-	label_FolderNameEditor.applyColourToAllText(GUI::color_White);
-	label_FolderNameEditor.setText("New Folder");
-	label_FolderNameEditor.selectAll();
-	label_FolderNameEditor.onReturnKey = [this] { createNewFolder(); };
-	label_FolderNameEditor.onEscapeKey = [this] { hideThisLayer(); };
-	label_FolderNameEditor.setBounds(541, 293, 191, 26);
-	addAndMakeVisible(label_FolderNameEditor);
+	lbl_FolderNameEditor.setComponentID(ID::lbl_FolderNameEditor.toString());
+	lbl_FolderNameEditor.applyFontToAllText(GUI::font_BrowserText);
+	lbl_FolderNameEditor.applyColourToAllText(GUI::color_White);
+	lbl_FolderNameEditor.setText("New Folder");
+	lbl_FolderNameEditor.selectAll();
+	lbl_FolderNameEditor.onReturnKey = [this] { createNewFolder(); };
+	lbl_FolderNameEditor.onEscapeKey = [this] { hideThisLayer(); };
+	lbl_FolderNameEditor.setBounds(541, 293, 191, 26);
+	addAndMakeVisible(lbl_FolderNameEditor);
 
 	const int buttons_w{ GUI::btn_Cancel_w };
 	const int buttonsRow_y{ 326 };
@@ -36,7 +36,7 @@ GUI_Layer_NewFolderDialog::GUI_Layer_NewFolderDialog(FileBrowserComponent* brows
 	addAndMakeVisible(btn_Create);
 
 	if (tooltips->shouldShowDescription()) {
-		label_FolderNameEditor.setTooltip("Type in the name of the new folder.");
+		lbl_FolderNameEditor.setTooltip("Type in the name of the new folder.");
 		btn_Cancel.setTooltip("Cancel new folder creation.");
 		btn_Create.setTooltip("Create new folder.");
 	}
@@ -57,7 +57,7 @@ void GUI_Layer_NewFolderDialog::paint(Graphics& g) {
 void GUI_Layer_NewFolderDialog::createNewFolder() {
 	File currentDirectory{ browserComponent->getRoot() };
 	auto directoryPathString{ currentDirectory.getFullPathName() };
-	auto newFolderName{ label_FolderNameEditor.getText() };
+	auto newFolderName{ lbl_FolderNameEditor.getText() };
 	auto newFolderPath{ "\\" + File::createLegalFileName(newFolderName) };
 	directoryPathString.append(newFolderPath, newFolderPath.length());
 	File newDirectory{ directoryPathString };

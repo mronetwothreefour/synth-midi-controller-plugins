@@ -13,7 +13,7 @@ using Description = GlobalParamDescription;
 EditorForTooltipDelay::EditorForTooltipDelay(UnexposedParameters* unexposedParams) :
 	parameterID{ ID::tooltips_DelayInMilliseconds }
 {
-	tooltipDelayEditor.setComponentID(ID::label_EditLabel.toString());
+	tooltipDelayEditor.setComponentID(ID::lbl_EditLabel.toString());
 	tooltipDelayEditor.setEditable(true);
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	tooltipDelayEditor.setText((String)tooltips->delayInMilliseconds() + " ms", dontSendNotification);

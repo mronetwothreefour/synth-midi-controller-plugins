@@ -26,6 +26,9 @@ VoicesBanks::VoicesBanks() :
                 customNamesChildTree.setProperty(slotName, VCS::basicVoiceNameString, nullptr);
             }
         }
+        factoryVoiceNameStrings.addChild(factoryNamesChildTree, bankNum, nullptr);
+        customVoiceDataHexStrings.addChild(customDataChildTree, bankNum, nullptr);
+        customVoiceNameStrings.addChild(customNamesChildTree, bankNum, nullptr);
     }
     customVoiceDataHexStrings.addListener(this);
 }

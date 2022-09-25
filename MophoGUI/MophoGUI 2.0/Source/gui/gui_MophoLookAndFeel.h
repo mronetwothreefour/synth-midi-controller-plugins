@@ -37,6 +37,11 @@ public:
 		const String& fileTimeString, bool isDirectory, bool isSelected, int itemIndex, DirContents& dirContents) override;
 	Button* createFileBrowserGoUpButton() override;
 
+	int getDefaultScrollbarWidth() override;
+	void drawScrollbar(
+		Graphics& g, ScrollBar& scrollbar, int x, int y, int w, int h, bool isVertical, 
+		int thumbStartPosition, int thumbSize, bool mouseIsOver, bool mouseIsDown) override;
+
 	void drawComboBox(Graphics& g, int width, int height, bool isDown, int x, int y, int w, int h, ComboBox& comboBox) override;
 	void positionComboBoxText(ComboBox& box, Label& label) override;
 	PopupMenu::Options getOptionsForComboBoxPopupMenu(ComboBox& box, Label& label) override;

@@ -12,7 +12,7 @@ using namespace BinaryData;
 using MemBlock = MemoryBlock;
 using s_t = size_t;
 
-GUI_Layer_BankTransmit::GUI_Layer_BankTransmit(VoicesBank& bank, BankTransmitType transmitType, UnexposedParameters* unexposedParams) :
+GUI_Layer_VoiceBankTransmit::GUI_Layer_VoiceBankTransmit(VoicesBank& bank, BankTransmitType transmitType, UnexposedParameters* unexposedParams) :
 	bank{ bank },
 	transmitType{ transmitType },
 	unexposedParams{ unexposedParams },
@@ -23,6 +23,8 @@ GUI_Layer_BankTransmit::GUI_Layer_BankTransmit(VoicesBank& bank, BankTransmitTyp
 	btn_Stop{ "" },
 	btn_Close{ "" }
 {
+	progressBar.setComponentID(ID::comp_ProgressBar_VoiceBank.toString());
+
 	addAndMakeVisible(progressBar);
 	progressBar.setBounds(461, 289, 330, 18);
 
@@ -51,14 +53,14 @@ GUI_Layer_BankTransmit::GUI_Layer_BankTransmit(VoicesBank& bank, BankTransmitTyp
 	startTimer(transmitTime);
 }
 
-void GUI_Layer_BankTransmit::paint(Graphics& g) {
+void GUI_Layer_VoiceBankTransmit::paint(Graphics& g) {
 	g.setColour(GUI::color_Black.withAlpha(0.4f));
 	g.fillRect(getParentComponent()->getBounds());
 	g.setColour(GUI::color_ButtonBlue);
-	Rectangle<int> componentBounds{ 441, 239, 370, 118 };
-	g.fillRect(componentBounds);
+	Rectangle<int> borderBounds{ 441, 239, 370, 118 };
+	g.fillRect(borderBounds);
 	g.setColour(GUI::color_Device);
-	componentBounds.reduce(GUI::borders_w, GUI::borders_w);
+	auto componentBounds{ borderBounds.reduced(GUI::borders_w, GUI::borders_w) };
 	g.fillRect(componentBounds);
 
 	MemBlock mBlock{};
@@ -72,7 +74,7 @@ void GUI_Layer_BankTransmit::paint(Graphics& g) {
 	g.drawImageAt(titleImage, componentBounds.getX(), componentBounds.getY());
 }
 
-void GUI_Layer_BankTransmit::timerCallback() {
+void GUI_Layer_VoiceBankTransmit::timerCallback() {
 	stopTimer();
 	if (voiceCounter < VCS::numberOfSlotsInVoicesBank) {
 		transmitMidiBufferForVoiceSlot(voiceCounter);
@@ -87,7 +89,7 @@ void GUI_Layer_BankTransmit::timerCallback() {
 	}
 }
 
-void GUI_Layer_BankTransmit::transmitMidiBufferForVoiceSlot(uint8 voiceSlot) {
+void GUI_Layer_VoiceBankTransmit::transmitMidiBufferForVoiceSlot(uint8 voiceSlot) {
 	auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
 	if (transmitType == BankTransmitType::pull) {
 		auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
@@ -106,13 +108,13 @@ void GUI_Layer_BankTransmit::transmitMidiBufferForVoiceSlot(uint8 voiceSlot) {
 	}
 }
 
-void GUI_Layer_BankTransmit::cancelTransmission() {
+void GUI_Layer_VoiceBankTransmit::cancelTransmission() {
 	stopTimer();
 	makeCloseButtonVisible();
 	repaint();
 }
 
-void GUI_Layer_BankTransmit::makeCloseButtonVisible() {
+void GUI_Layer_VoiceBankTransmit::makeCloseButtonVisible() {
 	btn_Stop.setVisible(false);
 	btn_Close.setVisible(true);
 }

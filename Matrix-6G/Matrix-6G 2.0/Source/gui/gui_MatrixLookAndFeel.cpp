@@ -13,12 +13,24 @@ using MemBlock = MemoryBlock;
 using s_t = size_t;
 
 void MatrixLookAndFeel::drawLabel(Graphics& g, Label& label) {
-	if (label.getComponentID() != ID::comp_TextEditorForSlider.toString()) {
-		auto isRightJustified{ label.getComponentID() == ID::comp_VoiceNameEditor.toString() ? false : true};
-		g.setColour(GUI::color_LED_Blue);
-		auto text{ label.getText() };
-		auto textPath{ LED_Path::buildLabelText(text, label.getWidth(), isRightJustified) };
-		g.fillPath(textPath);
+	auto isInImptExptBrowser{ label.getParentComponent()->getComponentID() == ID::comp_ImportExportBrowser.toString() ||
+		label.getParentComponent()->getParentComponent()->getComponentID() == ID::comp_ImportExportBrowser.toString()
+	};
+	if (isInImptExptBrowser) {
+		auto textArea{ label.getLocalBounds() };
+		textArea.removeFromLeft(5);
+		g.setColour(GUI::color_OffWhite);
+		g.setFont(GUI::font_BrowserText);
+		g.drawFittedText(label.getText(), textArea, Justification::centredLeft, 1, 1.0f);
+	}
+	else {
+		if (label.getComponentID() != ID::comp_TextEditorForSlider.toString()) {
+			auto isRightJustified{ label.getComponentID() == ID::comp_VoiceNameEditor.toString() ? false : true };
+			g.setColour(GUI::color_LED_Blue);
+			auto text{ label.getText() };
+			auto textPath{ LED_Path::buildLabelText(text, label.getWidth(), isRightJustified) };
+			g.fillPath(textPath);
+		}
 	}
 }
 
@@ -87,6 +99,9 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID == ID::btn_NewFolder.toString())
 		mBlock = MemBlock{ isDown ? btn_NewFolder_Dn_png : btn_NewFolder_Up_png, isDown ? (s_t)btn_NewFolder_Dn_pngSize : (s_t)btn_NewFolder_Up_pngSize };
 
+	if (buttonID == ID::btn_Patches.toString())
+		mBlock = MemBlock{ isDown ? btn_Patches_Dn_png : btn_Patches_Up_png, isDown ? (s_t)btn_Patches_Dn_pngSize : (s_t)btn_Patches_Up_pngSize };
+
 	if (buttonID == ID::btn_Pull.toString())
 		mBlock = MemBlock{ isDown ? btn_Pull_Dn_png : btn_Pull_Up_png, isDown ? (s_t)btn_Pull_Dn_pngSize : (s_t)btn_Pull_Up_pngSize };
 
@@ -96,6 +111,9 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID == ID::btn_Push.toString())
 		mBlock = MemBlock{ isDown ? btn_Push_Dn_png : btn_Push_Up_png, isDown ? (s_t)btn_Push_Dn_pngSize : (s_t)btn_Push_Up_pngSize };
 
+	if (buttonID.startsWith(ID::btn_Push_VoicesBank_.toString()))
+		mBlock = MemBlock{ isDown ? btn_PushVoice_Dn_png : btn_PushVoice_Up_png, isDown ? (s_t)btn_PushVoice_Dn_pngSize : (s_t)btn_PushVoice_Up_pngSize };
+
 	if (buttonID == ID::btn_Save_Voice.toString())
 		mBlock = MemBlock{ isDown ? btn_SaveVoice_Dn_png : btn_SaveVoice_Up_png, isDown ? (s_t)btn_SaveVoice_Dn_pngSize : (s_t)btn_SaveVoice_Up_pngSize };
 
@@ -104,6 +122,9 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 
 	if (buttonID == ID::btn_Write_OverFile.toString())
 		mBlock = MemBlock{ isDown ? btn_Write_Dn_png : btn_Write_Up_png, isDown ? (s_t)btn_Write_Dn_pngSize : (s_t)btn_Write_Up_pngSize };
+
+	if (buttonID == ID::btn_X_Blue.toString())
+		mBlock = MemBlock{ isDown ? btn_X_Blue_Dn_png : btn_X_Blue_Up_png, isDown ? (s_t)btn_X_Blue_Dn_pngSize : (s_t)btn_X_Blue_Up_pngSize };
 
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ mBlock, false };
@@ -147,15 +168,15 @@ void MatrixLookAndFeel::drawTickBox(Graphics& g, Component& component, float x, 
 void MatrixLookAndFeel::layoutFileBrowserComponent(
 	Browser& /*browser*/, DirContents* dirContents, Preview* /*preview*/, ComboBox* currentPath, TextEditor* fileName, Button* goUpButton)
 {
-	const int browser_w{ 470 };
+	const int browser_w{ 464 };
 	currentPath->setBounds(0, 0, browser_w, 26);
 	currentPath->setJustificationType(Justification::centredLeft);
-	goUpButton->setBounds(450, 0, 20, currentPath->getHeight());
+	goUpButton->setBounds(445, 0, 20, currentPath->getHeight());
 	setColour(ListBox::backgroundColourId, GUI::color_Black.withAlpha(0.0f));
 	setColour(ListBox::outlineColourId, GUI::color_Black.withAlpha(0.0f));
 	if (auto* listAsComp = dynamic_cast<Component*> (dirContents))
 		listAsComp->setBounds(0, 36, browser_w, 173);
-	fileName->setBounds(86, 219, 385, currentPath->getHeight());
+	fileName->setBounds(76, 219, 388, currentPath->getHeight());
 	fileName->applyFontToAllText(GUI::font_BrowserText, true);
 }
 
@@ -194,6 +215,26 @@ Button* MatrixLookAndFeel::createFileBrowserGoUpButton() {
 	arrowImage.setPath(arrowPath);
 	goUpButton->setImages(&arrowImage);
 	return goUpButton;
+}
+
+
+
+
+int MatrixLookAndFeel::getDefaultScrollbarWidth() {
+	return 10;
+}
+
+void MatrixLookAndFeel::drawScrollbar(Graphics& g, ScrollBar& /*scrollbar*/, int x, int y, int w, int h, 
+	bool isVertical, int thumbStartPosition, int thumbSize, bool /*mouseIsOver*/, bool /*mouseIsDown*/)
+{
+	Rectangle<int> thumbBounds;
+	if (isVertical)
+		thumbBounds = { x, thumbStartPosition, w, thumbSize };
+	else
+		thumbBounds = { thumbStartPosition, y, thumbSize, h };
+	thumbBounds.reduce(2, 2);
+	g.setColour(GUI::color_LED_Blue);
+	g.fillRect(thumbBounds.toFloat());
 }
 
 
@@ -278,4 +319,45 @@ TextLayout MatrixLookAndFeel::layoutTooltipText(const String& text, Colour colou
 	const float tooltipMaxWidth{ 400.0f };
 	textLayout.createLayout(attribString, tooltipMaxWidth);
 	return textLayout;
+}
+
+void MatrixLookAndFeel::drawProgressBar(Graphics& g, ProgressBar& bar, int w, int h, double percentDone, const String& textToShow) {
+	auto background{ GUI::color_Black };
+	auto foreground{ bar.getComponentID() == ID::comp_ProgressBar_VoiceBank.toString() ? GUI::color_ButtonBlue : GUI::color_ButtonGray};
+	auto barBounds{ bar.getLocalBounds().toFloat() };
+	g.setColour(background);
+	g.fillRect(barBounds);
+	if (percentDone >= 0.0f && percentDone <= 1.0f) {
+		Path p;
+		p.addRectangle(barBounds);
+		g.reduceClipRegion(p);
+		barBounds.setWidth(barBounds.getWidth() * (float)percentDone);
+		g.setColour(foreground);
+		g.fillRect(barBounds);
+	}
+	else {
+		// spinning bar..
+		g.setColour(background);
+		auto stripeWidth = h * 2;
+		auto position = static_cast<int> (Time::getMillisecondCounter() / 15) % stripeWidth;
+		Path p;
+		for (auto x = static_cast<float> (-position); x < w + stripeWidth; x += stripeWidth)
+			p.addQuadrilateral(x, 0.0f,
+				x + stripeWidth * 0.5f, 0.0f,
+				x, static_cast<float> (h),
+				x - stripeWidth * 0.5f, static_cast<float> (h));
+		Image im(Image::ARGB, w, h, true);
+		{
+			Graphics g2(im);
+			g2.setColour(foreground);
+			g2.fillRect(barBounds);
+		}
+		g.setTiledImageFill(im, 0, 0, 0.85f);
+		g.fillPath(p);
+	}
+	if (textToShow.isNotEmpty()) {
+		g.setColour(GUI::color_OffWhite);
+		g.setFont(GUI::font_ProgressBar);
+		g.drawText(textToShow, 0, 0, w, h, Justification::centred, false);
+	}
 }

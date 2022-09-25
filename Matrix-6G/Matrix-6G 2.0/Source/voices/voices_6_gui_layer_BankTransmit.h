@@ -10,7 +10,7 @@ using namespace Matrix_6G_Constants;
 class Outgoing_MIDI_Buffers;
 class UnexposedParameters;
 
-class GUI_Layer_BankTransmit :
+class GUI_Layer_VoiceBankTransmit :
 	public Component,
 	private Timer
 {
@@ -25,9 +25,9 @@ class GUI_Layer_BankTransmit :
 	TextButton btn_Close;
 
 public:
-	GUI_Layer_BankTransmit() = delete;
+	GUI_Layer_VoiceBankTransmit() = delete;
 
-	GUI_Layer_BankTransmit(VoicesBank& bank, BankTransmitType transmitType, UnexposedParameters* unexposedParams);
+	GUI_Layer_VoiceBankTransmit(VoicesBank& bank, BankTransmitType transmitType, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 
 private:
@@ -37,6 +37,6 @@ private:
 	void makeCloseButtonVisible();
 
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GUI_Layer_BankTransmit)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GUI_Layer_VoiceBankTransmit)
 };
 

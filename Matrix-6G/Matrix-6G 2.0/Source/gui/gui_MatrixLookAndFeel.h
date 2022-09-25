@@ -37,6 +37,11 @@ public:
 		const String& fileTimeString, bool isDirectory, bool isSelected, int itemIndex, DirContents& dirContents) override;
 	Button* createFileBrowserGoUpButton() override;
 
+	int getDefaultScrollbarWidth() override;
+	void drawScrollbar(
+		Graphics& g, ScrollBar& scrollbar, int x, int y, int w, int h, bool isVertical,
+		int thumbStartPosition, int thumbSize, bool mouseIsOver, bool mouseIsDown) override;
+
 	void drawComboBox(Graphics& g, int width, int height, bool isDown, int x, int y, int w, int h, ComboBox& comboBox) override;
 	void positionComboBoxText(ComboBox& comboBox, Label& label) override;
 	PopupMenu::Options getOptionsForComboBoxPopupMenu(ComboBox& box, Label& label) override;
@@ -50,4 +55,10 @@ public:
 	void drawTooltip(Graphics& g, const String& text, int width, int height) override;
 	Rectangle<int> getTooltipBounds(const String& tipText, Point<int> screenPos, Rectangle<int> parentArea) override;
 	TextLayout layoutTooltipText(const String& text, Colour colour) noexcept;
+
+	void drawProgressBar(Graphics& g, ProgressBar& bar, int w, int h, double percentDone, const String& textToShow) override;
+
+private:
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MatrixLookAndFeel)
 };

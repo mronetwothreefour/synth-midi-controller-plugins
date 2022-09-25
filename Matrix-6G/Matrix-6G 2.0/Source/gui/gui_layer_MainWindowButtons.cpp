@@ -7,6 +7,7 @@
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../midi/midi_1_SysExMessages.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../voices/voices_7_gui_layer_VoicesBanks.h"
 
 using namespace Matrix_6G_Constants;
 using Description = MainWindowButtonDescription;
@@ -36,7 +37,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
         addProgramChangeMessageToOutgoingBuffersAfterDelay(transmitOptions->voiceTransmitTime());
     };
     btn_Pull.setBounds(633, smallButtons_y, pullAndPushButtons_w, GUI::buttons_small_h);
-    btn_Pull.addShortcut(KeyPress{ 'p', ModifierKeys::ctrlModifier, 0 });
+    btn_Pull.addShortcut(KeyPress{ '[', ModifierKeys::ctrlModifier, 0});
     addAndMakeVisible(btn_Pull);
 
     btn_Push.setComponentID(ID::btn_Push.toString());
@@ -46,8 +47,15 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
         addProgramChangeMessageToOutgoingBuffersAfterDelay(10);
     };
     btn_Push.setBounds(664, smallButtons_y, pullAndPushButtons_w, GUI::buttons_small_h);
-    btn_Push.addShortcut(KeyPress{ 'p', ModifierKeys::ctrlModifier + ModifierKeys::altModifier, 0 });
+    btn_Push.addShortcut(KeyPress{ ']', ModifierKeys::ctrlModifier, 0});
     addAndMakeVisible(btn_Push);
+
+    auto largeButtons_y{ 353 };
+    btn_ShowVoicesBanks.setComponentID(ID::btn_Patches.toString());
+    btn_ShowVoicesBanks.onClick = [this] { showVoicesBanksLayer(); };
+    btn_ShowVoicesBanks.setBounds(1006, largeButtons_y, GUI::buttons_large_w, GUI::buttons_large_h);
+    btn_ShowVoicesBanks.addShortcut(KeyPress{ 'p', ModifierKeys::ctrlModifier, 0 });
+    addAndMakeVisible(btn_ShowVoicesBanks);
 
     updateTooltips();
 
@@ -65,6 +73,9 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
 
     auto tipFor_btn_Push{ shouldShow ? Description::buildForPush() : String{ "" } };
     btn_Push.setTooltip(tipFor_btn_Push);
+
+    auto tipFor_btn_ShowVoicesBanks{ shouldShow ? Description::buildForShowVoicesBanksLayer() : String{ "" } };
+    btn_ShowVoicesBanks.setTooltip(tipFor_btn_ShowVoicesBanks);
 }
 
 void GUI_Layer_MainWindowButtons::timerCallback() {
@@ -76,6 +87,15 @@ void GUI_Layer_MainWindowButtons::addProgramChangeMessageToOutgoingBuffersAfterD
         auto currentVoiceNumber{ exposedParams->currentVoiceOptions.get()->currentVoiceNumber()};
         unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessage(channel, currentVoiceNumber);
     });
+}
+
+void GUI_Layer_MainWindowButtons::showVoicesBanksLayer() {
+    layer_VoicesBanks.reset(new GUI_Layer_VoicesBanks{ exposedParams, unexposedParams });
+    if (layer_VoicesBanks != nullptr) {
+        addAndMakeVisible(layer_VoicesBanks.get());
+        layer_VoicesBanks->setBounds(getLocalBounds());
+        layer_VoicesBanks->grabKeyboardFocus();
+    }
 }
 
 void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& /*event*/) {
@@ -90,5 +110,6 @@ void GUI_Layer_MainWindowButtons::valueChanged(Value& value) {
 }
 
 GUI_Layer_MainWindowButtons::~GUI_Layer_MainWindowButtons() {
+    layer_VoicesBanks = nullptr;
     shouldShowDescriptionAsValue.removeListener(this);
 }

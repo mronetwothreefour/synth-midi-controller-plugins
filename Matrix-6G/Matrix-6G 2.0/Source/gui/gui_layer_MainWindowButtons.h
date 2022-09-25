@@ -5,6 +5,7 @@
 #include "gui_comp_ButtonForActivatingQuickEdit.h"
 
 class ExposedParameters;
+class GUI_Layer_VoicesBanks;
 class TooltipsOptions;
 class UnexposedParameters;
 
@@ -20,6 +21,8 @@ class GUI_Layer_MainWindowButtons :
 	ButtonForActivatingQuickEdit btn_ActivateQuickEdit;
 	TextButton btn_Pull;
 	TextButton btn_Push;
+	TextButton btn_ShowVoicesBanks;
+	std::unique_ptr<GUI_Layer_VoicesBanks> layer_VoicesBanks;
 	Value shouldShowDescriptionAsValue;
 
 public:
@@ -31,6 +34,7 @@ private:
 	void updateTooltips();
 	void timerCallback() override;
 	void addProgramChangeMessageToOutgoingBuffersAfterDelay(int delayInMilliseconds);
+	void showVoicesBanksLayer();
 
 public:
 	void mouseDown(const MouseEvent& event) override;

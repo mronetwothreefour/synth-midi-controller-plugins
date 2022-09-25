@@ -17,7 +17,7 @@ DisplayLabelForGlobalParameter::DisplayLabelForGlobalParameter(GlobalParamDispla
 	labelType{ labelType },
 	global{ unexposedParams->getGlobalOptions() }
 {
-	label_GlobalParam.setComponentID(ID::label_DisplayLabel.toString());
+	label_GlobalParam.setComponentID(ID::lbl_DisplayLabel.toString());
 	label_GlobalParam.setColour(Label::textColourId, GUI::color_Black);
 	label_GlobalParam.setEditable(false, false);
 	setTextAccordingToParameterSetting();

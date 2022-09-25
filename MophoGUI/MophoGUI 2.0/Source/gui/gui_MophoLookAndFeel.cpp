@@ -45,16 +45,16 @@ void MophoLookAndFeel::drawLabel(Graphics& g, Label& label) {
 		g.setFont(GUI::font_Labels);
 		g.setColour(GUI::color_White);
 		if (label.getComponentID() != "") {
-			if (label.getComponentID() == ID::label_EditLabel.toString()) {
+			if (label.getComponentID() == ID::lbl_EditLabel.toString()) {
 				g.fillAll(GUI::color_Black);
 				g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 			}
-			if (label.getComponentID() == ID::label_DisplayLabel.toString()) {
+			if (label.getComponentID() == ID::lbl_DisplayLabel.toString()) {
 				g.setFont(GUI::font_DisplayLabels);
 				g.setColour(label.findColour(label.textColourId));
 				g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
 			}
-			if (label.getComponentID() == ID::label_VoiceNameEditor.toString()) {
+			if (label.getComponentID() == ID::lbl_VoiceNameEditor.toString()) {
 				g.setFont(GUI::font_VoiceNameEditorText);
 				g.setColour(GUI::color_Black.withAlpha(0.0f));
 				g.drawText(label.getText(), label.getLocalBounds(), Justification::centred, false);
@@ -361,6 +361,26 @@ Button* MophoLookAndFeel::createFileBrowserGoUpButton() {
 
 
 
+int MophoLookAndFeel::getDefaultScrollbarWidth() {
+	return 10;
+}
+
+void MophoLookAndFeel::drawScrollbar(Graphics& g, ScrollBar& /*scrollbar*/, int x, int y, int w, int h, 
+	bool isVertical, int thumbStartPosition, int thumbSize, bool /*mouseIsOver*/, bool /*mouseIsDown*/)
+{
+	Rectangle<int> thumbBounds;
+	if (isVertical)
+		thumbBounds = { x, thumbStartPosition, w, thumbSize };
+	else
+		thumbBounds = { thumbStartPosition, y, thumbSize, h };
+	thumbBounds.reduce(2, 2);
+	g.setColour(GUI::color_White);
+	g.fillRect(thumbBounds.toFloat());
+}
+
+
+
+
 void MophoLookAndFeel::drawComboBox(Graphics& /*g*/, int /*width*/, int /*height*/, bool /*isDown*/,
 	int /*x*/, int /*y*/, int /*w*/, int /*h*/, ComboBox& /*comboBox*/)
 {
@@ -493,9 +513,9 @@ void MophoLookAndFeel::drawTabButton(TabBarButton& button, Graphics& g, bool /*i
 
 
 void MophoLookAndFeel::drawProgressBar(Graphics& g, ProgressBar& bar, int w, int h, double percentDone, const String& textToShow) {
-	auto background = bar.findColour(ProgressBar::backgroundColourId);
-	auto foreground = bar.findColour(ProgressBar::foregroundColourId);
-	auto barBounds = bar.getLocalBounds().toFloat();
+	auto background{ bar.findColour(ProgressBar::backgroundColourId) };
+	auto foreground{ bar.findColour(ProgressBar::foregroundColourId) };
+	auto barBounds{ bar.getLocalBounds().toFloat() };
 	g.setColour(background);
 	g.fillRoundedRectangle(barBounds, bar.getHeight() * 0.5f);
 	if (percentDone >= 0.0f && percentDone <= 1.0f) {

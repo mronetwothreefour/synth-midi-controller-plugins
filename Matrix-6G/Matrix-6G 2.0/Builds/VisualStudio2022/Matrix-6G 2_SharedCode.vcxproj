@@ -181,6 +181,7 @@
     <ClCompile Include="..\..\Source\voices\voices_5_comp_TabForFactoryVoicesBank.cpp"/>
     <ClCompile Include="..\..\Source\voices\voices_6_comp_TabbedComponentForVoicesBanks.cpp"/>
     <ClCompile Include="..\..\Source\voices\voices_6_gui_layer_BankTransmit.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_7_gui_layer_VoicesBanks.cpp"/>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp"/>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.cpp"/>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.cpp"/>
@@ -2401,6 +2402,7 @@
     <ClInclude Include="..\..\Source\voices\voices_5_comp_TabForFactoryVoicesBank.h"/>
     <ClInclude Include="..\..\Source\voices\voices_6_comp_TabbedComponentForVoicesBanks.h"/>
     <ClInclude Include="..\..\Source\voices\voices_6_gui_layer_BankTransmit.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_7_gui_layer_VoicesBanks.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileNotValidAlert.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.h"/>
@@ -3331,6 +3333,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_LoadVoice_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Patches_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Patches_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_PullVoice_Dn.png"/>

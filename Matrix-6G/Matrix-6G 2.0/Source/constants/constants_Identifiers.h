@@ -27,6 +27,7 @@ namespace Matrix_6G_Constants
 		static const Identifier btn_NewFolder{ "btn_NewFolder" };
 		static const Identifier btn_Load_Split{ "btn_Load_Split" };
 		static const Identifier btn_Load_Voice{ "btn_Load_Voice" };
+		static const Identifier btn_Patches{ "btn_Patches" };
 		static const Identifier btn_Pull{ "btn_Pull" };
 		static const Identifier btn_Pull_Voice{ "btn_Pull_Voice" };
 		static const Identifier btn_Pull_VoicesBank_{ "btn_Pull_VoicesBank_" };
@@ -34,6 +35,7 @@ namespace Matrix_6G_Constants
 		static const Identifier btn_Push{ "btn_Push" };
 		static const Identifier btn_Push_VoicesBank_{ "btn_Push_VoicesBank_" };
 		static const Identifier btn_Push_Split{ "btn_Push_Split" };
+		static const Identifier btn_Push_SplitBank{ "btn_Push_SplitBank" };
 		static const Identifier btn_RadioButton_SplitSlot{ "btn_RadioButton_SplitSlot" };
 		static const Identifier btn_RadioButton_VoiceSlot{ "btn_RadioButton_VoiceSlot" };
 		static const Identifier btn_Save_Split{ "btn_Save_Split" };
@@ -45,6 +47,8 @@ namespace Matrix_6G_Constants
 		static const Identifier btn_X_Orange{ "btn_X_Orange" };
 
 		static const Identifier comp_ImportExportBrowser{ "comp_ImportExportBrowser" };
+		static const Identifier comp_ProgressBar_SplitBank{ "comp_ProgressBar_SplitBank" };
+		static const Identifier comp_ProgressBar_VoiceBank{ "comp_ProgressBar_VoiceBank" };
 		static const Identifier comp_TabbedComponentForVoicesBanks{ "comp_TabbedComponentForVoicesBanks" };
 		static const Identifier comp_TextEditorForSlider{ "comp_TextEditorForSlider" };
 		static const Identifier comp_VoiceNameEditor{ "comp_VoiceNameEditor" };
@@ -137,7 +141,8 @@ namespace Matrix_6G_Constants
 
 		static const Identifier global_BasicChannel{ "global_BasicChannel" };
 
-		static const Identifier label_FolderNameEditor{ "label_FolderNameEditor" };
+		static const Identifier lbl_EditLabel{ "lbl_EditLabel" };
+		static const Identifier lbl_FolderNameEditor{ "lbl_FolderNameEditor" };
 
 		static const Identifier property_Center_x{ "property_ControlCenter_x" };
 		static const Identifier property_Center_y{ "property_ControlCenter_y" };

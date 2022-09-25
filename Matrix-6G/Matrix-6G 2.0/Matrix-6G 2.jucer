@@ -47,6 +47,10 @@
               file="BinaryResources/buttons/btn_NewFolder_Dn.png"/>
         <FILE id="x1kEEd" name="btn_NewFolder_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_NewFolder_Up.png"/>
+        <FILE id="caqqSt" name="btn_Patches_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Patches_Dn.png"/>
+        <FILE id="Gl4rPB" name="btn_Patches_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Patches_Up.png"/>
         <FILE id="Mdkys2" name="btn_Pull_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Dn.png"/>
         <FILE id="epolsU" name="btn_Pull_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Up.png"/>
         <FILE id="kybb5H" name="btn_PullVoice_Dn.png" compile="0" resource="1"
@@ -341,6 +345,10 @@
               resource="0" file="Source/voices/voices_6_gui_layer_BankTransmit.cpp"/>
         <FILE id="jLtbCn" name="voices_6_gui_layer_BankTransmit.h" compile="0"
               resource="0" file="Source/voices/voices_6_gui_layer_BankTransmit.h"/>
+        <FILE id="FGdEPV" name="voices_7_gui_layer_VoicesBanks.cpp" compile="1"
+              resource="0" file="Source/voices/voices_7_gui_layer_VoicesBanks.cpp"/>
+        <FILE id="LbUpjH" name="voices_7_gui_layer_VoicesBanks.h" compile="0"
+              resource="0" file="Source/voices/voices_7_gui_layer_VoicesBanks.h"/>
       </GROUP>
       <GROUP id="{479D0EB5-491F-51AB-CFC7-84E0F4A91330}" name="voicesImportExport">
         <FILE id="sMzO5t" name="imEx_0_FileFilters.h" compile="0" resource="0"

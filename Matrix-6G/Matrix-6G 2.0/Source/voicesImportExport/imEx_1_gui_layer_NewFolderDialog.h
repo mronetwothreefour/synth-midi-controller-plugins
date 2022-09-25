@@ -10,7 +10,7 @@ class GUI_Layer_NewFolderDialog :
 {
 	TooltipsOptions* tooltips;
 	FileBrowserComponent* browserComponent;
-	TextEditor label_FolderNameEditor;
+	TextEditor lbl_FolderNameEditor;
 	TextButton btn_Cancel;
 	TextButton btn_Create;
 	std::unique_ptr<GUI_Layer_FolderExistsAlert> folderExistsAlert;

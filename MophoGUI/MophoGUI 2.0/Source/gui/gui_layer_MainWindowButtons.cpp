@@ -36,7 +36,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
 
     voiceNameEditor.setInterceptsMouseClicks(false, true);
     voiceNameEditor.setFont(GUI::font_VoiceNameEditorText);
-    voiceNameEditor.setComponentID(ID::label_VoiceNameEditor.toString());
+    voiceNameEditor.setComponentID(ID::lbl_VoiceNameEditor.toString());
     voiceNameEditor.setJustificationType(Justification::centredLeft);
     voiceNameEditor.setColour(Label::textColourId, GUI::color_White.withAlpha(0.0f));
     voiceNameEditor.setColour(Label::backgroundColourId, GUI::color_Black.withAlpha(0.0f));

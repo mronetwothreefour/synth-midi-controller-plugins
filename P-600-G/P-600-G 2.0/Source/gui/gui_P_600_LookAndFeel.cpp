@@ -173,6 +173,26 @@ Button* P_600_LookAndFeel::createFileBrowserGoUpButton() {
 
 
 
+int P_600_LookAndFeel::getDefaultScrollbarWidth() {
+	return 15;
+}
+
+void P_600_LookAndFeel::drawScrollbar(Graphics& g, ScrollBar& /*scrollbar*/, int x, int y, int w, int h, 
+	bool isVertical, int thumbStartPosition, int thumbSize, bool /*mouseIsOver*/, bool /*mouseIsDown*/)
+{
+	Rectangle<int> thumbBounds;
+	if (isVertical)
+		thumbBounds = { x, thumbStartPosition, w, thumbSize };
+	else
+		thumbBounds = { thumbStartPosition, y, thumbSize, h };
+	thumbBounds.reduce(2, 2);
+	g.setColour(GUI::color_KnobGray.brighter(0.3f));
+	g.fillRoundedRectangle(thumbBounds.toFloat(), 4.0f);
+}
+
+
+
+
 void P_600_LookAndFeel::drawLabel(Graphics& g, Label& label) {
 	if (label.getComponentID() == ID::comp_TextEditorForVoiceNumberSlider.toString()) {
 		g.setColour(GUI::color_LED_RedUnlit);

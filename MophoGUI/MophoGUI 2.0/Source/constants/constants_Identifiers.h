@@ -147,10 +147,10 @@ namespace MophoConstants
 		static const Identifier global_Transpose{ "global_Transpose" };
 		static const Identifier global_VoiceChangesAreEnabled{ "global_VoiceChangesAreEnabled" };
 
-		static const Identifier label_DisplayLabel{ "label_VoiceNameEditor" };
-		static const Identifier label_EditLabel{ "label_EditLabel" };
-		static const Identifier label_FolderNameEditor{ "label_FolderNameEditor" };
-		static const Identifier label_VoiceNameEditor{ "label_VoiceNameEditor" };
+		static const Identifier lbl_DisplayLabel{ "lbl_DisplayLabel" };
+		static const Identifier lbl_EditLabel{ "lbl_EditLabel" };
+		static const Identifier lbl_FolderNameEditor{ "lbl_FolderNameEditor" };
+		static const Identifier lbl_VoiceNameEditor{ "lbl_VoiceNameEditor" };
 
 		static const Identifier property_AllowedChoicesBackground_x{ "property_AllowedChoicesBackground_x" };
 		static const Identifier property_AllowedChoicesBackground_y{ "property_AllowedChoicesBackground_y" };

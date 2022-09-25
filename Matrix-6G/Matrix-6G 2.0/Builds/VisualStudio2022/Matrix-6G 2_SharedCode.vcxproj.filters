@@ -742,6 +742,9 @@
     <ClCompile Include="..\..\Source\voices\voices_6_gui_layer_BankTransmit.cpp">
       <Filter>Matrix-6G 2\Source\voices</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_7_gui_layer_VoicesBanks.cpp">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp">
       <Filter>Matrix-6G 2\Source\voicesImportExport</Filter>
     </ClCompile>
@@ -3250,6 +3253,9 @@
       <Filter>Matrix-6G 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voices\voices_6_gui_layer_BankTransmit.h">
+      <Filter>Matrix-6G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_7_gui_layer_VoicesBanks.h">
       <Filter>Matrix-6G 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h">
@@ -6036,6 +6042,12 @@
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Patches_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Patches_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Dn.png">

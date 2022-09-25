@@ -26,19 +26,19 @@ TabbedComponentForVoicesBanks::TabbedComponentForVoicesBanks(ExposedParameters* 
 	setComponentID(ID::comp_TabbedComponentForVoicesBanks.toString());
 	setTabBarDepth(0);
 	setOutline(0);
-	addTab("Analog Synths A", GUI::color_Device, &analogSynths_A, true, 1);
-	addTab("Analog Synths B", GUI::color_Device, &analogSynths_B, true, 2);
-	addTab("Basses", GUI::color_Device, &basses, true, 3);
-	addTab("Brass & Woodwinds", GUI::color_Device, &brassAndWoodwinds, true, 4);
-	addTab("FX & Percussion", GUI::color_Device, &fxAndPercussion, true, 5);
-	addTab("Keyboards A", GUI::color_Device, &keyboards_A, true, 6);
-	addTab("Keyboards B", GUI::color_Device, &keyboards_B, true, 7);
-	addTab("Leads", GUI::color_Device, &leads, true, 8);
-	addTab("Miscellaneous A", GUI::color_Device, &miscellaneous_A, true, 9);
-	addTab("Miscellaneous B", GUI::color_Device, &miscellaneous_B, true, 10);
-	addTab("Strings", GUI::color_Device, &strings, true, 11);
-	addTab("Custom A", GUI::color_Device, &custom_A, true, 12);
-	addTab("Custom B", GUI::color_Device, &custom_B, true, 13);
+	addTab("ANALOG SYNTHS A", GUI::color_Device, &analogSynths_A, true, 1);
+	addTab("ANALOG SYNTHS B", GUI::color_Device, &analogSynths_B, true, 2);
+	addTab("BASSES", GUI::color_Device, &basses, true, 3);
+	addTab("BRASS & WOODWIND", GUI::color_Device, &brassAndWoodwinds, true, 4);
+	addTab("FX & PERCUSSION", GUI::color_Device, &fxAndPercussion, true, 5);
+	addTab("KEYBOARDS A", GUI::color_Device, &keyboards_A, true, 6);
+	addTab("KEYBOARDS B", GUI::color_Device, &keyboards_B, true, 7);
+	addTab("LEADS", GUI::color_Device, &leads, true, 8);
+	addTab("MISCELLANEOUS A", GUI::color_Device, &miscellaneous_A, true, 9);
+	addTab("MISCELLANEOUS B", GUI::color_Device, &miscellaneous_B, true, 10);
+	addTab("STRINGS", GUI::color_Device, &strings, true, 11);
+	addTab("CUSTOM A", GUI::color_Device, &custom_A, true, 12);
+	addTab("CUSTOM B", GUI::color_Device, &custom_B, true, 13);
 	setSize(GUI::voicesBankTab_w, GUI::voicesBankTab_h);
 }
 
@@ -90,6 +90,6 @@ VoiceSlots* TabbedComponentForVoicesBanks::getVoiceSlotsComponentForBank(VoicesB
 	case VoicesBank::strings: return strings.getVoiceSlots();
 	case VoicesBank::custom_A: return custom_A.getVoiceSlots();
 	case VoicesBank::custom_B: return custom_B.getVoiceSlots();
-	default:
+	default: return analogSynths_A.getVoiceSlots();
 	}
 }

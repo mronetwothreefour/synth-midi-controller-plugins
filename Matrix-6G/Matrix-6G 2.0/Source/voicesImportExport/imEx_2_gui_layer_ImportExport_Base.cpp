@@ -48,7 +48,7 @@ GUI_Layer_ImportExport_Base::GUI_Layer_ImportExport_Base(
 		browserComponent->setComponentID(ID::comp_ImportExportBrowser.toString());
 		browserComponent->setFilenameBoxLabel("");
 		browserComponent->addListener(this);
-		browserComponent->setBounds(401, 187, 471, 245);
+		browserComponent->setBounds(394, 173, 464, 245);
 		addAndMakeVisible(browserComponent.get());
 	}
 

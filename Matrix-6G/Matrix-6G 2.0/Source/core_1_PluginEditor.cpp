@@ -21,8 +21,8 @@ PluginEditor::PluginEditor (PluginProcessor& processor, ExposedParameters* expos
     layer_TrackingGraphPainter{ new GUI_Layer_TrackingGraphPainter{ exposedParams } },
     layer_ExposedParamControls{ new GUI_Layer_ExposedParamControls{ exposedParams, unexposedParams } },
     layer_MatrixMod{ new GUI_Layer_MatrixMod{ exposedParams, unexposedParams->getTooltipsOptions() } },
-    layer_MainWindowButtons{ new GUI_Layer_MainWindowButtons{ exposedParams, unexposedParams } },
     layer_CurrentVoiceNameAndNumber{ new GUI_Layer_CurrentVoiceNameAndNumber{ exposedParams, unexposedParams->getTooltipsOptions()}},
+    layer_MainWindowButtons{ new GUI_Layer_MainWindowButtons{ exposedParams, unexposedParams } },
     lookAndFeel{ new MatrixLookAndFeel{} },
     tooltipsDelayInMillisecondsAsValue{ unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_DelayInMilliseconds) },
     tooltipWindow{ new TooltipWindow{} }
@@ -41,11 +41,11 @@ PluginEditor::PluginEditor (PluginProcessor& processor, ExposedParameters* expos
     layer_MatrixMod->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
     addAndMakeVisible(layer_MatrixMod.get());
 
-    layer_MainWindowButtons->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
-    addAndMakeVisible(layer_MainWindowButtons.get());
-
     layer_CurrentVoiceNameAndNumber->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
     addAndMakeVisible(layer_CurrentVoiceNameAndNumber.get());
+
+    layer_MainWindowButtons->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
+    addAndMakeVisible(layer_MainWindowButtons.get());
 
     tooltipsDelayInMillisecondsAsValue.addListener(this);
     addChildComponent(tooltipWindow.get());
