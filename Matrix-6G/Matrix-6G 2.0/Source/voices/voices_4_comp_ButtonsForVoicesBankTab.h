@@ -123,7 +123,8 @@ private:
 
 
 class ButtonForLoadingSelectedVoice :
-	public TextButton
+	public TextButton,
+	private Timer
 {
 public:
 
@@ -141,11 +142,20 @@ public:
 			tipString += "data in the hardware storage slot and cannot be undone.";
 		}
 		setTooltip(tipString);
-		onClick = [this, voiceSlots] { voiceSlots->loadVoiceFromSelectedSlot(); };
+		onClick = [this, voiceSlots, unexposedParams] {
+			voiceSlots->loadVoiceFromSelectedSlot();
+			auto transmitTime{ unexposedParams->getVoiceTransmissionOptions()->voiceTransmitTime() };
+			callAfterDelay(transmitTime, [this, unexposedParams, voiceSlots] {
+				auto channel{ unexposedParams->getGlobalOptions()->basicChannel() };
+				unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessage(channel, voiceSlots->selectedSlot);
+			});
+		};
 		setSize(GUI::buttons_VoicesBank_w, GUI::buttons_small_h);
 	}
 
 private:
+	void timerCallback() override {}
+
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForLoadingSelectedVoice)
 };
