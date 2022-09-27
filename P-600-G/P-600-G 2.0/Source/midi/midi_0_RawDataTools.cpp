@@ -8,7 +8,7 @@ using namespace P_600_G_Constants;
 
 const std::vector<uint8> RawDataTools::convertHexStringToDataVector(const String& hexString) {
     std::vector<uint8> voiceData;
-    for (auto i = 0; i != hexString.length(); i += 2) {
+    for (auto i = 0; i < VCS::indexOfFirstNameCharInVoiceDataHexString; i += 2) {
         auto hexValueString{ hexString.substring(i, i + 2) };
         voiceData.push_back((uint8)hexValueString.getHexValue32());
     }

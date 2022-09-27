@@ -28,8 +28,6 @@ protected:
 	VoicesBankFileFilter voicesBankFileFilter;
 	std::unique_ptr<GUI_Layer_NewFolderDialog> newFolderDialog;
 	std::unique_ptr<GUI_Layer_FileNotValidAlert> fileNotValidAlert;
-	const int importExportBackground_x{ 451 };
-	const int importExportBackground_y{ 21 };
 
 public:
 	GUI_Layer_ImportExport_Base() = delete;

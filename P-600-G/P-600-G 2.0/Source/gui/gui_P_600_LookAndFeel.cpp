@@ -70,6 +70,9 @@ void P_600_LookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID.startsWith("btn_OK"))
 		mBlock = MemBlock{ isDown ? btn_OK_Dn_png : btn_OK_Up_png, isDown ? (s_t)btn_OK_Dn_pngSize : (s_t)btn_OK_Up_pngSize };
 
+	if (buttonID == ID::btn_PgmBank.toString())
+		mBlock = MemBlock{ isDown ? btn_PgmBank_Dn_png : btn_PgmBank_Up_png, isDown ? (s_t)btn_PgmBank_Dn_pngSize : (s_t)btn_PgmBank_Up_pngSize };
+
 	if (buttonID.startsWith("btn_Pull"))
 		mBlock = MemBlock{ isDown ? btn_Pull_Dn_png : btn_Pull_Up_png, isDown ? (s_t)btn_Pull_Dn_pngSize : (s_t)btn_Pull_Up_pngSize };
 
@@ -194,22 +197,38 @@ void P_600_LookAndFeel::drawScrollbar(Graphics& g, ScrollBar& /*scrollbar*/, int
 
 
 void P_600_LookAndFeel::drawLabel(Graphics& g, Label& label) {
-	if (label.getComponentID() == ID::comp_TextEditorForVoiceNumberSlider.toString()) {
-		g.setColour(GUI::color_LED_RedUnlit);
+	if (label.getComponentID() == ID::comp_TextEditorForVoiceNumberSlider.toString() ||
+		label.getComponentID() == ID::comp_TextEditorForTransmitTime.toString())
+	{
+		auto isTransmitTimeEditor{ label.getComponentID() == ID::comp_TextEditorForTransmitTime.toString() };
 		Path unlitSegmentsPath;
+		auto digits_x_spacing{ 26.0f };
 		auto firstDigit_x{ 4.0f };
-		auto secondDigit_x{ 30.0f };
+		auto secondDigit_x{ firstDigit_x + digits_x_spacing };
+		auto thirdDigit_x{ firstDigit_x + (2 * digits_x_spacing) };
+		auto fourthDigit_x{ firstDigit_x + (3 * digits_x_spacing) };
 		auto digits_y{ 8.0f };
 		unlitSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)8), AffineTransform::translation(firstDigit_x, digits_y));
 		unlitSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)8), AffineTransform::translation(secondDigit_x, digits_y));
+		if (isTransmitTimeEditor) {
+			unlitSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)8), AffineTransform::translation(thirdDigit_x, digits_y));
+			unlitSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)8), AffineTransform::translation(fourthDigit_x, digits_y));
+		}
+		g.setColour(GUI::color_LED_RedUnlit);
 		g.fillPath(unlitSegmentsPath);
-		g.setColour(GUI::color_LED_Red);
 		auto numberString{ label.getText() };
 		auto firstDigit{ String().charToString(numberString[0]).getIntValue() };
 		auto secondDigit{ String().charToString(numberString[1]).getIntValue() };
 		Path litSegmentsPath;
 		litSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)firstDigit), AffineTransform::translation(firstDigit_x, digits_y));
 		litSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)secondDigit), AffineTransform::translation(secondDigit_x, digits_y));
+		if (isTransmitTimeEditor) {
+			auto thirdDigit{ String().charToString(numberString[2]).getIntValue() };
+			auto fourthDigit{ String().charToString(numberString[3]).getIntValue() };
+			litSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)thirdDigit), AffineTransform::translation(thirdDigit_x, digits_y));
+			litSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)fourthDigit), AffineTransform::translation(fourthDigit_x, digits_y));
+		}
+		g.setColour(GUI::color_LED_Red);
 		g.fillPath(litSegmentsPath);
 	}
 }

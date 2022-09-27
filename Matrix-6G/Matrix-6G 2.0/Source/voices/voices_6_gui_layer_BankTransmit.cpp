@@ -2,7 +2,6 @@
 
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
-#include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_Voices.h"
 #include "../midi/midi_1_SysExMessages.h"
@@ -10,9 +9,8 @@
 
 using namespace BinaryData;
 using MemBlock = MemoryBlock;
-using s_t = size_t;
 
-GUI_Layer_VoiceBankTransmit::GUI_Layer_VoiceBankTransmit(VoicesBank& bank, BankTransmitType transmitType, UnexposedParameters* unexposedParams) :
+GUI_Layer_VoicesBankTransmit::GUI_Layer_VoicesBankTransmit(VoicesBank& bank, BankTransmitType transmitType, UnexposedParameters* unexposedParams) :
 	bank{ bank },
 	transmitType{ transmitType },
 	unexposedParams{ unexposedParams },
@@ -23,15 +21,14 @@ GUI_Layer_VoiceBankTransmit::GUI_Layer_VoiceBankTransmit(VoicesBank& bank, BankT
 	btn_Stop{ "" },
 	btn_Close{ "" }
 {
-	progressBar.setComponentID(ID::comp_ProgressBar_VoiceBank.toString());
-
+	progressBar.setComponentID(ID::comp_ProgressBar_VoicesBank.toString());
 	addAndMakeVisible(progressBar);
 	progressBar.setBounds(461, 289, 330, 18);
 
-	auto button_y{ 317 };
+	auto buttons_y{ 317 };
 	btn_Stop.setComponentID(ID::btn_Stop.toString());
 	btn_Stop.onClick = [this] { cancelTransmission(); };
-	btn_Stop.setBounds(607, button_y, 38, GUI::buttons_small_h);
+	btn_Stop.setBounds(607, buttons_y, 38, GUI::buttons_small_h);
 	addAndMakeVisible(btn_Stop);
 
 	btn_Close.setComponentID(ID::btn_Close.toString());
@@ -44,7 +41,7 @@ GUI_Layer_VoiceBankTransmit::GUI_Layer_VoiceBankTransmit(VoicesBank& bank, BankT
 		getParentComponent()->grabKeyboardFocus();
 		setVisible(false); 
 	};
-	btn_Close.setBounds(605, button_y, 42, GUI::buttons_small_h);
+	btn_Close.setBounds(605, buttons_y, 42, GUI::buttons_small_h);
 	addChildComponent(btn_Close);
 
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -53,9 +50,9 @@ GUI_Layer_VoiceBankTransmit::GUI_Layer_VoiceBankTransmit(VoicesBank& bank, BankT
 	startTimer(transmitTime);
 }
 
-void GUI_Layer_VoiceBankTransmit::paint(Graphics& g) {
+void GUI_Layer_VoicesBankTransmit::paint(Graphics& g) {
 	g.setColour(GUI::color_Black.withAlpha(0.4f));
-	g.fillRect(getParentComponent()->getBounds());
+	g.fillRect(GUI::bounds_VoicesBanks);
 	g.setColour(GUI::color_ButtonBlue);
 	Rectangle<int> borderBounds{ 441, 239, 370, 118 };
 	g.fillRect(borderBounds);
@@ -74,7 +71,7 @@ void GUI_Layer_VoiceBankTransmit::paint(Graphics& g) {
 	g.drawImageAt(titleImage, componentBounds.getX(), componentBounds.getY());
 }
 
-void GUI_Layer_VoiceBankTransmit::timerCallback() {
+void GUI_Layer_VoicesBankTransmit::timerCallback() {
 	stopTimer();
 	if (voiceCounter < VCS::numberOfSlotsInVoicesBank) {
 		transmitMidiBufferForVoiceSlot(voiceCounter);
@@ -89,7 +86,7 @@ void GUI_Layer_VoiceBankTransmit::timerCallback() {
 	}
 }
 
-void GUI_Layer_VoiceBankTransmit::transmitMidiBufferForVoiceSlot(uint8 voiceSlot) {
+void GUI_Layer_VoicesBankTransmit::transmitMidiBufferForVoiceSlot(uint8 voiceSlot) {
 	auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
 	if (transmitType == BankTransmitType::pull) {
 		auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
@@ -108,13 +105,13 @@ void GUI_Layer_VoiceBankTransmit::transmitMidiBufferForVoiceSlot(uint8 voiceSlot
 	}
 }
 
-void GUI_Layer_VoiceBankTransmit::cancelTransmission() {
+void GUI_Layer_VoicesBankTransmit::cancelTransmission() {
 	stopTimer();
 	makeCloseButtonVisible();
 	repaint();
 }
 
-void GUI_Layer_VoiceBankTransmit::makeCloseButtonVisible() {
+void GUI_Layer_VoicesBankTransmit::makeCloseButtonVisible() {
 	btn_Stop.setVisible(false);
 	btn_Close.setVisible(true);
 }

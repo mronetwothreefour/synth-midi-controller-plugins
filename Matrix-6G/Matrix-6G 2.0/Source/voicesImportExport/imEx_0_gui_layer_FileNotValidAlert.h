@@ -32,7 +32,7 @@ public:
 
 	void paint(Graphics& g) override {
 		g.setColour(GUI::color_Black.withAlpha(0.4f));
-		g.fillRect(getParentComponent()->getBounds());
+		g.fillRect(GUI::bounds_ImportExport);
 		g.setOpacity(1.0f);
 		MemoryInputStream memInputStream{ BinaryData::bkgrnd_FileNotValidAlert_png, BinaryData::bkgrnd_FileNotValidAlert_pngSize, false };
 		PNGImageFormat imageFormat;

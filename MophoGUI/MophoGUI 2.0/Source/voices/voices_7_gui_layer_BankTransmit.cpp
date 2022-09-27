@@ -10,9 +10,8 @@
 
 using namespace BinaryData;
 using MemBlock = MemoryBlock;
-using s_t = size_t;
 
-GUI_Layer_BankTransmit::GUI_Layer_BankTransmit(VoicesBank& bank, BankTransmitType transmitType, UnexposedParameters* unexposedParams) :
+GUI_Layer_VoicesBankTransmit::GUI_Layer_VoicesBankTransmit(VoicesBank& bank, BankTransmitType transmitType, UnexposedParameters* unexposedParams) :
 	bank{ bank },
 	transmitType{ transmitType },
 	unexposedParams{ unexposedParams },
@@ -43,9 +42,9 @@ GUI_Layer_BankTransmit::GUI_Layer_BankTransmit(VoicesBank& bank, BankTransmitTyp
 	startTimer(transmitTime);
 }
 
-void GUI_Layer_BankTransmit::paint(Graphics& g) {
+void GUI_Layer_VoicesBankTransmit::paint(Graphics& g) {
 	g.setColour(GUI::color_Black.withAlpha(0.4f));
-	g.fillRect(getParentComponent()->getBounds());
+	g.fillRect(GUI::bounds_VoicesBanks);
 	g.setOpacity(1.0f);
 	Rectangle<int> bkgrndBounds{ 444, 251, 385, 124 };
 	g.fillRect(bkgrndBounds);
@@ -68,7 +67,7 @@ void GUI_Layer_BankTransmit::paint(Graphics& g) {
 	g.drawFittedText(progressMessage, progressMessageBounds, Justification::centred, 1, 1.0f);
 }
 
-void GUI_Layer_BankTransmit::timerCallback() {
+void GUI_Layer_VoicesBankTransmit::timerCallback() {
 	stopTimer();
 	if (voiceCounter < VCS::numberOfSlotsInVoicesBank) {
 		transmitMidiBufferForVoiceSlot(voiceCounter);
@@ -87,7 +86,7 @@ void GUI_Layer_BankTransmit::timerCallback() {
 	}
 }
 
-void GUI_Layer_BankTransmit::transmitMidiBufferForVoiceSlot(uint8 voiceSlot) {
+void GUI_Layer_VoicesBankTransmit::transmitMidiBufferForVoiceSlot(uint8 voiceSlot) {
 	auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
 	if (transmitType == BankTransmitType::pull)
 		SysExMessages::addRequestForVoiceDataStoredInBankAndSlotToOutgoingBuffers(bank, voiceSlot, outgoingBuffers);
@@ -97,14 +96,14 @@ void GUI_Layer_BankTransmit::transmitMidiBufferForVoiceSlot(uint8 voiceSlot) {
 	}
 }
 
-void GUI_Layer_BankTransmit::cancelTransmission() {
+void GUI_Layer_VoicesBankTransmit::cancelTransmission() {
 	stopTimer();
 	progressMessage = "Transmission Canceled";
 	makeCloseButtonVisible();
 	repaint();
 }
 
-void GUI_Layer_BankTransmit::makeCloseButtonVisible() {
+void GUI_Layer_VoicesBankTransmit::makeCloseButtonVisible() {
 	btn_Stop.setVisible(false);
 	btn_Close.setVisible(true);
 }

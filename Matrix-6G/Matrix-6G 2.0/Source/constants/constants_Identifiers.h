@@ -48,7 +48,7 @@ namespace Matrix_6G_Constants
 
 		static const Identifier comp_ImportExportBrowser{ "comp_ImportExportBrowser" };
 		static const Identifier comp_ProgressBar_SplitBank{ "comp_ProgressBar_SplitBank" };
-		static const Identifier comp_ProgressBar_VoiceBank{ "comp_ProgressBar_VoiceBank" };
+		static const Identifier comp_ProgressBar_VoicesBank{ "comp_ProgressBar_VoicesBank" };
 		static const Identifier comp_TabbedComponentForVoicesBanks{ "comp_TabbedComponentForVoicesBanks" };
 		static const Identifier comp_TextEditorForSlider{ "comp_TextEditorForSlider" };
 		static const Identifier comp_VoiceNameEditor{ "comp_VoiceNameEditor" };

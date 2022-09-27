@@ -42,7 +42,7 @@ void GUI_Layer_FileOverwriteDialog::removeListenerFromButtons(Button::Listener* 
 
 void GUI_Layer_FileOverwriteDialog::paint(Graphics& g) {
 	g.setColour(GUI::color_Black.withAlpha(0.4f));
-	g.fillRect(getParentComponent()->getBounds());
+	g.fillRect(GUI::bounds_ImportExport);
 	g.setOpacity(1.0f);
 	MemoryInputStream memInputStream{ BinaryData::bkgrnd_FileOverwriteDialog_png, BinaryData::bkgrnd_FileOverwriteDialog_pngSize, false };
 	PNGImageFormat imageFormat;

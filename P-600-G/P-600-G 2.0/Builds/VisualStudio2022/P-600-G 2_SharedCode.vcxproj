@@ -164,6 +164,8 @@
     <ClCompile Include="..\..\Source\voices\voices_1_tree_VoicesBank.cpp"/>
     <ClCompile Include="..\..\Source\voices\voices_2_comp_VoiceSlotRadioButton.cpp"/>
     <ClCompile Include="..\..\Source\voices\voices_3_comp_VoiceSlots.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_4_gui_layer_BankTransmit.cpp"/>
+    <ClCompile Include="..\..\Source\voices\voices_5_gui_layer_VoicesBank.cpp"/>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp"/>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_1_gui_layer_NewFolderDialog.cpp"/>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_2_gui_layer_ImportExport_Base.cpp"/>
@@ -2365,6 +2367,9 @@
     <ClInclude Include="..\..\Source\voices\voices_2_comp_VoiceSlotRadioButton.h"/>
     <ClInclude Include="..\..\Source\voices\voices_3_comp_VoiceSlots.h"/>
     <ClInclude Include="..\..\Source\voices\voices_4_comp_ButtonsForVoicesBank.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_4_gui_layer_BankTransmit.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_4_gui_layer_RestoreFactoryVoicesDialog.h"/>
+    <ClInclude Include="..\..\Source\voices\voices_5_gui_layer_VoicesBank.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileNotValidAlert.h"/>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.h"/>
@@ -3292,6 +3297,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_NewFldr_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_OK_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_OK_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_PgmBank_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_PgmBank_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Dn.png"/>
@@ -3303,12 +3310,17 @@
     <None Include="..\..\BinaryResources\labels\lbl_ExportVoicesBank.png"/>
     <None Include="..\..\BinaryResources\labels\lbl_ImportVoice.png"/>
     <None Include="..\..\BinaryResources\labels\lbl_ImportVoicesBank.png"/>
+    <None Include="..\..\BinaryResources\labels\lbl_PullingEntireBank.png"/>
+    <None Include="..\..\BinaryResources\labels\lbl_PushingEntireBank.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_FactoryRestoreDialog.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_FileOverwriteDialog.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_FileNotValidAlert.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_FolderExistsAlert.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_ImportExportWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_VoicesBank.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_VoicesBankTransmit.png"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCK.TTF"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF"/>

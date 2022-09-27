@@ -4,6 +4,12 @@
 
 namespace P_600_G_Constants
 {
+	const enum class BankTransmitType {
+		push = 0,
+		pull
+	};
+
+
 	enum class ControlType {
 		nullControl = -1,
 		knob,

@@ -31,5 +31,9 @@ namespace Matrix_6G_Constants
 		const int voiceSlotRadioButtton_h{ 16 };
 		const int voiceSlots_x{ 15 };
 		const int voiceSlots_y{ 11 };
+
+		const Rectangle<int> bounds_ImportExport{ 369, 123, 514, 350 };
+		const Rectangle<int> bounds_NewFolder{ 505, 236, 242, 124 };
+		const Rectangle<int> bounds_VoicesBanks{ 402, 19, 448, 560 };
 	}
 }

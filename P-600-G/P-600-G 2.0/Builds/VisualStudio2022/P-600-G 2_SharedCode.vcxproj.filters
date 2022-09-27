@@ -688,6 +688,12 @@
     <ClCompile Include="..\..\Source\voices\voices_3_comp_VoiceSlots.cpp">
       <Filter>P-600-G 2\Source\voices</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_4_gui_layer_BankTransmit.cpp">
+      <Filter>P-600-G 2\Source\voices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\voices\voices_5_gui_layer_VoicesBank.cpp">
+      <Filter>P-600-G 2\Source\voices</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\voicesImportExport\imEx_0_gui_layer_FileOverwriteDialog.cpp">
       <Filter>P-600-G 2\Source\voicesImportExport</Filter>
     </ClCompile>
@@ -3139,6 +3145,15 @@
       <Filter>P-600-G 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voices\voices_4_comp_ButtonsForVoicesBank.h">
+      <Filter>P-600-G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_4_gui_layer_BankTransmit.h">
+      <Filter>P-600-G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_4_gui_layer_RestoreFactoryVoicesDialog.h">
+      <Filter>P-600-G 2\Source\voices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\voices\voices_5_gui_layer_VoicesBank.h">
       <Filter>P-600-G 2\Source\voices</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\voicesImportExport\imEx_0_FileFilters.h">
@@ -5918,6 +5933,12 @@
     <None Include="..\..\BinaryResources\buttons\btn_OK_Up.png">
       <Filter>P-600-G 2\BinaryResources\buttons</Filter>
     </None>
+    <None Include="..\..\BinaryResources\buttons\btn_PgmBank_Dn.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_PgmBank_Up.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Dn.png">
       <Filter>P-600-G 2\BinaryResources\buttons</Filter>
     </None>
@@ -5951,6 +5972,15 @@
     <None Include="..\..\BinaryResources\labels\lbl_ImportVoicesBank.png">
       <Filter>P-600-G 2\BinaryResources\labels</Filter>
     </None>
+    <None Include="..\..\BinaryResources\labels\lbl_PullingEntireBank.png">
+      <Filter>P-600-G 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\labels\lbl_PushingEntireBank.png">
+      <Filter>P-600-G 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_FactoryRestoreDialog.png">
+      <Filter>P-600-G 2\BinaryResources</Filter>
+    </None>
     <None Include="..\..\BinaryResources\bkgrnd_FileOverwriteDialog.png">
       <Filter>P-600-G 2\BinaryResources</Filter>
     </None>
@@ -5967,6 +5997,12 @@
       <Filter>P-600-G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png">
+      <Filter>P-600-G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_VoicesBank.png">
+      <Filter>P-600-G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_VoicesBankTransmit.png">
       <Filter>P-600-G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF">

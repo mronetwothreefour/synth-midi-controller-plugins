@@ -21,7 +21,7 @@ class VoiceSlots :
     Outgoing_MIDI_Buffers* outgoingMIDI;
     VoicesBank* voicesBank;
     std::vector<std::unique_ptr<VoiceSlotRadioButton>> voiceSlotButtons;
-    const int voiceSlots_w{ (10 * GUI::voiceSlotRadioButtton_w) + (9 * voiceSlotRadioButtons_HorizGap) };
+    const int voiceSlots_w{ 10 * GUI::voiceSlotRadioButtton_w };
     const int voiceSlots_h{ 10 * GUI::voiceSlotRadioButtton_h };
 
 public:

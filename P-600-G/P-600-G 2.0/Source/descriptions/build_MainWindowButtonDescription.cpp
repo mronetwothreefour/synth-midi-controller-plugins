@@ -22,3 +22,11 @@ String MainWindowButtonDescription::buildForPush() {
     descriptionString += "cannot be undone. Shortcut key: CTRL+ALT+P";
     return descriptionString;
 }
+
+String MainWindowButtonDescription::buildForShowVoicesBankLayer() {
+    String descriptionString{ "" };
+    descriptionString += "Opens a window where you can manage\n";
+    descriptionString += "the program presets storage bank.\n";
+    descriptionString += "Shortcut key: CTRL+B";
+    return descriptionString;
+}

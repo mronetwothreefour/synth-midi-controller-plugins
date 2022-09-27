@@ -4,11 +4,10 @@
 
 #include "voices_6_comp_TabbedComponentForVoicesBanks.h"
 #include "../constants/constants_GUI_Dimensions.h"
-#include "../constants/constants_Enum.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
 
 class ExposedParameters;
-class GUI_Layer_VoiceBankTransmit;
+class GUI_Layer_VoicesBankTransmit;
 class GUI_Layer_Export_Voice;
 class GUI_Layer_Export_VoicesBank;
 class GUI_Layer_Import_Voice;
@@ -28,11 +27,11 @@ class GUI_Layer_VoicesBanks :
     ComboBox bankSelector;
     std::unique_ptr<GUI_Layer_Export_Voice> exportVoiceLayer;
     std::unique_ptr<GUI_Layer_Import_Voice> importVoiceLayer;
-    std::unique_ptr<GUI_Layer_VoiceBankTransmit> pushBankLayer;
-    std::unique_ptr<GUI_Layer_VoiceBankTransmit> pullBankLayer;
+    std::unique_ptr<GUI_Layer_VoicesBankTransmit> pushBankLayer;
+    std::unique_ptr<GUI_Layer_VoicesBankTransmit> pullBankLayer;
     std::unique_ptr<GUI_Layer_Export_VoicesBank> exportBankLayer;
     std::unique_ptr<GUI_Layer_Import_VoicesBank> importBankLayer;
-    const Rectangle<int> borderBounds{ 402, 19, 448, 560 };
+    const Rectangle<int> borderBounds{ GUI::bounds_VoicesBanks };
     const Rectangle<int> componentBounds{ borderBounds.reduced(GUI::borders_w)};
 
 public:

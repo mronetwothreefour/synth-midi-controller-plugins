@@ -46,12 +46,12 @@ GUI_Layer_NewFolderDialog::GUI_Layer_NewFolderDialog(FileBrowserComponent* brows
 
 void GUI_Layer_NewFolderDialog::paint(Graphics& g) {
 	g.setColour(GUI::color_Black.withAlpha(0.4f));
-	g.fillRect(getParentComponent()->getBounds());
+	g.fillRect(GUI::bounds_ImportExport);
 	g.setOpacity(1.0f);
 	MemoryInputStream memInputStream{ BinaryData::bkgrnd_NewFolderDialog_png, BinaryData::bkgrnd_NewFolderDialog_pngSize, false };
 	PNGImageFormat imageFormat;
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(backgroundImage, 505, 236);
+	g.drawImageAt(backgroundImage, GUI::bounds_NewFolder.getX(), GUI::bounds_NewFolder.getY());
 }
 
 void GUI_Layer_NewFolderDialog::createNewFolder() {

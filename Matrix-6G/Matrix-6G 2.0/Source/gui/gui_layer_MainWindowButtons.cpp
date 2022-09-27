@@ -28,6 +28,16 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     addAndMakeVisible(btn_ActivateQuickEdit);
 
     const int pullAndPushButtons_w{ 28 };
+    btn_Push.setComponentID(ID::btn_Push.toString());
+    btn_Push.onClick = [this, exposedParams, unexposedParams] {
+        auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
+        SysExMessages::addDataMessageForCurrentVoiceToOutgoingBuffers(exposedParams, outgoingBuffers);
+        addProgramChangeMessageToOutgoingBuffersAfterDelay(10);
+    };
+    btn_Push.setBounds(633, smallButtons_y, pullAndPushButtons_w, GUI::buttons_small_h);
+    btn_Push.addShortcut(KeyPress{ ']', ModifierKeys::ctrlModifier, 0});
+    addAndMakeVisible(btn_Push);
+
     btn_Pull.setComponentID(ID::btn_Pull.toString());
     btn_Pull.onClick = [this, exposedParams, unexposedParams] {
         auto currentVoiceNumber{ exposedParams->currentVoiceOptions->currentVoiceNumber() };
@@ -36,19 +46,9 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
         auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
         addProgramChangeMessageToOutgoingBuffersAfterDelay(transmitOptions->voiceTransmitTime());
     };
-    btn_Pull.setBounds(633, smallButtons_y, pullAndPushButtons_w, GUI::buttons_small_h);
+    btn_Pull.setBounds(664, smallButtons_y, pullAndPushButtons_w, GUI::buttons_small_h);
     btn_Pull.addShortcut(KeyPress{ '[', ModifierKeys::ctrlModifier, 0});
     addAndMakeVisible(btn_Pull);
-
-    btn_Push.setComponentID(ID::btn_Push.toString());
-    btn_Push.onClick = [this, exposedParams, unexposedParams] {
-        auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
-        SysExMessages::addDataMessageForCurrentVoiceToOutgoingBuffers(exposedParams, outgoingBuffers);
-        addProgramChangeMessageToOutgoingBuffersAfterDelay(10);
-    };
-    btn_Push.setBounds(664, smallButtons_y, pullAndPushButtons_w, GUI::buttons_small_h);
-    btn_Push.addShortcut(KeyPress{ ']', ModifierKeys::ctrlModifier, 0});
-    addAndMakeVisible(btn_Push);
 
     auto largeButtons_y{ 353 };
     btn_ShowVoicesBanks.setComponentID(ID::btn_Patches.toString());

@@ -7,7 +7,7 @@
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
 
 class ExposedParameters;
-class GUI_Layer_BankTransmit;
+class GUI_Layer_VoicesBankTransmit;
 class GUI_Layer_Export_Voice;
 class GUI_Layer_Export_VoicesBank;
 class GUI_Layer_Import_Voice;
@@ -26,8 +26,8 @@ class GUI_Layer_VoicesBanks :
     Label lbl_txTimeEditor;
     std::unique_ptr<GUI_Layer_Export_Voice> exportVoiceLayer;
     std::unique_ptr<GUI_Layer_Import_Voice> importVoiceLayer;
-    std::unique_ptr<GUI_Layer_BankTransmit> pushBankLayer;
-    std::unique_ptr<GUI_Layer_BankTransmit> pullBankLayer;
+    std::unique_ptr<GUI_Layer_VoicesBankTransmit> pushBankLayer;
+    std::unique_ptr<GUI_Layer_VoicesBankTransmit> pullBankLayer;
     std::unique_ptr<GUI_Layer_Export_VoicesBank> exportBankLayer;
     std::unique_ptr<GUI_Layer_Import_VoicesBank> importBankLayer;
 

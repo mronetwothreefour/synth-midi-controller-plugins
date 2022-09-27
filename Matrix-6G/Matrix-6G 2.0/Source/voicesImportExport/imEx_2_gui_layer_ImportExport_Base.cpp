@@ -81,12 +81,12 @@ GUI_Layer_ImportExport_Base::GUI_Layer_ImportExport_Base(
 
 void GUI_Layer_ImportExport_Base::drawBackgroundImage(Graphics& g) {
 	g.setColour(GUI::color_Black.withAlpha(0.4f));
-	g.fillRect(getParentComponent()->getBounds());
+	g.fillRect(GUI::bounds_VoicesBanks);
 	g.setOpacity(1.0f);
 	MemoryInputStream memInputStream{ BinaryData::bkgrnd_ImportExportWindow_png, BinaryData::bkgrnd_ImportExportWindow_pngSize, false };
 	PNGImageFormat imageFormat;
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(backgroundImage, importExportBackground_x, importExportBackground_y);
+	g.drawImageAt(backgroundImage, GUI::bounds_ImportExport.getX(), GUI::bounds_ImportExport.getY());
 }
 
 void GUI_Layer_ImportExport_Base::selectionChanged() {

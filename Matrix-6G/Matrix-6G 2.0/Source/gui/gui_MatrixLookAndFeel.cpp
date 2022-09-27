@@ -323,7 +323,7 @@ TextLayout MatrixLookAndFeel::layoutTooltipText(const String& text, Colour colou
 
 void MatrixLookAndFeel::drawProgressBar(Graphics& g, ProgressBar& bar, int w, int h, double percentDone, const String& textToShow) {
 	auto background{ GUI::color_Black };
-	auto foreground{ bar.getComponentID() == ID::comp_ProgressBar_VoiceBank.toString() ? GUI::color_ButtonBlue : GUI::color_ButtonGray};
+	auto foreground{ bar.getComponentID() == ID::comp_ProgressBar_VoicesBank.toString() ? GUI::color_ButtonBlue : GUI::color_ButtonGray};
 	auto barBounds{ bar.getLocalBounds().toFloat() };
 	g.setColour(background);
 	g.fillRect(barBounds);

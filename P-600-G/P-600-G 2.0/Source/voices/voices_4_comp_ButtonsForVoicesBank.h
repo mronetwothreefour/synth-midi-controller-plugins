@@ -121,7 +121,8 @@ private:
 
 
 class ButtonForLoadingSelectedVoice :
-	public TextButton
+	public TextButton,
+	private Timer
 {
 public:
 
@@ -139,11 +140,19 @@ public:
 			tipString += "data in the hardware storage slot and cannot be undone.";
 		}
 		setTooltip(tipString);
-		onClick = [this, voiceSlots] { voiceSlots->loadVoiceFromSelectedSlot(); };
+		onClick = [this, voiceSlots, unexposedParams] {
+			voiceSlots->loadVoiceFromSelectedSlot();
+			auto transmitTime{ unexposedParams->getVoiceTransmissionOptions()->voiceTransmitTime() };
+			callAfterDelay(transmitTime, [this, unexposedParams, voiceSlots] {
+				unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessage(voiceSlots->selectedSlot);
+			});
+		};
 		setSize(GUI::buttons_w, GUI::buttons_h);
 	}
 
 private:
+	void timerCallback() override {}
+
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForLoadingSelectedVoice)
 };
@@ -240,6 +249,34 @@ private:
 
 
 
+class ButtonForRestoringFactoryVoices :
+	public TextButton
+{
+public:
+
+	ButtonForRestoringFactoryVoices() = delete;
+
+	ButtonForRestoringFactoryVoices(UnexposedParameters* unexposedParams)
+	{
+		setComponentID(ID::btn_RestoreFactoryVoices.toString());
+		auto tooltips{ unexposedParams->getTooltipsOptions() };
+		String tipString{ "" };
+		if (tooltips->shouldShowDescription()) {
+			tipString += "Restores the entire plugin bank to the original\n";
+			tipString += "factory programs. NOTE: This cannot be undone.";
+		}
+		setTooltip(tipString);
+		setSize(GUI::buttons_w, GUI::buttons_h);
+	}
+
+private:
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForRestoringFactoryVoices)
+};
+
+
+
+
 class ButtonForSavingVoiceIntoSelectedSlot :
 	public TextButton
 {
@@ -268,32 +305,4 @@ public:
 private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForSavingVoiceIntoSelectedSlot)
-};
-
-
-
-
-class ButtonForRestoringFactoryVoices :
-	public TextButton
-{
-public:
-
-	ButtonForRestoringFactoryVoices() = delete;
-
-	ButtonForRestoringFactoryVoices(UnexposedParameters* unexposedParams)
-	{
-		setComponentID(ID::btn_RestoreFactoryVoices.toString());
-		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
-		if (tooltips->shouldShowDescription()) {
-			tipString += "Restores the entire plugin bank to the original\n";
-			tipString += "factory programs. NOTE: This cannot be undone.";
-		}
-		setTooltip(tipString);
-		setSize(GUI::buttons_w, GUI::buttons_h);
-	}
-
-private:
-	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForRestoringFactoryVoices)
 };

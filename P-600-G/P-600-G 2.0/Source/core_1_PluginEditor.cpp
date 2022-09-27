@@ -26,11 +26,11 @@ PluginEditor::PluginEditor(PluginProcessor& processor, ExposedParameters* expose
     layer_ExposedParamControls->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
     addAndMakeVisible(layer_ExposedParamControls.get());
 
-    layer_MainWindowButtons->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
-    addAndMakeVisible(layer_MainWindowButtons.get());
-
     layer_CurrentVoiceNumber->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
     addAndMakeVisible(layer_CurrentVoiceNumber.get());
+
+    layer_MainWindowButtons->setBounds(0, 0, GUI::editor_w, GUI::editor_h);
+    addAndMakeVisible(layer_MainWindowButtons.get());
 
     tooltipsDelayInMillisecondsAsValue.addListener(this);
     addChildComponent(tooltipWindow.get());

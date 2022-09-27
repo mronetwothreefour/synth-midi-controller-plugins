@@ -36,7 +36,7 @@ GUI_Layer_CurrentVoiceNumber::GUI_Layer_CurrentVoiceNumber(UnexposedParameters* 
 
     voiceNumberEditor.setComponentID(ID::comp_TextEditorForVoiceNumberSlider.toString());
     voiceNumberEditor.setInterceptsMouseClicks(false, true);
-    voiceNumberEditor.setFont(GUI::font_VoiceNumberEditor);
+    voiceNumberEditor.setFont(GUI::font_VoiceNumAndTxTimeEditors);
     voiceNumberEditor.onEditorShow = [this] {
         auto editor{ voiceNumberEditor.getCurrentTextEditor() };
         editor->setInputRestrictions(2, "0123456789");

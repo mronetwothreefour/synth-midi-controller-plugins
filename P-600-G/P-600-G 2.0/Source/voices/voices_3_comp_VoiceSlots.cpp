@@ -40,6 +40,7 @@ void VoiceSlots::loadVoiceFromSelectedSlot() {
 		auto voiceDataVector{ RawDataTools::convertHexStringToDataVector(voiceDataHexString) };
 		auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
 		RawDataTools::applyRawVoiceDataToExposedParameters(voiceDataVector.data(), exposedParams, transmitOptions);
+		transmitOptions->setCurrentVoiceNumber(selectedSlot);
 		callAfterDelay(100, [this, transmitOptions] {
 			auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
 			SysExMessages::addDataMessageForCurrentVoiceToOutgoingBuffers(exposedParams, transmitOptions, outgoingBuffers);

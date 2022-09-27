@@ -43,5 +43,9 @@ namespace MophoConstants
 		const int voiceSlotRadioButtton_h{ 19 };
 		const int voiceSlots_x{ 15 };
 		const int voiceSlots_y{ 14 };
+
+		const Rectangle<int> bounds_ImportExport{ 386, 147, 501, 332 };
+		const Rectangle<int> bounds_NewFolder{ 526, 259, 221, 101 };
+		const Rectangle<int> bounds_VoicesBanks{ 87, 111, 1099, 404 };
 	}
 }

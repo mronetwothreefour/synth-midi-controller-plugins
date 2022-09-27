@@ -20,7 +20,7 @@ void GUI_Layer_Import_VoicesBank::paint(Graphics& g) {
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ BinaryData::lbl_ImportVoicesBank_png, BinaryData::lbl_ImportVoicesBank_pngSize, false };
 	auto titleImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(titleImage, importExportBackground_x, importExportBackground_y);
+	g.drawImageAt(titleImage, GUI::bounds_ImportExport.getX(), GUI::bounds_ImportExport.getY());
 }
 
 void GUI_Layer_Import_VoicesBank::okButtonClicked() {

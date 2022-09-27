@@ -22,7 +22,7 @@ void GUI_Layer_Export_Voice::paint(Graphics& g) {
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ BinaryData::lbl_ExportVoice_png, BinaryData::lbl_ExportVoice_pngSize, false };
 	auto titleImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(titleImage, importExportBackground_x + border_w, importExportBackground_y + border_w);
+	g.drawImageAt(titleImage, GUI::bounds_ImportExport.getX() + border_w, GUI::bounds_ImportExport.getY() + border_w);
 }
 
 void GUI_Layer_Export_Voice::proceedButtonClicked() {

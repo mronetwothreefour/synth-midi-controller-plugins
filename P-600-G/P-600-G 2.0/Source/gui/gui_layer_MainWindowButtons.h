@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 class ExposedParameters;
+class GUI_Layer_VoicesBank;
 class TooltipsOptions;
 class UnexposedParameters;
 
@@ -15,8 +16,10 @@ class GUI_Layer_MainWindowButtons :
 	ExposedParameters* exposedParams;
 	UnexposedParameters* unexposedParams;
 	TooltipsOptions* tooltips;
-	TextButton btn_Pull;
 	TextButton btn_Push;
+	TextButton btn_Pull;
+	TextButton btn_ShowVoicesBank;
+	std::unique_ptr<GUI_Layer_VoicesBank> layer_VoicesBank;
 	Value shouldShowDescriptionAsValue;
 
 public:
@@ -28,6 +31,7 @@ private:
 	void updateTooltips();
 	void timerCallback() override;
 	void addProgramChangeMessageToOutgoingBuffersAfterDelay(int delayInMilliseconds);
+	void showVoicesBankLayer();
 
 public:
 	void mouseDown(const MouseEvent& event) override;

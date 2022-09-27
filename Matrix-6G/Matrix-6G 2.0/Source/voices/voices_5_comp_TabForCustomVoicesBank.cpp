@@ -1,9 +1,9 @@
 #include "voices_5_comp_TabForCustomVoicesBank.h"
 
-#include "../constants/constants_Voices.h"
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
+#include "../constants/constants_Voices.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 TabForCustomVoicesBank::TabForCustomVoicesBank(
@@ -73,11 +73,11 @@ void TabForCustomVoicesBank::getCommandInfo(CommandID commandID, ApplicationComm
 	switch (commandID)
 	{
 	case copyVoice:
-		result.setInfo("Copy Program", "Copy the patch in the selected storage slot", "CopyAndPaste", 0);
+		result.setInfo("Copy Patch", "Copy the patch in the selected storage slot", "CopyAndPaste", 0);
 		result.addDefaultKeypress('c', ModifierKeys::commandModifier);
 		break;
 	case pasteVoice:
-		result.setInfo("Paste Program", "Replace the patch in the selected storage slot with the patch in the clipboard", "CopyAndPaste", 0);
+		result.setInfo("Paste Patch", "Replace the patch in the selected storage slot with the patch in the clipboard", "CopyAndPaste", 0);
 		result.addDefaultKeypress('v', ModifierKeys::commandModifier);
 		break;
 	default:

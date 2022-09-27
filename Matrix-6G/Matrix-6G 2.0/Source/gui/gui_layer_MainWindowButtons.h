@@ -19,8 +19,8 @@ class GUI_Layer_MainWindowButtons :
 	UnexposedParameters* unexposedParams;
 	TooltipsOptions* tooltips;
 	ButtonForActivatingQuickEdit btn_ActivateQuickEdit;
-	TextButton btn_Pull;
 	TextButton btn_Push;
+	TextButton btn_Pull;
 	TextButton btn_ShowVoicesBanks;
 	std::unique_ptr<GUI_Layer_VoicesBanks> layer_VoicesBanks;
 	Value shouldShowDescriptionAsValue;

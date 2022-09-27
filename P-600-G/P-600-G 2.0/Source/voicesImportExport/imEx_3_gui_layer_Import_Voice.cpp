@@ -9,7 +9,6 @@ GUI_Layer_Import_Voice::GUI_Layer_Import_Voice(VoiceSlots* voiceSlots, Unexposed
 	GUI_Layer_ImportExport_Base{ ImportExportType::importVoice, voiceSlots, unexposedParams },
 	voicesBank{ unexposedParams->getVoicesBank() }
 {
-	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	if (tooltips->shouldShowDescription()) {
 		btn_Esc.setTooltip("Click to cancel the data import.");
 		btn_OK.setTooltip("Click to import the program\ndata from the selected file.");
@@ -21,7 +20,7 @@ void GUI_Layer_Import_Voice::paint(Graphics& g) {
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ BinaryData::lbl_ImportVoice_png, BinaryData::lbl_ImportVoice_pngSize, false };
 	auto titleImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(titleImage, importExportBackground_x, importExportBackground_y);
+	g.drawImageAt(titleImage, GUI::bounds_ImportExport.getX(), GUI::bounds_ImportExport.getY());
 }
 
 void GUI_Layer_Import_Voice::okButtonClicked() {

@@ -29,6 +29,10 @@
               file="BinaryResources/buttons/btn_NewFldr_Up.png"/>
         <FILE id="MhMYqA" name="btn_OK_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_OK_Dn.png"/>
         <FILE id="YlHzmB" name="btn_OK_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_OK_Up.png"/>
+        <FILE id="eOm81I" name="btn_PgmBank_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_PgmBank_Dn.png"/>
+        <FILE id="uiakkb" name="btn_PgmBank_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_PgmBank_Up.png"/>
         <FILE id="nev8b4" name="btn_Pull_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Dn.png"/>
         <FILE id="Kx9v7U" name="btn_Pull_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Up.png"/>
         <FILE id="feOLRz" name="btn_Push_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Dn.png"/>
@@ -47,7 +51,13 @@
               file="BinaryResources/labels/lbl_ImportVoice.png"/>
         <FILE id="WUQwfo" name="lbl_ImportVoicesBank.png" compile="0" resource="1"
               file="BinaryResources/labels/lbl_ImportVoicesBank.png"/>
+        <FILE id="mWBfXg" name="lbl_PullingEntireBank.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_PullingEntireBank.png"/>
+        <FILE id="VDdpOs" name="lbl_PushingEntireBank.png" compile="0" resource="1"
+              file="BinaryResources/labels/lbl_PushingEntireBank.png"/>
       </GROUP>
+      <FILE id="p4h11g" name="bkgrnd_FactoryRestoreDialog.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_FactoryRestoreDialog.png"/>
       <FILE id="AeHQzB" name="bkgrnd_FileOverwriteDialog.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_FileOverwriteDialog.png"/>
       <FILE id="sYM8rw" name="bkgrnd_FileNotValidAlert.png" compile="0" resource="1"
@@ -60,6 +70,10 @@
             file="BinaryResources/bkgrnd_MainWindow.png"/>
       <FILE id="cHIT77" name="bkgrnd_NewFolderDialog.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_NewFolderDialog.png"/>
+      <FILE id="V9ZGyR" name="bkgrnd_VoicesBank.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_VoicesBank.png"/>
+      <FILE id="Hd8YV8" name="bkgrnd_VoicesBankTransmit.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_VoicesBankTransmit.png"/>
       <FILE id="h4ZOcY" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
       <FILE id="UazGl9" name="SWISSCK.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCK.TTF"/>
       <FILE id="Jv8T7b" name="SWISSCL.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCL.TTF"/>
@@ -214,6 +228,16 @@
               file="Source/voices/voices_3_comp_VoiceSlots.h"/>
         <FILE id="okIGs4" name="voices_4_comp_ButtonsForVoicesBank.h" compile="0"
               resource="0" file="Source/voices/voices_4_comp_ButtonsForVoicesBank.h"/>
+        <FILE id="DRhPde" name="voices_4_gui_layer_BankTransmit.cpp" compile="1"
+              resource="0" file="Source/voices/voices_4_gui_layer_BankTransmit.cpp"/>
+        <FILE id="J4UZji" name="voices_4_gui_layer_BankTransmit.h" compile="0"
+              resource="0" file="Source/voices/voices_4_gui_layer_BankTransmit.h"/>
+        <FILE id="DjdOl3" name="voices_4_gui_layer_RestoreFactoryVoicesDialog.h"
+              compile="0" resource="0" file="Source/voices/voices_4_gui_layer_RestoreFactoryVoicesDialog.h"/>
+        <FILE id="t3hgn6" name="voices_5_gui_layer_VoicesBank.cpp" compile="1"
+              resource="0" file="Source/voices/voices_5_gui_layer_VoicesBank.cpp"/>
+        <FILE id="PNPiDU" name="voices_5_gui_layer_VoicesBank.h" compile="0"
+              resource="0" file="Source/voices/voices_5_gui_layer_VoicesBank.h"/>
       </GROUP>
       <GROUP id="{D94CB483-4214-AFE0-3CF6-0A4CD55E84D7}" name="voicesImportExport">
         <FILE id="TRcnjp" name="imEx_0_FileFilters.h" compile="0" resource="0"

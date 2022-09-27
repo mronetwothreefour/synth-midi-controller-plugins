@@ -62,6 +62,12 @@ namespace BinaryData
     extern const char*   btn_OK_Up_png;
     const int            btn_OK_Up_pngSize = 652;
 
+    extern const char*   btn_PgmBank_Dn_png;
+    const int            btn_PgmBank_Dn_pngSize = 984;
+
+    extern const char*   btn_PgmBank_Up_png;
+    const int            btn_PgmBank_Up_pngSize = 1005;
+
     extern const char*   btn_Pull_Dn_png;
     const int            btn_Pull_Dn_pngSize = 597;
 
@@ -95,6 +101,15 @@ namespace BinaryData
     extern const char*   lbl_ImportVoicesBank_png;
     const int            lbl_ImportVoicesBank_pngSize = 2721;
 
+    extern const char*   lbl_PullingEntireBank_png;
+    const int            lbl_PullingEntireBank_pngSize = 2211;
+
+    extern const char*   lbl_PushingEntireBank_png;
+    const int            lbl_PushingEntireBank_pngSize = 2138;
+
+    extern const char*   bkgrnd_FactoryRestoreDialog_png;
+    const int            bkgrnd_FactoryRestoreDialog_pngSize = 78267;
+
     extern const char*   bkgrnd_FileOverwriteDialog_png;
     const int            bkgrnd_FileOverwriteDialog_pngSize = 53509;
 
@@ -113,6 +128,12 @@ namespace BinaryData
     extern const char*   bkgrnd_NewFolderDialog_png;
     const int            bkgrnd_NewFolderDialog_pngSize = 51632;
 
+    extern const char*   bkgrnd_VoicesBank_png;
+    const int            bkgrnd_VoicesBank_pngSize = 755365;
+
+    extern const char*   bkgrnd_VoicesBankTransmit_png;
+    const int            bkgrnd_VoicesBankTransmit_pngSize = 83994;
+
     extern const char*   SWISSB_TTF;
     const int            SWISSB_TTFSize = 36852;
 
@@ -123,7 +144,7 @@ namespace BinaryData
     const int            SWISSCL_TTFSize = 35064;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 38;
+    const int namedResourceListSize = 45;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

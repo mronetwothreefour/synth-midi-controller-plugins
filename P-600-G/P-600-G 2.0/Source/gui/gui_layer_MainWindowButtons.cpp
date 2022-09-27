@@ -9,6 +9,7 @@
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../midi/midi_1_SysExMessages.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../voices/voices_5_gui_layer_VoicesBank.h"
 
 using namespace P_600_G_Constants;
 using Description = MainWindowButtonDescription;
@@ -24,6 +25,17 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     shouldShowDescriptionAsValue.addListener(this);
 
     const int buttonsRow_y{ 47 };
+    btn_Push.setComponentID(ID::btn_Push_Voice.toString());
+    btn_Push.onClick = [this, exposedParams, unexposedParams] {
+        auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
+        auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
+        SysExMessages::addDataMessageForCurrentVoiceToOutgoingBuffers(exposedParams, transmitOptions, outgoingBuffers);
+        addProgramChangeMessageToOutgoingBuffersAfterDelay(10);
+    };
+    btn_Push.setBounds(478, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
+    btn_Push.addShortcut(KeyPress{ 'p', ModifierKeys::ctrlModifier + ModifierKeys::altModifier, 0 });
+    addAndMakeVisible(btn_Push);
+
     btn_Pull.setComponentID(ID::btn_Pull_Voice.toString());
     btn_Pull.onClick = [this, unexposedParams] {
         auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
@@ -32,20 +44,15 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
         SysExMessages::addRequestForVoiceDataStoredInSlotToOutgoingBuffers(currentVoiceNumber, outgoingBuffers);
         addProgramChangeMessageToOutgoingBuffersAfterDelay(transmitOptions->voiceTransmitTime());
     };
-    btn_Pull.setBounds(478, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
+    btn_Pull.setBounds(528, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
     btn_Pull.addShortcut(KeyPress{ 'p', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_Pull);
 
-    btn_Push.setComponentID(ID::btn_Push_Voice.toString());
-    btn_Push.onClick = [this, exposedParams, unexposedParams] {
-        auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
-        auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
-        SysExMessages::addDataMessageForCurrentVoiceToOutgoingBuffers(exposedParams, transmitOptions, outgoingBuffers);
-        addProgramChangeMessageToOutgoingBuffersAfterDelay(10);
-    };
-    btn_Push.setBounds(528, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
-    btn_Push.addShortcut(KeyPress{ 'p', ModifierKeys::ctrlModifier + ModifierKeys::altModifier, 0 });
-    addAndMakeVisible(btn_Push);
+    btn_ShowVoicesBank.setComponentID(ID::btn_PgmBank.toString());
+    btn_ShowVoicesBank.onClick = [this] { showVoicesBankLayer(); };
+    btn_ShowVoicesBank.setBounds(578, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
+    btn_ShowVoicesBank.addShortcut(KeyPress{ 'b', ModifierKeys::ctrlModifier, 0 });
+    addAndMakeVisible(btn_ShowVoicesBank);
 
     updateTooltips();
 
@@ -60,6 +67,9 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
 
     auto tipFor_btn_Push{ shouldShow ? Description::buildForPush() : String{ "" } };
     btn_Push.setTooltip(tipFor_btn_Push);
+
+    auto tipFor_btn_ShowVoicesBank{ shouldShow ? Description::buildForShowVoicesBankLayer() : String{ "" } };
+    btn_ShowVoicesBank.setTooltip(tipFor_btn_ShowVoicesBank);
 }
 
 void GUI_Layer_MainWindowButtons::timerCallback() {
@@ -70,6 +80,15 @@ void GUI_Layer_MainWindowButtons::addProgramChangeMessageToOutgoingBuffersAfterD
         auto currentVoiceNumber{ unexposedParams->getVoiceTransmissionOptions()->currentVoiceNumber() };
         unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessage(currentVoiceNumber); 
     });
+}
+
+void GUI_Layer_MainWindowButtons::showVoicesBankLayer() {
+    layer_VoicesBank.reset(new GUI_Layer_VoicesBank{ exposedParams, unexposedParams });
+    if (layer_VoicesBank != nullptr) {
+        addAndMakeVisible(layer_VoicesBank.get());
+        layer_VoicesBank->setBounds(getLocalBounds());
+        layer_VoicesBank->grabKeyboardFocus();
+    }
 }
 
 void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& /*event*/) {
@@ -83,5 +102,6 @@ void GUI_Layer_MainWindowButtons::valueChanged(Value& /*value*/) {
 }
 
 GUI_Layer_MainWindowButtons::~GUI_Layer_MainWindowButtons() {
+    layer_VoicesBank = nullptr;
     shouldShowDescriptionAsValue.removeListener(this);
 }
