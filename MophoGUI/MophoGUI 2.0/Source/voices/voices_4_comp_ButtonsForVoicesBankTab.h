@@ -47,12 +47,12 @@ public:
 	{
 		setComponentID(ID::btn_Export_VoiceFromBank_.toString() + String((int)bank));
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
-			tipString += "Exports the program data stored in the selected slot to a file\n";
-			tipString += "which can be read by other instances of the MophoGUI plugin.";
+			tip += "Exports the program data stored in the selected slot to a file\n";
+			tip += "which can be read by other instances of the MophoGUI plugin.";
 		}
-		setTooltip(tipString);
+		setTooltip(tip);
 		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
 
@@ -76,12 +76,12 @@ public:
 		jassert(bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3);
 		setComponentID(ID::btn_Import_AllVoicesIntoBank_.toString() + String((int)bank));
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
-			tipString += "Replace all the programs in the storage\n";
-			tipString += "bank with those stored in a file.";
+			tip += "Replace all the programs in the storage\n";
+			tip += "bank with those stored in a file.";
 		}
-		setTooltip(tipString);
+		setTooltip(tip);
 		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
 
@@ -105,12 +105,12 @@ public:
 		jassert(bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3);
 		setComponentID(ID::btn_Import_VoiceIntoBank_.toString() + String((int)bank));
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
-			tipString += "Imports the program data stored in\n";
-			tipString += "a file into the selected storage slot.";
+			tip += "Imports the program data stored in\n";
+			tip += "a file into the selected storage slot.";
 		}
-		setTooltip(tipString);
+		setTooltip(tip);
 		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
 
@@ -133,12 +133,12 @@ public:
 	{
 		setComponentID(ID::btn_Load.toString());
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
-			tipString += "Applies the program settings stored in the selected slot to the\n";
-			tipString += "plugin GUI and to the Mopho hardware" + GUI::apostrophe + "s program edit buffer.";
+			tip += "Applies the program settings stored in the selected slot to the\n";
+			tip += "plugin GUI and to the Mopho hardware" + GUI::apostrophe + "s program edit buffer.";
 		}
-		setTooltip(tipString);
+		setTooltip(tip);
 		onClick = [this, voiceSlots] { voiceSlots->loadVoiceFromSelectedSlot(); };
 		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
@@ -162,12 +162,12 @@ public:
 		jassert(bank == VoicesBank::custom_1 || bank == VoicesBank::custom_2 || bank == VoicesBank::custom_3);
 		setComponentID(ID::btn_Pull_VoicesBank_.toString() + String((int)bank));
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
-			tipString += "Pull all the programs stored in the storage bank in\n";
-			tipString += "the Mopho hardware into this plugin storage bank.";
+			tip += "Pull all the programs stored in the storage bank in\n";
+			tip += "the Mopho hardware into this plugin storage bank.";
 		}
-		setTooltip(tipString);
+		setTooltip(tip);
 		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
 
@@ -190,12 +190,12 @@ public:
 	{
 		setComponentID(ID::btn_Pull_SelectedVoice.toString());
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
-			tipString += "Pull the data from the selected program storage slot in the Mopho\n";
-			tipString += "hardware and save it in the corresponding storage slot in the plugin.";
+			tip += "Pull the data from the selected program storage slot in the Mopho\n";
+			tip += "hardware and save it in the corresponding storage slot in the plugin.";
 		}
-		setTooltip(tipString);
+		setTooltip(tip);
 		onClick = [this, voiceSlots] { voiceSlots->pullSelectedVoiceFromHardware(); };
 		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
@@ -218,12 +218,12 @@ public:
 	{
 		setComponentID(ID::btn_Push_VoicesBank_.toString() + String((int)bank));
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
-			tipString += "Push all the programs stored in this bank to the\n";
-			tipString += "corresponding storage bank in the Mopho hardware.";
+			tip += "Push all the programs stored in this bank to the\n";
+			tip += "corresponding storage bank in the Mopho hardware.";
 		}
-		setTooltip(tipString);
+		setTooltip(tip);
 		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
 
@@ -246,12 +246,12 @@ public:
 	{
 		setComponentID(ID::btn_Push_SelectedVoice.toString());
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
-			tipString += "Push the data in the selected program storage slot\n";
-			tipString += "to the corresponding storage slot in the Mopho hardware.";
+			tip += "Push the data in the selected program storage slot\n";
+			tip += "to the corresponding storage slot in the Mopho hardware.";
 		}
-		setTooltip(tipString);
+		setTooltip(tip);
 		onClick = [this, voiceSlots] { voiceSlots->pushSelectedVoiceToHardware(); };
 		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}
@@ -275,12 +275,12 @@ public:
 	{
 		setComponentID(ID::btn_Save.toString());
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
-			tipString += "Saves the plugin GUI" + GUI::apostrophe + "s current settings\n";
-			tipString += "into the selected program storage slot.";
+			tip += "Saves the plugin GUI" + GUI::apostrophe + "s current settings\n";
+			tip += "into the selected program storage slot.";
 		}
-		setTooltip(tipString);
+		setTooltip(tip);
 		onClick = [this, voiceSlots] { voiceSlots->saveCurrentVoiceSettingsIntoSelectedSlot(); };
 		setSize(GUI::voicesBanksLayerButtons_w, GUI::redButton_h);
 	}

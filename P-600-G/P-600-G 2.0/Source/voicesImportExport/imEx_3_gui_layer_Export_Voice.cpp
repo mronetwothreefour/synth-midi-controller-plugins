@@ -46,8 +46,8 @@ void GUI_Layer_Export_Voice::showFileOverwriteDialog() {
 void GUI_Layer_Export_Voice::buttonClicked(Button* button) {
 	if (fileOverwriteDialog != nullptr) {
 		if (button->getComponentID() == ID::btn_Esc_FileOverwrite.toString()) {
-			grabKeyboardFocus();
 			fileOverwriteDialog->setVisible(false);
+			grabKeyboardFocus();
 		}
 		if (button->getComponentID() == ID::btn_OK_FileOverwrite.toString()) {
 			auto selectedFile{ browserComponent->getSelectedFile(0) };

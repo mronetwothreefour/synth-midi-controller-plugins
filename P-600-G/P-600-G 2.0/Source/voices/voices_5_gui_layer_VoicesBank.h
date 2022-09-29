@@ -19,7 +19,8 @@ class VoiceTransmissionOptions;
 
 class GUI_Layer_VoicesBank :
     public Component,
-    public ApplicationCommandTarget
+    public ApplicationCommandTarget,
+    public Button::Listener
 {
     UnexposedParameters* unexposedParams;
     VoicesBank* voicesBank;
@@ -29,6 +30,7 @@ class GUI_Layer_VoicesBank :
     ButtonForPullingSelectedVoiceFromHardware btn_PullSelected;;
     ButtonForExportingSelectedVoiceToFile btn_ExportSelected;
     ButtonForImportingVoiceFromFile btn_ImportSelected;
+    ButtonForEditingSelectedVoiceName btn_EditName;
     ButtonForPushingEntireBankToHardware btn_PushBank;
     ButtonForPullingEntireBankFromHardware btn_PullBank;
     ButtonForExportingEntireBankToFile btn_ExportBank;
@@ -57,6 +59,7 @@ public:
 
     GUI_Layer_VoicesBank(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
     void paint(Graphics& g) override;
+    void buttonClicked(Button* button) override;
     ApplicationCommandTarget* getNextCommandTarget() override;
     void getAllCommands(Array<CommandID>& commands) override;
     void getCommandInfo(CommandID commandID, ApplicationCommandInfo& result) override;

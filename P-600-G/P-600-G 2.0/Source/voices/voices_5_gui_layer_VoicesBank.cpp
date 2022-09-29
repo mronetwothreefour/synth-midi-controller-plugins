@@ -22,6 +22,7 @@ GUI_Layer_VoicesBank::GUI_Layer_VoicesBank(ExposedParameters* exposedParams, Une
 	btn_PullSelected{ &voiceSlots, unexposedParams },
 	btn_ExportSelected{ unexposedParams },
 	btn_ImportSelected{ unexposedParams },
+	btn_EditName{ &voiceSlots, unexposedParams },
 	btn_PushBank{ unexposedParams },
 	btn_PullBank{ unexposedParams },
 	btn_ExportBank{ unexposedParams },
@@ -38,21 +39,28 @@ GUI_Layer_VoicesBank::GUI_Layer_VoicesBank(ExposedParameters* exposedParams, Une
 	addAndMakeVisible(btn_SaveIntoSelected);
 	btn_PullSelected.setTopLeftPosition(btn_SaveIntoSelected.getX() + buttons_x_spacing, buttons_y);
 	addAndMakeVisible(btn_PullSelected);
+	btn_ExportSelected.addListener(this);
 	btn_ExportSelected.setTopLeftPosition(btn_PullSelected.getX() + buttons_x_spacing, buttons_y);
 	addAndMakeVisible(btn_ExportSelected);
+	btn_ImportSelected.addListener(this);
 	btn_ImportSelected.setTopLeftPosition(btn_ExportSelected.getX() + buttons_x_spacing, buttons_y);
 	addAndMakeVisible(btn_ImportSelected);
+	btn_EditName.setTopLeftPosition(btn_ImportSelected.getX() + buttons_x_spacing, buttons_y);
+	addAndMakeVisible(btn_EditName);
 
+	btn_PushBank.addListener(this);
 	btn_PushBank.setTopLeftPosition(780, buttons_y);
 	addAndMakeVisible(btn_PushBank);
+	btn_PullBank.addListener(this);
 	btn_PullBank.setTopLeftPosition(btn_PushBank.getX() + buttons_x_spacing, buttons_y);
 	addAndMakeVisible(btn_PullBank);
+	btn_ExportBank.addListener(this);
 	btn_ExportBank.setTopLeftPosition(btn_PullBank.getX() + buttons_x_spacing, buttons_y);
 	addAndMakeVisible(btn_ExportBank);
+	btn_ImportBank.addListener(this);
 	btn_ImportBank.setTopLeftPosition(btn_ExportBank.getX() + buttons_x_spacing, buttons_y);
 	addAndMakeVisible(btn_ImportBank);
-	btn_ImportBank.setTopLeftPosition(btn_ExportBank.getX() + buttons_x_spacing, buttons_y);
-	addAndMakeVisible(btn_ImportBank);
+	btn_RestoreFactoryVoices.addListener(this);
 	btn_RestoreFactoryVoices.setTopLeftPosition(btn_ImportBank.getX() + buttons_x_spacing, buttons_y);
 	addAndMakeVisible(btn_RestoreFactoryVoices);
 
@@ -65,6 +73,7 @@ GUI_Layer_VoicesBank::GUI_Layer_VoicesBank(ExposedParameters* exposedParams, Une
 		editor->setInputRestrictions(4, "0123456789");
 		editor->setFont(GUI::font_VoiceNumAndTxTimeEditors);
 		editor->setText((String)voiceTransmit->voiceTransmitTime());
+		editor->selectAll();
 		if (tooltips->shouldShowDescription())
 			editor->setTooltip("Type a new transmit\ntime in milliseconds.\n(Range: 50 to 5000)");
 	};
@@ -101,10 +110,33 @@ GUI_Layer_VoicesBank::GUI_Layer_VoicesBank(ExposedParameters* exposedParams, Une
 }
 
 void GUI_Layer_VoicesBank::paint(Graphics& g) {
+	g.fillAll(GUI::color_Black.withAlpha(0.4f));
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ BinaryData::bkgrnd_VoicesBank_png, BinaryData::bkgrnd_VoicesBank_pngSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(backgroundImage, 11, 61);
+}
+
+void GUI_Layer_VoicesBank::buttonClicked(Button* button) {
+	auto buttonID{ button->getComponentID() };
+
+	if (buttonID.startsWith(ID::btn_Expt_Voice.toString()))
+		showExportVoiceLayer();
+
+	if (buttonID.startsWith(ID::btn_Expt_VoicesBank.toString()))
+		showExportBankLayer();
+
+	if (buttonID.startsWith(ID::btn_Impt_Voice.toString()))
+		showImportVoiceLayer();
+
+	if (buttonID.startsWith(ID::btn_Impt_VoicesBank.toString()))
+		showImportBankLayer();
+
+	if (buttonID.startsWith(ID::btn_Pull_VoicesBank.toString()))
+		showPullBankLayer();
+
+	if (buttonID.startsWith(ID::btn_Push_VoicesBank.toString()))
+		showPushBankLayer();
 }
 
 ApplicationCommandTarget* GUI_Layer_VoicesBank::getNextCommandTarget() {
@@ -231,6 +263,12 @@ void GUI_Layer_VoicesBank::showRestoreFactoryVoicesDialogLayer() {
 }
 
 GUI_Layer_VoicesBank::~GUI_Layer_VoicesBank() {
+	btn_ImportSelected.removeListener(this);
+	btn_ExportSelected.removeListener(this);
+	btn_PushBank.removeListener(this);
+	btn_PullBank.removeListener(this);
+	btn_ImportBank.removeListener(this);
+	btn_ExportBank.removeListener(this);
 	exportVoiceLayer = nullptr;
 	exportBankLayer = nullptr;
 	importVoiceLayer = nullptr;

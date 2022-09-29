@@ -8,6 +8,35 @@
 #include "../constants/constants_Identifiers.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
+class ButtonForEditingSelectedVoiceName :
+	public TextButton
+{
+public:
+
+	ButtonForEditingSelectedVoiceName() = delete;
+
+	ButtonForEditingSelectedVoiceName(VoiceSlots* voiceSlots, UnexposedParameters* unexposedParams)
+	{
+		setComponentID(ID::btn_Name.toString());
+		auto tooltips{ unexposedParams->getTooltipsOptions() };
+		String tip{ "" };
+		if (tooltips->shouldShowDescription()) {
+			tip += "Click to change the name of the selected program.\n";
+			tip += "NOTE: The Prophet-600 hardware doesn" + GUI::apostrophe + "t store program names.";
+		}
+		setTooltip(tip);
+		onClick = [voiceSlots] { voiceSlots->showVoiceNameEditorForSelectedSlot(); };
+		setSize(GUI::buttons_w, GUI::buttons_h);
+	}
+
+private:
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForEditingSelectedVoiceName)
+};
+
+
+
+
 class ButtonForExportingEntireBankToFile :
 	public TextButton
 {
@@ -47,12 +76,12 @@ public:
 	{
 		setComponentID(ID::btn_Expt_Voice.toString());
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
-			tipString += "Exports the program data stored in the selected slot to a file\n";
-			tipString += "which can be read by other instances of the P-600-G plugin.";
+			tip += "Exports the program data stored in the selected slot to a file\n";
+			tip += "which can be read by other instances of the P-600-G plugin.";
 		}
-		setTooltip(tipString);
+		setTooltip(tip);
 		setSize(GUI::buttons_w, GUI::buttons_h);
 	}
 
@@ -75,12 +104,12 @@ public:
 	{
 		setComponentID(ID::btn_Impt_VoicesBank.toString());
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
-			tipString += "Replace all the programs in the storage\n";
-			tipString += "bank with those stored in a file.";
+			tip += "Replace all the programs in the storage\n";
+			tip += "bank with those stored in a file.";
 		}
-		setTooltip(tipString);
+		setTooltip(tip);
 		setSize(GUI::buttons_w, GUI::buttons_h);
 	}
 
@@ -103,12 +132,12 @@ public:
 	{
 		setComponentID(ID::btn_Impt_Voice.toString());
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
-			tipString += "Imports the program data stored in\n";
-			tipString += "a file into the selected storage slot.";
+			tip += "Imports the program data stored in\n";
+			tip += "a file into the selected storage slot.";
 		}
-		setTooltip(tipString);
+		setTooltip(tip);
 		setSize(GUI::buttons_w, GUI::buttons_h);
 	}
 
@@ -132,20 +161,22 @@ public:
 	{
 		setComponentID(ID::btn_Load.toString());
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
-			tipString += "Applies the program settings stored in the selected slot\n";
-			tipString += "to the plugin GUI and pushes them to the corresponding\n";
-			tipString += "hardware storage slot. NOTE: This overwrites the program\n";
-			tipString += "data in the hardware storage slot and cannot be undone.";
+			tip += "Applies the program settings stored in the selected slot\n";
+			tip += "to the plugin GUI and pushes them to the corresponding\n";
+			tip += "hardware storage slot. NOTE: This overwrites the program\n";
+			tip += "data in the hardware storage slot and cannot be undone.";
 		}
-		setTooltip(tipString);
+		setTooltip(tip);
 		onClick = [this, voiceSlots, unexposedParams] {
-			voiceSlots->loadVoiceFromSelectedSlot();
-			auto transmitTime{ unexposedParams->getVoiceTransmissionOptions()->voiceTransmitTime() };
-			callAfterDelay(transmitTime, [this, unexposedParams, voiceSlots] {
-				unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessage(voiceSlots->selectedSlot);
-			});
+			if (voiceSlots->selectedSlot < VCS::numberOfSlotsInVoicesBank) {
+				voiceSlots->loadVoiceFromSelectedSlot();
+				auto transmitTime{ unexposedParams->getVoiceTransmissionOptions()->voiceTransmitTime() };
+				callAfterDelay(transmitTime, [this, unexposedParams, voiceSlots] {
+					unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessage(voiceSlots->selectedSlot);
+				});
+			}
 		};
 		setSize(GUI::buttons_w, GUI::buttons_h);
 	}
@@ -170,14 +201,14 @@ public:
 	{
 		setComponentID(ID::btn_Pull_VoicesBank.toString());
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
-			tipString += "Pull all the programs stored in the Prophet-600\n";
-			tipString += "hardware into the plugin storage bank. NOTE: The\n";
-			tipString += "Prophet-600 does not store program names, so the\n";
-			tipString += "names displayed in the slots will be deleted.";
+			tip += "Pull all the programs stored in the Prophet-600\n";
+			tip += "hardware into the plugin storage bank. NOTE: The\n";
+			tip += "Prophet-600 does not store program names, so the\n";
+			tip += "names displayed in the slots will be deleted.";
 		}
-		setTooltip(tipString);
+		setTooltip(tip);
 		setSize(GUI::buttons_w, GUI::buttons_h);
 	}
 
@@ -190,7 +221,8 @@ private:
 
 
 class ButtonForPullingSelectedVoiceFromHardware :
-	public TextButton
+	public TextButton,
+	private Timer
 {
 public:
 
@@ -200,19 +232,28 @@ public:
 	{
 		setComponentID(ID::btn_Pull_Voice.toString());
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
-			tipString += "Pull the data from the selected program storage slot in the\n";
-			tipString += "Prophet-600 hardware and save it in the corresponding slot in\n";
-			tipString += "the plugin storage bank. There will then be a prompt to name\n";
-			tipString += "the program (the hardware does not store program names).";
+			tip += "Pull the data from the selected program storage slot in the\n";
+			tip += "Prophet-600 hardware and save it in the corresponding slot in\n";
+			tip += "the plugin storage bank. There will then be a prompt to name\n";
+			tip += "the program (the hardware does not store program names).";
 		}
-		setTooltip(tipString);
-		onClick = [this, voiceSlots] { voiceSlots->pullSelectedVoiceFromHardware(); };
+		setTooltip(tip);
+		onClick = [this, voiceSlots, unexposedParams] {
+			voiceSlots->pullSelectedVoiceFromHardware(); 
+			auto transmitTime{ unexposedParams->getVoiceTransmissionOptions()->voiceTransmitTime() };
+			callAfterDelay(transmitTime, [unexposedParams, voiceSlots] {
+				unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessage(voiceSlots->selectedSlot);
+				voiceSlots->showVoiceNameEditorForSelectedSlot();
+			});
+		};
 		setSize(GUI::buttons_w, GUI::buttons_h);
 	}
 
 private:
+	void timerCallback() override {}
+
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForPullingSelectedVoiceFromHardware)
 };
@@ -230,14 +271,14 @@ public:
 	{
 		setComponentID(ID::btn_Push_VoicesBank.toString());
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
-			tipString += "Push all the programs stored in the plugin bank\n";
-			tipString += "to the Prophet-600 hardware" + GUI::apostrophe + "s storage bank. NOTE:\n";
-			tipString += "All the program data stored in the hardware will\n";
-			tipString += "be overwritten and this cannot be undone.";
+			tip += "Push all the programs stored in the plugin bank\n";
+			tip += "to the Prophet-600 hardware" + GUI::apostrophe + "s storage bank. NOTE:\n";
+			tip += "All the program data stored in the hardware will\n";
+			tip += "be overwritten and this cannot be undone.";
 		}
-		setTooltip(tipString);
+		setTooltip(tip);
 		setSize(GUI::buttons_w, GUI::buttons_h);
 	}
 
@@ -260,12 +301,12 @@ public:
 	{
 		setComponentID(ID::btn_RestoreFactoryVoices.toString());
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
-			tipString += "Restores the entire plugin bank to the original\n";
-			tipString += "factory programs. NOTE: This cannot be undone.";
+			tip += "Restores the entire plugin bank to the original\n";
+			tip += "factory programs. NOTE: This cannot be undone.";
 		}
-		setTooltip(tipString);
+		setTooltip(tip);
 		setSize(GUI::buttons_w, GUI::buttons_h);
 	}
 
@@ -278,7 +319,8 @@ private:
 
 
 class ButtonForSavingVoiceIntoSelectedSlot :
-	public TextButton
+	public TextButton,
+	private Timer
 {
 public:
 
@@ -288,21 +330,32 @@ public:
 	{
 		setComponentID(ID::btn_Save.toString());
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
-		String tipString{ "" };
+		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
-			tipString += "Saves the plugin GUI" + GUI::apostrophe + "s current settings in the\n";
-			tipString += "selected program storage slot, both in this\n";
-			tipString += "storage bank and in the Prophet-600 hardware.\n";
-			tipString += "NOTE: This will overwrite the data stored in\n";
-			tipString += "the hardware and cannot be undone. There will\n";
-			tipString += "then be a prompt to change the program" + GUI::apostrophe + "s name.";
+			tip += "Saves the plugin GUI" + GUI::apostrophe + "s current settings in the\n";
+			tip += "selected program storage slot, both in this\n";
+			tip += "storage bank and in the Prophet-600 hardware.\n";
+			tip += "NOTE: This will overwrite the data stored in\n";
+			tip += "the hardware and cannot be undone. There will\n";
+			tip += "then be a prompt to change the program" + GUI::apostrophe + "s name.";
 		}
-		setTooltip(tipString);
-		onClick = [this, voiceSlots] { voiceSlots->saveCurrentVoiceSettingsIntoSelectedSlot(); };
+		setTooltip(tip);
+		onClick = [this, voiceSlots, unexposedParams] {
+			if (voiceSlots->selectedSlot < VCS::numberOfSlotsInVoicesBank) {
+				voiceSlots->saveCurrentVoiceSettingsIntoSelectedSlot();
+				auto transmitTime{ unexposedParams->getVoiceTransmissionOptions()->voiceTransmitTime() };
+				callAfterDelay(transmitTime, [unexposedParams, voiceSlots] {
+					unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessage(voiceSlots->selectedSlot);
+					voiceSlots->showVoiceNameEditorForSelectedSlot();
+				});
+			}
+		};
 		setSize(GUI::buttons_w, GUI::buttons_h);
 	}
 
 private:
+	void timerCallback() override {}
+
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForSavingVoiceIntoSelectedSlot)
 };

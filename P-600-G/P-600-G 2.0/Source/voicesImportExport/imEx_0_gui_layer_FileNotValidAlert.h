@@ -21,8 +21,8 @@ public:
 		btn_OK.addShortcut(KeyPress(KeyPress::escapeKey));
 		btn_OK.addShortcut(KeyPress(KeyPress::returnKey));
 		btn_OK.onClick = [this] {
-			getParentComponent()->grabKeyboardFocus();
 			setVisible(false);
+			getParentComponent()->grabKeyboardFocus();
 		};
 		btn_OK.setTooltip(tooltips->shouldShowDescription() ? "Click to close this alert." : "");
 		btn_OK.setBounds(681, 179, GUI::buttons_w, GUI::buttons_h);

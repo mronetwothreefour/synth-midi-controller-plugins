@@ -45,7 +45,7 @@ GUI_Layer_ImportExport_Base::GUI_Layer_ImportExport_Base(
 	}
 
 	if (browserComponent != nullptr) {
-		browserComponent->setComponentID(ID::comp_ImportExportBrowser.toString());
+		browserComponent->setComponentID(ID::comp_ImptExptBrowser.toString());
 		browserComponent->setFilenameBoxLabel("");
 		browserComponent->addListener(this);
 		browserComponent->setBounds(401, 187, 471, 245);

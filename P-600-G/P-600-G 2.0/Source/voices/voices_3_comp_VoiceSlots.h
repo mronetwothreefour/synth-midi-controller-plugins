@@ -11,18 +11,21 @@
 class ExposedParameters;
 class Outgoing_MIDI_Buffers;
 class UnexposedParameters;
+class VoiceTransmissionOptions;
 
 class VoiceSlots :
     public Component,
     private Timer
 {
     ExposedParameters* exposedParams;
-    UnexposedParameters* unexposedParams;
     Outgoing_MIDI_Buffers* outgoingMIDI;
     VoicesBank* voicesBank;
+    VoiceTransmissionOptions* transmitOptions;
     std::vector<std::unique_ptr<VoiceSlotRadioButton>> voiceSlotButtons;
+    Label voiceNameEditor;
     const int voiceSlots_w{ 10 * GUI::voiceSlotRadioButtton_w };
     const int voiceSlots_h{ 10 * GUI::voiceSlotRadioButtton_h };
+    const int voiceNameInset{ 17 };
 
 public:
     uint8 selectedSlot;
@@ -34,6 +37,7 @@ public:
     void loadVoiceFromSelectedSlot();
     void pullSelectedVoiceFromHardware();
     void pushSelectedVoiceToHardware();
+    void showVoiceNameEditorForSelectedSlot();
 
 private:
     void timerCallback() override;

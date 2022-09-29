@@ -17,9 +17,10 @@ namespace P_600_G_Constants
 		static const Identifier btn_Exit{ "btn_Exit" };
 		static const Identifier btn_Expt_Voice{ "btn_Expt_Voice" };
 		static const Identifier btn_Expt_VoicesBank{ "btn_Expt_VoicesBank" };
-		static const Identifier btn_Impt_Voice{ "btn_Expt_Voice" };
+		static const Identifier btn_Impt_Voice{ "btn_Impt_Voice" };
 		static const Identifier btn_Impt_VoicesBank{ "btn_Impt_VoicesBank" };
 		static const Identifier btn_Load{ "btn_Load" };
+		static const Identifier btn_Name{ "btn_Name" };
 		static const Identifier btn_NewFolder{ "btn_NewFolder" };
 		static const Identifier btn_OK{ "btn_OK" };
 		static const Identifier btn_OK_FileOverwrite{ "btn_OK_FileOverwrite" };
@@ -34,9 +35,10 @@ namespace P_600_G_Constants
 		static const Identifier btn_Save{ "btn_Save" };
 		static const Identifier btn_VoiceSlotRadioButton{ "btn_VoiceSlotRadioButton" };
 
-		static const Identifier comp_ImportExportBrowser{ "comp_ImportExportBrowser" };
+		static const Identifier comp_ImptExptBrowser{ "comp_ImptExptBrowser" };
 		static const Identifier comp_TextEditorForKnob{ "comp_TextEditorForKnob" };
 		static const Identifier comp_TextEditorForTransmitTime{ "comp_TextEditorForTransmitTime" };
+		static const Identifier comp_TextEditorForVoiceName{ "comp_TextEditorForVoiceName" };
 		static const Identifier comp_TextEditorForVoiceNumberSlider{ "comp_TextEditorForVoiceNumberSlider" };
 		static const Identifier comp_VoiceNumberSlider{ "comp_VoiceNumberSlider" };
 

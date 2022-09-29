@@ -46,5 +46,5 @@ void GUI_Layer_FileOverwriteDialog::paint(Graphics& g) {
 	MemoryInputStream memInputStream{ BinaryData::bkgrnd_FileOverwriteDialog_png, BinaryData::bkgrnd_FileOverwriteDialog_pngSize, false };
 	PNGImageFormat imageFormat;
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
-	g.drawImageAt(backgroundImage, 531, 238);
+	g.drawImageAt(backgroundImage, 601, 121);
 }

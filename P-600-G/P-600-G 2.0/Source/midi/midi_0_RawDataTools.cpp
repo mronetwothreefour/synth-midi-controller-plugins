@@ -20,10 +20,9 @@ const String RawDataTools::convertDataVectorToHexString(const std::vector<uint8>
     return hexString;
 }
 
-bool RawDataTools::isValidVoiceDataHexString(const String& hexString)
-{
-    auto isNotCorrectLength{ hexString.length() != VCS::indexOfFirstNameCharInVoiceDataHexString };
-    if (isNotCorrectLength)
+bool RawDataTools::isValidVoiceDataHexString(const String& hexString) {
+    auto isNotLongEnough{ hexString.length() < VCS::indexOfFirstNameCharInVoiceDataHexString };
+    if (isNotLongEnough)
         return false;
     auto notAll_MS_bytesAre_0{ false };
     for (int indexOfMSByte = 0; indexOfMSByte < VCS::indexOfFirstNameCharInVoiceDataHexString; indexOfMSByte += 2) {

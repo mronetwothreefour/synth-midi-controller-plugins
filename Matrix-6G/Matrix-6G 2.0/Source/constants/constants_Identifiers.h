@@ -46,7 +46,7 @@ namespace Matrix_6G_Constants
 		static const Identifier btn_X_Grey{ "btn_X_Grey" };
 		static const Identifier btn_X_Orange{ "btn_X_Orange" };
 
-		static const Identifier comp_ImportExportBrowser{ "comp_ImportExportBrowser" };
+		static const Identifier comp_ImptExptBrowser{ "comp_ImptExptBrowser" };
 		static const Identifier comp_ProgressBar_SplitBank{ "comp_ProgressBar_SplitBank" };
 		static const Identifier comp_ProgressBar_VoicesBank{ "comp_ProgressBar_VoicesBank" };
 		static const Identifier comp_TabbedComponentForVoicesBanks{ "comp_TabbedComponentForVoicesBanks" };

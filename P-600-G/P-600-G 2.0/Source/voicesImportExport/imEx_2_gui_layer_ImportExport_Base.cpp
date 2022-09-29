@@ -44,10 +44,10 @@ GUI_Layer_ImportExport_Base::GUI_Layer_ImportExport_Base(
 	}
 
 	if (browserComponent != nullptr) {
-		browserComponent->setComponentID(ID::comp_ImportExportBrowser.toString());
+		browserComponent->setComponentID(ID::comp_ImptExptBrowser.toString());
 		browserComponent->setFilenameBoxLabel("");
 		browserComponent->addListener(this);
-		browserComponent->setBounds(401, 187, 471, 245);
+		browserComponent->setBounds(466, 61, 470, 245);
 		addAndMakeVisible(browserComponent.get());
 	}
 
@@ -134,8 +134,8 @@ void GUI_Layer_ImportExport_Base::showFileIsNotValidAlert() {
 }
 
 void GUI_Layer_ImportExport_Base::hideThisLayer() {
-	getParentComponent()->grabKeyboardFocus();
 	setVisible(false);
+	getParentComponent()->grabKeyboardFocus();
 }
 
 GUI_Layer_ImportExport_Base::~GUI_Layer_ImportExport_Base() {

@@ -77,8 +77,8 @@ void GUI_Layer_NewFolderDialog::showFolderExistsAlert() {
 }
 
 void GUI_Layer_NewFolderDialog::hideThisLayer() {
-	getParentComponent()->grabKeyboardFocus();
 	setVisible(false);
+	getParentComponent()->grabKeyboardFocus();
 }
 
 GUI_Layer_NewFolderDialog::~GUI_Layer_NewFolderDialog() {
