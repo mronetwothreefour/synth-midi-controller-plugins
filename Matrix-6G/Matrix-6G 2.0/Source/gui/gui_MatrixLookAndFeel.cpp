@@ -217,7 +217,8 @@ void MatrixLookAndFeel::drawLabel(Graphics& g, Label& label) {
 	}
 }
 
-void MatrixLookAndFeel::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h*/, TextEditor& /*textEditor*/) {
+void MatrixLookAndFeel::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h*/, TextEditor& textEditor) {
+	textEditor.applyFontToAllText(GUI::font_LabelEditors);
 	g.fillAll(GUI::color_Black);
 }
 

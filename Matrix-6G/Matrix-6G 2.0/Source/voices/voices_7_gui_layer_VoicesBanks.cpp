@@ -39,7 +39,6 @@ GUI_Layer_VoicesBanks::GUI_Layer_VoicesBanks(ExposedParameters* exposedParams, U
 	lbl_txTimeEditor.onEditorShow = [this, tooltips] {
 		auto editor{ lbl_txTimeEditor.getCurrentTextEditor() };
 		editor->setInputRestrictions(4, "0123456789");
-		editor->setFont(GUI::font_LabelEditors);
 		editor->setText((String)voiceTransmit->voiceTransmitTime());
 		if (tooltips->shouldShowDescription())
 			editor->setTooltip("Type a new transmit\ntime in milliseconds.\n(Range: 50 to 5000)");

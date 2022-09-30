@@ -42,7 +42,6 @@ GUI_Layer_CurrentVoiceNameAndNumber::GUI_Layer_CurrentVoiceNameAndNumber(Exposed
     addAndMakeVisible(voiceNumber);
 
     voiceNumberEditor.setInterceptsMouseClicks(false, true);
-    voiceNumberEditor.setFont(GUI::font_LabelEditors);
     voiceNumberEditor.onEditorShow = [this, tooltips] {
         auto editor{ voiceNumberEditor.getCurrentTextEditor() };
         editor->setInputRestrictions(2, "0123456789");

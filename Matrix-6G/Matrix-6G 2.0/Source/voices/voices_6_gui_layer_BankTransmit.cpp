@@ -44,6 +44,11 @@ GUI_Layer_VoicesBankTransmit::GUI_Layer_VoicesBankTransmit(VoicesBank& bank, Ban
 	btn_Close.setBounds(605, buttons_y, 42, GUI::buttons_small_h);
 	addChildComponent(btn_Close);
 
+	if (unexposedParams->getTooltipsOptions()->shouldShowDescription()) {
+		btn_Stop.setTooltip("Click to stop the bank transmission.");
+		btn_Close.setTooltip("Click to close this window.");
+	}
+
 	setSize(GUI::editor_w, GUI::editor_h);
 
 	voiceCounter = 0;

@@ -71,7 +71,6 @@ GUI_Layer_VoicesBank::GUI_Layer_VoicesBank(ExposedParameters* exposedParams, Une
 	lbl_txTimeEditor.onEditorShow = [this, tooltips] {
 		auto editor{ lbl_txTimeEditor.getCurrentTextEditor() };
 		editor->setInputRestrictions(4, "0123456789");
-		editor->setFont(GUI::font_VoiceNumAndTxTimeEditors);
 		editor->setText((String)voiceTransmit->voiceTransmitTime());
 		editor->selectAll();
 		if (tooltips->shouldShowDescription())
@@ -120,23 +119,26 @@ void GUI_Layer_VoicesBank::paint(Graphics& g) {
 void GUI_Layer_VoicesBank::buttonClicked(Button* button) {
 	auto buttonID{ button->getComponentID() };
 
-	if (buttonID.startsWith(ID::btn_Expt_Voice.toString()))
+	if (buttonID == ID::btn_Expt_Voice.toString())
 		showExportVoiceLayer();
 
-	if (buttonID.startsWith(ID::btn_Expt_VoicesBank.toString()))
+	if (buttonID == ID::btn_Expt_VoicesBank.toString())
 		showExportBankLayer();
 
-	if (buttonID.startsWith(ID::btn_Impt_Voice.toString()))
+	if (buttonID == ID::btn_Impt_Voice.toString())
 		showImportVoiceLayer();
 
-	if (buttonID.startsWith(ID::btn_Impt_VoicesBank.toString()))
+	if (buttonID == ID::btn_Impt_VoicesBank.toString())
 		showImportBankLayer();
 
-	if (buttonID.startsWith(ID::btn_Pull_VoicesBank.toString()))
+	if (buttonID == ID::btn_Pull_VoicesBank.toString())
 		showPullBankLayer();
 
-	if (buttonID.startsWith(ID::btn_Push_VoicesBank.toString()))
+	if (buttonID == ID::btn_Push_VoicesBank.toString())
 		showPushBankLayer();
+
+	if (buttonID == ID::btn_RestoreFactoryVoices.toString())
+		showRestoreFactoryVoicesDialogLayer();
 }
 
 ApplicationCommandTarget* GUI_Layer_VoicesBank::getNextCommandTarget() {

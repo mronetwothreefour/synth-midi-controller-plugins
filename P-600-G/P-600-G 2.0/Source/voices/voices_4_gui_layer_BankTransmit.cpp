@@ -42,6 +42,11 @@ GUI_Layer_VoicesBankTransmit::GUI_Layer_VoicesBankTransmit(BankTransmitType tran
 	btn_OK.setBounds(buttonBounds);
 	addChildComponent(btn_OK);
 
+	if (unexposedParams->getTooltipsOptions()->shouldShowDescription()) {
+		btn_Esc.setTooltip("Click to stop the bank transmission.");
+		btn_OK.setTooltip("Click to close this window.");
+	}
+
 	setSize(GUI::editor_w, GUI::editor_h);
 
 	voiceCounter = 0;
@@ -51,6 +56,7 @@ GUI_Layer_VoicesBankTransmit::GUI_Layer_VoicesBankTransmit(BankTransmitType tran
 void GUI_Layer_VoicesBankTransmit::paint(Graphics& g) {
 	g.setColour(GUI::color_Black.withAlpha(0.4f));
 	g.fillRect(GUI::bounds_VoicesBanks);
+	g.setOpacity(1.0f);
 
 	auto component_x{ 526 };
 	auto component_y{ 130 };

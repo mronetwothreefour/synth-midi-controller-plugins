@@ -31,6 +31,8 @@ GUI_Layer_VoicesBankTransmit::GUI_Layer_VoicesBankTransmit(VoicesBank& bank, Ban
 	btn_Stop.setComponentID(ID::btn_Stop.toString());
 	btn_Stop.onClick = [this] { cancelTransmission(); };
 	btn_Stop.setBounds(buttonBounds);
+	if (unexposedParams->getTooltipsOptions()->shouldShowDescription())
+		btn_Stop.setTooltip("Click to stop the bank transmission.");
 	addAndMakeVisible(btn_Stop);
 
 	btn_Close.setBounds(buttonBounds);

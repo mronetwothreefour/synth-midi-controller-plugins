@@ -222,14 +222,60 @@ void P_600_LookAndFeel::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h
 		g.fillEllipse(4.0f, 4.0f, 26.0f, 26.0f);
 	}
 	else {
-		if (parentID == ID::comp_TextEditorForTransmitTime.toString() || parentID == ID::comp_TextEditorForVoiceNumberSlider.toString())
+		if (parentID == ID::comp_TextEditorForTransmitTime.toString() || parentID == ID::comp_TextEditorForVoiceNumberSlider.toString()) {
 			g.fillAll(GUI::color_LED_RedUnlit);
+			textEditor.applyFontToAllText(GUI::font_VoiceNumAndTxTimeEditors);
+		}
 		else
 			g.fillAll(GUI::color_Black);
 	}
 }
 
 void P_600_LookAndFeel::drawTextEditorOutline(Graphics& /*g*/, int /*w*/, int /*h*/, TextEditor& /*textEditor*/) {
+}
+
+
+
+
+void P_600_LookAndFeel::drawProgressBar(Graphics& g, ProgressBar& bar, int w, int h, double percentDone, const String& textToShow) {
+	auto background{ GUI::color_Black };
+	auto foreground{ GUI::color_ProgressBarGray };
+	auto barBounds{ bar.getLocalBounds().toFloat() };
+	g.setColour(background);
+	g.fillRect(barBounds);
+	if (percentDone >= 0.0f && percentDone <= 1.0f) {
+		Path p;
+		p.addRectangle(barBounds);
+		g.reduceClipRegion(p);
+		barBounds.setWidth(barBounds.getWidth() * (float)percentDone);
+		g.setColour(foreground);
+		g.fillRect(barBounds);
+	}
+	else {
+		// spinning bar..
+		g.setColour(background);
+		auto stripeWidth = h * 2;
+		auto position = static_cast<int> (Time::getMillisecondCounter() / 15) % stripeWidth;
+		Path p;
+		for (auto x = static_cast<float> (-position); x < w + stripeWidth; x += stripeWidth)
+			p.addQuadrilateral(x, 0.0f,
+				x + stripeWidth * 0.5f, 0.0f,
+				x, static_cast<float> (h),
+				x - stripeWidth * 0.5f, static_cast<float> (h));
+		Image im(Image::ARGB, w, h, true);
+		{
+			Graphics g2(im);
+			g2.setColour(foreground);
+			g2.fillRect(barBounds);
+		}
+		g.setTiledImageFill(im, 0, 0, 0.85f);
+		g.fillPath(p);
+	}
+	if (textToShow.isNotEmpty()) {
+		g.setColour(GUI::color_OffWhite);
+		g.setFont(GUI::font_ProgressBar);
+		g.drawText(textToShow, 0, 0, w, h, Justification::centred, false);
+	}
 }
 
 

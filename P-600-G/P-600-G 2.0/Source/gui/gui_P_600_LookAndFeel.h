@@ -31,6 +31,8 @@ public:
 	void fillTextEditorBackground(Graphics& g, int w, int h, TextEditor& textEditor) override;
 	void drawTextEditorOutline(Graphics& g, int w, int h, TextEditor& textEditor) override;
 
+	void drawProgressBar(Graphics& g, ProgressBar& bar, int w, int h, double percentDone, const String& textToShow) override;
+
 	int getDefaultScrollbarWidth() override;
 	void drawScrollbar(
 		Graphics& g, ScrollBar& scrollbar, int x, int y, int w, int h, bool isVertical,
