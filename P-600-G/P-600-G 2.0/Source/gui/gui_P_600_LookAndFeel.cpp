@@ -55,6 +55,9 @@ void P_600_LookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID == ID::btn_Save.toString())
 		mBlock = MemBlock{ isDown ? btn_Save_Dn_png : btn_Save_Up_png, isDown ? (s_t)btn_Save_Dn_pngSize : (s_t)btn_Save_Up_pngSize };
 
+	if (buttonID == ID::btn_Tips.toString())
+		mBlock = MemBlock{ isDown ? btn_Tips_Dn_png : btn_Tips_Up_png, isDown ? (s_t)btn_Tips_Dn_pngSize : (s_t)btn_Tips_Up_pngSize };
+
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ mBlock, false };
 	auto buttonImage{ imageFormat.decodeImage(memInputStream) };
@@ -174,10 +177,12 @@ void P_600_LookAndFeel::drawLabel(Graphics& g, Label& label) {
 		g.setFont(GUI::font_BrowserText);
 		g.drawFittedText(label.getText(), textArea, Justification::centredLeft, 1, 1.0f);
 	}
-	if (label.getComponentID() == ID::comp_TextEditorForVoiceNumberSlider.toString() ||
-		label.getComponentID() == ID::comp_TextEditorForTransmitTime.toString())
+	if (label.getComponentID() == ID::comp_TextEditorForTooltipDelayTime.toString() ||
+		label.getComponentID() == ID::comp_TextEditorForTransmitTime.toString() ||
+		label.getComponentID() == ID::comp_TextEditorForVoiceNumberSlider.toString())
 	{
-		auto isTransmitTimeEditor{ label.getComponentID() == ID::comp_TextEditorForTransmitTime.toString() };
+		auto hasFourDigits{ label.getComponentID() == ID::comp_TextEditorForTransmitTime.toString() ||
+			label.getComponentID() == ID::comp_TextEditorForTooltipDelayTime.toString() };
 		Path unlitSegmentsPath;
 		auto digits_x_spacing{ 26.0f };
 		auto firstDigit_x{ 4.0f };
@@ -187,7 +192,7 @@ void P_600_LookAndFeel::drawLabel(Graphics& g, Label& label) {
 		auto digits_y{ 8.0f };
 		unlitSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)8), AffineTransform::translation(firstDigit_x, digits_y));
 		unlitSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)8), AffineTransform::translation(secondDigit_x, digits_y));
-		if (isTransmitTimeEditor) {
+		if (hasFourDigits) {
 			unlitSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)8), AffineTransform::translation(thirdDigit_x, digits_y));
 			unlitSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)8), AffineTransform::translation(fourthDigit_x, digits_y));
 		}
@@ -199,7 +204,7 @@ void P_600_LookAndFeel::drawLabel(Graphics& g, Label& label) {
 		Path litSegmentsPath;
 		litSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)firstDigit), AffineTransform::translation(firstDigit_x, digits_y));
 		litSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)secondDigit), AffineTransform::translation(secondDigit_x, digits_y));
-		if (isTransmitTimeEditor) {
+		if (hasFourDigits) {
 			auto thirdDigit{ String().charToString(numberString[2]).getIntValue() };
 			auto fourthDigit{ String().charToString(numberString[3]).getIntValue() };
 			litSegmentsPath.addPath(LED_NumeralPath::buildForNumeral((uint8)thirdDigit), AffineTransform::translation(thirdDigit_x, digits_y));
@@ -222,9 +227,12 @@ void P_600_LookAndFeel::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h
 		g.fillEllipse(4.0f, 4.0f, 26.0f, 26.0f);
 	}
 	else {
-		if (parentID == ID::comp_TextEditorForTransmitTime.toString() || parentID == ID::comp_TextEditorForVoiceNumberSlider.toString()) {
+		if (parentID == ID::comp_TextEditorForTooltipDelayTime.toString() || 
+			parentID == ID::comp_TextEditorForTransmitTime.toString() ||
+			parentID == ID::comp_TextEditorForVoiceNumberSlider.toString()) {
 			g.fillAll(GUI::color_LED_RedUnlit);
-			textEditor.applyFontToAllText(GUI::font_VoiceNumAndTxTimeEditors);
+			textEditor.applyFontToAllText(GUI::font_LED_DisplayTextEditors);
+			textEditor.setJustification(Justification::centred);
 		}
 		else
 			g.fillAll(GUI::color_Black);

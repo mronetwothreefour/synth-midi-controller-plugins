@@ -89,6 +89,12 @@ namespace BinaryData
     extern const char*   btn_SwitchTab_png;
     const int            btn_SwitchTab_pngSize = 139;
 
+    extern const char*   btn_Tips_Dn_png;
+    const int            btn_Tips_Dn_pngSize = 652;
+
+    extern const char*   btn_Tips_Up_png;
+    const int            btn_Tips_Up_pngSize = 674;
+
     extern const char*   lbl_ExportVoice_png;
     const int            lbl_ExportVoice_pngSize = 2401;
 
@@ -128,6 +134,9 @@ namespace BinaryData
     extern const char*   bkgrnd_NewFolderDialog_png;
     const int            bkgrnd_NewFolderDialog_pngSize = 51632;
 
+    extern const char*   bkgrnd_TooltipsOptions_png;
+    const int            bkgrnd_TooltipsOptions_pngSize = 134477;
+
     extern const char*   bkgrnd_VoicesBank_png;
     const int            bkgrnd_VoicesBank_pngSize = 755365;
 
@@ -144,7 +153,7 @@ namespace BinaryData
     const int            SWISSCL_TTFSize = 35064;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 45;
+    const int namedResourceListSize = 48;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

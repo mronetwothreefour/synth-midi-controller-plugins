@@ -1,5 +1,6 @@
 #include "gui_layer_MainWindowButtons.h"
 
+#include "gui_layer_TooltipsOptions.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
@@ -54,6 +55,12 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     btn_ShowVoicesBank.addShortcut(KeyPress{ 'b', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_ShowVoicesBank);
 
+    btn_ShowTooltipsOptions.setComponentID(ID::btn_Tips.toString());
+    btn_ShowTooltipsOptions.onClick = [this] { showTooltipsOptionsLayer(); };
+    btn_ShowTooltipsOptions.setBounds(687, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
+    btn_ShowTooltipsOptions.addShortcut(KeyPress{ 't', ModifierKeys::ctrlModifier, 0 });
+    addAndMakeVisible(btn_ShowTooltipsOptions);
+
     updateTooltips();
 
     setSize(GUI::editor_w, GUI::editor_h);
@@ -70,6 +77,9 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
 
     auto tipFor_btn_ShowVoicesBank{ shouldShow ? Description::buildForShowVoicesBankLayer() : String{ "" } };
     btn_ShowVoicesBank.setTooltip(tipFor_btn_ShowVoicesBank);
+
+    auto tipFor_btn_ShowTooltipsOptions{ shouldShow ? Description::buildForShowTooltipsOptionsLayer() : String{ "" } };
+    btn_ShowTooltipsOptions.setTooltip(tipFor_btn_ShowTooltipsOptions);
 }
 
 void GUI_Layer_MainWindowButtons::timerCallback() {
@@ -91,6 +101,15 @@ void GUI_Layer_MainWindowButtons::showVoicesBankLayer() {
     }
 }
 
+void GUI_Layer_MainWindowButtons::showTooltipsOptionsLayer() {
+    layer_TooltipsOptions.reset(new GUI_Layer_TooltipsOptions{ tooltips, &exposedParams->undoManager });
+    if (layer_TooltipsOptions != nullptr) {
+        addAndMakeVisible(layer_TooltipsOptions.get());
+        layer_TooltipsOptions->setBounds(getLocalBounds());
+        layer_TooltipsOptions->grabKeyboardFocus();
+    }
+}
+
 void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& /*event*/) {
 }
 
@@ -103,5 +122,6 @@ void GUI_Layer_MainWindowButtons::valueChanged(Value& /*value*/) {
 
 GUI_Layer_MainWindowButtons::~GUI_Layer_MainWindowButtons() {
     layer_VoicesBank = nullptr;
+    layer_TooltipsOptions = nullptr;
     shouldShowDescriptionAsValue.removeListener(this);
 }

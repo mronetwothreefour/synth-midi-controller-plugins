@@ -155,6 +155,7 @@
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_layer_CurrentVoiceNumber.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_layer_MainWindowButtons.cpp"/>
+    <ClCompile Include="..\..\Source\gui\gui_layer_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_P_600_LookAndFeel.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_0_RawDataTools.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.cpp"/>
@@ -2354,6 +2355,7 @@
     <ClInclude Include="..\..\Source\gui\gui_layer_CurrentVoiceNumber.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_ExposedParamControls.h"/>
     <ClInclude Include="..\..\Source\gui\gui_layer_MainWindowButtons.h"/>
+    <ClInclude Include="..\..\Source\gui\gui_layer_TooltipsOptions.h"/>
     <ClInclude Include="..\..\Source\gui\gui_P_600_LookAndFeel.h"/>
     <ClInclude Include="..\..\Source\midi\midi_0_Outgoing_MIDI_Buffers.h"/>
     <ClInclude Include="..\..\Source\midi\midi_0_RawDataTools.h"/>
@@ -3306,6 +3308,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_Save_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Save_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_SwitchTab.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Tips_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Tips_Up.png"/>
     <None Include="..\..\BinaryResources\labels\lbl_ExportVoice.png"/>
     <None Include="..\..\BinaryResources\labels\lbl_ExportVoicesBank.png"/>
     <None Include="..\..\BinaryResources\labels\lbl_ImportVoice.png"/>
@@ -3319,6 +3323,7 @@
     <None Include="..\..\BinaryResources\bkgrnd_ImportExportWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_TooltipsOptions.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_VoicesBank.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_VoicesBankTransmit.png"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF"/>

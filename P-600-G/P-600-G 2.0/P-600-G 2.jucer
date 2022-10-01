@@ -41,6 +41,8 @@
         <FILE id="LDpvJJ" name="btn_Save_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Save_Up.png"/>
         <FILE id="L1rWAB" name="btn_SwitchTab.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_SwitchTab.png"/>
+        <FILE id="RnlEZD" name="btn_Tips_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Tips_Dn.png"/>
+        <FILE id="sSPxim" name="btn_Tips_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Tips_Up.png"/>
       </GROUP>
       <GROUP id="{F5983AB5-758F-7D11-54F4-125D555DF7D5}" name="labels">
         <FILE id="Dvq9Qt" name="lbl_ExportVoice.png" compile="0" resource="1"
@@ -70,6 +72,8 @@
             file="BinaryResources/bkgrnd_MainWindow.png"/>
       <FILE id="cHIT77" name="bkgrnd_NewFolderDialog.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_NewFolderDialog.png"/>
+      <FILE id="ICCxlb" name="bkgrnd_TooltipsOptions.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_TooltipsOptions.png"/>
       <FILE id="V9ZGyR" name="bkgrnd_VoicesBank.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_VoicesBank.png"/>
       <FILE id="Hd8YV8" name="bkgrnd_VoicesBankTransmit.png" compile="0"
@@ -178,6 +182,10 @@
               resource="0" file="Source/gui/gui_layer_MainWindowButtons.cpp"/>
         <FILE id="hyCuLH" name="gui_layer_MainWindowButtons.h" compile="0"
               resource="0" file="Source/gui/gui_layer_MainWindowButtons.h"/>
+        <FILE id="Km8zKc" name="gui_layer_TooltipsOptions.cpp" compile="1"
+              resource="0" file="Source/gui/gui_layer_TooltipsOptions.cpp"/>
+        <FILE id="zkjsJi" name="gui_layer_TooltipsOptions.h" compile="0" resource="0"
+              file="Source/gui/gui_layer_TooltipsOptions.h"/>
         <FILE id="O4iALx" name="gui_P_600_LookAndFeel.cpp" compile="1" resource="0"
               file="Source/gui/gui_P_600_LookAndFeel.cpp"/>
         <FILE id="nUbgRp" name="gui_P_600_LookAndFeel.h" compile="0" resource="0"

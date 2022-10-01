@@ -20,9 +20,9 @@ namespace P_600_G_Constants
 
 		const Font font_BrowserText{ FontBuilder::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 16.0f, 0.0f) };
 		const Font font_KnobValueDisplay{ FontBuilder::createFontFromTypeface_Size_Kerning(Swiss721_CndBk, 14.0f, 0.0f) };
+		const Font font_LED_DisplayTextEditors{ FontBuilder::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 36.0f, 0.0f) };
 		const Font font_ProgressBar{ FontBuilder::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 14.0f, 0.0f) };
 		const Font font_Tooltips{ FontBuilder::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 13.0f, 0.0f) };
-		const Font font_VoiceNumAndTxTimeEditors{ FontBuilder::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 36.0f, 0.0f) };
 		const Font font_VoiceSlotRadioButtons{ FontBuilder::createFontFromTypeface_Size_Kerning(Swiss721_CndBk, 13.0f, 0.0f) };
 
 		const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };

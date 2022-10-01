@@ -661,6 +661,9 @@
     <ClCompile Include="..\..\Source\gui\gui_layer_MainWindowButtons.cpp">
       <Filter>P-600-G 2\Source\gui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\gui\gui_layer_TooltipsOptions.cpp">
+      <Filter>P-600-G 2\Source\gui</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_P_600_LookAndFeel.cpp">
       <Filter>P-600-G 2\Source\gui</Filter>
     </ClCompile>
@@ -3106,6 +3109,9 @@
       <Filter>P-600-G 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_layer_MainWindowButtons.h">
+      <Filter>P-600-G 2\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\gui_layer_TooltipsOptions.h">
       <Filter>P-600-G 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_P_600_LookAndFeel.h">
@@ -5960,6 +5966,12 @@
     <None Include="..\..\BinaryResources\buttons\btn_SwitchTab.png">
       <Filter>P-600-G 2\BinaryResources\buttons</Filter>
     </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Tips_Dn.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Tips_Up.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
     <None Include="..\..\BinaryResources\labels\lbl_ExportVoice.png">
       <Filter>P-600-G 2\BinaryResources\labels</Filter>
     </None>
@@ -5997,6 +6009,9 @@
       <Filter>P-600-G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png">
+      <Filter>P-600-G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_TooltipsOptions.png">
       <Filter>P-600-G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_VoicesBank.png">

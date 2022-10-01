@@ -39,7 +39,6 @@ GUI_Layer_CurrentVoiceNumber::GUI_Layer_CurrentVoiceNumber(UnexposedParameters* 
     voiceNumberEditor.onEditorShow = [this] {
         auto editor{ voiceNumberEditor.getCurrentTextEditor() };
         editor->setInputRestrictions(2, "0123456789");
-        editor->setJustification(Justification::centred);
         if (tooltips->shouldShowDescription())
             editor->setTooltip("Type in a new setting.\n(Range: 0 to 99)");
     };

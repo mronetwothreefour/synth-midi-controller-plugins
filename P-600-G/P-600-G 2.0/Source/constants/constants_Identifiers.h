@@ -33,10 +33,12 @@ namespace P_600_G_Constants
 		static const Identifier btn_Push_VoicesBank{ "btn_Push_VoicesBank" };
 		static const Identifier btn_RestoreFactoryVoices{ "btn_RestoreFactoryVoices" };
 		static const Identifier btn_Save{ "btn_Save" };
+		static const Identifier btn_Tips{ "btn_Tips" };
 		static const Identifier btn_VoiceSlotRadioButton{ "btn_VoiceSlotRadioButton" };
 
 		static const Identifier comp_ImptExptBrowser{ "comp_ImptExptBrowser" };
 		static const Identifier comp_TextEditorForKnob{ "comp_TextEditorForKnob" };
+		static const Identifier comp_TextEditorForTooltipDelayTime{ "comp_TextEditorForTooltipDelayTime" };
 		static const Identifier comp_TextEditorForTransmitTime{ "comp_TextEditorForTransmitTime" };
 		static const Identifier comp_TextEditorForVoiceName{ "comp_TextEditorForVoiceName" };
 		static const Identifier comp_TextEditorForVoiceNumberSlider{ "comp_TextEditorForVoiceNumberSlider" };

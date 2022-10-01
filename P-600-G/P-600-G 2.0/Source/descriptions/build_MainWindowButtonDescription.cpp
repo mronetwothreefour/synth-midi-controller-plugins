@@ -23,6 +23,14 @@ String MainWindowButtonDescription::buildForPush() {
     return descriptionString;
 }
 
+String MainWindowButtonDescription::buildForShowTooltipsOptionsLayer() {
+    String descriptionString{ "" };
+    descriptionString += "Opens a window where you can\n";
+    descriptionString += "set display options for control";
+    descriptionString += "tooltips. Shortcut key: CTRL+T";
+    return descriptionString;
+}
+
 String MainWindowButtonDescription::buildForShowVoicesBankLayer() {
     String descriptionString{ "" };
     descriptionString += "Opens a window where you can manage\n";
