@@ -171,6 +171,7 @@
     <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_1_SysExMessages.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp"/>
+    <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_SplitOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.cpp"/>
@@ -2351,6 +2352,7 @@
     <ClInclude Include="..\..\Source\constants\constants_GUI_PathData.h"/>
     <ClInclude Include="..\..\Source\constants\constants_Identifiers.h"/>
     <ClInclude Include="..\..\Source\constants\constants_MatrixMod.h"/>
+    <ClInclude Include="..\..\Source\constants\constants_Splits.h"/>
     <ClInclude Include="..\..\Source\constants\constants_Voices.h"/>
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h"/>
     <ClInclude Include="..\..\Source\descriptions\build_MainWindowButtonDescription.h"/>
@@ -2390,6 +2392,7 @@
     <ClInclude Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.h"/>
     <ClInclude Include="..\..\Source\midi\midi_1_SysExMessages.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h"/>
+    <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_SplitOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.h"/>
@@ -3329,6 +3332,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_Import_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Impt_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Impt_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_LoadSplit_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_LoadSplit_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_LoadVoice_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_LoadVoice_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Dn.png"/>
@@ -3337,14 +3342,21 @@
     <None Include="..\..\BinaryResources\buttons\btn_Patches_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_PullSplit_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_PullSplit_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_PullVoice_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_PullVoice_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_PushSplit_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_PushSplit_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_PushVoice_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_PushVoice_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_SaveSplit_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_SaveSplit_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_SaveVoice_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_SaveVoice_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Splits_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Stop_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Stop_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Write_Dn.png"/>

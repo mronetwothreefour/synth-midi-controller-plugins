@@ -158,11 +158,27 @@ namespace Matrix_6G_Constants
 		static const Identifier property_SliderTextEditorType{ "property_SliderTextEditorType" };
 		static const Identifier property_Width{ "property_Width" };
 
+		static const Identifier split_Name{ "split_Name" };
+		static const Identifier split_LowerZoneLimit{ "split_LowerZoneLimit" };
+		static const Identifier split_LowerZoneMidiOutIsEnabled{ "split_LowerZoneMidiOutIsEnabled" };
+		static const Identifier split_LowerZoneTranspose{ "split_LowerZoneTranspose" };
+		static const Identifier split_LowerZoneVoiceNumber{ "split_LowerZoneVoiceNumber" };
+		static const Identifier split_UpperZoneLimit{ "split_UpperZoneLimit" };
+		static const Identifier split_UpperZoneMidiOutIsEnabled{ "split_UpperZoneMidiOutIsEnabled" };
+		static const Identifier split_UpperZoneTranspose{ "split_UpperZoneTranspose" };
+		static const Identifier split_UpperZoneVoiceNumber{ "split_UpperZoneVoiceNumber" };
+		static const Identifier split_ZoneVoiceAssignment{ "split_ZoneVoiceAssignment" };
+		static const Identifier split_ZoneVolumeBalance{ "split_ZoneVolumeBalance" };
+
+		static const Identifier splitsBank_DataHexStrings{ "splitsBank_DataHexStrings" };
+		static const Identifier splitsBank_NameStrings{ "splitsBank_NameStrings" };
+
 		static const Identifier state_CurrentVoiceOptions{ "state_CurrentVoiceOptions" };
 		static const Identifier state_CustomVoiceDataHexStrings{ "state_CustomVoiceDataHexStrings" };
 		static const Identifier state_CustomVoiceNameStrings{ "state_CustomVoiceNameStrings" };
 		static const Identifier state_CustomVoicesBanks{ "state_CustomVoicesBanks" };
 		static const Identifier state_MatrixModOptions{ "state_MatrixModOptions" };
+		static const Identifier state_SplitOptions{ "state_SplitOptions" };
 		static const Identifier state_TooltipsOptions{ "state_TooltipsOptions" };
 		static const Identifier state_UnexposedParams{ "state_UnexposedParams" };
 		static const Identifier state_VoiceTxOptions{ "state_VoiceTxOptions" };
@@ -177,6 +193,7 @@ namespace Matrix_6G_Constants
 		static const Identifier tree_ExposedParamsInfo{ "tree_ExposedParamsInfo" };
 		static const Identifier tree_GlobalOptions{ "tree_GlobalOptions" };
 		static const Identifier tree_MatrixModOptions{ "tree_MatrixModOptions" };
+		static const Identifier tree_SplitOptions{ "tree_SplitOptions" };
 		static const Identifier tree_TooltipsOptions{ "tree_TooltipsOptions" };
 		static const Identifier tree_VoiceTxOptions{ "tree_VoiceTxOptions" };
 

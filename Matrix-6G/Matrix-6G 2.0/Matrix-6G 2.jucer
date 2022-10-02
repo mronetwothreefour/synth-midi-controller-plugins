@@ -39,6 +39,10 @@
               file="BinaryResources/buttons/btn_Import_Up.png"/>
         <FILE id="iIsJi9" name="btn_Impt_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Impt_Dn.png"/>
         <FILE id="ZcmW9H" name="btn_Impt_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Impt_Up.png"/>
+        <FILE id="YSb7uY" name="btn_LoadSplit_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_LoadSplit_Dn.png"/>
+        <FILE id="BVdi7b" name="btn_LoadSplit_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_LoadSplit_Up.png"/>
         <FILE id="xyIHbQ" name="btn_LoadVoice_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_LoadVoice_Dn.png"/>
         <FILE id="d5BDT2" name="btn_LoadVoice_Up.png" compile="0" resource="1"
@@ -53,20 +57,34 @@
               file="BinaryResources/buttons/btn_Patches_Up.png"/>
         <FILE id="Mdkys2" name="btn_Pull_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Dn.png"/>
         <FILE id="epolsU" name="btn_Pull_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Up.png"/>
+        <FILE id="E7C7fD" name="btn_PullSplit_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_PullSplit_Dn.png"/>
+        <FILE id="HNQrgJ" name="btn_PullSplit_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_PullSplit_Up.png"/>
         <FILE id="kybb5H" name="btn_PullVoice_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_PullVoice_Dn.png"/>
         <FILE id="PeYwjg" name="btn_PullVoice_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_PullVoice_Up.png"/>
         <FILE id="Kmf6D0" name="btn_Push_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Dn.png"/>
         <FILE id="gwkq7e" name="btn_Push_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Up.png"/>
+        <FILE id="sz6Fbj" name="btn_PushSplit_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_PushSplit_Dn.png"/>
+        <FILE id="B6OjBy" name="btn_PushSplit_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_PushSplit_Up.png"/>
         <FILE id="awKtRw" name="btn_PushVoice_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_PushVoice_Dn.png"/>
         <FILE id="b3dAMg" name="btn_PushVoice_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_PushVoice_Up.png"/>
+        <FILE id="HFqv9A" name="btn_SaveSplit_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_SaveSplit_Dn.png"/>
+        <FILE id="YbXUyi" name="btn_SaveSplit_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_SaveSplit_Up.png"/>
         <FILE id="OHlj4u" name="btn_SaveVoice_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_SaveVoice_Dn.png"/>
         <FILE id="xxaf5e" name="btn_SaveVoice_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_SaveVoice_Up.png"/>
+        <FILE id="d7Gdc8" name="btn_Splits_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Splits_Up.png"/>
         <FILE id="N34dea" name="btn_Stop_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Stop_Dn.png"/>
         <FILE id="lV9u4I" name="btn_Stop_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Stop_Up.png"/>
         <FILE id="VXItcU" name="btn_Write_Dn.png" compile="0" resource="1"
@@ -149,6 +167,8 @@
               file="Source/constants/constants_Identifiers.h"/>
         <FILE id="ABE7F9" name="constants_MatrixMod.h" compile="0" resource="0"
               file="Source/constants/constants_MatrixMod.h"/>
+        <FILE id="If4aAd" name="constants_Splits.h" compile="0" resource="0"
+              file="Source/constants/constants_Splits.h"/>
         <FILE id="rve2OR" name="constants_Voices.h" compile="0" resource="0"
               file="Source/constants/constants_Voices.h"/>
       </GROUP>
@@ -299,6 +319,10 @@
               file="Source/unexposedParameters/up_0_tree_GlobalOptions.cpp"/>
         <FILE id="mEEDMm" name="up_0_tree_GlobalOptions.h" compile="0" resource="0"
               file="Source/unexposedParameters/up_0_tree_GlobalOptions.h"/>
+        <FILE id="BhTWui" name="up_0_tree_SplitOptions.cpp" compile="1" resource="0"
+              file="Source/unexposedParameters/up_0_tree_SplitOptions.cpp"/>
+        <FILE id="BJvTrC" name="up_0_tree_SplitOptions.h" compile="0" resource="0"
+              file="Source/unexposedParameters/up_0_tree_SplitOptions.h"/>
         <FILE id="OQzWUF" name="up_0_tree_TooltipsOptions.cpp" compile="1"
               resource="0" file="Source/unexposedParameters/up_0_tree_TooltipsOptions.cpp"/>
         <FILE id="ZmZFMo" name="up_0_tree_TooltipsOptions.h" compile="0" resource="0"

@@ -59,6 +59,12 @@ namespace BinaryData
     extern const char*   btn_Impt_Up_png;
     const int            btn_Impt_Up_pngSize = 393;
 
+    extern const char*   btn_LoadSplit_Dn_png;
+    const int            btn_LoadSplit_Dn_pngSize = 477;
+
+    extern const char*   btn_LoadSplit_Up_png;
+    const int            btn_LoadSplit_Up_pngSize = 461;
+
     extern const char*   btn_LoadVoice_Dn_png;
     const int            btn_LoadVoice_Dn_pngSize = 475;
 
@@ -83,6 +89,12 @@ namespace BinaryData
     extern const char*   btn_Pull_Up_png;
     const int            btn_Pull_Up_pngSize = 391;
 
+    extern const char*   btn_PullSplit_Dn_png;
+    const int            btn_PullSplit_Dn_pngSize = 391;
+
+    extern const char*   btn_PullSplit_Up_png;
+    const int            btn_PullSplit_Up_pngSize = 382;
+
     extern const char*   btn_PullVoice_Dn_png;
     const int            btn_PullVoice_Dn_pngSize = 391;
 
@@ -95,17 +107,32 @@ namespace BinaryData
     extern const char*   btn_Push_Up_png;
     const int            btn_Push_Up_pngSize = 504;
 
+    extern const char*   btn_PushSplit_Dn_png;
+    const int            btn_PushSplit_Dn_pngSize = 530;
+
+    extern const char*   btn_PushSplit_Up_png;
+    const int            btn_PushSplit_Up_pngSize = 455;
+
     extern const char*   btn_PushVoice_Dn_png;
     const int            btn_PushVoice_Dn_pngSize = 515;
 
     extern const char*   btn_PushVoice_Up_png;
     const int            btn_PushVoice_Up_pngSize = 491;
 
+    extern const char*   btn_SaveSplit_Dn_png;
+    const int            btn_SaveSplit_Dn_pngSize = 602;
+
+    extern const char*   btn_SaveSplit_Up_png;
+    const int            btn_SaveSplit_Up_pngSize = 525;
+
     extern const char*   btn_SaveVoice_Dn_png;
     const int            btn_SaveVoice_Dn_pngSize = 589;
 
     extern const char*   btn_SaveVoice_Up_png;
     const int            btn_SaveVoice_Up_pngSize = 554;
+
+    extern const char*   btn_Splits_Up_png;
+    const int            btn_Splits_Up_pngSize = 690;
 
     extern const char*   btn_Stop_Dn_png;
     const int            btn_Stop_Dn_pngSize = 510;
@@ -189,7 +216,7 @@ namespace BinaryData
     const int            SWISSCL_TTFSize = 35064;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 60;
+    const int namedResourceListSize = 69;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

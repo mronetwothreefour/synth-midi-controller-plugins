@@ -18,6 +18,6 @@ const uint8 GlobalOptions::basicChannel() {
     return (uint8)(int)globalOptionsTree.getProperty(ID::global_BasicChannel);
 }
 
-void GlobalOptions::setBasicChannel(uint8 newChannel) {
+void GlobalOptions::setBasicChannel(const uint8 newChannel) {
     globalOptionsTree.setProperty(ID::global_BasicChannel, newChannel, nullptr);
 }

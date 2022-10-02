@@ -6,8 +6,9 @@ using namespace Matrix_6G_Constants;
 
 UnexposedParameters::UnexposedParameters() :
     globalOptions{ new GlobalOptions{} },
-    tooltipsOptions{ new TooltipsOptions{} },
     outgoing_MIDI_Buffers{ new Outgoing_MIDI_Buffers{} },
+    splitOptions{ new SplitOptions{} },
+    tooltipsOptions{ new TooltipsOptions{} },
     voicesBanks{ new VoicesBanks{} },
     voiceTransmissionOptions{ new VoiceTransmissionOptions{} }
 {
@@ -25,6 +26,10 @@ Outgoing_MIDI_Buffers* UnexposedParameters::getOutgoing_MIDI_Buffers() {
     return outgoing_MIDI_Buffers.get();
 }
 
+SplitOptions* UnexposedParameters::getSplitOptions() {
+    return splitOptions.get();
+}
+
 TooltipsOptions* UnexposedParameters::getTooltipsOptions() {
     return tooltipsOptions.get();
 }
@@ -39,6 +44,10 @@ VoiceTransmissionOptions* UnexposedParameters::getVoiceTransmissionOptions() {
 
 std::unique_ptr<XmlElement> UnexposedParameters::getStateXml() {
     auto unexposedParamsStateXml{ std::make_unique<XmlElement>(ID::state_UnexposedParams) };
+
+    auto splitOptionsStateXml{ splitOptions->getStateXml() };
+    if (splitOptionsStateXml != nullptr)
+        unexposedParamsStateXml->addChildElement(splitOptionsStateXml.release());
 
     auto tooltipOptionsStateXml{ tooltipsOptions->getStateXml() };
     if (tooltipOptionsStateXml != nullptr)
@@ -57,18 +66,22 @@ std::unique_ptr<XmlElement> UnexposedParameters::getStateXml() {
 
 void UnexposedParameters::replaceState(const ValueTree& newState) {
     if (newState.isValid()) {
+        auto splitOptionsState{ newState.getChildWithName(ID::state_SplitOptions) };
+        if (splitOptionsState.isValid())
+            splitOptions->replaceState(splitOptionsState);
+
         auto tooltipOptionsState{ newState.getChildWithName(ID::state_TooltipsOptions) };
         if (tooltipOptionsState.isValid())
             tooltipsOptions->replaceState(tooltipOptionsState);
+
+        auto customVoicesBanksState{ newState.getChildWithName(ID::state_CustomVoicesBanks) };
+        if (customVoicesBanksState.isValid())
+            voicesBanks->replaceState(customVoicesBanksState);
+
+        auto voiceTxOptionsState{ newState.getChildWithName(ID::state_VoiceTxOptions) };
+        if (voiceTxOptionsState.isValid())
+            voiceTransmissionOptions->replaceState(voiceTxOptionsState);
     }
-
-    auto customVoicesBanksState{ newState.getChildWithName(ID::state_CustomVoicesBanks) };
-    if (customVoicesBanksState.isValid())
-        voicesBanks->replaceState(customVoicesBanksState);
-
-    auto voiceTxOptionsState{ newState.getChildWithName(ID::state_VoiceTxOptions) };
-    if (voiceTxOptionsState.isValid())
-        voiceTransmissionOptions->replaceState(voiceTxOptionsState);
 }
 
 UnexposedParameters::~UnexposedParameters() {

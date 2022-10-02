@@ -60,15 +60,15 @@ void UnexposedParameters::replaceState(const ValueTree& newState) {
         auto tooltipOptionsState{ newState.getChildWithName(ID::state_TooltipsOptions) };
         if (tooltipOptionsState.isValid())
             tooltipsOptions->replaceState(tooltipOptionsState);
+
+        auto customVoicesBanksState{ newState.getChildWithName(ID::state_CustomVoicesBanks) };
+        if (customVoicesBanksState.isValid())
+            voicesBanks->replaceState(customVoicesBanksState);
+
+        auto voiceTxOptionsState{ newState.getChildWithName(ID::state_VoiceTxOptions) };
+        if (voiceTxOptionsState.isValid())
+            voiceTransmissionOptions->replaceState(voiceTxOptionsState);
     }
-
-    auto customVoicesBanksState{ newState.getChildWithName(ID::state_CustomVoicesBanks) };
-    if (customVoicesBanksState.isValid())
-        voicesBanks->replaceState(customVoicesBanksState);
-
-    auto voiceTxOptionsState{ newState.getChildWithName(ID::state_VoiceTxOptions) };
-    if (voiceTxOptionsState.isValid())
-        voiceTransmissionOptions->replaceState(voiceTxOptionsState);
 }
 
 UnexposedParameters::~UnexposedParameters() {
