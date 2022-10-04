@@ -170,6 +170,7 @@
     <ClCompile Include="..\..\Source\midi\midi_0_RawDataTools.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_1_SysExMessages.cpp"/>
+    <ClCompile Include="..\..\Source\splits\splits_0_comp_TextEditorForSplitParamSlider.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_SplitOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp"/>
@@ -2391,6 +2392,8 @@
     <ClInclude Include="..\..\Source\midi\midi_0_RawDataTools.h"/>
     <ClInclude Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.h"/>
     <ClInclude Include="..\..\Source\midi\midi_1_SysExMessages.h"/>
+    <ClInclude Include="..\..\Source\splits\splits_0_build_ChoiceName.h"/>
+    <ClInclude Include="..\..\Source\splits\splits_0_comp_TextEditorForSplitParamSlider.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_SplitOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h"/>

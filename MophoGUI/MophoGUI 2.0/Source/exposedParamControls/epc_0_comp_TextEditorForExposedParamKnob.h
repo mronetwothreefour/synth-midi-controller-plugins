@@ -28,24 +28,27 @@ class TextEditorForExposedParamKnob :
 public:
 	TextEditorForExposedParamKnob() = delete;
 
-	TextEditorForExposedParamKnob(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltipsOptions);
-	void setEditorText();
+	TextEditorForExposedParamKnob(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 
-	void onEditorShow_ClockTempo(TooltipsOptions* tooltipsOptions);
-	void onEditorShow_LFO_Freq(TooltipsOptions* tooltipsOptions);
-	void onEditorShow_LPF_Freq(TooltipsOptions* tooltipsOptions);
-	void onEditorShow_OscFineTune(TooltipsOptions* tooltipsOptions);
-	void onEditorShow_OscPitch(TooltipsOptions* tooltipsOptions);
-	void onEditorShow_OscShape(TooltipsOptions* tooltipsOptions);
-	void onEditorShow_OscSlop(TooltipsOptions* tooltipsOptions);
-	void onEditorShow_PitchBend(TooltipsOptions* tooltipsOptions);
-	void onEditorShow_PosNeg_127(TooltipsOptions* tooltipsOptions);
-	void onEditorShow_Pos_127(TooltipsOptions* tooltipsOptions);
+private:
+	void setEditorTextUsingStoredValue();
+
+	void onEditorShow_ClockTempo(TooltipsOptions* tooltips);
+	void onEditorShow_LFO_Freq(TooltipsOptions* tooltips);
+	void onEditorShow_LPF_Freq(TooltipsOptions* tooltips);
+	void onEditorShow_OscFineTune(TooltipsOptions* tooltips);
+	void onEditorShow_OscPitch(TooltipsOptions* tooltips);
+	void onEditorShow_OscShape(TooltipsOptions* tooltips);
+	void onEditorShow_OscSlop(TooltipsOptions* tooltips);
+	void onEditorShow_PitchBend(TooltipsOptions* tooltips);
+	void onEditorShow_PosNeg_127(TooltipsOptions* tooltips);
+	void onEditorShow_Pos_127(TooltipsOptions* tooltips);
 
 	void onTextChange_NumericRanges();
 	void onTextChange_PitchAndFreqRanges();
 	void onTextChange_OscShape();
 
+public:
 	void showEditor();
 	void valueChanged(Value& value) override;
 	~TextEditorForExposedParamKnob();

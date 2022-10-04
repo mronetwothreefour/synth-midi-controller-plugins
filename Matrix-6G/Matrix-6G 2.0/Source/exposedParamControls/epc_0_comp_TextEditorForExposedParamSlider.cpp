@@ -6,7 +6,7 @@
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
-TextEditorForExposedParamSlider::TextEditorForExposedParamSlider(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltipsOptions) :
+TextEditorForExposedParamSlider::TextEditorForExposedParamSlider(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	info{ exposedParams->info.get() },
 	editorType{ info->sliderTextEditorTypeFor(paramIndex) },
@@ -22,19 +22,19 @@ TextEditorForExposedParamSlider::TextEditorForExposedParamSlider(uint8 paramInde
 	switch (editorType)
 	{
 	case EditorType::oscPitch:
-		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_Pitch(tooltipsOptions); };
+		textEditor.onEditorShow = [this, tooltips] { onEditorShow_Pitch(tooltips); };
 		textEditor.onTextChange = [this] { onTextChange_Pitch(); };
 		break;
 	case EditorType::signed_6_bitValue:
-		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_SignedRanges(tooltipsOptions); };
+		textEditor.onEditorShow = [this, tooltips] { onEditorShow_SignedRanges(tooltips); };
 		textEditor.onTextChange = [this] { onTextChange_NumericRanges(); };
 		break;
 	case EditorType::signed_7_bitValue:
-		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_SignedRanges(tooltipsOptions); };
+		textEditor.onEditorShow = [this, tooltips] { onEditorShow_SignedRanges(tooltips); };
 		textEditor.onTextChange = [this] { onTextChange_NumericRanges(); };
 		break;
 	case EditorType::unsignedValue:
-		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_UnsignedRanges(tooltipsOptions); };
+		textEditor.onEditorShow = [this, tooltips] { onEditorShow_UnsignedRanges(tooltips); };
 		textEditor.onTextChange = [this] { onTextChange_NumericRanges(); };
 		break;
 	default:
@@ -47,7 +47,7 @@ TextEditorForExposedParamSlider::TextEditorForExposedParamSlider(uint8 paramInde
 	addAndMakeVisible(textEditor);
 }
 
-void TextEditorForExposedParamSlider::setEditorText() {
+void TextEditorForExposedParamSlider::setEditorTextUsingStoredValue() {
 	auto currentChoice{ (uint8)roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue())) };
 	auto currentChoiceName{ info->choiceNameFor(currentChoice, paramIndex).removeCharacters(" +") };
 	textEditor.setText(currentChoiceName, dontSendNotification);
@@ -107,10 +107,10 @@ void TextEditorForExposedParamSlider::onTextChange_Pitch() {
 		if (newSetting > -1.0f)
 			paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
 		else
-			setEditorText();
+			setEditorTextUsingStoredValue();
 	}
 	else
-		setEditorText();
+		setEditorTextUsingStoredValue();
 }
 
 void TextEditorForExposedParamSlider::onTextChange_NumericRanges() {
@@ -124,7 +124,7 @@ void TextEditorForExposedParamSlider::onTextChange_NumericRanges() {
 		paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
 	}
 	else
-		setEditorText();
+		setEditorTextUsingStoredValue();
 }
 
 void TextEditorForExposedParamSlider::showEditor() {
@@ -132,7 +132,7 @@ void TextEditorForExposedParamSlider::showEditor() {
 }
 
 void TextEditorForExposedParamSlider::valueChanged(Value& /*value*/) {
-	setEditorText();
+	setEditorTextUsingStoredValue();
 }
 
 TextEditorForExposedParamSlider::~TextEditorForExposedParamSlider() {

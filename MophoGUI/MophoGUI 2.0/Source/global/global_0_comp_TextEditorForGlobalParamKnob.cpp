@@ -9,7 +9,7 @@ TextEditorForGlobalParamKnob::TextEditorForGlobalParamKnob(KnobType knobType, Un
     knobType{ knobType }
 {
 	auto globalOptions{ unexposedParams->getGlobalOptions() };
-	auto tooltipsOptions{ unexposedParams->getTooltipsOptions() };
+	auto tooltips{ unexposedParams->getTooltipsOptions() };
 
 	setInterceptsMouseClicks(false, true);
 	textEditor.setInterceptsMouseClicks(false, true);
@@ -19,10 +19,10 @@ TextEditorForGlobalParamKnob::TextEditorForGlobalParamKnob(KnobType knobType, Un
 	{
 	case KnobType::globalTranspose:
 		globalParamAsValue = globalOptions->getGobalParamAsValue(ID::global_Transpose);
-		textEditor.onEditorShow = [this, globalOptions, tooltipsOptions] {
+		textEditor.onEditorShow = [this, globalOptions, tooltips] {
 			auto editor{ textEditor.getCurrentTextEditor() };
 			editor->setInputRestrictions(3, "-0123456789");
-			if (tooltipsOptions->shouldShowDescription())
+			if (tooltips->shouldShowDescription())
 				editor->setTooltip("Type in a new setting.\n(Range: -12 to 12)");
 		};
 		textEditor.onTextChange = [this, globalOptions] {
@@ -39,10 +39,10 @@ TextEditorForGlobalParamKnob::TextEditorForGlobalParamKnob(KnobType knobType, Un
 		break;
 	case KnobType::globalFineTune:
 		globalParamAsValue = globalOptions->getGobalParamAsValue(ID::global_FineTune);
-		textEditor.onEditorShow = [this, globalOptions, tooltipsOptions] {
+		textEditor.onEditorShow = [this, globalOptions, tooltips] {
 			auto editor{ textEditor.getCurrentTextEditor() };
 			editor->setInputRestrictions(3, "-0123456789");
-			if (tooltipsOptions->shouldShowDescription())
+			if (tooltips->shouldShowDescription())
 				editor->setTooltip("Type in a new setting.\n(Range: -50 to 50)");
 		};
 		textEditor.onTextChange = [this, globalOptions] {
@@ -59,12 +59,12 @@ TextEditorForGlobalParamKnob::TextEditorForGlobalParamKnob(KnobType knobType, Un
 		break;
 	case KnobType::hardwareReceiveChannel:
 		globalParamAsValue = globalOptions->getGobalParamAsValue(ID::global_HardwareReceiveChannel);
-		textEditor.onEditorShow = [this, globalOptions, tooltipsOptions] {
+		textEditor.onEditorShow = [this, globalOptions, tooltips] {
 			auto editor{ textEditor.getCurrentTextEditor() };
 			editor->setInputRestrictions(3, "alAL0123456789");
 			auto oq{ GUI::openQuote };
 			auto cq{ GUI::closeQuote };
-			if (tooltipsOptions->shouldShowDescription())
+			if (tooltips->shouldShowDescription())
 				editor->setTooltip("Type in a new setting.\n(Range: 1 to 16\nAll: " + oq + "ALL" + cq + " or " + oq + "0" + cq + ")");
 		};
 		textEditor.onTextChange = [this, globalOptions] {
@@ -84,7 +84,7 @@ TextEditorForGlobalParamKnob::TextEditorForGlobalParamKnob(KnobType knobType, Un
 	default:
 		break;
 	}
-	setEditorText();
+	setEditorTextUsingStoredValue();
 	globalParamAsValue.addListener(this);
 
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
@@ -92,7 +92,7 @@ TextEditorForGlobalParamKnob::TextEditorForGlobalParamKnob(KnobType knobType, Un
 	addAndMakeVisible(textEditor);
 }
 
-void TextEditorForGlobalParamKnob::setEditorText() {
+void TextEditorForGlobalParamKnob::setEditorTextUsingStoredValue() {
 	auto paramValue{ (int)globalParamAsValue.getValue() };
 	switch (knobType)
 	{
@@ -118,7 +118,7 @@ void TextEditorForGlobalParamKnob::showEditor() {
 }
 
 void TextEditorForGlobalParamKnob::valueChanged(Value& /*value*/) {
-    setEditorText();
+    setEditorTextUsingStoredValue();
 }
 
 TextEditorForGlobalParamKnob::~TextEditorForGlobalParamKnob() {

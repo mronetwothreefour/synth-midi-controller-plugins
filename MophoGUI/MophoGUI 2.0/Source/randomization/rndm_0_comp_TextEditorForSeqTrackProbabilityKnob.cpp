@@ -51,7 +51,7 @@ TextEditorForSeqTrackProbabilityKnob::TextEditorForSeqTrackProbabilityKnob(
 					randomization->setProbabilityOfRestForSeqTrack_1_Step(newSetting, targetStep);
 		}
 	};
-	setEditorText();
+	setEditorTextUsingStoredValue();
 	auto targetStep{ randomization->targetStepForSeqTrack(track) };
 	if (knobType == KnobType::reset)
 		seqTrackProbAsValue = randomization->getProbabilityOfResetForSeqTrackStepAsValue(track, targetStep);
@@ -64,7 +64,7 @@ TextEditorForSeqTrackProbabilityKnob::TextEditorForSeqTrackProbabilityKnob(
 	addAndMakeVisible(textEditor);
 }
 
-void TextEditorForSeqTrackProbabilityKnob::setEditorText() {
+void TextEditorForSeqTrackProbabilityKnob::setEditorTextUsingStoredValue() {
 	auto targetStep{ randomization->targetStepForSeqTrack(track) };
 	auto probValue{ 0 };
 	if (knobType == KnobType::reset)
@@ -86,7 +86,7 @@ void TextEditorForSeqTrackProbabilityKnob::valueChanged(Value& value) {
 		else
 			seqTrackProbAsValue = randomization->getProbabilityOfRestForSeqTrack_1_StepAsValue(targetStep);
 	}
-    setEditorText();
+    setEditorTextUsingStoredValue();
 }
 
 TextEditorForSeqTrackProbabilityKnob::~TextEditorForSeqTrackProbabilityKnob() {

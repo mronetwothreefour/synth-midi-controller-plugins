@@ -42,10 +42,21 @@ namespace Matrix_6G_Constants
 
 
 	const enum class SliderTextEditorType {
-		oscPitch,
+		oscPitch = 0,
 		signed_6_bitValue,
 		signed_7_bitValue,
 		unsignedValue
+	};
+
+
+	const enum class SplitParamSliderType {
+		zoneVolumeBalance = 0,
+		lowerZoneLimit,
+		lowerZoneVoiceNum,
+		lowerZoneTranspose,
+		upperZoneLimit,
+		upperZoneVoiceNum,
+		upperZoneTranspose
 	};
 
 

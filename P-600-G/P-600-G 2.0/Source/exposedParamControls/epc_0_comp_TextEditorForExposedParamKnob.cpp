@@ -35,7 +35,7 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 			if (newSettingString.isNotEmpty())
 				paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSettingString.getFloatValue()));
 			else
-				setEditorText();
+				setEditorTextUsingStoredValue();
 		};
 	}
 	else {
@@ -69,20 +69,20 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 				if (newSetting > -1.0f)
 					paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
 				else
-					setEditorText();
+					setEditorTextUsingStoredValue();
 			}
 			else
-				setEditorText();
+				setEditorTextUsingStoredValue();
 		};
 	}
-	setEditorText();
+	setEditorTextUsingStoredValue();
 
 	setSize(GUI::knob_diameter, GUI::knob_diameter);
 	textEditor.setBounds(getLocalBounds());
 	addAndMakeVisible(textEditor);
 }
 
-void TextEditorForExposedParamKnob::setEditorText() {
+void TextEditorForExposedParamKnob::setEditorTextUsingStoredValue() {
 	auto currentChoice{ (uint8)roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue())) };
 	auto currentChoiceName{ info->choiceNameFor(currentChoice, paramIndex).removeCharacters(" ") };
 	textEditor.setText(currentChoiceName, dontSendNotification);
@@ -93,7 +93,7 @@ void TextEditorForExposedParamKnob::showEditor() {
 }
 
 void TextEditorForExposedParamKnob::valueChanged(Value& /*value*/) {
-	setEditorText();
+	setEditorTextUsingStoredValue();
 }
 
 TextEditorForExposedParamKnob::~TextEditorForExposedParamKnob() {

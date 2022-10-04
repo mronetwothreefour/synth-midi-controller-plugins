@@ -27,7 +27,11 @@ public:
 	TextEditorForExposedParamKnob() = delete;
 
 	TextEditorForExposedParamKnob(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltipsOptions);
-	void setEditorText();
+
+private:
+	void setEditorTextUsingStoredValue();
+
+public:
 	void showEditor();
 	void valueChanged(Value& value) override;
 	~TextEditorForExposedParamKnob();

@@ -27,7 +27,11 @@ public:
 	TextEditorForSeqTrackProbabilityKnob() = delete;
 
 	TextEditorForSeqTrackProbabilityKnob(KnobType knobType, Track track, ExposedParamsRandomizationOptions* randomization, TooltipsOptions* tooltips);
-	void setEditorText();
+
+private:
+	void setEditorTextUsingStoredValue();
+
+public:
 	void showEditor();
 	void valueChanged(Value& value) override;
 	~TextEditorForSeqTrackProbabilityKnob();

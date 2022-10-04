@@ -8,6 +8,7 @@ namespace Matrix_6G_Constants
 	{
 		const int lengthOfSplitDataHexString{ 38 };
 		const int numberOfCharsInSplitName{ 8 };
+		const int numberOfChoicesForZoneLimit{ 128 };
 		const int numberOfSlotsInSplitsBank{ 50 };
 		const int rawSplitDataVectorChecksumByteIndex{ 40 };
 

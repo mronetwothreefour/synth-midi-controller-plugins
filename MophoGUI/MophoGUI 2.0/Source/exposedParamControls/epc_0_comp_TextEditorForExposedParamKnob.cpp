@@ -6,7 +6,7 @@
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
-TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltipsOptions) :
+TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	info{ exposedParams->info.get() },
 	editorType{ info->knobTextEditorTypeFor(paramIndex) },
@@ -22,43 +22,43 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 	switch (editorType)
 	{
 	case EditorType::clockTempo:
-		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_ClockTempo(tooltipsOptions); };
+		textEditor.onEditorShow = [this, tooltips] { onEditorShow_ClockTempo(tooltips); };
 		textEditor.onTextChange = [this] { onTextChange_NumericRanges(); };
 		break;
 	case EditorType::lfoFrequency:
-		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_LFO_Freq(tooltipsOptions); };
+		textEditor.onEditorShow = [this, tooltips] { onEditorShow_LFO_Freq(tooltips); };
 		textEditor.onTextChange = [this] { onTextChange_PitchAndFreqRanges(); };
 		break;
 	case EditorType::lpfFrequency:
-		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_LPF_Freq(tooltipsOptions); };
+		textEditor.onEditorShow = [this, tooltips] { onEditorShow_LPF_Freq(tooltips); };
 		textEditor.onTextChange = [this] { onTextChange_PitchAndFreqRanges(); };
 		break;
 	case EditorType::oscFineTune:
-		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_OscFineTune(tooltipsOptions); };
+		textEditor.onEditorShow = [this, tooltips] { onEditorShow_OscFineTune(tooltips); };
 		textEditor.onTextChange = [this] { onTextChange_NumericRanges(); };
 		break;
 	case EditorType::oscPitch:
-		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_OscPitch(tooltipsOptions); };
+		textEditor.onEditorShow = [this, tooltips] { onEditorShow_OscPitch(tooltips); };
 		textEditor.onTextChange = [this] { onTextChange_PitchAndFreqRanges(); };
 		break;
 	case EditorType::oscShape:
-		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_OscShape(tooltipsOptions); };
+		textEditor.onEditorShow = [this, tooltips] { onEditorShow_OscShape(tooltips); };
 		textEditor.onTextChange = [this] { onTextChange_OscShape(); };
 		break;
 	case EditorType::oscSlop:
-		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_OscSlop(tooltipsOptions); };
+		textEditor.onEditorShow = [this, tooltips] { onEditorShow_OscSlop(tooltips); };
 		textEditor.onTextChange = [this] { onTextChange_NumericRanges(); };
 		break;
 	case EditorType::pitchBend:
-		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_PitchBend(tooltipsOptions); };
+		textEditor.onEditorShow = [this, tooltips] { onEditorShow_PitchBend(tooltips); };
 		textEditor.onTextChange = [this] { onTextChange_NumericRanges(); };
 		break;
 	case EditorType::posNeg_127:
-		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_PosNeg_127(tooltipsOptions); };
+		textEditor.onEditorShow = [this, tooltips] { onEditorShow_PosNeg_127(tooltips); };
 		textEditor.onTextChange = [this] { onTextChange_NumericRanges(); };
 		break;
 	case EditorType::pos_127:
-		textEditor.onEditorShow = [this, tooltipsOptions] { onEditorShow_Pos_127(tooltipsOptions); };
+		textEditor.onEditorShow = [this, tooltips] { onEditorShow_Pos_127(tooltips); };
 		textEditor.onTextChange = [this] { onTextChange_NumericRanges(); };
 		break;
 	default:
@@ -71,7 +71,7 @@ TextEditorForExposedParamKnob::TextEditorForExposedParamKnob(uint8 paramIndex, E
 	addAndMakeVisible(textEditor);
 }
 
-void TextEditorForExposedParamKnob::setEditorText() {
+void TextEditorForExposedParamKnob::setEditorTextUsingStoredValue() {
 	auto currentChoice{ (uint8)roundToInt(paramPtr->convertFrom0to1(paramPtr->getValue())) };
 	auto currentChoiceName{ info->choiceNameFor(currentChoice, paramIndex).removeCharacters(" ") };
 	if (editorType == EditorType::pitchBend)
@@ -79,17 +79,17 @@ void TextEditorForExposedParamKnob::setEditorText() {
 	textEditor.setText(currentChoiceName, dontSendNotification);
 }
 
-void TextEditorForExposedParamKnob::onEditorShow_ClockTempo(TooltipsOptions* tooltipsOptions) {
+void TextEditorForExposedParamKnob::onEditorShow_ClockTempo(TooltipsOptions* tooltips) {
 	auto editor{ textEditor.getCurrentTextEditor() };
 	editor->setInputRestrictions(3, "0123456789");
-	if (tooltipsOptions->shouldShowDescription())
+	if (tooltips->shouldShowDescription())
 		editor->setTooltip("Type in a new setting.\n(Range: 30 to 250)");
 }
 
-void TextEditorForExposedParamKnob::onEditorShow_LFO_Freq(TooltipsOptions* tooltipsOptions) {
+void TextEditorForExposedParamKnob::onEditorShow_LFO_Freq(TooltipsOptions* tooltips) {
 	auto editor{ textEditor.getCurrentTextEditor() };
 	editor->setInputRestrictions(5, "abcdefgABCDEFG0123456789#:.");
-	if (tooltipsOptions->shouldShowDescription()) {
+	if (tooltips->shouldShowDescription()) {
 		String description{ "" };
 		description += "Type in a new LFO frequency.\n";
 		description += "Unsynced: " + oq + "0" + cq + ".." + oq + "89" + cq + "\n";
@@ -99,10 +99,10 @@ void TextEditorForExposedParamKnob::onEditorShow_LFO_Freq(TooltipsOptions* toolt
 	}
 }
 
-void TextEditorForExposedParamKnob::onEditorShow_LPF_Freq(TooltipsOptions* tooltipsOptions) {
+void TextEditorForExposedParamKnob::onEditorShow_LPF_Freq(TooltipsOptions* tooltips) {
 	auto editor{ textEditor.getCurrentTextEditor() };
 	editor->setInputRestrictions(4, "abcdefgABCDEFG0123456789#");
-	if (tooltipsOptions->shouldShowDescription()) {
+	if (tooltips->shouldShowDescription()) {
 		String description{ "" };
 		description += "Type in either a pitch name and octave number\n";
 		description += "(e.g. " + oq + "C#5" + cq + ") or a MIDI note number (e.g. " + oq + "61" + cq + ").\n";
@@ -111,17 +111,17 @@ void TextEditorForExposedParamKnob::onEditorShow_LPF_Freq(TooltipsOptions* toolt
 	}
 }
 
-void TextEditorForExposedParamKnob::onEditorShow_OscFineTune(TooltipsOptions* tooltipsOptions) {
+void TextEditorForExposedParamKnob::onEditorShow_OscFineTune(TooltipsOptions* tooltips) {
 	auto editor{ textEditor.getCurrentTextEditor() };
 	editor->setInputRestrictions(3, "-0123456789");
-	if (tooltipsOptions->shouldShowDescription())
+	if (tooltips->shouldShowDescription())
 		editor->setTooltip("Type in a new setting.\n(Range: -50 to 50)");
 }
 
-void TextEditorForExposedParamKnob::onEditorShow_OscPitch(TooltipsOptions* tooltipsOptions) {
+void TextEditorForExposedParamKnob::onEditorShow_OscPitch(TooltipsOptions* tooltips) {
 	auto editor{ textEditor.getCurrentTextEditor() };
 	editor->setInputRestrictions(4, "abcdefgABCDEFG0123456789#");
-	if (tooltipsOptions->shouldShowDescription()) {
+	if (tooltips->shouldShowDescription()) {
 		String description{ "" };
 		description += "Type in either a pitch name and octave number\n";
 		description += "(e.g. " + oq + "C#5" + cq + ") or a MIDI note number (e.g. " + oq + "61" + cq + ").\n";
@@ -130,10 +130,10 @@ void TextEditorForExposedParamKnob::onEditorShow_OscPitch(TooltipsOptions* toolt
 	}
 }
 
-void TextEditorForExposedParamKnob::onEditorShow_OscShape(TooltipsOptions* tooltipsOptions) {
+void TextEditorForExposedParamKnob::onEditorShow_OscShape(TooltipsOptions* tooltips) {
 	auto editor{ textEditor.getCurrentTextEditor() };
 	editor->setInputRestrictions(4, "afiopqrstwAFIOPQRSTW0123456789/");
-	if (tooltipsOptions->shouldShowDescription()) {
+	if (tooltips->shouldShowDescription()) {
 		String description{ "" };
 		description += "Type in a new shape setting.\n";
 		description += "Off: " + oq + "OFF" + cq + " or " + oq + "0" + cq + "\n";
@@ -146,31 +146,31 @@ void TextEditorForExposedParamKnob::onEditorShow_OscShape(TooltipsOptions* toolt
 	}
 }
 
-void TextEditorForExposedParamKnob::onEditorShow_OscSlop(TooltipsOptions* tooltipsOptions) {
+void TextEditorForExposedParamKnob::onEditorShow_OscSlop(TooltipsOptions* tooltips) {
 	auto editor{ textEditor.getCurrentTextEditor() };
 	editor->setInputRestrictions(1, "012345");
-	if (tooltipsOptions->shouldShowDescription())
+	if (tooltips->shouldShowDescription())
 		editor->setTooltip("Type in a new setting.\n(Range: 0 to 5)");
 }
 
-void TextEditorForExposedParamKnob::onEditorShow_PitchBend(TooltipsOptions* tooltipsOptions) {
+void TextEditorForExposedParamKnob::onEditorShow_PitchBend(TooltipsOptions* tooltips) {
 	auto editor{ textEditor.getCurrentTextEditor() };
 	editor->setInputRestrictions(2, "0123456789");
-	if (tooltipsOptions->shouldShowDescription())
+	if (tooltips->shouldShowDescription())
 		editor->setTooltip("Type in a new setting.\n(Range: 0 to 12)");
 }
 
-void TextEditorForExposedParamKnob::onEditorShow_PosNeg_127(TooltipsOptions* tooltipsOptions) {
+void TextEditorForExposedParamKnob::onEditorShow_PosNeg_127(TooltipsOptions* tooltips) {
 	auto editor{ textEditor.getCurrentTextEditor() };
 	editor->setInputRestrictions(4, "-0123456789");
-	if (tooltipsOptions->shouldShowDescription())
+	if (tooltips->shouldShowDescription())
 		editor->setTooltip("Type in a new setting.\n(Range: -127 to 127)");
 }
 
-void TextEditorForExposedParamKnob::onEditorShow_Pos_127(TooltipsOptions* tooltipsOptions) {
+void TextEditorForExposedParamKnob::onEditorShow_Pos_127(TooltipsOptions* tooltips) {
 	auto editor{ textEditor.getCurrentTextEditor() };
 	editor->setInputRestrictions(3, "0123456789");
-	if (tooltipsOptions->shouldShowDescription())
+	if (tooltips->shouldShowDescription())
 		editor->setTooltip("Type in a new setting.\n(Range: 0 to 127)");
 }
 
@@ -187,7 +187,7 @@ void TextEditorForExposedParamKnob::onTextChange_NumericRanges() {
 		paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
 	}
 	else
-		setEditorText();
+		setEditorTextUsingStoredValue();
 }
 
 void TextEditorForExposedParamKnob::onTextChange_PitchAndFreqRanges() {
@@ -213,10 +213,10 @@ void TextEditorForExposedParamKnob::onTextChange_PitchAndFreqRanges() {
 		if (newSetting > -1.0f)
 			paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
 		else
-			setEditorText();
+			setEditorTextUsingStoredValue();
 	}
 	else
-		setEditorText();
+		setEditorTextUsingStoredValue();
 }
 
 void TextEditorForExposedParamKnob::onTextChange_OscShape() {
@@ -242,10 +242,10 @@ void TextEditorForExposedParamKnob::onTextChange_OscShape() {
 		if (newSetting > -1.0f)
 			paramPtr->setValueNotifyingHost(paramPtr->convertTo0to1(newSetting));
 		else
-			setEditorText();
+			setEditorTextUsingStoredValue();
 	}
 	else
-		setEditorText();
+		setEditorTextUsingStoredValue();
 }
 
 void TextEditorForExposedParamKnob::showEditor() {
@@ -253,7 +253,7 @@ void TextEditorForExposedParamKnob::showEditor() {
 }
 
 void TextEditorForExposedParamKnob::valueChanged(Value& /*value*/) {
-	setEditorText();
+	setEditorTextUsingStoredValue();
 }
 
 TextEditorForExposedParamKnob::~TextEditorForExposedParamKnob() {

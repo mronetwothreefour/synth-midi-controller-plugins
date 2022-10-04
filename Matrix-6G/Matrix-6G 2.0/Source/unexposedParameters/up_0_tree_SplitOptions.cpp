@@ -2,6 +2,7 @@
 
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_Splits.h"
+#include "../constants/constants_Voices.h"
 
 SplitOptions::SplitOptions() :
 	splitOptionsTree{ ID::tree_SplitOptions }
@@ -40,6 +41,7 @@ const uint8 SplitOptions::zoneVolumeBalance() {
 }
 
 void SplitOptions::setZoneVolumeBalance(const uint8 newBalance) {
+	jassert(newBalance < 64);
 	splitOptionsTree.setProperty(ID::split_ZoneVolumeBalance, newBalance, nullptr);
 }
 
@@ -48,6 +50,7 @@ const uint8 SplitOptions::lowerZoneLimit() {
 }
 
 void SplitOptions::setLowerZoneLimit(const uint8 newLimit) {
+	jassert(newLimit < 128);
 	splitOptionsTree.setProperty(ID::split_LowerZoneLimit, newLimit, nullptr);
 }
 
@@ -56,6 +59,7 @@ const uint8 SplitOptions::lowerZoneVoiceNumber() {
 }
 
 void SplitOptions::setLowerZoneVoiceNumber(const uint8 newVoiceNum) {
+	jassert(newVoiceNum < VCS::numberOfSlotsInVoicesBank);
 	splitOptionsTree.setProperty(ID::split_LowerZoneVoiceNumber, newVoiceNum, nullptr);
 }
 
@@ -64,6 +68,7 @@ const uint8 SplitOptions::lowerZoneTranspose() {
 }
 
 void SplitOptions::setLowerZoneTranspose(const uint8 newTranspose) {
+	jassert(newTranspose < 61);
 	splitOptionsTree.setProperty(ID::split_LowerZoneTranspose, newTranspose, nullptr);
 }
 
@@ -80,6 +85,7 @@ const uint8 SplitOptions::upperZoneLimit() {
 }
 
 void SplitOptions::setUpperZoneLimit(const uint8 newLimit) {
+	jassert(newLimit < 128);
 	splitOptionsTree.setProperty(ID::split_UpperZoneLimit, newLimit, nullptr);
 }
 
@@ -88,6 +94,7 @@ const uint8 SplitOptions::upperZoneVoiceNumber() {
 }
 
 void SplitOptions::setUpperZoneVoiceNumber(const uint8 newVoiceNum) {
+	jassert(newVoiceNum < VCS::numberOfSlotsInVoicesBank);
 	splitOptionsTree.setProperty(ID::split_UpperZoneVoiceNumber, newVoiceNum, nullptr);
 }
 
@@ -96,6 +103,7 @@ const uint8 SplitOptions::upperZoneTranspose() {
 }
 
 void SplitOptions::setUpperZoneTranspose(const uint8 newTranspose) {
+	jassert(newTranspose < 61);
 	splitOptionsTree.setProperty(ID::split_UpperZoneTranspose, newTranspose, nullptr);
 }
 

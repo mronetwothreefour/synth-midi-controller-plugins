@@ -314,6 +314,14 @@
         <FILE id="DWH5cA" name="midi_1_SysExMessages.h" compile="0" resource="0"
               file="Source/midi/midi_1_SysExMessages.h"/>
       </GROUP>
+      <GROUP id="{523DAC2B-3476-DB28-4F85-435EA1B21E66}" name="splits">
+        <FILE id="Bwebsh" name="splits_0_build_ChoiceName.h" compile="0" resource="0"
+              file="Source/splits/splits_0_build_ChoiceName.h"/>
+        <FILE id="IRdMLN" name="splits_0_comp_TextEditorForSplitParamSlider.cpp"
+              compile="1" resource="0" file="Source/splits/splits_0_comp_TextEditorForSplitParamSlider.cpp"/>
+        <FILE id="Wtzpsr" name="splits_0_comp_TextEditorForSplitParamSlider.h"
+              compile="0" resource="0" file="Source/splits/splits_0_comp_TextEditorForSplitParamSlider.h"/>
+      </GROUP>
       <GROUP id="{EF3B146D-3659-DC15-ADE7-BF6892A35FBA}" name="unexposedParameters">
         <FILE id="T2cbn2" name="up_0_tree_GlobalOptions.cpp" compile="1" resource="0"
               file="Source/unexposedParameters/up_0_tree_GlobalOptions.cpp"/>

@@ -35,6 +35,9 @@
     <Filter Include="Matrix-6G 2\Source\midi">
       <UniqueIdentifier>{AC46BDE4-178E-D14E-BB04-E4CFAEAA8B5F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G 2\Source\splits">
+      <UniqueIdentifier>{E7D414DC-2D7D-F1E3-FA7D-885640547D07}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Matrix-6G 2\Source\unexposedParameters">
       <UniqueIdentifier>{7B757C0E-25AA-F0C7-E195-AA6C5F944AA2}</UniqueIdentifier>
     </Filter>
@@ -708,6 +711,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_1_SysExMessages.cpp">
       <Filter>Matrix-6G 2\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\splits\splits_0_comp_TextEditorForSplitParamSlider.cpp">
+      <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp">
       <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
@@ -3221,6 +3227,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_1_SysExMessages.h">
       <Filter>Matrix-6G 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\splits\splits_0_build_ChoiceName.h">
+      <Filter>Matrix-6G 2\Source\splits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\splits\splits_0_comp_TextEditorForSplitParamSlider.h">
+      <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h">
       <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>

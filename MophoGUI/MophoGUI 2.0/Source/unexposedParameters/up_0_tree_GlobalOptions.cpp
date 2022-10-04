@@ -29,6 +29,7 @@ const uint8 GlobalOptions::globalTranspose() {
 }
 
 void GlobalOptions::setGlobalTranspose(const uint8 newTransposition) {
+    jassert(newTransposition < 25);
     globalOptionsTree.setProperty(ID::global_Transpose, newTransposition, nullptr);
 }
 
@@ -37,6 +38,7 @@ const uint8 GlobalOptions::globalFineTune() {
 }
 
 void GlobalOptions::setGlobalFineTune(const uint8 newFineTune) {
+    jassert(newFineTune < 101);
     globalOptionsTree.setProperty(ID::global_FineTune, newFineTune, nullptr);
 }
 
@@ -45,6 +47,7 @@ const uint8 GlobalOptions::transmitChannel() {
 }
 
 void GlobalOptions::setTransmitChannel(const uint8 newChannel) {
+    jassert(newChannel < 16);
     globalOptionsTree.setProperty(ID::global_TransmitChannel, newChannel, nullptr);
 }
 
@@ -53,6 +56,7 @@ const uint8 GlobalOptions::hardwareReceiveChannel() {
 }
 
 void GlobalOptions::setHardwareReceiveChannel(const uint8 newChannel) {
+    jassert(newChannel < 17);
     globalOptionsTree.setProperty(ID::global_HardwareReceiveChannel, newChannel, nullptr);
 }
 

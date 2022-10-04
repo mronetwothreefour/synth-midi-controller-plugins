@@ -28,10 +28,10 @@ class TextEditorForExposedParamSlider :
 public:
 	TextEditorForExposedParamSlider() = delete;
 
-	TextEditorForExposedParamSlider(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltipsOptions);
+	TextEditorForExposedParamSlider(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 
 private:
-	void setEditorText();
+	void setEditorTextUsingStoredValue();
 
 	void onEditorShow_Pitch(TooltipsOptions* tooltips);
 	void onEditorShow_SignedRanges(TooltipsOptions* tooltips);
@@ -39,7 +39,6 @@ private:
 
 	void onTextChange_Pitch();
 	void onTextChange_NumericRanges();
-
 
 public:
 	void showEditor();

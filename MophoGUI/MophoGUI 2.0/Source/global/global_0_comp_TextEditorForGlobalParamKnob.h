@@ -21,7 +21,11 @@ public:
 	TextEditorForGlobalParamKnob() = delete;
 
 	TextEditorForGlobalParamKnob(KnobType knobType, UnexposedParameters* unexposedParams);
-	void setEditorText();
+
+private:
+	void setEditorTextUsingStoredValue();
+
+public:
 	void showEditor();
 	void valueChanged(Value& value) override;
 	~TextEditorForGlobalParamKnob();
