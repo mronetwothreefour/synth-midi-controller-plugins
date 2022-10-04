@@ -10,13 +10,13 @@ using namespace Matrix_6G_Constants;
 
 struct SplitParamChoiceName
 {
-	static String buildForZoneLimit(int choiceNum, bool verbose) {
+	static String buildForZoneLimit(uint8 choiceNum, bool verbose) {
 		jassert(choiceNum > -1 && choiceNum < SPLT::numberOfChoicesForZoneLimit);
 		auto pitchName{ ExposedParamChoiceNamesValueTree::convertIntToPitchName(choiceNum) };
 		return pitchName + (verbose ? " (MIDI Note " + (String)choiceNum + ")" : "");
 	}
 
-	static String buildForZoneTranspose(int choiceNum, bool verbose) {
+	static String buildForZoneTranspose(uint8 choiceNum, bool verbose) {
 		jassert(choiceNum > -1 && choiceNum < 61);
 		if (choiceNum < 35)
 			return (String)(choiceNum - 36) + (verbose ? " semitones" : "");

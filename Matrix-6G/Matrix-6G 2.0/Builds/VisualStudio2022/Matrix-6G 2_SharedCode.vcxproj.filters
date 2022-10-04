@@ -691,6 +691,9 @@
     <ClCompile Include="..\..\Source\matrixMod\mMod_0_build_ChoiceName.cpp">
       <Filter>Matrix-6G 2\Source\matrixMod</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\matrixMod\mMod_0_comp_TextEditorForMatrixModAmountSlider.cpp">
+      <Filter>Matrix-6G 2\Source\matrixMod</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\matrixMod\mMod_1_comp_ComboBoxForMatrixModDestination.cpp">
       <Filter>Matrix-6G 2\Source\matrixMod</Filter>
     </ClCompile>
@@ -3199,6 +3202,9 @@
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\matrixMod\mMod_0_build_ChoiceName.h">
+      <Filter>Matrix-6G 2\Source\matrixMod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\matrixMod\mMod_0_comp_TextEditorForMatrixModAmountSlider.h">
       <Filter>Matrix-6G 2\Source\matrixMod</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\matrixMod\mMod_1_comp_ComboBoxForMatrixModDestination.h">

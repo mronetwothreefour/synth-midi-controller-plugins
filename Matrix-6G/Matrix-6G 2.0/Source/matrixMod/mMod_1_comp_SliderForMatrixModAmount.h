@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "mMod_0_comp_TextEditorForMatrixModAmountSlider.h"
 #include "../gui/gui_comp_JuceSlidersWithMouseMods.h"
 
 class ExposedParameters;
@@ -14,6 +15,7 @@ class SliderForMatrixModAmount :
 {
 	int modNum;
 	MatrixModOptions* matrixModOptions;
+	TextEditorForMatrixModAmountSlider textEditor;
 	Value modAmountAsValue;
 	Value shouldShowDescriptionAsValue;
 	Value shouldShowCurrentChoiceAsValue;
@@ -24,6 +26,7 @@ public:
 	SliderForMatrixModAmount(int modNum, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void updateTooltip();
 	void paint(Graphics& g) override;
+	void mouseDoubleClick(const MouseEvent& event) override;
 	void valueChanged() override;
 	void valueChanged(Value& value) override;
 	~SliderForMatrixModAmount();

@@ -279,6 +279,10 @@
               file="Source/matrixMod/mMod_0_build_ChoiceName.cpp"/>
         <FILE id="JEA2l8" name="mMod_0_build_ChoiceName.h" compile="0" resource="0"
               file="Source/matrixMod/mMod_0_build_ChoiceName.h"/>
+        <FILE id="wskOTf" name="mMod_0_comp_TextEditorForMatrixModAmountSlider.cpp"
+              compile="1" resource="0" file="Source/matrixMod/mMod_0_comp_TextEditorForMatrixModAmountSlider.cpp"/>
+        <FILE id="aTJrHN" name="mMod_0_comp_TextEditorForMatrixModAmountSlider.h"
+              compile="0" resource="0" file="Source/matrixMod/mMod_0_comp_TextEditorForMatrixModAmountSlider.h"/>
         <FILE id="YFuN26" name="mMod_1_comp_ComboBoxForMatrixModDestination.cpp"
               compile="1" resource="0" file="Source/matrixMod/mMod_1_comp_ComboBoxForMatrixModDestination.cpp"/>
         <FILE id="sx8oGA" name="mMod_1_comp_ComboBoxForMatrixModDestination.h"

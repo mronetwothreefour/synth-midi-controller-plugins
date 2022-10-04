@@ -163,6 +163,7 @@
     <ClCompile Include="..\..\Source\gui\gui_layer_TrackingGraphPainter.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_MatrixLookAndFeel.cpp"/>
     <ClCompile Include="..\..\Source\matrixMod\mMod_0_build_ChoiceName.cpp"/>
+    <ClCompile Include="..\..\Source\matrixMod\mMod_0_comp_TextEditorForMatrixModAmountSlider.cpp"/>
     <ClCompile Include="..\..\Source\matrixMod\mMod_1_comp_ComboBoxForMatrixModDestination.cpp"/>
     <ClCompile Include="..\..\Source\matrixMod\mMod_1_comp_ComboBoxForMatrixModSource.cpp"/>
     <ClCompile Include="..\..\Source\matrixMod\mMod_1_comp_SliderForMatrixModAmount.cpp"/>
@@ -2383,6 +2384,7 @@
     <ClInclude Include="..\..\Source\gui\gui_layer_TrackingGraphPainter.h"/>
     <ClInclude Include="..\..\Source\gui\gui_MatrixLookAndFeel.h"/>
     <ClInclude Include="..\..\Source\matrixMod\mMod_0_build_ChoiceName.h"/>
+    <ClInclude Include="..\..\Source\matrixMod\mMod_0_comp_TextEditorForMatrixModAmountSlider.h"/>
     <ClInclude Include="..\..\Source\matrixMod\mMod_1_comp_ComboBoxForMatrixModDestination.h"/>
     <ClInclude Include="..\..\Source\matrixMod\mMod_1_comp_ComboBoxForMatrixModSource.h"/>
     <ClInclude Include="..\..\Source\matrixMod\mMod_1_comp_SliderForMatrixModAmount.h"/>

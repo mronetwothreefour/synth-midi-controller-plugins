@@ -15,7 +15,8 @@ using ChoiceName = MatrixModParamChoiceName;
 SliderForMatrixModAmount::SliderForMatrixModAmount(int modNum, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	RotarySliderWithMouseWheelMoveOverride{ &exposedParams->undoManager },
 	modNum{ modNum },
-	matrixModOptions{ exposedParams->matrixModOptions.get() }
+	matrixModOptions{ exposedParams->matrixModOptions.get() },
+	textEditor{ modNum, matrixModOptions, tooltips }
 {
 	modAmountAsValue = matrixModOptions->getMatrixModPropertyAsValue("matrixMod_Mod_" + (String)modNum + "_Amount");
 	modAmountAsValue.addListener(this);
@@ -31,6 +32,9 @@ SliderForMatrixModAmount::SliderForMatrixModAmount(int modNum, ExposedParameters
 	shouldShowDescriptionAsValue.addListener(this);
 	updateTooltip();
 
+	textEditor.setTopLeftPosition(0, 0);
+	addAndMakeVisible(textEditor);
+
 	setSize(GUI::matrixModSlider_w, GUI::control_h);
 }
 
@@ -40,9 +44,10 @@ void SliderForMatrixModAmount::updateTooltip() {
 	String tip{ "" };
 	if (shouldShowDescription) {
 		tip += "Sets whether and to what degree the selected source\n";
-		tip += "modulates the selected destination. Matrix Mod\n";
-		tip += "parameters cannot be changed via Quick Patch Edit.\n";
-		tip += "Use the PUSH button to send the entire patch instead.\n";
+		tip += "modulates the selected destination. Range: -63 to +63.\n";
+		tip += "0 is no modulation. Negative values invert the modulation.\n";
+		tip += "Matrix Mod parameters cannot be changed via Quick Patch\n";
+		tip += "Edit. Use the PUSH button to send the entire patch instead.\n";
 	}
 	if (shouldShowCurrentChoice) {
 		auto currentChoice{ (uint8)roundToInt(getValue()) };
@@ -57,6 +62,10 @@ void SliderForMatrixModAmount::paint(Graphics& g) {
 	auto choiceNameString{ ChoiceName::buildForModAmount(currentChoice) };
 	auto choiceNamePath{ LED_Path::buildLabelText(choiceNameString, GUI::matrixModSlider_w) };
 	g.fillPath(choiceNamePath);
+}
+
+void SliderForMatrixModAmount::mouseDoubleClick(const MouseEvent& /*event*/) {
+	textEditor.showEditor();
 }
 
 void SliderForMatrixModAmount::valueChanged() {

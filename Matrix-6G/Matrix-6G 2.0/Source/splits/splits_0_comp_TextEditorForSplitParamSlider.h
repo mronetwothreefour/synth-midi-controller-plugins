@@ -30,10 +30,10 @@ public:
 private:
 	void setEditorTextUsingStoredValue();
 
-	void onEditorShow_ZoneVolumeBalance(SplitOptions* splitOptions, TooltipsOptions* tooltips);
-	void onEditorShow_ZoneLimit(SplitOptions* splitOptions, TooltipsOptions* tooltips);
-	void onEditorShow_ZoneVoiceNumber(SplitOptions* splitOptions, TooltipsOptions* tooltips);
-	void onEditorShow_ZoneTranspose(SplitOptions* splitOptions, TooltipsOptions* tooltips);
+	void onEditorShow_ZoneVolumeBalance(TooltipsOptions* tooltips);
+	void onEditorShow_ZoneLimit(TooltipsOptions* tooltips);
+	void onEditorShow_ZoneVoiceNumber(TooltipsOptions* tooltips);
+	void onEditorShow_ZoneTranspose(TooltipsOptions* tooltips);
 
 	void onTextChange_ZoneVolumeBalance(SplitOptions* splitOptions);
 	void onTextChange_ZoneLimit(bool isLowerZone, SplitOptions* splitOptions);

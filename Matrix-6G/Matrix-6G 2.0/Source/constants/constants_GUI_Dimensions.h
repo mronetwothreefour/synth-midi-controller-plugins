@@ -21,6 +21,10 @@ namespace Matrix_6G_Constants
 		const int ledDisplayCharacter_w{ 11 };
 		const int matrixModComboBox_w{ 82 };
 		const int matrixModSlider_w{ 40 };
+		const int splitVolumeBalanceSlider_w{ 172 };
+		const int splitZoneLimitSlider_w{ 59 };
+		const int splitZoneTransposeSlider_w{ 37 };
+		const int splitZoneVoiceNumSlider_w{ 26 };
 		const int vertDistBtwnRows{ 28 };
 		const int voicesBankTabButtons_x_spacing{ 35 };
 		const int voicesBankTabButtons_y{ 427 };
