@@ -325,6 +325,10 @@
               compile="1" resource="0" file="Source/splits/splits_0_comp_TextEditorForSplitParamSlider.cpp"/>
         <FILE id="Wtzpsr" name="splits_0_comp_TextEditorForSplitParamSlider.h"
               compile="0" resource="0" file="Source/splits/splits_0_comp_TextEditorForSplitParamSlider.h"/>
+        <FILE id="c98BXE" name="splits_0_tree_SplitsBank.cpp" compile="1" resource="0"
+              file="Source/splits/splits_0_tree_SplitsBank.cpp"/>
+        <FILE id="ajbXcc" name="splits_0_tree_SplitsBank.h" compile="0" resource="0"
+              file="Source/splits/splits_0_tree_SplitsBank.h"/>
       </GROUP>
       <GROUP id="{EF3B146D-3659-DC15-ADE7-BF6892A35FBA}" name="unexposedParameters">
         <FILE id="T2cbn2" name="up_0_tree_GlobalOptions.cpp" compile="1" resource="0"
