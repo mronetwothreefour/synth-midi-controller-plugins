@@ -25,7 +25,7 @@ class VoiceSlots :
     std::vector<std::unique_ptr<VoiceSlotRadioButton>> voiceSlotButtons;
     const int voiceSlotRadioButtons_HorizGap{ 12 };
     const int voiceSlots_w{ (4 * GUI::voiceSlotRadioButtton_w) + (3 * voiceSlotRadioButtons_HorizGap) };
-    const int voiceSlots_h{ 25 * GUI::voiceSlotRadioButtton_h };
+    const int voiceSlots_h{ 25 * GUI::voiceAndSplitSlotRadioButtton_h };
 
 public:
     uint8 selectedSlot;

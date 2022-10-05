@@ -721,6 +721,9 @@
     <ClCompile Include="..\..\Source\splits\splits_0_tree_SplitsBank.cpp">
       <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\splits\splits_1_comp_SplitSlotRadioButton.cpp">
+      <Filter>Matrix-6G 2\Source\splits</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp">
       <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
     </ClCompile>
@@ -3244,6 +3247,9 @@
       <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\splits\splits_0_tree_SplitsBank.h">
+      <Filter>Matrix-6G 2\Source\splits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\splits\splits_1_comp_SplitSlotRadioButton.h">
       <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h">

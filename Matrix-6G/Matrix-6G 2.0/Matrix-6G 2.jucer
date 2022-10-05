@@ -329,6 +329,10 @@
               file="Source/splits/splits_0_tree_SplitsBank.cpp"/>
         <FILE id="ajbXcc" name="splits_0_tree_SplitsBank.h" compile="0" resource="0"
               file="Source/splits/splits_0_tree_SplitsBank.h"/>
+        <FILE id="BcCfeP" name="splits_1_comp_SplitSlotRadioButton.cpp" compile="1"
+              resource="0" file="Source/splits/splits_1_comp_SplitSlotRadioButton.cpp"/>
+        <FILE id="kGKkhN" name="splits_1_comp_SplitSlotRadioButton.h" compile="0"
+              resource="0" file="Source/splits/splits_1_comp_SplitSlotRadioButton.h"/>
       </GROUP>
       <GROUP id="{EF3B146D-3659-DC15-ADE7-BF6892A35FBA}" name="unexposedParameters">
         <FILE id="T2cbn2" name="up_0_tree_GlobalOptions.cpp" compile="1" resource="0"

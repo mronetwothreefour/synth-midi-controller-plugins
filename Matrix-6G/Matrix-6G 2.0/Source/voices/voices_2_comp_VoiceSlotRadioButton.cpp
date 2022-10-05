@@ -20,8 +20,9 @@ VoiceSlotRadioButton::VoiceSlotRadioButton(const VoicesBank bank, const uint8 sl
 	slotNumString{ String(slotNum).paddedLeft('0', 2) },
 	unexposedParams{ unexposedParams }
 {
+	auto voicesBanks{ unexposedParams->getVoicesBanks() };
 	if (bank >= VoicesBank::custom_A) {
-		voiceNameAsValue = unexposedParams->getVoicesBanks()->getVoiceNameAsValueForCustomBankSlot(bank, slotNum);
+		voiceNameAsValue = voicesBanks->getVoiceNameAsValueForCustomBankSlot(bank, slotNum);
 		voiceNameAsValue.addListener(this);
 	}
 	setRadioGroupId((int)bank + 1);
@@ -35,15 +36,14 @@ VoiceSlotRadioButton::VoiceSlotRadioButton(const VoicesBank bank, const uint8 sl
 		tip += "CTRL+V overwrites the selected program with the settings in the\n";
 		tip += "clipboard (only slots in the Custom banks can be overwritten).";
 	}
-	auto voicesBanks{ unexposedParams->getVoicesBanks() };
 	auto voiceName{ voicesBanks->nameOfVoiceInBankSlot(bank, slotNum) };
-	setName(slotNumString + " " + voiceName);
-	setSize(GUI::voiceSlotRadioButtton_w, GUI::voiceSlotRadioButtton_h);
+	setName(slotNumString + " - " + voiceName);
+	setSize(GUI::voiceSlotRadioButtton_w, GUI::voiceAndSplitSlotRadioButtton_h);
 }
 
 void VoiceSlotRadioButton::valueChanged(Value& /*value*/) {
 	auto voiceName{ voiceNameAsValue.getValue().toString() };
-	setName(slotNumString + " " + voiceName);
+	setName(slotNumString + " - " + voiceName);
 	repaint();
 }
 

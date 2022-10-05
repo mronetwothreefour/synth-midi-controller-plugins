@@ -21,7 +21,7 @@ VoiceSlots::VoiceSlots(VoicesBank bank, ExposedParameters* exposedParams, Unexpo
 		voiceSlotButtons.push_back(std::make_unique<VoiceSlotRadioButton>(bank, slotNum, unexposedParams));
 		voiceSlotButtons[slotNum]->onClick = [this, slotNum] { selectedSlot = slotNum; };
 		auto col_x{ (slotNum / 25) * (GUI::voiceSlotRadioButtton_w + voiceSlotRadioButtons_HorizGap) };
-		auto row_y{ (slotNum % 25) * GUI::voiceSlotRadioButtton_h };
+		auto row_y{ (slotNum % 25) * GUI::voiceAndSplitSlotRadioButtton_h };
 		voiceSlotButtons[slotNum]->setTopLeftPosition(col_x, row_y);
 		addAndMakeVisible(voiceSlotButtons[slotNum].get());
 	}

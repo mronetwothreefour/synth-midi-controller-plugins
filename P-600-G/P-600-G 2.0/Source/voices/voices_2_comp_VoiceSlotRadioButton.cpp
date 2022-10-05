@@ -18,7 +18,8 @@ VoiceSlotRadioButton::VoiceSlotRadioButton(const uint8 slotNum, UnexposedParamet
 	slotNumString{ String(slotNum).paddedLeft('0', 2) },
 	unexposedParams{ unexposedParams }
 {
-	voiceDataAsValue = unexposedParams->getVoicesBank()->getVoiceDataHexStringAsValueForSlot(slotNum);
+	auto voicesBank{ unexposedParams->getVoicesBank() };
+	voiceDataAsValue = voicesBank->getVoiceDataHexStringAsValueForSlot(slotNum);
 	voiceDataAsValue.addListener(this);
 
 	setRadioGroupId(1);
@@ -31,7 +32,6 @@ VoiceSlotRadioButton::VoiceSlotRadioButton(const uint8 slotNum, UnexposedParamet
 		tip += "CTRL-C copies the selected program" + GUI::apostrophe + "s settings into the clipboard.\n";
 		tip += "CTRL-V overwrites the selected program with the settings in the clipboard.";
 	}
-	auto voicesBank{ unexposedParams->getVoicesBank() };
 	auto voiceName{ voicesBank->nameOfVoiceInSlot(slotNum) };
 	setName(slotNumString + " " + voiceName);
 	setSize(GUI::voiceSlotRadioButtton_w, GUI::voiceSlotRadioButtton_h);
