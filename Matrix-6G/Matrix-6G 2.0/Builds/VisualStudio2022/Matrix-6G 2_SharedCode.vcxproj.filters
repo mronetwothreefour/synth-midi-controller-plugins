@@ -634,6 +634,9 @@
     <ClCompile Include="..\..\Source\descriptions\build_MainWindowButtonDescription.cpp">
       <Filter>Matrix-6G 2\Source\descriptions</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\descriptions\build_SplitParamDescription.cpp">
+      <Filter>Matrix-6G 2\Source\descriptions</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamSlider.cpp">
       <Filter>Matrix-6G 2\Source\exposedParamControls</Filter>
     </ClCompile>
@@ -719,6 +722,9 @@
       <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\splits\splits_0_tree_SplitsBank.cpp">
+      <Filter>Matrix-6G 2\Source\splits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\splits\splits_1_comp_SliderForSplitParam.cpp">
       <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\splits\splits_1_comp_SplitSlotRadioButton.cpp">
@@ -3132,6 +3138,9 @@
     <ClInclude Include="..\..\Source\descriptions\build_MainWindowButtonDescription.h">
       <Filter>Matrix-6G 2\Source\descriptions</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\descriptions\build_SplitParamDescription.h">
+      <Filter>Matrix-6G 2\Source\descriptions</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamSlider.h">
       <Filter>Matrix-6G 2\Source\exposedParamControls</Filter>
     </ClInclude>
@@ -3247,6 +3256,9 @@
       <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\splits\splits_0_tree_SplitsBank.h">
+      <Filter>Matrix-6G 2\Source\splits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\splits\splits_1_comp_SliderForSplitParam.h">
       <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\splits\splits_1_comp_SplitSlotRadioButton.h">

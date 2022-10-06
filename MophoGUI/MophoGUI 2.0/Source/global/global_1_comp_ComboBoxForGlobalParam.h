@@ -13,7 +13,6 @@ class ComboBoxForGlobalParameter :
 	public ComboBox
 {
 	GlobalParamComboBoxType comboBoxType;
-	Identifier paramID;
 	GlobalOptions* global;
 	Value globalParamAsValue;
 	Value shouldShowDescriptionAsValue;

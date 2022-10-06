@@ -14,7 +14,6 @@ class DisplayLabelForGlobalParameter :
 	public Value::Listener
 {
 	GlobalParamDisplayLabelType labelType;
-	Identifier paramID;
 	GlobalOptions* global;
 	Label label_GlobalParam;
 	Value globalParamAsValue;

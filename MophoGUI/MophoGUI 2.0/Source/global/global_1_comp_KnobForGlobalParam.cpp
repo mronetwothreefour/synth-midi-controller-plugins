@@ -23,19 +23,19 @@ KnobForGlobalParameter::KnobForGlobalParameter(KnobType knobType, UnexposedParam
 	switch (knobType)
 	{
 	case KnobType::globalTranspose:
-		paramID = ID::global_Transpose;
+		globalParamAsValue = global->getGobalParamAsValue(ID::global_Transpose);
 		setRange(0.0, 24.0, 1.0);
 		setValue((double)global->globalTranspose(), dontSendNotification);
 		setMouseDragSensitivity(90);
 		break;
 	case KnobType::globalFineTune:
-		paramID = ID::global_FineTune;
+		globalParamAsValue = global->getGobalParamAsValue(ID::global_FineTune);
 		setRange(0.0, 100.0, 1.0);
 		setValue((double)global->globalFineTune(), dontSendNotification);
 		setMouseDragSensitivity(105);
 		break;
 	case KnobType::hardwareReceiveChannel:
-		paramID = ID::global_HardwareReceiveChannel;
+		globalParamAsValue = global->getGobalParamAsValue(ID::global_HardwareReceiveChannel);
 		setRange(0.0, 16.0, 1.0);
 		setValue((double)global->hardwareReceiveChannel(), dontSendNotification);
 		setMouseDragSensitivity(90);
@@ -47,7 +47,6 @@ KnobForGlobalParameter::KnobForGlobalParameter(KnobType knobType, UnexposedParam
 	textEditor.setTopLeftPosition(0, 0);
 	addAndMakeVisible(textEditor);
 
-	globalParamAsValue = global->getGobalParamAsValue(paramID);
 	globalParamAsValue.addListener(this);
 
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
@@ -64,7 +63,7 @@ void KnobForGlobalParameter::updateTooltip() {
 	auto shouldShowDescription{ (bool)shouldShowDescriptionAsValue.getValue() };
 	auto shouldShowCurrentChoice{ (bool)shouldShowCurrentChoiceAsValue.getValue() };
 	auto currentChoice{ roundToInt(getValue()) };
-	auto verbose{ (bool)true };
+	auto verbose{ true };
 	String tip{ "" };
 	switch (knobType)
 	{

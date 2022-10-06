@@ -8,7 +8,6 @@ class EditorForTooltipDelay :
 	public Component,
 	Value::Listener
 {
-	Identifier parameterID;
 	Label tooltipDelayEditor;
 	Value shouldShowDescriptionAsValue;
 

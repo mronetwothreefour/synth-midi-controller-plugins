@@ -23,7 +23,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 	switch (comboBoxType)
 	{
 	case GlobalParamComboBoxType::midiClockSource:
-		paramID = ID::global_MIDI_ClockSource;
+		global->getGobalParamAsValue(ID::global_MIDI_ClockSource);
 		for (auto choiceNum = 0; choiceNum != 4; ++choiceNum)
 			choiceNamesList.add(ChoiceName::buildForMIDI_ClockSource(MIDI_ClockSource{ choiceNum }, concise));
 		addItemList(choiceNamesList, 1);
@@ -35,7 +35,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		};
 		break;
 	case GlobalParamComboBoxType::pedalMode:
-		paramID = ID::global_PedalModeIsArpLatch;
+		global->getGobalParamAsValue(ID::global_PedalModeIsArpLatch);
 		choiceNamesList.add(ChoiceName::buildForPedalMode(false));
 		choiceNamesList.add(ChoiceName::buildForPedalMode(true));
 		addItemList(choiceNamesList, 1);
@@ -48,7 +48,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		};
 		break;
 	case GlobalParamComboBoxType::voiceChanges:
-		paramID = ID::global_VoiceChangesAreEnabled;
+		global->getGobalParamAsValue(ID::global_VoiceChangesAreEnabled);
 		choiceNamesList.add(ChoiceName::buildForVoiceChanges(false));
 		choiceNamesList.add(ChoiceName::buildForVoiceChanges(true));
 		addItemList(choiceNamesList, 1);
@@ -61,7 +61,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		};
 		break;
 	case GlobalParamComboBoxType::paramChangeSendType:
-		paramID = ID::global_ParamChangeSendType;
+		global->getGobalParamAsValue(ID::global_ParamChangeSendType);
 		for (auto choiceNum = 0; choiceNum != 3; ++choiceNum)
 			choiceNamesList.add(ChoiceName::buildForParamChangeSendType(ParamChangeSendType{ choiceNum }));
 		addItemList(choiceNamesList, 1);
@@ -76,7 +76,6 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		break;
 	}
 
-	globalParamAsValue = global->getGobalParamAsValue(paramID);
 	globalParamAsValue.addListener(this);
 
 	auto tooltips{ unexposedParams->getTooltipsOptions() };

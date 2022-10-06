@@ -10,9 +10,7 @@
 using namespace MophoConstants;
 using Description = GlobalParamDescription;
 
-EditorForTooltipDelay::EditorForTooltipDelay(UnexposedParameters* unexposedParams) :
-	parameterID{ ID::tooltips_DelayInMilliseconds }
-{
+EditorForTooltipDelay::EditorForTooltipDelay(UnexposedParameters* unexposedParams) {
 	tooltipDelayEditor.setComponentID(ID::lbl_EditLabel.toString());
 	tooltipDelayEditor.setEditable(true);
 	auto tooltips{ unexposedParams->getTooltipsOptions() };

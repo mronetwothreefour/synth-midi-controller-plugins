@@ -17,7 +17,6 @@ class KnobForGlobalParameter :
 	public Value::Listener
 {
 	KnobType knobType;
-	Identifier paramID;
 	GlobalOptions* global;
 	UnexposedParameters* unexposedParams;
 	TextEditorForGlobalParamKnob textEditor;

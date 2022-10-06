@@ -144,6 +144,7 @@
     <ClCompile Include="..\..\Source\core_1_PluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp"/>
     <ClCompile Include="..\..\Source\descriptions\build_MainWindowButtonDescription.cpp"/>
+    <ClCompile Include="..\..\Source\descriptions\build_SplitParamDescription.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamSlider.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_1_comp_ComboBoxAndAttachment.cpp"/>
@@ -173,6 +174,7 @@
     <ClCompile Include="..\..\Source\midi\midi_1_SysExMessages.cpp"/>
     <ClCompile Include="..\..\Source\splits\splits_0_comp_TextEditorForSplitParamSlider.cpp"/>
     <ClCompile Include="..\..\Source\splits\splits_0_tree_SplitsBank.cpp"/>
+    <ClCompile Include="..\..\Source\splits\splits_1_comp_SliderForSplitParam.cpp"/>
     <ClCompile Include="..\..\Source\splits\splits_1_comp_SplitSlotRadioButton.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_SplitOptions.cpp"/>
@@ -2360,6 +2362,7 @@
     <ClInclude Include="..\..\Source\constants\constants_Voices.h"/>
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h"/>
     <ClInclude Include="..\..\Source\descriptions\build_MainWindowButtonDescription.h"/>
+    <ClInclude Include="..\..\Source\descriptions\build_SplitParamDescription.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamSlider.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TooltipUpdaterForExposedParamControl.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_1_comp_ComboBoxAndAttachment.h"/>
@@ -2399,6 +2402,7 @@
     <ClInclude Include="..\..\Source\splits\splits_0_build_ChoiceName.h"/>
     <ClInclude Include="..\..\Source\splits\splits_0_comp_TextEditorForSplitParamSlider.h"/>
     <ClInclude Include="..\..\Source\splits\splits_0_tree_SplitsBank.h"/>
+    <ClInclude Include="..\..\Source\splits\splits_1_comp_SliderForSplitParam.h"/>
     <ClInclude Include="..\..\Source\splits\splits_1_comp_SplitSlotRadioButton.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_SplitOptions.h"/>

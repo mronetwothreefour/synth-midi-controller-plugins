@@ -25,25 +25,24 @@ DisplayLabelForGlobalParameter::DisplayLabelForGlobalParameter(GlobalParamDispla
 	switch (labelType)
 	{
 	case GlobalParamDisplayLabelType::paramChangeReceiveType:
-		paramID = ID::global_ParamChangeReceiveType;
+		global->getGobalParamAsValue(ID::global_ParamChangeReceiveType);
 		break;
 	case GlobalParamDisplayLabelType::midiControllersStatus:
-		paramID = ID::global_ControllersAreEnabled;
+		global->getGobalParamAsValue(ID::global_ControllersAreEnabled);
 		break;
 	case GlobalParamDisplayLabelType::sysExStatus:
-		paramID = ID::global_SysExIsEnabled;
+		global->getGobalParamAsValue(ID::global_SysExIsEnabled);
 		break;
 	case GlobalParamDisplayLabelType::audioOutput:
-		paramID = ID::global_HardwareOutputIsMono;
+		global->getGobalParamAsValue(ID::global_HardwareOutputIsMono);
 		break;
 	case GlobalParamDisplayLabelType::hardwareOutputBalance:
-		paramID = ID::global_HardwareOutputBalance;
+		global->getGobalParamAsValue(ID::global_HardwareOutputBalance);
 		break;
 	default:
 		break;
 	}
 
-	globalParamAsValue = global->getGobalParamAsValue(paramID);
 	globalParamAsValue.addListener(this);
 
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
