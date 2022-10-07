@@ -31,8 +31,8 @@ public:
 	const uint8 zoneTranspose(SplitZone zone);
 	void setZoneTranspose(SplitZone zone, const uint8 newTranspose);
 
-	const bool zoneMidiOutIsEnabled(SplitZone zone);
-	void setZoneMidiOutIsEnabled(SplitZone zone, const bool shouldBeEnabled);
+	const bool zone_MIDI_OutIsEnabled(SplitZone zone);
+	void setZone_MIDI_OutIsEnabled(SplitZone zone, const bool shouldBeEnabled);
 
 	Value getSplitParamAsValue(const Identifier paramID);
 

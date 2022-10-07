@@ -4,9 +4,9 @@
 
 using namespace Matrix_6G_Constants;
 
-String SplitParamDescription::buildForZoneLimit(bool isLowerZone) {
+String SplitParamDescription::buildForZoneLimit(SplitZone zone) {
     String descriptionString{ "" };
-    if (isLowerZone) {
+    if (zone == SplitZone::lower) {
         descriptionString += "The lower zone extends from this note\n";
         descriptionString += "down to C 0 (MIDI note number 0).\n";
     }
@@ -24,8 +24,19 @@ String SplitParamDescription::buildForZoneLimit(bool isLowerZone) {
     return descriptionString;
 }
 
-String SplitParamDescription::buildForZoneTranspose(bool isLowerZone) {
-    String zoneName{ isLowerZone ? "lower" : "upper" };
+String SplitParamDescription::buildForZone_MIDI_OutIsEnabled(SplitZone zone) {
+    String zoneName{ zone == SplitZone::lower ? "lower" : "upper" };
+    String descriptionString{ "" };
+    descriptionString += "Selects whether the " + zoneName + " transmits and receives\n";
+    descriptionString += "MIDI messages on the basic channel (set in Master options).\n";
+    descriptionString += "NOTE: Changes made to split parameters are not sent\n";
+    descriptionString += "to the hardware until you SAVE the split in one of\n";
+    descriptionString += "the storage bank slots below.\n";
+    return descriptionString;
+}
+
+String SplitParamDescription::buildForZoneTranspose(SplitZone zone) {
+    String zoneName{ zone == SplitZone::lower ? "lower" : "upper" };
     String descriptionString{ "" };
     descriptionString += "Raises or lowers the pitch of all notes\n";
     descriptionString += "in the " + zoneName + " zone in semitone increments.\n";
@@ -38,10 +49,24 @@ String SplitParamDescription::buildForZoneTranspose(bool isLowerZone) {
     return descriptionString;
 }
 
-String SplitParamDescription::buildForZoneVoiceNum(bool isLowerZone) {
+String SplitParamDescription::buildForZoneVoiceAssignment() {
+    String descriptionString{ "" };
+    descriptionString += "Selects how the hardware" + GUI::apostrophe + "s six voices are distributed\n";
+    descriptionString += "between the lower and upper zones. Options where\n";
+    descriptionString += "one of the zones is assigned no voices are intended\n";
+    descriptionString += "for playing the Matrix-6R and another MIDI device\n";
+    descriptionString += "with a single controller. Make sure MIDI Out is on\n";
+    descriptionString += "for the zone that targets the additional device.\n";
+    descriptionString += "NOTE: Changes made to split parameters are not\n";
+    descriptionString += "sent to the hardware until you SAVE the split in\n";
+    descriptionString += "one of the storage bank slots below.\n";
+    return descriptionString;
+}
+
+String SplitParamDescription::buildForZoneVoiceNum(SplitZone zone) {
     String descriptionString{ "" };
     descriptionString += "Selects which patch will be played by the\n";
-    if (isLowerZone) {
+    if (zone == SplitZone::lower) {
         descriptionString += "lower zone (the left side of the keyboard).\n";
     }
     else {

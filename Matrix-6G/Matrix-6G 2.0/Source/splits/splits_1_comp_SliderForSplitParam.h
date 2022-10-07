@@ -18,7 +18,6 @@ class RotarySliderForSplitParameter :
 	public Value::Listener
 {
 	SliderType sliderType;
-	Identifier paramID;
 	SplitOptions* splitOptions;
 	TooltipsOptions* tooltips;
 	TextEditorForSplitParamSlider textEditor;
@@ -44,7 +43,6 @@ class LinearSliderForSplitZoneVolumeBalance :
 	public LinearSliderWithMouseWheelMoveOverride,
 	public Value::Listener
 {
-	Identifier paramID;
 	SplitOptions* splitOptions;
 	TooltipsOptions* tooltips;
 	TextEditorForSplitParamSlider textEditor;

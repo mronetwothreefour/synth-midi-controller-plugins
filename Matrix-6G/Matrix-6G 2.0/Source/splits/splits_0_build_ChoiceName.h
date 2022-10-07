@@ -32,6 +32,13 @@ struct SplitParamChoiceName
 			return verbose ? "range error" : "err";
 	}
 
+	static String buildForZone_MIDI_OutIsEnabled(bool isEnabled, bool verbose) {
+		if (isEnabled)
+			return verbose ? "Enabled" : "ON";
+		else
+			return verbose ? "Disabled" : "OFF";
+	}
+
 	static String buildForZoneVoiceAssignment(SplitZoneVoiceAssignment assignment, bool verbose) {
 		switch (assignment)
 		{

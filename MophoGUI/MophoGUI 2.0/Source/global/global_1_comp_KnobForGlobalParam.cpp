@@ -2,7 +2,6 @@
 
 #include "global_0_build_ChoiceName.h"
 #include "../constants/constants_GlobalParameters.h"
-#include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../descriptions/build_GlobalParamDescription.h"

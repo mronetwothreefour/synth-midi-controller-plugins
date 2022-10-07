@@ -13,11 +13,11 @@ SplitOptions::SplitOptions() :
 	setZoneLimit(SplitZone::lower, (uint8)35);
 	setZoneVoiceNumber(SplitZone::lower, (uint8)0);
 	setZoneTranspose(SplitZone::lower, (uint8)36);
-	setZoneMidiOutIsEnabled(SplitZone::lower, true);
+	setZone_MIDI_OutIsEnabled(SplitZone::lower, true);
 	setZoneLimit(SplitZone::upper, (uint8)36);
 	setZoneVoiceNumber(SplitZone::upper, (uint8)1);
 	setZoneTranspose(SplitZone::upper, (uint8)36);
-	setZoneMidiOutIsEnabled(SplitZone::upper, true);
+	setZone_MIDI_OutIsEnabled(SplitZone::upper, true);
 }
 
 const String SplitOptions::splitName() {
@@ -90,18 +90,18 @@ void SplitOptions::setZoneTranspose(SplitZone zone, const uint8 newTranspose) {
 		splitOptionsTree.setProperty(ID::split_UpperZoneTranspose, newTranspose, nullptr);
 }
 
-const bool SplitOptions::zoneMidiOutIsEnabled(SplitZone zone) {
+const bool SplitOptions::zone_MIDI_OutIsEnabled(SplitZone zone) {
 	if (zone == SplitZone::lower)
-		return (bool)splitOptionsTree.getProperty(ID::split_LowerZoneMidiOutIsEnabled);
+		return (bool)splitOptionsTree.getProperty(ID::split_LowerZone_MIDI_OutIsEnabled);
 	else
-		return (bool)splitOptionsTree.getProperty(ID::split_UpperZoneMidiOutIsEnabled);
+		return (bool)splitOptionsTree.getProperty(ID::split_UpperZone_MIDI_OutIsEnabled);
 }
 
-void SplitOptions::setZoneMidiOutIsEnabled(SplitZone zone, const bool shouldBeEnabled) {
+void SplitOptions::setZone_MIDI_OutIsEnabled(SplitZone zone, const bool shouldBeEnabled) {
 	if (zone == SplitZone::lower)
-		splitOptionsTree.setProperty(ID::split_LowerZoneMidiOutIsEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
+		splitOptionsTree.setProperty(ID::split_LowerZone_MIDI_OutIsEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
 	else
-		splitOptionsTree.setProperty(ID::split_UpperZoneMidiOutIsEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
+		splitOptionsTree.setProperty(ID::split_UpperZone_MIDI_OutIsEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
 }
 
 Value SplitOptions::getSplitParamAsValue(const Identifier paramID) {

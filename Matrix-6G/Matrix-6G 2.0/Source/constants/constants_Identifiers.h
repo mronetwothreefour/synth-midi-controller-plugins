@@ -160,13 +160,13 @@ namespace Matrix_6G_Constants
 
 		static const Identifier split_Name{ "split_Name" };
 		static const Identifier split_LowerZoneLimit{ "split_LowerZoneLimit" };
-		static const Identifier split_LowerZoneMidiOutIsEnabled{ "split_LowerZoneMidiOutIsEnabled" };
 		static const Identifier split_LowerZoneTranspose{ "split_LowerZoneTranspose" };
 		static const Identifier split_LowerZoneVoiceNumber{ "split_LowerZoneVoiceNumber" };
 		static const Identifier split_UpperZoneLimit{ "split_UpperZoneLimit" };
-		static const Identifier split_UpperZoneMidiOutIsEnabled{ "split_UpperZoneMidiOutIsEnabled" };
+		static const Identifier split_LowerZone_MIDI_OutIsEnabled{ "split_LowerZone_MIDI_OutIsEnabled" };
 		static const Identifier split_UpperZoneTranspose{ "split_UpperZoneTranspose" };
 		static const Identifier split_UpperZoneVoiceNumber{ "split_UpperZoneVoiceNumber" };
+		static const Identifier split_UpperZone_MIDI_OutIsEnabled{ "split_UpperZone_MIDI_OutIsEnabled" };
 		static const Identifier split_ZoneVoiceAssignment{ "split_ZoneVoiceAssignment" };
 		static const Identifier split_ZoneVolumeBalance{ "split_ZoneVolumeBalance" };
 

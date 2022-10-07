@@ -49,6 +49,13 @@ namespace Matrix_6G_Constants
 	};
 
 
+	const enum class SplitParamComboBoxType {
+		zoneVoiceAssignment = 0,
+		lowerZone_MIDI_IsEnabled,
+		upperZone_MIDI_IsEnabled
+	};
+
+
 	const enum class SplitParamSliderType {
 		zoneVolumeBalance = 0,
 		lowerZoneLimit,

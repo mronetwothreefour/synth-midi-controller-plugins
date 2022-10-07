@@ -5,6 +5,7 @@
 #include "../constants/constants_Enum.h"
 
 using namespace MophoConstants;
+using ComboBoxType = GlobalParamComboBoxType;
 
 class GlobalOptions;
 class UnexposedParameters;
@@ -12,7 +13,7 @@ class UnexposedParameters;
 class ComboBoxForGlobalParameter :
 	public ComboBox
 {
-	GlobalParamComboBoxType comboBoxType;
+	ComboBoxType comboBoxType;
 	GlobalOptions* global;
 	Value globalParamAsValue;
 	Value shouldShowDescriptionAsValue;
@@ -21,7 +22,7 @@ class ComboBoxForGlobalParameter :
 public:
 	ComboBoxForGlobalParameter() = delete;
 
-	ComboBoxForGlobalParameter(GlobalParamComboBoxType comboBoxType, UnexposedParameters* unexposedParams);
+	ComboBoxForGlobalParameter(ComboBoxType comboBoxType, UnexposedParameters* unexposedParams);
 	void updateTooltip();
 	void valueChanged(Value& value) override;
 	~ComboBoxForGlobalParameter();

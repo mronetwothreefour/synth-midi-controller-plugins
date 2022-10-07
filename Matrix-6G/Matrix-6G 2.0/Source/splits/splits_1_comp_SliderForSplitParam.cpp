@@ -2,7 +2,6 @@
 
 #include "splits_0_build_ChoiceName.h"
 #include "../constants/constants_Splits.h"
-#include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../descriptions/build_SplitParamDescription.h"
@@ -88,8 +87,6 @@ void RotarySliderForSplitParameter::updateTooltip() {
 	auto shouldShowDescription{ tooltips->shouldShowDescription() };
 	auto shouldShowCurrentChoice{ tooltips->shouldShowCurrentChoice() };
 	auto currentChoice{ roundToInt(getValue()) };
-	auto lowerZone{ true };
-	auto upperZone{ false };
 	auto verbose{ true };
 	String tip{ "" };
 	switch (sliderType)
@@ -98,43 +95,44 @@ void RotarySliderForSplitParameter::updateTooltip() {
 		break;
 	case SliderType::lowerZoneLimit:
 		if (shouldShowDescription)
-			tip += Description::buildForZoneLimit(lowerZone);
+			tip += Description::buildForZoneLimit(SplitZone::lower);
 		if (shouldShowCurrentChoice)
 			tip += "Current setting: " + ChoiceName::buildForZoneLimit(currentChoice, verbose);
 		break;
 	case SliderType::lowerZoneVoiceNum:
 		if (shouldShowDescription)
-			tip += Description::buildForZoneVoiceNum(lowerZone);
+			tip += Description::buildForZoneVoiceNum(SplitZone::lower);
 		if (shouldShowCurrentChoice)
 			tip += "Current setting: Patch " + String(currentChoice).paddedLeft('0', 2);
 		break;
 	case SliderType::lowerZoneTranspose:
 		if (shouldShowDescription)
-			tip += Description::buildForZoneTranspose(lowerZone);
+			tip += Description::buildForZoneTranspose(SplitZone::lower);
 		if (shouldShowCurrentChoice)
 			tip += "Current setting: " + ChoiceName::buildForZoneTranspose(currentChoice, verbose);
 		break;
 	case SliderType::upperZoneLimit:
 		if (shouldShowDescription)
-			tip += Description::buildForZoneLimit(upperZone);
+			tip += Description::buildForZoneLimit(SplitZone::upper);
 		if (shouldShowCurrentChoice)
 			tip += "Current setting: " + ChoiceName::buildForZoneLimit(currentChoice, verbose);
 		break;
 	case SliderType::upperZoneVoiceNum:
 		if (shouldShowDescription)
-			tip += Description::buildForZoneVoiceNum(upperZone);
+			tip += Description::buildForZoneVoiceNum(SplitZone::upper);
 		if (shouldShowCurrentChoice)
 			tip += "Current setting: Patch " + String(currentChoice).paddedLeft('0', 2);
 		break;
 	case SliderType::upperZoneTranspose:
 		if (shouldShowDescription)
-			tip += Description::buildForZoneTranspose(upperZone);
+			tip += Description::buildForZoneTranspose(SplitZone::upper);
 		if (shouldShowCurrentChoice)
 			tip += "Current setting: " + ChoiceName::buildForZoneTranspose(currentChoice, verbose);
 		break;
 	default:
 		break;
 	}
+	setTooltip(tip);
 }
 
 void RotarySliderForSplitParameter::mouseDoubleClick(const MouseEvent& /*event*/) {

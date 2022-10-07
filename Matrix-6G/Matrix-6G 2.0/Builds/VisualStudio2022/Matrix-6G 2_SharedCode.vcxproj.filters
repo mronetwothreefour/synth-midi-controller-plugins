@@ -724,6 +724,9 @@
     <ClCompile Include="..\..\Source\splits\splits_0_tree_SplitsBank.cpp">
       <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\splits\splits_1_comp_ComboBoxForSplitParam.cpp">
+      <Filter>Matrix-6G 2\Source\splits</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\splits\splits_1_comp_SliderForSplitParam.cpp">
       <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClCompile>
@@ -3256,6 +3259,9 @@
       <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\splits\splits_0_tree_SplitsBank.h">
+      <Filter>Matrix-6G 2\Source\splits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\splits\splits_1_comp_ComboBoxForSplitParam.h">
       <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\splits\splits_1_comp_SliderForSplitParam.h">

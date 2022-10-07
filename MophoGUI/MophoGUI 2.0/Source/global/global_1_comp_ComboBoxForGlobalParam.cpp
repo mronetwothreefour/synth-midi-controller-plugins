@@ -9,22 +9,21 @@
 #include "../midi/midi_1_ParameterChangeMessage.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
-using namespace MophoConstants;
 using ChoiceName = GlobalParamChoiceName;
 using Description = GlobalParamDescription;
 using ParamChange = ParameterChangeMessage;
 
-ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType comboBoxType, UnexposedParameters* unexposedParams) :
+ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType, UnexposedParameters* unexposedParams) :
 	comboBoxType{ comboBoxType },
 	global{ unexposedParams->getGlobalOptions() }
 {
 	StringArray choiceNamesList{};
-	auto concise{ (bool)false };
+	auto concise{ false };
 	switch (comboBoxType)
 	{
-	case GlobalParamComboBoxType::midiClockSource:
+	case ComboBoxType::midiClockSource:
 		global->getGobalParamAsValue(ID::global_MIDI_ClockSource);
-		for (auto choiceNum = 0; choiceNum != 4; ++choiceNum)
+		for (auto choiceNum = (int)MIDI_ClockSource::internalClock; choiceNum <= (int)MIDI_ClockSource::externalClock_Resend; ++choiceNum)
 			choiceNamesList.add(ChoiceName::buildForMIDI_ClockSource(MIDI_ClockSource{ choiceNum }, concise));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)global->midiClockSource(), dontSendNotification);
@@ -34,7 +33,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 			ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling((uint8)currentChoice, GP::nrpnType_MIDI_ClockSource, unexposedParams);
 		};
 		break;
-	case GlobalParamComboBoxType::pedalMode:
+	case ComboBoxType::pedalMode:
 		global->getGobalParamAsValue(ID::global_PedalModeIsArpLatch);
 		choiceNamesList.add(ChoiceName::buildForPedalMode(false));
 		choiceNamesList.add(ChoiceName::buildForPedalMode(true));
@@ -47,20 +46,22 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 			ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling((uint8)currentChoice, GP::nrpnType_PedalMode, unexposedParams);
 		};
 		break;
-	case GlobalParamComboBoxType::voiceChanges:
+	case ComboBoxType::voiceChanges:
+		auto disabled{ false };
+		auto enabled{ true };
 		global->getGobalParamAsValue(ID::global_VoiceChangesAreEnabled);
-		choiceNamesList.add(ChoiceName::buildForVoiceChanges(false));
-		choiceNamesList.add(ChoiceName::buildForVoiceChanges(true));
+		choiceNamesList.add(ChoiceName::buildForVoiceChanges(disabled));
+		choiceNamesList.add(ChoiceName::buildForVoiceChanges(enabled));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)global->voiceChangesAreEnabled(), dontSendNotification);
-		onChange = [this, unexposedParams] {
+		onChange = [this, unexposedParams, enabled, disabled] {
 			auto currentChoice{ getSelectedItemIndex() };
 			auto shouldBeEnabled{ currentChoice == 1 };
-			global->setVoiceChangesAreEnabled(shouldBeEnabled ? true : false);
+			global->setVoiceChangesAreEnabled(shouldBeEnabled ? enabled : disabled);
 			ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling((uint8)currentChoice, GP::nrpnType_VoiceChanges, unexposedParams);
 		};
 		break;
-	case GlobalParamComboBoxType::paramChangeSendType:
+	case ComboBoxType::paramChangeSendType:
 		global->getGobalParamAsValue(ID::global_ParamChangeSendType);
 		for (auto choiceNum = 0; choiceNum != 3; ++choiceNum)
 			choiceNamesList.add(ChoiceName::buildForParamChangeSendType(ParamChangeSendType{ choiceNum }));
@@ -95,7 +96,7 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 	String tip{ "" };
 	switch (comboBoxType)
 	{
-	case GlobalParamComboBoxType::midiClockSource:
+	case ComboBoxType::midiClockSource:
 		if (shouldShowDescription)
 			tip += Description::buildForMIDI_ClockSource();
 		if (shouldShowCurrentChoice) {
@@ -103,7 +104,7 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 			tip += "Current setting: " + ChoiceName::buildForMIDI_ClockSource(currentChoice, verbose);
 		}
 		break;
-	case GlobalParamComboBoxType::pedalMode:
+	case ComboBoxType::pedalMode:
 		if (shouldShowDescription)
 			tip += Description::buildForPedalMode();
 		if (shouldShowCurrentChoice) {
@@ -111,7 +112,7 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 			tip += "Current setting: " + ChoiceName::buildForPedalMode(isArpLatch);
 		}
 		break;
-	case GlobalParamComboBoxType::voiceChanges:
+	case ComboBoxType::voiceChanges:
 		if (shouldShowDescription)
 			tip += Description::buildForVoiceChanges();
 		if (shouldShowCurrentChoice) {
@@ -119,7 +120,7 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 			tip += "Current setting: " + ChoiceName::buildForVoiceChanges(currentChoice);
 		}
 		break;
-	case GlobalParamComboBoxType::paramChangeSendType:
+	case ComboBoxType::paramChangeSendType:
 		if (shouldShowDescription)
 			tip += Description::buildForParamChangeSendType();
 		if (shouldShowCurrentChoice) {

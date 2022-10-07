@@ -333,6 +333,10 @@
               file="Source/splits/splits_0_tree_SplitsBank.cpp"/>
         <FILE id="ajbXcc" name="splits_0_tree_SplitsBank.h" compile="0" resource="0"
               file="Source/splits/splits_0_tree_SplitsBank.h"/>
+        <FILE id="iygzUT" name="splits_1_comp_ComboBoxForSplitParam.cpp" compile="1"
+              resource="0" file="Source/splits/splits_1_comp_ComboBoxForSplitParam.cpp"/>
+        <FILE id="OI7oX9" name="splits_1_comp_ComboBoxForSplitParam.h" compile="0"
+              resource="0" file="Source/splits/splits_1_comp_ComboBoxForSplitParam.h"/>
         <FILE id="pB9tee" name="splits_1_comp_SliderForSplitParam.cpp" compile="1"
               resource="0" file="Source/splits/splits_1_comp_SliderForSplitParam.cpp"/>
         <FILE id="T9BQRe" name="splits_1_comp_SliderForSplitParam.h" compile="0"
