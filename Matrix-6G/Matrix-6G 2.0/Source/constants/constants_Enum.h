@@ -60,8 +60,14 @@ namespace Matrix_6G_Constants
 	};
 
 
+	const enum class SplitZone {
+		lower = 0,
+		upper
+	};
+
+
 	const enum class SplitZoneVoiceAssignment {
-		lower_2_Upper_4,
+		lower_2_Upper_4 = 0,
 		lower_4_Upper_2,
 		lower_6_Upper_0,
 		lower_0_Upper_6

@@ -29,38 +29,38 @@ TextEditorForSplitParamSlider::TextEditorForSplitParamSlider(SliderType sliderTy
 	case SliderType::lowerZoneLimit:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_LowerZoneLimit);
 		textEditor.onEditorShow = [this, tooltips] { onEditorShow_ZoneLimit(tooltips); };
-		textEditor.onTextChange = [this, lowerZone, splitOptions] { onTextChange_ZoneLimit(lowerZone, splitOptions); };
+		textEditor.onTextChange = [this, lowerZone, splitOptions] { onTextChange_ZoneLimit(SplitZone::lower, splitOptions); };
 		textEditor.setSize(172, 20);
 		slider_w = GUI::splitZoneLimitSlider_w;
 		break;
 	case SliderType::lowerZoneVoiceNum:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_LowerZoneVoiceNumber);
 		textEditor.onEditorShow = [this, tooltips] { onEditorShow_ZoneVoiceNumber(tooltips); };
-		textEditor.onTextChange = [this, lowerZone, splitOptions] { onTextChange_ZoneVoiceNumber(lowerZone, splitOptions); };
+		textEditor.onTextChange = [this, lowerZone, splitOptions] { onTextChange_ZoneVoiceNumber(SplitZone::lower, splitOptions); };
 		slider_w = GUI::splitZoneVoiceNumSlider_w;
 		break;
 	case SliderType::lowerZoneTranspose:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_LowerZoneTranspose);
 		textEditor.onEditorShow = [this, tooltips] { onEditorShow_ZoneTranspose(tooltips); };
-		textEditor.onTextChange = [this, lowerZone, splitOptions] { onTextChange_ZoneTranspose(lowerZone, splitOptions); };
+		textEditor.onTextChange = [this, lowerZone, splitOptions] { onTextChange_ZoneTranspose(SplitZone::lower, splitOptions); };
 		slider_w = GUI::splitZoneTransposeSlider_w;
 		break;
 	case SliderType::upperZoneLimit:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_UpperZoneLimit);
 		textEditor.onEditorShow = [this, tooltips] { onEditorShow_ZoneLimit(tooltips); };
-		textEditor.onTextChange = [this, upperZone, splitOptions] { onTextChange_ZoneLimit(upperZone, splitOptions); };
+		textEditor.onTextChange = [this, upperZone, splitOptions] { onTextChange_ZoneLimit(SplitZone::upper, splitOptions); };
 		slider_w = GUI::splitZoneLimitSlider_w;
 		break;
 	case SliderType::upperZoneVoiceNum:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_UpperZoneVoiceNumber);
 		textEditor.onEditorShow = [this, tooltips] { onEditorShow_ZoneVoiceNumber(tooltips); };
-		textEditor.onTextChange = [this, upperZone, splitOptions] { onTextChange_ZoneVoiceNumber(upperZone, splitOptions); };
+		textEditor.onTextChange = [this, upperZone, splitOptions] { onTextChange_ZoneVoiceNumber(SplitZone::upper, splitOptions); };
 		slider_w = GUI::splitZoneVoiceNumSlider_w;
 		break;
 	case SliderType::upperZoneTranspose:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_UpperZoneTranspose);
 		textEditor.onEditorShow = [this, tooltips] { onEditorShow_ZoneTranspose(tooltips); };
-		textEditor.onTextChange = [this, upperZone, splitOptions] { onTextChange_ZoneTranspose(upperZone, splitOptions); };
+		textEditor.onTextChange = [this, upperZone, splitOptions] { onTextChange_ZoneTranspose(SplitZone::upper, splitOptions); };
 		slider_w = GUI::splitZoneTransposeSlider_w;
 		break;
 	default:
@@ -131,7 +131,7 @@ void TextEditorForSplitParamSlider::onTextChange_ZoneVolumeBalance(SplitOptions*
 		setEditorTextUsingStoredValue();
 }
 
-void TextEditorForSplitParamSlider::onTextChange_ZoneLimit(bool isLowerZone, SplitOptions* splitOptions) {
+void TextEditorForSplitParamSlider::onTextChange_ZoneLimit(SplitZone zone, SplitOptions* splitOptions) {
 	auto newSettingString{ textEditor.getText() };
 	if (newSettingString.isNotEmpty()) {
 		auto newSetting{ -1 };
@@ -146,12 +146,8 @@ void TextEditorForSplitParamSlider::onTextChange_ZoneLimit(bool isLowerZone, Spl
 		}
 		else
 			newSetting = newSettingString.getIntValue();
-		if (newSetting > -1) {
-			if (isLowerZone)
-				splitOptions->setLowerZoneLimit((uint8)newSetting);
-			else
-				splitOptions->setUpperZoneLimit((uint8)newSetting);
-		}
+		if (newSetting > -1)
+			splitOptions->setZoneLimit(zone, (uint8)newSetting);
 		else
 			setEditorTextUsingStoredValue();
 	}
@@ -159,22 +155,19 @@ void TextEditorForSplitParamSlider::onTextChange_ZoneLimit(bool isLowerZone, Spl
 		setEditorTextUsingStoredValue();
 }
 
-void TextEditorForSplitParamSlider::onTextChange_ZoneVoiceNumber(bool isLowerZone, SplitOptions* splitOptions) {
+void TextEditorForSplitParamSlider::onTextChange_ZoneVoiceNumber(SplitZone zone, SplitOptions* splitOptions) {
 	auto newSettingString{ textEditor.getText() };
 	if (newSettingString.isNotEmpty()) {
 		auto newSetting{ (uint8)newSettingString.getIntValue() };
 		if (newSetting > 99)
 			newSetting = 99;
-		if (isLowerZone)
-			splitOptions->setLowerZoneVoiceNumber(newSetting);
-		else
-			splitOptions->setUpperZoneVoiceNumber(newSetting);
+		splitOptions->setZoneVoiceNumber(zone, newSetting);
 	}
 	else
 		setEditorTextUsingStoredValue();
 }
 
-void TextEditorForSplitParamSlider::onTextChange_ZoneTranspose(bool isLowerZone, SplitOptions* splitOptions) {
+void TextEditorForSplitParamSlider::onTextChange_ZoneTranspose(SplitZone zone, SplitOptions* splitOptions) {
 	auto newSettingString{ textEditor.getText() };
 	if (newSettingString.isNotEmpty()) {
 		auto newSetting{ newSettingString.getIntValue() };
@@ -182,10 +175,7 @@ void TextEditorForSplitParamSlider::onTextChange_ZoneTranspose(bool isLowerZone,
 			newSetting = -36;
 		if (newSetting > 24)
 			newSetting = 24;
-		if (isLowerZone)
-			splitOptions->setLowerZoneTranspose(uint8(newSetting + 36));
-		else
-			splitOptions->setUpperZoneTranspose(uint8(newSetting + 36));
+		splitOptions->setZoneTranspose(zone, uint8(newSetting + 36));
 	}
 	else
 		setEditorTextUsingStoredValue();

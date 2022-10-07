@@ -31,42 +31,42 @@ RotarySliderForSplitParameter::RotarySliderForSplitParameter(SliderType sliderTy
 	case SliderType::lowerZoneLimit:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_LowerZoneLimit);
 		setRange(0.0, 127.0, 1.0);
-		setValue((double)splitOptions->lowerZoneLimit(), dontSendNotification);
+		setValue((double)splitOptions->zoneLimit(SplitZone::lower), dontSendNotification);
 		setMouseDragSensitivity(144);
 		slider_w = GUI::splitZoneLimitSlider_w;
 		break;
 	case SliderType::lowerZoneVoiceNum:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_LowerZoneVoiceNumber);
 		setRange(0.0, 99.0, 1.0);
-		setValue((double)splitOptions->lowerZoneVoiceNumber(), dontSendNotification);
+		setValue((double)splitOptions->zoneVoiceNumber(SplitZone::lower), dontSendNotification);
 		setMouseDragSensitivity(130);
 		slider_w = GUI::splitZoneVoiceNumSlider_w;
 		break;
 	case SliderType::lowerZoneTranspose:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_LowerZoneTranspose);
 		setRange(0.0, 60.0, 1.0);
-		setValue((double)splitOptions->lowerZoneTranspose(), dontSendNotification);
+		setValue((double)splitOptions->zoneTranspose(SplitZone::lower), dontSendNotification);
 		setMouseDragSensitivity(110);
 		slider_w = GUI::splitZoneTransposeSlider_w;
 		break;
 	case SliderType::upperZoneLimit:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_UpperZoneLimit);
 		setRange(0.0, 127.0, 1.0);
-		setValue((double)splitOptions->upperZoneLimit(), dontSendNotification);
+		setValue((double)splitOptions->zoneLimit(SplitZone::upper), dontSendNotification);
 		setMouseDragSensitivity(144);
 		slider_w = GUI::splitZoneLimitSlider_w;
 		break;
 	case SliderType::upperZoneVoiceNum:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_UpperZoneVoiceNumber);
 		setRange(0.0, 99.0, 1.0);
-		setValue((double)splitOptions->upperZoneVoiceNumber(), dontSendNotification);
+		setValue((double)splitOptions->zoneVoiceNumber(SplitZone::upper), dontSendNotification);
 		setMouseDragSensitivity(130);
 		slider_w = GUI::splitZoneVoiceNumSlider_w;
 		break;
 	case SliderType::upperZoneTranspose:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_UpperZoneTranspose);
 		setRange(0.0, 60.0, 1.0);
-		setValue((double)splitOptions->upperZoneTranspose(), dontSendNotification);
+		setValue((double)splitOptions->zoneTranspose(SplitZone::upper), dontSendNotification);
 		setMouseDragSensitivity(110);
 		slider_w = GUI::splitZoneTransposeSlider_w;
 		break;
@@ -148,22 +148,22 @@ void RotarySliderForSplitParameter::valueChanged() {
 	case SliderType::zoneVolumeBalance:
 		break;
 	case SliderType::lowerZoneLimit:
-		splitOptions->setLowerZoneLimit(currentChoice);
+		splitOptions->setZoneLimit(SplitZone::lower, currentChoice);
 		break;
 	case SliderType::lowerZoneVoiceNum:
-		splitOptions->setLowerZoneVoiceNumber(currentChoice);
+		splitOptions->setZoneVoiceNumber(SplitZone::lower, currentChoice);
 		break;
 	case SliderType::lowerZoneTranspose:
-		splitOptions->setLowerZoneTranspose(currentChoice);
+		splitOptions->setZoneTranspose(SplitZone::lower, currentChoice);
 		break;
 	case SliderType::upperZoneLimit:
-		splitOptions->setUpperZoneLimit(currentChoice);
+		splitOptions->setZoneLimit(SplitZone::upper, currentChoice);
 		break;
 	case SliderType::upperZoneVoiceNum:
-		splitOptions->setUpperZoneVoiceNumber(currentChoice);
+		splitOptions->setZoneVoiceNumber(SplitZone::upper, currentChoice);
 		break;
 	case SliderType::upperZoneTranspose:
-		splitOptions->setUpperZoneTranspose(currentChoice);
+		splitOptions->setZoneTranspose(SplitZone::upper, currentChoice);
 		break;
 	default:
 		break;

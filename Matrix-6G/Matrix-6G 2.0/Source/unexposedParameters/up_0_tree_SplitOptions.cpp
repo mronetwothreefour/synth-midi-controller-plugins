@@ -10,14 +10,14 @@ SplitOptions::SplitOptions() :
 	setSplitName(SPLT::initialSplitNameString);
 	setZoneVoiceAssignment(SplitZoneVoiceAssignment::lower_2_Upper_4);
 	setZoneVolumeBalance((uint8)31);
-	setLowerZoneLimit((uint8)35);
-	setLowerZoneVoiceNumber((uint8)0);
-	setLowerZoneTranspose((uint8)36);
-	setLowerZoneMidiOutIsEnabled(true);
-	setUpperZoneLimit((uint8)36);
-	setUpperZoneVoiceNumber((uint8)1);
-	setUpperZoneTranspose((uint8)36);
-	setUpperZoneMidiOutIsEnabled(true);
+	setZoneLimit(SplitZone::lower, (uint8)35);
+	setZoneVoiceNumber(SplitZone::lower, (uint8)0);
+	setZoneTranspose(SplitZone::lower, (uint8)36);
+	setZoneMidiOutIsEnabled(SplitZone::lower, true);
+	setZoneLimit(SplitZone::upper, (uint8)36);
+	setZoneVoiceNumber(SplitZone::upper, (uint8)1);
+	setZoneTranspose(SplitZone::upper, (uint8)36);
+	setZoneMidiOutIsEnabled(SplitZone::upper, true);
 }
 
 const String SplitOptions::splitName() {
@@ -45,74 +45,63 @@ void SplitOptions::setZoneVolumeBalance(const uint8 newBalance) {
 	splitOptionsTree.setProperty(ID::split_ZoneVolumeBalance, newBalance, nullptr);
 }
 
-const uint8 SplitOptions::lowerZoneLimit() {
-	return (uint8)(int)splitOptionsTree.getProperty(ID::split_LowerZoneLimit);
+const uint8 SplitOptions::zoneLimit(SplitZone zone) {
+	if (zone == SplitZone::lower)
+		return (uint8)(int)splitOptionsTree.getProperty(ID::split_LowerZoneLimit);
+	else
+		return (uint8)(int)splitOptionsTree.getProperty(ID::split_UpperZoneLimit);
 }
 
-void SplitOptions::setLowerZoneLimit(const uint8 newLimit) {
+void SplitOptions::setZoneLimit(SplitZone zone, const uint8 newLimit) {
 	jassert(newLimit < 128);
-	splitOptionsTree.setProperty(ID::split_LowerZoneLimit, newLimit, nullptr);
+	if (zone == SplitZone::lower)
+		splitOptionsTree.setProperty(ID::split_LowerZoneLimit, newLimit, nullptr);
+	else
+		splitOptionsTree.setProperty(ID::split_UpperZoneLimit, newLimit, nullptr);
 }
 
-const uint8 SplitOptions::lowerZoneVoiceNumber() {
-	return (uint8)(int)splitOptionsTree.getProperty(ID::split_LowerZoneVoiceNumber);
+const uint8 SplitOptions::zoneVoiceNumber(SplitZone zone) {
+	if (zone == SplitZone::lower)
+		return (uint8)(int)splitOptionsTree.getProperty(ID::split_LowerZoneVoiceNumber);
+	else
+		return (uint8)(int)splitOptionsTree.getProperty(ID::split_UpperZoneVoiceNumber);
 }
 
-void SplitOptions::setLowerZoneVoiceNumber(const uint8 newVoiceNum) {
+void SplitOptions::setZoneVoiceNumber(SplitZone zone, const uint8 newVoiceNum) {
 	jassert(newVoiceNum < VCS::numberOfSlotsInVoicesBank);
-	splitOptionsTree.setProperty(ID::split_LowerZoneVoiceNumber, newVoiceNum, nullptr);
+	if (zone == SplitZone::lower)
+		splitOptionsTree.setProperty(ID::split_LowerZoneVoiceNumber, newVoiceNum, nullptr);
+	else
+		splitOptionsTree.setProperty(ID::split_UpperZoneVoiceNumber, newVoiceNum, nullptr);
 }
 
-const uint8 SplitOptions::lowerZoneTranspose() {
-	return (uint8)(int)splitOptionsTree.getProperty(ID::split_LowerZoneTranspose);
+const uint8 SplitOptions::zoneTranspose(SplitZone zone) {
+	if (zone == SplitZone::lower)
+		return (uint8)(int)splitOptionsTree.getProperty(ID::split_LowerZoneTranspose);
+	else
+		return (uint8)(int)splitOptionsTree.getProperty(ID::split_UpperZoneTranspose);
 }
 
-void SplitOptions::setLowerZoneTranspose(const uint8 newTranspose) {
+void SplitOptions::setZoneTranspose(SplitZone zone, const uint8 newTranspose) {
 	jassert(newTranspose < 61);
-	splitOptionsTree.setProperty(ID::split_LowerZoneTranspose, newTranspose, nullptr);
+	if (zone == SplitZone::lower)
+		splitOptionsTree.setProperty(ID::split_LowerZoneTranspose, newTranspose, nullptr);
+	else
+		splitOptionsTree.setProperty(ID::split_UpperZoneTranspose, newTranspose, nullptr);
 }
 
-const bool SplitOptions::lowerZoneMidiOutIsEnabled() {
-	return (bool)splitOptionsTree.getProperty(ID::split_LowerZoneMidiOutIsEnabled);
+const bool SplitOptions::zoneMidiOutIsEnabled(SplitZone zone) {
+	if (zone == SplitZone::lower)
+		return (bool)splitOptionsTree.getProperty(ID::split_LowerZoneMidiOutIsEnabled);
+	else
+		return (bool)splitOptionsTree.getProperty(ID::split_UpperZoneMidiOutIsEnabled);
 }
 
-void SplitOptions::setLowerZoneMidiOutIsEnabled(const bool shouldBeEnabled) {
-	splitOptionsTree.setProperty(ID::split_LowerZoneMidiOutIsEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
-}
-
-const uint8 SplitOptions::upperZoneLimit() {
-	return (uint8)(int)splitOptionsTree.getProperty(ID::split_UpperZoneLimit);
-}
-
-void SplitOptions::setUpperZoneLimit(const uint8 newLimit) {
-	jassert(newLimit < 128);
-	splitOptionsTree.setProperty(ID::split_UpperZoneLimit, newLimit, nullptr);
-}
-
-const uint8 SplitOptions::upperZoneVoiceNumber() {
-	return (uint8)(int)splitOptionsTree.getProperty(ID::split_UpperZoneVoiceNumber);
-}
-
-void SplitOptions::setUpperZoneVoiceNumber(const uint8 newVoiceNum) {
-	jassert(newVoiceNum < VCS::numberOfSlotsInVoicesBank);
-	splitOptionsTree.setProperty(ID::split_UpperZoneVoiceNumber, newVoiceNum, nullptr);
-}
-
-const uint8 SplitOptions::upperZoneTranspose() {
-	return (uint8)(int)splitOptionsTree.getProperty(ID::split_UpperZoneTranspose);
-}
-
-void SplitOptions::setUpperZoneTranspose(const uint8 newTranspose) {
-	jassert(newTranspose < 61);
-	splitOptionsTree.setProperty(ID::split_UpperZoneTranspose, newTranspose, nullptr);
-}
-
-const bool SplitOptions::upperZoneMidiOutIsEnabled() {
-	return (bool)splitOptionsTree.getProperty(ID::split_UpperZoneMidiOutIsEnabled);
-}
-
-void SplitOptions::setUpperZoneMidiOutIsEnabled(const bool shouldBeEnabled) {
-	splitOptionsTree.setProperty(ID::split_UpperZoneMidiOutIsEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
+void SplitOptions::setZoneMidiOutIsEnabled(SplitZone zone, const bool shouldBeEnabled) {
+	if (zone == SplitZone::lower)
+		splitOptionsTree.setProperty(ID::split_LowerZoneMidiOutIsEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
+	else
+		splitOptionsTree.setProperty(ID::split_UpperZoneMidiOutIsEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
 }
 
 Value SplitOptions::getSplitParamAsValue(const Identifier paramID) {

@@ -36,9 +36,9 @@ private:
 	void onEditorShow_ZoneTranspose(TooltipsOptions* tooltips);
 
 	void onTextChange_ZoneVolumeBalance(SplitOptions* splitOptions);
-	void onTextChange_ZoneLimit(bool isLowerZone, SplitOptions* splitOptions);
-	void onTextChange_ZoneVoiceNumber(bool isLowerZone, SplitOptions* splitOptions);
-	void onTextChange_ZoneTranspose(bool isLowerZone, SplitOptions* splitOptions);
+	void onTextChange_ZoneLimit(SplitZone zone, SplitOptions* splitOptions);
+	void onTextChange_ZoneVoiceNumber(SplitZone zone, SplitOptions* splitOptions);
+	void onTextChange_ZoneTranspose(SplitZone zone, SplitOptions* splitOptions);
 
 public:
 	void showEditor();
