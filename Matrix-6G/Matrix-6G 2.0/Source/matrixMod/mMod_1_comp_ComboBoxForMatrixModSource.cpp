@@ -19,10 +19,9 @@ ComboBoxForMatrixModSource::ComboBoxForMatrixModSource(int modNum, MatrixModOpti
 	modSourceValue = matrixModOptions->getMatrixModPropertyAsValue("matrixMod_Mod_" + (String)modNum + "_Source");
 	modSourceValue.addListener(this);
 
-	auto concise{ (bool)false };
 	StringArray choiceNamesList{};
 	for (auto choiceNum = (uint8)0; choiceNum != MMOD::numberOfSourceChoices; ++choiceNum)
-		choiceNamesList.add(ChoiceName::buildForModSource(choiceNum, concise));
+		choiceNamesList.add(ChoiceName::buildForModSource(choiceNum, ChoiceNameType::concise));
 	addItemList(choiceNamesList, 1);
 	setSelectedItemIndex((int)matrixModOptions->modSource(modNum), dontSendNotification);
 	onChange = [this, modNum, matrixModOptions] {
@@ -42,7 +41,6 @@ ComboBoxForMatrixModSource::ComboBoxForMatrixModSource(int modNum, MatrixModOpti
 void ComboBoxForMatrixModSource::updateTooltip() {
 	auto shouldShowDescription{ (bool)shouldShowDescriptionAsValue.getValue() };
 	auto shouldShowCurrentChoice{ (bool)shouldShowCurrentChoiceAsValue.getValue() };
-	auto verbose{ (bool)true };
 	String tip{ "" };
 	if (shouldShowDescription) {
 		tip += "Selects the modulation source. Matrix Mod parameters\n";
@@ -51,7 +49,7 @@ void ComboBoxForMatrixModSource::updateTooltip() {
 	}
 	if (shouldShowCurrentChoice) {
 		auto currentChoice{ (uint8)getSelectedItemIndex() };
-		tip += "Current Setting: " + ChoiceName::buildForModSource(currentChoice, verbose);
+		tip += "Current Setting: " + ChoiceName::buildForModSource(currentChoice, ChoiceNameType::verbose);
 	}
 	setTooltip(tip);
 }

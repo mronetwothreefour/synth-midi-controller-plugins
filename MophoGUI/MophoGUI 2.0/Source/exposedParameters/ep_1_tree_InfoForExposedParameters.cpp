@@ -47,9 +47,6 @@ InfoForExposedParameters::InfoForExposedParameters() :
 	const int widthOfAllowChoiceColumns_OscPitch{ 38 };
 	const int widthOfAllowChoiceColumns_PosNeg_127{ 32 };
 
-	auto concise{ false };
-	auto verbose{ true };
-
 	// ------------------------------------------------------------------------------------------------------------- oscillators
 
 	const int vertDistanceBtwnOscRows{ 60 };
@@ -83,8 +80,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, controlsCol_1_x + allowedChoicesOffset_Knobs },
 					{ ID::property_AllowedChoicesBackground_y, knobTop_y },
 				}, {
-					ValueTree{ ChoiceNames::buildForOscPitch(concise) },
-					ValueTree{ ChoiceNames::buildForOscPitch(verbose) }
+					ValueTree{ ChoiceNames::buildForOscPitch(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForOscPitch(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -110,8 +107,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, controlsCol_2_x + allowedChoicesOffset_Knobs },
 					{ ID::property_AllowedChoicesBackground_y, knobTop_y },
 				}, {
-					ValueTree{ ChoiceNames::buildForOscFineTune(concise) },
-					ValueTree{ ChoiceNames::buildForOscFineTune(verbose) }
+					ValueTree{ ChoiceNames::buildForOscFineTune(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForOscFineTune(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -137,8 +134,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, controlsCol_3_x + allowedChoicesOffset_Knobs },
 					{ ID::property_AllowedChoicesBackground_y, knobTop_y },
 				}, {
-					ValueTree{ ChoiceNames::buildForOscShape(concise) },
-					ValueTree{ ChoiceNames::buildForOscShape(verbose) }
+					ValueTree{ ChoiceNames::buildForOscShape(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForOscShape(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -164,8 +161,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, controlsCol_4_x + allowedChoicesOffset_Knobs },
 					{ ID::property_AllowedChoicesBackground_y, knobTop_y },
 				}, {
-					ValueTree{ ChoiceNames::buildForPlainValue((uint8)128, concise) },
-					ValueTree{ ChoiceNames::buildForPlainValue((uint8)128, verbose) }
+					ValueTree{ ChoiceNames::buildForPlainValue((uint8)128, ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForPlainValue((uint8)128, ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -193,8 +190,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, controlsCol_6_x + allowedChoicesOffset_Toggles },
 					{ ID::property_AllowedChoicesBackground_y, keyTrackAllowedChoices_y },
 				}, {
-					ValueTree{ ChoiceNames::buildForOffOn(concise) },
-					ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+					ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -220,8 +217,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, controlsCol_5_x + allowedChoicesOffset_Knobs },
 					{ ID::property_AllowedChoicesBackground_y, knobTop_y },
 				}, {
-					ValueTree{ ChoiceNames::buildForPlainValue((uint8)128, concise) },
-					ValueTree{ ChoiceNames::buildForPlainValue((uint8)128, verbose) }
+					ValueTree{ ChoiceNames::buildForPlainValue((uint8)128, ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForPlainValue((uint8)128, ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 	}
@@ -249,8 +246,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_6_x + allowedChoicesOffset_Toggles },
 				{ ID::property_AllowedChoicesBackground_y, 11 },
 			}, {
-				ValueTree{ ChoiceNames::buildForOffOn(concise) },
-				ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -276,8 +273,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, col_10_AllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, 70 },
 			}, {
-				ValueTree{ ChoiceNames::buildForGlideMode(concise) },
-				ValueTree{ ChoiceNames::buildForGlideMode(verbose) }
+				ValueTree{ ChoiceNames::buildForGlideMode(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForGlideMode(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -303,8 +300,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_7_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, oscRow_1_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue((uint8)6, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue((uint8)6, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue((uint8)6, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue((uint8)6, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -330,8 +327,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_9_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, oscRow_1_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForBendRange(concise) },
-				ValueTree{ ChoiceNames::buildForBendRange(verbose) }
+				ValueTree{ ChoiceNames::buildForBendRange(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForBendRange(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -356,8 +353,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, col_10_AllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, 30 },
 			}, {
-				ValueTree{ ChoiceNames::buildForNotePriority(concise) },
-				ValueTree{ ChoiceNames::buildForNotePriority(verbose) }
+				ValueTree{ ChoiceNames::buildForNotePriority(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForNotePriority(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -383,8 +380,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_8_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, oscRow_1_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -410,8 +407,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_7_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, oscRow_2_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -437,8 +434,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_8_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, oscRow_2_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -471,8 +468,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_1_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_2_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildFor_LPF_Freq(concise) },
-				ValueTree{ ChoiceNames::buildFor_LPF_Freq(verbose) }
+				ValueTree{ ChoiceNames::buildFor_LPF_Freq(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildFor_LPF_Freq(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -498,8 +495,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_2_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_2_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -525,8 +522,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_3_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_2_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -552,8 +549,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_3_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_3_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -580,8 +577,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_2_x + allowedChoicesOffset_Toggles },
 				{ ID::property_AllowedChoicesBackground_y, 150 },
 			}, {
-				ValueTree{ ChoiceNames::buildFor_LPF_Type(concise) },
-				ValueTree{ ChoiceNames::buildFor_LPF_Type(verbose) }
+				ValueTree{ ChoiceNames::buildFor_LPF_Type(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildFor_LPF_Type(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -607,8 +604,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_1_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, 187 },
 			}, {
-				ValueTree{ ChoiceNames::buildForPosNeg_127(concise) },
-				ValueTree{ ChoiceNames::buildForPosNeg_127(verbose) }
+				ValueTree{ ChoiceNames::buildForPosNeg_127(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPosNeg_127(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -634,8 +631,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_2_x + allowedChoicesOffset_Knobs},
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_3_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -661,8 +658,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_4_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_3_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -688,8 +685,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_5_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_3_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -715,8 +712,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_6_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_3_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -742,8 +739,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_7_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_3_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -769,8 +766,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_8_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, lpfRow_3_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -803,8 +800,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_1_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, vcaRow_1_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -830,8 +827,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_2_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, vcaRow_1_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -857,8 +854,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_3_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, vcaRow_1_knobTop_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -884,8 +881,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_4_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, vcaRow_2_allowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -911,8 +908,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_5_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, vcaRow_2_allowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -938,8 +935,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_6_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, vcaRow_2_allowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -965,8 +962,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_7_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, vcaRow_2_allowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -992,8 +989,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_8_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, vcaRow_2_allowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1019,8 +1016,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_2_x + allowedChoicesOffset_Knobs },
 				{ ID::property_AllowedChoicesBackground_y, vcaRow_2_allowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1059,8 +1056,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, 361 },
 					{ ID::property_AllowedChoicesBackground_y, 160 },
 				}, {
-					ValueTree{ ChoiceNames::buildFor_LFO_Freq(concise) },
-					ValueTree{ ChoiceNames::buildFor_LFO_Freq(verbose) }
+					ValueTree{ ChoiceNames::buildFor_LFO_Freq(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildFor_LFO_Freq(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -1089,8 +1086,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, 396 + lfoNum * lfoControlsGroup_w },
 					{ ID::property_AllowedChoicesBackground_y, 310 },
 				}, {
-					ValueTree{ ChoiceNames::buildFor_LFO_Shape(concise) },
-					ValueTree{ ChoiceNames::buildFor_LFO_Shape(verbose) }
+					ValueTree{ ChoiceNames::buildFor_LFO_Shape(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildFor_LFO_Shape(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -1120,8 +1117,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, 236 + lfoNum * lfoControlsGroup_w },
 					{ ID::property_AllowedChoicesBackground_y, 249 },
 				}, {
-					ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-					ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+					ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -1150,8 +1147,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, 251 + lfoNum * lfoControlsGroup_w },
 					{ ID::property_AllowedChoicesBackground_y, 222 },
 				}, {
-					ValueTree{ ChoiceNames::buildForModDestination(concise) },
-					ValueTree{ ChoiceNames::buildForModDestination(verbose) }
+					ValueTree{ ChoiceNames::buildForModDestination(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForModDestination(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -1182,8 +1179,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, 452 + lfoNum * lfoControlsGroup_w },
 					{ ID::property_AllowedChoicesBackground_y, 381 },
 				}, {
-					ValueTree{ ChoiceNames::buildForOffOn(concise) },
-					ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+					ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 	}
@@ -1214,8 +1211,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, 30 },
 				{ ID::property_AllowedChoicesBackground_y, 211 },
 			}, {
-				ValueTree{ ChoiceNames::buildForModDestination(concise) },
-				ValueTree{ ChoiceNames::buildForModDestination(verbose) }
+				ValueTree{ ChoiceNames::buildForModDestination(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForModDestination(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1241,8 +1238,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_2_x - GUI::knob_diameter / 2 },
 				{ ID::property_AllowedChoicesBackground_y, 83 },
 			}, {
-				ValueTree{ ChoiceNames::buildForPosNeg_127(concise) },
-				ValueTree{ ChoiceNames::buildForPosNeg_127(verbose) }
+				ValueTree{ ChoiceNames::buildForPosNeg_127(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPosNeg_127(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1268,8 +1265,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_3_x - GUI::knob_diameter / 2 },
 				{ ID::property_AllowedChoicesBackground_y, 275 },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1296,8 +1293,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_4_x - GUI::knob_diameter / 2 },
 				{ ID::property_AllowedChoicesBackground_y, env3_Row_2_AllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1323,8 +1320,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_5_x - GUI::knob_diameter / 2 },
 				{ ID::property_AllowedChoicesBackground_y, env3_Row_2_AllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1350,8 +1347,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_6_x - GUI::knob_diameter / 2 },
 				{ ID::property_AllowedChoicesBackground_y, env3_Row_2_AllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1377,8 +1374,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_7_x - GUI::knob_diameter / 2 },
 				{ ID::property_AllowedChoicesBackground_y, env3_Row_2_AllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1404,8 +1401,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_8_x - GUI::knob_diameter / 2 },
 				{ ID::property_AllowedChoicesBackground_y, env3_Row_2_AllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1432,8 +1429,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_1_x - GUI::toggleLockButton_diameter / 2 },
 				{ ID::property_AllowedChoicesBackground_y, 398 },
 			}, {
-				ValueTree{ ChoiceNames::buildForOffOn(concise) },
-				ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1471,8 +1468,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, modulatorComboBoxes_AllowedChoices_x },
 					{ ID::property_AllowedChoicesBackground_y, 39 + modNum * modulatorControlsGroup_h },
 				}, {
-					ValueTree{ ChoiceNames::buildForModSource(concise) },
-					ValueTree{ ChoiceNames::buildForModSource(verbose) }
+					ValueTree{ ChoiceNames::buildForModSource(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForModSource(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -1502,8 +1499,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, modulatorControlsCol_2_x + allowedChoicesOffset_Knobs },
 					{ ID::property_AllowedChoicesBackground_y, 109 },
 				}, {
-					ValueTree{ ChoiceNames::buildForPosNeg_127(concise) },
-					ValueTree{ ChoiceNames::buildForPosNeg_127(verbose) }
+					ValueTree{ ChoiceNames::buildForPosNeg_127(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForPosNeg_127(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -1532,8 +1529,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, modulatorComboBoxes_AllowedChoices_x },
 					{ ID::property_AllowedChoicesBackground_y, 141 },
 				}, {
-					ValueTree{ ChoiceNames::buildForModDestination(concise) },
-					ValueTree{ ChoiceNames::buildForModDestination(verbose) }
+					ValueTree{ ChoiceNames::buildForModDestination(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForModDestination(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 	}
@@ -1576,8 +1573,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, midiModAmountsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModAmountsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPosNeg_127(concise) },
-				ValueTree{ ChoiceNames::buildForPosNeg_127(verbose) }
+				ValueTree{ ChoiceNames::buildForPosNeg_127(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPosNeg_127(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1602,8 +1599,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, midiModDestinationsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModDestinationsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForModDestination(concise) },
-				ValueTree{ ChoiceNames::buildForModDestination(verbose) }
+				ValueTree{ ChoiceNames::buildForModDestination(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForModDestination(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1629,8 +1626,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, midiModAmountsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModAmountsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPosNeg_127(concise) },
-				ValueTree{ ChoiceNames::buildForPosNeg_127(verbose) }
+				ValueTree{ ChoiceNames::buildForPosNeg_127(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPosNeg_127(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1655,8 +1652,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, midiModDestinationsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModDestinationsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForModDestination(concise) },
-				ValueTree{ ChoiceNames::buildForModDestination(verbose) }
+				ValueTree{ ChoiceNames::buildForModDestination(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForModDestination(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1682,8 +1679,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, midiModAmountsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModAmountsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPosNeg_127(concise) },
-				ValueTree{ ChoiceNames::buildForPosNeg_127(verbose) }
+				ValueTree{ ChoiceNames::buildForPosNeg_127(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPosNeg_127(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1708,8 +1705,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, midiModDestinationsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModDestinationsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForModDestination(concise) },
-				ValueTree{ ChoiceNames::buildForModDestination(verbose) }
+				ValueTree{ ChoiceNames::buildForModDestination(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForModDestination(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1735,8 +1732,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, midiModAmountsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModAmountsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPosNeg_127(concise) },
-				ValueTree{ ChoiceNames::buildForPosNeg_127(verbose) }
+				ValueTree{ ChoiceNames::buildForPosNeg_127(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPosNeg_127(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1761,8 +1758,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, midiModDestinationsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModDestinationsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForModDestination(concise) },
-				ValueTree{ ChoiceNames::buildForModDestination(verbose) }
+				ValueTree{ ChoiceNames::buildForModDestination(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForModDestination(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1788,8 +1785,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, midiModAmountsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModAmountsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForPosNeg_127(concise) },
-				ValueTree{ ChoiceNames::buildForPosNeg_127(verbose) }
+				ValueTree{ ChoiceNames::buildForPosNeg_127(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPosNeg_127(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1814,8 +1811,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, midiModDestinationsAllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, midiModDestinationsAllowedChoices_y },
 			}, {
-				ValueTree{ ChoiceNames::buildForModDestination(concise) },
-				ValueTree{ ChoiceNames::buildForModDestination(verbose) }
+				ValueTree{ ChoiceNames::buildForModDestination(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForModDestination(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1845,8 +1842,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, 759 },
 				{ ID::property_AllowedChoicesBackground_y, 207 },
 			}, {
-				ValueTree{ ChoiceNames::buildForOscPitch(concise) },
-				ValueTree{ ChoiceNames::buildForOscPitch(verbose) }
+				ValueTree{ ChoiceNames::buildForOscPitch(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForOscPitch(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1872,8 +1869,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, 807 },
 				{ ID::property_AllowedChoicesBackground_y, 271 },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1898,8 +1895,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, 1153 },
 				{ ID::property_AllowedChoicesBackground_y, 359 },
 			}, {
-				ValueTree{ ChoiceNames::buildForPushItMode(concise) },
-				ValueTree{ ChoiceNames::buildForPushItMode(verbose) }
+				ValueTree{ ChoiceNames::buildForPushItMode(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPushItMode(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1929,8 +1926,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, 860 },
 				{ ID::property_AllowedChoicesBackground_y, 106 },
 			}, {
-				ValueTree{ ChoiceNames::buildForClockTempo(concise) },
-				ValueTree{ ChoiceNames::buildForClockTempo(verbose) }
+				ValueTree{ ChoiceNames::buildForClockTempo(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForClockTempo(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1955,8 +1952,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, 797 },
 				{ ID::property_AllowedChoicesBackground_y, 118 },
 			}, {
-				ValueTree{ ChoiceNames::buildForClockDivision(concise) },
-				ValueTree{ ChoiceNames::buildForClockDivision(verbose) }
+				ValueTree{ ChoiceNames::buildForClockDivision(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForClockDivision(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -1981,8 +1978,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, col_10_AllowedChoices_x },
 				{ ID::property_AllowedChoicesBackground_y, 110 },
 			}, {
-				ValueTree{ ChoiceNames::buildForArpegMode(concise) },
-				ValueTree{ ChoiceNames::buildForArpegMode(verbose) }
+				ValueTree{ ChoiceNames::buildForArpegMode(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForArpegMode(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -2009,8 +2006,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, controlsCol_9_x + allowedChoicesOffset_Toggles },
 				{ ID::property_AllowedChoicesBackground_y, oscRow_2_center_y - GUI::toggleLockButton_diameter / 2 },
 			}, {
-				ValueTree{ ChoiceNames::buildForOffOn(concise) },
-				ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -2037,8 +2034,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, 1065 },
 				{ ID::property_AllowedChoicesBackground_y, 118 },
 			}, {
-				ValueTree{ ChoiceNames::buildForSeqTrigMode(concise) },
-				ValueTree{ ChoiceNames::buildForSeqTrigMode(verbose) }
+				ValueTree{ ChoiceNames::buildForSeqTrigMode(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForSeqTrigMode(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -2066,8 +2063,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_AllowedChoicesBackground_x, 819 - GUI::redToggle_diameter / 2},
 				{ ID::property_AllowedChoicesBackground_y, clockAndSequencerControlsRow_y + allowedChoicesOffset_Toggles  },
 			}, {
-				ValueTree{ ChoiceNames::buildForOffOn(concise) },
-				ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -2103,11 +2100,11 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_y, 138 },
 				}, {
 					ValueTree{ trackNumIsEven ?
-						ChoiceNames::buildForSeqTracks_2_4_Destination(trackNum, concise) :
-						ChoiceNames::buildForModDestination(concise) },
+						ChoiceNames::buildForSeqTracks_2_4_Destination(trackNum, ChoiceNameType::concise) :
+						ChoiceNames::buildForModDestination(ChoiceNameType::concise) },
 					ValueTree{ trackNumIsEven ?
-						ChoiceNames::buildForSeqTracks_2_4_Destination(trackNum, verbose) :
-						ChoiceNames::buildForModDestination(verbose) }
+						ChoiceNames::buildForSeqTracks_2_4_Destination(trackNum, ChoiceNameType::verbose) :
+						ChoiceNames::buildForModDestination(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 	}
@@ -2144,8 +2141,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, 17 },
 					{ ID::property_AllowedChoicesBackground_y, 85 + (knobNum - 1) * knobAssignComboBoxesVertSpacing },
 				}, {
-					ValueTree{ ChoiceNames::buildForKnobAssign(concise) },
-					ValueTree{ ChoiceNames::buildForKnobAssign(verbose) }
+					ValueTree{ ChoiceNames::buildForKnobAssign(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForKnobAssign(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 	}
@@ -2185,8 +2182,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 						{ ID::property_SeqTrackNum, trackNum + 1 },
 						{ ID::property_SeqTrackStepNum, stepNum + 1 },
 					}, {
-						ValueTree{ ChoiceNames::buildForSeqTrackStep(concise) },
-						ValueTree{ ChoiceNames::buildForSeqTrackStep(verbose) }
+						ValueTree{ ChoiceNames::buildForSeqTrackStep(ChoiceNameType::concise) },
+						ValueTree{ ChoiceNames::buildForSeqTrackStep(ChoiceNameType::verbose) }
 					}
 				}, -1, nullptr);
 		}
@@ -2220,8 +2217,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_AllowedChoicesBackground_x, 590 + charNum * (GUI::voiceNameChars_w + gapBetweenSeqStepsAndVoiceNameChars) },
 					{ ID::property_AllowedChoicesBackground_y, 71 },
 				}, {
-					ValueTree{ ChoiceNames::buildForVoiceNameChar(concise) },
-					ValueTree{ ChoiceNames::buildForVoiceNameChar(verbose) }
+					ValueTree{ ChoiceNames::buildForVoiceNameChar(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForVoiceNameChar(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 	}

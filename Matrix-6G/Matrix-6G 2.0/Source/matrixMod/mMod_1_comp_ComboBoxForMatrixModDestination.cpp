@@ -19,10 +19,9 @@ ComboBoxForMatrixModDestination::ComboBoxForMatrixModDestination(int modNum, Mat
 	modDestValue = matrixModOptions->getMatrixModPropertyAsValue("matrixMod_Mod_" + (String)modNum + "_Dest");
 	modDestValue.addListener(this);
 
-	auto concise{ (bool)false };
 	StringArray choiceNamesList{};
 	for (auto choiceNum = (uint8)0; choiceNum != MMOD::numberOfDestChoices; ++choiceNum)
-		choiceNamesList.add(ChoiceName::buildForModDest(choiceNum, concise));
+		choiceNamesList.add(ChoiceName::buildForModDest(choiceNum, ChoiceNameType::concise));
 	addItemList(choiceNamesList, 1);
 	setSelectedItemIndex((int)matrixModOptions->modDest(modNum), dontSendNotification);
 	onChange = [this, modNum, matrixModOptions] {
@@ -42,7 +41,6 @@ ComboBoxForMatrixModDestination::ComboBoxForMatrixModDestination(int modNum, Mat
 void ComboBoxForMatrixModDestination::updateTooltip() {
 	auto shouldShowDescription{ (bool)shouldShowDescriptionAsValue.getValue() };
 	auto shouldShowCurrentChoice{ (bool)shouldShowCurrentChoiceAsValue.getValue() };
-	const auto verbose{ (bool)true };
 	String tip{ "" };
 	if (shouldShowDescription) {
 		tip += "Selects the destination parameter for modulation.\n";
@@ -51,7 +49,7 @@ void ComboBoxForMatrixModDestination::updateTooltip() {
 	}
 	if (shouldShowCurrentChoice) {
 		auto currentChoice{ (uint8)getSelectedItemIndex() };
-		tip += "Current Setting: " + ChoiceName::buildForModDest(currentChoice, verbose);
+		tip += "Current Setting: " + ChoiceName::buildForModDest(currentChoice, ChoiceNameType::verbose);
 	}
 	setTooltip(tip);
 }

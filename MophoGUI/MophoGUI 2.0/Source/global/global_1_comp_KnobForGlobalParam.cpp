@@ -62,7 +62,6 @@ void KnobForGlobalParameter::updateTooltip() {
 	auto shouldShowDescription{ (bool)shouldShowDescriptionAsValue.getValue() };
 	auto shouldShowCurrentChoice{ (bool)shouldShowCurrentChoiceAsValue.getValue() };
 	auto currentChoice{ roundToInt(getValue()) };
-	auto verbose{ true };
 	String tip{ "" };
 	switch (knobType)
 	{
@@ -70,19 +69,19 @@ void KnobForGlobalParameter::updateTooltip() {
 		if (shouldShowDescription)
 			tip += Description::buildForGlobalTranspose();
 		if (shouldShowCurrentChoice)
-			tip += "Current setting: " + ChoiceName::buildForGlobalTranspose(currentChoice, verbose);
+			tip += "Current setting: " + ChoiceName::buildForGlobalTranspose(currentChoice, ChoiceNameType::verbose);
 		break;
 	case KnobType::globalFineTune:
 		if (shouldShowDescription)
 			tip += Description::buildForGlobalFineTune();
 		if (shouldShowCurrentChoice)
-			tip += "Current setting: " + ChoiceName::buildForGlobalFineTune(currentChoice, verbose);
+			tip += "Current setting: " + ChoiceName::buildForGlobalFineTune(currentChoice, ChoiceNameType::verbose);
 		break;
 	case KnobType::hardwareReceiveChannel:
 		if (shouldShowDescription)
 			tip += Description::buildForHardwareReceiveChannel();
 		if (shouldShowCurrentChoice)
-			tip += "Current setting: " + ChoiceName::buildForHardwareReceiveChannel(currentChoice, verbose);
+			tip += "Current setting: " + ChoiceName::buildForHardwareReceiveChannel(currentChoice, ChoiceNameType::verbose);
 		break;
 	default:
 		break;

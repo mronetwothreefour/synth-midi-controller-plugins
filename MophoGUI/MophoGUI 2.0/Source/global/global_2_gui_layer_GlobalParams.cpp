@@ -86,20 +86,19 @@ void GUI_Layer_GlobalParameters::paint(Graphics& g) {
 
 	g.setFont(GUI::font_KnobValueDisplays);
 	g.setColour(GUI::color_White);
-	auto concise{ (bool)false };
 	auto currentChoice{ 0 };
 	String choiceName{ "" };
 
 	currentChoice = roundToInt(knob_GlobalTranspose.getValue());
-	choiceName = ChoiceName::buildForGlobalTranspose(currentChoice, concise);
+	choiceName = ChoiceName::buildForGlobalTranspose(currentChoice, ChoiceNameType::concise);
 	g.drawText(choiceName, knob_GlobalTranspose.getBounds(), Justification::centred);
 
 	currentChoice = roundToInt(knob_GlobalFineTune.getValue());
-	choiceName = ChoiceName::buildForGlobalFineTune(currentChoice, concise);
+	choiceName = ChoiceName::buildForGlobalFineTune(currentChoice, ChoiceNameType::concise);
 	g.drawText(choiceName, knob_GlobalFineTune.getBounds(), Justification::centred);
 
 	currentChoice = roundToInt(knob_HardwareReceiveChannel.getValue());
-	choiceName = ChoiceName::buildForHardwareReceiveChannel(currentChoice, concise);
+	choiceName = ChoiceName::buildForHardwareReceiveChannel(currentChoice, ChoiceNameType::concise);
 	g.drawText(choiceName, knob_HardwareReceiveChannel.getBounds(), Justification::centred);
 }
 

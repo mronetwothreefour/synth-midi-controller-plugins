@@ -20,8 +20,6 @@ RotarySliderForSplitParameter::RotarySliderForSplitParameter(SliderType sliderTy
 	jassert(sliderType != SliderType::zoneVolumeBalance);
 
 	auto slider_w{ 0 };
-	auto lowerZone{ true };
-	auto upperZone{ false };
 
 	switch (sliderType)
 	{
@@ -86,8 +84,7 @@ RotarySliderForSplitParameter::RotarySliderForSplitParameter(SliderType sliderTy
 void RotarySliderForSplitParameter::updateTooltip() {
 	auto shouldShowDescription{ tooltips->shouldShowDescription() };
 	auto shouldShowCurrentChoice{ tooltips->shouldShowCurrentChoice() };
-	auto currentChoice{ roundToInt(getValue()) };
-	auto verbose{ true };
+	auto currentChoice{ (uint8)roundToInt(getValue()) };
 	String tip{ "" };
 	switch (sliderType)
 	{
@@ -97,7 +94,7 @@ void RotarySliderForSplitParameter::updateTooltip() {
 		if (shouldShowDescription)
 			tip += Description::buildForZoneLimit(SplitZone::lower);
 		if (shouldShowCurrentChoice)
-			tip += "Current setting: " + ChoiceName::buildForZoneLimit(currentChoice, verbose);
+			tip += "Current setting: " + ChoiceName::buildForZoneLimit(currentChoice, ChoiceNameType::verbose);
 		break;
 	case SliderType::lowerZoneVoiceNum:
 		if (shouldShowDescription)
@@ -109,13 +106,13 @@ void RotarySliderForSplitParameter::updateTooltip() {
 		if (shouldShowDescription)
 			tip += Description::buildForZoneTranspose(SplitZone::lower);
 		if (shouldShowCurrentChoice)
-			tip += "Current setting: " + ChoiceName::buildForZoneTranspose(currentChoice, verbose);
+			tip += "Current setting: " + ChoiceName::buildForZoneTranspose(currentChoice, ChoiceNameType::verbose);
 		break;
 	case SliderType::upperZoneLimit:
 		if (shouldShowDescription)
 			tip += Description::buildForZoneLimit(SplitZone::upper);
 		if (shouldShowCurrentChoice)
-			tip += "Current setting: " + ChoiceName::buildForZoneLimit(currentChoice, verbose);
+			tip += "Current setting: " + ChoiceName::buildForZoneLimit(currentChoice, ChoiceNameType::verbose);
 		break;
 	case SliderType::upperZoneVoiceNum:
 		if (shouldShowDescription)
@@ -127,7 +124,7 @@ void RotarySliderForSplitParameter::updateTooltip() {
 		if (shouldShowDescription)
 			tip += Description::buildForZoneTranspose(SplitZone::upper);
 		if (shouldShowCurrentChoice)
-			tip += "Current setting: " + ChoiceName::buildForZoneTranspose(currentChoice, verbose);
+			tip += "Current setting: " + ChoiceName::buildForZoneTranspose(currentChoice, ChoiceNameType::verbose);
 		break;
 	default:
 		break;
@@ -206,7 +203,6 @@ LinearSliderForSplitZoneVolumeBalance::LinearSliderForSplitZoneVolumeBalance(Une
 void LinearSliderForSplitZoneVolumeBalance::updateTooltip()
 {
 	auto currentChoice{ roundToInt(getValue()) };
-	auto verbose{ true };
 	String tip{ "" };
 	if (tooltips->shouldShowDescription())
 		tip += Description::buildForZoneVolumeBalance();

@@ -1,6 +1,7 @@
 #include "splits_0_comp_TextEditorForSplitParamSlider.h"
 
 #include "splits_0_build_ChoiceName.h"
+#include "../constants/constants_Enum.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_Splits.h"
@@ -77,11 +78,11 @@ void TextEditorForSplitParamSlider::setEditorTextUsingStoredValue() {
 	if (sliderType == SliderType::zoneVolumeBalance)
 		textEditor.setText(String(paramValue - 31), dontSendNotification);
 	if (sliderType == SliderType::lowerZoneLimit || sliderType == SliderType::upperZoneLimit)
-		textEditor.setText(SplitParamChoiceName::buildForZoneLimit(paramValue, false), dontSendNotification);
+		textEditor.setText(SplitParamChoiceName::buildForZoneLimit(paramValue, ChoiceNameType::concise), dontSendNotification);
 	if (sliderType == SliderType::lowerZoneVoiceNum || sliderType == SliderType::upperZoneVoiceNum)
 		textEditor.setText(String(paramValue).paddedLeft('0', 2), dontSendNotification);
 	if (sliderType == SliderType::lowerZoneTranspose || sliderType == SliderType::upperZoneTranspose)
-		SplitParamChoiceName::buildForZoneTranspose(paramValue, false);
+		SplitParamChoiceName::buildForZoneTranspose(paramValue, ChoiceNameType::concise);
 }
 
 void TextEditorForSplitParamSlider::onEditorShow_ZoneVolumeBalance(TooltipsOptions* tooltips) {
@@ -138,7 +139,7 @@ void TextEditorForSplitParamSlider::onTextChange_ZoneLimit(SplitZone zone, Split
 		if (newSettingString.containsAnyOf("abcdefgABCDEFG#")) {
 			newSettingString = newSettingString.toUpperCase();
 			for (auto choiceNum = (uint8)0; choiceNum != SPLT::numberOfChoicesForZoneLimit; ++choiceNum) {
-				if (SplitParamChoiceName::buildForZoneLimit(choiceNum, false).removeCharacters(" ") == newSettingString) {
+				if (SplitParamChoiceName::buildForZoneLimit(choiceNum, ChoiceNameType::concise).removeCharacters(" ") == newSettingString) {
 					newSetting = choiceNum;
 					break;
 				}

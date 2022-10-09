@@ -20,6 +20,12 @@ namespace MophoConstants
 	};
 
 
+	const enum class ChoiceNameType {
+		concise = 0,
+		verbose
+	};
+
+
 	const enum class ControlType {
 		nullControl = -1, // needed by ExposedParamControl's default constructor
 		knob,

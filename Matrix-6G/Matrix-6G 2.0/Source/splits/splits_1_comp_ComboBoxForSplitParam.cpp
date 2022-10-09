@@ -17,7 +17,6 @@ ComboBoxForSplitParameter::ComboBoxForSplitParameter(ComboBoxType comboBoxType, 
 	tooltips{ unexposedParams->getTooltipsOptions() }
 {
 	StringArray choiceNamesList{};
-	auto concise{ false };
 	auto disabled{ false };
 	auto enabled{ true };
 	switch (comboBoxType)
@@ -25,7 +24,7 @@ ComboBoxForSplitParameter::ComboBoxForSplitParameter(ComboBoxType comboBoxType, 
 	case ComboBoxType::zoneVoiceAssignment:
 		splitOptions->getSplitParamAsValue(ID::split_ZoneVoiceAssignment);
 		for (auto choiceNum = (int)VoiceAssignment::lower_2_Upper_4; choiceNum <= (int)VoiceAssignment::lower_0_Upper_6; ++choiceNum)
-			choiceNamesList.add(ChoiceName::buildForZoneVoiceAssignment(VoiceAssignment{ choiceNum }, concise));
+			choiceNamesList.add(ChoiceName::buildForZoneVoiceAssignment(VoiceAssignment{ choiceNum }, ChoiceNameType::concise));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)splitOptions->zoneVoiceAssignment(), dontSendNotification);
 		onChange = [this, unexposedParams] {
@@ -35,8 +34,8 @@ ComboBoxForSplitParameter::ComboBoxForSplitParameter(ComboBoxType comboBoxType, 
 		break;
 	case ComboBoxType::lowerZone_MIDI_IsEnabled:
 		splitOptions->getSplitParamAsValue(ID::split_LowerZone_MIDI_OutIsEnabled);
-		choiceNamesList.add(ChoiceName::buildForZone_MIDI_OutIsEnabled(disabled, concise));
-		choiceNamesList.add(ChoiceName::buildForZone_MIDI_OutIsEnabled(enabled, concise));
+		choiceNamesList.add(ChoiceName::buildForZone_MIDI_OutIsEnabled(disabled, ChoiceNameType::concise));
+		choiceNamesList.add(ChoiceName::buildForZone_MIDI_OutIsEnabled(enabled, ChoiceNameType::concise));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)splitOptions->zone_MIDI_OutIsEnabled(SplitZone::lower), dontSendNotification);
 		onChange = [this, unexposedParams, enabled, disabled] {
@@ -47,8 +46,8 @@ ComboBoxForSplitParameter::ComboBoxForSplitParameter(ComboBoxType comboBoxType, 
 		break;
 	case ComboBoxType::upperZone_MIDI_IsEnabled:
 		splitOptions->getSplitParamAsValue(ID::split_UpperZone_MIDI_OutIsEnabled);
-		choiceNamesList.add(ChoiceName::buildForZone_MIDI_OutIsEnabled(disabled, concise));
-		choiceNamesList.add(ChoiceName::buildForZone_MIDI_OutIsEnabled(enabled, concise));
+		choiceNamesList.add(ChoiceName::buildForZone_MIDI_OutIsEnabled(disabled, ChoiceNameType::concise));
+		choiceNamesList.add(ChoiceName::buildForZone_MIDI_OutIsEnabled(enabled, ChoiceNameType::concise));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)splitOptions->zone_MIDI_OutIsEnabled(SplitZone::upper), dontSendNotification);
 		onChange = [this, unexposedParams, enabled, disabled] {
@@ -67,7 +66,6 @@ ComboBoxForSplitParameter::ComboBoxForSplitParameter(ComboBoxType comboBoxType, 
 void ComboBoxForSplitParameter::updateTooltip() {
 	auto shouldShowDescription{ tooltips->shouldShowDescription() };
 	auto shouldShowCurrentChoice{ tooltips->shouldShowCurrentChoice() };
-	auto verbose{ true };
 	String tip{ "" };
 	switch (comboBoxType)
 	{
@@ -76,7 +74,7 @@ void ComboBoxForSplitParameter::updateTooltip() {
 			tip += Description::buildForZoneVoiceAssignment();
 		if (shouldShowCurrentChoice) {
 			auto currentChoice{ splitOptions->zoneVoiceAssignment() };
-			tip += "Current setting: " + ChoiceName::buildForZoneVoiceAssignment(currentChoice, verbose);
+			tip += "Current setting: " + ChoiceName::buildForZoneVoiceAssignment(currentChoice, ChoiceNameType::verbose);
 		}
 		break;
 	case ComboBoxType::lowerZone_MIDI_IsEnabled:
@@ -84,7 +82,7 @@ void ComboBoxForSplitParameter::updateTooltip() {
 			tip += Description::buildForZone_MIDI_OutIsEnabled(SplitZone::lower);
 		if (shouldShowCurrentChoice) {
 			auto isEnabled{ splitOptions->zone_MIDI_OutIsEnabled(SplitZone::lower) };
-			tip += "Current setting: " + ChoiceName::buildForZone_MIDI_OutIsEnabled(isEnabled, verbose);
+			tip += "Current setting: " + ChoiceName::buildForZone_MIDI_OutIsEnabled(isEnabled, ChoiceNameType::verbose);
 		}
 		break;
 	case ComboBoxType::upperZone_MIDI_IsEnabled:
@@ -92,7 +90,7 @@ void ComboBoxForSplitParameter::updateTooltip() {
 			tip += Description::buildForZone_MIDI_OutIsEnabled(SplitZone::upper);
 		if (shouldShowCurrentChoice) {
 			auto isEnabled{ splitOptions->zone_MIDI_OutIsEnabled(SplitZone::upper) };
-			tip += "Current setting: " + ChoiceName::buildForZone_MIDI_OutIsEnabled(isEnabled, verbose);
+			tip += "Current setting: " + ChoiceName::buildForZone_MIDI_OutIsEnabled(isEnabled, ChoiceNameType::verbose);
 		}
 		break;
 	default:

@@ -2,11 +2,15 @@
 
 #include <JuceHeader.h>
 
+#include "../constants/constants_Enum.h"
+
+using namespace Matrix_6G_Constants;
+
 struct MatrixModParamChoiceName
 {
 	static String buildForModAmount(uint8 choiceNum);
-	static String buildForModDest(uint8 choiceNum, bool verbose);
-	static String buildForModSource(uint8 choiceNum, bool verbose);
+	static String buildForModDest(uint8 choiceNum, ChoiceNameType type);
+	static String buildForModSource(uint8 choiceNum, ChoiceNameType type);
 
 private:
 	//==============================================================================

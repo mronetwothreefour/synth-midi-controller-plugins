@@ -19,9 +19,6 @@ InfoForExposedParameters::InfoForExposedParameters() :
 	const auto switchRow_1_y{ 177 };
 	const auto switchRow_2_y{ 315 };
 
-	auto concise{ false };
-	auto verbose{ true };
-
 	// ------------------------------------------------------------------------------------------------------------- oscillators
 
 	const auto oscCol_1_x{ 523 };
@@ -49,8 +46,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Height, GUI::knob_diameter },
 					{ ID::property_Description, Description::buildForOscFreq(oscLetter) },
 				}, {
-					ValueTree{ ChoiceNames::buildForOscFreq(concise) },
-					ValueTree{ ChoiceNames::buildForOscFreq(verbose) }
+					ValueTree{ ChoiceNames::buildForOscFreq(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForOscFreq(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -70,8 +67,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Height, oscNum == 0 ? GUI::switch_2_Pole_h : GUI::knob_diameter },
 					{ ID::property_Description,  oscNum == 0 ? Description::buildForOsc_A_Sync() : Description::buildForOsc_B_Fine() },
 				}, {
-					ValueTree{ oscNum == 0 ? ChoiceNames::buildForOffOn(concise) : ChoiceNames::buildForPlainValue(128, concise) },
-					ValueTree{ oscNum == 0 ? ChoiceNames::buildForOffOn(verbose) : ChoiceNames::buildForPlainValue(128, verbose) }
+					ValueTree{ oscNum == 0 ? ChoiceNames::buildForOffOn(ChoiceNameType::concise) : ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+					ValueTree{ oscNum == 0 ? ChoiceNames::buildForOffOn(ChoiceNameType::verbose) : ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -91,8 +88,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Height, GUI::switch_2_Pole_h },
 					{ ID::property_Description,  "When on, oscillator " + oscLetter + " outputs a sawtooth wave." },
 				}, {
-					ValueTree{ ChoiceNames::buildForOffOn(concise) },
-					ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+					ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -112,8 +109,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Height, GUI::switch_2_Pole_h },
 					{ ID::property_Description,  "When on, oscillator " + oscLetter + " outputs a triangle wave." },
 				}, {
-					ValueTree{ ChoiceNames::buildForOffOn(concise) },
-					ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+					ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -133,8 +130,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Height, GUI::switch_2_Pole_h },
 					{ ID::property_Description,  "When on, oscillator " + oscLetter + " outputs a pulse wave." },
 				}, {
-					ValueTree{ ChoiceNames::buildForOffOn(concise) },
-					ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+					ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -154,8 +151,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Height, GUI::knob_diameter },
 					{ ID::property_Description,  Description::buildForOscPulseWidth(oscLetter) },
 				}, {
-					ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-					ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+					ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 	}
@@ -177,8 +174,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description,  Description::buildForMixer() },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(64, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(64, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(64, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(64, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -198,8 +195,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description,  Description::buildForGlide() },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(16, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(16, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -226,8 +223,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description,  Description::buildForFilterCutoff() },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -247,8 +244,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description,  Description::buildForFilterReso() },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(64, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(64, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(64, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(64, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -268,8 +265,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description,  Description::buildForFilterEnvAmt() },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(16, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(16, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -289,8 +286,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::switch_3_Pole_h },
 				{ ID::property_Description,  Description::buildForFilterKeyTrack() },
 			}, {
-				ValueTree{ ChoiceNames::buildForFilterKeyTrack(concise) },
-				ValueTree{ ChoiceNames::buildForFilterKeyTrack(verbose) }
+				ValueTree{ ChoiceNames::buildForFilterKeyTrack(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForFilterKeyTrack(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -310,8 +307,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description,  Description::buildForEnvAttack(EnvelopeType::filter) },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(16, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(16, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -331,8 +328,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description,  Description::buildForEnvDecay(EnvelopeType::filter) },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(16, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(16, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -352,8 +349,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description,  Description::buildForEnvSustain(EnvelopeType::filter) },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(16, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(16, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -373,8 +370,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description,  Description::buildForEnvRelease(EnvelopeType::filter) },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(16, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(16, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -396,8 +393,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description,  Description::buildForEnvAttack(EnvelopeType::amplifier) },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(16, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(16, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -417,8 +414,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description,  Description::buildForEnvDecay(EnvelopeType::amplifier) },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(16, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(16, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -438,8 +435,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description,  Description::buildForEnvSustain(EnvelopeType::amplifier) },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(16, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(16, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -459,8 +456,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description,  Description::buildForEnvRelease(EnvelopeType::amplifier) },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(16, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(16, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -482,8 +479,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description,  Description::buildForPolyModAmt_FilterEnv() },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(16, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(16, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -503,8 +500,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description,  Description::buildForPolyModAmt_Osc_B() },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -524,8 +521,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::switch_2_Pole_h },
 				{ ID::property_Description,  Description::buildForPolyModDest_Osc_A_Freq() },
 			}, {
-				ValueTree{ ChoiceNames::buildForOffOn(concise) },
-				ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -545,8 +542,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::switch_2_Pole_h },
 				{ ID::property_Description,  Description::buildForPolyModDest_Filter() },
 			}, {
-				ValueTree{ ChoiceNames::buildForOffOn(concise) },
-				ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -566,8 +563,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::switch_2_Pole_h },
 				{ ID::property_Description,  Description::buildForUnisonTrack() },
 			}, {
-				ValueTree{ ChoiceNames::buildForOffOn(concise) },
-				ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -589,8 +586,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description,  Description::buildForLFO_Freq() },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(16, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(16, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(16, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -610,8 +607,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::switch_2_Pole_h },
 				{ ID::property_Description,  Description::buildForLFO_Shape() },
 			}, {
-				ValueTree{ ChoiceNames::buildForLFO_Shape(concise) },
-				ValueTree{ ChoiceNames::buildForLFO_Shape(verbose) }
+				ValueTree{ ChoiceNames::buildForLFO_Shape(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForLFO_Shape(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -631,8 +628,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::knob_diameter },
 				{ ID::property_Description,  Description::buildForLFO_InitAmount() },
 			}, {
-				ValueTree{ ChoiceNames::buildForPlainValue(32, concise) },
-				ValueTree{ ChoiceNames::buildForPlainValue(32, verbose) }
+				ValueTree{ ChoiceNames::buildForPlainValue(32, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPlainValue(32, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -652,8 +649,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::switch_2_Pole_h },
 				{ ID::property_Description,  Description::buildForLFO_Dest_Freq() },
 			}, {
-				ValueTree{ ChoiceNames::buildForOffOn(concise) },
-				ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -673,8 +670,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::switch_2_Pole_h },
 				{ ID::property_Description,  Description::buildForLFO_Dest_PW() },
 			}, {
-				ValueTree{ ChoiceNames::buildForOffOn(concise) },
-				ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -694,8 +691,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Height, GUI::switch_2_Pole_h },
 				{ ID::property_Description,  Description::buildForLFO_Dest_Filter() },
 			}, {
-				ValueTree{ ChoiceNames::buildForOffOn(concise) },
-				ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 }

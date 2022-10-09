@@ -10,46 +10,46 @@ using namespace Matrix_6G_Constants;
 
 struct SplitParamChoiceName
 {
-	static String buildForZoneLimit(uint8 choiceNum, bool verbose) {
+	static String buildForZoneLimit(uint8 choiceNum, ChoiceNameType type) {
 		jassert(choiceNum > -1 && choiceNum < SPLT::numberOfChoicesForZoneLimit);
 		auto pitchName{ ExposedParamChoiceNamesValueTree::convertIntToPitchName(choiceNum) };
-		return pitchName + (verbose ? " (MIDI Note " + (String)choiceNum + ")" : "");
+		return pitchName + (type == ChoiceNameType::verbose ? " (MIDI Note " + (String)choiceNum + ")" : "");
 	}
 
-	static String buildForZoneTranspose(uint8 choiceNum, bool verbose) {
+	static String buildForZoneTranspose(uint8 choiceNum, ChoiceNameType type) {
 		jassert(choiceNum > -1 && choiceNum < 61);
 		if (choiceNum < 35)
-			return (String)(choiceNum - 36) + (verbose ? " semitones" : "");
+			return (String)(choiceNum - 36) + (type == ChoiceNameType::verbose ? " semitones" : "");
 		if (choiceNum == 35)
-			return verbose ? "-1 semitone" : "-1";
+			return type == ChoiceNameType::verbose ? "-1 semitone" : "-1";
 		if (choiceNum == 36)
-			return verbose ? "No Transpose" : "0";
+			return type == ChoiceNameType::verbose ? "No Transpose" : "0";
 		if (choiceNum == 37)
-			return verbose ? "+1 semitone" : "+1";
+			return type == ChoiceNameType::verbose ? "+1 semitone" : "+1";
 		if (choiceNum > 37 && choiceNum < 61)
-			return "+" + (String)(choiceNum - 36) + (verbose ? " semitones" : "");
+			return "+" + (String)(choiceNum - 36) + (type == ChoiceNameType::verbose ? " semitones" : "");
 		else
-			return verbose ? "range error" : "err";
+			return type == ChoiceNameType::verbose ? "range error" : "err";
 	}
 
-	static String buildForZone_MIDI_OutIsEnabled(bool isEnabled, bool verbose) {
+	static String buildForZone_MIDI_OutIsEnabled(bool isEnabled, ChoiceNameType type) {
 		if (isEnabled)
-			return verbose ? "Enabled" : "ON";
+			return type == ChoiceNameType::verbose ? "Enabled" : "ON";
 		else
-			return verbose ? "Disabled" : "OFF";
+			return type == ChoiceNameType::verbose ? "Disabled" : "OFF";
 	}
 
-	static String buildForZoneVoiceAssignment(SplitZoneVoiceAssignment assignment, bool verbose) {
+	static String buildForZoneVoiceAssignment(SplitZoneVoiceAssignment assignment, ChoiceNameType type) {
 		switch (assignment)
 		{
 		case SplitZoneVoiceAssignment::lower_2_Upper_4:
-			return verbose ? "2 Voices Lower / 4 Voices Upper" : "2/4";
+			return type == ChoiceNameType::verbose ? "2 Voices Lower / 4 Voices Upper" : "2/4";
 		case SplitZoneVoiceAssignment::lower_4_Upper_2:
-			return verbose ? "4 Voices Lower / 2 Voices Upper" : "4/2";
+			return type == ChoiceNameType::verbose ? "4 Voices Lower / 2 Voices Upper" : "4/2";
 		case SplitZoneVoiceAssignment::lower_6_Upper_0:
-			return verbose ? "6 Voices Lower / 0 Voices Upper" : "6/0";
+			return type == ChoiceNameType::verbose ? "6 Voices Lower / 0 Voices Upper" : "6/0";
 		case SplitZoneVoiceAssignment::lower_0_Upper_6:
-			return verbose ? "0 Voices Lower / 6 Voices Upper" : "0/6";
+			return type == ChoiceNameType::verbose ? "0 Voices Lower / 6 Voices Upper" : "0/6";
 		default:
 			return "range error";
 		}

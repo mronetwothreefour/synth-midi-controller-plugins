@@ -25,9 +25,6 @@ InfoForExposedParameters::InfoForExposedParameters() :
 	const auto controlsRow_11_y{ controlsRow_10_y + GUI::vertDistBtwnRows };
 	const auto controlsRow_12_y{ controlsRow_11_y + GUI::vertDistBtwnRows };
 
-	auto concise{ false };
-	auto verbose{ true };
-
 	// ------------------------------------------------------------------------------------------------------------- oscillators
 
 	const auto osc_1_x{ 130 };
@@ -50,8 +47,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, osc_w },
 					{ ID::property_Description, Description::buildForOscPitch(oscNum) },
 				}, {
-					ValueTree{ ChoiceNames::buildForOscPitch(concise) },
-					ValueTree{ ChoiceNames::buildForOscPitch(verbose) }
+					ValueTree{ ChoiceNames::buildForOscPitch(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForOscPitch(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -70,8 +67,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, osc_w },
 					{ ID::property_Description, Description::buildForOscType(oscNum) },
 				}, {
-					ValueTree{ ChoiceNames::buildForOscType(oscNum, concise) },
-					ValueTree{ ChoiceNames::buildForOscType(oscNum, verbose) }
+					ValueTree{ ChoiceNames::buildForOscType(oscNum, ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForOscType(oscNum, ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -91,8 +88,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, osc_w },
 					{ ID::property_Description, Description::buildForOscPulseWidth(oscNum) },
 				}, {
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -112,8 +109,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, osc_w },
 					{ ID::property_Description, Description::buildForOscSawTri(oscNum) },
 				}, {
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -133,8 +130,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, osc_w },
 					{ ID::property_Description, oscNum == 1 ? Description::buildForOsc_1_Sync() : Description::buildForOsc_2_Detune() },
 				}, {
-					ValueTree{ oscNum == 1 ? ChoiceNames::buildForOsc_1_Sync(concise) : ChoiceNames::buildForSigned_6_BitValue(concise) },
-					ValueTree{ oscNum == 1 ? ChoiceNames::buildForOsc_1_Sync(verbose) : ChoiceNames::buildForSigned_6_BitValue(verbose) }
+					ValueTree{ oscNum == 1 ? ChoiceNames::buildForOsc_1_Sync(ChoiceNameType::concise) : ChoiceNames::buildForSigned_6_BitValue(ChoiceNameType::concise) },
+					ValueTree{ oscNum == 1 ? ChoiceNames::buildForOsc_1_Sync(ChoiceNameType::verbose) : ChoiceNames::buildForSigned_6_BitValue(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -154,8 +151,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, osc_w },
 					{ ID::property_Description, Description::buildForOsc_LFO_1_FM(oscNum) },
 				}, {
-					ValueTree{ ChoiceNames::buildForSigned_7_BitValue(concise) },
-					ValueTree{ ChoiceNames::buildForSigned_7_BitValue(verbose) }
+					ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -175,8 +172,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, osc_w },
 					{ ID::property_Description, Description::buildForOsc_LFO_2_PWM(oscNum) },
 				}, {
-					ValueTree{ ChoiceNames::buildForSigned_7_BitValue(concise) },
-					ValueTree{ ChoiceNames::buildForSigned_7_BitValue(verbose) }
+					ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -195,8 +192,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, osc_w },
 					{ ID::property_Description, Description::buildForOscKeyClick() },
 				}, {
-					ValueTree{ ChoiceNames::buildForOffOn(concise) },
-					ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+					ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -215,8 +212,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, osc_w },
 					{ ID::property_Description, Description::buildForOscKeyTrack(oscNum) },
 				}, {
-					ValueTree{ oscNum == 1 ? ChoiceNames::buildForOsc_1_KeyTrack(concise) : ChoiceNames::buildForOsc_2_And_VCF_KeyTrack(concise) },
-					ValueTree{ oscNum == 1 ? ChoiceNames::buildForOsc_1_KeyTrack(verbose) : ChoiceNames::buildForOsc_2_And_VCF_KeyTrack(verbose) }
+					ValueTree{ oscNum == 1 ? ChoiceNames::buildForOsc_1_KeyTrack(ChoiceNameType::concise) : ChoiceNames::buildForOsc_2_And_VCF_KeyTrack(ChoiceNameType::concise) },
+					ValueTree{ oscNum == 1 ? ChoiceNames::buildForOsc_1_KeyTrack(ChoiceNameType::verbose) : ChoiceNames::buildForOsc_2_And_VCF_KeyTrack(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -235,8 +232,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, osc_w },
 					{ ID::property_Description, Description::buildForLeverControl(oscNum) },
 				}, {
-					ValueTree{ ChoiceNames::buildForLeverControl(concise) },
-					ValueTree{ ChoiceNames::buildForLeverControl(verbose) }
+					ValueTree{ ChoiceNames::buildForLeverControl(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForLeverControl(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 	}
@@ -257,8 +254,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, 126 },
 				{ ID::property_Description, Description::buildForOscBalance() },
 			}, {
-				ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-				ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+				ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -282,8 +279,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, vcf_vca_w },
 				{ ID::property_Description, Description::buildFor_VCF_Freq() },
 			}, {
-				ValueTree{ ChoiceNames::buildForUnsignedValue(128, concise) },
-				ValueTree{ ChoiceNames::buildForUnsignedValue(128, verbose) }
+				ValueTree{ ChoiceNames::buildForUnsignedValue(128, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForUnsignedValue(128, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -303,8 +300,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, vcf_vca_w },
 				{ ID::property_Description, Description::buildFor_VCF_Reso() },
 			}, {
-				ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-				ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+				ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -324,8 +321,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, vcf_vca_w },
 				{ ID::property_Description, Description::buildFor_VCF_Env_1_Amt() },
 			}, {
-				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(concise) },
-				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(verbose) }
+				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -345,8 +342,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, vcf_vca_w },
 				{ ID::property_Description, Description::buildFor_VCF_PressureAmt() },
 			}, {
-				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(concise) },
-				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(verbose) }
+				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -365,8 +362,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, vcf_vca_w },
 				{ ID::property_Description, Description::buildFor_VCF_LeverControl() },
 			}, {
-				ValueTree{ ChoiceNames::buildForLeverControl(concise) },
-				ValueTree{ ChoiceNames::buildForLeverControl(verbose) }
+				ValueTree{ ChoiceNames::buildForLeverControl(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForLeverControl(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -385,8 +382,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, vcf_vca_w },
 				{ ID::property_Description, Description::buildFor_VCF_LeverControl() },
 			}, {
-				ValueTree{ ChoiceNames::buildForOsc_2_And_VCF_KeyTrack(concise) },
-				ValueTree{ ChoiceNames::buildForOsc_2_And_VCF_KeyTrack(verbose) }
+				ValueTree{ ChoiceNames::buildForOsc_2_And_VCF_KeyTrack(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForOsc_2_And_VCF_KeyTrack(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -408,8 +405,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, vcf_vca_w },
 				{ ID::property_Description, Description::buildFor_VCA_1_Volume() },
 			}, {
-				ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-				ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+				ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -429,8 +426,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, vcf_vca_w },
 				{ ID::property_Description, Description::buildFor_VCA_1_VeloAmt() },
 			}, {
-				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(concise) },
-				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(verbose) }
+				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -450,8 +447,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, vcf_vca_w },
 				{ ID::property_Description, Description::buildFor_VCA_1_VeloAmt() },
 			}, {
-				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(concise) },
-				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(verbose) }
+				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -475,8 +472,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, vcf_fm_w },
 				{ ID::property_Description, Description::buildFor_VCF_FM_Osc_1_Amt() },
 			}, {
-				ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-				ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+				ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -496,8 +493,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, vcf_fm_w },
 				{ ID::property_Description, Description::buildFor_VCF_FM_Env_3_Amt() },
 			}, {
-				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(concise) },
-				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(verbose) }
+				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -517,8 +514,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, vcf_fm_w },
 				{ ID::property_Description, Description::buildFor_VCF_FM_PressureAmt() },
 			}, {
-				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(concise) },
-				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(verbose) }
+				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -542,8 +539,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, porta_keyMode_w },
 				{ ID::property_Description, Description::buildForPortaRate() },
 			}, {
-				ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-				ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+				ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -563,8 +560,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, porta_keyMode_w },
 				{ ID::property_Description, Description::buildForPortaVelo() },
 			}, {
-				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(concise) },
-				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(verbose) }
+				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -583,8 +580,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, porta_keyMode_w },
 				{ ID::property_Description, Description::buildForPortaMode() },
 			}, {
-				ValueTree{ ChoiceNames::buildForPortaMode(concise) },
-				ValueTree{ ChoiceNames::buildForPortaMode(verbose) }
+				ValueTree{ ChoiceNames::buildForPortaMode(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForPortaMode(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -603,8 +600,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, porta_keyMode_w },
 				{ ID::property_Description, Description::buildForPortaLegato() },
 			}, {
-				ValueTree{ ChoiceNames::buildForOffOn(concise) },
-				ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -625,8 +622,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, porta_keyMode_w },
 				{ ID::property_Description, Description::buildForKeyboardMode() },
 			}, {
-				ValueTree{ ChoiceNames::buildForKeyboardMode(concise) },
-				ValueTree{ ChoiceNames::buildForKeyboardMode(verbose) }
+				ValueTree{ ChoiceNames::buildForKeyboardMode(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForKeyboardMode(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -652,8 +649,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, lfo_w },
 					{ ID::property_Description, Description::buildFor_LFO_Speed(lfoNum) },
 				}, {
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -672,8 +669,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, lfo_w },
 					{ ID::property_Description, Description::buildFor_LFO_WaveType(lfoNum) },
 				}, {
-					ValueTree{ ChoiceNames::buildFor_LFO_WaveType(concise) },
-					ValueTree{ ChoiceNames::buildFor_LFO_WaveType(verbose) }
+					ValueTree{ ChoiceNames::buildFor_LFO_WaveType(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildFor_LFO_WaveType(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -692,8 +689,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, lfo_w },
 					{ ID::property_Description, Description::buildFor_LFO_SampleSource(lfoNum) },
 				}, {
-					ValueTree{ ChoiceNames::buildFor_LFO_SampleSource(concise) },
-					ValueTree{ ChoiceNames::buildFor_LFO_SampleSource(verbose) }
+					ValueTree{ ChoiceNames::buildFor_LFO_SampleSource(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildFor_LFO_SampleSource(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -713,8 +710,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, lfo_w },
 				{ ID::property_Description, Description::buildFor_LFO_Amp(lfoNum) },
 			}, {
-				ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-				ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+				ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::verbose) }
 			}
 			}, -1, nullptr);
 
@@ -734,8 +731,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, lfo_w },
 				{ ID::property_Description, lfoNum == 1 ? Description::buildFor_LFO_1_PressureAmt() : Description::buildFor_LFO_2_KeyTrackAmt() },
 			}, {
-				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(concise) },
-				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(verbose) }
+				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::verbose) }
 			}
 			}, -1, nullptr);
 
@@ -755,8 +752,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, lfo_w },
 				{ ID::property_Description, Description::buildFor_LFO_RampAmt(lfoNum) },
 			}, {
-				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(concise) },
-				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(verbose) }
+				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::verbose) }
 			}
 			}, -1, nullptr);
 
@@ -775,8 +772,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, lfo_w },
 					{ ID::property_Description, Description::buildFor_LFO_TrigMode(lfoNum) },
 				}, {
-					ValueTree{ ChoiceNames::buildFor_LFO_TrigMode(concise) },
-					ValueTree{ ChoiceNames::buildFor_LFO_TrigMode(verbose) }
+					ValueTree{ ChoiceNames::buildFor_LFO_TrigMode(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildFor_LFO_TrigMode(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -796,8 +793,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, lfo_w },
 				{ ID::property_Description, Description::buildFor_LFO_RetrigPoint(lfoNum) },
 			}, {
-				ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-				ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+				ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::verbose) }
 			}
 			}, -1, nullptr);
 
@@ -816,8 +813,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, lfo_w },
 					{ ID::property_Description, Description::buildFor_LFO_Lag(lfoNum) },
 				}, {
-					ValueTree{ ChoiceNames::buildForOffOn(concise) },
-					ValueTree{ ChoiceNames::buildForOffOn(verbose) }
+					ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForOffOn(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 	}
@@ -844,8 +841,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, ramp_w },
 					{ ID::property_Description, Description::buildForRampRate(rampNum) },
 				}, {
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -864,8 +861,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, ramp_w },
 					{ ID::property_Description, Description::buildForRampTrig(rampNum) },
 				}, {
-					ValueTree{ ChoiceNames::buildForRampTrig(concise) },
-					ValueTree{ ChoiceNames::buildForRampTrig(verbose) }
+					ValueTree{ ChoiceNames::buildForRampTrig(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForRampTrig(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 	}
@@ -887,8 +884,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 				{ ID::property_Width, 94 },
 				{ ID::property_Description, Description::buildForTrackInput() },
 			}, {
-				ValueTree{ ChoiceNames::buildForModSource(concise) },
-				ValueTree{ ChoiceNames::buildForModSource(verbose) }
+				ValueTree{ ChoiceNames::buildForModSource(ChoiceNameType::concise) },
+				ValueTree{ ChoiceNames::buildForModSource(ChoiceNameType::verbose) }
 			}
 		}, -1, nullptr);
 
@@ -918,8 +915,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, trackPoint_w },
 					{ ID::property_Description, Description::buildForTrackPoint(pointNum, defaultChoice) },
 				}, {
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 	}
@@ -963,8 +960,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, envControls_w },
 					{ ID::property_Description, Description::buildForEnvAmp(envNumString) },
 				}, {
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -985,8 +982,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, envControls_w },
 					{ ID::property_Description, Description::buildForEnvVeloAmt(envNumString) },
 				}, {
-					ValueTree{ ChoiceNames::buildForSigned_7_BitValue(concise) },
-					ValueTree{ ChoiceNames::buildForSigned_7_BitValue(verbose) }
+					ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForSigned_7_BitValue(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -1006,8 +1003,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, envControls_w },
 					{ ID::property_Description, Description::buildForEnvTrigMode(envNumString) },
 				}, {
-					ValueTree{ ChoiceNames::buildForEnvTrigMode(concise) },
-					ValueTree{ ChoiceNames::buildForEnvTrigMode(verbose) }
+					ValueTree{ ChoiceNames::buildForEnvTrigMode(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForEnvTrigMode(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -1027,8 +1024,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, envControls_w },
 					{ ID::property_Description, Description::buildForEnvMode(envNumString) },
 				}, {
-					ValueTree{ ChoiceNames::buildForEnvMode(concise) },
-					ValueTree{ ChoiceNames::buildForEnvMode(verbose) }
+					ValueTree{ ChoiceNames::buildForEnvMode(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForEnvMode(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -1048,8 +1045,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, envControls_w },
 					{ ID::property_Description, Description::buildForEnv_LFO_1_Trig(envNumString) },
 				}, {
-					ValueTree{ ChoiceNames::buildForEnv_LFO_1_Trig(concise) },
-					ValueTree{ ChoiceNames::buildForEnv_LFO_1_Trig(verbose) }
+					ValueTree{ ChoiceNames::buildForEnv_LFO_1_Trig(ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForEnv_LFO_1_Trig(ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -1070,8 +1067,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, envControls_DADSR_w },
 					{ ID::property_Description, Description::buildForEnvDelay(envNumString) },
 				}, {
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -1092,8 +1089,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, envControls_DADSR_w },
 					{ ID::property_Description, Description::buildForEnvAttack(envNumString) },
 				}, {
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -1114,8 +1111,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, envControls_DADSR_w },
 					{ ID::property_Description, Description::buildForEnvDecay(envNumString) },
 				}, {
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -1136,8 +1133,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, envControls_DADSR_w },
 					{ ID::property_Description, Description::buildForEnvSustain(envNumString) },
 				}, {
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 
@@ -1158,8 +1155,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 					{ ID::property_Width, envControls_DADSR_w },
 					{ ID::property_Description, Description::buildForEnvRelease(envNumString) },
 				}, {
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, concise) },
-					ValueTree{ ChoiceNames::buildForUnsignedValue(64, verbose) }
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::concise) },
+					ValueTree{ ChoiceNames::buildForUnsignedValue(64, ChoiceNameType::verbose) }
 				}
 			}, -1, nullptr);
 	}

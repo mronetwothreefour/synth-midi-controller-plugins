@@ -18,13 +18,12 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 	global{ unexposedParams->getGlobalOptions() }
 {
 	StringArray choiceNamesList{};
-	auto concise{ false };
 	switch (comboBoxType)
 	{
 	case ComboBoxType::midiClockSource:
 		global->getGobalParamAsValue(ID::global_MIDI_ClockSource);
 		for (auto choiceNum = (int)MIDI_ClockSource::internalClock; choiceNum <= (int)MIDI_ClockSource::externalClock_Resend; ++choiceNum)
-			choiceNamesList.add(ChoiceName::buildForMIDI_ClockSource(MIDI_ClockSource{ choiceNum }, concise));
+			choiceNamesList.add(ChoiceName::buildForMIDI_ClockSource(MIDI_ClockSource{ choiceNum }, ChoiceNameType::concise));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)global->midiClockSource(), dontSendNotification);
 		onChange = [this, unexposedParams] {
@@ -46,20 +45,21 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 			ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling((uint8)currentChoice, GP::nrpnType_PedalMode, unexposedParams);
 		};
 		break;
-	case ComboBoxType::voiceChanges:
-		auto disabled{ false };
-		auto enabled{ true };
-		global->getGobalParamAsValue(ID::global_VoiceChangesAreEnabled);
-		choiceNamesList.add(ChoiceName::buildForVoiceChanges(disabled));
-		choiceNamesList.add(ChoiceName::buildForVoiceChanges(enabled));
-		addItemList(choiceNamesList, 1);
-		setSelectedItemIndex((int)global->voiceChangesAreEnabled(), dontSendNotification);
-		onChange = [this, unexposedParams, enabled, disabled] {
-			auto currentChoice{ getSelectedItemIndex() };
-			auto shouldBeEnabled{ currentChoice == 1 };
-			global->setVoiceChangesAreEnabled(shouldBeEnabled ? enabled : disabled);
-			ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling((uint8)currentChoice, GP::nrpnType_VoiceChanges, unexposedParams);
-		};
+	case ComboBoxType::voiceChanges: {
+			auto disabled{ false };
+			auto enabled{ true };
+			global->getGobalParamAsValue(ID::global_VoiceChangesAreEnabled);
+			choiceNamesList.add(ChoiceName::buildForVoiceChanges(disabled));
+			choiceNamesList.add(ChoiceName::buildForVoiceChanges(enabled));
+			addItemList(choiceNamesList, 1);
+			setSelectedItemIndex((int)global->voiceChangesAreEnabled(), dontSendNotification);
+			onChange = [this, unexposedParams, enabled, disabled] {
+				auto currentChoice{ getSelectedItemIndex() };
+				auto shouldBeEnabled{ currentChoice == 1 };
+				global->setVoiceChangesAreEnabled(shouldBeEnabled ? enabled : disabled);
+				ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling((uint8)currentChoice, GP::nrpnType_VoiceChanges, unexposedParams);
+			};
+		}
 		break;
 	case ComboBoxType::paramChangeSendType:
 		global->getGobalParamAsValue(ID::global_ParamChangeSendType);
@@ -92,7 +92,6 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 void ComboBoxForGlobalParameter::updateTooltip() {
 	auto shouldShowDescription{ (bool)shouldShowDescriptionAsValue.getValue() };
 	auto shouldShowCurrentChoice{ (bool)shouldShowCurrentChoiceAsValue.getValue() };
-	auto verbose{ (bool)true };
 	String tip{ "" };
 	switch (comboBoxType)
 	{
@@ -101,7 +100,7 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 			tip += Description::buildForMIDI_ClockSource();
 		if (shouldShowCurrentChoice) {
 			auto currentChoice{ global->midiClockSource() };
-			tip += "Current setting: " + ChoiceName::buildForMIDI_ClockSource(currentChoice, verbose);
+			tip += "Current setting: " + ChoiceName::buildForMIDI_ClockSource(currentChoice, ChoiceNameType::verbose);
 		}
 		break;
 	case ComboBoxType::pedalMode:

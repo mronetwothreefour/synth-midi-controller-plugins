@@ -3,8 +3,6 @@
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
 
-using namespace P_600_G_Constants;
-
 String ExposedParamChoiceNamesValueTree::convertIntToPitchName(const uint8& i) noexcept {
     auto noteNum{ i % 12 };
     auto octaveNumString{ String(i / 12) };
@@ -26,33 +24,33 @@ String ExposedParamChoiceNamesValueTree::convertIntToPitchName(const uint8& i) n
     }
 }
 
-ValueTree ExposedParamChoiceNamesValueTree::buildForFilterKeyTrack(const bool verbose) {
-    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+ValueTree ExposedParamChoiceNamesValueTree::buildForFilterKeyTrack(const ChoiceNameType type) {
+    ValueTree choiceNamesTree{ type == ChoiceNameType::verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
     choiceNamesTree.setProperty("choice_0", "Off", nullptr);
     choiceNamesTree.setProperty("choice_1", "1/2", nullptr);
-    choiceNamesTree.setProperty("choice_1", "Full", nullptr);
+    choiceNamesTree.setProperty("choice_2", "Full", nullptr);
     return choiceNamesTree;
 }
 
-ValueTree ExposedParamChoiceNamesValueTree::buildForLFO_Shape(const bool verbose) {
-    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+ValueTree ExposedParamChoiceNamesValueTree::buildForLFO_Shape(const ChoiceNameType type) {
+    ValueTree choiceNamesTree{ type == ChoiceNameType::verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
     choiceNamesTree.setProperty("choice_0", "Square", nullptr);
     choiceNamesTree.setProperty("choice_1", "Triangle", nullptr);
     return choiceNamesTree;
 }
 
-ValueTree ExposedParamChoiceNamesValueTree::buildForOffOn(const bool verbose) {
-    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+ValueTree ExposedParamChoiceNamesValueTree::buildForOffOn(const ChoiceNameType type) {
+    ValueTree choiceNamesTree{ type == ChoiceNameType::verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
     choiceNamesTree.setProperty("choice_0", "Off", nullptr);
     choiceNamesTree.setProperty("choice_1", "On", nullptr);
     return choiceNamesTree;
 }
 
-ValueTree ExposedParamChoiceNamesValueTree::buildForOscFreq(const bool verbose) {
-    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+ValueTree ExposedParamChoiceNamesValueTree::buildForOscFreq(const ChoiceNameType type) {
+    ValueTree choiceNamesTree{ type == ChoiceNameType::verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
     for (auto choiceNum = (uint8)0; choiceNum != EP::numberOfChoicesForOscFreq; ++choiceNum) {
         String choiceName{ "" };
-        if (verbose)
+        if (type == ChoiceNameType::verbose)
             choiceName = convertIntToPitchName(choiceNum) + " (MIDI Note " + String(choiceNum) + ")";
         else
             choiceName = convertIntToPitchName(choiceNum);
@@ -61,8 +59,8 @@ ValueTree ExposedParamChoiceNamesValueTree::buildForOscFreq(const bool verbose) 
     return choiceNamesTree;
 }
 
-ValueTree ExposedParamChoiceNamesValueTree::buildForPlainValue(const uint8 numberOfChoices, bool verbose) {
-    ValueTree choiceNamesTree{ verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+ValueTree ExposedParamChoiceNamesValueTree::buildForPlainValue(const uint8 numberOfChoices, ChoiceNameType type) {
+    ValueTree choiceNamesTree{ type == ChoiceNameType::verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
     for (auto choiceNum = 0; choiceNum != numberOfChoices; ++choiceNum) {
         auto choiceName{ (String)choiceNum };
         choiceNamesTree.setProperty("choice_" + (String)choiceNum, choiceName, nullptr);

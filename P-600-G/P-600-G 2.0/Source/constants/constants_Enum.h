@@ -10,6 +10,12 @@ namespace P_600_G_Constants
 	};
 
 
+	const enum class ChoiceNameType {
+		concise = 0,
+		verbose
+	};
+
+
 	enum class ControlType {
 		nullControl = -1,
 		knob,
