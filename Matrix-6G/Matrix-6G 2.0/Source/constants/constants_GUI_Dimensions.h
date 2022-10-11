@@ -8,6 +8,11 @@ namespace Matrix_6G_Constants
 	{
 		const float ledDisplay_y{ 3 };
 
+		const int bankTransmitButtons_y{ 317 };
+		const int bankTransmitCloseButton_w{ 42 };
+		const int bankTransmitCloseButton_x{ 605 };
+		const int bankTransmitStopButton_w{ 38 };
+		const int bankTransmitStopButton_x{ 607 };
 		const int borders_w{ 10 };
 		const int buttons_large_h{ 38 };
 		const int buttons_large_w{ 68 };
@@ -37,6 +42,8 @@ namespace Matrix_6G_Constants
 		const int voiceSlots_x{ 15 };
 		const int voiceSlots_y{ 11 };
 
+		const Rectangle<int> bounds_BankTransmitBorder{ 441, 239, 370, 118 };
+		const Rectangle<int> bounds_BankTransmitProgressBar{ 461, 289, 330, 18 };
 		const Rectangle<int> bounds_ImportExport{ 369, 123, 514, 350 };
 		const Rectangle<int> bounds_NewFolder{ 505, 236, 242, 124 };
 		const Rectangle<int> bounds_VoicesBanks{ 402, 19, 448, 560 };

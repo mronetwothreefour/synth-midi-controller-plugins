@@ -1,7 +1,6 @@
 #include "voices_4_gui_layer_BankTransmit.h"
 
 #include "../constants/constants_GUI_Colors.h"
-#include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_Voices.h"
 #include "../midi/midi_1_SysExMessages.h"

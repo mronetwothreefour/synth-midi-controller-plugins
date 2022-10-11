@@ -349,6 +349,10 @@
               file="Source/splits/splits_2_comp_SplitSlots.cpp"/>
         <FILE id="QOlDxQ" name="splits_2_comp_SplitSlots.h" compile="0" resource="0"
               file="Source/splits/splits_2_comp_SplitSlots.h"/>
+        <FILE id="xMXF7N" name="splits_2_gui_layer_BankTransmit.cpp" compile="1"
+              resource="0" file="Source/splits/splits_2_gui_layer_BankTransmit.cpp"/>
+        <FILE id="eD1J7q" name="splits_2_gui_layer_BankTransmit.h" compile="0"
+              resource="0" file="Source/splits/splits_2_gui_layer_BankTransmit.h"/>
       </GROUP>
       <GROUP id="{EF3B146D-3659-DC15-ADE7-BF6892A35FBA}" name="unexposedParameters">
         <FILE id="T2cbn2" name="up_0_tree_GlobalOptions.cpp" compile="1" resource="0"

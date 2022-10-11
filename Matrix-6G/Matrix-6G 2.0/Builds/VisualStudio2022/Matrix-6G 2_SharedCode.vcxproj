@@ -178,6 +178,7 @@
     <ClCompile Include="..\..\Source\splits\splits_1_comp_SliderForSplitParam.cpp"/>
     <ClCompile Include="..\..\Source\splits\splits_1_comp_SplitSlotRadioButton.cpp"/>
     <ClCompile Include="..\..\Source\splits\splits_2_comp_SplitSlots.cpp"/>
+    <ClCompile Include="..\..\Source\splits\splits_2_gui_layer_BankTransmit.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_SplitOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp"/>
@@ -2408,6 +2409,7 @@
     <ClInclude Include="..\..\Source\splits\splits_1_comp_SliderForSplitParam.h"/>
     <ClInclude Include="..\..\Source\splits\splits_1_comp_SplitSlotRadioButton.h"/>
     <ClInclude Include="..\..\Source\splits\splits_2_comp_SplitSlots.h"/>
+    <ClInclude Include="..\..\Source\splits\splits_2_gui_layer_BankTransmit.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_SplitOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h"/>

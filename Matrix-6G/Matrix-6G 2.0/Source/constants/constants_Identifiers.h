@@ -47,7 +47,7 @@ namespace Matrix_6G_Constants
 		static const Identifier btn_X_Orange{ "btn_X_Orange" };
 
 		static const Identifier comp_ImptExptBrowser{ "comp_ImptExptBrowser" };
-		static const Identifier comp_ProgressBar_SplitBank{ "comp_ProgressBar_SplitBank" };
+		static const Identifier comp_ProgressBar_SplitsBank{ "comp_ProgressBar_SplitsBank" };
 		static const Identifier comp_ProgressBar_VoicesBank{ "comp_ProgressBar_VoicesBank" };
 		static const Identifier comp_TabbedComponentForVoicesBanks{ "comp_TabbedComponentForVoicesBanks" };
 		static const Identifier comp_TextEditorForSlider{ "comp_TextEditorForSlider" };
