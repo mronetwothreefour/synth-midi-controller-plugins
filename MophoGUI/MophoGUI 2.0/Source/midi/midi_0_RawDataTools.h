@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 class ExposedParameters;
-class UnexposedParameters;
+class VoiceTransmissionOptions;
 
 struct RawDataTools 
 {
@@ -15,7 +15,7 @@ struct RawDataTools
     static const String convertDataVectorToHexString(const std::vector<uint8>& dataVector);
     static bool isValidVoiceDataHexString(const String& hexString);
 
-    static void applyRawVoiceDataToExposedParameters(const uint8* voiceData, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+    static void applyRawVoiceDataToExposedParameters(const uint8* voiceData, ExposedParameters* exposedParams, VoiceTransmissionOptions* transmitOptions);
     static const std::vector<uint8> extractRawVoiceDataFromExposedParameters(ExposedParameters* exposedParams);
 
     static bool midiMessageIsSysExForMopho(const MidiMessage& midiMessage);

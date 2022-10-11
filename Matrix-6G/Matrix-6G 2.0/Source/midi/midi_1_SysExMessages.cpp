@@ -2,8 +2,10 @@
 
 #include "midi_0_Outgoing_MIDI_Buffers.h"
 #include "midi_0_RawDataTools.h"
+#include "../constants/constants_Splits.h"
 #include "../constants/constants_Voices.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
+#include "../splits/splits_0_tree_SplitsBank.h"
 #include "../voices/voices_1_tree_VoicesBanks.h"
 
 using namespace Matrix_6G_Constants;
@@ -53,5 +55,25 @@ void SysExMessages::addDataMessageForVoiceStoredInBankAndSlotToOutgoingBuffers(
     for (auto dataByte : voiceDataVector)
         voiceDataMessageVector.push_back(dataByte);
     outgoingBuffers->addDataMessage(voiceDataMessageVector);
+}
+
+void SysExMessages::addRequestForSplitDataStoredInSlotToOutgoingBuffers(uint8 slotNum, OutgoingBuffers* outgoingBuffers) {
+    jassert(slotNum < SPLT::numberOfSlotsInSplitsBank);
+    auto requestVector{ RawDataTools::createRawDataVectorWithMatrix_6_SysExID() };
+    requestVector.push_back((uint8)SysExMessageType::dataRequest);
+    requestVector.push_back((uint8)SysExMessageType::splitData);
+    requestVector.push_back(slotNum);
+    outgoingBuffers->addDataMessage(requestVector);
+}
+
+void SysExMessages::addDataMessageForSplitStoredInSlotToOutgoingBuffers(SplitsBank* splitsBank, uint8 slotNum, OutgoingBuffers* outgoingBuffers) {
+    auto splitDataMessageVector{ RawDataTools::createRawDataVectorWithMatrix_6_SysExID() };
+    splitDataMessageVector.push_back((uint8)SysExMessageType::splitData);
+    splitDataMessageVector.push_back(slotNum);
+    auto splitDataHexString{ splitsBank->getSplitDataHexStringFromSlot(slotNum) };
+    auto splitDataVector{ RawDataTools::convertHexStringToDataVector(splitDataHexString) };
+    for (auto dataByte : splitDataVector)
+        splitDataMessageVector.push_back(dataByte);
+    outgoingBuffers->addDataMessage(splitDataMessageVector);
 }
 

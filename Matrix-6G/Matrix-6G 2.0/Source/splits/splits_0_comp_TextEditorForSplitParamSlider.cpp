@@ -2,6 +2,7 @@
 
 #include "splits_0_build_ChoiceName.h"
 #include "../constants/constants_Enum.h"
+#include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_Splits.h"
@@ -76,7 +77,7 @@ TextEditorForSplitParamSlider::TextEditorForSplitParamSlider(SliderType sliderTy
 void TextEditorForSplitParamSlider::setEditorTextUsingStoredValue() {
 	auto paramValue{ (uint8)(int)splitParamAsValue.getValue() };
 	if (sliderType == SliderType::zoneVolumeBalance)
-		textEditor.setText(String(paramValue - 31), dontSendNotification);
+		textEditor.setText(String(paramValue - EP::offsetForSigned_6_BitRange), dontSendNotification);
 	if (sliderType == SliderType::lowerZoneLimit || sliderType == SliderType::upperZoneLimit)
 		textEditor.setText(SplitParamChoiceName::buildForZoneLimit(paramValue, ChoiceNameType::concise), dontSendNotification);
 	if (sliderType == SliderType::lowerZoneVoiceNum || sliderType == SliderType::upperZoneVoiceNum)
@@ -126,7 +127,7 @@ void TextEditorForSplitParamSlider::onTextChange_ZoneVolumeBalance(SplitOptions*
 			newSetting = -31;
 		if (newSetting > 31)
 			newSetting = 31;
-		splitOptions->setZoneVolumeBalance(uint8(newSetting + 31));
+		splitOptions->setZoneVolumeBalance(uint8(newSetting + EP::offsetForSigned_6_BitRange));
 	}
 	else
 		setEditorTextUsingStoredValue();
@@ -176,7 +177,7 @@ void TextEditorForSplitParamSlider::onTextChange_ZoneTranspose(SplitZone zone, S
 			newSetting = -36;
 		if (newSetting > 24)
 			newSetting = 24;
-		splitOptions->setZoneTranspose(zone, uint8(newSetting + 36));
+		splitOptions->setZoneTranspose(zone, uint8(newSetting + SPLT::offsetForSignedZoneTransposeRange));
 	}
 	else
 		setEditorTextUsingStoredValue();

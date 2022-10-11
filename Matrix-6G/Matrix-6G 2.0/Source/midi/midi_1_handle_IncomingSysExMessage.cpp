@@ -6,7 +6,6 @@
 
 IncomingSysExMessageHandler::IncomingSysExMessageHandler(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
     exposedParams{ exposedParams },
-    unexposedParams{ unexposedParams },
     global{ unexposedParams->getGlobalOptions() },
     voicesBanks{ unexposedParams->getVoicesBanks() },
     transmitOptions{ unexposedParams->getVoiceTransmissionOptions() }
@@ -32,7 +31,7 @@ void IncomingSysExMessageHandler::handleSysExData(const uint8* sysExData, int sy
 void IncomingSysExMessageHandler::handleIncomingVoiceData(const uint8* sysExData, int sysExDataSize) {
     if (sysExData[sysExMessageTypeByte] == (uint8)SysExMessageType::voiceData) {
         auto slotNum{ sysExData[RawDataTools::voiceAndSplitDataMessageSlotByte] };
-        RawDataTools::applyRawVoiceDataTo_GUI(slotNum, sysExData + RawDataTools::firstVoiceAndSplitNameByte, exposedParams, unexposedParams);
+        RawDataTools::applyRawVoiceDataTo_GUI(slotNum, sysExData + RawDataTools::firstVoiceAndSplitNameByte, exposedParams, transmitOptions);
         if (transmitOptions->incomingVoiceShouldBeStored()) {
             std::vector<uint8> voiceDataVector;
             for (auto dataByte = RawDataTools::firstVoiceAndSplitNameByte; dataByte != sysExDataSize; ++dataByte)

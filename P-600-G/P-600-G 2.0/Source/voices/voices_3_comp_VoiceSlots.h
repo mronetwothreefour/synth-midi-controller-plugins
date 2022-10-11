@@ -18,7 +18,7 @@ class VoiceSlots :
     private Timer
 {
     ExposedParameters* exposedParams;
-    Outgoing_MIDI_Buffers* outgoingMIDI;
+    Outgoing_MIDI_Buffers* outgoingBuffers;
     VoicesBank* voicesBank;
     VoiceTransmissionOptions* transmitOptions;
     std::vector<std::unique_ptr<VoiceSlotRadioButton>> voiceSlotButtons;

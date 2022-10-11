@@ -1,6 +1,7 @@
 #include "splits_1_comp_SliderForSplitParam.h"
 
 #include "splits_0_build_ChoiceName.h"
+#include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Splits.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
@@ -200,14 +201,13 @@ LinearSliderForSplitZoneVolumeBalance::LinearSliderForSplitZoneVolumeBalance(Une
 	setSize(GUI::splitVolumeBalanceSlider_w, GUI::control_h);
 }
 
-void LinearSliderForSplitZoneVolumeBalance::updateTooltip()
-{
+void LinearSliderForSplitZoneVolumeBalance::updateTooltip() {
 	auto currentChoice{ roundToInt(getValue()) };
 	String tip{ "" };
 	if (tooltips->shouldShowDescription())
 		tip += Description::buildForZoneVolumeBalance();
 	if (tooltips->shouldShowCurrentChoice())
-		tip += "Current setting: " + String(currentChoice > 31 ? "+" : "") + String(currentChoice - 31);
+		tip += "Current setting: " + String(currentChoice > EP::offsetForSigned_6_BitRange ? "+" : "") + String(currentChoice - EP::offsetForSigned_6_BitRange);
 }
 
 void LinearSliderForSplitZoneVolumeBalance::mouseDoubleClick(const MouseEvent& /*event*/) {

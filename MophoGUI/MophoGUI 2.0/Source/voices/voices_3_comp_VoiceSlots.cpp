@@ -12,9 +12,9 @@ using Bank = VoicesBank;
 VoiceSlots::VoiceSlots(VoicesBank bank, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	bank{ bank },
 	exposedParams{ exposedParams },
-	unexposedParams{ unexposedParams },
-	outgoingMIDI{ unexposedParams->getOutgoing_MIDI_Buffers() },
+	outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() },
 	voicesBanks{ unexposedParams->getVoicesBanks() },
+	transmitOptions{ unexposedParams->getVoiceTransmissionOptions() },
 	selectedSlot{ VCS::numberOfSlotsInVoicesBank }
 {
 	for (uint8 slotNum = 0; slotNum != VCS::numberOfSlotsInVoicesBank; ++slotNum) {
@@ -41,23 +41,21 @@ void VoiceSlots::loadVoiceFromSelectedSlot() {
 	if (selectedSlot < VCS::numberOfSlotsInVoicesBank) {
 		auto voiceDataHexString{ voicesBanks->getVoiceDataHexStringFromBankSlot(bank, selectedSlot) };
 		auto voiceDataVector{ RawDataTools::convertHexStringToDataVector(voiceDataHexString) };
-		RawDataTools::applyRawVoiceDataToExposedParameters(voiceDataVector.data(), exposedParams, unexposedParams);
+		RawDataTools::applyRawVoiceDataToExposedParameters(voiceDataVector.data(), exposedParams, transmitOptions);
 		callAfterDelay(100, [this] { 
-			SysExMessages::addEditBufferDataMessageToOutgoingBuffers(exposedParams, unexposedParams->getOutgoing_MIDI_Buffers()); 
+			SysExMessages::addEditBufferDataMessageToOutgoingBuffers(exposedParams, outgoingBuffers);
 		});
 	}
 }
 
 void VoiceSlots::pullSelectedVoiceFromHardware() {
 	if (selectedSlot < VCS::numberOfSlotsInVoicesBank)
-		SysExMessages::addRequestForVoiceDataStoredInBankAndSlotToOutgoingBuffers(bank, selectedSlot, outgoingMIDI);
+		SysExMessages::addRequestForVoiceDataStoredInBankAndSlotToOutgoingBuffers(bank, selectedSlot, outgoingBuffers);
 }
 
 void VoiceSlots::pushSelectedVoiceToHardware() {
-	if (selectedSlot < VCS::numberOfSlotsInVoicesBank) {
-		auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
+	if (selectedSlot < VCS::numberOfSlotsInVoicesBank)
 		SysExMessages::addDataMessageForVoiceStoredInBankAndSlotToOutgoingBuffers(voicesBanks, bank, selectedSlot, outgoingBuffers);
-	}
 }
 
 void VoiceSlots::timerCallback() {

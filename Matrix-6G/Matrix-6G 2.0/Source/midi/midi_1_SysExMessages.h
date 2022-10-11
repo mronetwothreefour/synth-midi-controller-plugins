@@ -9,6 +9,8 @@ using namespace Matrix_6G_Constants;
 using OutgoingBuffers = Outgoing_MIDI_Buffers;
 
 class ExposedParameters;
+class SplitOptions;
+class SplitsBank;
 class VoicesBanks;
 
 struct SysExMessages
@@ -20,6 +22,9 @@ struct SysExMessages
     static void addDataMessageForCurrentVoiceToOutgoingBuffers(ExposedParameters* exposedParams, OutgoingBuffers* outgoingBuffers);
     static void addDataMessageForVoiceStoredInBankAndSlotToOutgoingBuffers(
         VoicesBanks* voicesBanks, VoicesBank bank, uint8 slotNum, OutgoingBuffers* outgoingBuffers);
+
+    static void addRequestForSplitDataStoredInSlotToOutgoingBuffers(uint8 slotNum, OutgoingBuffers* outgoingBuffers);
+    static void addDataMessageForSplitStoredInSlotToOutgoingBuffers(SplitsBank* splitsBank, uint8 slotNum, OutgoingBuffers* outgoingBuffers);
 
 private:
     //==============================================================================

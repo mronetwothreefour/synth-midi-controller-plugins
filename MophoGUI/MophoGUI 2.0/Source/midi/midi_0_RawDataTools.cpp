@@ -4,7 +4,7 @@
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_Voices.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_VoiceTransmissionOptions.h"
 
 const std::vector<uint8> RawDataTools::convertHexStringToDataVector(const String& hexString) {
     std::vector<uint8> voiceData;
@@ -30,10 +30,9 @@ bool RawDataTools::isValidVoiceDataHexString(const String& hexString) {
 }
 
 void RawDataTools::applyRawVoiceDataToExposedParameters(
-    const uint8* voiceData, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams)
+    const uint8* voiceData, ExposedParameters* exposedParams, VoiceTransmissionOptions* transmitOptions)
 {
     auto info{ exposedParams->info.get() };
-    auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
     transmitOptions->setParamChangesShouldBeTransmitted(false);
     for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
         auto paramID{ info->IDfor(paramIndex) };

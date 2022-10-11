@@ -12,7 +12,6 @@ class VoiceTransmissionOptions;
 class IncomingSysExMessageHandler
 {
 	ExposedParameters* exposedParams;
-	UnexposedParameters* unexposedParams;
 	GlobalOptions* global;
 	VoicesBanks* voicesBanks;
 	VoiceTransmissionOptions* transmitOptions;

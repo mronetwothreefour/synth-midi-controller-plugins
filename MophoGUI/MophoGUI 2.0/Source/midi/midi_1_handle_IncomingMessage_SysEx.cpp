@@ -9,7 +9,6 @@ using namespace MophoConstants;
 
 IncomingMessageHandler_SysEx::IncomingMessageHandler_SysEx(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	exposedParams{ exposedParams },
-	unexposedParams{ unexposedParams },
     global{ unexposedParams->getGlobalOptions() },
     voicesBanks{ unexposedParams->getVoicesBanks() },
     transmitOptions{ unexposedParams->getVoiceTransmissionOptions() }
@@ -34,7 +33,7 @@ void IncomingMessageHandler_SysEx::handleSysExData(const uint8* sysExData) {
 
 void IncomingMessageHandler_SysEx::handleIncomingEditBufferData(const uint8* sysExData) {
     if (sysExData[sysExMessageTypeByte] == (uint8)SysExMessageType::editBufferData)
-        RawDataTools::applyRawVoiceDataToExposedParameters(sysExData + 4, exposedParams, unexposedParams);
+        RawDataTools::applyRawVoiceDataToExposedParameters(sysExData + 4, exposedParams, transmitOptions);
     else
         handleIncomingVoiceData(sysExData);
 }

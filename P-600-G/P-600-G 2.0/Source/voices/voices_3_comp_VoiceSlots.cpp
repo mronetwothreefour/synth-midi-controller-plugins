@@ -9,7 +9,7 @@
 
 VoiceSlots::VoiceSlots(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	exposedParams{ exposedParams },
-	outgoingMIDI{ unexposedParams->getOutgoing_MIDI_Buffers() },
+	outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() },
 	voicesBank{ unexposedParams->getVoicesBank() },
 	transmitOptions{ unexposedParams->getVoiceTransmissionOptions() },
 	selectedSlot{ VCS::numberOfSlotsInVoicesBank }
@@ -59,22 +59,21 @@ void VoiceSlots::loadVoiceFromSelectedSlot() {
 		RawDataTools::applyRawVoiceDataToExposedParameters(voiceDataVector.data(), exposedParams, transmitOptions);
 		transmitOptions->setCurrentVoiceNumber(selectedSlot);
 		callAfterDelay(100, [this] {
-			SysExMessages::addDataMessageForCurrentVoiceToOutgoingBuffers(exposedParams, transmitOptions, outgoingMIDI);
+			SysExMessages::addDataMessageForCurrentVoiceToOutgoingBuffers(exposedParams, transmitOptions, outgoingBuffers);
 		});
 	}
 }
 
 void VoiceSlots::pullSelectedVoiceFromHardware() {
 	if (selectedSlot < VCS::numberOfSlotsInVoicesBank) {
-		SysExMessages::addRequestForVoiceDataStoredInSlotToOutgoingBuffers(selectedSlot, outgoingMIDI);
+		SysExMessages::addRequestForVoiceDataStoredInSlotToOutgoingBuffers(selectedSlot, outgoingBuffers);
 		transmitOptions->setCurrentVoiceNumber(selectedSlot);
 	}
 }
 
 void VoiceSlots::pushSelectedVoiceToHardware() {
-	if (selectedSlot < VCS::numberOfSlotsInVoicesBank) {
-		SysExMessages::addDataMessageForVoiceStoredInSlotToOutgoingBuffers(voicesBank, selectedSlot, outgoingMIDI);
-	}
+	if (selectedSlot < VCS::numberOfSlotsInVoicesBank)
+		SysExMessages::addDataMessageForVoiceStoredInSlotToOutgoingBuffers(voicesBank, selectedSlot, outgoingBuffers);
 }
 
 void VoiceSlots::showVoiceNameEditorForSelectedSlot() {

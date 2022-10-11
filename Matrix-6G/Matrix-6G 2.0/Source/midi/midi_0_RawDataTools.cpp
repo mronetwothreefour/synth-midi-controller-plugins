@@ -1,12 +1,14 @@
 #include "midi_0_RawDataTools.h"
 
+#include "../constants/constants_Enum.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
+#include "../constants/constants_Splits.h"
 #include "../constants/constants_Voices.h"
 #include "../exposedParameters/ep_0_tree_MatrixModOptions.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
+#include "../unexposedParameters/up_0_tree_SplitOptions.h"
 #include "../unexposedParameters/up_0_tree_VoiceTransmissionOptions.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 bool RawDataTools::midiMessageIsSysExForMatrix(const MidiMessage& midiMessage) {
     if (midiMessage.isSysEx()) {
@@ -50,7 +52,7 @@ const String RawDataTools::convertDataVectorToHexString(const std::vector<uint8>
     return hexString;
 }
 
-void RawDataTools::applyRawVoiceDataTo_GUI(const uint8 voiceNum, const uint8* voiceData, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) {
+void RawDataTools::applyRawVoiceDataTo_GUI(const uint8 voiceNum, const uint8* voiceData, ExposedParameters* exposedParams, VoiceTransmissionOptions* transmitOptions) {
     auto currentVoiceOptions{ exposedParams->currentVoiceOptions.get() };
     currentVoiceOptions->setCurrentVoiceNumber(voiceNum);
 
@@ -64,7 +66,6 @@ void RawDataTools::applyRawVoiceDataTo_GUI(const uint8 voiceNum, const uint8* vo
     }
     currentVoiceOptions->setCurrentVoiceName(voiceName);
 
-    auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
     applyRawVoiceDataToExposedParameters(voiceData + VCS::indexOfFirstExposedParamsDataByte, exposedParams, transmitOptions);
 
     auto matrixModOptions{ exposedParams->matrixModOptions.get() };
@@ -90,6 +91,118 @@ bool RawDataTools::isValidVoiceDataHexString(const String& hexString) {
         return false;
     else
         return true;
+}
+
+void RawDataTools::applyRawSplitDataTo_GUI(const uint8 splitNum, const uint8* splitData, SplitOptions* splitOptions) {
+    String splitName{ "" };
+    for (auto byte = 0; byte != SPLT::numberOfCharsInSplitName * 2; byte += 2) {
+        auto lsbByteValue{ (uint8)splitData[byte] };
+        auto msbByteValue{ (uint8)splitData[byte + 1] };
+        auto storedASCIIvalue{ uint8(lsbByteValue + (msbByteValue * 16)) };
+        restoreSeventhBitTo_ASCII_Value(storedASCIIvalue);
+        splitName += convertStored_ASCII_ValueToString(storedASCIIvalue);
+    }
+    splitOptions->setSplitName(splitName);
+
+    auto lowerZoneLimit{ uint8(splitData[SPLT::indexOfLowerZoneLimitLSByte] + (splitData[SPLT::indexOfLowerZoneLimitLSByte + 1] * 16)) };
+    splitOptions->setZoneLimit(SplitZone::lower, lowerZoneLimit);
+
+    auto lowerZoneTranspose{ uint8(splitData[SPLT::indexOfLowerZoneTransposeLSByte] + (splitData[SPLT::indexOfLowerZoneTransposeLSByte + 1] * 16)) };
+    formatSignedZoneTransposeValueForStoringInPlugin(lowerZoneTranspose);
+    splitOptions->setZoneTranspose(SplitZone::lower, lowerZoneTranspose);
+
+    auto lowerZone_MIDI_OutIsEnabled{ splitData[SPLT::indexOfLowerZoneMIDIoutLSByte] == (uint8)1 ? true : false };
+    splitOptions->setZone_MIDI_OutIsEnabled(SplitZone::lower, lowerZone_MIDI_OutIsEnabled);
+
+    auto upperZoneLimit{ uint8(splitData[SPLT::indexOfUpperZoneLimitLSByte] + (splitData[SPLT::indexOfUpperZoneLimitLSByte + 1] * 16)) };
+    splitOptions->setZoneLimit(SplitZone::upper, upperZoneLimit);
+
+    auto upperZoneTranspose{ uint8(splitData[SPLT::indexOfUpperZoneTransposeLSByte] + (splitData[SPLT::indexOfUpperZoneTransposeLSByte + 1] * 16)) };
+    formatSignedZoneTransposeValueForStoringInPlugin(upperZoneTranspose);
+    splitOptions->setZoneTranspose(SplitZone::upper, upperZoneTranspose);
+
+    auto upperZone_MIDI_OutIsEnabled{ splitData[SPLT::indexOfUpperZoneMIDIoutLSByte] == (uint8)1 ? true : false };
+    splitOptions->setZone_MIDI_OutIsEnabled(SplitZone::upper, upperZone_MIDI_OutIsEnabled);
+
+    auto zoneVolumeBalance{ uint8(splitData[SPLT::indexOfZoneVolumeBalanceLSByte] + (splitData[SPLT::indexOfZoneVolumeBalanceLSByte + 1] * 16)) };
+    formatSignedValueForStoringInPlugin(uses_6_bits, zoneVolumeBalance);
+    splitOptions->setZoneVolumeBalance((uint8)zoneVolumeBalance);
+
+    auto zoneVoiceAssignment{ SplitZoneVoiceAssignment{ splitData[SPLT::indexOfZoneVoiceAssignmentLSByte] } };
+    splitOptions->setZoneVoiceAssignment(zoneVoiceAssignment);
+
+    auto lowerZoneVoiceNumber{ uint8(splitData[SPLT::indexOfLowerZoneVoiceNumberLSByte] + (splitData[SPLT::indexOfLowerZoneVoiceNumberLSByte + 1] * 16)) };
+    splitOptions->setZoneVoiceNumber(SplitZone::lower, lowerZoneVoiceNumber);
+
+    auto upperZoneVoiceNumber{ uint8(splitData[SPLT::indexOfUpperZoneVoiceNumberLSByte] + (splitData[SPLT::indexOfUpperZoneVoiceNumberLSByte + 1] * 16)) };
+    splitOptions->setZoneVoiceNumber(SplitZone::upper, upperZoneVoiceNumber);
+}
+
+const std::vector<uint8> RawDataTools::extractRawSplitDataFrom_GUI(SplitOptions* splitOptions)
+{
+    std::vector<uint8> splitData;
+    uint8 checksum{ 0 };
+
+    auto splitName{ splitOptions->splitName() };
+    addVoiceOrSplitNameDataToVectorAndUpdateChecksum(true, splitName, splitData, checksum);
+
+    for (auto i = 0; i != numberOfUnusedSplitBytes; ++i)
+        splitData.push_back((uint8)0);
+
+    auto lowerZoneLimit{ splitOptions->zoneLimit(SplitZone::lower) };
+    splitData.push_back(lowerZoneLimit % 16);
+    splitData.push_back(lowerZoneLimit / 16);
+    checksum += lowerZoneLimit;
+
+    auto lowerZoneTranspose{ splitOptions->zoneTranspose(SplitZone::lower) };
+    formatSignedZoneTransposeValueForSendingToMatrix(lowerZoneTranspose);
+    splitData.push_back(lowerZoneTranspose % 16);
+    splitData.push_back(lowerZoneTranspose / 16);
+    checksum += lowerZoneTranspose;
+
+    auto lowerZone_MIDI_OutIsEnabled{ splitOptions->zone_MIDI_OutIsEnabled(SplitZone::lower) };
+    splitData.push_back(lowerZone_MIDI_OutIsEnabled ? 1 : 0);
+    splitData.push_back(0);
+    checksum += lowerZone_MIDI_OutIsEnabled ? 1 : 0;
+
+    auto upperZoneLimit{ splitOptions->zoneLimit(SplitZone::upper) };
+    splitData.push_back(upperZoneLimit % 16);
+    splitData.push_back(upperZoneLimit / 16);
+    checksum += upperZoneLimit;
+
+    auto upperZoneTranspose{ splitOptions->zoneTranspose(SplitZone::upper) };
+    formatSignedZoneTransposeValueForSendingToMatrix(upperZoneTranspose);
+    splitData.push_back(upperZoneTranspose % 16);
+    splitData.push_back(upperZoneTranspose / 16);
+    checksum += upperZoneTranspose;
+
+    auto upperZone_MIDI_OutIsEnabled{ splitOptions->zone_MIDI_OutIsEnabled(SplitZone::upper) };
+    splitData.push_back(upperZone_MIDI_OutIsEnabled ? 1 : 0);
+    splitData.push_back(0);
+    checksum += upperZone_MIDI_OutIsEnabled ? 1 : 0;
+
+    auto zoneVolumeBalance{ splitOptions->zoneVolumeBalance() };
+    formatSignedValueForSendingToMatrix(uses_6_bits, zoneVolumeBalance);
+    splitData.push_back(zoneVolumeBalance % 16);
+    splitData.push_back(zoneVolumeBalance / 16);
+    checksum += zoneVolumeBalance;
+
+    auto zoneVoiceAssignment{ (uint8)(int)splitOptions->zoneVoiceAssignment() };
+    splitData.push_back(zoneVolumeBalance % 16);
+    splitData.push_back(0);
+    checksum += zoneVoiceAssignment;
+
+    auto lowerZoneVoiceNumber{ splitOptions->zoneVoiceNumber(SplitZone::lower) };
+    splitData.push_back(lowerZoneVoiceNumber % 16);
+    splitData.push_back(lowerZoneVoiceNumber / 16);
+    checksum += lowerZoneVoiceNumber;
+
+    auto upperZoneVoiceNumber{ splitOptions->zoneVoiceNumber(SplitZone::upper) };
+    splitData.push_back(upperZoneVoiceNumber % 16);
+    splitData.push_back(upperZoneVoiceNumber / 16);
+    checksum += upperZoneVoiceNumber;
+
+    return splitData;
 }
 
 void RawDataTools::removeSeventhBitFrom_ASCII_Value(uint8& value) {
@@ -209,6 +322,18 @@ void RawDataTools::formatSignedValueForStoringInPlugin(bool is_7_bit, uint8& val
         valueWithOffset -= negativeValueOffset;
     valueWithOffset += (is_7_bit ? EP::offsetForSigned_7_BitRange : EP::offsetForSigned_6_BitRange);
     value = (uint8)valueWithOffset;
+}
+
+void RawDataTools::formatSignedZoneTransposeValueForSendingToMatrix(uint8& value) {
+    int valueWithOffset{ value };
+    if (valueWithOffset > 127)
+        valueWithOffset -= negativeValueOffset;
+    valueWithOffset += SPLT::offsetForSignedZoneTransposeRange;
+    value = (uint8)valueWithOffset;
+}
+
+void RawDataTools::formatSignedZoneTransposeValueForStoringInPlugin(uint8& value)
+{
 }
 
 String RawDataTools::convertStored_ASCII_ValueToString(const uint8& value) {
