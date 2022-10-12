@@ -32,10 +32,11 @@ namespace Matrix_6G_Constants
 		static const Identifier btn_Pull_Voice{ "btn_Pull_Voice" };
 		static const Identifier btn_Pull_VoicesBank_{ "btn_Pull_VoicesBank_" };
 		static const Identifier btn_Pull_Split{ "btn_Pull_Split" };
+		static const Identifier btn_Pull_SplitsBank{ "btn_Pull_SplitsBank" };
 		static const Identifier btn_Push{ "btn_Push" };
 		static const Identifier btn_Push_VoicesBank_{ "btn_Push_VoicesBank_" };
 		static const Identifier btn_Push_Split{ "btn_Push_Split" };
-		static const Identifier btn_Push_SplitBank{ "btn_Push_SplitBank" };
+		static const Identifier btn_Push_SplitsBank{ "btn_Push_SplitsBank" };
 		static const Identifier btn_RadioButton_SplitSlot{ "btn_RadioButton_SplitSlot" };
 		static const Identifier btn_RadioButton_VoiceSlot{ "btn_RadioButton_VoiceSlot" };
 		static const Identifier btn_Save_Split{ "btn_Save_Split" };

@@ -17,6 +17,7 @@ namespace Matrix_6G_Constants
 		const int buttons_large_h{ 38 };
 		const int buttons_large_w{ 68 };
 		const int buttons_small_h{ 20 };
+		const int buttons_SplitsBank_w{ 34 };
 		const int buttons_VoicesBank_w{ 30 };
 		const int control_h{ 20 };
 		const int editor_w{ 1252 };

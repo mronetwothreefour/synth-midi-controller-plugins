@@ -3282,6 +3282,9 @@
     <ClInclude Include="..\..\Source\splits\splits_2_gui_layer_BankTransmit.h">
       <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\splits\splits_3_comp_SplitsWindowButtons.h">
+      <Filter>Matrix-6G 2\Source\splits</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h">
       <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
     </ClInclude>
