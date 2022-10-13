@@ -15,7 +15,6 @@ class GUI_Layer_Import_Voice;
 class GUI_Layer_Import_VoicesBank;
 class GUI_Layer_RestoreFactoryVoicesDialog;
 class UnexposedParameters;
-class VoiceTransmissionOptions;
 
 class GUI_Layer_VoicesBank :
     public Component,
@@ -24,7 +23,6 @@ class GUI_Layer_VoicesBank :
 {
     UnexposedParameters* unexposedParams;
     VoicesBank* voicesBank;
-    VoiceTransmissionOptions* voiceTransmit;
     ButtonForLoadingSelectedVoice btn_LoadSelected;
     ButtonForSavingVoiceIntoSelectedSlot btn_SaveIntoSelected;
     ButtonForPullingSelectedVoiceFromHardware btn_PullSelected;;

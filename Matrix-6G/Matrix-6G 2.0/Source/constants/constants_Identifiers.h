@@ -50,6 +50,7 @@ namespace Matrix_6G_Constants
 		static const Identifier comp_ImptExptBrowser{ "comp_ImptExptBrowser" };
 		static const Identifier comp_ProgressBar_SplitsBank{ "comp_ProgressBar_SplitsBank" };
 		static const Identifier comp_ProgressBar_VoicesBank{ "comp_ProgressBar_VoicesBank" };
+		static const Identifier comp_SplitNameEditor{ "comp_SplitNameEditor" };
 		static const Identifier comp_TabbedComponentForVoicesBanks{ "comp_TabbedComponentForVoicesBanks" };
 		static const Identifier comp_TextEditorForSlider{ "comp_TextEditorForSlider" };
 		static const Identifier comp_VoiceNameEditor{ "comp_VoiceNameEditor" };

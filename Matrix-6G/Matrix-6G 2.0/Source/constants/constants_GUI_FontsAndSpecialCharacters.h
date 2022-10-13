@@ -23,6 +23,7 @@ namespace Matrix_6G_Constants
 		const Font font_VoiceAndSplitSlotRadioButtons{ FontBuilder::createFontFromTypeface_Size_Kerning(Swiss721_CndLt, 13.0f, 0.0f) };
 		const Font font_Tooltips{ FontBuilder::createFontFromTypeface_Size_Kerning(Swiss721_Bd, 13.0f, 0.0f) };
 
+		const String allowed_ASCII_Characters{ "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ?<>;:.,-+*/=()'\"&%$#!_^\\|[" };
 		const String apostrophe{ CharPointer_UTF8("\xe2\x80\x99") };
 		const String openQuote{ CharPointer_UTF8("\xe2\x80\x9c") };
 		const String closeQuote{ CharPointer_UTF8("\xe2\x80\x9d") };

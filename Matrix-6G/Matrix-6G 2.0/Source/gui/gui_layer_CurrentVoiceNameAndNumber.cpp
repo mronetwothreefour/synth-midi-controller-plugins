@@ -68,7 +68,7 @@ GUI_Layer_CurrentVoiceNameAndNumber::GUI_Layer_CurrentVoiceNameAndNumber(Exposed
     voiceNameEditor.setText(currentVoiceOptions->currentVoiceName(), dontSendNotification);
     voiceNameEditor.onEditorShow = [this] {
         auto editor{ voiceNameEditor.getCurrentTextEditor() };
-        editor->setInputRestrictions(VCS::numberOfCharsInVoiceName, allowed_ASCII_Characters);
+        editor->setInputRestrictions(VCS::numberOfCharsInVoiceName, GUI::allowed_ASCII_Characters);
     };
     voiceNameEditor.onTextChange = [this] {
         String labelText{ voiceNameEditor.getText() };
@@ -77,7 +77,7 @@ GUI_Layer_CurrentVoiceNameAndNumber::GUI_Layer_CurrentVoiceNameAndNumber(Exposed
         voiceNameEditor.setText(newName, dontSendNotification);
         currentVoiceOptions->setCurrentVoiceName(newName);
     };
-    voiceNameEditor.setBounds(873, 367, 117, 20);
+    voiceNameEditor.setBounds(873, 367, 117, GUI::control_h);
     addAndMakeVisible(voiceNameEditor);
 
     updateTooltips();
@@ -117,10 +117,8 @@ void GUI_Layer_CurrentVoiceNameAndNumber::valueChanged(Value& value) {
         voiceNumber.setValue((double)currentVoiceNumber, dontSendNotification);
         setVoiceNumberEditorText();
     }
-    if (value.refersToSameSourceAs(currentVoiceNameAsValue)) {
+    if (value.refersToSameSourceAs(currentVoiceNameAsValue))
         voiceNameEditor.setText(currentVoiceOptions->currentVoiceName(), dontSendNotification);
-        setVoiceNumberEditorText();
-    }
     if (value.refersToSameSourceAs(shouldShowDescriptionAsValue))
         updateTooltips();
 }

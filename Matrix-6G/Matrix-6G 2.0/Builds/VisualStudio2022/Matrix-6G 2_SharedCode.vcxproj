@@ -179,6 +179,7 @@
     <ClCompile Include="..\..\Source\splits\splits_1_comp_SplitSlotRadioButton.cpp"/>
     <ClCompile Include="..\..\Source\splits\splits_2_comp_SplitSlots.cpp"/>
     <ClCompile Include="..\..\Source\splits\splits_2_gui_layer_BankTransmit.cpp"/>
+    <ClCompile Include="..\..\Source\splits\splits_4_gui_layer_Splits.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_SplitOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp"/>
@@ -2411,6 +2412,7 @@
     <ClInclude Include="..\..\Source\splits\splits_2_comp_SplitSlots.h"/>
     <ClInclude Include="..\..\Source\splits\splits_2_gui_layer_BankTransmit.h"/>
     <ClInclude Include="..\..\Source\splits\splits_3_comp_SplitsWindowButtons.h"/>
+    <ClInclude Include="..\..\Source\splits\splits_4_gui_layer_Splits.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_SplitOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h"/>
@@ -3399,6 +3401,7 @@
     <None Include="..\..\BinaryResources\bkgrnd_ImportExportWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_SplitsWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_VoicesBankFooter_Custom.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_VoicesBankFooter_Factory.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_VoicesBanksHeader.png"/>

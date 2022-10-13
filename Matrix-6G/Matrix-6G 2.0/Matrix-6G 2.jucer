@@ -130,6 +130,8 @@
             file="BinaryResources/bkgrnd_MainWindow.png"/>
       <FILE id="wAz6I0" name="bkgrnd_NewFolderDialog.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_NewFolderDialog.png"/>
+      <FILE id="lXSa1s" name="bkgrnd_SplitsWindow.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_SplitsWindow.png"/>
       <FILE id="E6mox2" name="bkgrnd_VoicesBankFooter_Custom.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_VoicesBankFooter_Custom.png"/>
       <FILE id="MVqErL" name="bkgrnd_VoicesBankFooter_Factory.png" compile="0"
@@ -355,6 +357,10 @@
               resource="0" file="Source/splits/splits_2_gui_layer_BankTransmit.h"/>
         <FILE id="u235vL" name="splits_3_comp_SplitsWindowButtons.h" compile="0"
               resource="0" file="Source/splits/splits_3_comp_SplitsWindowButtons.h"/>
+        <FILE id="xvl3xV" name="splits_4_gui_layer_Splits.cpp" compile="1"
+              resource="0" file="Source/splits/splits_4_gui_layer_Splits.cpp"/>
+        <FILE id="zcukmX" name="splits_4_gui_layer_Splits.h" compile="0" resource="0"
+              file="Source/splits/splits_4_gui_layer_Splits.h"/>
       </GROUP>
       <GROUP id="{EF3B146D-3659-DC15-ADE7-BF6892A35FBA}" name="unexposedParameters">
         <FILE id="T2cbn2" name="up_0_tree_GlobalOptions.cpp" compile="1" resource="0"

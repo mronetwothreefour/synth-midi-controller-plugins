@@ -1,9 +1,9 @@
 #include "voices_5_comp_TabForCustomVoicesBank.h"
 
-#include "../constants/constants_Voices.h"
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
+#include "../constants/constants_Voices.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 TabForCustomVoicesBank::TabForCustomVoicesBank(

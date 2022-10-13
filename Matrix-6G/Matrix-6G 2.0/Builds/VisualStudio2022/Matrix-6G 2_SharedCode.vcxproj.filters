@@ -739,6 +739,9 @@
     <ClCompile Include="..\..\Source\splits\splits_2_gui_layer_BankTransmit.cpp">
       <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\splits\splits_4_gui_layer_Splits.cpp">
+      <Filter>Matrix-6G 2\Source\splits</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.cpp">
       <Filter>Matrix-6G 2\Source\unexposedParameters</Filter>
     </ClCompile>
@@ -3283,6 +3286,9 @@
       <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\splits\splits_3_comp_SplitsWindowButtons.h">
+      <Filter>Matrix-6G 2\Source\splits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\splits\splits_4_gui_layer_Splits.h">
       <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_GlobalOptions.h">
@@ -6243,6 +6249,9 @@
       <Filter>Matrix-6G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png">
+      <Filter>Matrix-6G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_SplitsWindow.png">
       <Filter>Matrix-6G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_VoicesBankFooter_Custom.png">

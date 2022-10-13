@@ -15,7 +15,6 @@
 GUI_Layer_VoicesBank::GUI_Layer_VoicesBank(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	unexposedParams{ unexposedParams },
 	voicesBank{ unexposedParams->getVoicesBank() },
-	voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() },
 	voiceSlots{ exposedParams, unexposedParams },
 	btn_LoadSelected{ &voiceSlots, unexposedParams },
 	btn_SaveIntoSelected{ &voiceSlots, unexposedParams },
@@ -66,9 +65,10 @@ GUI_Layer_VoicesBank::GUI_Layer_VoicesBank(ExposedParameters* exposedParams, Une
 
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
 
+	auto voiceTransmit{ unexposedParams->getVoiceTransmissionOptions() };
 	lbl_txTimeEditor.setComponentID(ID::comp_TextEditorForTransmitTime.toString());
 	lbl_txTimeEditor.setEditable(true);
-	lbl_txTimeEditor.onEditorShow = [this, tooltips] {
+	lbl_txTimeEditor.onEditorShow = [this, tooltips, voiceTransmit] {
 		auto editor{ lbl_txTimeEditor.getCurrentTextEditor() };
 		editor->setInputRestrictions(4, "0123456789");
 		editor->setText((String)voiceTransmit->voiceTransmitTime());
@@ -76,7 +76,7 @@ GUI_Layer_VoicesBank::GUI_Layer_VoicesBank(ExposedParameters* exposedParams, Une
 		if (tooltips->shouldShowDescription())
 			editor->setTooltip("Type a new transmit\ntime in milliseconds.\n(Range: 50 to 5000)");
 	};
-	lbl_txTimeEditor.onTextChange = [this] {
+	lbl_txTimeEditor.onTextChange = [this, voiceTransmit] {
 		if (lbl_txTimeEditor.getText().isNotEmpty()) {
 			auto newValue{ lbl_txTimeEditor.getText().getIntValue() };
 			if (newValue > 49 && newValue < 5001)

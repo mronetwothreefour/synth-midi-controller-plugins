@@ -21,7 +21,6 @@ class GUI_Layer_CurrentVoiceNameAndNumber :
 	Value currentVoiceNameAsValue;
 	Value currentVoiceNumberAsValue;
 	String voiceName;
-	const String allowed_ASCII_Characters{ "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ?<>;:.,-+*/=()'\"&%$#!_^\\|[" };
 
 public:
 	GUI_Layer_CurrentVoiceNameAndNumber() = delete;

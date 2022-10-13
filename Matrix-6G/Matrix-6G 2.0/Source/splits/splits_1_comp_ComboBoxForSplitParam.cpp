@@ -61,6 +61,8 @@ ComboBoxForSplitParameter::ComboBoxForSplitParameter(ComboBoxType comboBoxType, 
 	}
 
 	splitParamAsValue.addListener(this);
+
+	setSize(37, GUI::control_h);
 }
 
 void ComboBoxForSplitParameter::updateTooltip() {
