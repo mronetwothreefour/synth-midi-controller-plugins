@@ -22,12 +22,14 @@ class RotarySliderForSplitParameter :
 	TooltipsOptions* tooltips;
 	TextEditorForSplitParamSlider textEditor;
 	Value splitParamAsValue;
+	int slider_w;
 
 public:
 	RotarySliderForSplitParameter() = delete;
 
 	RotarySliderForSplitParameter(SliderType sliderType, UnexposedParameters* unexposedParams, UndoManager* undoManager);
 	void updateTooltip();
+	void paint(Graphics& g) override;
 	void mouseDoubleClick(const MouseEvent& event) override;
 	void valueChanged() override;
 	void valueChanged(Value& value) override;

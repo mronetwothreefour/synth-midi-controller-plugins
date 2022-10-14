@@ -92,6 +92,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 void ComboBoxForGlobalParameter::updateTooltip() {
 	auto shouldShowDescription{ (bool)shouldShowDescriptionAsValue.getValue() };
 	auto shouldShowCurrentChoice{ (bool)shouldShowCurrentChoiceAsValue.getValue() };
+	auto currentChoice{ getSelectedItemIndex() };
 	String tip{ "" };
 	switch (comboBoxType)
 	{
@@ -99,15 +100,14 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 		if (shouldShowDescription)
 			tip += Description::buildForMIDI_ClockSource();
 		if (shouldShowCurrentChoice) {
-			auto currentChoice{ global->midiClockSource() };
-			tip += "Current setting: " + ChoiceName::buildForMIDI_ClockSource(currentChoice, ChoiceNameType::verbose);
+			tip += "Current setting: " + ChoiceName::buildForMIDI_ClockSource(MIDI_ClockSource{ currentChoice }, ChoiceNameType::verbose);
 		}
 		break;
 	case ComboBoxType::pedalMode:
 		if (shouldShowDescription)
 			tip += Description::buildForPedalMode();
 		if (shouldShowCurrentChoice) {
-			auto isArpLatch{ global->pedalModeIsArpLatch() };
+			auto isArpLatch{ currentChoice == 1 };
 			tip += "Current setting: " + ChoiceName::buildForPedalMode(isArpLatch);
 		}
 		break;
@@ -115,16 +115,15 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 		if (shouldShowDescription)
 			tip += Description::buildForVoiceChanges();
 		if (shouldShowCurrentChoice) {
-			auto currentChoice{ getSelectedItemIndex() };
-			tip += "Current setting: " + ChoiceName::buildForVoiceChanges(currentChoice);
+			auto areEnabled{ currentChoice == 1 };
+			tip += "Current setting: " + ChoiceName::buildForVoiceChanges(areEnabled);
 		}
 		break;
 	case ComboBoxType::paramChangeSendType:
 		if (shouldShowDescription)
 			tip += Description::buildForParamChangeSendType();
 		if (shouldShowCurrentChoice) {
-			auto currentChoice{ global->paramChangeSendType() };
-			tip += "Current setting: " + ChoiceName::buildForParamChangeSendType(currentChoice);
+			tip += "Current setting: " + ChoiceName::buildForParamChangeSendType(ParamChangeSendType{ currentChoice });
 		}
 		break;
 	default:

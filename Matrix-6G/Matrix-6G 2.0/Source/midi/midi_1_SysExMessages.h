@@ -23,6 +23,7 @@ struct SysExMessages
     static void addDataMessageForVoiceStoredInBankAndSlotToOutgoingBuffers(
         VoicesBanks* voicesBanks, VoicesBank bank, uint8 slotNum, OutgoingBuffers* outgoingBuffers);
 
+    static void addSwitchToSplitModeMessageToOutgoingBuffers(OutgoingBuffers* outgoingBuffers);
     static void addRequestForSplitDataStoredInSlotToOutgoingBuffers(uint8 slotNum, OutgoingBuffers* outgoingBuffers);
     static void addDataMessageForSplitStoredInSlotToOutgoingBuffers(SplitsBank* splitsBank, uint8 slotNum, OutgoingBuffers* outgoingBuffers);
 

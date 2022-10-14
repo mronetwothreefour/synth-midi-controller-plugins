@@ -5,6 +5,7 @@
 #include "../constants/constants_Enum.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
+#include "../midi/midi_1_SysExMessages.h"
 #include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 using namespace Matrix_6G_Constants;
@@ -19,8 +20,8 @@ class ButtonForHidingLayer :
 public:
 	ButtonForHidingLayer() = delete;
 
-	explicit ButtonForHidingLayer(BorderColor borderColor, TooltipsOptions* tooltips) :
-		tooltips{ tooltips }
+	explicit ButtonForHidingLayer(BorderColor borderColor, UnexposedParameters* unexposedParams) :
+		tooltips{ unexposedParams->getTooltipsOptions() }
 	{
 		shouldShowDescriptionAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
 		shouldShowDescriptionAsValue.addListener(this);
@@ -31,7 +32,8 @@ public:
 		case BorderColor::orange: { setComponentID(ID::btn_X_Orange.toString()); break; }
 		default: break;
 		}
-		onClick = [this] {
+		onClick = [this, borderColor, unexposedParams] {
+			SysExMessages::addActivateQuickEditMessageToOutgoingBuffers(unexposedParams->getOutgoing_MIDI_Buffers());
 			getParentComponent()->getParentComponent()->grabKeyboardFocus();
 			getParentComponent()->setVisible(false);
 		};

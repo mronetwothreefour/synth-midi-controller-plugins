@@ -64,6 +64,9 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID.startsWith(ID::btn_Push_VoicesBank_.toString()))
 		mBlock = MemBlock{ isDown ? btn_PushVoice_Dn_png : btn_PushVoice_Up_png, isDown ? (s_t)btn_PushVoice_Dn_pngSize : (s_t)btn_PushVoice_Up_pngSize };
 
+	if (buttonID.startsWith(ID::btn_Splits.toString()))
+		mBlock = MemBlock{ isDown ? btn_Splits_Dn_png : btn_Splits_Up_png, isDown ? (s_t)btn_Splits_Dn_pngSize : (s_t)btn_Splits_Up_pngSize };
+
 	if (buttonID == ID::btn_Save_Voice.toString())
 		mBlock = MemBlock{ isDown ? btn_SaveVoice_Dn_png : btn_SaveVoice_Up_png, isDown ? (s_t)btn_SaveVoice_Dn_pngSize : (s_t)btn_SaveVoice_Up_pngSize };
 
@@ -75,6 +78,9 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 
 	if (buttonID == ID::btn_X_Blue.toString())
 		mBlock = MemBlock{ isDown ? btn_X_Blue_Dn_png : btn_X_Blue_Up_png, isDown ? (s_t)btn_X_Blue_Dn_pngSize : (s_t)btn_X_Blue_Up_pngSize };
+
+	if (buttonID == ID::btn_X_Grey.toString())
+		mBlock = MemBlock{ isDown ? btn_X_Grey_Dn_png : btn_X_Grey_Up_png, isDown ? (s_t)btn_X_Grey_Dn_pngSize : (s_t)btn_X_Grey_Up_pngSize };
 
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ mBlock, false };

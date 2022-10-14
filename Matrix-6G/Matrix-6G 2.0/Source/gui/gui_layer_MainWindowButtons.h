@@ -5,7 +5,9 @@
 #include "gui_comp_ButtonForActivatingQuickEdit.h"
 
 class ExposedParameters;
+class GUI_Layer_Splits;
 class GUI_Layer_VoicesBanks;
+class Outgoing_MIDI_Buffers;
 class TooltipsOptions;
 class UnexposedParameters;
 
@@ -17,11 +19,14 @@ class GUI_Layer_MainWindowButtons :
 {
 	ExposedParameters* exposedParams;
 	UnexposedParameters* unexposedParams;
+	Outgoing_MIDI_Buffers* outgoingBuffers;
 	TooltipsOptions* tooltips;
 	ButtonForActivatingQuickEdit btn_ActivateQuickEdit;
 	TextButton btn_Push;
 	TextButton btn_Pull;
 	TextButton btn_ShowVoicesBanks;
+	TextButton btn_ShowSplits;
+	std::unique_ptr<GUI_Layer_Splits> layer_Splits;
 	std::unique_ptr<GUI_Layer_VoicesBanks> layer_VoicesBanks;
 	Value shouldShowDescriptionAsValue;
 
@@ -34,6 +39,7 @@ private:
 	void updateTooltips();
 	void timerCallback() override;
 	void addProgramChangeMessageToOutgoingBuffersAfterDelay(int delayInMilliseconds);
+	void showSplitsLayer();
 	void showVoicesBanksLayer();
 
 public:

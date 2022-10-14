@@ -71,7 +71,7 @@ TextEditorForSplitParamSlider::TextEditorForSplitParamSlider(SliderType sliderTy
 	setEditorTextUsingStoredValue();
 	setSize(slider_w, GUI::control_h);
 	textEditor.setBounds(getLocalBounds());
-	addAndMakeVisible(textEditor);
+	//addAndMakeVisible(textEditor);
 }
 
 void TextEditorForSplitParamSlider::setEditorTextUsingStoredValue() {
@@ -89,6 +89,7 @@ void TextEditorForSplitParamSlider::setEditorTextUsingStoredValue() {
 void TextEditorForSplitParamSlider::onEditorShow_ZoneVolumeBalance(TooltipsOptions* tooltips) {
 	auto editor{ textEditor.getCurrentTextEditor() };
 	editor->setInputRestrictions(3, "-0123456789");
+	editor->setJustification(Justification::centred);
 	if (tooltips->shouldShowDescription())
 		editor->setTooltip("Type in a new setting.\n(Range: -31 to 31)");
 }

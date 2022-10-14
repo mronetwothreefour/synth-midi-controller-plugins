@@ -3378,6 +3378,7 @@
     <None Include="..\..\BinaryResources\buttons\btn_SaveSplit_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_SaveVoice_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_SaveVoice_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Splits_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Splits_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Stop_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Stop_Up.png"/>

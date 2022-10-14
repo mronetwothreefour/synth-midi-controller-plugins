@@ -50,6 +50,7 @@ LinearSliderWithMouseWheelMoveOverride::LinearSliderWithMouseWheelMoveOverride(U
 {
 	setSliderStyle(Slider::LinearHorizontal);
 	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
+	setSliderSnapsToMousePosition(false);
 }
 
 

@@ -14,6 +14,14 @@ String MainWindowButtonDescription::buildForActivateQuickEdit() {
     return descriptionString;
 }
 
+String MainWindowButtonDescription::buildForShowSplitsLayer() {
+    String descriptionString{ "" };
+    descriptionString += "Opens a window where you can create and store\n";
+    descriptionString += (GUI::openQuote + "splits," + GUI::closeQuote + " which allow you to play two voices\n");
+    descriptionString += "at once with a single keyboard controller.";
+    return descriptionString;
+}
+
 String MainWindowButtonDescription::buildForShowVoicesBanksLayer() {
     String descriptionString{ "" };
     descriptionString += "Opens a window where you can manage\n";

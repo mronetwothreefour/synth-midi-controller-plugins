@@ -93,7 +93,7 @@ bool RawDataTools::isValidVoiceDataHexString(const String& hexString) {
         return true;
 }
 
-void RawDataTools::applyRawSplitDataTo_GUI(const uint8 splitNum, const uint8* splitData, SplitOptions* splitOptions) {
+void RawDataTools::applyRawSplitDataTo_GUI(const uint8* splitData, SplitOptions* splitOptions) {
     String splitName{ "" };
     for (auto byte = 0; byte != SPLT::numberOfCharsInSplitName * 2; byte += 2) {
         auto lsbByteValue{ (uint8)splitData[byte] };
@@ -325,15 +325,18 @@ void RawDataTools::formatSignedValueForStoringInPlugin(bool is_7_bit, uint8& val
 }
 
 void RawDataTools::formatSignedZoneTransposeValueForSendingToMatrix(uint8& value) {
+    auto valueWithOffset{ value - SPLT::offsetForSignedZoneTransposeRange };
+    if (valueWithOffset < 0)
+        valueWithOffset += negativeValueOffset;
+    value = (uint8)valueWithOffset;
+}
+
+void RawDataTools::formatSignedZoneTransposeValueForStoringInPlugin(uint8& value) {
     int valueWithOffset{ value };
     if (valueWithOffset > 127)
         valueWithOffset -= negativeValueOffset;
     valueWithOffset += SPLT::offsetForSignedZoneTransposeRange;
     value = (uint8)valueWithOffset;
-}
-
-void RawDataTools::formatSignedZoneTransposeValueForStoringInPlugin(uint8& value)
-{
 }
 
 String RawDataTools::convertStored_ASCII_ValueToString(const uint8& value) {

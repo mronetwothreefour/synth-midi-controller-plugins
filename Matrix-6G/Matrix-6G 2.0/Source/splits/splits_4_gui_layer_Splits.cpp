@@ -12,7 +12,7 @@ GUI_Layer_Splits::GUI_Layer_Splits(UnexposedParameters* unexposedParams, UndoMan
 	unexposedParams{ unexposedParams },
 	splitSlots{ unexposedParams },
 	splitsBank{ unexposedParams->getSplitsBank() },
-	btn_Close{ BorderColor::grey, unexposedParams->getTooltipsOptions() },
+	btn_Close{ BorderColor::grey, unexposedParams },
 	comboBox_ZoneVoiceAssignment{ ComboBoxType::zoneVoiceAssignment, unexposedParams},
 	slider_ZoneVolumeBalance{ unexposedParams, undoManager },
 	slider_LowerZoneLimit{ SliderType::lowerZoneLimit, unexposedParams, undoManager },
@@ -37,6 +37,7 @@ GUI_Layer_Splits::GUI_Layer_Splits(UnexposedParameters* unexposedParams, UndoMan
 	btn_Close.setAlwaysOnTop(true);
 	addAndMakeVisible(btn_Close);
 
+	auto topRow_y{ 99 };
 	splitNameEditor.setFont(GUI::font_LabelEditors);
 	splitNameEditor.setComponentID(ID::comp_SplitNameEditor.toString());
 	splitNameEditor.setEditable(true);
@@ -61,10 +62,11 @@ GUI_Layer_Splits::GUI_Layer_Splits(UnexposedParameters* unexposedParams, UndoMan
 		tip += "one of the storage bank slots below.";
 		splitNameEditor.setTooltip(tip);
 	}
-	splitNameEditor.setBounds(510, 99, 70, GUI::control_h);
+	splitNameEditor.setBounds(510, topRow_y, 70, GUI::control_h);
 	addAndMakeVisible(splitNameEditor);
 
-	comboBox_ZoneVoiceAssignment.setTopLeftPosition(761, 197);
+	auto comboBoxes_x{ 761 };
+	comboBox_ZoneVoiceAssignment.setTopLeftPosition(comboBoxes_x, topRow_y);
 	addAndMakeVisible(comboBox_ZoneVoiceAssignment);
 
 	slider_ZoneVolumeBalance.setTopLeftPosition(594, 127);
@@ -73,7 +75,6 @@ GUI_Layer_Splits::GUI_Layer_Splits(UnexposedParameters* unexposedParams, UndoMan
 	auto zoneLimit_x{ 485 };
 	auto zoneVoiceNum_x{ 596 };
 	auto zoneTranspose_x{ 678 };
-	auto zoneMIDI_x{ 761 };
 	auto lowerZone_y{ 197 };
 	slider_LowerZoneLimit.setTopLeftPosition(zoneLimit_x, lowerZone_y);
 	addAndMakeVisible(slider_LowerZoneLimit);
@@ -81,7 +82,7 @@ GUI_Layer_Splits::GUI_Layer_Splits(UnexposedParameters* unexposedParams, UndoMan
 	addAndMakeVisible(slider_LowerZoneVoiceNum);
 	slider_LowerZoneTranspose.setTopLeftPosition(zoneTranspose_x, lowerZone_y);
 	addAndMakeVisible(slider_LowerZoneTranspose);
-	comboBox_LowerZone_MIDI_IsEnabled.setTopLeftPosition(zoneMIDI_x, lowerZone_y);
+	comboBox_LowerZone_MIDI_IsEnabled.setTopLeftPosition(comboBoxes_x, lowerZone_y);
 	addAndMakeVisible(comboBox_LowerZone_MIDI_IsEnabled);
 
 	auto upperZone_y{ 268 };
@@ -91,7 +92,7 @@ GUI_Layer_Splits::GUI_Layer_Splits(UnexposedParameters* unexposedParams, UndoMan
 	addAndMakeVisible(slider_UpperZoneVoiceNum);
 	slider_UpperZoneTranspose.setTopLeftPosition(zoneTranspose_x, upperZone_y);
 	addAndMakeVisible(slider_UpperZoneTranspose);
-	comboBox_UpperZone_MIDI_IsEnabled.setTopLeftPosition(zoneMIDI_x, upperZone_y);
+	comboBox_UpperZone_MIDI_IsEnabled.setTopLeftPosition(comboBoxes_x, upperZone_y);
 	addAndMakeVisible(comboBox_UpperZone_MIDI_IsEnabled);
 
 	splitSlots.setTopLeftPosition(460, 334);
@@ -175,7 +176,7 @@ bool GUI_Layer_Splits::perform(const InvocationInfo& info) {
 }
 
 void GUI_Layer_Splits::valueChanged(Value& value) {
-	splitNameEditor.setText(splitNameAsValue.getValue().toString(), dontSendNotification);
+	splitNameEditor.setText(value.getValue().toString(), dontSendNotification);
 }
 
 void GUI_Layer_Splits::showPushBankLayer() {

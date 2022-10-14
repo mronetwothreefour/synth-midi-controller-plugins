@@ -68,6 +68,7 @@ ComboBoxForSplitParameter::ComboBoxForSplitParameter(ComboBoxType comboBoxType, 
 void ComboBoxForSplitParameter::updateTooltip() {
 	auto shouldShowDescription{ tooltips->shouldShowDescription() };
 	auto shouldShowCurrentChoice{ tooltips->shouldShowCurrentChoice() };
+	auto currentChoice{ getSelectedItemIndex() };
 	String tip{ "" };
 	switch (comboBoxType)
 	{
@@ -75,15 +76,14 @@ void ComboBoxForSplitParameter::updateTooltip() {
 		if (shouldShowDescription)
 			tip += Description::buildForZoneVoiceAssignment();
 		if (shouldShowCurrentChoice) {
-			auto currentChoice{ splitOptions->zoneVoiceAssignment() };
-			tip += "Current setting: " + ChoiceName::buildForZoneVoiceAssignment(currentChoice, ChoiceNameType::verbose);
+			tip += "Current setting: " + ChoiceName::buildForZoneVoiceAssignment(VoiceAssignment{ currentChoice }, ChoiceNameType::verbose);
 		}
 		break;
 	case ComboBoxType::lowerZone_MIDI_IsEnabled:
 		if (shouldShowDescription)
 			tip += Description::buildForZone_MIDI_OutIsEnabled(SplitZone::lower);
 		if (shouldShowCurrentChoice) {
-			auto isEnabled{ splitOptions->zone_MIDI_OutIsEnabled(SplitZone::lower) };
+			auto isEnabled{ currentChoice == 1 };
 			tip += "Current setting: " + ChoiceName::buildForZone_MIDI_OutIsEnabled(isEnabled, ChoiceNameType::verbose);
 		}
 		break;
@@ -91,7 +91,7 @@ void ComboBoxForSplitParameter::updateTooltip() {
 		if (shouldShowDescription)
 			tip += Description::buildForZone_MIDI_OutIsEnabled(SplitZone::upper);
 		if (shouldShowCurrentChoice) {
-			auto isEnabled{ splitOptions->zone_MIDI_OutIsEnabled(SplitZone::upper) };
+			auto isEnabled{ currentChoice == 1 };
 			tip += "Current setting: " + ChoiceName::buildForZone_MIDI_OutIsEnabled(isEnabled, ChoiceNameType::verbose);
 		}
 		break;

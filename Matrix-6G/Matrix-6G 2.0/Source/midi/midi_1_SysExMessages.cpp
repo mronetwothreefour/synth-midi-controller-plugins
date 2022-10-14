@@ -12,13 +12,13 @@ using namespace Matrix_6G_Constants;
 
 void SysExMessages::addActivateQuickEditMessageToOutgoingBuffers(OutgoingBuffers* outgoingBuffers) {
     auto activateQuickEditVector{ RawDataTools::createRawDataVectorWithMatrix_6_SysExID() };
-    activateQuickEditVector.push_back((uint8)(int)SysExMessageType::activateQuickEdit);
+    activateQuickEditVector.push_back((uint8)SysExMessageType::activateQuickEdit);
     outgoingBuffers->addDataMessage(activateQuickEditVector);
 }
 
 void SysExMessages::addParamValueChangeMessageToOutgoingBuffers(uint8 paramNum, uint8 newValue, OutgoingBuffers* outgoingBuffers) {
     auto paramChangeVector{ RawDataTools::createRawDataVectorWithMatrix_6_SysExID() };
-    paramChangeVector.push_back((uint8)(int)SysExMessageType::parameterChange);
+    paramChangeVector.push_back((uint8)SysExMessageType::parameterChange);
     paramChangeVector.push_back(paramNum);
     paramChangeVector.push_back(newValue);
     outgoingBuffers->addDataMessage(paramChangeVector);
@@ -55,6 +55,13 @@ void SysExMessages::addDataMessageForVoiceStoredInBankAndSlotToOutgoingBuffers(
     for (auto dataByte : voiceDataVector)
         voiceDataMessageVector.push_back(dataByte);
     outgoingBuffers->addDataMessage(voiceDataMessageVector);
+}
+
+void SysExMessages::addSwitchToSplitModeMessageToOutgoingBuffers(OutgoingBuffers* outgoingBuffers) {
+    auto splitModeVector{ RawDataTools::createRawDataVectorWithMatrix_6_SysExID() };
+    splitModeVector.push_back((uint8)SysExMessageType::switchMode);
+    splitModeVector.push_back((uint8)SysExMessageType::splitData);
+    outgoingBuffers->addDataMessage(splitModeVector);
 }
 
 void SysExMessages::addRequestForSplitDataStoredInSlotToOutgoingBuffers(uint8 slotNum, OutgoingBuffers* outgoingBuffers) {

@@ -27,7 +27,7 @@ String SplitParamDescription::buildForZoneLimit(SplitZone zone) {
 String SplitParamDescription::buildForZone_MIDI_OutIsEnabled(SplitZone zone) {
     String zoneName{ zone == SplitZone::lower ? "lower" : "upper" };
     String descriptionString{ "" };
-    descriptionString += "Selects whether the " + zoneName + " transmits and receives\n";
+    descriptionString += "Selects whether the " + zoneName + " zone transmits and receives\n";
     descriptionString += "MIDI messages on the basic channel (set in Master options).\n";
     descriptionString += "NOTE: Changes made to split parameters are not sent\n";
     descriptionString += "to the hardware until you SAVE the split in one of\n";

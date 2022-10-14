@@ -83,6 +83,8 @@
               file="BinaryResources/buttons/btn_SaveVoice_Dn.png"/>
         <FILE id="xxaf5e" name="btn_SaveVoice_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_SaveVoice_Up.png"/>
+        <FILE id="DoLIV9" name="btn_Splits_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Splits_Dn.png"/>
         <FILE id="d7Gdc8" name="btn_Splits_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Splits_Up.png"/>
         <FILE id="N34dea" name="btn_Stop_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Stop_Dn.png"/>

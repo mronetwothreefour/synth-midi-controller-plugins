@@ -14,7 +14,7 @@
 GUI_Layer_VoicesBanks::GUI_Layer_VoicesBanks(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	voicesBanksTabs{ exposedParams, unexposedParams },
 	unexposedParams{ unexposedParams },
-	btn_Close{ BorderColor::blue, unexposedParams->getTooltipsOptions() }
+	btn_Close{ BorderColor::blue, unexposedParams }
 {
 	btn_Close.setTopRightPosition(borderBounds.getRight(), borderBounds.getY());
 	btn_Close.setAlwaysOnTop(true);

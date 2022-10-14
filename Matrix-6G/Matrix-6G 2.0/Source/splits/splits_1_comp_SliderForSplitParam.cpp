@@ -3,9 +3,11 @@
 #include "splits_0_build_ChoiceName.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Splits.h"
+#include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../descriptions/build_SplitParamDescription.h"
+#include "../gui/gui_build_LED_Path.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using ChoiceName = SplitParamChoiceName;
@@ -19,8 +21,6 @@ RotarySliderForSplitParameter::RotarySliderForSplitParameter(SliderType sliderTy
 	textEditor{ sliderType, unexposedParams }
 {
 	jassert(sliderType != SliderType::zoneVolumeBalance);
-
-	auto slider_w{ 0 };
 
 	switch (sliderType)
 	{
@@ -133,6 +133,40 @@ void RotarySliderForSplitParameter::updateTooltip() {
 	setTooltip(tip);
 }
 
+void RotarySliderForSplitParameter::paint(Graphics& g) {
+	g.setColour(GUI::color_LED_Blue);
+	auto currentChoice{ (uint8)roundToInt(getValue()) };
+	String choiceNameString{ "" };
+	switch (sliderType)
+	{
+	case SliderType::zoneVolumeBalance:
+		choiceNameString = ChoiceName::buildForZoneTranspose(currentChoice, ChoiceNameType::concise);
+		break;
+	case SliderType::lowerZoneLimit:
+		choiceNameString = ChoiceName::buildForZoneLimit(currentChoice, ChoiceNameType::concise);
+		break;
+	case SliderType::lowerZoneVoiceNum:
+		choiceNameString = String(currentChoice).paddedLeft('0', 2);
+		break;
+	case SliderType::lowerZoneTranspose:
+		choiceNameString = ChoiceName::buildForZoneTranspose(currentChoice, ChoiceNameType::concise);
+		break;
+	case SliderType::upperZoneLimit:
+		choiceNameString = ChoiceName::buildForZoneLimit(currentChoice, ChoiceNameType::concise);
+		break;
+	case SliderType::upperZoneVoiceNum:
+		choiceNameString = String(currentChoice).paddedLeft('0', 2);
+		break;
+	case SliderType::upperZoneTranspose:
+		choiceNameString = ChoiceName::buildForZoneTranspose(currentChoice, ChoiceNameType::concise);
+		break;
+	default:
+		break;
+	}
+	auto choiceNamePath{ LED_Path::buildLabelText(choiceNameString, slider_w) };
+	g.fillPath(choiceNamePath);
+}
+
 void RotarySliderForSplitParameter::mouseDoubleClick(const MouseEvent& /*event*/) {
 	textEditor.showEditor();
 }
@@ -208,6 +242,7 @@ void LinearSliderForSplitZoneVolumeBalance::updateTooltip() {
 		tip += Description::buildForZoneVolumeBalance();
 	if (tooltips->shouldShowCurrentChoice())
 		tip += "Current setting: " + String(currentChoice > EP::offsetForSigned_6_BitRange ? "+" : "") + String(currentChoice - EP::offsetForSigned_6_BitRange);
+	setTooltip(tip);
 }
 
 void LinearSliderForSplitZoneVolumeBalance::mouseDoubleClick(const MouseEvent& /*event*/) {

@@ -38,7 +38,7 @@ void SplitSlots::loadSplitFromSelectedSlot() {
 	if (selectedSlot < SPLT::numberOfSlotsInSplitsBank) {
 		auto splitDataHexString{ splitsBank->getSplitDataHexStringFromSlot(selectedSlot) };
 		auto splitDataVector{ RawDataTools::convertHexStringToDataVector(splitDataHexString) };
-		RawDataTools::applyRawSplitDataTo_GUI(selectedSlot, splitDataVector.data(), splitOptions);
+		RawDataTools::applyRawSplitDataTo_GUI(splitDataVector.data(), splitOptions);
 		callAfterDelay(100, [this] {
 			SysExMessages::addDataMessageForSplitStoredInSlotToOutgoingBuffers(splitsBank, selectedSlot, outgoingBuffers);
 		});
