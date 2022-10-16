@@ -71,7 +71,7 @@ TextEditorForSplitParamSlider::TextEditorForSplitParamSlider(SliderType sliderTy
 	setEditorTextUsingStoredValue();
 	setSize(slider_w, GUI::control_h);
 	textEditor.setBounds(getLocalBounds());
-	//addAndMakeVisible(textEditor);
+	addAndMakeVisible(textEditor);
 }
 
 void TextEditorForSplitParamSlider::setEditorTextUsingStoredValue() {

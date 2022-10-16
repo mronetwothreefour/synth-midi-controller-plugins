@@ -43,6 +43,9 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID.startsWith("btn_Impt_"))
 		mBlock = MemBlock{ isDown ? btn_Impt_Dn_png : btn_Impt_Up_png, isDown ? (s_t)btn_Impt_Dn_pngSize : (s_t)btn_Impt_Up_pngSize };
 
+	if (buttonID == ID::btn_Load_Split.toString())
+		mBlock = MemBlock{ isDown ? btn_LoadSplit_Dn_png : btn_LoadSplit_Up_png, isDown ? (s_t)btn_LoadSplit_Dn_pngSize : (s_t)btn_LoadSplit_Up_pngSize };
+
 	if (buttonID == ID::btn_Load_Voice.toString())
 		mBlock = MemBlock{ isDown ? btn_LoadVoice_Dn_png : btn_LoadVoice_Up_png, isDown ? (s_t)btn_LoadVoice_Dn_pngSize : (s_t)btn_LoadVoice_Up_pngSize };
 
@@ -55,11 +58,17 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID == ID::btn_Pull.toString())
 		mBlock = MemBlock{ isDown ? btn_Pull_Dn_png : btn_Pull_Up_png, isDown ? (s_t)btn_Pull_Dn_pngSize : (s_t)btn_Pull_Up_pngSize };
 
+	if (buttonID.startsWith("btn_Pull_Split"))
+		mBlock = MemBlock{ isDown ? btn_PullSplit_Dn_png : btn_PullSplit_Up_png, isDown ? (s_t)btn_PullSplit_Dn_pngSize : (s_t)btn_PullSplit_Up_pngSize };
+
 	if (buttonID.startsWith("btn_Pull_Voice"))
 		mBlock = MemBlock{ isDown ? btn_PullVoice_Dn_png : btn_PullVoice_Up_png, isDown ? (s_t)btn_PullVoice_Dn_pngSize : (s_t)btn_PullVoice_Up_pngSize };
 
 	if (buttonID == ID::btn_Push.toString())
 		mBlock = MemBlock{ isDown ? btn_Push_Dn_png : btn_Push_Up_png, isDown ? (s_t)btn_Push_Dn_pngSize : (s_t)btn_Push_Up_pngSize };
+
+	if (buttonID == ID::btn_Push_SplitsBank.toString())
+		mBlock = MemBlock{ isDown ? btn_PushSplit_Dn_png : btn_PushSplit_Up_png, isDown ? (s_t)btn_PushSplit_Dn_pngSize : (s_t)btn_PushSplit_Up_pngSize };
 
 	if (buttonID.startsWith(ID::btn_Push_VoicesBank_.toString()))
 		mBlock = MemBlock{ isDown ? btn_PushVoice_Dn_png : btn_PushVoice_Up_png, isDown ? (s_t)btn_PushVoice_Dn_pngSize : (s_t)btn_PushVoice_Up_pngSize };
@@ -69,6 +78,9 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 
 	if (buttonID == ID::btn_Save_Voice.toString())
 		mBlock = MemBlock{ isDown ? btn_SaveVoice_Dn_png : btn_SaveVoice_Up_png, isDown ? (s_t)btn_SaveVoice_Dn_pngSize : (s_t)btn_SaveVoice_Up_pngSize };
+
+	if (buttonID == ID::btn_Save_Split.toString())
+		mBlock = MemBlock{ isDown ? btn_SaveSplit_Dn_png : btn_SaveSplit_Up_png, isDown ? (s_t)btn_SaveSplit_Dn_pngSize : (s_t)btn_SaveSplit_Up_pngSize };
 
 	if (buttonID == ID::btn_Stop.toString())
 		mBlock = MemBlock{ isDown ? btn_Stop_Dn_png : btn_Stop_Up_png, isDown ? (s_t)btn_Stop_Dn_pngSize : (s_t)btn_Stop_Up_pngSize };

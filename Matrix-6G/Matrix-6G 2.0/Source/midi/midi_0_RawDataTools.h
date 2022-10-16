@@ -11,12 +11,14 @@ struct RawDataTools
 {
     static const uint8 oberheim_ID{ 16 };
     static const uint8 matrix_ID{ 6 };
+    static const uint8 xpander_ID{ 2 };
     static const uint8 valueForBarSymbol{ 29 };
     static const int voiceAndSplitDataMessageSlotByte{ 4 };
     static const int firstVoiceAndSplitNameByte{ 5 };
 
     static bool midiMessageIsSysExForMatrix(const MidiMessage& midiMessage);
     static std::vector<uint8> createRawDataVectorWithMatrix_6_SysExID();
+    static std::vector<uint8> createRawDataVectorWithXpander_SysExID_ForSwitchingToSplitMode();
 
     static const std::vector<uint8> convertHexStringToDataVector(const String& hexString);
     static const String convertDataVectorToHexString(const std::vector<uint8>& dataVector);

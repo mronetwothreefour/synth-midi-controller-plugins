@@ -58,7 +58,7 @@ void SysExMessages::addDataMessageForVoiceStoredInBankAndSlotToOutgoingBuffers(
 }
 
 void SysExMessages::addSwitchToSplitModeMessageToOutgoingBuffers(OutgoingBuffers* outgoingBuffers) {
-    auto splitModeVector{ RawDataTools::createRawDataVectorWithMatrix_6_SysExID() };
+    auto splitModeVector{ RawDataTools::createRawDataVectorWithXpander_SysExID_ForSwitchingToSplitMode() };
     splitModeVector.push_back((uint8)SysExMessageType::switchMode);
     splitModeVector.push_back((uint8)SysExMessageType::splitData);
     outgoingBuffers->addDataMessage(splitModeVector);

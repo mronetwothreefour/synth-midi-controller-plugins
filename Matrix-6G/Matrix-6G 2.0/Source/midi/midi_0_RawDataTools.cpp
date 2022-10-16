@@ -28,6 +28,13 @@ std::vector<uint8> RawDataTools::createRawDataVectorWithMatrix_6_SysExID() {
     return rawDataVector;
 }
 
+std::vector<uint8> RawDataTools::createRawDataVectorWithXpander_SysExID_ForSwitchingToSplitMode() {
+    std::vector<uint8> rawDataVector;
+    rawDataVector.push_back(oberheim_ID);
+    rawDataVector.push_back(xpander_ID);
+    return rawDataVector;
+}
+
 const std::vector<uint8> RawDataTools::convertHexStringToDataVector(const String& hexString) {
     std::vector<uint8> dataVector;
     auto indexOfChecksumByte{ hexString.length() - 2 };
@@ -144,7 +151,7 @@ const std::vector<uint8> RawDataTools::extractRawSplitDataFrom_GUI(SplitOptions*
     uint8 checksum{ 0 };
 
     auto splitName{ splitOptions->splitName() };
-    addVoiceOrSplitNameDataToVectorAndUpdateChecksum(true, splitName, splitData, checksum);
+    addVoiceOrSplitNameDataToVectorAndUpdateChecksum(false, splitName, splitData, checksum);
 
     for (auto i = 0; i != numberOfUnusedSplitBytes; ++i)
         splitData.push_back((uint8)0);
@@ -201,6 +208,8 @@ const std::vector<uint8> RawDataTools::extractRawSplitDataFrom_GUI(SplitOptions*
     splitData.push_back(upperZoneVoiceNumber % 16);
     splitData.push_back(upperZoneVoiceNumber / 16);
     checksum += upperZoneVoiceNumber;
+
+    splitData.push_back(checksum % (uint8)128);
 
     return splitData;
 }

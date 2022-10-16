@@ -49,7 +49,8 @@ private:
 
 
 class ButtonForPullingSelectedSplitFromHardware :
-	public TextButton
+	public TextButton,
+	private Timer
 {
 public:
 
@@ -57,7 +58,7 @@ public:
 
 	ButtonForPullingSelectedSplitFromHardware(SplitSlots* splitSlots, UnexposedParameters* unexposedParams)
 	{
-		setComponentID(ID::btn_Pull_Voice.toString());
+		setComponentID(ID::btn_Pull_Split.toString());
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
 		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
@@ -66,11 +67,25 @@ public:
 			tip += "slot in the plugin storage bank.";
 		}
 		setTooltip(tip);
-		onClick = [this, splitSlots] { splitSlots->pullSelectedSplitFromHardware(); };
+		onClick = [this, splitSlots, unexposedParams] {
+			splitSlots->pullSelectedSplitFromHardware(); 
+			auto transmitTime{ unexposedParams->getVoiceTransmissionOptions()->voiceTransmitTime() };
+			callAfterDelay(transmitTime, [this, unexposedParams, splitSlots] {
+				auto channel{ unexposedParams->getGlobalOptions()->basicChannel() };
+				unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessage(channel, splitSlots->selectedSlot);
+				auto transmitTime{ unexposedParams->getVoiceTransmissionOptions()->voiceTransmitTime() };
+				callAfterDelay(transmitTime, [this, unexposedParams, splitSlots] {
+					auto channel{ unexposedParams->getGlobalOptions()->basicChannel() };
+					unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessage(channel, splitSlots->selectedSlot);
+				});
+			});
+		};
 		setSize(GUI::buttons_SplitsBank_w, GUI::buttons_small_h);
 	}
 
 private:
+	void timerCallback() override {}
+
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForPullingSelectedSplitFromHardware)
 };
@@ -135,7 +150,8 @@ private:
 
 
 class ButtonForSavingSplitIntoSelectedSlot :
-	public TextButton
+	public TextButton,
+	private Timer
 {
 public:
 
@@ -154,11 +170,23 @@ public:
 			tip += "stored in the hardware and cannot be undone.";
 		}
 		setTooltip(tip);
-		onClick = [this, splitSlots] { splitSlots->saveCurrentSplitSettingsIntoSelectedSlot(); };
+		onClick = [this, splitSlots, unexposedParams] {
+			splitSlots->saveCurrentSplitSettingsIntoSelectedSlot(); 
+			callAfterDelay(100, [this, splitSlots, unexposedParams] {
+				splitSlots->pushSelectedSplitToHardware(); 
+				auto transmitTime{ unexposedParams->getVoiceTransmissionOptions()->voiceTransmitTime() };
+				callAfterDelay(transmitTime, [this, unexposedParams, splitSlots] {
+					auto channel{ unexposedParams->getGlobalOptions()->basicChannel() };
+					unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessage(channel, splitSlots->selectedSlot);
+				});
+			});
+		};
 		setSize(GUI::buttons_SplitsBank_w, GUI::buttons_small_h);
 	}
 
 private:
+	void timerCallback() override {}
+
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ButtonForSavingSplitIntoSelectedSlot)
 };
