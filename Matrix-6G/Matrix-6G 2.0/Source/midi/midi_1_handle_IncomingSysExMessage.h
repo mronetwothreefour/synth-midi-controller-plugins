@@ -4,6 +4,8 @@
 
 class ExposedParameters;
 class GlobalOptions;
+class SplitOptions;
+class SplitsBank;
 class UnexposedParameters;
 class VoicesBanks;
 class VoiceTransmissionOptions;
@@ -13,6 +15,8 @@ class IncomingSysExMessageHandler
 {
 	ExposedParameters* exposedParams;
 	GlobalOptions* global;
+	SplitOptions* splitOptions;
+	SplitsBank* splitsBank;
 	VoicesBanks* voicesBanks;
 	VoiceTransmissionOptions* transmitOptions;
 	const int sysExMessageTypeByte{ 3 };
@@ -26,8 +30,8 @@ public:
 private:
 	void handleSysExData(const uint8* sysExData, int sysExDataSize);
 	void handleIncomingVoiceData(const uint8* sysExData, int sysExDataSize);
-	void handleIncomingGlobalData(const uint8* sysExData, int sysExDataSize);
 	void handleIncomingSplitData(const uint8* sysExData, int sysExDataSize);
+	void handleIncomingGlobalData(const uint8* sysExData, int sysExDataSize);
 
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(IncomingSysExMessageHandler)

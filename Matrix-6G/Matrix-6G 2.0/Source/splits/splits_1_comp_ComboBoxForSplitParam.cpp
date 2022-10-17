@@ -22,7 +22,7 @@ ComboBoxForSplitParameter::ComboBoxForSplitParameter(ComboBoxType comboBoxType, 
 	switch (comboBoxType)
 	{
 	case ComboBoxType::zoneVoiceAssignment:
-		splitOptions->getSplitParamAsValue(ID::split_ZoneVoiceAssignment);
+		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_ZoneVoiceAssignment);
 		for (auto choiceNum = (int)VoiceAssignment::lower_2_Upper_4; choiceNum <= (int)VoiceAssignment::lower_0_Upper_6; ++choiceNum)
 			choiceNamesList.add(ChoiceName::buildForZoneVoiceAssignment(VoiceAssignment{ choiceNum }, ChoiceNameType::concise));
 		addItemList(choiceNamesList, 1);
@@ -33,7 +33,7 @@ ComboBoxForSplitParameter::ComboBoxForSplitParameter(ComboBoxType comboBoxType, 
 		};
 		break;
 	case ComboBoxType::lowerZone_MIDI_IsEnabled:
-		splitOptions->getSplitParamAsValue(ID::split_LowerZone_MIDI_OutIsEnabled);
+		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_LowerZone_MIDI_OutIsEnabled);
 		choiceNamesList.add(ChoiceName::buildForZone_MIDI_OutIsEnabled(disabled, ChoiceNameType::concise));
 		choiceNamesList.add(ChoiceName::buildForZone_MIDI_OutIsEnabled(enabled, ChoiceNameType::concise));
 		addItemList(choiceNamesList, 1);
@@ -45,7 +45,7 @@ ComboBoxForSplitParameter::ComboBoxForSplitParameter(ComboBoxType comboBoxType, 
 		};
 		break;
 	case ComboBoxType::upperZone_MIDI_IsEnabled:
-		splitOptions->getSplitParamAsValue(ID::split_UpperZone_MIDI_OutIsEnabled);
+		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_UpperZone_MIDI_OutIsEnabled);
 		choiceNamesList.add(ChoiceName::buildForZone_MIDI_OutIsEnabled(disabled, ChoiceNameType::concise));
 		choiceNamesList.add(ChoiceName::buildForZone_MIDI_OutIsEnabled(enabled, ChoiceNameType::concise));
 		addItemList(choiceNamesList, 1);
@@ -105,6 +105,7 @@ void ComboBoxForSplitParameter::valueChanged(Value& value) {
 	MessageManagerLock mmLock;
 	if (value.refersToSameSourceAs(splitParamAsValue))
 		setSelectedItemIndex((int)value.getValue());
+	repaint();
 	updateTooltip();
 }
 

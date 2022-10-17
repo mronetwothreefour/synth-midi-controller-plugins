@@ -73,11 +73,6 @@ public:
 			callAfterDelay(transmitTime, [this, unexposedParams, splitSlots] {
 				auto channel{ unexposedParams->getGlobalOptions()->basicChannel() };
 				unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessage(channel, splitSlots->selectedSlot);
-				auto transmitTime{ unexposedParams->getVoiceTransmissionOptions()->voiceTransmitTime() };
-				callAfterDelay(transmitTime, [this, unexposedParams, splitSlots] {
-					auto channel{ unexposedParams->getGlobalOptions()->basicChannel() };
-					unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessage(channel, splitSlots->selectedSlot);
-				});
 			});
 		};
 		setSize(GUI::buttons_SplitsBank_w, GUI::buttons_small_h);

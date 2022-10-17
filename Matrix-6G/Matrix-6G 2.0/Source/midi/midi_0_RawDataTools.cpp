@@ -195,7 +195,7 @@ const std::vector<uint8> RawDataTools::extractRawSplitDataFrom_GUI(SplitOptions*
     checksum += zoneVolumeBalance;
 
     auto zoneVoiceAssignment{ (uint8)(int)splitOptions->zoneVoiceAssignment() };
-    splitData.push_back(zoneVolumeBalance % 16);
+    splitData.push_back(zoneVoiceAssignment);
     splitData.push_back(0);
     checksum += zoneVoiceAssignment;
 

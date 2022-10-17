@@ -7,6 +7,8 @@
 IncomingSysExMessageHandler::IncomingSysExMessageHandler(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
     exposedParams{ exposedParams },
     global{ unexposedParams->getGlobalOptions() },
+    splitOptions{ unexposedParams->getSplitOptions() },
+    splitsBank{ unexposedParams->getSplitsBank() },
     voicesBanks{ unexposedParams->getVoicesBanks() },
     transmitOptions{ unexposedParams->getVoiceTransmissionOptions() }
 {
@@ -43,11 +45,24 @@ void IncomingSysExMessageHandler::handleIncomingVoiceData(const uint8* sysExData
         }
     }
     else
+        handleIncomingSplitData(sysExData, sysExDataSize);
+}
+
+void IncomingSysExMessageHandler::handleIncomingSplitData(const uint8* sysExData, int sysExDataSize) {
+    if (sysExData[sysExMessageTypeByte] == (uint8)SysExMessageType::splitData) {
+        auto slotNum{ sysExData[RawDataTools::voiceAndSplitDataMessageSlotByte] };
+        std::vector<uint8> splitDataVector;
+        for (auto dataByte = RawDataTools::firstVoiceAndSplitNameByte; dataByte != sysExDataSize; ++dataByte)
+            splitDataVector.push_back(*(sysExData + dataByte));
+        auto splitDataHexString{ RawDataTools::convertDataVectorToHexString(splitDataVector) };
+        splitsBank->storeSplitDataHexStringInSlot(splitDataHexString, slotNum);
+        RawDataTools::applyRawSplitDataTo_GUI(sysExData + RawDataTools::firstVoiceAndSplitNameByte, splitOptions);
+    }
+    else
         handleIncomingGlobalData(sysExData, sysExDataSize);
 }
 
-void IncomingSysExMessageHandler::handleIncomingGlobalData(const uint8* /*sysExData*/, int /*sysExDataSize*/) {
-}
-
-void IncomingSysExMessageHandler::handleIncomingSplitData(const uint8* /*sysExData*/, int /*sysExDataSize*/) {
+void IncomingSysExMessageHandler::handleIncomingGlobalData(const uint8* sysExData, int /*sysExDataSize*/) {
+    if (sysExData[sysExMessageTypeByte] == (uint8)SysExMessageType::globalData) {
+    }
 }
