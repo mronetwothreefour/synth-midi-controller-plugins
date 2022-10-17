@@ -123,7 +123,7 @@ public:
 
 	explicit ButtonForPushingEntireSplitsBankToHardware(UnexposedParameters* unexposedParams)
 	{
-		setComponentID(ID::btn_Push_SplitsBank.toString());
+		setComponentID(ID::btn_Push_SplitsBankAndGlobalParams.toString());
 		auto tooltips{ unexposedParams->getTooltipsOptions() };
 		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {

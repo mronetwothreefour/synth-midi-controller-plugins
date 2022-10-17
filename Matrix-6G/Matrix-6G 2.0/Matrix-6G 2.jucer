@@ -27,10 +27,16 @@
               file="BinaryResources/buttons/btn_Create_Dn.png"/>
         <FILE id="Chlqlz" name="btn_Create_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Create_Up.png"/>
+        <FILE id="zkwutG" name="btn_EditVoiceMap_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_EditVoiceMap_Dn.png"/>
+        <FILE id="D8JMJi" name="btn_EditVoiceMap_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_EditVoiceMap_Up.png"/>
         <FILE id="Ml9hIV" name="btn_Export_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Export_Dn.png"/>
         <FILE id="Fr8iVF" name="btn_Export_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Export_Up.png"/>
+        <FILE id="awKtRw" name="btn_PushVoice_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_PushVoice_Dn.png"/>
         <FILE id="OxdSWK" name="btn_Expt_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Expt_Dn.png"/>
         <FILE id="OOtyg8" name="btn_Expt_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Expt_Up.png"/>
         <FILE id="vugG0N" name="btn_Import_Dn.png" compile="0" resource="1"
@@ -47,6 +53,10 @@
               file="BinaryResources/buttons/btn_LoadVoice_Dn.png"/>
         <FILE id="d5BDT2" name="btn_LoadVoice_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_LoadVoice_Up.png"/>
+        <FILE id="bREaDU" name="btn_Master_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Master_Dn.png"/>
+        <FILE id="a8ggLN" name="btn_Master_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Master_Up.png"/>
         <FILE id="YPteQA" name="btn_NewFolder_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_NewFolder_Dn.png"/>
         <FILE id="x1kEEd" name="btn_NewFolder_Up.png" compile="0" resource="1"
@@ -71,10 +81,12 @@
               file="BinaryResources/buttons/btn_PushSplit_Dn.png"/>
         <FILE id="B6OjBy" name="btn_PushSplit_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_PushSplit_Up.png"/>
-        <FILE id="awKtRw" name="btn_PushVoice_Dn.png" compile="0" resource="1"
-              file="BinaryResources/buttons/btn_PushVoice_Dn.png"/>
         <FILE id="b3dAMg" name="btn_PushVoice_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_PushVoice_Up.png"/>
+        <FILE id="V79S6K" name="btn_ResetPatchMap_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_ResetPatchMap_Dn.png"/>
+        <FILE id="cl5TZY" name="btn_ResetPatchMap_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_ResetPatchMap_Up.png"/>
         <FILE id="HFqv9A" name="btn_SaveSplit_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_SaveSplit_Dn.png"/>
         <FILE id="YbXUyi" name="btn_SaveSplit_Up.png" compile="0" resource="1"
@@ -126,14 +138,20 @@
             resource="1" file="BinaryResources/bkgrnd_FileOverwriteDialog.png"/>
       <FILE id="Eijvvv" name="bkgrnd_FolderExistsAlert.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_FolderExistsAlert.png"/>
+      <FILE id="KA71N0" name="bkgrnd_GlobalParams.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_GlobalParams.png"/>
       <FILE id="DIIZ5o" name="bkgrnd_ImportExportWindow.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_ImportExportWindow.png"/>
       <FILE id="JyyaUF" name="bkgrnd_MainWindow.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_MainWindow.png"/>
       <FILE id="wAz6I0" name="bkgrnd_NewFolderDialog.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_NewFolderDialog.png"/>
+      <FILE id="ygFx7W" name="bkgrnd_NoSysExWarning.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_NoSysExWarning.png"/>
       <FILE id="lXSa1s" name="bkgrnd_SplitsWindow.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_SplitsWindow.png"/>
+      <FILE id="xD17Hi" name="bkgrnd_VoiceMap.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_VoiceMap.png"/>
       <FILE id="E6mox2" name="bkgrnd_VoicesBankFooter_Custom.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_VoicesBankFooter_Custom.png"/>
       <FILE id="MVqErL" name="bkgrnd_VoicesBankFooter_Factory.png" compile="0"

@@ -105,6 +105,23 @@ namespace Matrix_6G_Constants
 	};
 
 
+	const enum class VibratoModSource {
+		off = 0,
+		lever_2,
+		pedal_1
+	};
+
+
+	const enum class VibratoWaveType {
+		triangle = 0,
+		upSawtooth,
+		downSawtooth,
+		square,
+		random,
+		noise
+	};
+
+
 	const enum class VoicesBank {
 		nullBank = -1, // needed by VoiceSlotRadioButton's default constructor
 		analogSynths_A = 0,

@@ -35,7 +35,7 @@ namespace Matrix_6G_Constants
 		static const Identifier btn_Pull_SplitsBank{ "btn_Pull_SplitsBank" };
 		static const Identifier btn_Push{ "btn_Push" };
 		static const Identifier btn_Push_VoicesBank_{ "btn_Push_VoicesBank_" };
-		static const Identifier btn_Push_SplitsBank{ "btn_Push_SplitsBank" };
+		static const Identifier btn_Push_SplitsBankAndGlobalParams{ "btn_Push_SplitsBankAndGlobalParams" };
 		static const Identifier btn_RadioButton_SplitSlot{ "btn_RadioButton_SplitSlot" };
 		static const Identifier btn_RadioButton_VoiceSlot{ "btn_RadioButton_VoiceSlot" };
 		static const Identifier btn_Save_Split{ "btn_Save_Split" };
@@ -141,7 +141,35 @@ namespace Matrix_6G_Constants
 		static const Identifier ep_95_Env_3_Release{ "ep_95_Env_3_Release" };
 
 
+		static const Identifier global_ActiveSensingIsEnabled{ "global_ActiveSensingIsEnabled" };
 		static const Identifier global_BasicChannel{ "global_BasicChannel" };
+		static const Identifier global_ControllersAreEnabled{ "global_ControllersAreEnabled" };
+		static const Identifier global_DisplayBrightness{ "global_DisplayBrightness" };
+		static const Identifier global_Lever_2_ControllerNumber{ "global_Lever_2_ControllerNumber" };
+		static const Identifier global_Lever_3_ControllerNumber{ "global_Lever_3_ControllerNumber" };
+		static const Identifier global_LocalControIsEnabled{ "global_LocalControIsEnabled" };
+		static const Identifier global_MIDI_EchoIsEnabled{ "global_MIDI_EchoIsEnabled" };
+		static const Identifier global_MIDI_MonoIsEnabled{ "global_MIDI_MonoIsEnabled" };
+		static const Identifier global_OmniModeIsEnabled{ "global_OmniModeIsEnabled" };
+		static const Identifier global_Pedal_1_ControllerNumber{ "global_Pedal_1_ControllerNumber" };
+		static const Identifier global_Pedal_2_ControllerNumber{ "global_Pedal_2_ControllerNumber" };
+		static const Identifier global_SpilloverIsEnabled{ "global_SpilloverIsEnabled" };
+		static const Identifier global_SplitStereoIsEnabled{ "global_SplitStereoIsEnabled" };
+		static const Identifier global_SQUICK_IsEnabled{ "global_SQUICK_IsEnabled" };
+		static const Identifier global_SysExIsEnabled{ "global_SysExIsEnabled" };
+		static const Identifier global_Tune{ "global_Tune" };
+		static const Identifier global_VibratoAmplitude{ "global_VibratoAmplitude" };
+		static const Identifier global_VibratoAmpModAmount{ "global_VibratoAmpModAmount" };
+		static const Identifier global_VibratoAmpModSource{ "global_VibratoAmpModSource" };
+		static const Identifier global_VibratoSpeed{ "global_VibratoSpeed" };
+		static const Identifier global_VibratoSpeedModAmount{ "global_VibratoSpeedModAmount" };
+		static const Identifier global_VibratoSpeedModSource{ "global_VibratoSpeedModSource" };
+		static const Identifier global_VibratoWaveType{ "global_VibratoWaveType" };
+		static const Identifier global_VoiceChangesAreEnabled{ "global_VoiceChangesAreEnabled" };
+		static const Identifier global_VoicesMapEchoIsEnabled{ "global_VoicesMapEchoIsEnabled" };
+		static const Identifier global_VoicesMapIn_{ "global_VoicesMapIn_" };
+		static const Identifier global_VoicesMapIsEnabled{ "global_VoicesMapIsEnabled" };
+		static const Identifier global_VoicesMapOut_{ "global_VoicesMapOut_" };
 
 		static const Identifier lbl_EditLabel{ "lbl_EditLabel" };
 		static const Identifier lbl_FolderNameEditor{ "lbl_FolderNameEditor" };

@@ -35,11 +35,20 @@ namespace BinaryData
     extern const char*   btn_Create_Up_png;
     const int            btn_Create_Up_pngSize = 613;
 
+    extern const char*   btn_EditVoiceMap_Dn_png;
+    const int            btn_EditVoiceMap_Dn_pngSize = 379;
+
+    extern const char*   btn_EditVoiceMap_Up_png;
+    const int            btn_EditVoiceMap_Up_pngSize = 375;
+
     extern const char*   btn_Export_Dn_png;
     const int            btn_Export_Dn_pngSize = 642;
 
     extern const char*   btn_Export_Up_png;
     const int            btn_Export_Up_pngSize = 628;
+
+    extern const char*   btn_PushVoice_Dn_png;
+    const int            btn_PushVoice_Dn_pngSize = 515;
 
     extern const char*   btn_Expt_Dn_png;
     const int            btn_Expt_Dn_pngSize = 462;
@@ -70,6 +79,12 @@ namespace BinaryData
 
     extern const char*   btn_LoadVoice_Up_png;
     const int            btn_LoadVoice_Up_pngSize = 458;
+
+    extern const char*   btn_Master_Dn_png;
+    const int            btn_Master_Dn_pngSize = 882;
+
+    extern const char*   btn_Master_Up_png;
+    const int            btn_Master_Up_pngSize = 835;
 
     extern const char*   btn_NewFolder_Dn_png;
     const int            btn_NewFolder_Dn_pngSize = 834;
@@ -113,11 +128,14 @@ namespace BinaryData
     extern const char*   btn_PushSplit_Up_png;
     const int            btn_PushSplit_Up_pngSize = 455;
 
-    extern const char*   btn_PushVoice_Dn_png;
-    const int            btn_PushVoice_Dn_pngSize = 515;
-
     extern const char*   btn_PushVoice_Up_png;
     const int            btn_PushVoice_Up_pngSize = 491;
+
+    extern const char*   btn_ResetPatchMap_Dn_png;
+    const int            btn_ResetPatchMap_Dn_pngSize = 501;
+
+    extern const char*   btn_ResetPatchMap_Up_png;
+    const int            btn_ResetPatchMap_Up_pngSize = 500;
 
     extern const char*   btn_SaveSplit_Dn_png;
     const int            btn_SaveSplit_Dn_pngSize = 602;
@@ -194,6 +212,9 @@ namespace BinaryData
     extern const char*   bkgrnd_FolderExistsAlert_png;
     const int            bkgrnd_FolderExistsAlert_pngSize = 1835;
 
+    extern const char*   bkgrnd_GlobalParams_png;
+    const int            bkgrnd_GlobalParams_pngSize = 21215;
+
     extern const char*   bkgrnd_ImportExportWindow_png;
     const int            bkgrnd_ImportExportWindow_pngSize = 1954;
 
@@ -203,8 +224,14 @@ namespace BinaryData
     extern const char*   bkgrnd_NewFolderDialog_png;
     const int            bkgrnd_NewFolderDialog_pngSize = 1783;
 
+    extern const char*   bkgrnd_NoSysExWarning_png;
+    const int            bkgrnd_NoSysExWarning_pngSize = 40081;
+
     extern const char*   bkgrnd_SplitsWindow_png;
     const int            bkgrnd_SplitsWindow_pngSize = 12735;
+
+    extern const char*   bkgrnd_VoiceMap_png;
+    const int            bkgrnd_VoiceMap_pngSize = 12948;
 
     extern const char*   bkgrnd_VoicesBankFooter_Custom_png;
     const int            bkgrnd_VoicesBankFooter_Custom_pngSize = 1061;
@@ -222,7 +249,7 @@ namespace BinaryData
     const int            SWISSCL_TTFSize = 35064;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 71;
+    const int namedResourceListSize = 80;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

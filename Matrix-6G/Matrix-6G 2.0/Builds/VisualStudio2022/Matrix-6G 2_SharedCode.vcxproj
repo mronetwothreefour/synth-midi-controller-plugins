@@ -3346,8 +3346,11 @@
     <None Include="..\..\BinaryResources\buttons\btn_Close_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Create_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Create_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_EditVoiceMap_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_EditVoiceMap_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Export_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Export_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_PushVoice_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Expt_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Expt_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Import_Dn.png"/>
@@ -3358,6 +3361,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_LoadSplit_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_LoadVoice_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_LoadVoice_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Master_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Master_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Patches_Dn.png"/>
@@ -3372,8 +3377,9 @@
     <None Include="..\..\BinaryResources\buttons\btn_Push_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_PushSplit_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_PushSplit_Up.png"/>
-    <None Include="..\..\BinaryResources\buttons\btn_PushVoice_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_PushVoice_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_ResetPatchMap_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_ResetPatchMap_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_SaveSplit_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_SaveSplit_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_SaveVoice_Dn.png"/>
@@ -3399,10 +3405,13 @@
     <None Include="..\..\BinaryResources\bkgrnd_FileNotValidAlert.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_FileOverwriteDialog.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_FolderExistsAlert.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_GlobalParams.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_ImportExportWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_NoSysExWarning.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_SplitsWindow.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_VoiceMap.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_VoicesBankFooter_Custom.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_VoicesBankFooter_Factory.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_VoicesBanksHeader.png"/>
