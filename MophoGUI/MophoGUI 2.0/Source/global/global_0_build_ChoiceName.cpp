@@ -4,14 +4,14 @@
 
 using namespace MophoConstants;
 
-String GlobalParamChoiceName::buildForAudioOutput(bool isMono) {
+String GlobalParamChoiceName::buildForAudioOutput(const bool isMono) {
     if (isMono)
         return "AUDIO OUTPUT : MONO";
     else
         return "AUDIO OUTPUT : STEREO";
 }
 
-String GlobalParamChoiceName::buildForGlobalFineTune(int choiceNum, const ChoiceNameType type) {
+String GlobalParamChoiceName::buildForGlobalFineTune(const int choiceNum, const ChoiceNameType type) {
     jassert(choiceNum < 101);
     if (choiceNum < 49)
         return (String)(choiceNum - 50) + (type == ChoiceNameType::verbose ? " cents" : "");
@@ -27,7 +27,7 @@ String GlobalParamChoiceName::buildForGlobalFineTune(int choiceNum, const Choice
         return type == ChoiceNameType::verbose ? "range error" : "err";
 }
 
-String GlobalParamChoiceName::buildForGlobalTranspose(int choiceNum, const ChoiceNameType type) {
+String GlobalParamChoiceName::buildForGlobalTranspose(const int choiceNum, const ChoiceNameType type) {
     jassert(choiceNum > -1 && choiceNum < 25);
     if (choiceNum < 11)
         return (String)(choiceNum - 12) + (type == ChoiceNameType::verbose ? " semitones" : "");
@@ -43,7 +43,7 @@ String GlobalParamChoiceName::buildForGlobalTranspose(int choiceNum, const Choic
         return type == ChoiceNameType::verbose ? "range error" : "err";
 }
 
-String GlobalParamChoiceName::buildForHardwareOutputBalance(int choiceNum) {
+String GlobalParamChoiceName::buildForHardwareOutputBalance(const int choiceNum) {
     jassert(choiceNum < 15);
     if (choiceNum < 7)
         return "BALANCE TWEAK : " + (String)(choiceNum - 7);
@@ -55,7 +55,7 @@ String GlobalParamChoiceName::buildForHardwareOutputBalance(int choiceNum) {
         return "range error";
 }
 
-String GlobalParamChoiceName::buildForHardwareReceiveChannel(int choiceNum, const ChoiceNameType type) {
+String GlobalParamChoiceName::buildForHardwareReceiveChannel(const int choiceNum, const ChoiceNameType type) {
     jassert(choiceNum < 17);
     if (choiceNum == 0)
         return type == ChoiceNameType::verbose ? "All Channels" : "ALL";
@@ -65,7 +65,7 @@ String GlobalParamChoiceName::buildForHardwareReceiveChannel(int choiceNum, cons
         return type == ChoiceNameType::verbose ? "range error" : "err";
 }
 
-String GlobalParamChoiceName::buildForMIDI_ClockSource(MIDI_ClockSource sourceType, const ChoiceNameType type) {
+String GlobalParamChoiceName::buildForMIDI_ClockSource(const MIDI_ClockSource sourceType, const ChoiceNameType type) {
     switch (sourceType)
     {
     case MIDI_ClockSource::internalClock:
@@ -81,14 +81,14 @@ String GlobalParamChoiceName::buildForMIDI_ClockSource(MIDI_ClockSource sourceTy
     }
 }
 
-String GlobalParamChoiceName::buildForMIDI_Controllers(bool areEnabled) {
+String GlobalParamChoiceName::buildForMIDI_Controllers(const bool areEnabled) {
     if (areEnabled)
         return "MIDI CONTROLLERS : ON";
     else
         return "MIDI CONTROLLERS : OFF ( ! )";
 }
 
-String GlobalParamChoiceName::buildForParamChangeReceiveType(ParamChangeReceiveType receiveType) {
+String GlobalParamChoiceName::buildForParamChangeReceiveType(const ParamChangeReceiveType receiveType) {
     switch (receiveType)
     {
     case ParamChangeReceiveType::all:
@@ -104,7 +104,7 @@ String GlobalParamChoiceName::buildForParamChangeReceiveType(ParamChangeReceiveT
     }
 }
 
-String GlobalParamChoiceName::buildForParamChangeSendType(ParamChangeSendType sendType) {
+String GlobalParamChoiceName::buildForParamChangeSendType(const ParamChangeSendType sendType) {
     switch (sendType)
     {
     case ParamChangeSendType::nrpn:
@@ -118,21 +118,21 @@ String GlobalParamChoiceName::buildForParamChangeSendType(ParamChangeSendType se
     }
 }
 
-String GlobalParamChoiceName::buildForPedalMode(bool isArpLatch) {
+String GlobalParamChoiceName::buildForPedalMode(const bool isArpLatch) {
     if (isArpLatch)
         return "Arpeggiator Latch";
     else
         return "Normal";
 }
 
-String GlobalParamChoiceName::buildForSysEx(bool isOn) {
+String GlobalParamChoiceName::buildForSysEx(const bool isOn) {
     if (isOn)
         return "SYSTEM EXCLUSIVE : ON";
     else
         return "SYSTEM EXCLUSIVE : OFF ( ! )";
 }
 
-String GlobalParamChoiceName::buildForVoiceChanges(bool isEnabled) {
+String GlobalParamChoiceName::buildForVoiceChanges(const bool isEnabled) {
     if (isEnabled)
         return "Enabled";
     else

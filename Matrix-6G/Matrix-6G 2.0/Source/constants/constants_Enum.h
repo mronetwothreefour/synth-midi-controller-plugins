@@ -32,6 +32,43 @@ namespace Matrix_6G_Constants
 	};
 
 
+	const enum class GlobalParamComboBoxType {
+		omniModeOnOff = 0,
+		controllersOnOff,
+		voiceChangesOnOff,
+		sysExOnOff,
+		spilloverOnOff,
+		midiEchoOnOff,
+		midiMonoOnOff,
+		activeSensingOnOff,
+		localControlOnOff,
+		vibratoWaveType,
+		vibratoSpeedModSource,
+		vibratoAmpModSource,
+		splitStereoOnOff,
+		patchMapOnOff,
+		patchMapEchoOnOff,
+		squickOnOff,
+		descriptionTipsOnOff,
+		currentValueTipsOnOff
+	};
+
+
+	const enum class GlobalParamSliderType {
+		basicChannel = 0,
+		pedal_1_ControllerNum,
+		pedal_2_ControllerNum,
+		lever_2_ControllerNum,
+		lever_3_ControllerNum,
+		vibratoSpeed,
+		vibratoAmplitude,
+		vibratoSpeedModAmount,
+		vibratoAmpModAmount,
+		globalTune,
+		displayBrightness
+	};
+
+
 	const enum class ImportExportType {
 		exportVoice = 0,
 		exportVoicesBank,

@@ -262,6 +262,14 @@
         <FILE id="ldggRR" name="ep_4_handle_ExposedParamChanges.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_4_handle_ExposedParamChanges.h"/>
       </GROUP>
+      <GROUP id="{21113E21-D19C-6E63-F2FC-E454CF6612EA}" name="global">
+        <FILE id="IFaqtY" name="global_0_build_ChoiceName.h" compile="0" resource="0"
+              file="Source/global/global_0_build_ChoiceName.h"/>
+        <FILE id="REAPT2" name="global_0_comp_TextEditorForGlobalParamSlider.cpp"
+              compile="1" resource="0" file="Source/global/global_0_comp_TextEditorForGlobalParamSlider.cpp"/>
+        <FILE id="srzqgr" name="global_0_comp_TextEditorForGlobalParamSlider.h"
+              compile="0" resource="0" file="Source/global/global_0_comp_TextEditorForGlobalParamSlider.h"/>
+      </GROUP>
       <GROUP id="{854E626A-C287-920D-EC76-255F795FEDA4}" name="gui">
         <FILE id="EX1IZ1" name="gui_build_LED_Path.cpp" compile="1" resource="0"
               file="Source/gui/gui_build_LED_Path.cpp"/>

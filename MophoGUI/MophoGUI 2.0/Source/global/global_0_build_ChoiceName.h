@@ -8,18 +8,18 @@ using namespace MophoConstants;
 
 struct GlobalParamChoiceName
 {
-	static String buildForAudioOutput(bool isMono);
-	static String buildForGlobalFineTune(int choiceNum, const ChoiceNameType type);
-	static String buildForGlobalTranspose(int choiceNum, const ChoiceNameType type);
-	static String buildForHardwareOutputBalance(int choiceNum);
-	static String buildForHardwareReceiveChannel(int choiceNum, const ChoiceNameType type);
-	static String buildForMIDI_ClockSource(MIDI_ClockSource sourceType, const ChoiceNameType type);
-	static String buildForMIDI_Controllers(bool areEnabled);
-	static String buildForParamChangeReceiveType(ParamChangeReceiveType receiveType);
-	static String buildForParamChangeSendType(ParamChangeSendType sendType);
-	static String buildForPedalMode(bool isArpLatch);
-	static String buildForSysEx(bool isOn);
-	static String buildForVoiceChanges(bool isEnabled);
+	static String buildForAudioOutput(const bool isMono);
+	static String buildForGlobalFineTune(const int choiceNum, const ChoiceNameType type);
+	static String buildForGlobalTranspose(const int choiceNum, const ChoiceNameType type);
+	static String buildForHardwareOutputBalance(const int choiceNum);
+	static String buildForHardwareReceiveChannel(const int choiceNum, const ChoiceNameType type);
+	static String buildForMIDI_ClockSource(const MIDI_ClockSource sourceType, const ChoiceNameType type);
+	static String buildForMIDI_Controllers(const bool areEnabled);
+	static String buildForParamChangeReceiveType(const ParamChangeReceiveType receiveType);
+	static String buildForParamChangeSendType(const ParamChangeSendType sendType);
+	static String buildForPedalMode(const bool isArpLatch);
+	static String buildForSysEx(const bool isOn);
+	static String buildForVoiceChanges(const bool isEnabled);
 
 private:
 	//==============================================================================

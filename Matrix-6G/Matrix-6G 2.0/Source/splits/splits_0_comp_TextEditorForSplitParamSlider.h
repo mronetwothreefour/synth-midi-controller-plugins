@@ -17,6 +17,8 @@ class TextEditorForSplitParamSlider :
 	public Value::Listener
 {
 	SliderType sliderType;
+	SplitOptions* splitOptions;
+	TooltipsOptions* tooltips;
 	Label textEditor;
 	Value splitParamAsValue;
 	const String oq{ GUI::openQuote };
@@ -30,15 +32,15 @@ public:
 private:
 	void setEditorTextUsingStoredValue();
 
-	void onEditorShow_ZoneVolumeBalance(TooltipsOptions* tooltips);
-	void onEditorShow_ZoneLimit(TooltipsOptions* tooltips);
-	void onEditorShow_ZoneVoiceNumber(TooltipsOptions* tooltips);
-	void onEditorShow_ZoneTranspose(TooltipsOptions* tooltips);
+	void onEditorShow_ZoneVolumeBalance();
+	void onEditorShow_ZoneLimit();
+	void onEditorShow_ZoneVoiceNumber();
+	void onEditorShow_ZoneTranspose();
 
-	void onTextChange_ZoneVolumeBalance(SplitOptions* splitOptions);
-	void onTextChange_ZoneLimit(SplitZone zone, SplitOptions* splitOptions);
-	void onTextChange_ZoneVoiceNumber(SplitZone zone, SplitOptions* splitOptions);
-	void onTextChange_ZoneTranspose(SplitZone zone, SplitOptions* splitOptions);
+	void onTextChange_ZoneVolumeBalance();
+	void onTextChange_ZoneLimit(SplitZone zone);
+	void onTextChange_ZoneVoiceNumber(SplitZone zone);
+	void onTextChange_ZoneTranspose(SplitZone zone);
 
 public:
 	void showEditor();

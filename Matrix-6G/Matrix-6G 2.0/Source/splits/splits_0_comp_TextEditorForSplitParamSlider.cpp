@@ -9,11 +9,10 @@
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 TextEditorForSplitParamSlider::TextEditorForSplitParamSlider(SliderType sliderType, UnexposedParameters* unexposedParams) :
-	sliderType{ sliderType }
+	sliderType{ sliderType },
+	splitOptions{ unexposedParams->getSplitOptions() },
+	tooltips{ unexposedParams->getTooltipsOptions() }
 {
-	auto splitOptions{ unexposedParams->getSplitOptions() };
-	auto tooltips{ unexposedParams->getTooltipsOptions() };
-
 	auto slider_w{ 0 };
 	setInterceptsMouseClicks(false, true);
 	textEditor.setInterceptsMouseClicks(false, true);
@@ -24,45 +23,45 @@ TextEditorForSplitParamSlider::TextEditorForSplitParamSlider(SliderType sliderTy
 	{
 	case SliderType::zoneVolumeBalance:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_ZoneVolumeBalance);
-		textEditor.onEditorShow = [this, tooltips] { onEditorShow_ZoneVolumeBalance(tooltips); };
-		textEditor.onTextChange = [this, splitOptions] { onTextChange_ZoneVolumeBalance(splitOptions); };
+		textEditor.onEditorShow = [this] { onEditorShow_ZoneVolumeBalance(); };
+		textEditor.onTextChange = [this] { onTextChange_ZoneVolumeBalance(); };
 		slider_w = GUI::splitVolumeBalanceSlider_w;
 		break;
 	case SliderType::lowerZoneLimit:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_LowerZoneLimit);
-		textEditor.onEditorShow = [this, tooltips] { onEditorShow_ZoneLimit(tooltips); };
-		textEditor.onTextChange = [this, lowerZone, splitOptions] { onTextChange_ZoneLimit(SplitZone::lower, splitOptions); };
+		textEditor.onEditorShow = [this] { onEditorShow_ZoneLimit(); };
+		textEditor.onTextChange = [this, lowerZone] { onTextChange_ZoneLimit(SplitZone::lower); };
 		textEditor.setSize(172, 20);
 		slider_w = GUI::splitZoneLimitSlider_w;
 		break;
 	case SliderType::lowerZoneVoiceNum:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_LowerZoneVoiceNumber);
-		textEditor.onEditorShow = [this, tooltips] { onEditorShow_ZoneVoiceNumber(tooltips); };
-		textEditor.onTextChange = [this, lowerZone, splitOptions] { onTextChange_ZoneVoiceNumber(SplitZone::lower, splitOptions); };
+		textEditor.onEditorShow = [this] { onEditorShow_ZoneVoiceNumber(); };
+		textEditor.onTextChange = [this, lowerZone] { onTextChange_ZoneVoiceNumber(SplitZone::lower); };
 		slider_w = GUI::splitZoneVoiceNumSlider_w;
 		break;
 	case SliderType::lowerZoneTranspose:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_LowerZoneTranspose);
-		textEditor.onEditorShow = [this, tooltips] { onEditorShow_ZoneTranspose(tooltips); };
-		textEditor.onTextChange = [this, lowerZone, splitOptions] { onTextChange_ZoneTranspose(SplitZone::lower, splitOptions); };
+		textEditor.onEditorShow = [this] { onEditorShow_ZoneTranspose(); };
+		textEditor.onTextChange = [this, lowerZone] { onTextChange_ZoneTranspose(SplitZone::lower); };
 		slider_w = GUI::splitZoneTransposeSlider_w;
 		break;
 	case SliderType::upperZoneLimit:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_UpperZoneLimit);
-		textEditor.onEditorShow = [this, tooltips] { onEditorShow_ZoneLimit(tooltips); };
-		textEditor.onTextChange = [this, upperZone, splitOptions] { onTextChange_ZoneLimit(SplitZone::upper, splitOptions); };
+		textEditor.onEditorShow = [this] { onEditorShow_ZoneLimit(); };
+		textEditor.onTextChange = [this, upperZone] { onTextChange_ZoneLimit(SplitZone::upper); };
 		slider_w = GUI::splitZoneLimitSlider_w;
 		break;
 	case SliderType::upperZoneVoiceNum:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_UpperZoneVoiceNumber);
-		textEditor.onEditorShow = [this, tooltips] { onEditorShow_ZoneVoiceNumber(tooltips); };
-		textEditor.onTextChange = [this, upperZone, splitOptions] { onTextChange_ZoneVoiceNumber(SplitZone::upper, splitOptions); };
+		textEditor.onEditorShow = [this] { onEditorShow_ZoneVoiceNumber(); };
+		textEditor.onTextChange = [this, upperZone] { onTextChange_ZoneVoiceNumber(SplitZone::upper); };
 		slider_w = GUI::splitZoneVoiceNumSlider_w;
 		break;
 	case SliderType::upperZoneTranspose:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_UpperZoneTranspose);
-		textEditor.onEditorShow = [this, tooltips] { onEditorShow_ZoneTranspose(tooltips); };
-		textEditor.onTextChange = [this, upperZone, splitOptions] { onTextChange_ZoneTranspose(SplitZone::upper, splitOptions); };
+		textEditor.onEditorShow = [this] { onEditorShow_ZoneTranspose(); };
+		textEditor.onTextChange = [this, upperZone] { onTextChange_ZoneTranspose(SplitZone::upper); };
 		slider_w = GUI::splitZoneTransposeSlider_w;
 		break;
 	default:
@@ -86,7 +85,7 @@ void TextEditorForSplitParamSlider::setEditorTextUsingStoredValue() {
 		SplitParamChoiceName::buildForZoneTranspose(paramValue, ChoiceNameType::concise);
 }
 
-void TextEditorForSplitParamSlider::onEditorShow_ZoneVolumeBalance(TooltipsOptions* tooltips) {
+void TextEditorForSplitParamSlider::onEditorShow_ZoneVolumeBalance() {
 	auto editor{ textEditor.getCurrentTextEditor() };
 	editor->setInputRestrictions(3, "-0123456789");
 	editor->setJustification(Justification::centred);
@@ -94,7 +93,7 @@ void TextEditorForSplitParamSlider::onEditorShow_ZoneVolumeBalance(TooltipsOptio
 		editor->setTooltip("Type in a new setting.\n(Range: -31 to 31)");
 }
 
-void TextEditorForSplitParamSlider::onEditorShow_ZoneLimit(TooltipsOptions* tooltips) {
+void TextEditorForSplitParamSlider::onEditorShow_ZoneLimit() {
 	auto editor{ textEditor.getCurrentTextEditor() };
 	editor->setInputRestrictions(4, "abcdefgABCDEFG0123456789#");
 	if (tooltips->shouldShowDescription()) {
@@ -106,21 +105,21 @@ void TextEditorForSplitParamSlider::onEditorShow_ZoneLimit(TooltipsOptions* tool
 	}
 }
 
-void TextEditorForSplitParamSlider::onEditorShow_ZoneVoiceNumber(TooltipsOptions* tooltips) {
+void TextEditorForSplitParamSlider::onEditorShow_ZoneVoiceNumber() {
 	auto editor{ textEditor.getCurrentTextEditor() };
 	editor->setInputRestrictions(2, "0123456789");
 	if (tooltips->shouldShowDescription())
 		editor->setTooltip("Type in a new patch number.\n(Range: 0 to 99)");
 }
 
-void TextEditorForSplitParamSlider::onEditorShow_ZoneTranspose(TooltipsOptions* tooltips) {
+void TextEditorForSplitParamSlider::onEditorShow_ZoneTranspose() {
 	auto editor{ textEditor.getCurrentTextEditor() };
 	editor->setInputRestrictions(3, "-0123456789");
 	if (tooltips->shouldShowDescription())
 		editor->setTooltip("Type in a new setting.\n(Range: -36 to 24)");
 }
 
-void TextEditorForSplitParamSlider::onTextChange_ZoneVolumeBalance(SplitOptions* splitOptions) {
+void TextEditorForSplitParamSlider::onTextChange_ZoneVolumeBalance() {
 	auto newSettingString{ textEditor.getText() };
 	if (newSettingString.isNotEmpty()) {
 		auto newSetting{ newSettingString.getIntValue() };
@@ -134,7 +133,7 @@ void TextEditorForSplitParamSlider::onTextChange_ZoneVolumeBalance(SplitOptions*
 		setEditorTextUsingStoredValue();
 }
 
-void TextEditorForSplitParamSlider::onTextChange_ZoneLimit(SplitZone zone, SplitOptions* splitOptions) {
+void TextEditorForSplitParamSlider::onTextChange_ZoneLimit(SplitZone zone) {
 	auto newSettingString{ textEditor.getText() };
 	if (newSettingString.isNotEmpty()) {
 		auto newSetting{ -1 };
@@ -158,7 +157,7 @@ void TextEditorForSplitParamSlider::onTextChange_ZoneLimit(SplitZone zone, Split
 		setEditorTextUsingStoredValue();
 }
 
-void TextEditorForSplitParamSlider::onTextChange_ZoneVoiceNumber(SplitZone zone, SplitOptions* splitOptions) {
+void TextEditorForSplitParamSlider::onTextChange_ZoneVoiceNumber(SplitZone zone) {
 	auto newSettingString{ textEditor.getText() };
 	if (newSettingString.isNotEmpty()) {
 		auto newSetting{ (uint8)newSettingString.getIntValue() };
@@ -170,7 +169,7 @@ void TextEditorForSplitParamSlider::onTextChange_ZoneVoiceNumber(SplitZone zone,
 		setEditorTextUsingStoredValue();
 }
 
-void TextEditorForSplitParamSlider::onTextChange_ZoneTranspose(SplitZone zone, SplitOptions* splitOptions) {
+void TextEditorForSplitParamSlider::onTextChange_ZoneTranspose(SplitZone zone) {
 	auto newSettingString{ textEditor.getText() };
 	if (newSettingString.isNotEmpty()) {
 		auto newSetting{ newSettingString.getIntValue() };

@@ -26,6 +26,9 @@
     <Filter Include="Matrix-6G 2\Source\exposedParameters">
       <UniqueIdentifier>{4BCBC974-AF29-2DA2-9CE6-5A551E2BA80E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G 2\Source\global">
+      <UniqueIdentifier>{A6ECB19A-5D72-DD81-9A6E-A72CE9F53D11}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Matrix-6G 2\Source\gui">
       <UniqueIdentifier>{2F6CE252-972C-3886-C397-BBF45D797DE2}</UniqueIdentifier>
     </Filter>
@@ -669,6 +672,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.cpp">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_0_comp_TextEditorForGlobalParamSlider.cpp">
+      <Filter>Matrix-6G 2\Source\global</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_build_LED_Path.cpp">
       <Filter>Matrix-6G 2\Source\gui</Filter>
@@ -3194,6 +3200,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.h">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_0_build_ChoiceName.h">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_0_comp_TextEditorForGlobalParamSlider.h">
+      <Filter>Matrix-6G 2\Source\global</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_build_LED_Path.h">
       <Filter>Matrix-6G 2\Source\gui</Filter>
