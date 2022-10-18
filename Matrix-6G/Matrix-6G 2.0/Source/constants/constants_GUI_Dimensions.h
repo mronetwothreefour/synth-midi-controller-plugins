@@ -37,6 +37,7 @@ namespace Matrix_6G_Constants
 		const int splitZoneVoiceNumSlider_w{ 26 };
 		const int vertDistBtwnRows{ 28 };
 		const int voiceAndSplitSlotRadioButtton_h{ 16 };
+		const int voiceMapSlider_w{ 26 };
 		const int voicesBankTabButtons_x_spacing{ 35 };
 		const int voicesBankTabButtons_y{ 427 };
 		const int voicesBankTabFooter_y{ 422 };

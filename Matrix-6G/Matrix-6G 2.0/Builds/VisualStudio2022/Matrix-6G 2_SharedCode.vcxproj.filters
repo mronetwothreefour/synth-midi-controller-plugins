@@ -634,6 +634,9 @@
     <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp">
       <Filter>Matrix-6G 2\Source\descriptions</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\descriptions\build_GlobalParamDescription.cpp">
+      <Filter>Matrix-6G 2\Source\descriptions</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\descriptions\build_MainWindowButtonDescription.cpp">
       <Filter>Matrix-6G 2\Source\descriptions</Filter>
     </ClCompile>
@@ -674,6 +677,9 @@
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\global\global_0_comp_TextEditorForGlobalParamSlider.cpp">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_0_comp_TextEditorForVoiceMapSlider.cpp">
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_build_LED_Path.cpp">
@@ -3153,6 +3159,9 @@
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h">
       <Filter>Matrix-6G 2\Source\descriptions</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\descriptions\build_GlobalParamDescription.h">
+      <Filter>Matrix-6G 2\Source\descriptions</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\descriptions\build_MainWindowButtonDescription.h">
       <Filter>Matrix-6G 2\Source\descriptions</Filter>
     </ClInclude>
@@ -3205,6 +3214,9 @@
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\global\global_0_comp_TextEditorForGlobalParamSlider.h">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_0_comp_TextEditorForVoiceMapSlider.h">
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_build_LED_Path.h">

@@ -33,11 +33,11 @@ void GlobalOptions::resetAllOptionsToDefaults() {
     setVibratoAmpModAmount((uint8)63);
     setGlobalTune((uint8)63);
     setSplitStereoIsEnabled(false);
-    setVoicesMapIsEnabled(false);
-    setVoicesMapEchoIsEnabled(false);
+    setVoiceMapIsEnabled(false);
+    setVoiceMapEchoIsEnabled(false);
     setDisplayBrightness((uint8)27);
     set_SQUICK_IsEnabled(false);
-    resetVoicesMap();
+    resetVoiceMap();
 }
 
 const uint8 GlobalOptions::basicChannel() {
@@ -233,19 +233,19 @@ void GlobalOptions::setSplitStereoIsEnabled(const bool shouldBeEnabled) {
     globalOptionsTree.setProperty(ID::global_SplitStereoIsEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
 }
 
-const bool GlobalOptions::voicesMapIsEnabled() {
+const bool GlobalOptions::voiceMapIsEnabled() {
     return (bool)globalOptionsTree.getProperty(ID::global_VoicesMapIsEnabled) == true;
 }
 
-void GlobalOptions::setVoicesMapIsEnabled(const bool shouldBeEnabled) {
+void GlobalOptions::setVoiceMapIsEnabled(const bool shouldBeEnabled) {
     globalOptionsTree.setProperty(ID::global_VoicesMapIsEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
 }
 
-const bool GlobalOptions::voicesMapEchoIsEnabled() {
+const bool GlobalOptions::voiceMapEchoIsEnabled() {
     return (bool)globalOptionsTree.getProperty(ID::global_VoicesMapEchoIsEnabled) == true;
 }
 
-void GlobalOptions::setVoicesMapEchoIsEnabled(const bool shouldBeEnabled) {
+void GlobalOptions::setVoiceMapEchoIsEnabled(const bool shouldBeEnabled) {
     globalOptionsTree.setProperty(ID::global_VoicesMapEchoIsEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
 }
 
@@ -266,30 +266,30 @@ void GlobalOptions::set_SQUICK_IsEnabled(const bool shouldBeEnabled) {
     globalOptionsTree.setProperty(ID::global_SQUICK_IsEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
 }
 
-const uint8 GlobalOptions::voicesMapInVoiceForProgramNumber(const uint8 programNumber) {
-    jassert(programNumber < 100);
-    return (uint8)(int)globalOptionsTree.getProperty(ID::global_VoicesMapIn_.toString() + (String)programNumber);
+const uint8 GlobalOptions::inVoiceForVoiceMapNumber(const uint8 mapNum) {
+    jassert(mapNum < 100);
+    return (uint8)(int)globalOptionsTree.getProperty(ID::global_VoiceMapIn_.toString() + (String)mapNum);
 }
 
-void GlobalOptions::setVoicesMapInVoiceForProgramNumber(const uint8 newInVoice, const uint8 programNumber) {
-    jassert(newInVoice < 100 && programNumber < 100);
-    globalOptionsTree.setProperty(ID::global_VoicesMapIn_.toString() + (String)programNumber, newInVoice, nullptr);
+void GlobalOptions::setInVoiceForVoiceMapNumber(const uint8 newInVoice, const uint8 mapNum) {
+    jassert(newInVoice < 100 && mapNum < 100);
+    globalOptionsTree.setProperty(ID::global_VoiceMapIn_.toString() + (String)mapNum, newInVoice, nullptr);
 }
 
-const uint8 GlobalOptions::voicesMapOutVoiceForProgramNumber(const uint8 programNumber) {
-    jassert(programNumber < 100);
-    return (uint8)(int)globalOptionsTree.getProperty(ID::global_VoicesMapOut_.toString() + (String)programNumber);
+const uint8 GlobalOptions::outVoiceForVoiceMapNumber(const uint8 mapNum) {
+    jassert(mapNum < 100);
+    return (uint8)(int)globalOptionsTree.getProperty(ID::global_VoiceMapOut_.toString() + (String)mapNum);
 }
 
-void GlobalOptions::setVoicesMapOutVoiceForProgramNumber(const uint8 newOutVoice, const uint8 programNumber) {
-    jassert(newOutVoice < 100 && programNumber < 100);
-    globalOptionsTree.setProperty(ID::global_VoicesMapOut_.toString() + (String)programNumber, newOutVoice, nullptr);
+void GlobalOptions::setOutVoiceForVoiceMapNumber(const uint8 newOutVoice, const uint8 mapNum) {
+    jassert(newOutVoice < 100 && mapNum < 100);
+    globalOptionsTree.setProperty(ID::global_VoiceMapOut_.toString() + (String)mapNum, newOutVoice, nullptr);
 }
 
-void GlobalOptions::resetVoicesMap() {
+void GlobalOptions::resetVoiceMap() {
     for (auto i = (uint8)0; i != VCS::numberOfSlotsInVoicesBank; ++i) {
-        setVoicesMapInVoiceForProgramNumber(i, i);
-        setVoicesMapOutVoiceForProgramNumber(i, i);
+        setInVoiceForVoiceMapNumber(i, i);
+        setOutVoiceForVoiceMapNumber(i, i);
     }
 }
 

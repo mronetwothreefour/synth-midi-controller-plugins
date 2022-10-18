@@ -14,4 +14,8 @@ struct SplitParamDescription
 	static String buildForZoneVoiceAssignment();
 	static String buildForZoneVoiceNum(SplitZone zone);
 	static String buildForZoneVolumeBalance();
+
+private:
+	//==============================================================================
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SplitParamDescription)
 };

@@ -2,8 +2,6 @@
 
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 
-using namespace Matrix_6G_Constants;
-
 String SplitParamDescription::buildForZoneLimit(SplitZone zone) {
     String descriptionString{ "" };
     if (zone == SplitZone::lower) {

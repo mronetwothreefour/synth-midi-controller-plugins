@@ -143,6 +143,7 @@
     <ClCompile Include="..\..\Source\core_0_PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\core_1_PluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\descriptions\build_ExposedParamDescription.cpp"/>
+    <ClCompile Include="..\..\Source\descriptions\build_GlobalParamDescription.cpp"/>
     <ClCompile Include="..\..\Source\descriptions\build_MainWindowButtonDescription.cpp"/>
     <ClCompile Include="..\..\Source\descriptions\build_SplitParamDescription.cpp"/>
     <ClCompile Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamSlider.cpp"/>
@@ -157,6 +158,7 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.cpp"/>
     <ClCompile Include="..\..\Source\global\global_0_comp_TextEditorForGlobalParamSlider.cpp"/>
+    <ClCompile Include="..\..\Source\global\global_0_comp_TextEditorForVoiceMapSlider.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_build_LED_Path.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp"/>
@@ -2366,6 +2368,7 @@
     <ClInclude Include="..\..\Source\constants\constants_Splits.h"/>
     <ClInclude Include="..\..\Source\constants\constants_Voices.h"/>
     <ClInclude Include="..\..\Source\descriptions\build_ExposedParamDescription.h"/>
+    <ClInclude Include="..\..\Source\descriptions\build_GlobalParamDescription.h"/>
     <ClInclude Include="..\..\Source\descriptions\build_MainWindowButtonDescription.h"/>
     <ClInclude Include="..\..\Source\descriptions\build_SplitParamDescription.h"/>
     <ClInclude Include="..\..\Source\exposedParamControls\epc_0_comp_TextEditorForExposedParamSlider.h"/>
@@ -2384,6 +2387,7 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.h"/>
     <ClInclude Include="..\..\Source\global\global_0_build_ChoiceName.h"/>
     <ClInclude Include="..\..\Source\global\global_0_comp_TextEditorForGlobalParamSlider.h"/>
+    <ClInclude Include="..\..\Source\global\global_0_comp_TextEditorForVoiceMapSlider.h"/>
     <ClInclude Include="..\..\Source\gui\gui_build_LED_Path.h"/>
     <ClInclude Include="..\..\Source\gui\gui_comp_ButtonForActivatingQuickEdit.h"/>
     <ClInclude Include="..\..\Source\gui\gui_comp_ButtonForHidingLayer.h"/>

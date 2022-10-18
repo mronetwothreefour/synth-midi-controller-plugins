@@ -159,6 +159,12 @@ namespace Matrix_6G_Constants
 	};
 
 
+	const enum class VoiceMapSliderType {
+		in = 0,
+		out
+	};
+
+
 	const enum class VoicesBank {
 		nullBank = -1, // needed by VoiceSlotRadioButton's default constructor
 		analogSynths_A = 0,

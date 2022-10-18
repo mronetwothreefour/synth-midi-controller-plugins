@@ -83,11 +83,11 @@ public:
 	const bool splitStereoIsEnabled();
 	void setSplitStereoIsEnabled(const bool shouldBeEnabled);
 
-	const bool voicesMapIsEnabled();
-	void setVoicesMapIsEnabled(const bool shouldBeEnabled);
+	const bool voiceMapIsEnabled();
+	void setVoiceMapIsEnabled(const bool shouldBeEnabled);
 
-	const bool voicesMapEchoIsEnabled();
-	void setVoicesMapEchoIsEnabled(const bool shouldBeEnabled);
+	const bool voiceMapEchoIsEnabled();
+	void setVoiceMapEchoIsEnabled(const bool shouldBeEnabled);
 
 	const uint8 displayBrightness();
 	void setDisplayBrightness(const uint8 newBrightness);
@@ -95,13 +95,13 @@ public:
 	const bool squickIsEnabled();
 	void set_SQUICK_IsEnabled(const bool shouldBeEnabled);
 
-	const uint8 voicesMapInVoiceForProgramNumber(const uint8 programNumber);
-	void setVoicesMapInVoiceForProgramNumber(const uint8 newInVoice, const uint8 programNumber);
+	const uint8 inVoiceForVoiceMapNumber(const uint8 mapNum);
+	void setInVoiceForVoiceMapNumber(const uint8 newInVoice, const uint8 mapNum);
 
-	const uint8 voicesMapOutVoiceForProgramNumber(const uint8 programNumber);
-	void setVoicesMapOutVoiceForProgramNumber(const uint8 newOutVoice, const uint8 programNumber);
+	const uint8 outVoiceForVoiceMapNumber(const uint8 mapNum);
+	void setOutVoiceForVoiceMapNumber(const uint8 newOutVoice, const uint8 mapNum);
 
-	void resetVoicesMap();
+	void resetVoiceMap();
 
 	Value getGobalParamAsValue(const Identifier paramID);
 

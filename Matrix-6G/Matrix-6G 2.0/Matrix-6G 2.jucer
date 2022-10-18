@@ -199,6 +199,10 @@
               resource="0" file="Source/descriptions/build_ExposedParamDescription.cpp"/>
         <FILE id="G1k5S0" name="build_ExposedParamDescription.h" compile="0"
               resource="0" file="Source/descriptions/build_ExposedParamDescription.h"/>
+        <FILE id="FWPEfz" name="build_GlobalParamDescription.cpp" compile="1"
+              resource="0" file="Source/descriptions/build_GlobalParamDescription.cpp"/>
+        <FILE id="mS8jBM" name="build_GlobalParamDescription.h" compile="0"
+              resource="0" file="Source/descriptions/build_GlobalParamDescription.h"/>
         <FILE id="YugoQu" name="build_MainWindowButtonDescription.cpp" compile="1"
               resource="0" file="Source/descriptions/build_MainWindowButtonDescription.cpp"/>
         <FILE id="yW6eyK" name="build_MainWindowButtonDescription.h" compile="0"
@@ -269,6 +273,10 @@
               compile="1" resource="0" file="Source/global/global_0_comp_TextEditorForGlobalParamSlider.cpp"/>
         <FILE id="srzqgr" name="global_0_comp_TextEditorForGlobalParamSlider.h"
               compile="0" resource="0" file="Source/global/global_0_comp_TextEditorForGlobalParamSlider.h"/>
+        <FILE id="wrhGlg" name="global_0_comp_TextEditorForVoiceMapSlider.cpp"
+              compile="1" resource="0" file="Source/global/global_0_comp_TextEditorForVoiceMapSlider.cpp"/>
+        <FILE id="tcD5AS" name="global_0_comp_TextEditorForVoiceMapSlider.h"
+              compile="0" resource="0" file="Source/global/global_0_comp_TextEditorForVoiceMapSlider.h"/>
       </GROUP>
       <GROUP id="{854E626A-C287-920D-EC76-255F795FEDA4}" name="gui">
         <FILE id="EX1IZ1" name="gui_build_LED_Path.cpp" compile="1" resource="0"

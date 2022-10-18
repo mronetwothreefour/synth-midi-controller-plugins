@@ -5,21 +5,22 @@
 #include "../constants/constants_Enum.h"
 
 using namespace Matrix_6G_Constants;
+using SliderType = VoiceMapSliderType;
 
-class MatrixModOptions;
+class GlobalOptions;
 class TooltipsOptions;
 
-class TextEditorForMatrixModAmountSlider :
+class TextEditorForVoiceMapSlider :
 	public Component,
 	public Value::Listener
 {
 	Label textEditor;
-	Value modAmountAsValue;
+	Value globalParamAsValue;
 
 public:
-	TextEditorForMatrixModAmountSlider() = delete;
+	TextEditorForVoiceMapSlider() = delete;
 
-	TextEditorForMatrixModAmountSlider(int modNum, MatrixModOptions* matrixModOptions, TooltipsOptions* tooltips);
+	TextEditorForVoiceMapSlider(int mapNum, SliderType type, GlobalOptions* global, TooltipsOptions* tooltips);
 
 private:
 	void setEditorTextUsingStoredValue();
@@ -27,9 +28,9 @@ private:
 public:
 	void showEditor();
 	void valueChanged(Value& value) override;
-	~TextEditorForMatrixModAmountSlider();
+	~TextEditorForVoiceMapSlider();
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TextEditorForMatrixModAmountSlider)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TextEditorForVoiceMapSlider)
 };

@@ -1,12 +1,12 @@
 #include "mMod_0_comp_TextEditorForMatrixModAmountSlider.h"
 
+#include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_0_tree_MatrixModOptions.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
-TextEditorForMatrixModAmountSlider::TextEditorForMatrixModAmountSlider(int modNum, MatrixModOptions* matrixModOptions, TooltipsOptions* tooltips) :
-	modNum{ modNum }
+TextEditorForMatrixModAmountSlider::TextEditorForMatrixModAmountSlider(int modNum, MatrixModOptions* matrixModOptions, TooltipsOptions* tooltips)
 {
 	modAmountAsValue = matrixModOptions->getMatrixModPropertyAsValue("matrixMod_Mod_" + (String)modNum + "_Amount");
 	modAmountAsValue.addListener(this);
@@ -41,7 +41,7 @@ TextEditorForMatrixModAmountSlider::TextEditorForMatrixModAmountSlider(int modNu
 
 void TextEditorForMatrixModAmountSlider::setEditorTextUsingStoredValue() {
 	auto modAmountValue{ (int)modAmountAsValue.getValue() };
-	textEditor.setText(String(modAmountValue - 63), dontSendNotification);
+	textEditor.setText(String(modAmountValue - EP::offsetForSigned_7_BitRange), dontSendNotification);
 }
 
 void TextEditorForMatrixModAmountSlider::showEditor() {
