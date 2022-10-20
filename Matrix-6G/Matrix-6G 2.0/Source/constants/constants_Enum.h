@@ -160,7 +160,8 @@ namespace Matrix_6G_Constants
 
 
 	const enum class VoiceMapSliderType {
-		in = 0,
+		null = -1,
+		in,
 		out
 	};
 

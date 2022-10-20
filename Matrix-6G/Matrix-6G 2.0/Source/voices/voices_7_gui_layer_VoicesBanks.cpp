@@ -1,14 +1,14 @@
 #include "voices_7_gui_layer_VoicesBanks.h"
 
 #include "voices_6_gui_layer_BankTransmit.h"
-#include "../voicesImportExport/imEx_3_gui_layer_Export_Voice.h"
-#include "../voicesImportExport/imEx_3_gui_layer_Export_VoicesBank.h"
-#include "../voicesImportExport/imEx_3_gui_layer_Import_Voice.h"
-#include "../voicesImportExport/imEx_3_gui_layer_Import_VoicesBank.h"
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_Voices.h"
+#include "../voicesImportExport/imEx_3_gui_layer_Export_Voice.h"
+#include "../voicesImportExport/imEx_3_gui_layer_Export_VoicesBank.h"
+#include "../voicesImportExport/imEx_3_gui_layer_Import_Voice.h"
+#include "../voicesImportExport/imEx_3_gui_layer_Import_VoicesBank.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 GUI_Layer_VoicesBanks::GUI_Layer_VoicesBanks(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :

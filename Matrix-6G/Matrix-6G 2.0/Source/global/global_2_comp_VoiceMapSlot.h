@@ -3,20 +3,42 @@
 #include <JuceHeader.h>
 
 #include "global_1_comp_SliderForVoiceMapSlot.h"
+#include "../constants/constants_Enum.h"
+#include "../constants/constants_GUI_Dimensions.h"
+#include "../constants/constants_Voices.h"
+
+using namespace Matrix_6G_Constants;
+using SliderType = VoiceMapSliderType;
 
 class UnexposedParameters;
 
 class VoiceMapSlot :
 	public Component
 {
-	const uint8 mapSlotNum;
 	SliderForVoiceMapSlot slider_InVoice;
 	SliderForVoiceMapSlot slider_OutVoice;
 
-	VoiceMapSlot();
+	VoiceMapSlot() :
+		slider_InVoice{ VCS::numberOfSlotsInVoicesBank, SliderType::null, nullptr, nullptr },
+		slider_OutVoice{ VCS::numberOfSlotsInVoicesBank, SliderType::null, nullptr, nullptr }
+	{
+		// this default constructor is needed when initializing the vector in GUI_Layer_VoiceMap
+	}
 
 public:
-	VoiceMapSlot(uint8 mapSlotNum, UnexposedParameters* unexposedParams, UndoManager* undoManager);
+	VoiceMapSlot(uint8 mapSlotNum, UnexposedParameters* unexposedParams, UndoManager* undoManager) :
+		slider_InVoice{ mapSlotNum, SliderType::in, unexposedParams, undoManager },
+		slider_OutVoice{ mapSlotNum, SliderType::out, unexposedParams, undoManager }
+	{
+		auto slot_w{ 57 };
+		slider_InVoice.setTopLeftPosition(0, 0);
+		addAndMakeVisible(slider_InVoice);
+
+		slider_InVoice.setTopRightPosition(slot_w, 0);
+		addAndMakeVisible(slider_InVoice);
+
+		setSize(slot_w, GUI::control_h);
+	}
 
 
 private:
