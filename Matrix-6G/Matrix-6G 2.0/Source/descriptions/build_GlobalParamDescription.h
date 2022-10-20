@@ -8,8 +8,8 @@ using namespace Matrix_6G_Constants;
 
 struct GlobalParamDescription
 {
-	static String buildForVoiceMapInVoice(uint8 mapNum);
-	static String buildForVoiceMapOutVoice(uint8 mapNum);
+	static String buildForVoiceMapInVoice(uint8 mapSlotNum);
+	static String buildForVoiceMapOutVoice(uint8 mapSlotNum);
 
 private:
 	//==============================================================================

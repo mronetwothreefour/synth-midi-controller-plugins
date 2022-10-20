@@ -266,30 +266,30 @@ void GlobalOptions::set_SQUICK_IsEnabled(const bool shouldBeEnabled) {
     globalOptionsTree.setProperty(ID::global_SQUICK_IsEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
 }
 
-const uint8 GlobalOptions::inVoiceForVoiceMapNumber(const uint8 mapNum) {
-    jassert(mapNum < 100);
-    return (uint8)(int)globalOptionsTree.getProperty(ID::global_VoiceMapIn_.toString() + (String)mapNum);
+const uint8 GlobalOptions::inVoiceForVoiceMapSlot(const uint8 mapSlotNum) {
+    jassert(mapSlotNum < 100);
+    return (uint8)(int)globalOptionsTree.getProperty(ID::global_VoiceMapIn_.toString() + (String)mapSlotNum);
 }
 
-void GlobalOptions::setInVoiceForVoiceMapNumber(const uint8 newInVoice, const uint8 mapNum) {
-    jassert(newInVoice < 100 && mapNum < 100);
-    globalOptionsTree.setProperty(ID::global_VoiceMapIn_.toString() + (String)mapNum, newInVoice, nullptr);
+void GlobalOptions::setInVoiceForVoiceMapSlot(const uint8 newInVoice, const uint8 mapSlotNum) {
+    jassert(newInVoice < 100 && mapSlotNum < 100);
+    globalOptionsTree.setProperty(ID::global_VoiceMapIn_.toString() + (String)mapSlotNum, newInVoice, nullptr);
 }
 
-const uint8 GlobalOptions::outVoiceForVoiceMapNumber(const uint8 mapNum) {
-    jassert(mapNum < 100);
-    return (uint8)(int)globalOptionsTree.getProperty(ID::global_VoiceMapOut_.toString() + (String)mapNum);
+const uint8 GlobalOptions::outVoiceForVoiceMapSlot(const uint8 mapSlotNum) {
+    jassert(mapSlotNum < 100);
+    return (uint8)(int)globalOptionsTree.getProperty(ID::global_VoiceMapOut_.toString() + (String)mapSlotNum);
 }
 
-void GlobalOptions::setOutVoiceForVoiceMapNumber(const uint8 newOutVoice, const uint8 mapNum) {
-    jassert(newOutVoice < 100 && mapNum < 100);
-    globalOptionsTree.setProperty(ID::global_VoiceMapOut_.toString() + (String)mapNum, newOutVoice, nullptr);
+void GlobalOptions::setOutVoiceForVoiceMapSlot(const uint8 newOutVoice, const uint8 mapSlotNum) {
+    jassert(newOutVoice < 100 && mapSlotNum < 100);
+    globalOptionsTree.setProperty(ID::global_VoiceMapOut_.toString() + (String)mapSlotNum, newOutVoice, nullptr);
 }
 
 void GlobalOptions::resetVoiceMap() {
     for (auto i = (uint8)0; i != VCS::numberOfSlotsInVoicesBank; ++i) {
-        setInVoiceForVoiceMapNumber(i, i);
-        setOutVoiceForVoiceMapNumber(i, i);
+        setInVoiceForVoiceMapSlot(i, i);
+        setOutVoiceForVoiceMapSlot(i, i);
     }
 }
 

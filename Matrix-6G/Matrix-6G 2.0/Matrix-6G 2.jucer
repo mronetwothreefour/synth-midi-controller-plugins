@@ -277,6 +277,14 @@
               compile="1" resource="0" file="Source/global/global_0_comp_TextEditorForVoiceMapSlider.cpp"/>
         <FILE id="tcD5AS" name="global_0_comp_TextEditorForVoiceMapSlider.h"
               compile="0" resource="0" file="Source/global/global_0_comp_TextEditorForVoiceMapSlider.h"/>
+        <FILE id="GC2Zjn" name="global_1_comp_SliderForVoiceMapSlot.cpp" compile="1"
+              resource="0" file="Source/global/global_1_comp_SliderForVoiceMapSlot.cpp"/>
+        <FILE id="DNUBM2" name="global_1_comp_SliderForVoiceMapSlot.h" compile="0"
+              resource="0" file="Source/global/global_1_comp_SliderForVoiceMapSlot.h"/>
+        <FILE id="uVSWGO" name="global_2_comp_VoiceMapSlot.cpp" compile="1"
+              resource="0" file="Source/global/global_2_comp_VoiceMapSlot.cpp"/>
+        <FILE id="cIuTr5" name="global_2_comp_VoiceMapSlot.h" compile="0" resource="0"
+              file="Source/global/global_2_comp_VoiceMapSlot.h"/>
       </GROUP>
       <GROUP id="{854E626A-C287-920D-EC76-255F795FEDA4}" name="gui">
         <FILE id="EX1IZ1" name="gui_build_LED_Path.cpp" compile="1" resource="0"

@@ -682,6 +682,12 @@
     <ClCompile Include="..\..\Source\global\global_0_comp_TextEditorForVoiceMapSlider.cpp">
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_1_comp_SliderForVoiceMapSlot.cpp">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_2_comp_VoiceMapSlot.cpp">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_build_LED_Path.cpp">
       <Filter>Matrix-6G 2\Source\gui</Filter>
     </ClCompile>
@@ -3217,6 +3223,12 @@
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\global\global_0_comp_TextEditorForVoiceMapSlider.h">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_1_comp_SliderForVoiceMapSlot.h">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_2_comp_VoiceMapSlot.h">
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_build_LED_Path.h">

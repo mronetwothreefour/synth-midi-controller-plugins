@@ -95,11 +95,11 @@ public:
 	const bool squickIsEnabled();
 	void set_SQUICK_IsEnabled(const bool shouldBeEnabled);
 
-	const uint8 inVoiceForVoiceMapNumber(const uint8 mapNum);
-	void setInVoiceForVoiceMapNumber(const uint8 newInVoice, const uint8 mapNum);
+	const uint8 inVoiceForVoiceMapSlot(const uint8 mapSlotNum);
+	void setInVoiceForVoiceMapSlot(const uint8 newInVoice, const uint8 mapSlotNum);
 
-	const uint8 outVoiceForVoiceMapNumber(const uint8 mapNum);
-	void setOutVoiceForVoiceMapNumber(const uint8 newOutVoice, const uint8 mapNum);
+	const uint8 outVoiceForVoiceMapSlot(const uint8 mapSlotNum);
+	void setOutVoiceForVoiceMapSlot(const uint8 newOutVoice, const uint8 mapSlotNum);
 
 	void resetVoiceMap();
 

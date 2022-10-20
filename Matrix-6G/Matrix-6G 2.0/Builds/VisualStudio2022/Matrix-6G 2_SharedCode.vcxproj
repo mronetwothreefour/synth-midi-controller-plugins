@@ -159,6 +159,8 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.cpp"/>
     <ClCompile Include="..\..\Source\global\global_0_comp_TextEditorForGlobalParamSlider.cpp"/>
     <ClCompile Include="..\..\Source\global\global_0_comp_TextEditorForVoiceMapSlider.cpp"/>
+    <ClCompile Include="..\..\Source\global\global_1_comp_SliderForVoiceMapSlot.cpp"/>
+    <ClCompile Include="..\..\Source\global\global_2_comp_VoiceMapSlot.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_build_LED_Path.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp"/>
@@ -2388,6 +2390,8 @@
     <ClInclude Include="..\..\Source\global\global_0_build_ChoiceName.h"/>
     <ClInclude Include="..\..\Source\global\global_0_comp_TextEditorForGlobalParamSlider.h"/>
     <ClInclude Include="..\..\Source\global\global_0_comp_TextEditorForVoiceMapSlider.h"/>
+    <ClInclude Include="..\..\Source\global\global_1_comp_SliderForVoiceMapSlot.h"/>
+    <ClInclude Include="..\..\Source\global\global_2_comp_VoiceMapSlot.h"/>
     <ClInclude Include="..\..\Source\gui\gui_build_LED_Path.h"/>
     <ClInclude Include="..\..\Source\gui\gui_comp_ButtonForActivatingQuickEdit.h"/>
     <ClInclude Include="..\..\Source\gui\gui_comp_ButtonForHidingLayer.h"/>
