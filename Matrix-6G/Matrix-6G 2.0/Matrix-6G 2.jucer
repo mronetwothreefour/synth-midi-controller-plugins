@@ -277,6 +277,10 @@
               compile="1" resource="0" file="Source/global/global_0_comp_TextEditorForVoiceMapSlider.cpp"/>
         <FILE id="tcD5AS" name="global_0_comp_TextEditorForVoiceMapSlider.h"
               compile="0" resource="0" file="Source/global/global_0_comp_TextEditorForVoiceMapSlider.h"/>
+        <FILE id="BxAMeP" name="global_1_comp_ComboBoxForGlobalParam.cpp" compile="1"
+              resource="0" file="Source/global/global_1_comp_ComboBoxForGlobalParam.cpp"/>
+        <FILE id="q1l82F" name="global_1_comp_ComboBoxForGlobalParam.h" compile="0"
+              resource="0" file="Source/global/global_1_comp_ComboBoxForGlobalParam.h"/>
         <FILE id="GC2Zjn" name="global_1_comp_SliderForVoiceMapSlot.cpp" compile="1"
               resource="0" file="Source/global/global_1_comp_SliderForVoiceMapSlot.cpp"/>
         <FILE id="DNUBM2" name="global_1_comp_SliderForVoiceMapSlot.h" compile="0"

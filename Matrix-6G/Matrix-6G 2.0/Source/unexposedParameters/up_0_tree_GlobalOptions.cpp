@@ -234,19 +234,19 @@ void GlobalOptions::setSplitStereoIsEnabled(const bool shouldBeEnabled) {
 }
 
 const bool GlobalOptions::voiceMapIsEnabled() {
-    return (bool)globalOptionsTree.getProperty(ID::global_VoicesMapIsEnabled) == true;
+    return (bool)globalOptionsTree.getProperty(ID::global_VoiceMapIsEnabled) == true;
 }
 
 void GlobalOptions::setVoiceMapIsEnabled(const bool shouldBeEnabled) {
-    globalOptionsTree.setProperty(ID::global_VoicesMapIsEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
+    globalOptionsTree.setProperty(ID::global_VoiceMapIsEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
 }
 
 const bool GlobalOptions::voiceMapEchoIsEnabled() {
-    return (bool)globalOptionsTree.getProperty(ID::global_VoicesMapEchoIsEnabled) == true;
+    return (bool)globalOptionsTree.getProperty(ID::global_VoiceMapEchoIsEnabled) == true;
 }
 
 void GlobalOptions::setVoiceMapEchoIsEnabled(const bool shouldBeEnabled) {
-    globalOptionsTree.setProperty(ID::global_VoicesMapEchoIsEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
+    globalOptionsTree.setProperty(ID::global_VoiceMapEchoIsEnabled, shouldBeEnabled ? (bool)true : (bool)false, nullptr);
 }
 
 const uint8 GlobalOptions::displayBrightness() {

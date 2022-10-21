@@ -8,12 +8,11 @@ using namespace Matrix_6G_Constants;
 
 struct GlobalParamChoiceName
 {
-private:
 	static String buildForEnabledDisabled(const bool isEnabled, const ChoiceNameType type) {
 		if (isEnabled)
-			return type == ChoiceNameType::verbose ? "Enabled" : "ON";
+			return type == ChoiceNameType::verbose ? "On" : "ON";
 		else
-			return type == ChoiceNameType::verbose ? "Disabled" : "OFF";
+			return type == ChoiceNameType::verbose ? "Off" : "OFF";
 	}
 
 	static String buildForVibratoModSource(const VibratoModSource modSource, const ChoiceNameType type) {
@@ -50,6 +49,7 @@ private:
 		}
 	}
 
+private:
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GlobalParamChoiceName)
 };

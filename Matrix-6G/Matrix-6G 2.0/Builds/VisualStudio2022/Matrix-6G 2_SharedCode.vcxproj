@@ -159,6 +159,7 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.cpp"/>
     <ClCompile Include="..\..\Source\global\global_0_comp_TextEditorForGlobalParamSlider.cpp"/>
     <ClCompile Include="..\..\Source\global\global_0_comp_TextEditorForVoiceMapSlider.cpp"/>
+    <ClCompile Include="..\..\Source\global\global_1_comp_ComboBoxForGlobalParam.cpp"/>
     <ClCompile Include="..\..\Source\global\global_1_comp_SliderForVoiceMapSlot.cpp"/>
     <ClCompile Include="..\..\Source\global\global_3_gui_layer_VoiceMap.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_build_LED_Path.cpp"/>
@@ -2390,6 +2391,7 @@
     <ClInclude Include="..\..\Source\global\global_0_build_ChoiceName.h"/>
     <ClInclude Include="..\..\Source\global\global_0_comp_TextEditorForGlobalParamSlider.h"/>
     <ClInclude Include="..\..\Source\global\global_0_comp_TextEditorForVoiceMapSlider.h"/>
+    <ClInclude Include="..\..\Source\global\global_1_comp_ComboBoxForGlobalParam.h"/>
     <ClInclude Include="..\..\Source\global\global_1_comp_SliderForVoiceMapSlot.h"/>
     <ClInclude Include="..\..\Source\global\global_2_comp_VoiceMapSlot.h"/>
     <ClInclude Include="..\..\Source\global\global_3_gui_layer_VoiceMap.h"/>

@@ -4,7 +4,7 @@
 
 #include "../constants/constants_Enum.h"
 
-using namespace MophoConstants;
+using namespace Matrix_6G_Constants;
 using ComboBoxType = GlobalParamComboBoxType;
 
 class GlobalOptions;
@@ -17,11 +17,16 @@ class ComboBoxForGlobalParameter :
 	Value globalParamAsValue;
 	Value shouldShowDescriptionAsValue;
 	Value shouldShowCurrentChoiceAsValue;
+	const bool disabled{ false };
+	const bool enabled{ true };
 
 public:
 	ComboBoxForGlobalParameter() = delete;
 
 	ComboBoxForGlobalParameter(ComboBoxType comboBoxType, UnexposedParameters* unexposedParams);
+	StringArray choiceNamesList_OffOn();
+	StringArray choiceNamesList_VibratoWaveType();
+	StringArray choiceNamesList_VibratoModSource();
 	void updateTooltip();
 	void valueChanged(Value& value) override;
 	~ComboBoxForGlobalParameter();

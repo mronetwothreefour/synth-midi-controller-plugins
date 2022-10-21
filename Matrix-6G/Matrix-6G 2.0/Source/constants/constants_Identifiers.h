@@ -167,9 +167,9 @@ namespace Matrix_6G_Constants
 		static const Identifier global_VibratoSpeedModSource{ "global_VibratoSpeedModSource" };
 		static const Identifier global_VibratoWaveType{ "global_VibratoWaveType" };
 		static const Identifier global_VoiceChangesAreEnabled{ "global_VoiceChangesAreEnabled" };
-		static const Identifier global_VoicesMapEchoIsEnabled{ "global_VoicesMapEchoIsEnabled" };
+		static const Identifier global_VoiceMapEchoIsEnabled{ "global_VoiceMapEchoIsEnabled" };
 		static const Identifier global_VoiceMapIn_{ "global_VoiceMapIn_" };
-		static const Identifier global_VoicesMapIsEnabled{ "global_VoicesMapIsEnabled" };
+		static const Identifier global_VoiceMapIsEnabled{ "global_VoiceMapIsEnabled" };
 		static const Identifier global_VoiceMapOut_{ "global_VoiceMapOut_" };
 
 		static const Identifier lbl_EditLabel{ "lbl_EditLabel" };

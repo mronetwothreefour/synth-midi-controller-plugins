@@ -1,7 +1,6 @@
 #include "global_1_comp_ComboBoxForGlobalParam.h"
 
 #include "global_0_build_ChoiceName.h"
-#include "../constants/constants_Enum.h"
 #include "../constants/constants_GlobalParameters.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
@@ -14,31 +13,32 @@ using Description = GlobalParamDescription;
 using ParamChange = ParameterChangeMessage;
 
 ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType, UnexposedParameters* unexposedParams) :
-	comboBoxType{ comboBoxType },
-	global{ unexposedParams->getGlobalOptions() }
+	comboBoxType{ comboBoxType }
 {
+	auto global{ unexposedParams->getGlobalOptions() };
+
 	StringArray choiceNamesList{};
 	switch (comboBoxType)
 	{
 	case ComboBoxType::midiClockSource:
-		global->getGobalParamAsValue(ID::global_MIDI_ClockSource);
+		globalParamAsValue = global->getGobalParamAsValue(ID::global_MIDI_ClockSource);
 		for (auto choiceNum = (int)MIDI_ClockSource::internalClock; choiceNum <= (int)MIDI_ClockSource::externalClock_Resend; ++choiceNum)
 			choiceNamesList.add(ChoiceName::buildForMIDI_ClockSource(MIDI_ClockSource{ choiceNum }, ChoiceNameType::concise));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)global->midiClockSource(), dontSendNotification);
-		onChange = [this, unexposedParams] {
+		onChange = [this, global, unexposedParams] {
 			auto currentChoice{ getSelectedItemIndex() };
 			global->setMIDI_ClockSource(MIDI_ClockSource{ currentChoice });
 			ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling((uint8)currentChoice, GP::nrpnType_MIDI_ClockSource, unexposedParams);
 		};
 		break;
 	case ComboBoxType::pedalMode:
-		global->getGobalParamAsValue(ID::global_PedalModeIsArpLatch);
+		globalParamAsValue = global->getGobalParamAsValue(ID::global_PedalModeIsArpLatch);
 		choiceNamesList.add(ChoiceName::buildForPedalMode(false));
 		choiceNamesList.add(ChoiceName::buildForPedalMode(true));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)global->pedalModeIsArpLatch(), dontSendNotification);
-		onChange = [this, unexposedParams] {
+		onChange = [this, global, unexposedParams] {
 			auto currentChoice{ getSelectedItemIndex() };
 			auto shouldBeArpLatch{ currentChoice == 1 };
 			global->setPedalModeIsArpLatch(shouldBeArpLatch ? true : false);
@@ -48,12 +48,12 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 	case ComboBoxType::voiceChanges: {
 			auto disabled{ false };
 			auto enabled{ true };
-			global->getGobalParamAsValue(ID::global_VoiceChangesAreEnabled);
+			globalParamAsValue = global->getGobalParamAsValue(ID::global_VoiceChangesAreEnabled);
 			choiceNamesList.add(ChoiceName::buildForVoiceChanges(disabled));
 			choiceNamesList.add(ChoiceName::buildForVoiceChanges(enabled));
 			addItemList(choiceNamesList, 1);
 			setSelectedItemIndex((int)global->voiceChangesAreEnabled(), dontSendNotification);
-			onChange = [this, unexposedParams, enabled, disabled] {
+			onChange = [this, global, unexposedParams, enabled, disabled] {
 				auto currentChoice{ getSelectedItemIndex() };
 				auto shouldBeEnabled{ currentChoice == 1 };
 				global->setVoiceChangesAreEnabled(shouldBeEnabled ? enabled : disabled);
@@ -62,12 +62,12 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 		}
 		break;
 	case ComboBoxType::paramChangeSendType:
-		global->getGobalParamAsValue(ID::global_ParamChangeSendType);
+		globalParamAsValue = global->getGobalParamAsValue(ID::global_ParamChangeSendType);
 		for (auto choiceNum = 0; choiceNum != 3; ++choiceNum)
 			choiceNamesList.add(ChoiceName::buildForParamChangeSendType(ParamChangeSendType{ choiceNum }));
 		addItemList(choiceNamesList, 1);
 		setSelectedItemIndex((int)global->paramChangeSendType(), dontSendNotification);
-		onChange = [this, unexposedParams] {
+		onChange = [this, global, unexposedParams] {
 			auto currentChoice{ getSelectedItemIndex() };
 			global->setParamChangeSendType(ParamChangeSendType{ currentChoice });
 			ParamChange::sendNewValueForNRPNtypeToUnexposedParamsForHandling((uint8)currentChoice, GP::nrpnType_ParamChangeSendType, unexposedParams);
@@ -99,9 +99,8 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 	case ComboBoxType::midiClockSource:
 		if (shouldShowDescription)
 			tip += Description::buildForMIDI_ClockSource();
-		if (shouldShowCurrentChoice) {
+		if (shouldShowCurrentChoice)
 			tip += "Current setting: " + ChoiceName::buildForMIDI_ClockSource(MIDI_ClockSource{ currentChoice }, ChoiceNameType::verbose);
-		}
 		break;
 	case ComboBoxType::pedalMode:
 		if (shouldShowDescription)
@@ -122,9 +121,8 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 	case ComboBoxType::paramChangeSendType:
 		if (shouldShowDescription)
 			tip += Description::buildForParamChangeSendType();
-		if (shouldShowCurrentChoice) {
+		if (shouldShowCurrentChoice)
 			tip += "Current setting: " + ChoiceName::buildForParamChangeSendType(ParamChangeSendType{ currentChoice });
-		}
 		break;
 	default:
 		break;

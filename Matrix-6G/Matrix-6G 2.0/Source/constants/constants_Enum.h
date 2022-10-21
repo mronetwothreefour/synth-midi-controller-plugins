@@ -33,24 +33,24 @@ namespace Matrix_6G_Constants
 
 
 	const enum class GlobalParamComboBoxType {
-		omniModeOnOff = 0,
-		controllersOnOff,
-		voiceChangesOnOff,
-		sysExOnOff,
-		spilloverOnOff,
-		midiEchoOnOff,
-		midiMonoOnOff,
-		activeSensingOnOff,
-		localControlOnOff,
+		omniModeOffOn = 0,
+		controllersOffOn,
+		voiceChangesOffOn,
+		sysExOffOn,
+		spilloverOffOn,
+		midiEchoOffOn,
+		midiMonoOffOn,
+		activeSensingOffOn,
+		localControlOffOn,
 		vibratoWaveType,
 		vibratoSpeedModSource,
 		vibratoAmpModSource,
-		splitStereoOnOff,
-		patchMapOnOff,
-		patchMapEchoOnOff,
-		squickOnOff,
-		descriptionTipsOnOff,
-		currentValueTipsOnOff
+		splitStereoOffOn,
+		voiceMapOffOn,
+		voiceMapEchoOffOn,
+		squickOffOn,
+		descriptionTipsOffOn,
+		currentValueTipsOffOn
 	};
 
 
