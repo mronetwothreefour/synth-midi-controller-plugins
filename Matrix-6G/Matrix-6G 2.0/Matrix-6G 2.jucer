@@ -281,6 +281,10 @@
               resource="0" file="Source/global/global_1_comp_ComboBoxForGlobalParam.cpp"/>
         <FILE id="q1l82F" name="global_1_comp_ComboBoxForGlobalParam.h" compile="0"
               resource="0" file="Source/global/global_1_comp_ComboBoxForGlobalParam.h"/>
+        <FILE id="OuN6EC" name="global_1_comp_SliderForGlobalParam.cpp" compile="1"
+              resource="0" file="Source/global/global_1_comp_SliderForGlobalParam.cpp"/>
+        <FILE id="HEzfTD" name="global_1_comp_SliderForGlobalParam.h" compile="0"
+              resource="0" file="Source/global/global_1_comp_SliderForGlobalParam.h"/>
         <FILE id="GC2Zjn" name="global_1_comp_SliderForVoiceMapSlot.cpp" compile="1"
               resource="0" file="Source/global/global_1_comp_SliderForVoiceMapSlot.cpp"/>
         <FILE id="DNUBM2" name="global_1_comp_SliderForVoiceMapSlot.h" compile="0"

@@ -685,6 +685,9 @@
     <ClCompile Include="..\..\Source\global\global_1_comp_ComboBoxForGlobalParam.cpp">
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_1_comp_SliderForGlobalParam.cpp">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\global\global_1_comp_SliderForVoiceMapSlot.cpp">
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClCompile>
@@ -3229,6 +3232,9 @@
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\global\global_1_comp_ComboBoxForGlobalParam.h">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_1_comp_SliderForGlobalParam.h">
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\global\global_1_comp_SliderForVoiceMapSlot.h">

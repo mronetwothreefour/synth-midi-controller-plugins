@@ -240,7 +240,6 @@ StringArray ComboBoxForGlobalParameter::choiceNamesList_VibratoModSource() {
 void ComboBoxForGlobalParameter::updateTooltip() {
 	auto shouldShowDescription{ (bool)shouldShowDescriptionAsValue.getValue() };
 	auto shouldShowCurrentChoice{ (bool)shouldShowCurrentChoiceAsValue.getValue() };
-	auto currentChoice{ getSelectedItemIndex() };
 	String tip{ "" };
 	if (shouldShowDescription) 	{
 		switch (comboBoxType)
@@ -305,15 +304,18 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 			break;
 		}
 	}
-	if (shouldShowCurrentChoice)
+	if (shouldShowCurrentChoice) {
+		tip += "Current setting: ";
+		auto currentChoice{ getSelectedItemIndex() };
 		if (comboBoxType == ComboBoxType::vibratoWaveType)
-			tip += "Current setting: " + ChoiceName::buildForVibratoWaveType(VibratoWaveType{ currentChoice }, ChoiceNameType::verbose);
+			tip += ChoiceName::buildForVibratoWaveType(VibratoWaveType{ currentChoice }, ChoiceNameType::verbose);
 		else {
 			if (comboBoxType == ComboBoxType::vibratoSpeedModSource || comboBoxType == ComboBoxType::vibratoAmpModSource)
-				tip += "Current setting: " + ChoiceName::buildForVibratoModSource(VibratoModSource{ currentChoice }, ChoiceNameType::verbose);
+				tip += ChoiceName::buildForVibratoModSource(VibratoModSource{ currentChoice }, ChoiceNameType::verbose);
 			else
-				tip += "Current setting: " + ChoiceName::buildForEnabledDisabled(currentChoice == 1 ? enabled : disabled, ChoiceNameType::verbose);
+				tip += ChoiceName::buildForEnabledDisabled(currentChoice == 1 ? enabled : disabled, ChoiceNameType::verbose);
 		}
+	}
 	setTooltip(tip);
 }
 

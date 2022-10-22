@@ -14,6 +14,17 @@ String GlobalParamDescription::buildForActiveSensing() {
     return descriptionString;
 }
 
+String GlobalParamDescription::buildForBasicChannel() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the MIDI channel that the hardware\n";
+    descriptionString += "will use to receive and transmit messages\n";
+    descriptionString += "(notes, patch changes, and controllers).\n";
+    descriptionString += "NOTE: Individual Master options are not\n";
+    descriptionString += "immediately updated on the hardware.\n";
+    descriptionString += "Click the PUSH button to update all options.\n";
+    return descriptionString;
+}
+
 String GlobalParamDescription::buildForControllers() {
     String descriptionString{ "" };
     descriptionString += "When set to on, the hardware will respond to incoming\n";
@@ -22,6 +33,42 @@ String GlobalParamDescription::buildForControllers() {
     descriptionString += "When set to off, the hardware will only respond to MIDI\n";
     descriptionString += "note messages. NOTE: Individual Master options are not\n";
     descriptionString += "immediately updated on the hardware. Click the PUSH\n";
+    descriptionString += "button to update all options.\n";
+    return descriptionString;
+}
+
+String GlobalParamDescription::buildForControllerNumForLever_2() {
+    String descriptionString{ "" };
+    descriptionString += "Selects the MIDI controller number that Lever 2\n";
+    descriptionString += "will use to transmit and receive. " + GUI::openQuote + "Lever 2" + GUI::closeQuote + " is equi-\n";
+    descriptionString += "valent to the modulation wheel found on most\n";
+    descriptionString += "MIDI keyboard controllers. Range: 0 to 121.\n";
+    descriptionString += "NOTE: Individual Master options are not immedi-\n";
+    descriptionString += "ately updated on the hardware. Click the PUSH\n";
+    descriptionString += "button to update all options.\n";
+    return descriptionString;
+}
+
+String GlobalParamDescription::buildForControllerNumForLever_3() {
+    String descriptionString{ "" };
+    descriptionString += "The modulation wheel on Oberheim keyboard controllers\n";
+    descriptionString += "(" + GUI::openQuote + "Lever 2" + GUI::closeQuote + ") was bi-directional, like a pitch bend wheel.\n";
+    descriptionString += GUI::openQuote + "Lever 3" + GUI::closeQuote + " modulation increased as Lever 2 was pushed\n";
+    descriptionString += "away from the player. This option selects the MIDI\n";
+    descriptionString += "controller channel that Lever 3 will use to transmit\n";
+    descriptionString += "and receive. Range: 0 to 121. NOTE: Individual Master\n";
+    descriptionString += "options are not immediately updated on the hardware.\n";
+    descriptionString += "Click the PUSH button to update all options.\n";
+    return descriptionString;
+}
+
+String GlobalParamDescription::buildForControllerNumForPedal(int pedalNum) {
+    jassert(pedalNum == 1 || pedalNum == 2);
+    String descriptionString{ "" };
+    descriptionString += "Selects the MIDI controller number that Pedal " + (String)pedalNum + "\n";
+    descriptionString += "will transmit and receive on. Range: 0 to 121.\n";
+    descriptionString += "NOTE: Individual Master options are not immedi-\n";
+    descriptionString += "ately updated on the hardware. Click the PUSH\n";
     descriptionString += "button to update all options.\n";
     return descriptionString;
 }
@@ -44,6 +91,27 @@ String GlobalParamDescription::buildForDescriptionTooltip() {
     descriptionString += "hovers over a control for the amount of time specified below.\n";
     descriptionString += "NOTE: Individual Master options are not immediately updated\n";
     descriptionString += "on the hardware. Click the PUSH button to update all options.\n";
+    return descriptionString;
+}
+
+String GlobalParamDescription::buildForDisplayBrightness() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the brightness of the display\n";
+    descriptionString += "on the front panel of the hardware.\n";
+    descriptionString += "Range: 1 (dimmest) to 31 (brightest).\n";
+    descriptionString += "NOTE: Individual Master options are not\n";
+    descriptionString += "immediately updated on the hardware.\n";
+    descriptionString += "Click the PUSH button to update all options.\n";
+    return descriptionString;
+}
+
+String GlobalParamDescription::buildForGlobalTune() {
+    String descriptionString{ "" };
+    descriptionString += "Tunes all audio output from the hardware\n";
+    descriptionString += "up or down. Range: -63 to +63, which represents\n";
+    descriptionString += " +/- one quarter tone. NOTE: Individual Master\n";
+    descriptionString += "options are not immediately updated on the hardware.\n";
+    descriptionString += "Click the PUSH button to update all options.\n";
     return descriptionString;
 }
 
@@ -108,6 +176,26 @@ String GlobalParamDescription::buildForSysEx() {
     return descriptionString;
 }
 
+String GlobalParamDescription::buildForVibratoAmplitude() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the degree of the vibrato modulation produced by LFO 3.\n";
+    descriptionString += "Range: 0 (no modulation) to 63 (maximum modulation).\n";
+    descriptionString += "NOTE: Individual Master options are not immediately updated\n";
+    descriptionString += "on the hardware. Click the PUSH button to update all options.\n";
+    return descriptionString;
+}
+
+String GlobalParamDescription::buildForVibratoModAmount(bool isForSpeed) {
+    String descriptionString{ "" };
+    String modType{ isForSpeed ? "speed" : "amplitude" };
+    descriptionString += "Sets the degree to which the selected source modulates the " + modType + "\n";
+    descriptionString += "of low-frequency oscillator 3, which is dedicated to vibrato.\n";
+    descriptionString += "Range: 0 (no modulation) to 63 (maximum modulation).\n";
+    descriptionString += "NOTE: Individual Master options are not immediately updated\n";
+    descriptionString += "on the hardware. Click the PUSH button to update all options.\n";
+    return descriptionString;
+}
+
 String GlobalParamDescription::buildForVibratoModSource(bool isForSpeed) {
     String descriptionString{ "" };
     String modType{ isForSpeed ? "speed" : "amplitude" };
@@ -119,6 +207,17 @@ String GlobalParamDescription::buildForVibratoModSource(bool isForSpeed) {
     descriptionString += "options are not immediately updated\n";
     descriptionString += "on the hardware. Click the PUSH button\n";
     descriptionString += "to update all options.\n";
+    return descriptionString;
+}
+
+String GlobalParamDescription::buildForVibratoSpeed() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the cycle rate of low-frequency\n";
+    descriptionString += "oscillator 3, which is dedicated to vibrato.\n";
+    descriptionString += "Range: 0 (slowest) to 63 (fastest).\n";
+    descriptionString += "NOTE: Individual Master options are not\n";
+    descriptionString += "immediately updated on the hardware.\n";
+    descriptionString += "Click the PUSH button to update all options.\n";
     return descriptionString;
 }
 
