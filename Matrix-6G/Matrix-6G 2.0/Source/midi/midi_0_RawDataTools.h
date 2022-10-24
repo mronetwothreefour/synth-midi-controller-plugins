@@ -5,6 +5,7 @@
 class ExposedParameters;
 class MatrixModOptions;
 class SplitOptions;
+class GlobalOptions;
 class VoiceTransmissionOptions;
 
 struct RawDataTools
@@ -29,6 +30,9 @@ struct RawDataTools
 
     static void applyRawSplitDataTo_GUI(const uint8* splitData, SplitOptions* splitOptions);
     static const std::vector<uint8> extractRawSplitDataFrom_GUI(SplitOptions* splitOptions);
+
+    static void applyRawGlobalDataTo_GUI(const uint8* globalData, GlobalOptions* globalOptions);
+    static const std::vector<uint8> extractRawGlobalDataFrom_GUI(GlobalOptions* globalOptions);
 
     static void removeSeventhBitFrom_ASCII_Value(uint8& value);
     static void restoreSeventhBitTo_ASCII_Value(uint8& value);

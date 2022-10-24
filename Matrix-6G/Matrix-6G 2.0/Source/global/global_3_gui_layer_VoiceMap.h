@@ -12,7 +12,6 @@ class GUI_Layer_VoiceMap :
 	TextButton btn_Reset;
 	std::vector<std::unique_ptr<VoiceMapSlot>> voiceMapSlots;
 	const Rectangle<int> borderBounds{ 173, 111, 906, 374 };
-	const int voiceMapSlots_HorizGap{ 30 };
 
 public: 
 	GUI_Layer_VoiceMap() = delete;

@@ -191,7 +191,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 		};
 		comboBox_w = GUI::global_MiscControl_w;
 		break;
-	case ComboBoxType::currentValueTipsOffOn:
+	case ComboBoxType::currentChoiceTipsOffOn:
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)tooltips->shouldShowCurrentChoice(), dontSendNotification);
 		onChange = [this, tooltips, unexposedParams] {
@@ -297,7 +297,7 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 		case ComboBoxType::descriptionTipsOffOn:
 			tip += Description::buildForDescriptionTooltip();
 			break;
-		case ComboBoxType::currentValueTipsOffOn:
+		case ComboBoxType::currentChoiceTipsOffOn:
 			tip += Description::buildForCurrentValueTooltip();
 			break;
 		default:

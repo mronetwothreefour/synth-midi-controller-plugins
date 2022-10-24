@@ -2,13 +2,17 @@
 
 #include "../constants/constants_Enum.h"
 #include "../constants/constants_ExposedParameters.h"
+#include "../constants/constants_Global.h"
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_Splits.h"
 #include "../constants/constants_Voices.h"
 #include "../exposedParameters/ep_0_tree_MatrixModOptions.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
+#include "../unexposedParameters/up_0_tree_GlobalOptions.h"
 #include "../unexposedParameters/up_0_tree_SplitOptions.h"
 #include "../unexposedParameters/up_0_tree_VoiceTransmissionOptions.h"
+
+using namespace Matrix_6G_Constants;
 
 bool RawDataTools::midiMessageIsSysExForMatrix(const MidiMessage& midiMessage) {
     if (midiMessage.isSysEx()) {
@@ -212,6 +216,253 @@ const std::vector<uint8> RawDataTools::extractRawSplitDataFrom_GUI(SplitOptions*
     splitData.push_back(checksum % (uint8)128);
 
     return splitData;
+}
+
+void RawDataTools::applyRawGlobalDataTo_GUI(const uint8* globalData, GlobalOptions* globalOptions) {
+    auto vibratoSpeed{ uint8(globalData[GLBL::indexOfVibratoSpeedLSByte] + (globalData[GLBL::indexOfVibratoSpeedLSByte + 1] * 16)) };
+    globalOptions->setVibratoSpeed(vibratoSpeed);
+
+    globalOptions->setVibratoSpeedModSource(VibratoModSource{ globalData[GLBL::indexOfVibratoSpeedModSourceLSByte] });
+
+    auto vibSpeedModAmount{ uint8(globalData[GLBL::indexOfVibratoSpeedModAmountLSByte] + (globalData[GLBL::indexOfVibratoSpeedModAmountLSByte + 1] * 16)) };
+    globalOptions->setVibratoSpeedModAmount(vibSpeedModAmount);
+
+    globalOptions->setVibratoWaveType(VibratoWaveType{ globalData[GLBL::indexOfVibratoWaveTypeLSByte] });
+
+    auto vibratoAmplitude{ uint8(globalData[GLBL::indexOfVibratoAmplitudeLSByte] + (globalData[GLBL::indexOfVibratoAmplitudeLSByte + 1] * 16)) };
+    globalOptions->setVibratoAmplitude(vibratoAmplitude);
+
+    globalOptions->setVibratoAmpModSource(VibratoModSource{ globalData[GLBL::indexOfVibratoAmpModSourceLSByte] });
+
+    auto vibAmpModAmount{ uint8(globalData[GLBL::indexOfVibratoAmpModAmountLSByte] + (globalData[GLBL::indexOfVibratoAmpModAmountLSByte + 1] * 16)) };
+    globalOptions->setVibratoAmpModAmount(vibAmpModAmount);
+
+    auto globalTune{ uint8(globalData[GLBL::indexOfGlobalTuneLSByte] + (globalData[GLBL::indexOfGlobalTuneLSByte + 1] * 16)) };
+    formatSignedValueForStoringInPlugin(uses_7_bits, globalTune);
+    globalOptions->setGlobalTune((uint8)globalTune);
+
+    globalOptions->setBasicChannel(globalData[GLBL::indexOfBasicChannelLSByte] + GLBL::basicChannelOffset);
+
+    globalOptions->setOmniModeIsEnabled(globalData[GLBL::indexOfOmniModeEnableLSByte] == 1 ? true : false);
+
+    globalOptions->setControllersAreEnabled(globalData[GLBL::indexOfControllersEnableLSByte] == 1 ? true : false);
+
+    globalOptions->setVoiceChangesAreEnabled(globalData[GLBL::indexOfVoiceChangesEnableLSByte] == 1 ? true : false);
+
+    globalOptions->setSysExIsEnabled(globalData[GLBL::indexOfSysExEnableLSByte] == 1 ? true : false);
+
+    globalOptions->setLocalControIsEnabled(globalData[GLBL::indexOfLocalControlEnableLSByte] == 1 ? true : false);
+
+    auto pedal_1_ControllerNumber{ uint8(globalData[GLBL::indexOfPedal_1_ControllerNumber] + (globalData[GLBL::indexOfPedal_1_ControllerNumber + 1] * 16)) };
+    globalOptions->setPedal_1_ControllerNumber(pedal_1_ControllerNumber);
+
+    auto pedal_2_ControllerNumber{ uint8(globalData[GLBL::indexOfPedal_2_ControllerNumber] + (globalData[GLBL::indexOfPedal_2_ControllerNumber + 1] * 16)) };
+    globalOptions->setPedal_2_ControllerNumber(pedal_2_ControllerNumber);
+
+    auto lever_2_ControllerNumber{ uint8(globalData[GLBL::indexOfLever_2_ControllerNumber] + (globalData[GLBL::indexOfLever_2_ControllerNumber + 1] * 16)) };
+    globalOptions->setLever_2_ControllerNumber(lever_2_ControllerNumber);
+
+    auto lever_3_ControllerNumber{ uint8(globalData[GLBL::indexOfLever_3_ControllerNumber] + (globalData[GLBL::indexOfLever_3_ControllerNumber + 1] * 16)) };
+    globalOptions->setLever_3_ControllerNumber(lever_3_ControllerNumber);
+
+    auto displayBrightness{ uint8(globalData[GLBL::indexOfDisplayBrightnessLSByte] + (globalData[GLBL::indexOfDisplayBrightnessLSByte + 1] * 16)) };
+    globalOptions->setDisplayBrightness(displayBrightness);
+
+    globalOptions->set_SQUICK_IsEnabled(globalData[GLBL::indexOf_SQUICK_EnableLSByte] == 1 ? true : false);
+
+    globalOptions->setVoiceMapEchoIsEnabled(globalData[GLBL::indexOfVoiceMapEchoEnableLSByte] == 1 ? true : false);
+
+    globalOptions->setSplitStereoIsEnabled(globalData[GLBL::indexOfSplitStereoEnableLSByte] == 1 ? true : false);
+
+    globalOptions->setSpilloverIsEnabled(globalData[GLBL::indexOfSpilloverEnableLSByte] == 1 ? true : false);
+
+    globalOptions->setActiveSensingIsEnabled(globalData[GLBL::indexOfActiveSenseEnableLSByte] == 1 ? true : false);
+
+    globalOptions->set_MIDI_EchoIsEnabled(globalData[GLBL::indexOf_MIDI_EchoEnableLSByte] == 1 ? true : false);
+
+    globalOptions->setVoiceMapIsEnabled(globalData[GLBL::indexOfVoiceMapEnableLSByte] == 1 ? true : false);
+
+    globalOptions->set_MIDI_MonoIsEnabled(globalData[GLBL::indexOf_MIDI_MonoEnableLSByte] == 1 ? true : false);
+
+    for (uint8 i = 0; i != VCS::numberOfSlotsInVoicesBank; ++i) {
+        auto indexOfInVoiceLSByte{ GLBL::indexOfFirstVoicesMapInVoiceLSByte + (i * 2) };
+        globalOptions->setInVoiceForVoiceMapSlot(globalData[indexOfInVoiceLSByte] + (globalData[indexOfInVoiceLSByte + 1] * 16), i);
+        auto indexOfOutVoiceLSByte{ GLBL::indexOfFirstVoicesMapOutVoiceLSByte + (i * 2) };
+        globalOptions->setOutVoiceForVoiceMapSlot(globalData[indexOfOutVoiceLSByte] + (globalData[indexOfOutVoiceLSByte + 1] * 16), i);
+    }
+}
+
+const std::vector<uint8> RawDataTools::extractRawGlobalDataFrom_GUI(GlobalOptions* globalOptions) {
+    std::vector<uint8> globalData;
+    uint8 checksum{ 0 };
+
+    auto vibratoSpeed{ globalOptions->vibratoSpeed() };
+    globalData.push_back(vibratoSpeed % 16);
+    globalData.push_back(vibratoSpeed / 16);
+    checksum += vibratoSpeed;
+
+    auto vibratoSpeedModSource{ (uint8)(int)globalOptions->vibratoSpeedModSource() };
+    globalData.push_back(vibratoSpeedModSource);
+    globalData.push_back(0);
+    checksum += vibratoSpeedModSource;
+
+    auto vibratoSpeedModAmount{ globalOptions->vibratoSpeedModAmount() };
+    globalData.push_back(vibratoSpeedModAmount % 16);
+    globalData.push_back(vibratoSpeedModAmount / 16);
+    checksum += vibratoSpeedModAmount;
+
+    auto vibratoWaveType{ (uint8)(int)globalOptions->vibratoWaveType() };
+    globalData.push_back(vibratoWaveType);
+    globalData.push_back(0);
+    checksum += vibratoWaveType;
+
+    auto vibratoAmplitude{ globalOptions->vibratoAmplitude() };
+    globalData.push_back(vibratoAmplitude % 16);
+    globalData.push_back(vibratoAmplitude / 16);
+    checksum += vibratoAmplitude;
+
+    auto vibratoAmpModSource{ (uint8)(int)globalOptions->vibratoAmpModSource() };
+    globalData.push_back(vibratoAmpModSource);
+    globalData.push_back(0);
+    checksum += vibratoAmpModSource;
+
+    auto vibratoAmpModAmount{ globalOptions->vibratoAmpModAmount() };
+    globalData.push_back(vibratoAmpModAmount % 16);
+    globalData.push_back(vibratoAmpModAmount / 16);
+    checksum += vibratoAmpModAmount;
+
+    auto globalTune{ globalOptions->globalTune() };
+    formatSignedValueForSendingToMatrix(uses_7_bits, globalTune);
+    globalData.push_back(globalTune % 16);
+    globalData.push_back(globalTune / 16);
+    checksum += globalTune;
+
+    globalData.push_back(GLBL::velocitySensitivity_Unused % 16);
+    globalData.push_back(GLBL::velocitySensitivity_Unused / 16);
+    checksum += GLBL::velocitySensitivity_Unused;
+
+    auto basicChannel_DisplayedValue{ globalOptions->basicChannel() };
+    auto basicChannel_DataValue{ uint8(basicChannel_DisplayedValue - GLBL::basicChannelOffset) };
+    globalData.push_back(basicChannel_DataValue % 16);
+    globalData.push_back(basicChannel_DataValue / 16);
+    checksum += basicChannel_DataValue;
+
+    auto omniModeIsEnabled{ globalOptions->omniModeIsEnabled() };
+    globalData.push_back(omniModeIsEnabled ? 1 : 0);
+    globalData.push_back(0);
+    checksum += omniModeIsEnabled ? 1 : 0;
+
+    auto controllersAreEnabled{ globalOptions->controllersAreEnabled() };
+    globalData.push_back(controllersAreEnabled ? 1 : 0);
+    globalData.push_back(0);
+    checksum += controllersAreEnabled ? 1 : 0;
+
+    auto voiceChangesAreEnabled{ globalOptions->voiceChangesAreEnabled() };
+    globalData.push_back(voiceChangesAreEnabled ? 1 : 0);
+    globalData.push_back(0);
+    checksum += voiceChangesAreEnabled ? 1 : 0;
+
+    auto sysExIsEnabled{ globalOptions->sysExIsEnabled() };
+    globalData.push_back(sysExIsEnabled ? 1 : 0);
+    globalData.push_back(0);
+    checksum += sysExIsEnabled ? 1 : 0;
+
+    auto localControlIsEnabled{ globalOptions->localControlIsEnabled() };
+    globalData.push_back(localControlIsEnabled ? 1 : 0);
+    globalData.push_back(0);
+    checksum += localControlIsEnabled ? 1 : 0;
+
+    auto pedal_1_ControllerNumber{ globalOptions->pedal_1_ControllerNumber() };
+    globalData.push_back(pedal_1_ControllerNumber % 16);
+    globalData.push_back(pedal_1_ControllerNumber / 16);
+    checksum += pedal_1_ControllerNumber;
+
+    auto pedal_2_ControllerNumber{ globalOptions->pedal_2_ControllerNumber() };
+    globalData.push_back(pedal_2_ControllerNumber % 16);
+    globalData.push_back(pedal_2_ControllerNumber / 16);
+    checksum += pedal_2_ControllerNumber;
+
+    auto lever_2_ControllerNumber{ globalOptions->lever_2_ControllerNumber() };
+    globalData.push_back(lever_2_ControllerNumber % 16);
+    globalData.push_back(lever_2_ControllerNumber / 16);
+    checksum += lever_2_ControllerNumber;
+
+    auto lever_3_ControllerNumber{ globalOptions->lever_3_ControllerNumber() };
+    globalData.push_back(lever_3_ControllerNumber % 16);
+    globalData.push_back(lever_3_ControllerNumber / 16);
+    checksum += lever_3_ControllerNumber;
+
+    auto displayBrightness{ globalOptions->displayBrightness() };
+    globalData.push_back(displayBrightness % 16);
+    globalData.push_back(displayBrightness / 16);
+    checksum += displayBrightness;
+
+    auto squickIsEnabled{ globalOptions->squickIsEnabled() };
+    globalData.push_back(squickIsEnabled ? 1 : 0);
+    globalData.push_back(0);
+    checksum += squickIsEnabled ? 1 : 0;
+
+    auto voiceMapEchoIsEnabled{ globalOptions->voiceMapEchoIsEnabled() };
+    globalData.push_back(voiceMapEchoIsEnabled ? 1 : 0);
+    globalData.push_back(0);
+    checksum += voiceMapEchoIsEnabled ? 1 : 0;
+
+    auto splitStereoIsEnabled{ globalOptions->splitStereoIsEnabled() };
+    globalData.push_back(splitStereoIsEnabled ? 1 : 0);
+    globalData.push_back(0);
+    checksum += splitStereoIsEnabled ? 1 : 0;
+
+    globalData.push_back(basicChannel_DisplayedValue % 16);
+    globalData.push_back(basicChannel_DisplayedValue / 16);
+    checksum += basicChannel_DisplayedValue;
+
+    auto spilloverIsEnabled{ globalOptions->spilloverIsEnabled() };
+    globalData.push_back(spilloverIsEnabled ? 1 : 0);
+    globalData.push_back(0);
+    checksum += spilloverIsEnabled ? 1 : 0;
+
+    auto undefinedByte{ 0 };
+    globalData.push_back(undefinedByte);
+    globalData.push_back(undefinedByte);
+
+    auto activeSensingIsEnabled{ globalOptions->activeSensingIsEnabled() };
+    globalData.push_back(activeSensingIsEnabled ? 1 : 0);
+    globalData.push_back(0);
+    checksum += activeSensingIsEnabled ? 1 : 0;
+
+    auto midiEchoIsEnabled{ globalOptions->midiEchoIsEnabled() };
+    globalData.push_back(midiEchoIsEnabled ? 1 : 0);
+    globalData.push_back(0);
+    checksum += midiEchoIsEnabled ? 1 : 0;
+
+    auto voiceMapIsEnabled{ globalOptions->voiceMapIsEnabled() };
+    globalData.push_back(voiceMapIsEnabled ? 1 : 0);
+    globalData.push_back(0);
+    checksum += voiceMapIsEnabled ? 1 : 0;
+
+    globalData.push_back(undefinedByte);
+    globalData.push_back(undefinedByte);
+
+    auto midiMonoIsEnabled{ globalOptions->midiMonoIsEnabled() };
+    globalData.push_back(midiMonoIsEnabled ? 1 : 0);
+    globalData.push_back(0);
+    checksum += midiMonoIsEnabled ? 1 : 0;
+
+    for (uint8 i = 0; i != VCS::numberOfSlotsInVoicesBank; ++i) {
+        auto voiceMapInVoice{ globalOptions->inVoiceForVoiceMapSlot(i) };
+        globalData.push_back(voiceMapInVoice % 16);
+        globalData.push_back(voiceMapInVoice / 16);
+        checksum += voiceMapInVoice;
+
+        auto voiceMapOutVoice{ globalOptions->outVoiceForVoiceMapSlot(i) };
+        globalData.push_back(voiceMapOutVoice % 16);
+        globalData.push_back(voiceMapOutVoice / 16);
+        checksum += voiceMapOutVoice;
+    }
+
+    globalData.push_back(checksum % (uint8)128);
+
+    return globalData;
 }
 
 void RawDataTools::removeSeventhBitFrom_ASCII_Value(uint8& value) {

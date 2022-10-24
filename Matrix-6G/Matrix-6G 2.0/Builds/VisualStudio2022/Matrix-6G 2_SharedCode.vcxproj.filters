@@ -685,6 +685,9 @@
     <ClCompile Include="..\..\Source\global\global_1_comp_ComboBoxForGlobalParam.cpp">
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_1_comp_EditorForTooltipDelay.cpp">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\global\global_1_comp_SliderForGlobalParam.cpp">
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClCompile>
@@ -692,6 +695,9 @@
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\global\global_3_gui_layer_VoiceMap.cpp">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_4_gui_layer_GlobalParams.cpp">
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\gui_build_LED_Path.cpp">
@@ -3144,6 +3150,9 @@
     <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h">
       <Filter>Matrix-6G 2\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\constants_Global.h">
+      <Filter>Matrix-6G 2\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Colors.h">
       <Filter>Matrix-6G 2\Source\constants</Filter>
     </ClInclude>
@@ -3234,6 +3243,9 @@
     <ClInclude Include="..\..\Source\global\global_1_comp_ComboBoxForGlobalParam.h">
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_1_comp_EditorForTooltipDelay.h">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\global\global_1_comp_SliderForGlobalParam.h">
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClInclude>
@@ -3244,6 +3256,9 @@
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\global\global_3_gui_layer_VoiceMap.h">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_4_gui_layer_GlobalParams.h">
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\gui_build_LED_Path.h">

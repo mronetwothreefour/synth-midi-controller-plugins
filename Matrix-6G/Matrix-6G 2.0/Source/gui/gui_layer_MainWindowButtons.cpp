@@ -123,9 +123,8 @@ void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& /*event*/) {
 void GUI_Layer_MainWindowButtons::buttonClicked(Button* /*button*/) {
 }
 
-void GUI_Layer_MainWindowButtons::valueChanged(Value& value) {
-    if (value.refersToSameSourceAs(shouldShowDescriptionAsValue))
-        updateTooltips();
+void GUI_Layer_MainWindowButtons::valueChanged(Value& /*value*/) {
+    updateTooltips();
 }
 
 GUI_Layer_MainWindowButtons::~GUI_Layer_MainWindowButtons() {

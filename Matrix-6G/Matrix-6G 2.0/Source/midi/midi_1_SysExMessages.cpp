@@ -74,6 +74,7 @@ void SysExMessages::addRequestForSplitDataStoredInSlotToOutgoingBuffers(uint8 sl
 }
 
 void SysExMessages::addDataMessageForSplitStoredInSlotToOutgoingBuffers(SplitsBank* splitsBank, uint8 slotNum, OutgoingBuffers* outgoingBuffers) {
+    jassert(slotNum < SPLT::numberOfSlotsInSplitsBank);
     auto splitDataMessageVector{ RawDataTools::createRawDataVectorWithMatrix_6_SysExID() };
     splitDataMessageVector.push_back((uint8)SysExMessageType::splitData);
     splitDataMessageVector.push_back(slotNum);
@@ -82,5 +83,25 @@ void SysExMessages::addDataMessageForSplitStoredInSlotToOutgoingBuffers(SplitsBa
     for (auto dataByte : splitDataVector)
         splitDataMessageVector.push_back(dataByte);
     outgoingBuffers->addDataMessage(splitDataMessageVector);
+}
+
+void SysExMessages::addRequestForGlobalDataToOutgoingBuffers(OutgoingBuffers* outgoingBuffers) {
+    auto requestVector{ RawDataTools::createRawDataVectorWithMatrix_6_SysExID() };
+    requestVector.push_back((uint8)SysExMessageType::dataRequest);
+    requestVector.push_back((uint8)SysExMessageType::globalData);
+    requestVector.push_back(0);
+    outgoingBuffers->addDataMessage(requestVector);
+}
+
+void SysExMessages::addGlobalDataMessageToOutgoingBuffers(GlobalOptions* globalOptions, OutgoingBuffers* outgoingBuffers) {
+    auto globalDataMessageVector{ RawDataTools::createRawDataVectorWithMatrix_6_SysExID() };
+    globalDataMessageVector.push_back((uint8)SysExMessageType::globalData);
+    globalDataMessageVector.push_back(2);
+    globalDataMessageVector.push_back(0);
+    globalDataMessageVector.push_back(0);
+    auto globalDataVector{ RawDataTools::extractRawGlobalDataFrom_GUI(globalOptions) };
+    for (auto dataByte : globalDataVector)
+        globalDataMessageVector.push_back(dataByte);
+    outgoingBuffers->addDataMessage(globalDataMessageVector);
 }
 

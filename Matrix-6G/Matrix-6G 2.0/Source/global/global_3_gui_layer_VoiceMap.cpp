@@ -15,6 +15,14 @@ GUI_Layer_VoiceMap::GUI_Layer_VoiceMap(UnexposedParameters* unexposedParams, Und
 	btn_Reset.setComponentID(ID::btn_Reset.toString());
 	btn_Reset.onClick = [this, unexposedParams] { unexposedParams->getGlobalOptions()->resetVoiceMap(); };
 	btn_Reset.setBounds(1013, 144, 40, 14);
+	if (unexposedParams->getTooltipsOptions()->shouldShowDescription()) {
+		String tip{ "" };
+		tip += "Resets the Patch Map to the default state.\n";
+		tip += "NOTE: Changes to the Patch Map will not\n";
+		tip += "be updated on the hardware until the PUSH\n";
+		tip += "button in the Master window is clicked.\n";
+		btn_Reset.setTooltip(tip);
+	}
 	addAndMakeVisible(btn_Reset);
 
 	for (uint8 slotNum = 0; slotNum != VCS::numberOfSlotsInVoicesBank; ++slotNum) {

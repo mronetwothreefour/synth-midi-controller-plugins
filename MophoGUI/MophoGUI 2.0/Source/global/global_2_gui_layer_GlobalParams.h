@@ -9,8 +9,6 @@
 #include "global_1_comp_ToggleForTooltipParam.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
 
-
-
 class UnexposedParameters;
 
 class GUI_Layer_GlobalParameters :

@@ -18,6 +18,7 @@ namespace Matrix_6G_Constants
 		static const Identifier btn_Cancel_NewFolder{ "btn_Cancel_NewFolder" };
 		static const Identifier btn_Close{ "btn_Close" };
 		static const Identifier btn_Create{ "btn_Create" };
+		static const Identifier btn_Edit{ "btn_Edit" };
 		static const Identifier btn_Export_File{ "btn_Export_File" };
 		static const Identifier btn_Expt_VoiceFromBank_{ "btn_Expt_VoiceFromBank_" };
 		static const Identifier btn_Expt_VoicesBank_{ "btn_Expt_VoicesBank_" };

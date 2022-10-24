@@ -50,7 +50,7 @@ namespace Matrix_6G_Constants
 		voiceMapEchoOffOn,
 		squickOffOn,
 		descriptionTipsOffOn,
-		currentValueTipsOffOn
+		currentChoiceTipsOffOn
 	};
 
 

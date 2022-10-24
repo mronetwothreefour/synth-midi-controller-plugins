@@ -9,7 +9,7 @@ using namespace Matrix_6G_Constants;
 using OutgoingBuffers = Outgoing_MIDI_Buffers;
 
 class ExposedParameters;
-class SplitOptions;
+class GlobalOptions;
 class SplitsBank;
 class VoicesBanks;
 
@@ -26,6 +26,9 @@ struct SysExMessages
     static void addSwitchToSplitModeMessageToOutgoingBuffers(OutgoingBuffers* outgoingBuffers);
     static void addRequestForSplitDataStoredInSlotToOutgoingBuffers(uint8 slotNum, OutgoingBuffers* outgoingBuffers);
     static void addDataMessageForSplitStoredInSlotToOutgoingBuffers(SplitsBank* splitsBank, uint8 slotNum, OutgoingBuffers* outgoingBuffers);
+
+    static void addRequestForGlobalDataToOutgoingBuffers(OutgoingBuffers* outgoingBuffers);
+    static void addGlobalDataMessageToOutgoingBuffers(GlobalOptions* globalOptions, OutgoingBuffers* outgoingBuffers);
 
 private:
     //==============================================================================

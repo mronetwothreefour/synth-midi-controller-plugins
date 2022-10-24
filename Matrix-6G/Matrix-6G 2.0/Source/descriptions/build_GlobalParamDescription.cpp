@@ -176,6 +176,16 @@ String GlobalParamDescription::buildForSysEx() {
     return descriptionString;
 }
 
+String GlobalParamDescription::buildForTooltipDelay() {
+    String descriptionString{ "" };
+    descriptionString += "Sets the amount of time (in milliseconds) the mouse cursor\n";
+    descriptionString += "must hover over a control before a tooltip box is shown.\n";
+    descriptionString += "Maximum delay: 5000 milliseconds. NOTE: Individual\n";
+    descriptionString += "Master options are not immediately updated on the hard-\n";
+    descriptionString += "ware. Click the PUSH button to update all options.\n";
+    return descriptionString;
+}
+
 String GlobalParamDescription::buildForVibratoAmplitude() {
     String descriptionString{ "" };
     descriptionString += "Sets the degree of the vibrato modulation produced by LFO 3.\n";

@@ -160,9 +160,11 @@
     <ClCompile Include="..\..\Source\global\global_0_comp_TextEditorForGlobalParamSlider.cpp"/>
     <ClCompile Include="..\..\Source\global\global_0_comp_TextEditorForVoiceMapSlider.cpp"/>
     <ClCompile Include="..\..\Source\global\global_1_comp_ComboBoxForGlobalParam.cpp"/>
+    <ClCompile Include="..\..\Source\global\global_1_comp_EditorForTooltipDelay.cpp"/>
     <ClCompile Include="..\..\Source\global\global_1_comp_SliderForGlobalParam.cpp"/>
     <ClCompile Include="..\..\Source\global\global_1_comp_SliderForVoiceMapSlot.cpp"/>
     <ClCompile Include="..\..\Source\global\global_3_gui_layer_VoiceMap.cpp"/>
+    <ClCompile Include="..\..\Source\global\global_4_gui_layer_GlobalParams.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_build_LED_Path.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_EnvelopePainter.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_comp_JuceSlidersWithMouseMods.cpp"/>
@@ -2363,6 +2365,7 @@
     <ClInclude Include="..\..\Source\core_1_PluginEditor.h"/>
     <ClInclude Include="..\..\Source\constants\constants_Enum.h"/>
     <ClInclude Include="..\..\Source\constants\constants_ExposedParameters.h"/>
+    <ClInclude Include="..\..\Source\constants\constants_Global.h"/>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Colors.h"/>
     <ClInclude Include="..\..\Source\constants\constants_GUI_Dimensions.h"/>
     <ClInclude Include="..\..\Source\constants\constants_GUI_FontsAndSpecialCharacters.h"/>
@@ -2393,10 +2396,12 @@
     <ClInclude Include="..\..\Source\global\global_0_comp_TextEditorForGlobalParamSlider.h"/>
     <ClInclude Include="..\..\Source\global\global_0_comp_TextEditorForVoiceMapSlider.h"/>
     <ClInclude Include="..\..\Source\global\global_1_comp_ComboBoxForGlobalParam.h"/>
+    <ClInclude Include="..\..\Source\global\global_1_comp_EditorForTooltipDelay.h"/>
     <ClInclude Include="..\..\Source\global\global_1_comp_SliderForGlobalParam.h"/>
     <ClInclude Include="..\..\Source\global\global_1_comp_SliderForVoiceMapSlot.h"/>
     <ClInclude Include="..\..\Source\global\global_2_comp_VoiceMapSlot.h"/>
     <ClInclude Include="..\..\Source\global\global_3_gui_layer_VoiceMap.h"/>
+    <ClInclude Include="..\..\Source\global\global_4_gui_layer_GlobalParams.h"/>
     <ClInclude Include="..\..\Source\gui\gui_build_LED_Path.h"/>
     <ClInclude Include="..\..\Source\gui\gui_comp_ButtonForActivatingQuickEdit.h"/>
     <ClInclude Include="..\..\Source\gui\gui_comp_ButtonForHidingLayer.h"/>

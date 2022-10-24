@@ -177,6 +177,8 @@
               file="Source/constants/constants_Enum.h"/>
         <FILE id="FwfXpe" name="constants_ExposedParameters.h" compile="0"
               resource="0" file="Source/constants/constants_ExposedParameters.h"/>
+        <FILE id="lKkeOa" name="constants_Global.h" compile="0" resource="0"
+              file="Source/constants/constants_Global.h"/>
         <FILE id="HdWD8X" name="constants_GUI_Colors.h" compile="0" resource="0"
               file="Source/constants/constants_GUI_Colors.h"/>
         <FILE id="WX4JBq" name="constants_GUI_Dimensions.h" compile="0" resource="0"
@@ -281,6 +283,10 @@
               resource="0" file="Source/global/global_1_comp_ComboBoxForGlobalParam.cpp"/>
         <FILE id="q1l82F" name="global_1_comp_ComboBoxForGlobalParam.h" compile="0"
               resource="0" file="Source/global/global_1_comp_ComboBoxForGlobalParam.h"/>
+        <FILE id="SOxcqi" name="global_1_comp_EditorForTooltipDelay.cpp" compile="1"
+              resource="0" file="Source/global/global_1_comp_EditorForTooltipDelay.cpp"/>
+        <FILE id="yvZ4LV" name="global_1_comp_EditorForTooltipDelay.h" compile="0"
+              resource="0" file="Source/global/global_1_comp_EditorForTooltipDelay.h"/>
         <FILE id="OuN6EC" name="global_1_comp_SliderForGlobalParam.cpp" compile="1"
               resource="0" file="Source/global/global_1_comp_SliderForGlobalParam.cpp"/>
         <FILE id="HEzfTD" name="global_1_comp_SliderForGlobalParam.h" compile="0"
@@ -295,6 +301,10 @@
               resource="0" file="Source/global/global_3_gui_layer_VoiceMap.cpp"/>
         <FILE id="sMKORB" name="global_3_gui_layer_VoiceMap.h" compile="0"
               resource="0" file="Source/global/global_3_gui_layer_VoiceMap.h"/>
+        <FILE id="ywE7h6" name="global_4_gui_layer_GlobalParams.cpp" compile="1"
+              resource="0" file="Source/global/global_4_gui_layer_GlobalParams.cpp"/>
+        <FILE id="TPc4Uw" name="global_4_gui_layer_GlobalParams.h" compile="0"
+              resource="0" file="Source/global/global_4_gui_layer_GlobalParams.h"/>
       </GROUP>
       <GROUP id="{854E626A-C287-920D-EC76-255F795FEDA4}" name="gui">
         <FILE id="EX1IZ1" name="gui_build_LED_Path.cpp" compile="1" resource="0"

@@ -14,7 +14,6 @@ using KnobType = GlobalParamKnobType;
 using LabelType = GlobalParamDisplayLabelType;
 using ToggleType = GlobalParamToggleType;
 
-
 GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unexposedParams) :
 	btn_Close{ unexposedParams->getTooltipsOptions() },
 	knob_GlobalTranspose{ KnobType::globalTranspose, unexposedParams },

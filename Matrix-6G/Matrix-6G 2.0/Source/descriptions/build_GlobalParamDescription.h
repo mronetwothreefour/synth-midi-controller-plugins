@@ -23,6 +23,7 @@ struct GlobalParamDescription
 	static String buildForSpillover();
 	static String buildForSplitStereo();
 	static String buildForSysEx();
+	static String buildForTooltipDelay();
 	static String buildForVibratoAmplitude();
 	static String buildForVibratoModAmount(bool isForSpeed);
 	static String buildForVibratoModSource(bool isForSpeed);
