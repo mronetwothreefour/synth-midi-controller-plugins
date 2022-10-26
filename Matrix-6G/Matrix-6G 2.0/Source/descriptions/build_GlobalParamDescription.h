@@ -20,6 +20,8 @@ struct GlobalParamDescription
 	static String buildForGlobalTune();
 	static String buildForLocalControl();
 	static String buildForOmniMode();
+	static String buildForPushButton();
+	static String buildForShowVoiceMapButton();
 	static String buildForSpillover();
 	static String buildForSplitStereo();
 	static String buildForSysEx();

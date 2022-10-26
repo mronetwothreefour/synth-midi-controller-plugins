@@ -4,16 +4,20 @@
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
+#include "../descriptions/build_GlobalParamDescription.h"
 #include "../midi/midi_1_SysExMessages.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using namespace Matrix_6G_Constants;
 using ChoiceName = GlobalParamChoiceName;
 using ComboBoxType = GlobalParamComboBoxType;
+using Description = GlobalParamDescription;
 using SliderType = GlobalParamSliderType;
 
-GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unexposedParams) :
+GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unexposedParams, UndoManager* undoManager) :
+	unexposedParams{ unexposedParams },
 	tooltips{ unexposedParams->getTooltipsOptions() },
+	undoManager{ undoManager },
 	btn_Close{ BorderColor::orange, unexposedParams },
 	slider_BasicChannel{ SliderType::basicChannel, unexposedParams },
 	comboBox_OmniMode{ ComboBoxType::omniModeOffOn, unexposedParams },
@@ -148,20 +152,31 @@ GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unex
 	setSize(GUI::editor_w, GUI::editor_h);
 }
 
-void GUI_Layer_GlobalParameters::updateTooltips()
-{
+void GUI_Layer_GlobalParameters::updateTooltips() {
+	auto shouldShowDescription{ (bool)shouldShowDescriptionAsValue.getValue() };
+	btn_ShowVoiceMap.setTooltip(shouldShowDescription ? Description::buildForShowVoiceMapButton() : "");
+	btn_Push.setTooltip(shouldShowDescription ? Description::buildForPushButton() : "");
 }
 
-void GUI_Layer_GlobalParameters::paint(Graphics& g)
-{
+void GUI_Layer_GlobalParameters::paint(Graphics& g) {
+	g.fillAll(GUI::color_Black.withAlpha(0.4f));
+	PNGImageFormat imageFormat;
+	MemoryInputStream memInputStream{ BinaryData::bkgrnd_GlobalParams_png, (size_t)BinaryData::bkgrnd_GlobalParams_png, false };
+	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
+	g.drawImageAt(backgroundImage, borderBounds.getX(), borderBounds.getY());
 }
 
 void GUI_Layer_GlobalParameters::valueChanged(Value& /*value*/) {
 	updateTooltips();
 }
 
-void GUI_Layer_GlobalParameters::showVoiceMapLayer()
-{
+void GUI_Layer_GlobalParameters::showVoiceMapLayer() {
+	layer_VoiceMap.reset(new GUI_Layer_VoiceMap{ unexposedParams, undoManager });
+	if (layer_VoiceMap != nullptr) {
+		addAndMakeVisible(layer_VoiceMap.get());
+		layer_VoiceMap->setBounds(getLocalBounds());
+		layer_VoiceMap->grabKeyboardFocus();
+	}
 }
 
 GUI_Layer_GlobalParameters::~GUI_Layer_GlobalParameters() {

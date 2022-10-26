@@ -138,6 +138,26 @@ String GlobalParamDescription::buildForOmniMode() {
     return descriptionString;
 }
 
+String GlobalParamDescription::buildForPushButton() {
+    String descriptionString{ "" };
+    descriptionString += "Push all the current Master\n";
+    descriptionString += "settings to the hardware.";
+    return descriptionString;
+}
+
+String GlobalParamDescription::buildForShowVoiceMapButton() {
+    String descriptionString{ "" };
+    descriptionString += "When enabled, the Patch Map lets you easily customize which patch gets\n";
+    descriptionString += "loaded when the hardware receives a program change message, without\n";
+    descriptionString += "having to physically reorder the voices in the storage bank. For example,\n";
+    descriptionString += "a program change message calling program 0 can be specified to load\n";
+    descriptionString += "patch 23 instead, and to also load patch 57 on a second device further\n";
+    descriptionString += "on in the MIDI chain. Click this button to open a window where you can\n";
+    descriptionString += "edit the Patch Map. NOTE: The changes you make will not be immediately\n";
+    descriptionString += "updated on the hardware. Click the PUSH button to update all options.\n";
+    return descriptionString;
+}
+
 String GlobalParamDescription::buildForSpillover() {
     String descriptionString{ "" };
     descriptionString += "This option is useful if you have two Matrix-6R units\n";

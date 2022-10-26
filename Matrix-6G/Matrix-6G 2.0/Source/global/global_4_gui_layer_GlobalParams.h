@@ -15,7 +15,9 @@ class GUI_Layer_GlobalParameters :
     public Component,
     public Value::Listener
 {
+    UnexposedParameters* unexposedParams;
     TooltipsOptions* tooltips;
+    UndoManager* undoManager;
     ButtonForHidingLayer btn_Close;
     SliderForGlobalParameter slider_BasicChannel;
     ComboBoxForGlobalParameter comboBox_OmniMode;
@@ -49,14 +51,14 @@ class GUI_Layer_GlobalParameters :
     EditorForTooltipDelay editorForTooltipDelay;
     TextButton btn_ShowVoiceMap;
     TextButton btn_Push;
-    std::unique_ptr<GUI_Layer_VoiceMap> voiceMapLayer;
+    std::unique_ptr<GUI_Layer_VoiceMap> layer_VoiceMap;
     Value shouldShowDescriptionAsValue;
     const Rectangle<int> borderBounds{ 299, 129, 654, 338 };
 
 public:
     GUI_Layer_GlobalParameters() = delete;
 
-    explicit GUI_Layer_GlobalParameters(UnexposedParameters* unexposedParams);
+    GUI_Layer_GlobalParameters(UnexposedParameters* unexposedParams, UndoManager* undoManager);
     void updateTooltips();
     void paint(Graphics& g) override;
     void valueChanged(Value& value) override;
