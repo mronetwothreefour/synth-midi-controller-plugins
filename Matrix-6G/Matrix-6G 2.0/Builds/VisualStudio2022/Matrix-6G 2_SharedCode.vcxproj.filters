@@ -694,6 +694,9 @@
     <ClCompile Include="..\..\Source\global\global_1_comp_SliderForVoiceMapSlot.cpp">
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\global\global_3_gui_layer_CommError.cpp">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\global\global_3_gui_layer_VoiceMap.cpp">
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClCompile>
@@ -3253,6 +3256,9 @@
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\global\global_2_comp_VoiceMapSlot.h">
+      <Filter>Matrix-6G 2\Source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\global\global_3_gui_layer_CommError.h">
       <Filter>Matrix-6G 2\Source\global</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\global\global_3_gui_layer_VoiceMap.h">
@@ -6252,6 +6258,12 @@
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_ResetPatchMap_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Retry_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Retry_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_SaveSplit_Dn.png">

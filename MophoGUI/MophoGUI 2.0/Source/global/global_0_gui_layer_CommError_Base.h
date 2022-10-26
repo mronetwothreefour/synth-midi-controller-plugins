@@ -40,7 +40,6 @@ public:
 		setSize(GUI::editor_w, GUI::editor_h);
 	}
 
-
 private:
 	void requestGlobalParamsDump() {
 		SysExMessages::addRequestForGlobalParamsDataToOutgoingBuffers(outgoingBuffers);

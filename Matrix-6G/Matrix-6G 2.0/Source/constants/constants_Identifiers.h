@@ -40,6 +40,7 @@ namespace Matrix_6G_Constants
 		static const Identifier btn_RadioButton_SplitSlot{ "btn_RadioButton_SplitSlot" };
 		static const Identifier btn_RadioButton_VoiceSlot{ "btn_RadioButton_VoiceSlot" };
 		static const Identifier btn_Reset{ "btn_Reset" };
+		static const Identifier btn_Retry{ "btn_Retry" };
 		static const Identifier btn_Save_Split{ "btn_Save_Split" };
 		static const Identifier btn_Save_Voice{ "btn_Save_Voice" };
 		static const Identifier btn_Splits{ "btn_Splits" };

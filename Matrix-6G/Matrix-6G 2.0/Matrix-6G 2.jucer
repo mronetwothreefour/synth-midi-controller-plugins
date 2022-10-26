@@ -87,6 +87,10 @@
               file="BinaryResources/buttons/btn_ResetPatchMap_Dn.png"/>
         <FILE id="cl5TZY" name="btn_ResetPatchMap_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_ResetPatchMap_Up.png"/>
+        <FILE id="x5q0Fx" name="btn_Retry_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Retry_Dn.png"/>
+        <FILE id="PCob2R" name="btn_Retry_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_Retry_Up.png"/>
         <FILE id="HFqv9A" name="btn_SaveSplit_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_SaveSplit_Dn.png"/>
         <FILE id="YbXUyi" name="btn_SaveSplit_Up.png" compile="0" resource="1"
@@ -297,6 +301,10 @@
               resource="0" file="Source/global/global_1_comp_SliderForVoiceMapSlot.h"/>
         <FILE id="cIuTr5" name="global_2_comp_VoiceMapSlot.h" compile="0" resource="0"
               file="Source/global/global_2_comp_VoiceMapSlot.h"/>
+        <FILE id="fjYCAv" name="global_3_gui_layer_CommError.cpp" compile="1"
+              resource="0" file="Source/global/global_3_gui_layer_CommError.cpp"/>
+        <FILE id="mRF9YX" name="global_3_gui_layer_CommError.h" compile="0"
+              resource="0" file="Source/global/global_3_gui_layer_CommError.h"/>
         <FILE id="zVsVdZ" name="global_3_gui_layer_VoiceMap.cpp" compile="1"
               resource="0" file="Source/global/global_3_gui_layer_VoiceMap.cpp"/>
         <FILE id="sMKORB" name="global_3_gui_layer_VoiceMap.h" compile="0"

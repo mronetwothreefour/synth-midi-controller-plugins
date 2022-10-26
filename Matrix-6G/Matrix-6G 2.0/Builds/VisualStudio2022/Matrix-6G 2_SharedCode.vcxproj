@@ -163,6 +163,7 @@
     <ClCompile Include="..\..\Source\global\global_1_comp_EditorForTooltipDelay.cpp"/>
     <ClCompile Include="..\..\Source\global\global_1_comp_SliderForGlobalParam.cpp"/>
     <ClCompile Include="..\..\Source\global\global_1_comp_SliderForVoiceMapSlot.cpp"/>
+    <ClCompile Include="..\..\Source\global\global_3_gui_layer_CommError.cpp"/>
     <ClCompile Include="..\..\Source\global\global_3_gui_layer_VoiceMap.cpp"/>
     <ClCompile Include="..\..\Source\global\global_4_gui_layer_GlobalParams.cpp"/>
     <ClCompile Include="..\..\Source\gui\gui_build_LED_Path.cpp"/>
@@ -2400,6 +2401,7 @@
     <ClInclude Include="..\..\Source\global\global_1_comp_SliderForGlobalParam.h"/>
     <ClInclude Include="..\..\Source\global\global_1_comp_SliderForVoiceMapSlot.h"/>
     <ClInclude Include="..\..\Source\global\global_2_comp_VoiceMapSlot.h"/>
+    <ClInclude Include="..\..\Source\global\global_3_gui_layer_CommError.h"/>
     <ClInclude Include="..\..\Source\global\global_3_gui_layer_VoiceMap.h"/>
     <ClInclude Include="..\..\Source\global\global_4_gui_layer_GlobalParams.h"/>
     <ClInclude Include="..\..\Source\gui\gui_build_LED_Path.h"/>
@@ -3401,6 +3403,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_PushVoice_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_ResetPatchMap_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_ResetPatchMap_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Retry_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Retry_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_SaveSplit_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_SaveSplit_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_SaveVoice_Dn.png"/>
