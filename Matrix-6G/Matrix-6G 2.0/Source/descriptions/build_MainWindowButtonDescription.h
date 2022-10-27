@@ -5,6 +5,7 @@
 struct MainWindowButtonDescription
 {
 	static String buildForActivateQuickEdit();
+	static String buildForShowGlobalParamsLayer();
 	static String buildForShowSplitsLayer();
 	static String buildForShowVoicesBanksLayer();
 	static String buildForPull();

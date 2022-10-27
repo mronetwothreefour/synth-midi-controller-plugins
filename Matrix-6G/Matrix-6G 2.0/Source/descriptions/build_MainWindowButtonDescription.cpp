@@ -14,6 +14,14 @@ String MainWindowButtonDescription::buildForActivateQuickEdit() {
     return descriptionString;
 }
 
+String MainWindowButtonDescription::buildForShowGlobalParamsLayer() {
+    String descriptionString{ "" };
+    descriptionString += "Opens a window where you can edit the\n";
+    descriptionString += GUI::openQuote + "master" + GUI::closeQuote + " options which apply\n";
+    descriptionString += "to all patches. Shortcut key: CTRL+M";
+    return descriptionString;
+}
+
 String MainWindowButtonDescription::buildForShowSplitsLayer() {
     String descriptionString{ "" };
     descriptionString += "Opens a window where you can create and store\n";

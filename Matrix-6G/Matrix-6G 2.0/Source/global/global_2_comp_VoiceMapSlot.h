@@ -8,7 +8,6 @@
 #include "../constants/constants_Voices.h"
 
 using namespace Matrix_6G_Constants;
-using SliderType = VoiceMapSliderType;
 
 class UnexposedParameters;
 
@@ -19,16 +18,16 @@ class VoiceMapSlot :
 	SliderForVoiceMapSlot slider_OutVoice;
 
 	VoiceMapSlot() :
-		slider_InVoice{ VCS::numberOfSlotsInVoicesBank, SliderType::null, nullptr, nullptr },
-		slider_OutVoice{ VCS::numberOfSlotsInVoicesBank, SliderType::null, nullptr, nullptr }
+		slider_InVoice{ VCS::numberOfSlotsInVoicesBank, VoiceMapSliderType::null, nullptr, nullptr },
+		slider_OutVoice{ VCS::numberOfSlotsInVoicesBank, VoiceMapSliderType::null, nullptr, nullptr }
 	{
 		// this default constructor is needed when initializing the vector in GUI_Layer_VoiceMap
 	}
 
 public:
 	VoiceMapSlot(uint8 mapSlotNum, UnexposedParameters* unexposedParams, UndoManager* undoManager) :
-		slider_InVoice{ mapSlotNum, SliderType::in, unexposedParams, undoManager },
-		slider_OutVoice{ mapSlotNum, SliderType::out, unexposedParams, undoManager }
+		slider_InVoice{ mapSlotNum, VoiceMapSliderType::in, unexposedParams, undoManager },
+		slider_OutVoice{ mapSlotNum, VoiceMapSliderType::out, unexposedParams, undoManager }
 	{
 		auto slot_w{ 57 };
 		slider_InVoice.setTopLeftPosition(0, 0);

@@ -7,7 +7,7 @@
 
 using Description = GlobalParamDescription;
 
-SliderForVoiceMapSlot::SliderForVoiceMapSlot(uint8 mapSlotNum, SliderType type, UnexposedParameters* unexposedParams, UndoManager* undoManager) :
+SliderForVoiceMapSlot::SliderForVoiceMapSlot(uint8 mapSlotNum, VoiceMapSliderType type, UnexposedParameters* unexposedParams, UndoManager* undoManager) :
 	RotarySliderWithMouseWheelMoveOverride{ undoManager },
 	mapSlotNum{ mapSlotNum },
 	type{ type },
@@ -16,10 +16,10 @@ SliderForVoiceMapSlot::SliderForVoiceMapSlot(uint8 mapSlotNum, SliderType type, 
 {
 	setRange(0.0, 99.0, 1.0);
 	setMouseDragSensitivity(130);
-	if (type != SliderType::null) {
+	if (type != VoiceMapSliderType::null) {
 		auto global{ unexposedParams->getGlobalOptions() };
 
-		if (type == SliderType::in) {
+		if (type == VoiceMapSliderType::in) {
 			globalParamAsValue = global->getGobalParamAsValue(ID::global_VoiceMapIn_.toString() + (String)mapSlotNum);
 			setValue(global->inVoiceForVoiceMapSlot(mapSlotNum));
 		}
@@ -42,14 +42,14 @@ SliderForVoiceMapSlot::SliderForVoiceMapSlot(uint8 mapSlotNum, SliderType type, 
 void SliderForVoiceMapSlot::updateTooltip() {
 	auto currentChoice{ (String)roundToInt(getValue()) };
 	String tip{ "" };
-	if (type != SliderType::null) {
+	if (type != VoiceMapSliderType::null) {
 		if (tooltips->shouldShowDescription())
-			if (type == SliderType::in)
+			if (type == VoiceMapSliderType::in)
 				tip += Description::buildForVoiceMapInVoice(mapSlotNum);
 			else
 				tip += Description::buildForVoiceMapOutVoice(mapSlotNum);
 		if (tooltips->shouldShowCurrentChoice())
-			if (type == SliderType::in)
+			if (type == VoiceMapSliderType::in)
 				tip += "Current setting: Patch " + currentChoice.paddedLeft('0', 2);
 			else
 				tip += "Current setting: Program " + currentChoice;

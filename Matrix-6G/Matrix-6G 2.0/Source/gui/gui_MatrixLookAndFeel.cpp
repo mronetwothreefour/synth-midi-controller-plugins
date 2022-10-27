@@ -55,6 +55,9 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID == ID::btn_NewFolder.toString())
 		mBlock = MemBlock{ isDown ? btn_NewFolder_Dn_png : btn_NewFolder_Up_png, isDown ? (s_t)btn_NewFolder_Dn_pngSize : (s_t)btn_NewFolder_Up_pngSize };
 
+	if (buttonID == ID::btn_Master.toString())
+		mBlock = MemBlock{ isDown ? btn_Master_Dn_png : btn_Master_Up_png, isDown ? (s_t)btn_Master_Dn_pngSize : (s_t)btn_Master_Up_pngSize };
+
 	if (buttonID == ID::btn_Patches.toString())
 		mBlock = MemBlock{ isDown ? btn_Patches_Dn_png : btn_Patches_Up_png, isDown ? (s_t)btn_Patches_Dn_pngSize : (s_t)btn_Patches_Up_pngSize };
 

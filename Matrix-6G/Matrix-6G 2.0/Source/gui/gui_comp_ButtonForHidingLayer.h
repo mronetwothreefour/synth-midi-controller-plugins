@@ -6,7 +6,7 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../midi/midi_1_SysExMessages.h"
-#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
+#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using namespace Matrix_6G_Constants;
 

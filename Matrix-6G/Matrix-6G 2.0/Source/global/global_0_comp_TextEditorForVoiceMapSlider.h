@@ -5,7 +5,6 @@
 #include "../constants/constants_Enum.h"
 
 using namespace Matrix_6G_Constants;
-using SliderType = VoiceMapSliderType;
 
 class GlobalOptions;
 class TooltipsOptions;
@@ -20,7 +19,7 @@ class TextEditorForVoiceMapSlider :
 public:
 	TextEditorForVoiceMapSlider() = delete;
 
-	TextEditorForVoiceMapSlider(uint8 mapSlotNum, SliderType type, GlobalOptions* global, TooltipsOptions* tooltips);
+	TextEditorForVoiceMapSlider(uint8 mapSlotNum, VoiceMapSliderType type, GlobalOptions* global, TooltipsOptions* tooltips);
 
 private:
 	void setEditorTextUsingStoredValue();

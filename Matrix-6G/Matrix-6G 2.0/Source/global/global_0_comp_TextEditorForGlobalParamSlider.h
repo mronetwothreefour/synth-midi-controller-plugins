@@ -5,7 +5,6 @@
 #include "../constants/constants_Enum.h"
 
 using namespace Matrix_6G_Constants;
-using SliderType = GlobalParamSliderType;
 
 class GlobalOptions;
 class TooltipsOptions;
@@ -15,7 +14,7 @@ class TextEditorForGlobalParamSlider :
 	public Component,
 	public Value::Listener
 {
-	SliderType sliderType;
+	GlobalParamSliderType sliderType;
 	GlobalOptions* global;
 	TooltipsOptions* tooltips;
 	Label textEditor;
@@ -24,7 +23,7 @@ class TextEditorForGlobalParamSlider :
 public:
 	TextEditorForGlobalParamSlider() = delete;
 
-	TextEditorForGlobalParamSlider(SliderType sliderType, UnexposedParameters* unexposedParams);
+	TextEditorForGlobalParamSlider(GlobalParamSliderType sliderType, UnexposedParameters* unexposedParams);
 
 private:
 	void setEditorTextUsingStoredValue();

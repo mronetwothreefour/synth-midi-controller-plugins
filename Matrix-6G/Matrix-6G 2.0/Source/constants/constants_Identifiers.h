@@ -28,6 +28,7 @@ namespace Matrix_6G_Constants
 		static const Identifier btn_NewFolder{ "btn_NewFolder" };
 		static const Identifier btn_Load_Split{ "btn_Load_Split" };
 		static const Identifier btn_Load_Voice{ "btn_Load_Voice" };
+		static const Identifier btn_Master{ "btn_Master" };
 		static const Identifier btn_Patches{ "btn_Patches" };
 		static const Identifier btn_Pull{ "btn_Pull" };
 		static const Identifier btn_Pull_Voice{ "btn_Pull_Voice" };

@@ -7,7 +7,6 @@
 #include "../constants/constants_Enum.h"
 
 using namespace Matrix_6G_Constants;
-using SliderType = VoiceMapSliderType;
 
 class TooltipsOptions;
 class UnexposedParameters;
@@ -17,7 +16,7 @@ class SliderForVoiceMapSlot :
 	public Value::Listener
 {
 	uint8 mapSlotNum;
-	SliderType type;
+	VoiceMapSliderType type;
 	TextEditorForVoiceMapSlider textEditor;
 	TooltipsOptions* tooltips;
 	Value globalParamAsValue;
@@ -25,7 +24,7 @@ class SliderForVoiceMapSlot :
 public:
 	SliderForVoiceMapSlot() = delete;
 
-	SliderForVoiceMapSlot(uint8 mapSlotNum, SliderType type, UnexposedParameters* unexposedParams, UndoManager* undoManager);
+	SliderForVoiceMapSlot(uint8 mapSlotNum, VoiceMapSliderType type, UnexposedParameters* unexposedParams, UndoManager* undoManager);
 	void updateTooltip();
 	void mouseDoubleClick(const MouseEvent& event) override;
 	void valueChanged() override;

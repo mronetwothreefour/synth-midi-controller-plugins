@@ -7,7 +7,6 @@
 #include "../gui/gui_comp_JuceSlidersWithMouseMods.h"
 
 using namespace Matrix_6G_Constants;
-using SliderType = GlobalParamSliderType;
 
 class GlobalOptions;
 class UnexposedParameters;
@@ -16,7 +15,7 @@ class SliderForGlobalParameter :
 	public RotarySliderWithMouseWheelMoveOverride,
 	public Value::Listener
 {
-	SliderType sliderType;
+	GlobalParamSliderType sliderType;
 	GlobalOptions* global;
 	UnexposedParameters* unexposedParams;
 	TextEditorForGlobalParamSlider textEditor;
@@ -27,7 +26,7 @@ class SliderForGlobalParameter :
 public:
 	SliderForGlobalParameter() = delete;
 
-	SliderForGlobalParameter(SliderType sliderType, UnexposedParameters* unexposedParams);
+	SliderForGlobalParameter(GlobalParamSliderType sliderType, UnexposedParameters* unexposedParams);
 	void updateTooltip();
 	void mouseDoubleClick(const MouseEvent& event) override;
 	void valueChanged() override;

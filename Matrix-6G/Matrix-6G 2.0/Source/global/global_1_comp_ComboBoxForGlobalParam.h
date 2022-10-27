@@ -5,7 +5,6 @@
 #include "../constants/constants_Enum.h"
 
 using namespace Matrix_6G_Constants;
-using ComboBoxType = GlobalParamComboBoxType;
 
 class GlobalOptions;
 class UnexposedParameters;
@@ -13,7 +12,7 @@ class UnexposedParameters;
 class ComboBoxForGlobalParameter :
 	public ComboBox
 {
-	ComboBoxType comboBoxType;
+	GlobalParamComboBoxType comboBoxType;
 	Value globalParamAsValue;
 	Value shouldShowDescriptionAsValue;
 	Value shouldShowCurrentChoiceAsValue;
@@ -23,7 +22,7 @@ class ComboBoxForGlobalParameter :
 public:
 	ComboBoxForGlobalParameter() = delete;
 
-	ComboBoxForGlobalParameter(ComboBoxType comboBoxType, UnexposedParameters* unexposedParams);
+	ComboBoxForGlobalParameter(GlobalParamComboBoxType comboBoxType, UnexposedParameters* unexposedParams);
 	StringArray choiceNamesList_OffOn();
 	StringArray choiceNamesList_VibratoWaveType();
 	StringArray choiceNamesList_VibratoModSource();

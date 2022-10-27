@@ -10,7 +10,7 @@
 using ChoiceName = GlobalParamChoiceName;
 using Description = GlobalParamDescription;
 
-SliderForGlobalParameter::SliderForGlobalParameter(SliderType sliderType, UnexposedParameters* unexposedParams) :
+SliderForGlobalParameter::SliderForGlobalParameter(GlobalParamSliderType sliderType, UnexposedParameters* unexposedParams) :
 	RotarySliderWithMouseWheelMoveOverride{ nullptr },
 	sliderType{ sliderType },
 	global{ unexposedParams->getGlobalOptions() },
@@ -22,64 +22,64 @@ SliderForGlobalParameter::SliderForGlobalParameter(SliderType sliderType, Unexpo
 	setMouseDragSensitivity(140);
 	switch (sliderType)
 	{
-	case SliderType::basicChannel:
+	case GlobalParamSliderType::basicChannel:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_BasicChannel);
 		setRange(1.0, 16.0, 1.0);
 		setValue((double)global->basicChannel(), dontSendNotification);
 		setMouseDragSensitivity(90);
 		break;
-	case SliderType::pedal_1_ControllerNum:
+	case GlobalParamSliderType::pedal_1_ControllerNum:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_Pedal_1_ControllerNumber);
 		setValue((double)global->pedal_1_ControllerNumber(), dontSendNotification);
 		break;
-	case SliderType::pedal_2_ControllerNum:
+	case GlobalParamSliderType::pedal_2_ControllerNum:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_Pedal_2_ControllerNumber);
 		setValue((double)global->pedal_2_ControllerNumber(), dontSendNotification);
 		break;
-	case SliderType::lever_2_ControllerNum:
+	case GlobalParamSliderType::lever_2_ControllerNum:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_Lever_2_ControllerNumber);
 		setValue((double)global->lever_2_ControllerNumber(), dontSendNotification);
 		break;
-	case SliderType::lever_3_ControllerNum:
+	case GlobalParamSliderType::lever_3_ControllerNum:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_Lever_3_ControllerNumber);
 		setValue((double)global->lever_3_ControllerNumber(), dontSendNotification);
 		break;
-	case SliderType::vibratoSpeed:
+	case GlobalParamSliderType::vibratoSpeed:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_VibratoSpeed);
 		setRange(0.0, 63.0, 1.0);
 		setValue((double)global->vibratoSpeed(), dontSendNotification);
 		setMouseDragSensitivity(110);
 		slider_w = GUI::global_VibratoControl_w;
 		break;
-	case SliderType::vibratoAmplitude:
+	case GlobalParamSliderType::vibratoAmplitude:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_VibratoAmplitude);
 		setRange(0.0, 63.0, 1.0);
 		setValue((double)global->vibratoAmplitude(), dontSendNotification);
 		setMouseDragSensitivity(110);
 		slider_w = GUI::global_VibratoControl_w;
 		break;
-	case SliderType::vibratoSpeedModAmount:
+	case GlobalParamSliderType::vibratoSpeedModAmount:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_VibratoSpeedModAmount);
 		setRange(0.0, 63.0, 1.0);
 		setValue((double)global->vibratoSpeedModAmount(), dontSendNotification);
 		setMouseDragSensitivity(110);
 		slider_w = GUI::global_VibratoControl_w;
 		break;
-	case SliderType::vibratoAmpModAmount:
+	case GlobalParamSliderType::vibratoAmpModAmount:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_VibratoAmpModAmount);
 		setRange(0.0, 63.0, 1.0);
 		setValue((double)global->vibratoAmpModAmount(), dontSendNotification);
 		setMouseDragSensitivity(110);
 		slider_w = GUI::global_VibratoControl_w;
 		break;
-	case SliderType::globalTune:
+	case GlobalParamSliderType::globalTune:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_Tune);
 		setRange(0.0, 126.0, 1.0);
 		setValue((double)global->globalTune(), dontSendNotification);
 		setMouseDragSensitivity(143);
 		slider_w = GUI::global_MiscControl_w;
 		break;
-	case SliderType::displayBrightness:
+	case GlobalParamSliderType::displayBrightness:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_DisplayBrightness);
 		setRange(1.0, 31.0, 1.0);
 		setValue((double)global->displayBrightness(), dontSendNotification);
@@ -112,37 +112,37 @@ void SliderForGlobalParameter::updateTooltip() {
 	if (shouldShowDescription) {
 		switch (sliderType)
 		{
-		case SliderType::basicChannel:
+		case GlobalParamSliderType::basicChannel:
 			tip += Description::buildForBasicChannel();
 			break;
-		case SliderType::pedal_1_ControllerNum:
+		case GlobalParamSliderType::pedal_1_ControllerNum:
 			tip += Description::buildForControllerNumForPedal(1);
 			break;
-		case SliderType::pedal_2_ControllerNum:
+		case GlobalParamSliderType::pedal_2_ControllerNum:
 			tip += Description::buildForControllerNumForPedal(2);
 			break;
-		case SliderType::lever_2_ControllerNum:
+		case GlobalParamSliderType::lever_2_ControllerNum:
 			tip += Description::buildForControllerNumForLever_2();
 			break;
-		case SliderType::lever_3_ControllerNum:
+		case GlobalParamSliderType::lever_3_ControllerNum:
 			tip += Description::buildForControllerNumForLever_3();
 			break;
-		case SliderType::vibratoSpeed:
+		case GlobalParamSliderType::vibratoSpeed:
 			tip += Description::buildForVibratoSpeed();
 			break;
-		case SliderType::vibratoAmplitude:
+		case GlobalParamSliderType::vibratoAmplitude:
 			tip += Description::buildForVibratoAmplitude();
 			break;
-		case SliderType::vibratoSpeedModAmount:
+		case GlobalParamSliderType::vibratoSpeedModAmount:
 			tip += Description::buildForVibratoModAmount(true);
 			break;
-		case SliderType::vibratoAmpModAmount:
+		case GlobalParamSliderType::vibratoAmpModAmount:
 			tip += Description::buildForVibratoModAmount(false);
 			break;
-		case SliderType::globalTune:
+		case GlobalParamSliderType::globalTune:
 			tip += Description::buildForGlobalTune();
 			break;
-		case SliderType::displayBrightness:
+		case GlobalParamSliderType::displayBrightness:
 			tip += Description::buildForDisplayBrightness();
 			break;
 		default:
@@ -151,7 +151,7 @@ void SliderForGlobalParameter::updateTooltip() {
 		if (shouldShowCurrentChoice) {
 			tip += "Current setting: ";
 			auto currentChoice{ (int)getValue() };
-			if (sliderType == SliderType::globalTune) {
+			if (sliderType == GlobalParamSliderType::globalTune) {
 				currentChoice -= EP::offsetForSigned_7_BitRange;
 				if (currentChoice > 0)
 					tip += "+";
@@ -169,37 +169,37 @@ void SliderForGlobalParameter::valueChanged() {
 	auto currentChoice{ (uint8)roundToInt(getValue()) };
 	switch (sliderType)
 	{
-	case SliderType::basicChannel:
+	case GlobalParamSliderType::basicChannel:
 		global->setBasicChannel(currentChoice);
 		break;
-	case SliderType::pedal_1_ControllerNum:
+	case GlobalParamSliderType::pedal_1_ControllerNum:
 		global->setPedal_1_ControllerNumber(currentChoice);
 		break;
-	case SliderType::pedal_2_ControllerNum:
+	case GlobalParamSliderType::pedal_2_ControllerNum:
 		global->setPedal_2_ControllerNumber(currentChoice);
 		break;
-	case SliderType::lever_2_ControllerNum:
+	case GlobalParamSliderType::lever_2_ControllerNum:
 		global->setLever_2_ControllerNumber(currentChoice);
 		break;
-	case SliderType::lever_3_ControllerNum:
+	case GlobalParamSliderType::lever_3_ControllerNum:
 		global->setLever_3_ControllerNumber(currentChoice);
 		break;
-	case SliderType::vibratoSpeed:
+	case GlobalParamSliderType::vibratoSpeed:
 		global->setVibratoSpeed(currentChoice);
 		break;
-	case SliderType::vibratoAmplitude:
+	case GlobalParamSliderType::vibratoAmplitude:
 		global->setVibratoAmplitude(currentChoice);
 		break;
-	case SliderType::vibratoSpeedModAmount:
+	case GlobalParamSliderType::vibratoSpeedModAmount:
 		global->setVibratoSpeedModAmount(currentChoice);
 		break;
-	case SliderType::vibratoAmpModAmount:
+	case GlobalParamSliderType::vibratoAmpModAmount:
 		global->setVibratoAmpModAmount(currentChoice);
 		break;
-	case SliderType::globalTune:
+	case GlobalParamSliderType::globalTune:
 		global->setGlobalTune(currentChoice);
 		break;
-	case SliderType::displayBrightness:
+	case GlobalParamSliderType::displayBrightness:
 		global->setDisplayBrightness(currentChoice);
 		break;
 	default:

@@ -421,7 +421,7 @@ const std::vector<uint8> RawDataTools::extractRawGlobalDataFrom_GUI(GlobalOption
     globalData.push_back(0);
     checksum += spilloverIsEnabled ? 1 : 0;
 
-    auto undefinedByte{ 0 };
+    auto undefinedByte{ (uint8)0 };
     globalData.push_back(undefinedByte);
     globalData.push_back(undefinedByte);
 

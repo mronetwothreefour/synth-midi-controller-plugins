@@ -9,7 +9,7 @@
 using ChoiceName = GlobalParamChoiceName;
 using Description = GlobalParamDescription;
 
-ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType, UnexposedParameters* unexposedParams) :
+ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType comboBoxType, UnexposedParameters* unexposedParams) :
 	comboBoxType{ comboBoxType }
 {
 	auto global{ unexposedParams->getGlobalOptions() };
@@ -17,7 +17,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 	auto comboBox_w{ GUI::global_MIDI_Control_w };
 	switch (comboBoxType)
 	{
-	case ComboBoxType::omniModeOffOn:
+	case GlobalParamComboBoxType::omniModeOffOn:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_OmniModeIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->omniModeIsEnabled(), dontSendNotification);
@@ -27,7 +27,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 			global->setVoiceChangesAreEnabled(shouldBeEnabled ? true : false);
 		};
 		break;
-	case ComboBoxType::controllersOffOn:
+	case GlobalParamComboBoxType::controllersOffOn:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_ControllersAreEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->controllersAreEnabled(), dontSendNotification);
@@ -37,7 +37,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 			global->setControllersAreEnabled(shouldBeEnabled ? true : false);
 		};
 		break;
-	case ComboBoxType::voiceChangesOffOn:
+	case GlobalParamComboBoxType::voiceChangesOffOn:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_VoiceChangesAreEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->voiceChangesAreEnabled(), dontSendNotification);
@@ -47,7 +47,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 			global->setVoiceChangesAreEnabled(shouldBeEnabled ? true : false);
 		};
 		break;
-	case ComboBoxType::sysExOffOn:
+	case GlobalParamComboBoxType::sysExOffOn:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_SysExIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->sysExIsEnabled(), dontSendNotification);
@@ -57,7 +57,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 			global->setSysExIsEnabled(shouldBeEnabled ? true : false);
 		};
 		break;
-	case ComboBoxType::spilloverOffOn:
+	case GlobalParamComboBoxType::spilloverOffOn:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_SpilloverIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->spilloverIsEnabled(), dontSendNotification);
@@ -67,7 +67,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 			global->setSpilloverIsEnabled(shouldBeEnabled ? true : false);
 		};
 		break;
-	case ComboBoxType::midiEchoOffOn:
+	case GlobalParamComboBoxType::midiEchoOffOn:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_MIDI_EchoIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->midiEchoIsEnabled(), dontSendNotification);
@@ -77,7 +77,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 			global->set_MIDI_EchoIsEnabled(shouldBeEnabled ? true : false);
 		};
 		break;
-	case ComboBoxType::midiMonoOffOn:
+	case GlobalParamComboBoxType::midiMonoOffOn:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_MIDI_MonoIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->midiMonoIsEnabled(), dontSendNotification);
@@ -87,7 +87,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 			global->set_MIDI_MonoIsEnabled(shouldBeEnabled ? true : false);
 		};
 		break;
-	case ComboBoxType::activeSensingOffOn:
+	case GlobalParamComboBoxType::activeSensingOffOn:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_ActiveSensingIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->activeSensingIsEnabled(), dontSendNotification);
@@ -97,7 +97,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 			global->setActiveSensingIsEnabled(shouldBeEnabled ? true : false);
 		};
 		break;
-	case ComboBoxType::localControlOffOn:
+	case GlobalParamComboBoxType::localControlOffOn:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_LocalControIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->localControlIsEnabled(), dontSendNotification);
@@ -107,7 +107,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 			global->setLocalControIsEnabled(shouldBeEnabled ? true : false);
 		};
 		break;
-	case ComboBoxType::vibratoWaveType:
+	case GlobalParamComboBoxType::vibratoWaveType:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_VibratoWaveType);
 		addItemList(choiceNamesList_VibratoWaveType(), 1);
 		setSelectedItemIndex((int)global->vibratoWaveType(), dontSendNotification);
@@ -117,7 +117,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 		};
 		comboBox_w = GUI::global_VibratoControl_w;
 		break;
-	case ComboBoxType::vibratoSpeedModSource:
+	case GlobalParamComboBoxType::vibratoSpeedModSource:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_VibratoSpeedModSource);
 		addItemList(choiceNamesList_VibratoModSource(), 1);
 		setSelectedItemIndex((int)global->vibratoSpeedModSource(), dontSendNotification);
@@ -127,7 +127,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 		};
 		comboBox_w = GUI::global_VibratoControl_w;
 		break;
-	case ComboBoxType::vibratoAmpModSource:
+	case GlobalParamComboBoxType::vibratoAmpModSource:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_VibratoAmpModSource);
 		addItemList(choiceNamesList_VibratoModSource(), 1);
 		setSelectedItemIndex((int)global->vibratoAmpModSource(), dontSendNotification);
@@ -137,7 +137,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 		};
 		comboBox_w = GUI::global_VibratoControl_w;
 		break;
-	case ComboBoxType::splitStereoOffOn:
+	case GlobalParamComboBoxType::splitStereoOffOn:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_SplitStereoIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->splitStereoIsEnabled(), dontSendNotification);
@@ -148,7 +148,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 		};
 		comboBox_w = GUI::global_MiscControl_w;
 		break;
-	case ComboBoxType::voiceMapOffOn:
+	case GlobalParamComboBoxType::voiceMapOffOn:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_VoiceMapIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->voiceMapIsEnabled(), dontSendNotification);
@@ -159,7 +159,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 		};
 		comboBox_w = GUI::global_MiscControl_w;
 		break;
-	case ComboBoxType::voiceMapEchoOffOn:
+	case GlobalParamComboBoxType::voiceMapEchoOffOn:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_VoiceMapEchoIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->voiceMapEchoIsEnabled(), dontSendNotification);
@@ -170,7 +170,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 		};
 		comboBox_w = GUI::global_MiscControl_w;
 		break;
-	case ComboBoxType::squickOffOn:
+	case GlobalParamComboBoxType::squickOffOn:
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_SQUICK_IsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->squickIsEnabled(), dontSendNotification);
@@ -181,7 +181,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 		};
 		comboBox_w = GUI::global_MiscControl_w;
 		break;
-	case ComboBoxType::descriptionTipsOffOn:
+	case GlobalParamComboBoxType::descriptionTipsOffOn:
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)tooltips->shouldShowDescription(), dontSendNotification);
 		onChange = [this, tooltips, unexposedParams] {
@@ -191,7 +191,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(ComboBoxType comboBoxType
 		};
 		comboBox_w = GUI::global_MiscControl_w;
 		break;
-	case ComboBoxType::currentChoiceTipsOffOn:
+	case GlobalParamComboBoxType::currentChoiceTipsOffOn:
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)tooltips->shouldShowCurrentChoice(), dontSendNotification);
 		onChange = [this, tooltips, unexposedParams] {
@@ -244,60 +244,64 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 	if (shouldShowDescription) 	{
 		switch (comboBoxType)
 		{
-		case ComboBoxType::omniModeOffOn:
+		case GlobalParamComboBoxType::omniModeOffOn:
 			tip += Description::buildForOmniMode();
 			break;
-		case ComboBoxType::controllersOffOn:
+		case GlobalParamComboBoxType::controllersOffOn:
 			tip += Description::buildForControllers();
 			break;
-		case ComboBoxType::voiceChangesOffOn:
+		case GlobalParamComboBoxType::voiceChangesOffOn:
 			tip += Description::buildForVoiceChanges();
 			break;
-		case ComboBoxType::sysExOffOn:
+		case GlobalParamComboBoxType::sysExOffOn:
 			tip += Description::buildForSysEx();
 			break;
-		case ComboBoxType::spilloverOffOn:
+		case GlobalParamComboBoxType::spilloverOffOn:
 			tip += Description::buildForSpillover();
 			break;
-		case ComboBoxType::midiEchoOffOn:
+		case GlobalParamComboBoxType::midiEchoOffOn:
 			tip += Description::buildFor_MIDI_Echo();
 			break;
-		case ComboBoxType::midiMonoOffOn:
+		case GlobalParamComboBoxType::midiMonoOffOn:
 			tip += Description::buildFor_MIDI_Mono();
 			break;
-		case ComboBoxType::activeSensingOffOn:
+		case GlobalParamComboBoxType::activeSensingOffOn:
 			tip += Description::buildForActiveSensing();
 			break;
-		case ComboBoxType::localControlOffOn:
+		case GlobalParamComboBoxType::localControlOffOn:
 			tip += Description::buildForLocalControl();
 			break;
-		case ComboBoxType::vibratoWaveType:
+		case GlobalParamComboBoxType::vibratoWaveType:
 			tip += Description::buildForVibratoWaveType();
 			break;
-		case ComboBoxType::vibratoSpeedModSource:
-			bool speed{ true };
-			tip += Description::buildForVibratoModSource(speed);
+		case GlobalParamComboBoxType::vibratoSpeedModSource:
+			{
+				bool speed{ true };
+				tip += Description::buildForVibratoModSource(speed);
+			}
 			break;
-		case ComboBoxType::vibratoAmpModSource:
-			bool amplitude{ false };
-			tip += Description::buildForVibratoModSource(amplitude);
+		case GlobalParamComboBoxType::vibratoAmpModSource:
+			{
+				bool amplitude{ false };
+				tip += Description::buildForVibratoModSource(amplitude);
+			}
 			break;
-		case ComboBoxType::splitStereoOffOn:
+		case GlobalParamComboBoxType::splitStereoOffOn:
 			tip += Description::buildForSplitStereo();
 			break;
-		case ComboBoxType::voiceMapOffOn:
+		case GlobalParamComboBoxType::voiceMapOffOn:
 			tip += Description::buildForVoiceMap();
 			break;
-		case ComboBoxType::voiceMapEchoOffOn:
+		case GlobalParamComboBoxType::voiceMapEchoOffOn:
 			tip += Description::buildForVoiceMap();
 			break;
-		case ComboBoxType::squickOffOn:
+		case GlobalParamComboBoxType::squickOffOn:
 			tip += Description::buildFor_SQUICK();
 			break;
-		case ComboBoxType::descriptionTipsOffOn:
+		case GlobalParamComboBoxType::descriptionTipsOffOn:
 			tip += Description::buildForDescriptionTooltip();
 			break;
-		case ComboBoxType::currentChoiceTipsOffOn:
+		case GlobalParamComboBoxType::currentChoiceTipsOffOn:
 			tip += Description::buildForCurrentValueTooltip();
 			break;
 		default:
@@ -307,10 +311,10 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 	if (shouldShowCurrentChoice) {
 		tip += "Current setting: ";
 		auto currentChoice{ getSelectedItemIndex() };
-		if (comboBoxType == ComboBoxType::vibratoWaveType)
+		if (comboBoxType == GlobalParamComboBoxType::vibratoWaveType)
 			tip += ChoiceName::buildForVibratoWaveType(VibratoWaveType{ currentChoice }, ChoiceNameType::verbose);
 		else {
-			if (comboBoxType == ComboBoxType::vibratoSpeedModSource || comboBoxType == ComboBoxType::vibratoAmpModSource)
+			if (comboBoxType == GlobalParamComboBoxType::vibratoSpeedModSource || comboBoxType == GlobalParamComboBoxType::vibratoAmpModSource)
 				tip += ChoiceName::buildForVibratoModSource(VibratoModSource{ currentChoice }, ChoiceNameType::verbose);
 			else
 				tip += ChoiceName::buildForEnabledDisabled(currentChoice == 1 ? enabled : disabled, ChoiceNameType::verbose);

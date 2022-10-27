@@ -13,55 +13,55 @@
 using ChoiceName = SplitParamChoiceName;
 using Description = SplitParamDescription;
 
-RotarySliderForSplitParameter::RotarySliderForSplitParameter(SliderType sliderType, UnexposedParameters* unexposedParams, UndoManager* undoManager) :
+RotarySliderForSplitParameter::RotarySliderForSplitParameter(SplitParamSliderType sliderType, UnexposedParameters* unexposedParams, UndoManager* undoManager) :
 	RotarySliderWithMouseWheelMoveOverride{ undoManager },
 	sliderType{ sliderType },
 	splitOptions{ unexposedParams->getSplitOptions() },
 	tooltips{ unexposedParams->getTooltipsOptions() },
 	textEditor{ sliderType, unexposedParams }
 {
-	jassert(sliderType != SliderType::zoneVolumeBalance);
+	jassert(sliderType != SplitParamSliderType::zoneVolumeBalance);
 
 	switch (sliderType)
 	{
-	case SliderType::zoneVolumeBalance:
+	case SplitParamSliderType::zoneVolumeBalance:
 		break;
-	case SliderType::lowerZoneLimit:
+	case SplitParamSliderType::lowerZoneLimit:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_LowerZoneLimit);
 		setRange(0.0, 127.0, 1.0);
 		setValue((double)splitOptions->zoneLimit(SplitZone::lower), dontSendNotification);
 		setMouseDragSensitivity(144);
 		slider_w = GUI::splitZoneLimitSlider_w;
 		break;
-	case SliderType::lowerZoneVoiceNum:
+	case SplitParamSliderType::lowerZoneVoiceNum:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_LowerZoneVoiceNumber);
 		setRange(0.0, 99.0, 1.0);
 		setValue((double)splitOptions->zoneVoiceNumber(SplitZone::lower), dontSendNotification);
 		setMouseDragSensitivity(130);
 		slider_w = GUI::splitZoneVoiceNumSlider_w;
 		break;
-	case SliderType::lowerZoneTranspose:
+	case SplitParamSliderType::lowerZoneTranspose:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_LowerZoneTranspose);
 		setRange(0.0, 60.0, 1.0);
 		setValue((double)splitOptions->zoneTranspose(SplitZone::lower), dontSendNotification);
 		setMouseDragSensitivity(110);
 		slider_w = GUI::splitZoneTransposeSlider_w;
 		break;
-	case SliderType::upperZoneLimit:
+	case SplitParamSliderType::upperZoneLimit:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_UpperZoneLimit);
 		setRange(0.0, 127.0, 1.0);
 		setValue((double)splitOptions->zoneLimit(SplitZone::upper), dontSendNotification);
 		setMouseDragSensitivity(144);
 		slider_w = GUI::splitZoneLimitSlider_w;
 		break;
-	case SliderType::upperZoneVoiceNum:
+	case SplitParamSliderType::upperZoneVoiceNum:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_UpperZoneVoiceNumber);
 		setRange(0.0, 99.0, 1.0);
 		setValue((double)splitOptions->zoneVoiceNumber(SplitZone::upper), dontSendNotification);
 		setMouseDragSensitivity(130);
 		slider_w = GUI::splitZoneVoiceNumSlider_w;
 		break;
-	case SliderType::upperZoneTranspose:
+	case SplitParamSliderType::upperZoneTranspose:
 		splitParamAsValue = splitOptions->getSplitParamAsValue(ID::split_UpperZoneTranspose);
 		setRange(0.0, 60.0, 1.0);
 		setValue((double)splitOptions->zoneTranspose(SplitZone::upper), dontSendNotification);
@@ -89,39 +89,39 @@ void RotarySliderForSplitParameter::updateTooltip() {
 	String tip{ "" };
 	switch (sliderType)
 	{
-	case SliderType::zoneVolumeBalance:
+	case SplitParamSliderType::zoneVolumeBalance:
 		break;
-	case SliderType::lowerZoneLimit:
+	case SplitParamSliderType::lowerZoneLimit:
 		if (shouldShowDescription)
 			tip += Description::buildForZoneLimit(SplitZone::lower);
 		if (shouldShowCurrentChoice)
 			tip += "Current setting: " + ChoiceName::buildForZoneLimit(currentChoice, ChoiceNameType::verbose);
 		break;
-	case SliderType::lowerZoneVoiceNum:
+	case SplitParamSliderType::lowerZoneVoiceNum:
 		if (shouldShowDescription)
 			tip += Description::buildForZoneVoiceNum(SplitZone::lower);
 		if (shouldShowCurrentChoice)
 			tip += "Current setting: Patch " + String(currentChoice).paddedLeft('0', 2);
 		break;
-	case SliderType::lowerZoneTranspose:
+	case SplitParamSliderType::lowerZoneTranspose:
 		if (shouldShowDescription)
 			tip += Description::buildForZoneTranspose(SplitZone::lower);
 		if (shouldShowCurrentChoice)
 			tip += "Current setting: " + ChoiceName::buildForZoneTranspose(currentChoice, ChoiceNameType::verbose);
 		break;
-	case SliderType::upperZoneLimit:
+	case SplitParamSliderType::upperZoneLimit:
 		if (shouldShowDescription)
 			tip += Description::buildForZoneLimit(SplitZone::upper);
 		if (shouldShowCurrentChoice)
 			tip += "Current setting: " + ChoiceName::buildForZoneLimit(currentChoice, ChoiceNameType::verbose);
 		break;
-	case SliderType::upperZoneVoiceNum:
+	case SplitParamSliderType::upperZoneVoiceNum:
 		if (shouldShowDescription)
 			tip += Description::buildForZoneVoiceNum(SplitZone::upper);
 		if (shouldShowCurrentChoice)
 			tip += "Current setting: Patch " + String(currentChoice).paddedLeft('0', 2);
 		break;
-	case SliderType::upperZoneTranspose:
+	case SplitParamSliderType::upperZoneTranspose:
 		if (shouldShowDescription)
 			tip += Description::buildForZoneTranspose(SplitZone::upper);
 		if (shouldShowCurrentChoice)
@@ -139,25 +139,25 @@ void RotarySliderForSplitParameter::paint(Graphics& g) {
 	String choiceNameString{ "" };
 	switch (sliderType)
 	{
-	case SliderType::zoneVolumeBalance:
+	case SplitParamSliderType::zoneVolumeBalance:
 		choiceNameString = ChoiceName::buildForZoneTranspose(currentChoice, ChoiceNameType::concise);
 		break;
-	case SliderType::lowerZoneLimit:
+	case SplitParamSliderType::lowerZoneLimit:
 		choiceNameString = ChoiceName::buildForZoneLimit(currentChoice, ChoiceNameType::concise);
 		break;
-	case SliderType::lowerZoneVoiceNum:
+	case SplitParamSliderType::lowerZoneVoiceNum:
 		choiceNameString = String(currentChoice).paddedLeft('0', 2);
 		break;
-	case SliderType::lowerZoneTranspose:
+	case SplitParamSliderType::lowerZoneTranspose:
 		choiceNameString = ChoiceName::buildForZoneTranspose(currentChoice, ChoiceNameType::concise);
 		break;
-	case SliderType::upperZoneLimit:
+	case SplitParamSliderType::upperZoneLimit:
 		choiceNameString = ChoiceName::buildForZoneLimit(currentChoice, ChoiceNameType::concise);
 		break;
-	case SliderType::upperZoneVoiceNum:
+	case SplitParamSliderType::upperZoneVoiceNum:
 		choiceNameString = String(currentChoice).paddedLeft('0', 2);
 		break;
-	case SliderType::upperZoneTranspose:
+	case SplitParamSliderType::upperZoneTranspose:
 		choiceNameString = ChoiceName::buildForZoneTranspose(currentChoice, ChoiceNameType::concise);
 		break;
 	default:
@@ -175,24 +175,24 @@ void RotarySliderForSplitParameter::valueChanged() {
 	auto currentChoice{ (uint8)roundToInt(getValue()) };
 	switch (sliderType)
 	{
-	case SliderType::zoneVolumeBalance:
+	case SplitParamSliderType::zoneVolumeBalance:
 		break;
-	case SliderType::lowerZoneLimit:
+	case SplitParamSliderType::lowerZoneLimit:
 		splitOptions->setZoneLimit(SplitZone::lower, currentChoice);
 		break;
-	case SliderType::lowerZoneVoiceNum:
+	case SplitParamSliderType::lowerZoneVoiceNum:
 		splitOptions->setZoneVoiceNumber(SplitZone::lower, currentChoice);
 		break;
-	case SliderType::lowerZoneTranspose:
+	case SplitParamSliderType::lowerZoneTranspose:
 		splitOptions->setZoneTranspose(SplitZone::lower, currentChoice);
 		break;
-	case SliderType::upperZoneLimit:
+	case SplitParamSliderType::upperZoneLimit:
 		splitOptions->setZoneLimit(SplitZone::upper, currentChoice);
 		break;
-	case SliderType::upperZoneVoiceNum:
+	case SplitParamSliderType::upperZoneVoiceNum:
 		splitOptions->setZoneVoiceNumber(SplitZone::upper, currentChoice);
 		break;
-	case SliderType::upperZoneTranspose:
+	case SplitParamSliderType::upperZoneTranspose:
 		splitOptions->setZoneTranspose(SplitZone::upper, currentChoice);
 		break;
 	default:
@@ -218,7 +218,7 @@ LinearSliderForSplitZoneVolumeBalance::LinearSliderForSplitZoneVolumeBalance(Une
 	LinearSliderWithMouseWheelMoveOverride{ undoManager },
 	splitOptions{ unexposedParams->getSplitOptions() },
 	tooltips{ unexposedParams->getTooltipsOptions() },
-	textEditor{ SliderType::zoneVolumeBalance, unexposedParams }
+	textEditor{ SplitParamSliderType::zoneVolumeBalance, unexposedParams }
 {
 	splitZoneVolumeBalanceAsValue = splitOptions->getSplitParamAsValue(ID::split_ZoneVolumeBalance);
 	splitZoneVolumeBalanceAsValue.addListener(this);

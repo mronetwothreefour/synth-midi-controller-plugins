@@ -35,7 +35,7 @@ namespace Matrix_6G_Constants
 		const uint16 indexOfDisplayBrightnessLSByte{ indexOfLeversInvertEnableLSByte_Unused + 2 };
 		const uint16 indexOf_SQUICK_EnableLSByte{ indexOfDisplayBrightnessLSByte + 2 };
 		const uint16 indexOfVoiceMapEchoEnableLSByte{ indexOf_SQUICK_EnableLSByte + 2 };
-		const uint16 indexOfSplitStereoEnableLSByte{ indexOfVoicesMapEchoEnableLSByte + 2 };
+		const uint16 indexOfSplitStereoEnableLSByte{ indexOfVoiceMapEchoEnableLSByte + 2 };
 		const uint16 indexOfBasicChannelDisplayedValueLSByte{ indexOfSplitStereoEnableLSByte + 2 };
 		const uint16 indexOfPressureStandoffLSByte_Unused{ indexOfBasicChannelDisplayedValueLSByte + 2 };
 		const uint16 indexOfSpilloverEnableLSByte{ indexOfPressureStandoffLSByte_Unused + 2 };
@@ -43,7 +43,7 @@ namespace Matrix_6G_Constants
 		const uint16 indexOfActiveSenseEnableLSByte{ indexOfUndefinedLSByte_1 + 2 };
 		const uint16 indexOf_MIDI_EchoEnableLSByte{ indexOfActiveSenseEnableLSByte + 2 };
 		const uint16 indexOfVoiceMapEnableLSByte{ indexOf_MIDI_EchoEnableLSByte + 2 };
-		const uint16 indexOfUndefinedLSByte_2{ indexOfVoicesMapEnableLSByte + 2 };
+		const uint16 indexOfUndefinedLSByte_2{ indexOfVoiceMapEnableLSByte + 2 };
 		const uint16 indexOf_MIDI_MonoEnableLSByte{ indexOfUndefinedLSByte_2 + 2 };
 		const uint16 indexOfFirstVoicesMapInVoiceLSByte{ indexOf_MIDI_MonoEnableLSByte + 2 };
 		const uint16 indexOfFirstVoicesMapOutVoiceLSByte{ indexOfFirstVoicesMapInVoiceLSByte + 200 };

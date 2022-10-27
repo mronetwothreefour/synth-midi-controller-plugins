@@ -7,7 +7,6 @@
 #include "../gui/gui_comp_JuceSlidersWithMouseMods.h"
 
 using namespace Matrix_6G_Constants;
-using SliderType = SplitParamSliderType;
 
 class SplitOptions;
 class TooltipsOptions;
@@ -17,7 +16,7 @@ class RotarySliderForSplitParameter :
 	public RotarySliderWithMouseWheelMoveOverride,
 	public Value::Listener
 {
-	SliderType sliderType;
+	SplitParamSliderType sliderType;
 	SplitOptions* splitOptions;
 	TooltipsOptions* tooltips;
 	TextEditorForSplitParamSlider textEditor;
@@ -27,7 +26,7 @@ class RotarySliderForSplitParameter :
 public:
 	RotarySliderForSplitParameter() = delete;
 
-	RotarySliderForSplitParameter(SliderType sliderType, UnexposedParameters* unexposedParams, UndoManager* undoManager);
+	RotarySliderForSplitParameter(SplitParamSliderType sliderType, UnexposedParameters* unexposedParams, UndoManager* undoManager);
 	void updateTooltip();
 	void paint(Graphics& g) override;
 	void mouseDoubleClick(const MouseEvent& event) override;
