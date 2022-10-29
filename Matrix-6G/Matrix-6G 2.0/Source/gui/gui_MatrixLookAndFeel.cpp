@@ -106,6 +106,9 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID == ID::btn_X_Grey.toString())
 		mBlock = MemBlock{ isDown ? btn_X_Grey_Dn_png : btn_X_Grey_Up_png, isDown ? (s_t)btn_X_Grey_Dn_pngSize : (s_t)btn_X_Grey_Up_pngSize };
 
+	if (buttonID == ID::btn_X_Orange.toString())
+		mBlock = MemBlock{ isDown ? btn_X_Orange_Dn_png : btn_X_Orange_Up_png, isDown ? (s_t)btn_X_Orange_Dn_pngSize : (s_t)btn_X_Orange_Up_pngSize };
+
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ mBlock, false };
 	auto buttonImage{ imageFormat.decodeImage(memInputStream) };

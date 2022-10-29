@@ -24,7 +24,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		onChange = [this, global, unexposedParams] {
 			auto currentChoice{ getSelectedItemIndex() };
 			auto shouldBeEnabled{ currentChoice == 1 };
-			global->setVoiceChangesAreEnabled(shouldBeEnabled ? true : false);
+			global->setOmniModeIsEnabled(shouldBeEnabled ? true : false);
 		};
 		break;
 	case GlobalParamComboBoxType::controllersOffOn:
@@ -293,7 +293,7 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 			tip += Description::buildForVoiceMap();
 			break;
 		case GlobalParamComboBoxType::voiceMapEchoOffOn:
-			tip += Description::buildForVoiceMap();
+			tip += Description::buildForVoiceMapEcho();
 			break;
 		case GlobalParamComboBoxType::squickOffOn:
 			tip += Description::buildFor_SQUICK();

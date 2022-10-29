@@ -10,10 +10,10 @@ struct GlobalParamDescription
 {
 	static String buildForActiveSensing();
 	static String buildForBasicChannel();
-	static String buildForControllers();
 	static String buildForControllerNumForLever_2();
 	static String buildForControllerNumForLever_3();
 	static String buildForControllerNumForPedal(int pedalNum);
+	static String buildForControllers();
 	static String buildForCurrentValueTooltip();
 	static String buildForDescriptionTooltip();
 	static String buildForDisplayBrightness();

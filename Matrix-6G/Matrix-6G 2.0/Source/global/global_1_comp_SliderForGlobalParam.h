@@ -22,12 +22,14 @@ class SliderForGlobalParameter :
 	Value globalParamAsValue;
 	Value shouldShowDescriptionAsValue;
 	Value shouldShowCurrentChoiceAsValue;
+	int slider_w;
 
 public:
 	SliderForGlobalParameter() = delete;
 
 	SliderForGlobalParameter(GlobalParamSliderType sliderType, UnexposedParameters* unexposedParams);
 	void updateTooltip();
+	void paint(Graphics& g) override;
 	void mouseDoubleClick(const MouseEvent& event) override;
 	void valueChanged() override;
 	void valueChanged(Value& value) override;

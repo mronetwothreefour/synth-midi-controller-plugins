@@ -16,7 +16,7 @@ class SliderForVoiceMapSlot :
 	public Value::Listener
 {
 	uint8 mapSlotNum;
-	VoiceMapSliderType type;
+	VoiceMapSliderType sliderType;
 	TextEditorForVoiceMapSlider textEditor;
 	TooltipsOptions* tooltips;
 	Value globalParamAsValue;
@@ -24,8 +24,9 @@ class SliderForVoiceMapSlot :
 public:
 	SliderForVoiceMapSlot() = delete;
 
-	SliderForVoiceMapSlot(uint8 mapSlotNum, VoiceMapSliderType type, UnexposedParameters* unexposedParams, UndoManager* undoManager);
+	SliderForVoiceMapSlot(uint8 mapSlotNum, VoiceMapSliderType sliderType, UnexposedParameters* unexposedParams, UndoManager* undoManager);
 	void updateTooltip();
+	void paint(Graphics& g) override;
 	void mouseDoubleClick(const MouseEvent& event) override;
 	void valueChanged() override;
 	void valueChanged(Value& value) override;

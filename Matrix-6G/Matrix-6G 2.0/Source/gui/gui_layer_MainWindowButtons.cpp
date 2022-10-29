@@ -133,7 +133,7 @@ void GUI_Layer_MainWindowButtons::prepareToShowGlobalParamsLayer() {
     layer_GlobalParams = nullptr;
     global->resetAllOptionsToDefaults();
     SysExMessages::addRequestForGlobalDataToOutgoingBuffers(outgoingBuffers);
-    callAfterDelay(300, [this] {
+    callAfterDelay(600, [this] {
         if (global->sysExIsEnabled())
             showGlobalParamsLayer();
         else showCommErrorLayer();

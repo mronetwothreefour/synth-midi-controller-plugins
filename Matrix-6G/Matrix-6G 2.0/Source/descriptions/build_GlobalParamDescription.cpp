@@ -25,18 +25,6 @@ String GlobalParamDescription::buildForBasicChannel() {
     return descriptionString;
 }
 
-String GlobalParamDescription::buildForControllers() {
-    String descriptionString{ "" };
-    descriptionString += "When set to on, the hardware will respond to incoming\n";
-    descriptionString += "MIDI controller messages, as well as to the pedal inputs\n";
-    descriptionString += "on the hardware" + GUI::apostrophe + "s rear panel (if Local Control is also on).\n";
-    descriptionString += "When set to off, the hardware will only respond to MIDI\n";
-    descriptionString += "note messages. NOTE: Individual Master options are not\n";
-    descriptionString += "immediately updated on the hardware. Click the PUSH\n";
-    descriptionString += "button to update all options.\n";
-    return descriptionString;
-}
-
 String GlobalParamDescription::buildForControllerNumForLever_2() {
     String descriptionString{ "" };
     descriptionString += "Selects the MIDI controller number that Lever 2\n";
@@ -73,15 +61,26 @@ String GlobalParamDescription::buildForControllerNumForPedal(int pedalNum) {
     return descriptionString;
 }
 
+String GlobalParamDescription::buildForControllers() {
+    String descriptionString{ "" };
+    descriptionString += "When set to on, the hardware will respond to incoming\n";
+    descriptionString += "MIDI controller messages, as well as to the pedal inputs\n";
+    descriptionString += "on the hardware" + GUI::apostrophe + "s rear panel (if Local Control is also on).\n";
+    descriptionString += "When set to off, the hardware will only respond to MIDI\n";
+    descriptionString += "note messages. NOTE: Individual Master options are not\n";
+    descriptionString += "immediately updated on the hardware. Click the PUSH\n";
+    descriptionString += "button to update all options.\n";
+    return descriptionString;
+}
+
 String GlobalParamDescription::buildForCurrentValueTooltip() {
     String descriptionString{ "" };
     descriptionString += "When enabled, a tooltip with a verbose\n";
     descriptionString += "version of the current value will appear\n";
     descriptionString += "if the mouse hovers over a control for\n";
     descriptionString += "the amount of time specified below.\n";
-    descriptionString += "NOTE: Individual Master options are not\n";
-    descriptionString += "immediately updated on the hardware.\n";
-    descriptionString += "Click the PUSH button to update all options.\n";
+    descriptionString += "NOTE: Changes to the tooltip options\n";
+    descriptionString += "are updated immediately.\n";
     return descriptionString;
 }
 
@@ -89,8 +88,7 @@ String GlobalParamDescription::buildForDescriptionTooltip() {
     String descriptionString{ "" };
     descriptionString += "When enabled, a descriptive tooltip will appear if the mouse\n";
     descriptionString += "hovers over a control for the amount of time specified below.\n";
-    descriptionString += "NOTE: Individual Master options are not immediately updated\n";
-    descriptionString += "on the hardware. Click the PUSH button to update all options.\n";
+    descriptionString += "NOTE: Changes to the tooltip options are updated immediately.\n";
     return descriptionString;
 }
 
@@ -200,9 +198,8 @@ String GlobalParamDescription::buildForTooltipDelay() {
     String descriptionString{ "" };
     descriptionString += "Sets the amount of time (in milliseconds) the mouse cursor\n";
     descriptionString += "must hover over a control before a tooltip box is shown.\n";
-    descriptionString += "Maximum delay: 5000 milliseconds. NOTE: Individual\n";
-    descriptionString += "Master options are not immediately updated on the hard-\n";
-    descriptionString += "ware. Click the PUSH button to update all options.\n";
+    descriptionString += "Maximum delay: 5000 milliseconds. NOTE: Changes to \n";
+    descriptionString += "the tooltip options are updated immediately.\n";
     return descriptionString;
 }
 

@@ -1,8 +1,11 @@
 #include "midi_1_handle_IncomingSysExMessage.h"
 
 #include "midi_0_RawDataTools.h"
+#include "../constants/constants_Global.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+
+using namespace Matrix_6G_Constants;
 
 IncomingSysExMessageHandler::IncomingSysExMessageHandler(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
     exposedParams{ exposedParams },
@@ -59,10 +62,12 @@ void IncomingSysExMessageHandler::handleIncomingSplitData(const uint8* sysExData
         RawDataTools::applyRawSplitDataTo_GUI(sysExData + RawDataTools::firstVoiceAndSplitNameByte, splitOptions);
     }
     else
-        handleIncomingGlobalData(sysExData, sysExDataSize);
+        handleIncomingGlobalData(sysExData);
 }
 
-void IncomingSysExMessageHandler::handleIncomingGlobalData(const uint8* sysExData, int /*sysExDataSize*/) {
+void IncomingSysExMessageHandler::handleIncomingGlobalData(const uint8* sysExData) {
     if (sysExData[sysExMessageTypeByte] == (uint8)SysExMessageType::globalData) {
+        const MessageManagerLock mmLock;
+        RawDataTools::applyRawGlobalDataTo_GUI(sysExData + GLBL::firstGlobalDataByte, global);
     }
 }

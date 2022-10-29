@@ -1,10 +1,12 @@
 #include "global_1_comp_SliderForGlobalParam.h"
 
 #include "global_0_build_ChoiceName.h"
+#include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../descriptions/build_GlobalParamDescription.h"
+#include "../gui/gui_build_LED_Path.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using ChoiceName = GlobalParamChoiceName;
@@ -17,7 +19,7 @@ SliderForGlobalParameter::SliderForGlobalParameter(GlobalParamSliderType sliderT
 	textEditor{ sliderType, unexposedParams },
 	unexposedParams{ unexposedParams }
 {
-	auto slider_w{ GUI::global_MIDI_Control_w };
+	slider_w = GUI::global_MIDI_Control_w;
 	setRange(0.0, 121.0, 1.0);
 	setMouseDragSensitivity(140);
 	switch (sliderType)
@@ -148,17 +150,34 @@ void SliderForGlobalParameter::updateTooltip() {
 		default:
 			break;
 		}
-		if (shouldShowCurrentChoice) {
-			tip += "Current setting: ";
-			auto currentChoice{ (int)getValue() };
-			if (sliderType == GlobalParamSliderType::globalTune) {
-				currentChoice -= EP::offsetForSigned_7_BitRange;
-				if (currentChoice > 0)
-					tip += "+";
-			}
-			tip += (String)currentChoice;
-		}
 	}
+	if (shouldShowCurrentChoice) {
+		tip += "Current setting: ";
+		auto currentChoice{ (int)getValue() };
+		if (sliderType == GlobalParamSliderType::globalTune) {
+			currentChoice -= EP::offsetForSigned_7_BitRange;
+			if (currentChoice > 0)
+				tip += "+";
+		}
+		tip += (String)currentChoice;
+	}
+	setTooltip(tip);
+}
+
+void SliderForGlobalParameter::paint(Graphics& g) {
+	g.setColour(GUI::color_LED_Blue);
+	auto currentChoice{ roundToInt(getValue()) };
+	String choiceNameString{ "" };
+	if (sliderType == GlobalParamSliderType::globalTune) {
+		currentChoice -= EP::offsetForSigned_7_BitRange;
+		if (currentChoice > 0)
+			choiceNameString += "+";
+		choiceNameString += (String)currentChoice;
+	}
+	else
+		choiceNameString += (String)currentChoice;
+	auto choiceNamePath{ LED_Path::buildLabelText(choiceNameString, slider_w) };
+	g.fillPath(choiceNamePath);
 }
 
 void SliderForGlobalParameter::mouseDoubleClick(const MouseEvent& /*event*/) {

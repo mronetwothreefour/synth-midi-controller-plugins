@@ -19,7 +19,7 @@ class TextEditorForVoiceMapSlider :
 public:
 	TextEditorForVoiceMapSlider() = delete;
 
-	TextEditorForVoiceMapSlider(uint8 mapSlotNum, VoiceMapSliderType type, GlobalOptions* global, TooltipsOptions* tooltips);
+	TextEditorForVoiceMapSlider(uint8 mapSlotNum, VoiceMapSliderType sliderType, GlobalOptions* global, TooltipsOptions* tooltips);
 
 private:
 	void setEditorTextUsingStoredValue();

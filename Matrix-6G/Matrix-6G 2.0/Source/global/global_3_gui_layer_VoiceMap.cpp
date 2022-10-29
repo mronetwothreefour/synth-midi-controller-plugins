@@ -27,8 +27,8 @@ GUI_Layer_VoiceMap::GUI_Layer_VoiceMap(UnexposedParameters* unexposedParams, Und
 
 	for (uint8 slotNum = 0; slotNum != VCS::numberOfSlotsInVoicesBank; ++slotNum) {
 		voiceMapSlots.push_back(std::make_unique<VoiceMapSlot>(slotNum, unexposedParams, undoManager));
-		auto col_x{ (slotNum / 10) * 87 };
-		auto row_y{ (slotNum % 10) * 28 };
+		auto col_x{ 213 + ((slotNum / 10) * 87) };
+		auto row_y{ 184 + ((slotNum % 10) * 28) };
 		voiceMapSlots[slotNum]->setTopLeftPosition(col_x, row_y);
 		addAndMakeVisible(voiceMapSlots[slotNum].get());
 	}

@@ -33,8 +33,8 @@ public:
 		slider_InVoice.setTopLeftPosition(0, 0);
 		addAndMakeVisible(slider_InVoice);
 
-		slider_InVoice.setTopRightPosition(slot_w, 0);
-		addAndMakeVisible(slider_InVoice);
+		slider_OutVoice.setTopRightPosition(slot_w, 0);
+		addAndMakeVisible(slider_OutVoice);
 
 		setSize(slot_w, GUI::control_h);
 	}

@@ -5,9 +5,9 @@
 #include "../unexposedParameters/up_0_tree_GlobalOptions.h"
 #include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
-TextEditorForVoiceMapSlider::TextEditorForVoiceMapSlider(uint8 mapSlotNum, VoiceMapSliderType type, GlobalOptions* global, TooltipsOptions* tooltips)
+TextEditorForVoiceMapSlider::TextEditorForVoiceMapSlider(uint8 mapSlotNum, VoiceMapSliderType sliderType, GlobalOptions* global, TooltipsOptions* tooltips)
 {
-	Identifier paramID{ (type == VoiceMapSliderType::in ? ID::global_VoiceMapIn_.toString() : ID::global_VoiceMapOut_.toString()) + (String)mapSlotNum };
+	Identifier paramID{ (sliderType == VoiceMapSliderType::in ? ID::global_VoiceMapIn_.toString() : ID::global_VoiceMapOut_.toString()) + (String)mapSlotNum };
 	globalParamAsValue = global->getGobalParamAsValue(paramID);
 	globalParamAsValue.addListener(this);
 

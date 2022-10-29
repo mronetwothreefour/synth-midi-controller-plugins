@@ -13,7 +13,7 @@ EditorForTooltipDelay::EditorForTooltipDelay(UnexposedParameters* unexposedParam
 	tooltipDelayEditor.setComponentID(ID::lbl_EditLabel.toString());
 	tooltipDelayEditor.setEditable(true);
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
-	tooltipDelayEditor.setText((String)tooltips->delayInMilliseconds() + " ms", dontSendNotification);
+	tooltipDelayEditor.setText((String)tooltips->delayInMilliseconds(), dontSendNotification);
 	tooltipDelayEditor.onEditorShow = [this, tooltips] {
 		auto editor{ tooltipDelayEditor.getCurrentTextEditor() };
 		if (editor != nullptr) {
@@ -28,7 +28,7 @@ EditorForTooltipDelay::EditorForTooltipDelay(UnexposedParameters* unexposedParam
 			if (newValue < 5001)
 				tooltips->setDelayInMilliseconds(newValue);
 		}
-		tooltipDelayEditor.setText((String)tooltips->delayInMilliseconds() + " ms", dontSendNotification);
+		tooltipDelayEditor.setText((String)tooltips->delayInMilliseconds(), dontSendNotification);
 	};
 
 	shouldShowDescriptionAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);

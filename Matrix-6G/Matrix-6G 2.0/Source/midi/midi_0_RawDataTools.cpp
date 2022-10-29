@@ -293,6 +293,7 @@ void RawDataTools::applyRawGlobalDataTo_GUI(const uint8* globalData, GlobalOptio
 }
 
 const std::vector<uint8> RawDataTools::extractRawGlobalDataFrom_GUI(GlobalOptions* globalOptions) {
+    auto unusedOrUndefinedByte{ (uint8)0 };
     std::vector<uint8> globalData;
     uint8 checksum{ 0 };
 
@@ -337,14 +338,17 @@ const std::vector<uint8> RawDataTools::extractRawGlobalDataFrom_GUI(GlobalOption
     globalData.push_back(globalTune / 16);
     checksum += globalTune;
 
+    globalData.push_back(unusedOrUndefinedByte);
+    globalData.push_back(unusedOrUndefinedByte);
+
     globalData.push_back(GLBL::velocitySensitivity_Unused % 16);
     globalData.push_back(GLBL::velocitySensitivity_Unused / 16);
     checksum += GLBL::velocitySensitivity_Unused;
 
     auto basicChannel_DisplayedValue{ globalOptions->basicChannel() };
     auto basicChannel_DataValue{ uint8(basicChannel_DisplayedValue - GLBL::basicChannelOffset) };
-    globalData.push_back(basicChannel_DataValue % 16);
-    globalData.push_back(basicChannel_DataValue / 16);
+    globalData.push_back(basicChannel_DataValue);
+    globalData.push_back(0);
     checksum += basicChannel_DataValue;
 
     auto omniModeIsEnabled{ globalOptions->omniModeIsEnabled() };
@@ -392,6 +396,11 @@ const std::vector<uint8> RawDataTools::extractRawGlobalDataFrom_GUI(GlobalOption
     globalData.push_back(lever_3_ControllerNumber / 16);
     checksum += lever_3_ControllerNumber;
 
+    globalData.push_back(unusedOrUndefinedByte);
+    globalData.push_back(unusedOrUndefinedByte);
+    globalData.push_back(unusedOrUndefinedByte);
+    globalData.push_back(unusedOrUndefinedByte);
+
     auto displayBrightness{ globalOptions->displayBrightness() };
     globalData.push_back(displayBrightness % 16);
     globalData.push_back(displayBrightness / 16);
@@ -416,14 +425,16 @@ const std::vector<uint8> RawDataTools::extractRawGlobalDataFrom_GUI(GlobalOption
     globalData.push_back(basicChannel_DisplayedValue / 16);
     checksum += basicChannel_DisplayedValue;
 
+    globalData.push_back(unusedOrUndefinedByte);
+    globalData.push_back(unusedOrUndefinedByte);
+
     auto spilloverIsEnabled{ globalOptions->spilloverIsEnabled() };
     globalData.push_back(spilloverIsEnabled ? 1 : 0);
     globalData.push_back(0);
     checksum += spilloverIsEnabled ? 1 : 0;
 
-    auto undefinedByte{ (uint8)0 };
-    globalData.push_back(undefinedByte);
-    globalData.push_back(undefinedByte);
+    globalData.push_back(unusedOrUndefinedByte);
+    globalData.push_back(unusedOrUndefinedByte);
 
     auto activeSensingIsEnabled{ globalOptions->activeSensingIsEnabled() };
     globalData.push_back(activeSensingIsEnabled ? 1 : 0);
@@ -440,8 +451,8 @@ const std::vector<uint8> RawDataTools::extractRawGlobalDataFrom_GUI(GlobalOption
     globalData.push_back(0);
     checksum += voiceMapIsEnabled ? 1 : 0;
 
-    globalData.push_back(undefinedByte);
-    globalData.push_back(undefinedByte);
+    globalData.push_back(unusedOrUndefinedByte);
+    globalData.push_back(unusedOrUndefinedByte);
 
     auto midiMonoIsEnabled{ globalOptions->midiMonoIsEnabled() };
     globalData.push_back(midiMonoIsEnabled ? 1 : 0);
@@ -453,7 +464,9 @@ const std::vector<uint8> RawDataTools::extractRawGlobalDataFrom_GUI(GlobalOption
         globalData.push_back(voiceMapInVoice % 16);
         globalData.push_back(voiceMapInVoice / 16);
         checksum += voiceMapInVoice;
+    }
 
+    for (uint8 i = 0; i != VCS::numberOfSlotsInVoicesBank; ++i) {
         auto voiceMapOutVoice{ globalOptions->outVoiceForVoiceMapSlot(i) };
         globalData.push_back(voiceMapOutVoice % 16);
         globalData.push_back(voiceMapOutVoice / 16);
