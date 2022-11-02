@@ -649,6 +649,9 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp">
       <Filter>P-600-G 2\Source\exposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_2_func_ExposedParamsRandomizationMethods.cpp">
+      <Filter>P-600-G 2\Source\exposedParameters</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_2_tree_ExposedParamsRandomizationOptions.cpp">
       <Filter>P-600-G 2\Source\exposedParameters</Filter>
     </ClCompile>
@@ -3088,6 +3091,9 @@
       <Filter>P-600-G 2\Source\exposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_2_build_ExposedParamsLayout.h">
+      <Filter>P-600-G 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_2_func_ExposedParamsRandomizationMethods.h">
       <Filter>P-600-G 2\Source\exposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_2_tree_ExposedParamsRandomizationOptions.h">
