@@ -156,6 +156,10 @@
               resource="0" file="Source/exposedParameters/ep_1_tree_InfoForExposedParameters.h"/>
         <FILE id="QIPvcg" name="ep_2_build_ExposedParamsLayout.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_2_build_ExposedParamsLayout.h"/>
+        <FILE id="saJMPx" name="ep_2_tree_ExposedParamsRandomizationOptions.cpp"
+              compile="1" resource="0" file="Source/exposedParameters/ep_2_tree_ExposedParamsRandomizationOptions.cpp"/>
+        <FILE id="vdcIAK" name="ep_2_tree_ExposedParamsRandomizationOptions.h"
+              compile="0" resource="0" file="Source/exposedParameters/ep_2_tree_ExposedParamsRandomizationOptions.h"/>
         <FILE id="nEpRce" name="ep_3_facade_ExposedParameters.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_3_facade_ExposedParameters.h"/>
         <FILE id="iSSLKX" name="ep_4_handle_ExposedParamChanges.cpp" compile="1"

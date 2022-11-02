@@ -1,10 +1,9 @@
 #include "ep_2_tree_ExposedParamsRandomizationOptions.h"
 
-#include "ep_3_facade_ExposedParameters.h"
+#include "ep_1_tree_InfoForExposedParameters.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
 
-using namespace MophoConstants;
 using Tree = ValueTree;
 
 ExposedParamsRandomizationOptions::ExposedParamsRandomizationOptions(InfoForExposedParameters* info) :

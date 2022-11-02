@@ -99,6 +99,13 @@ namespace P_600_G_Constants
 		static const Identifier property_ParamID{ "property_ParamID" };
 		static const Identifier property_Width{ "property_Width" };
 
+		static const Identifier rndm_AllowedChoices{ "rndm_AllowedChoices" };
+		static const Identifier rndm_NoChoiceIsAllowed{ "rndm_NoChoiceIsAllowed" };
+		static const Identifier rndm_OnlyOneChoiceIsAllowed{ "rndm_OnlyOneChoiceIsAllowed" };
+		static const Identifier rndm_ParamIsLocked{ "rndm_ParamIsLocked" };
+		static const Identifier rndm_RepeatChoicesAreAllowed{ "rndm_RepeatChoicesAreAllowed" };
+
+		static const Identifier state_RandomizationOptions{ "state_RandomizationOptions" };
 		static const Identifier state_TooltipsOptions{ "state_TooltipsOptions" };
 		static const Identifier state_UnexposedParams{ "state_UnexposedParams" };
 		static const Identifier state_VoicesBank{ "state_VoicesBank" };
@@ -111,6 +118,7 @@ namespace P_600_G_Constants
 		static const Identifier tree_ChoiceNames{ "tree_ChoiceNames" };
 		static const Identifier tree_ChoiceNames_Verbose{ "tree_ChoiceNames_Verbose" };
 		static const Identifier tree_ExposedParamsInfo{ "tree_ExposedParamsInfo" };
+		static const Identifier tree_RandomizationOptions{ "tree_RandomizationOptions" };
 		static const Identifier tree_TooltipsOptions{ "tree_TooltipsOptions" };
 		static const Identifier tree_VoiceTxOptions{ "tree_VoiceTxOptions" };
 

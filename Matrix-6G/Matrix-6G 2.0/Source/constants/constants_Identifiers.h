@@ -192,6 +192,13 @@ namespace Matrix_6G_Constants
 		static const Identifier property_SliderTextEditorType{ "property_SliderTextEditorType" };
 		static const Identifier property_Width{ "property_Width" };
 
+		static const Identifier rndm_AllowedChoices{ "rndm_AllowedChoices" };
+		static const Identifier rndm_NoChoiceIsAllowed{ "rndm_NoChoiceIsAllowed" };
+		static const Identifier rndm_OnlyOneChoiceIsAllowed{ "rndm_OnlyOneChoiceIsAllowed" };
+		static const Identifier rndm_ParamIsLocked{ "rndm_ParamIsLocked" };
+		static const Identifier rndm_RepeatChoicesAreAllowed{ "rndm_RepeatChoicesAreAllowed" };
+		static const Identifier rndm_TransmitMethodIsQuickEdit{ "rndm_TransmitMethodIsQuickEdit" };
+
 		static const Identifier split_Name{ "split_Name" };
 		static const Identifier split_LowerZoneLimit{ "split_LowerZoneLimit" };
 		static const Identifier split_LowerZoneTranspose{ "split_LowerZoneTranspose" };
@@ -212,6 +219,7 @@ namespace Matrix_6G_Constants
 		static const Identifier state_CustomVoiceNameStrings{ "state_CustomVoiceNameStrings" };
 		static const Identifier state_CustomVoicesBanks{ "state_CustomVoicesBanks" };
 		static const Identifier state_MatrixModOptions{ "state_MatrixModOptions" };
+		static const Identifier state_RandomizationOptions{ "state_RandomizationOptions" };
 		static const Identifier state_SplitDataHexStrings{ "state_SplitDataHexStrings" };
 		static const Identifier state_SplitNameStrings{ "state_SplitNameStrings" };
 		static const Identifier state_SplitsBank{ "state_SplitsBank" };
@@ -230,6 +238,7 @@ namespace Matrix_6G_Constants
 		static const Identifier tree_ExposedParamsInfo{ "tree_ExposedParamsInfo" };
 		static const Identifier tree_GlobalOptions{ "tree_GlobalOptions" };
 		static const Identifier tree_MatrixModOptions{ "tree_MatrixModOptions" };
+		static const Identifier tree_RandomizationOptions{ "tree_RandomizationOptions" };
 		static const Identifier tree_SplitOptions{ "tree_SplitOptions" };
 		static const Identifier tree_TooltipsOptions{ "tree_TooltipsOptions" };
 		static const Identifier tree_VoiceTxOptions{ "tree_VoiceTxOptions" };

@@ -156,6 +156,7 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_tree_CurrentVoiceOptions.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_tree_MatrixModOptions.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_2_tree_ExposedParamsRandomizationOptions.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.cpp"/>
     <ClCompile Include="..\..\Source\global\global_0_comp_TextEditorForGlobalParamSlider.cpp"/>
     <ClCompile Include="..\..\Source\global\global_0_comp_TextEditorForVoiceMapSlider.cpp"/>
@@ -2391,6 +2392,7 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_0_tree_MatrixModOptions.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_2_build_ExposedParamsLayout.h"/>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_2_tree_ExposedParamsRandomizationOptions.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.h"/>
     <ClInclude Include="..\..\Source\global\global_0_build_ChoiceName.h"/>
@@ -3373,7 +3375,6 @@
     <None Include="..\..\BinaryResources\buttons\btn_EditVoiceMap_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Export_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Export_Up.png"/>
-    <None Include="..\..\BinaryResources\buttons\btn_PushVoice_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Expt_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Expt_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Import_Dn.png"/>
@@ -3384,6 +3385,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_LoadSplit_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_LoadVoice_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_LoadVoice_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Lock_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Lock_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Master_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Master_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_NewFolder_Dn.png"/>
@@ -3400,7 +3403,10 @@
     <None Include="..\..\BinaryResources\buttons\btn_Push_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_PushSplit_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_PushSplit_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_PushVoice_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_PushVoice_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Randomize_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Randomize_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_ResetPatchMap_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_ResetPatchMap_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Retry_Dn.png"/>
@@ -3413,6 +3419,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_Splits_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Stop_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Stop_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Unlock_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Unlock_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Write_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Write_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_X_Blue_Dn.png"/>
@@ -3435,6 +3443,7 @@
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_NoSysExWarning.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_Randomization.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_SplitsWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_VoiceMap.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_VoicesBankFooter_Custom.png"/>

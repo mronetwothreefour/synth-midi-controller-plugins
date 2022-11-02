@@ -673,6 +673,9 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_2_tree_ExposedParamsRandomizationOptions.cpp">
+      <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.cpp">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClCompile>
@@ -3226,6 +3229,9 @@
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_2_build_ExposedParamsLayout.h">
+      <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_2_tree_ExposedParamsRandomizationOptions.h">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h">
@@ -6170,9 +6176,6 @@
     <None Include="..\..\BinaryResources\buttons\btn_Export_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
-    <None Include="..\..\BinaryResources\buttons\btn_PushVoice_Dn.png">
-      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
-    </None>
     <None Include="..\..\BinaryResources\buttons\btn_Expt_Dn.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
@@ -6201,6 +6204,12 @@
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_LoadVoice_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Lock_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Lock_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Master_Dn.png">
@@ -6251,7 +6260,16 @@
     <None Include="..\..\BinaryResources\buttons\btn_PushSplit_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
+    <None Include="..\..\BinaryResources\buttons\btn_PushVoice_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
     <None Include="..\..\BinaryResources\buttons\btn_PushVoice_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Randomize_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Randomize_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_ResetPatchMap_Dn.png">
@@ -6288,6 +6306,12 @@
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Stop_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Unlock_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Unlock_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Write_Dn.png">
@@ -6354,6 +6378,9 @@
       <Filter>Matrix-6G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_NoSysExWarning.png">
+      <Filter>Matrix-6G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_Randomization.png">
       <Filter>Matrix-6G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_SplitsWindow.png">
