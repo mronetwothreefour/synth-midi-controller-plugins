@@ -416,6 +416,12 @@
         <FILE id="DWH5cA" name="midi_1_SysExMessages.h" compile="0" resource="0"
               file="Source/midi/midi_1_SysExMessages.h"/>
       </GROUP>
+      <GROUP id="{98E9B907-2F21-4F6F-9C45-EEAACA5CC709}" name="randomization">
+        <FILE id="kzodvA" name="rndm_0_comp_AllowChoiceToggles_Base.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_0_comp_AllowChoiceToggles_Base.cpp"/>
+        <FILE id="zVv81Y" name="rndm_0_comp_AllowChoiceToggles_Base.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_comp_AllowChoiceToggles_Base.h"/>
+      </GROUP>
       <GROUP id="{523DAC2B-3476-DB28-4F85-435EA1B21E66}" name="splits">
         <FILE id="Bwebsh" name="splits_0_build_ChoiceName.h" compile="0" resource="0"
               file="Source/splits/splits_0_build_ChoiceName.h"/>

@@ -18,7 +18,7 @@ VoiceSlots::VoiceSlots(ExposedParameters* exposedParams, UnexposedParameters* un
 		voiceSlotButtons.push_back(std::make_unique<VoiceSlotRadioButton>(slotNum, unexposedParams));
 		voiceSlotButtons[slotNum]->onClick = [this, slotNum] { selectedSlot = slotNum; };
 		auto col_x{ (slotNum / 10) * GUI::voiceSlotRadioButtton_w };
-		auto row_y{ (slotNum % 10) * GUI::voiceSlotRadioButtton_h };
+		auto row_y{ (slotNum % 10) * GUI::voiceSlotAndAllowChoiceRadioButtton_h };
 		voiceSlotButtons[slotNum]->setTopLeftPosition(col_x, row_y);
 		addAndMakeVisible(voiceSlotButtons[slotNum].get());
 	}
@@ -37,7 +37,7 @@ VoiceSlots::VoiceSlots(ExposedParameters* exposedParams, UnexposedParameters* un
 		auto newName{ voiceNameEditor.getText() };
 		voicesBank->setNameOfVoiceInSlot(newName, selectedSlot);
 	};
-	voiceNameEditor.setBounds(voiceNameInset, 0, GUI::voiceSlotRadioButtton_w - voiceNameInset, GUI::voiceSlotRadioButtton_h);
+	voiceNameEditor.setBounds(voiceNameInset, 0, GUI::voiceSlotRadioButtton_w - voiceNameInset, GUI::voiceSlotAndAllowChoiceRadioButtton_h);
 	addAndMakeVisible(voiceNameEditor);
 
 	setSize(voiceSlots_w, voiceSlots_h);
@@ -79,7 +79,7 @@ void VoiceSlots::pushSelectedVoiceToHardware() {
 void VoiceSlots::showVoiceNameEditorForSelectedSlot() {
 	if (selectedSlot < VCS::numberOfSlotsInVoicesBank) {
 		auto slot_x{ (selectedSlot / 10) * GUI::voiceSlotRadioButtton_w };
-		auto slot_y{ (selectedSlot % 10) * GUI::voiceSlotRadioButtton_h };
+		auto slot_y{ (selectedSlot % 10) * GUI::voiceSlotAndAllowChoiceRadioButtton_h };
 		voiceNameEditor.setTopLeftPosition(slot_x + voiceNameInset, slot_y);
 		voiceNameEditor.showEditor();
 	}

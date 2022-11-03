@@ -213,6 +213,12 @@
         <FILE id="pxPpzj" name="midi_1_SysExMessages.h" compile="0" resource="0"
               file="Source/midi/midi_1_SysExMessages.h"/>
       </GROUP>
+      <GROUP id="{DE53BEC1-0E96-C507-2E44-797E08180C91}" name="randomization">
+        <FILE id="t43jlG" name="rndm_0_comp_AllowChoiceToggles.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_0_comp_AllowChoiceToggles.cpp"/>
+        <FILE id="nbnMuy" name="rndm_0_comp_AllowChoiceToggles.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_comp_AllowChoiceToggles.h"/>
+      </GROUP>
       <GROUP id="{4D51FC72-E327-166D-BDB8-46949E9FB675}" name="unexposedParameters">
         <FILE id="o7Ax01" name="up_0_tree_TooltipsOptions.cpp" compile="1"
               resource="0" file="Source/unexposedParameters/up_0_tree_TooltipsOptions.cpp"/>

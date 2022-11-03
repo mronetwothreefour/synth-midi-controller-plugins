@@ -42,6 +42,7 @@ namespace P_600_G_Constants
 		static const Identifier comp_TextEditorForTransmitTime{ "comp_TextEditorForTransmitTime" };
 		static const Identifier comp_TextEditorForVoiceName{ "comp_TextEditorForVoiceName" };
 		static const Identifier comp_TextEditorForVoiceNumberSlider{ "comp_TextEditorForVoiceNumberSlider" };
+		static const Identifier comp_ToggleAllow_Choice_{ "comp_ToggleAllow_Choice_" };
 		static const Identifier comp_VoiceNumberSlider{ "comp_VoiceNumberSlider" };
 
 		static const Identifier ep_00_Osc_A_Freq{ "ep_00_Osc_A_Freq" };
@@ -84,20 +85,26 @@ namespace P_600_G_Constants
 
 		static const Identifier label_FolderNameEditor{ "label_FolderNameEditor" };
 
+		static const Identifier property_AllowedChoicesBackground_x{ "property_AllowedChoicesBackground_x" };
+		static const Identifier property_AllowedChoicesBackground_y{ "property_AllowedChoicesBackground_y" };
 		static const Identifier property_Center_x{ "property_ControlCenter_x" };
 		static const Identifier property_Center_y{ "property_ControlCenter_y" };
 		static const Identifier property_ControlType{ "property_ControlType" };
 		static const Identifier property_DefaultChoice{ "property_DefaultChoice" };
 		static const Identifier property_Description{ "property_Description" };
 		static const Identifier property_ExposedName{ "property_ExposedName" };
+		static const Identifier property_FirstAllowChoiceToggleRow{ "property_FirstAllowChoiceToggleRow" };
 		static const Identifier property_FirstBitIndex{ "property_FirstBitIndex" };
 		static const Identifier property_FirstNybbleIndex{ "property_FirstNybbleIndex" };
 		static const Identifier property_Height{ "property_Height" };
 		static const Identifier property_KnobTextEditorType{ "property_KnobTextEditorType" };
 		static const Identifier property_NumberOfBits{ "property_NumberOfBits" };
+		static const Identifier property_NumberOfAllowChoiceToggleColumns{ "property_NumberOfAllowChoiceToggleColumns" };
+		static const Identifier property_NumberOfAllowChoiceToggleRows{ "property_NumberOfAllowChoiceToggleRows" };
 		static const Identifier property_NumberOfChoices{ "property_NumberOfChoices" };
 		static const Identifier property_ParamID{ "property_ParamID" };
 		static const Identifier property_Width{ "property_Width" };
+		static const Identifier property_WidthOfAllowChoiceToggleColumn{ "property_WidthOfAllowChoiceToggleColumn" };
 
 		static const Identifier rndm_AllowedChoices{ "rndm_AllowedChoices" };
 		static const Identifier rndm_NoChoiceIsAllowed{ "rndm_NoChoiceIsAllowed" };

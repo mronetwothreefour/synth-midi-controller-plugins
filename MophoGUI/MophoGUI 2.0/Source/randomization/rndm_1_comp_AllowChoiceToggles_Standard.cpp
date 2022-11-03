@@ -20,10 +20,12 @@ AllowChoiceToggles_Standard::AllowChoiceToggles_Standard(uint8 paramIndex, Expos
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	jassert(info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard);
+
 	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
 		allowedChoiceToggles[choiceNum]->setName(buildChoiceName(choiceNum));
 		allowedChoiceToggles[choiceNum]->setTooltip(buildTooltip());
 	}
+
 	restoreToggles();
 }
 

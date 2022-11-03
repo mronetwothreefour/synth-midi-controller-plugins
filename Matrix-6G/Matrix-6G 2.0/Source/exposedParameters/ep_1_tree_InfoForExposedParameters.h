@@ -29,6 +29,12 @@ public:
 	StringArray choiceNamesListFor(const uint8 paramIndex) const;
 	StringArray verboseChoiceNamesListFor(const uint8 paramIndex) const;
 	int mouseDragSensitivityFor(const uint8 paramIndex) const;
+	int numberOfAllowChoiceToggleColumnsFor(const uint8 paramIndex) const;
+	int widthOfAllowChoiceToggleColumnFor(const uint8 paramIndex) const;
+	int numberOfAllowChoiceToggleRowsFor(const uint8 paramIndex) const;
+	int firstAllowChoiceToggleRowFor(const uint8 paramIndex) const;
+	int allowedChoicesBackground_x_For(const uint8 paramIndex) const;
+	int allowedChoicesBackground_y_For(const uint8 paramIndex) const;
 
 private:
 	//==============================================================================

@@ -34,7 +34,7 @@ VoiceSlotRadioButton::VoiceSlotRadioButton(const uint8 slotNum, UnexposedParamet
 	}
 	auto voiceName{ voicesBank->nameOfVoiceInSlot(slotNum) };
 	setName(slotNumString + " " + voiceName);
-	setSize(GUI::voiceSlotRadioButtton_w, GUI::voiceSlotRadioButtton_h);
+	setSize(GUI::voiceSlotRadioButtton_w, GUI::voiceSlotAndAllowChoiceRadioButtton_h);
 }
 
 void VoiceSlotRadioButton::valueChanged(Value& /*value*/) {

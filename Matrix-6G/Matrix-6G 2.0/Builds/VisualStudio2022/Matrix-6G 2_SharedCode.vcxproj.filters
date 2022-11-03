@@ -38,6 +38,9 @@
     <Filter Include="Matrix-6G 2\Source\midi">
       <UniqueIdentifier>{AC46BDE4-178E-D14E-BB04-E4CFAEAA8B5F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G 2\Source\randomization">
+      <UniqueIdentifier>{158BEF88-4657-559D-743E-DA2F3522B1C0}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Matrix-6G 2\Source\splits">
       <UniqueIdentifier>{E7D414DC-2D7D-F1E3-FA7D-885640547D07}</UniqueIdentifier>
     </Filter>
@@ -756,6 +759,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_1_SysExMessages.cpp">
       <Filter>Matrix-6G 2\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.cpp">
+      <Filter>Matrix-6G 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\splits\splits_0_comp_TextEditorForSplitParamSlider.cpp">
       <Filter>Matrix-6G 2\Source\splits</Filter>
@@ -3344,6 +3350,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_1_SysExMessages.h">
       <Filter>Matrix-6G 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.h">
+      <Filter>Matrix-6G 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\splits\splits_0_build_ChoiceName.h">
       <Filter>Matrix-6G 2\Source\splits</Filter>

@@ -15,7 +15,7 @@ namespace P_600_G_Constants
 		const int switch_3_Pole_h{ 48 };
 		const int switch_w{ 20 };
 		const int voiceSlotRadioButtton_w{ 135 };
-		const int voiceSlotRadioButtton_h{ 16 };
+		const int voiceSlotAndAllowChoiceRadioButtton_h{ 16 };
 
 		const Rectangle<int> bounds_ImportExport{ 451, 21, 500, 350 };
 		const Rectangle<int> bounds_NewFolder{ 591, 117, 220, 133 };

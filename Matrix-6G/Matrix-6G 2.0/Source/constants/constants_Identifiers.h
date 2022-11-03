@@ -57,6 +57,7 @@ namespace Matrix_6G_Constants
 		static const Identifier comp_SplitNameEditor{ "comp_SplitNameEditor" };
 		static const Identifier comp_TabbedComponentForVoicesBanks{ "comp_TabbedComponentForVoicesBanks" };
 		static const Identifier comp_TextEditorForSlider{ "comp_TextEditorForSlider" };
+		static const Identifier comp_ToggleAllow_Choice_{ "comp_ToggleAllow_Choice_" };
 		static const Identifier comp_VoiceNameEditor{ "comp_VoiceNameEditor" };
 
 		static const Identifier currentVoice_Name{ "currentVoice_Name" };
@@ -178,6 +179,8 @@ namespace Matrix_6G_Constants
 		static const Identifier lbl_EditLabel{ "lbl_EditLabel" };
 		static const Identifier lbl_FolderNameEditor{ "lbl_FolderNameEditor" };
 
+		static const Identifier property_AllowedChoicesBackground_x{ "property_AllowedChoicesBackground_x" };
+		static const Identifier property_AllowedChoicesBackground_y{ "property_AllowedChoicesBackground_y" };
 		static const Identifier property_Center_x{ "property_ControlCenter_x" };
 		static const Identifier property_Center_y{ "property_ControlCenter_y" };
 		static const Identifier property_ControlType{ "property_ControlType" };
@@ -186,11 +189,15 @@ namespace Matrix_6G_Constants
 		static const Identifier property_Description{ "property_Description" };
 		static const Identifier property_RangeType{ "property_RangeType" };
 		static const Identifier property_ExposedName{ "property_ExposedName" };
+		static const Identifier property_FirstAllowChoiceToggleRow{ "property_FirstAllowChoiceToggleRow" };
+		static const Identifier property_NumberOfAllowChoiceToggleColumns{ "property_NumberOfAllowChoiceToggleColumns" };
+		static const Identifier property_NumberOfAllowChoiceToggleRows{ "property_NumberOfAllowChoiceToggleRows" };
 		static const Identifier property_NumberOfChoices{ "property_NumberOfChoices" };
 		static const Identifier property_ParamNum{ "property_ParamNum" };
 		static const Identifier property_ParamID{ "property_ParamID" };
 		static const Identifier property_SliderTextEditorType{ "property_SliderTextEditorType" };
 		static const Identifier property_Width{ "property_Width" };
+		static const Identifier property_WidthOfAllowChoiceToggleColumn{ "property_WidthOfAllowChoiceToggleColumn" };
 
 		static const Identifier rndm_AllowedChoices{ "rndm_AllowedChoices" };
 		static const Identifier rndm_NoChoiceIsAllowed{ "rndm_NoChoiceIsAllowed" };

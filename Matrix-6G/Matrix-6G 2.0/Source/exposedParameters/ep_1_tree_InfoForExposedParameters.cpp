@@ -1275,3 +1275,39 @@ int InfoForExposedParameters::mouseDragSensitivityFor(const uint8 paramIndex) co
 	jassert(paramIndex < EP::numberOfExposedParams);
 	return 80 + roundToInt(numberOfChoicesFor(paramIndex) / 2);
 }
+
+int InfoForExposedParameters::numberOfAllowChoiceToggleColumnsFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	return (int)paramTree.getProperty(ID::property_NumberOfAllowChoiceToggleColumns);
+}
+
+int InfoForExposedParameters::widthOfAllowChoiceToggleColumnFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	return (int)paramTree.getProperty(ID::property_WidthOfAllowChoiceToggleColumn);
+}
+
+int InfoForExposedParameters::numberOfAllowChoiceToggleRowsFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	return (int)paramTree.getProperty(ID::property_NumberOfAllowChoiceToggleRows);
+}
+
+int InfoForExposedParameters::firstAllowChoiceToggleRowFor(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	return (int)paramTree.getProperty(ID::property_FirstAllowChoiceToggleRow);
+}
+
+int InfoForExposedParameters::allowedChoicesBackground_x_For(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	return (int)paramTree.getProperty(ID::property_AllowedChoicesBackground_x);
+}
+
+int InfoForExposedParameters::allowedChoicesBackground_y_For(const uint8 paramIndex) const {
+	jassert(paramIndex < EP::numberOfExposedParams);
+	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
+	return (int)paramTree.getProperty(ID::property_AllowedChoicesBackground_y);
+}

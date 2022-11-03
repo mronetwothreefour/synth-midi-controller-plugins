@@ -24,7 +24,7 @@ class VoiceSlots :
     std::vector<std::unique_ptr<VoiceSlotRadioButton>> voiceSlotButtons;
     Label voiceNameEditor;
     const int voiceSlots_w{ 10 * GUI::voiceSlotRadioButtton_w };
-    const int voiceSlots_h{ 10 * GUI::voiceSlotRadioButtton_h };
+    const int voiceSlots_h{ 10 * GUI::voiceSlotAndAllowChoiceRadioButtton_h };
     const int voiceNameInset{ 17 };
 
 public:

@@ -32,6 +32,9 @@
     <Filter Include="P-600-G 2\Source\midi">
       <UniqueIdentifier>{5339B3AF-B900-4F76-6894-9907E8C79167}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G 2\Source\randomization">
+      <UniqueIdentifier>{8B83A7A5-4A49-5A0B-3A4E-1721E9B68DBF}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G 2\Source\unexposedParameters">
       <UniqueIdentifier>{621C7D79-7D45-2234-4F43-FC7D5871E018}</UniqueIdentifier>
     </Filter>
@@ -678,6 +681,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.cpp">
       <Filter>P-600-G 2\Source\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles.cpp">
+      <Filter>P-600-G 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp">
       <Filter>P-600-G 2\Source\unexposedParameters</Filter>
@@ -3140,6 +3146,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\midi\midi_1_SysExMessages.h">
       <Filter>P-600-G 2\Source\midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles.h">
+      <Filter>P-600-G 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h">
       <Filter>P-600-G 2\Source\unexposedParameters</Filter>
