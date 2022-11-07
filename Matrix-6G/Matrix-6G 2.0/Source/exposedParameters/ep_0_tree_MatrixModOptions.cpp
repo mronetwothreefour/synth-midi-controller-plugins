@@ -28,43 +28,56 @@ MatrixModOptions::MatrixModOptions(UndoManager* undoManager) :
 			defaultSource = 20;
 			defaultDest = 8;
 		}
-		matrixModOptionsTree.setProperty("matrixMod_Mod_" + (String)modNum + "_Source", defaultSource, nullptr);
-		matrixModOptionsTree.setProperty("matrixMod_Mod_" + (String)modNum + "_Amount", 63, nullptr);
-		matrixModOptionsTree.setProperty("matrixMod_Mod_" + (String)modNum + "_Dest", defaultDest, nullptr);
+		matrixModOptionsTree.setProperty(buildMatrixModParamID(modNum, MM_Type::source), defaultSource, nullptr);
+		matrixModOptionsTree.setProperty(buildMatrixModParamID(modNum, MM_Type::amount), 63, nullptr);
+		matrixModOptionsTree.setProperty(buildMatrixModParamID(modNum, MM_Type::destination), defaultDest, nullptr);
 	}
 }
 
+Identifier MatrixModOptions::buildMatrixModParamID(int modNum, MM_Type paramType) {
+	jassert(modNum > -1 && modNum < MMOD::numberOfModulators);
+	auto modID{ "matrixMod_Mod_" + (String)modNum };
+	switch (paramType)
+	{
+	case MM_Type::source: modID += "_Source"; break;
+	case MM_Type::amount: modID += "_Amount"; break;
+	case MM_Type::destination: modID += "_Dest"; break;
+	default: break;
+	}
+	return Identifier{ modID };
+}
+
 const uint8 MatrixModOptions::modSource(int modNum) {
-	return (uint8)(int)matrixModOptionsTree.getProperty("matrixMod_Mod_" + (String)modNum + "_Source");
+	return (uint8)(int)matrixModOptionsTree.getProperty(buildMatrixModParamID(modNum, MM_Type::source));
 }
 
 void MatrixModOptions::setModSource(int modNum, uint8 newSource) {
 	jassert(newSource < MMOD::numberOfSourceChoices);
 	jassert(modNum < MMOD::numberOfModulators);
 	undoManager->beginNewTransaction();
-	matrixModOptionsTree.setProperty("matrixMod_Mod_" + (String)modNum + "_Source", newSource, undoManager);
+	matrixModOptionsTree.setProperty(buildMatrixModParamID(modNum, MM_Type::source), newSource, undoManager);
 }
 
 const uint8 MatrixModOptions::modAmount(int modNum) {
-	return (uint8)(int)matrixModOptionsTree.getProperty("matrixMod_Mod_" + (String)modNum + "_Amount");
+	return (uint8)(int)matrixModOptionsTree.getProperty(buildMatrixModParamID(modNum, MM_Type::amount));
 }
 
 void MatrixModOptions::setModAmount(int modNum, uint8 newAmount) {
 	jassert(newAmount < MMOD::numberOfAmountChoices);
 	jassert(modNum < MMOD::numberOfModulators);
 	undoManager->beginNewTransaction();
-	matrixModOptionsTree.setProperty("matrixMod_Mod_" + (String)modNum + "_Amount", newAmount, undoManager);
+	matrixModOptionsTree.setProperty(buildMatrixModParamID(modNum, MM_Type::amount), newAmount, undoManager);
 }
 
 const uint8 MatrixModOptions::modDest(int modNum) {
-	return (uint8)(int)matrixModOptionsTree.getProperty("matrixMod_Mod_" + (String)modNum + "_Dest");
+	return (uint8)(int)matrixModOptionsTree.getProperty(buildMatrixModParamID(modNum, MM_Type::destination));
 }
 
 void MatrixModOptions::setModDest(int modNum, uint8 newDest) {
 	jassert(newDest < MMOD::numberOfDestChoices);
 	jassert(modNum < MMOD::numberOfModulators);
 	undoManager->beginNewTransaction();
-	matrixModOptionsTree.setProperty("matrixMod_Mod_" + (String)modNum + "_Dest", newDest, undoManager);
+	matrixModOptionsTree.setProperty(buildMatrixModParamID(modNum, MM_Type::destination), newDest, undoManager);
 }
 
 Value MatrixModOptions::getMatrixModPropertyAsValue(const Identifier propertyID) {

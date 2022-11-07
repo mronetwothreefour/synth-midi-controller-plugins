@@ -1,16 +1,18 @@
 #include "mMod_1_comp_SliderForMatrixModAmount.h"
 
 #include "mMod_0_build_ChoiceName.h"
-#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
+#include "../constants/constants_Enum.h"
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_MatrixMod.h"
+#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../gui/gui_build_LED_Path.h"
 #include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 using namespace Matrix_6G_Constants;
 using ChoiceName = MatrixModParamChoiceName;
+using MM_Type = MatrixModParamType;
 
 SliderForMatrixModAmount::SliderForMatrixModAmount(int modNum, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	RotarySliderWithMouseWheelMoveOverride{ &exposedParams->undoManager },
@@ -18,7 +20,8 @@ SliderForMatrixModAmount::SliderForMatrixModAmount(int modNum, ExposedParameters
 	matrixModOptions{ exposedParams->matrixModOptions.get() },
 	textEditor{ modNum, matrixModOptions, tooltips }
 {
-	modAmountAsValue = matrixModOptions->getMatrixModPropertyAsValue("matrixMod_Mod_" + (String)modNum + "_Amount");
+	auto modAmountParamID{ matrixModOptions->buildMatrixModParamID(modNum, MM_Type::amount) };
+	modAmountAsValue = matrixModOptions->getMatrixModPropertyAsValue(modAmountParamID);
 	modAmountAsValue.addListener(this);
 
 	setRange(0.0, (double)(MMOD::numberOfAmountChoices - 1), 1.0);

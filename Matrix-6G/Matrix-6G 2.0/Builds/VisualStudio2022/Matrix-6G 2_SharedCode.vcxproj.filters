@@ -676,10 +676,10 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\exposedParameters\ep_2_func_ExposedParamsRandomizationMethods.cpp">
+    <ClCompile Include="..\..\Source\exposedParameters\ep_2_func_ParamRandomizationMethods.cpp">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\exposedParameters\ep_2_tree_ExposedParamsRandomizationOptions.cpp">
+    <ClCompile Include="..\..\Source\exposedParameters\ep_2_tree_ParamRandomizationOptions.cpp">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.cpp">
@@ -761,6 +761,9 @@
       <Filter>Matrix-6G 2\Source\midi</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.cpp">
+      <Filter>Matrix-6G 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox.cpp">
       <Filter>Matrix-6G 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\splits\splits_0_comp_TextEditorForSplitParamSlider.cpp">
@@ -3240,10 +3243,10 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_2_build_ExposedParamsLayout.h">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\exposedParameters\ep_2_func_ExposedParamsRandomizationMethods.h">
+    <ClInclude Include="..\..\Source\exposedParameters\ep_2_func_ParamRandomizationMethods.h">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\exposedParameters\ep_2_tree_ExposedParamsRandomizationOptions.h">
+    <ClInclude Include="..\..\Source\exposedParameters\ep_2_tree_ParamRandomizationOptions.h">
       <Filter>Matrix-6G 2\Source\exposedParameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h">
@@ -3352,6 +3355,9 @@
       <Filter>Matrix-6G 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.h">
+      <Filter>Matrix-6G 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox.h">
       <Filter>Matrix-6G 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\splits\splits_0_build_ChoiceName.h">
@@ -6197,6 +6203,18 @@
     <None Include="..\..\BinaryResources\buttons\btn_Expt_Up.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupLock_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupLock_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupUnlock_Dn.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupUnlock_Up.png">
+      <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
+    </None>
     <None Include="..\..\BinaryResources\buttons\btn_Import_Dn.png">
       <Filter>Matrix-6G 2\BinaryResources\buttons</Filter>
     </None>
@@ -6411,6 +6429,9 @@
       <Filter>Matrix-6G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_VoicesBanksHeader.png">
+      <Filter>Matrix-6G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\icon_Locked.png">
       <Filter>Matrix-6G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF">

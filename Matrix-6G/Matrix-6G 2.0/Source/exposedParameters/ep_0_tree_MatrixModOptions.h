@@ -2,6 +2,11 @@
 
 #include <JuceHeader.h>
 
+#include "../constants/constants_Enum.h"
+
+using namespace Matrix_6G_Constants;
+using MM_Type = MatrixModParamType;
+
 class MatrixModOptions
 {
 	ValueTree matrixModOptionsTree;
@@ -11,6 +16,8 @@ public:
 	MatrixModOptions() = delete;
 
 	explicit MatrixModOptions(UndoManager* undoManager);
+
+	Identifier buildMatrixModParamID(int modNum, MM_Type paramType);
 
 	const uint8 modSource(int modNum);
 	void setModSource(int modNum, uint8 newSource);

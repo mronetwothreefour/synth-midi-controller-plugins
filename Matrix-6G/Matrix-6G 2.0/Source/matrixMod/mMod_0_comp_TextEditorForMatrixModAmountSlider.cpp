@@ -1,14 +1,18 @@
 #include "mMod_0_comp_TextEditorForMatrixModAmountSlider.h"
 
+#include "../constants/constants_Enum.h"
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_0_tree_MatrixModOptions.h"
 #include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
+using MM_Type = MatrixModParamType;
+
 TextEditorForMatrixModAmountSlider::TextEditorForMatrixModAmountSlider(int modNum, MatrixModOptions* matrixModOptions, TooltipsOptions* tooltips)
 {
-	modAmountAsValue = matrixModOptions->getMatrixModPropertyAsValue("matrixMod_Mod_" + (String)modNum + "_Amount");
+	auto modAmountParamID{ matrixModOptions->buildMatrixModParamID(modNum, MM_Type::amount) };
+	modAmountAsValue = matrixModOptions->getMatrixModPropertyAsValue(modAmountParamID);
 	modAmountAsValue.addListener(this);
 
 	setInterceptsMouseClicks(false, true);

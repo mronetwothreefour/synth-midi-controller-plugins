@@ -47,7 +47,7 @@ void ExposedParamChangesHandler::parameterValueChanged(int changedParamIndex, fl
 		//	randomize->randomizeAllUnlockedParameters();
 		//else {
 		//	auto paramIndex{ uint8(changedParamIndex - (EP::numberOfExposedParams + 1)) };
-		//	randomize->randomizeParameter(paramIndex);
+		//	randomize->randomizeExposedParameter(paramIndex);
 		//}
 	}
 }

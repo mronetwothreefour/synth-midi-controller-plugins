@@ -156,8 +156,8 @@
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_tree_CurrentVoiceOptions.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_0_tree_MatrixModOptions.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.cpp"/>
-    <ClCompile Include="..\..\Source\exposedParameters\ep_2_func_ExposedParamsRandomizationMethods.cpp"/>
-    <ClCompile Include="..\..\Source\exposedParameters\ep_2_tree_ExposedParamsRandomizationOptions.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_2_func_ParamRandomizationMethods.cpp"/>
+    <ClCompile Include="..\..\Source\exposedParameters\ep_2_tree_ParamRandomizationOptions.cpp"/>
     <ClCompile Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.cpp"/>
     <ClCompile Include="..\..\Source\global\global_0_comp_TextEditorForGlobalParamSlider.cpp"/>
     <ClCompile Include="..\..\Source\global\global_0_comp_TextEditorForVoiceMapSlider.cpp"/>
@@ -185,6 +185,7 @@
     <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_1_SysExMessages.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox.cpp"/>
     <ClCompile Include="..\..\Source\splits\splits_0_comp_TextEditorForSplitParamSlider.cpp"/>
     <ClCompile Include="..\..\Source\splits\splits_0_tree_SplitsBank.cpp"/>
     <ClCompile Include="..\..\Source\splits\splits_1_comp_ComboBoxForSplitParam.cpp"/>
@@ -2394,8 +2395,8 @@
     <ClInclude Include="..\..\Source\exposedParameters\ep_0_tree_MatrixModOptions.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_1_tree_InfoForExposedParameters.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_2_build_ExposedParamsLayout.h"/>
-    <ClInclude Include="..\..\Source\exposedParameters\ep_2_func_ExposedParamsRandomizationMethods.h"/>
-    <ClInclude Include="..\..\Source\exposedParameters\ep_2_tree_ExposedParamsRandomizationOptions.h"/>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_2_func_ParamRandomizationMethods.h"/>
+    <ClInclude Include="..\..\Source\exposedParameters\ep_2_tree_ParamRandomizationOptions.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_3_facade_ExposedParameters.h"/>
     <ClInclude Include="..\..\Source\exposedParameters\ep_4_handle_ExposedParamChanges.h"/>
     <ClInclude Include="..\..\Source\global\global_0_build_ChoiceName.h"/>
@@ -2432,6 +2433,7 @@
     <ClInclude Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.h"/>
     <ClInclude Include="..\..\Source\midi\midi_1_SysExMessages.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox.h"/>
     <ClInclude Include="..\..\Source\splits\splits_0_build_ChoiceName.h"/>
     <ClInclude Include="..\..\Source\splits\splits_0_comp_TextEditorForSplitParamSlider.h"/>
     <ClInclude Include="..\..\Source\splits\splits_0_tree_SplitsBank.h"/>
@@ -3381,6 +3383,10 @@
     <None Include="..\..\BinaryResources\buttons\btn_Export_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Expt_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Expt_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupLock_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupLock_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupUnlock_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupUnlock_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Import_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Import_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Impt_Dn.png"/>
@@ -3453,6 +3459,7 @@
     <None Include="..\..\BinaryResources\bkgrnd_VoicesBankFooter_Custom.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_VoicesBankFooter_Factory.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_VoicesBanksHeader.png"/>
+    <None Include="..\..\BinaryResources\icon_Locked.png"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF"/>
     <None Include="..\..\..\..\..\Juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>

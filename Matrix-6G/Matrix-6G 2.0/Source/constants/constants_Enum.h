@@ -77,6 +77,13 @@ namespace Matrix_6G_Constants
 	};
 
 
+	const enum class MatrixModParamType {
+		source = 0,
+		amount,
+		destination
+	};
+
+
 	const enum class RangeType {
 		unsignedValue = 0,
 		signed_6_bitValue,

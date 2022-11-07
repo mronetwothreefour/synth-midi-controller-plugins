@@ -2,9 +2,9 @@
 
 #include <JuceHeader.h>
 // TODO: randomization triggers
-//#include "ep_2_func_ExposedParamsRandomizationMethods.h"
+//#include "ep_2_func_ParamRandomizationMethods.h"
 
-//using Randomize = ExposedParamsRandomizationMethods;
+//using Randomize = ParamRandomizationMethods;
 
 class ExposedParameters;
 class InfoForExposedParameters;

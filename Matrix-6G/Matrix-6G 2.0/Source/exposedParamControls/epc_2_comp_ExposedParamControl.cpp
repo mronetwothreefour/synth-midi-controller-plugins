@@ -77,7 +77,7 @@ void ExposedParamControl::attachControlToExposedParameter() const {
 void ExposedParamControl::mouseDown(const MouseEvent& /*event*/) {
 	// TODO:
 	//if (event.mods == ModifierKeys::rightButtonModifier)
-	//	exposedParams->randomize->randomizeParameter(paramIndex);
+	//	exposedParams->randomize->randomizeExposedParameter(paramIndex);
 }
 
 void ExposedParamControl::deleteAttachmentBeforeControlToPreventMemLeak() const {

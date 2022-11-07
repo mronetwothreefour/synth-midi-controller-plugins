@@ -1,22 +1,25 @@
 #include "mMod_1_comp_ComboBoxForMatrixModSource.h"
 
 #include "mMod_0_build_ChoiceName.h"
-#include "../exposedParameters/ep_0_tree_MatrixModOptions.h"
+#include "../constants/constants_Enum.h"
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_MatrixMod.h"
+#include "../exposedParameters/ep_0_tree_MatrixModOptions.h"
 #include "../gui/gui_build_LED_Path.h"
 #include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 using namespace Matrix_6G_Constants;
 using ChoiceName = MatrixModParamChoiceName;
+using MM_Type = MatrixModParamType;
 
 ComboBoxForMatrixModSource::ComboBoxForMatrixModSource(int modNum, MatrixModOptions* matrixModOptions, TooltipsOptions* tooltips) :
 	modNum{ modNum },
 	matrixModOptions{ matrixModOptions }
 {
-	modSourceValue = matrixModOptions->getMatrixModPropertyAsValue("matrixMod_Mod_" + (String)modNum + "_Source");
+	auto modSourceParamID{ matrixModOptions->buildMatrixModParamID(modNum, MM_Type::source) };
+	modSourceValue = matrixModOptions->getMatrixModPropertyAsValue(modSourceParamID);
 	modSourceValue.addListener(this);
 
 	StringArray choiceNamesList{};

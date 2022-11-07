@@ -6,12 +6,12 @@
 #include "ep_0_tree_MatrixModOptions.h"
 #include "ep_1_tree_InfoForExposedParameters.h"
 #include "ep_2_build_ExposedParamsLayout.h"
-#include "ep_2_func_ExposedParamsRandomizationMethods.h"
-#include "ep_2_tree_ExposedParamsRandomizationOptions.h"
+#include "ep_2_func_ParamRandomizationMethods.h"
+#include "ep_2_tree_ParamRandomizationOptions.h"
 
 using Layout = ExposedParametersLayout;
-using Randomize = ExposedParamsRandomizationMethods;
-using Randomization = ExposedParamsRandomizationOptions;
+using Randomize = ParamRandomizationMethods;
+using Randomization = ParamRandomizationOptions;
 using State = AudioProcessorValueTreeState;
 
 class UnexposedParameters;
@@ -34,7 +34,7 @@ public:
 		info{ new InfoForExposedParameters },
 		matrixModOptions{ new MatrixModOptions{ &undoManager } },
 		state{ new State{ *processor, &undoManager, "exposedParams", Layout::build(info.get()) } },
-		randomization{ new Randomization{ info.get() } },
+		randomization{ new Randomization{ info.get(), matrixModOptions.get() }},
 		randomize{ new Randomize{ this, unexposedParams } }
 	{
 	}
