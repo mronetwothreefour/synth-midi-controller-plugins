@@ -239,6 +239,9 @@ namespace BinaryData
     extern const char*   lbl_PushingEntireBank_png;
     const int            lbl_PushingEntireBank_pngSize = 2512;
 
+    extern const char*   bkgrnd_RepeatChoicesComboBox_png;
+    const int            bkgrnd_RepeatChoicesComboBox_pngSize = 744;
+
     extern const char*   bkgrnd_FileNotValidAlert_png;
     const int            bkgrnd_FileNotValidAlert_pngSize = 1294;
 
@@ -291,7 +294,7 @@ namespace BinaryData
     const int            SWISSCL_TTFSize = 35064;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 94;
+    const int namedResourceListSize = 95;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

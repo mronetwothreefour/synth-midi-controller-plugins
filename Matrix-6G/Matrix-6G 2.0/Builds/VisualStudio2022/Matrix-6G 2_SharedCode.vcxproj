@@ -185,7 +185,8 @@
     <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_1_SysExMessages.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.cpp"/>
-    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox_ExposedParam.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox_MatrixModParam.cpp"/>
     <ClCompile Include="..\..\Source\splits\splits_0_comp_TextEditorForSplitParamSlider.cpp"/>
     <ClCompile Include="..\..\Source\splits\splits_0_tree_SplitsBank.cpp"/>
     <ClCompile Include="..\..\Source\splits\splits_1_comp_ComboBoxForSplitParam.cpp"/>
@@ -2433,7 +2434,10 @@
     <ClInclude Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.h"/>
     <ClInclude Include="..\..\Source\midi\midi_1_SysExMessages.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.h"/>
-    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox_ExposedParam.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox_MatrixModParam.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_LockToggle_ExposedParam.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_LockToggle_MatrixModParam.h"/>
     <ClInclude Include="..\..\Source\splits\splits_0_build_ChoiceName.h"/>
     <ClInclude Include="..\..\Source\splits\splits_0_comp_TextEditorForSplitParamSlider.h"/>
     <ClInclude Include="..\..\Source\splits\splits_0_tree_SplitsBank.h"/>
@@ -3445,6 +3449,7 @@
     <None Include="..\..\BinaryResources\labels\lbl_ImportVoicesBank.png"/>
     <None Include="..\..\BinaryResources\labels\lbl_PullingEntireBank.png"/>
     <None Include="..\..\BinaryResources\labels\lbl_PushingEntireBank.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_RepeatChoicesComboBox.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_FileNotValidAlert.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_FileOverwriteDialog.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_FolderExistsAlert.png"/>

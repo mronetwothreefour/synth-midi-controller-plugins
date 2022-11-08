@@ -763,7 +763,10 @@
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.cpp">
       <Filter>Matrix-6G 2\Source\randomization</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox.cpp">
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox_ExposedParam.cpp">
+      <Filter>Matrix-6G 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox_MatrixModParam.cpp">
       <Filter>Matrix-6G 2\Source\randomization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\splits\splits_0_comp_TextEditorForSplitParamSlider.cpp">
@@ -3357,7 +3360,16 @@
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.h">
       <Filter>Matrix-6G 2\Source\randomization</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox.h">
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox_ExposedParam.h">
+      <Filter>Matrix-6G 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox_MatrixModParam.h">
+      <Filter>Matrix-6G 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_LockToggle_ExposedParam.h">
+      <Filter>Matrix-6G 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_LockToggle_MatrixModParam.h">
       <Filter>Matrix-6G 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\splits\splits_0_build_ChoiceName.h">
@@ -6388,6 +6400,9 @@
     </None>
     <None Include="..\..\BinaryResources\labels\lbl_PushingEntireBank.png">
       <Filter>Matrix-6G 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_RepeatChoicesComboBox.png">
+      <Filter>Matrix-6G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_FileNotValidAlert.png">
       <Filter>Matrix-6G 2\BinaryResources</Filter>

@@ -29,6 +29,8 @@ namespace Matrix_6G_Constants
 		const int ledDisplayLeftSideInset{ 3 };
 		const int ledDisplayRightSideInset{ 1 };
 		const int ledDisplayCharacter_w{ 11 };
+		const int lockAndUnlockIcons_h{ 20 };
+		const int lockAndUnlockIcons_w{ 14 };
 		const int matrixModComboBox_w{ 82 };
 		const int matrixModSlider_w{ 40 };
 		const int splitSlotRadioButtton_w{ 62 };

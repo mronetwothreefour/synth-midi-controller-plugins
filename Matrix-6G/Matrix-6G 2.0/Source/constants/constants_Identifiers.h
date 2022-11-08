@@ -58,6 +58,7 @@ namespace Matrix_6G_Constants
 		static const Identifier comp_TabbedComponentForVoicesBanks{ "comp_TabbedComponentForVoicesBanks" };
 		static const Identifier comp_TextEditorForSlider{ "comp_TextEditorForSlider" };
 		static const Identifier comp_ToggleAllow_Choice_{ "comp_ToggleAllow_Choice_" };
+		static const Identifier comp_LockToggle{ "comp_LockToggle" };
 		static const Identifier comp_VoiceNameEditor{ "comp_VoiceNameEditor" };
 
 		static const Identifier currentVoice_Name{ "currentVoice_Name" };

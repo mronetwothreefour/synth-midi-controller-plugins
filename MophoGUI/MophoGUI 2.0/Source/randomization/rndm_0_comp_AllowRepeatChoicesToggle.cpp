@@ -30,20 +30,19 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, ExposedPara
 	toggle_AllowRepeatChoices.addShortcut(KeyPress{ 'r', ModifierKeys::ctrlModifier, 0 });
 	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	if (tooltips->shouldShowDescription()) {
-		auto numberOfChoices{ info->numberOfChoicesFor(paramIndex) };
 		String tip{ "" };
 		tip += "Toggles whether the current setting is allowed\n";
 		tip += "when a new setting is randomly generated. If it\n";
 		tip += "is not, consecutive randomization operations\n";
 		tip += "can never produce the same setting. ";
-		if (numberOfChoices > 2) {
-			tip += "Obviously, if\n";
-			tip += "there is only one allowed setting then the\n";
+		if (allowedChoicesType != AllowedChoicesType::binary) {
+			tip += "Obviously,\n";
+			tip += "if there is only one allowed setting then the\n";
 			tip += "same setting is always going to be produced.";
 		}
 		else {
-			tip += "This means that\n";
-			tip += "the toggle will simply alternate between\n";
+			tip += "This means\n";
+			tip += "that the toggle will simply alternate between\n";
 			tip += "states with every randomization.\n";
 			tip += "Shortcut key: CTRL+R";
 		}

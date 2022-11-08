@@ -37,6 +37,14 @@
               file="BinaryResources/buttons/btn_Export_Up.png"/>
         <FILE id="OxdSWK" name="btn_Expt_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Expt_Dn.png"/>
         <FILE id="OOtyg8" name="btn_Expt_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Expt_Up.png"/>
+        <FILE id="Csu6Ad" name="btn_GroupLock_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_GroupLock_Dn.png"/>
+        <FILE id="Pkr8hc" name="btn_GroupLock_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_GroupLock_Up.png"/>
+        <FILE id="dTBlRO" name="btn_GroupUnlock_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_GroupUnlock_Dn.png"/>
+        <FILE id="oK7fmW" name="btn_GroupUnlock_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_GroupUnlock_Up.png"/>
         <FILE id="vugG0N" name="btn_Import_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Import_Dn.png"/>
         <FILE id="Y24Un3" name="btn_Import_Up.png" compile="0" resource="1"
@@ -146,6 +154,8 @@
         <FILE id="lAedzT" name="lbl_PushingEntireBank.png" compile="0" resource="1"
               file="BinaryResources/labels/lbl_PushingEntireBank.png"/>
       </GROUP>
+      <FILE id="BVOtpn" name="bkgrnd_RepeatChoicesComboBox.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_RepeatChoicesComboBox.png"/>
       <FILE id="qLeA7R" name="bkgrnd_FileNotValidAlert.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_FileNotValidAlert.png"/>
       <FILE id="q398oy" name="bkgrnd_FileOverwriteDialog.png" compile="0"
@@ -174,6 +184,7 @@
             resource="1" file="BinaryResources/bkgrnd_VoicesBankFooter_Factory.png"/>
       <FILE id="YpGvIH" name="bkgrnd_VoicesBanksHeader.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_VoicesBanksHeader.png"/>
+      <FILE id="oV3jrj" name="icon_Locked.png" compile="0" resource="1" file="BinaryResources/icon_Locked.png"/>
       <FILE id="SAozmE" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
       <FILE id="M2aKqo" name="SWISSCL.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCL.TTF"/>
     </GROUP>
@@ -277,14 +288,14 @@
               resource="0" file="Source/exposedParameters/ep_1_tree_InfoForExposedParameters.h"/>
         <FILE id="Q2vVj5" name="ep_2_build_ExposedParamsLayout.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_2_build_ExposedParamsLayout.h"/>
-        <FILE id="V0vmjO" name="ep_2_func_ExposedParamsRandomizationMethods.cpp"
-              compile="1" resource="0" file="Source/exposedParameters/ep_2_func_ExposedParamsRandomizationMethods.cpp"/>
-        <FILE id="r5i5xL" name="ep_2_func_ExposedParamsRandomizationMethods.h"
-              compile="0" resource="0" file="Source/exposedParameters/ep_2_func_ExposedParamsRandomizationMethods.h"/>
-        <FILE id="Bw4kxs" name="ep_2_tree_ExposedParamsRandomizationOptions.cpp"
-              compile="1" resource="0" file="Source/exposedParameters/ep_2_tree_ExposedParamsRandomizationOptions.cpp"/>
-        <FILE id="MvxayJ" name="ep_2_tree_ExposedParamsRandomizationOptions.h"
-              compile="0" resource="0" file="Source/exposedParameters/ep_2_tree_ExposedParamsRandomizationOptions.h"/>
+        <FILE id="V0vmjO" name="ep_2_func_ParamRandomizationMethods.cpp" compile="1"
+              resource="0" file="Source/exposedParameters/ep_2_func_ParamRandomizationMethods.cpp"/>
+        <FILE id="r5i5xL" name="ep_2_func_ParamRandomizationMethods.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_2_func_ParamRandomizationMethods.h"/>
+        <FILE id="Bw4kxs" name="ep_2_tree_ParamRandomizationOptions.cpp" compile="1"
+              resource="0" file="Source/exposedParameters/ep_2_tree_ParamRandomizationOptions.cpp"/>
+        <FILE id="MvxayJ" name="ep_2_tree_ParamRandomizationOptions.h" compile="0"
+              resource="0" file="Source/exposedParameters/ep_2_tree_ParamRandomizationOptions.h"/>
         <FILE id="nbKe9D" name="ep_3_facade_ExposedParameters.h" compile="0"
               resource="0" file="Source/exposedParameters/ep_3_facade_ExposedParameters.h"/>
         <FILE id="CgMHQR" name="ep_4_handle_ExposedParamChanges.cpp" compile="1"
@@ -421,6 +432,18 @@
               resource="0" file="Source/randomization/rndm_0_comp_AllowChoiceToggles_Base.cpp"/>
         <FILE id="zVv81Y" name="rndm_0_comp_AllowChoiceToggles_Base.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_comp_AllowChoiceToggles_Base.h"/>
+        <FILE id="fb6d3Q" name="rndm_0_comp_AllowRepeatChoicesComboBox_ExposedParam.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesComboBox_ExposedParam.cpp"/>
+        <FILE id="tf4eUk" name="rndm_0_comp_AllowRepeatChoicesComboBox_ExposedParam.h"
+              compile="0" resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesComboBox_ExposedParam.h"/>
+        <FILE id="iuQcy0" name="rndm_0_comp_AllowRepeatChoicesComboBox_MatrixModParam.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesComboBox_MatrixModParam.cpp"/>
+        <FILE id="N3tYi5" name="rndm_0_comp_AllowRepeatChoicesComboBox_MatrixModParam.h"
+              compile="0" resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesComboBox_MatrixModParam.h"/>
+        <FILE id="QrRhKH" name="rndm_0_comp_LockToggle_ExposedParam.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_comp_LockToggle_ExposedParam.h"/>
+        <FILE id="XxHp4c" name="rndm_0_comp_LockToggle_MatrixModParam.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_comp_LockToggle_MatrixModParam.h"/>
       </GROUP>
       <GROUP id="{523DAC2B-3476-DB28-4F85-435EA1B21E66}" name="splits">
         <FILE id="Bwebsh" name="splits_0_build_ChoiceName.h" compile="0" resource="0"

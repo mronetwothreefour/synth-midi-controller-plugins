@@ -352,7 +352,7 @@ void MatrixLookAndFeel::drawTickBox(Graphics& g, Component& component, float x, 
 	const bool isTicked, const bool /*isEnabled*/, const bool isHighlighted, const bool /*isDown*/)
 {
 	auto componentID{ component.getComponentID() };
-	if (component.getComponentID() == ID::btn_RadioButton_VoiceSlot.toString() || component.getComponentID() == ID::btn_RadioButton_SplitSlot.toString()) {
+	if (componentID == ID::btn_RadioButton_VoiceSlot.toString() || componentID == ID::btn_RadioButton_SplitSlot.toString()) {
 		auto buttonColor{ GUI::color_Device };
 		if (isHighlighted)
 			buttonColor = buttonColor.brighter(0.4f);
@@ -364,6 +364,22 @@ void MatrixLookAndFeel::drawTickBox(Graphics& g, Component& component, float x, 
 		g.setFont(GUI::font_VoiceAndSplitSlotRadioButtons);
 		Rectangle<float> textArea{ x + 3, y + 2, w - 3, h };
 		g.drawText(component.getName(), textArea, Justification::topLeft);
+	}
+	if (componentID == ID::comp_LockToggle.toString()) {
+		PNGImageFormat imageFormat;
+		MemoryInputStream memInputStream{ BinaryData::icon_Locked_png, BinaryData::icon_Locked_pngSize, false };
+		auto lockedIcon{ imageFormat.decodeImage(memInputStream) };
+		g.setColour(isTicked ? GUI::color_Black.withAlpha(0.3f) : GUI::color_ButtonOrange.withAlpha(0.2f));
+		if (isTicked) {
+			g.setColour(GUI::color_Black.withAlpha(0.3f));
+			g.fillRect(x, y, w, h);
+			g.setOpacity(1.0f);
+			g.drawImageAt(lockedIcon, int(w / 2) - (GUI::lockAndUnlockIcons_w / 2), 0);
+		}
+		else {
+			g.setColour(GUI::color_ButtonOrange.withAlpha(0.2f));
+			g.fillRect(x, y, w, h);
+		}
 	}
 }
 
