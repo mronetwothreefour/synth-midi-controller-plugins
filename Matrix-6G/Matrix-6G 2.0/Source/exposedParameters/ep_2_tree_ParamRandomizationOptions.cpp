@@ -253,7 +253,7 @@ void ParamRandomizationOptions::clearAllowedChoicesForMatrixModParam(int modNum,
 
 void ParamRandomizationOptions::allowAllChoicesForMatrixModParam(int modNum, MM_Type paramType) {
 	jassert(modNum > -1 && modNum < MMOD::numberOfModulators);
-	auto numberOfChoices{ paramType == MM_Type::source ? MMOD::numberOfSourceChoices : paramType == MM_Type::amount ? MMOD::numberOfAmountChoices : MMOD::numberOfDestChoices };
+	auto numberOfChoices{ paramType == MM_Type::source ? MMOD::numberOfSrcChoices : paramType == MM_Type::amount ? MMOD::numberOfAmtChoices : MMOD::numberOfDestChoices };
 	for (auto choiceNum = (uint8)0; choiceNum != numberOfChoices; ++choiceNum)
 		setChoiceIsAllowedForMatrixModParam(choiceNum, true, modNum, paramType);
 }

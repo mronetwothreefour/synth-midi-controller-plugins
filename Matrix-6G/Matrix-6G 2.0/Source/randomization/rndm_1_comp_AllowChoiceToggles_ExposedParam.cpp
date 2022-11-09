@@ -1,10 +1,11 @@
-#include "rndm_1_comp_AllowChoiceToggles_Standard.h"
+#include "rndm_1_comp_AllowChoiceToggles_ExposedParam.h"
 
 #include "../constants/constants_ExposedParameters.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
-AllowChoiceToggles_Standard::AllowChoiceToggles_Standard(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+AllowChoiceToggles_ExposedParam::AllowChoiceToggles_ExposedParam(
+	uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	AllowChoiceToggles_Base{
 		exposedParams->info->numberOfChoicesFor(paramIndex),
 		exposedParams->info->numberOfAllowChoiceToggleColumnsFor(paramIndex),
@@ -19,21 +20,19 @@ AllowChoiceToggles_Standard::AllowChoiceToggles_Standard(uint8 paramIndex, Expos
 	numberOfChoices{ exposedParams->info->numberOfChoicesFor(paramIndex) }
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	jassert(info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard);
+	jassert(info->numberOfChoicesFor(paramIndex) > 2);
 
 	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
 		allowedChoiceToggles[choiceNum]->setName(buildChoiceName(choiceNum));
 		allowedChoiceToggles[choiceNum]->setTooltip(buildTooltip());
 	}
-
-	restoreToggles();
 }
 
-String AllowChoiceToggles_Standard::buildChoiceName(uint8 choiceNum) {
+String AllowChoiceToggles_ExposedParam::buildChoiceName(uint8 choiceNum) {
 	return info->choiceNameFor(choiceNum, paramIndex);
 }
 
-String AllowChoiceToggles_Standard::buildTooltip() {
+String AllowChoiceToggles_ExposedParam::buildTooltip() {
 	String tip{ "" };
 	if (tooltips->shouldShowDescription()) {
 		auto paramName{ info->exposedNameFor(paramIndex) };
@@ -44,7 +43,7 @@ String AllowChoiceToggles_Standard::buildTooltip() {
 		tip += "allowed. SHIFT-click to allow a range of choices.\n";
 		if (info->numberOfAllowChoiceToggleColumnsFor(paramIndex) > 2) {
 			tip += "ALT-click to allow a range of choices that\n";
-			if (info->controlTypeFor(paramIndex) == ControlType::knobForPitch)
+			if (info->IDfor(paramIndex) == ID::ep_00_Osc_1_Pitch || info->IDfor(paramIndex) == ID::ep_10_Osc_2_Pitch)
 				tip += "are all in the same note row.";
 			else
 				tip += "are all in the same row.";
@@ -53,25 +52,18 @@ String AllowChoiceToggles_Standard::buildTooltip() {
 	return tip;
 }
 
-const bool AllowChoiceToggles_Standard::choiceIsAllowed(uint8 choiceNum) {
+const bool AllowChoiceToggles_ExposedParam::choiceIsAllowed(uint8 choiceNum) {
 	return randomization->choiceIsAllowedForParam(choiceNum, paramIndex) == true;
 }
 
-void AllowChoiceToggles_Standard::setChoiceIsAllowed(uint8 choiceNum, bool shouldBeAllowed) {
+void AllowChoiceToggles_ExposedParam::setChoiceIsAllowed(uint8 choiceNum, bool shouldBeAllowed) {
 	randomization->setChoiceIsAllowedForParam(choiceNum, shouldBeAllowed, paramIndex);
 }
 
-void AllowChoiceToggles_Standard::clearAllowedChoices() {
+void AllowChoiceToggles_ExposedParam::clearAllowedChoices() {
 	randomization->clearAllowedChoicesForParam(paramIndex);
 }
 
-const bool AllowChoiceToggles_Standard::noChoiceIsAllowed() {
+const bool AllowChoiceToggles_ExposedParam::noChoiceIsAllowed() {
 	return randomization->noChoiceIsAllowedForParam(paramIndex) == true;
-}
-
-void AllowChoiceToggles_Standard::restoreToggles() {
-	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
-		auto isAllowed{ randomization->choiceIsAllowedForParam(choiceNum, paramIndex) };
-		allowedChoiceToggles[choiceNum]->setToggleState(isAllowed ? true : false, dontSendNotification);
-	}
 }

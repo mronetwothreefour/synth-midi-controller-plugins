@@ -24,7 +24,7 @@ SliderForMatrixModAmount::SliderForMatrixModAmount(int modNum, ExposedParameters
 	modAmountAsValue = matrixModOptions->getMatrixModPropertyAsValue(modAmountParamID);
 	modAmountAsValue.addListener(this);
 
-	setRange(0.0, (double)(MMOD::numberOfAmountChoices - 1), 1.0);
+	setRange(0.0, (double)(MMOD::numberOfAmtChoices - 1), 1.0);
 	setDoubleClickReturnValue(true, 63.0);
 	setValue((double)matrixModOptions->modAmount(modNum), dontSendNotification);
 	setMouseDragSensitivity(144);

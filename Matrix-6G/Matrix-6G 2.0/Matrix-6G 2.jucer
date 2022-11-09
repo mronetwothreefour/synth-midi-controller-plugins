@@ -444,6 +444,14 @@
               resource="0" file="Source/randomization/rndm_0_comp_LockToggle_ExposedParam.h"/>
         <FILE id="XxHp4c" name="rndm_0_comp_LockToggle_MatrixModParam.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_comp_LockToggle_MatrixModParam.h"/>
+        <FILE id="WJwgN8" name="rndm_1_comp_AllowChoiceToggles_ExposedParam.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_ExposedParam.cpp"/>
+        <FILE id="IsrwbV" name="rndm_1_comp_AllowChoiceToggles_ExposedParam.h"
+              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_ExposedParam.h"/>
+        <FILE id="YWTcic" name="rndm_1_comp_AllowChoiceToggles_MatrixModParam.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_MatrixModParam.cpp"/>
+        <FILE id="oXKmDe" name="rndm_1_comp_AllowChoiceToggles_MatrixModParam.h"
+              compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_MatrixModParam.h"/>
       </GROUP>
       <GROUP id="{523DAC2B-3476-DB28-4F85-435EA1B21E66}" name="splits">
         <FILE id="Bwebsh" name="splits_0_build_ChoiceName.h" compile="0" resource="0"

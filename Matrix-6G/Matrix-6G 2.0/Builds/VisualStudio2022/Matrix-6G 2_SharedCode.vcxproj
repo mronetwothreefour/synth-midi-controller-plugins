@@ -187,6 +187,8 @@
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox_ExposedParam.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox_MatrixModParam.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_ExposedParam.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_MatrixModParam.cpp"/>
     <ClCompile Include="..\..\Source\splits\splits_0_comp_TextEditorForSplitParamSlider.cpp"/>
     <ClCompile Include="..\..\Source\splits\splits_0_tree_SplitsBank.cpp"/>
     <ClCompile Include="..\..\Source\splits\splits_1_comp_ComboBoxForSplitParam.cpp"/>
@@ -2438,6 +2440,8 @@
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox_MatrixModParam.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_LockToggle_ExposedParam.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_LockToggle_MatrixModParam.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_ExposedParam.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_MatrixModParam.h"/>
     <ClInclude Include="..\..\Source\splits\splits_0_build_ChoiceName.h"/>
     <ClInclude Include="..\..\Source\splits\splits_0_comp_TextEditorForSplitParamSlider.h"/>
     <ClInclude Include="..\..\Source\splits\splits_0_tree_SplitsBank.h"/>

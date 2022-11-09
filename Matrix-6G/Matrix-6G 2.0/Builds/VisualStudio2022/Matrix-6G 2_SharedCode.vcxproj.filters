@@ -769,6 +769,12 @@
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox_MatrixModParam.cpp">
       <Filter>Matrix-6G 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_ExposedParam.cpp">
+      <Filter>Matrix-6G 2\Source\randomization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_MatrixModParam.cpp">
+      <Filter>Matrix-6G 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\splits\splits_0_comp_TextEditorForSplitParamSlider.cpp">
       <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClCompile>
@@ -3370,6 +3376,12 @@
       <Filter>Matrix-6G 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_LockToggle_MatrixModParam.h">
+      <Filter>Matrix-6G 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_ExposedParam.h">
+      <Filter>Matrix-6G 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_MatrixModParam.h">
       <Filter>Matrix-6G 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\splits\splits_0_build_ChoiceName.h">

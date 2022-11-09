@@ -52,7 +52,7 @@ const uint8 MatrixModOptions::modSource(int modNum) {
 }
 
 void MatrixModOptions::setModSource(int modNum, uint8 newSource) {
-	jassert(newSource < MMOD::numberOfSourceChoices);
+	jassert(newSource < MMOD::numberOfSrcChoices);
 	jassert(modNum < MMOD::numberOfModulators);
 	undoManager->beginNewTransaction();
 	matrixModOptionsTree.setProperty(buildMatrixModParamID(modNum, MM_Type::source), newSource, undoManager);
@@ -63,7 +63,7 @@ const uint8 MatrixModOptions::modAmount(int modNum) {
 }
 
 void MatrixModOptions::setModAmount(int modNum, uint8 newAmount) {
-	jassert(newAmount < MMOD::numberOfAmountChoices);
+	jassert(newAmount < MMOD::numberOfAmtChoices);
 	jassert(modNum < MMOD::numberOfModulators);
 	undoManager->beginNewTransaction();
 	matrixModOptionsTree.setProperty(buildMatrixModParamID(modNum, MM_Type::amount), newAmount, undoManager);

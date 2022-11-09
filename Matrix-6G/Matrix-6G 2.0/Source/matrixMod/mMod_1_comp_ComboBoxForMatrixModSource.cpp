@@ -23,7 +23,7 @@ ComboBoxForMatrixModSource::ComboBoxForMatrixModSource(int modNum, MatrixModOpti
 	modSourceValue.addListener(this);
 
 	StringArray choiceNamesList{};
-	for (auto choiceNum = (uint8)0; choiceNum != MMOD::numberOfSourceChoices; ++choiceNum)
+	for (auto choiceNum = (uint8)0; choiceNum != MMOD::numberOfSrcChoices; ++choiceNum)
 		choiceNamesList.add(ChoiceName::buildForModSource(choiceNum, ChoiceNameType::concise));
 	addItemList(choiceNamesList, 1);
 	setSelectedItemIndex((int)matrixModOptions->modSource(modNum), dontSendNotification);

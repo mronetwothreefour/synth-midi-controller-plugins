@@ -84,7 +84,7 @@ String MatrixModParamChoiceName::buildForModDest(uint8 choiceNum, ChoiceNameType
 
 String MatrixModParamChoiceName::buildForModSource(uint8 choiceNum, ChoiceNameType type)
 {
-    jassert(choiceNum < MMOD::numberOfSourceChoices);
+    jassert(choiceNum < MMOD::numberOfSrcChoices);
     switch (choiceNum)
     {
     case 0:
