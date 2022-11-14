@@ -24,6 +24,7 @@ struct ExposedParamChoiceNamesValueTree
 	static ValueTree buildForOsc_2_And_VCF_KeyTrack(const ChoiceNameType type);
 	static ValueTree buildForPortaMode(const ChoiceNameType type);
 	static ValueTree buildForRampTrig(const ChoiceNameType type);
+	static ValueTree buildForTrackingInputSource(const ChoiceNameType type);
 	static ValueTree buildFor_LFO_SampleSource(const ChoiceNameType type);
 	static ValueTree buildFor_LFO_TrigMode(const ChoiceNameType type);
 	static ValueTree buildFor_LFO_WaveType(const ChoiceNameType type);

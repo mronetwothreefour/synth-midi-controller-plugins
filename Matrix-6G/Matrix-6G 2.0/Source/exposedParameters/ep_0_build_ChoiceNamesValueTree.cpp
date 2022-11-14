@@ -179,6 +179,32 @@ ValueTree ExposedParamChoiceNamesValueTree::buildForRampTrig(const ChoiceNameTyp
     return choiceNamesTree;
 }
 
+ValueTree ExposedParamChoiceNamesValueTree::buildForTrackingInputSource(const ChoiceNameType type) {
+    ValueTree choiceNamesTree{ type == ChoiceNameType::verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
+    choiceNamesTree.setProperty("choice_0", type == ChoiceNameType::verbose ? "None" : "NONE", nullptr);
+    choiceNamesTree.setProperty("choice_1", type == ChoiceNameType::verbose ? "Envelope 1" : "ENV 1", nullptr);
+    choiceNamesTree.setProperty("choice_2", type == ChoiceNameType::verbose ? "Envelope 2" : "ENV 2", nullptr);
+    choiceNamesTree.setProperty("choice_3", type == ChoiceNameType::verbose ? "Envelope 3" : "ENV 3", nullptr);
+    choiceNamesTree.setProperty("choice_4", type == ChoiceNameType::verbose ? "LFO 1" : "LFO 1", nullptr);
+    choiceNamesTree.setProperty("choice_5", type == ChoiceNameType::verbose ? "LFO 2" : "LFO 2", nullptr);
+    choiceNamesTree.setProperty("choice_6", type == ChoiceNameType::verbose ? "Vibrato LFO" : "VIBRATO", nullptr);
+    choiceNamesTree.setProperty("choice_7", type == ChoiceNameType::verbose ? "Ramp Generator 1" : "RAMP 1", nullptr);
+    choiceNamesTree.setProperty("choice_8", type == ChoiceNameType::verbose ? "Ramp Generator 2" : "RAMP 2", nullptr);
+    choiceNamesTree.setProperty("choice_9", type == ChoiceNameType::verbose ? "Keyboard Scaling" : "KEYBOARD", nullptr);
+    choiceNamesTree.setProperty("choice_10", type == ChoiceNameType::verbose ? "Portamento Speed" : "PORTA", nullptr);
+    choiceNamesTree.setProperty("choice_11", type == ChoiceNameType::verbose ? "Tracking Generator" : "TRACKING", nullptr);
+    choiceNamesTree.setProperty("choice_12", type == ChoiceNameType::verbose ? "Keyboard Note Gate" : "GATE", nullptr);
+    choiceNamesTree.setProperty("choice_13", type == ChoiceNameType::verbose ? "Keyboard Note Velocity" : "VELOCITY", nullptr);
+    choiceNamesTree.setProperty("choice_14", type == ChoiceNameType::verbose ? "Keyboard Release Velocity" : "REL VELO", nullptr);
+    choiceNamesTree.setProperty("choice_15", type == ChoiceNameType::verbose ? "Keyboard Pressure (Aftertouch)" : "PRESSURE", nullptr);
+    choiceNamesTree.setProperty("choice_16", type == ChoiceNameType::verbose ? "Pedal 1" : "PEDAL 1", nullptr);
+    choiceNamesTree.setProperty("choice_17", type == ChoiceNameType::verbose ? "Pedal 2" : "PEDAL 2", nullptr);
+    choiceNamesTree.setProperty("choice_18", type == ChoiceNameType::verbose ? "Lever 1" : "LEVER 1", nullptr);
+    choiceNamesTree.setProperty("choice_19", type == ChoiceNameType::verbose ? "Lever 2" : "LEVER 2", nullptr);
+    choiceNamesTree.setProperty("choice_20", type == ChoiceNameType::verbose ? "Lever 3 (Lever 2 Reverse)" : "LEVER 3", nullptr);
+    return choiceNamesTree;
+}
+
 ValueTree ExposedParamChoiceNamesValueTree::buildFor_LFO_SampleSource(const ChoiceNameType type) {
     ValueTree choiceNamesTree{ type == ChoiceNameType::verbose ? ID::tree_ChoiceNames_Verbose : ID::tree_ChoiceNames };
     choiceNamesTree.setProperty("choice_0", type == ChoiceNameType::verbose ? "None" : "NONE", nullptr);
