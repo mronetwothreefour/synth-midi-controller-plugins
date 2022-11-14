@@ -76,6 +76,9 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID == ID::btn_Push_SplitsBankAndGlobalParams.toString())
 		mBlock = MemBlock{ isDown ? btn_PushSplit_Dn_png : btn_PushSplit_Up_png, isDown ? (s_t)btn_PushSplit_Dn_pngSize : (s_t)btn_PushSplit_Up_pngSize };
 
+	if (buttonID.startsWith(ID::btn_Randomize.toString()))
+		mBlock = MemBlock{ isDown ? btn_Randomize_Dn_png : btn_Randomize_Up_png, isDown ? (s_t)btn_Randomize_Dn_pngSize : (s_t)btn_Randomize_Up_pngSize };
+
 	if (buttonID.startsWith(ID::btn_Push_VoicesBank_.toString()))
 		mBlock = MemBlock{ isDown ? btn_PushVoice_Dn_png : btn_PushVoice_Up_png, isDown ? (s_t)btn_PushVoice_Dn_pngSize : (s_t)btn_PushVoice_Up_pngSize };
 

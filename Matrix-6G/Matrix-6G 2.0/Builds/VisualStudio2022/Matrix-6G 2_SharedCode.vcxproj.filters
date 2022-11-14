@@ -3378,6 +3378,12 @@
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_LockToggle_MatrixModParam.h">
       <Filter>Matrix-6G 2\Source\randomization</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButton_ExposedParam.h">
+      <Filter>Matrix-6G 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButton_MatrixModParam.h">
+      <Filter>Matrix-6G 2\Source\randomization</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_ExposedParam.h">
       <Filter>Matrix-6G 2\Source\randomization</Filter>
     </ClInclude>

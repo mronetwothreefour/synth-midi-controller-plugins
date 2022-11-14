@@ -444,6 +444,10 @@
               resource="0" file="Source/randomization/rndm_0_comp_LockToggle_ExposedParam.h"/>
         <FILE id="XxHp4c" name="rndm_0_comp_LockToggle_MatrixModParam.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_comp_LockToggle_MatrixModParam.h"/>
+        <FILE id="dEpKCy" name="rndm_0_comp_RandomizeButton_ExposedParam.h"
+              compile="0" resource="0" file="Source/randomization/rndm_0_comp_RandomizeButton_ExposedParam.h"/>
+        <FILE id="phz38V" name="rndm_0_comp_RandomizeButton_MatrixModParam.h"
+              compile="0" resource="0" file="Source/randomization/rndm_0_comp_RandomizeButton_MatrixModParam.h"/>
         <FILE id="WJwgN8" name="rndm_1_comp_AllowChoiceToggles_ExposedParam.cpp"
               compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_ExposedParam.cpp"/>
         <FILE id="IsrwbV" name="rndm_1_comp_AllowChoiceToggles_ExposedParam.h"

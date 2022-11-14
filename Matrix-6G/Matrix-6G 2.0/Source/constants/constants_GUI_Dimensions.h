@@ -15,6 +15,7 @@ namespace Matrix_6G_Constants
 		const int bankTransmitStopButton_w{ 38 };
 		const int bankTransmitStopButton_x{ 607 };
 		const int borders_w{ 10 };
+		const int btn_Randomize_w{ 61 };
 		const int buttons_large_h{ 38 };
 		const int buttons_large_w{ 68 };
 		const int buttons_small_h{ 20 };
