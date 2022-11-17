@@ -3,12 +3,12 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 using namespace Matrix_6G_Constants;
 
 AllowRepeatChoicesComboBox_ExposedParam::AllowRepeatChoicesComboBox_ExposedParam(
-	uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	info{ exposedParams->info.get() },
 	randomization{ exposedParams->randomization.get() }
@@ -27,7 +27,6 @@ AllowRepeatChoicesComboBox_ExposedParam::AllowRepeatChoicesComboBox_ExposedParam
 		auto shouldBeAllowed{ comboBox_AllowRepeatChoices.getSelectedItemIndex() == 1 ? true : false };
 		randomization->setRepeatChoicesAreAllowedForParam(shouldBeAllowed, paramIndex);
 	};
-	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	if (tooltips->shouldShowDescription()) {
 		String tip{ "" };
 		tip += "Toggles whether the current setting is allowed\n";

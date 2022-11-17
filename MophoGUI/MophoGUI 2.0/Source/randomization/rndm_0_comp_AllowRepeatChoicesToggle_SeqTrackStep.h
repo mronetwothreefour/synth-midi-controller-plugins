@@ -9,7 +9,7 @@ using Step = SeqTrackStepNum;
 using Track = SeqTrackNum;
 
 class ExposedParamsRandomizationOptions;
-class UnexposedParameters;
+class TooltipsOptions;
 
 class AllowRepeatChoicesToggle_SeqTrackStep :
 	public Component,
@@ -24,7 +24,7 @@ class AllowRepeatChoicesToggle_SeqTrackStep :
 public:
 	AllowRepeatChoicesToggle_SeqTrackStep() = delete;
 
-	AllowRepeatChoicesToggle_SeqTrackStep(Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams);
+	AllowRepeatChoicesToggle_SeqTrackStep(Track track, ExposedParamsRandomizationOptions* randomization, TooltipsOptions* tooltips);
 	void paint(Graphics& g) override;
 	void mouseDown(const MouseEvent& event) override;
 	void valueChanged(Value& value) override;

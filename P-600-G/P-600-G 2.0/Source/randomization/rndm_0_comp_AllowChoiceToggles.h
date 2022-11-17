@@ -6,7 +6,6 @@ class ExposedParameters;
 class ExposedParamsRandomizationOptions;
 class InfoForExposedParameters;
 class TooltipsOptions;
-class UnexposedParameters;
 
 class AllowChoiceToggles :
 	public Component,
@@ -28,7 +27,7 @@ protected:
 public:
 	AllowChoiceToggles() = delete;
 
-	AllowChoiceToggles(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	AllowChoiceToggles(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 
 protected:
 	virtual const bool choiceIsAllowed(uint8 choiceNum);

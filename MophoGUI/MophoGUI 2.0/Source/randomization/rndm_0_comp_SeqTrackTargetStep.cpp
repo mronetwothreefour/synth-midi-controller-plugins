@@ -4,13 +4,12 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_2_tree_ExposedParamsRandomizationOptions.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
-SeqTrackTargetStep::SeqTrackTargetStep(Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams) :
+SeqTrackTargetStep::SeqTrackTargetStep(Track track, ExposedParamsRandomizationOptions* randomization, TooltipsOptions* tooltips) :
 	track{ track },
 	randomization{ randomization }
 {
-	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltips->shouldShowDescription() };
 
 	stepSelector.setComponentID(ID::comp_SeqTrackStepSelector.toString());

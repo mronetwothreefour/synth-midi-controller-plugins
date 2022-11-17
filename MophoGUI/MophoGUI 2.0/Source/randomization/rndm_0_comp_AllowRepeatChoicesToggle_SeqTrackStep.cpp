@@ -3,12 +3,12 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_2_tree_ExposedParamsRandomizationOptions.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 using namespace MophoConstants;
 
 AllowRepeatChoicesToggle_SeqTrackStep::AllowRepeatChoicesToggle_SeqTrackStep(
-	Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams) :
+	Track track, ExposedParamsRandomizationOptions* randomization, TooltipsOptions* tooltips) :
 	track{ track },
 	step{ randomization->targetStepForSeqTrack(track) },
 	randomization{ randomization }
@@ -24,7 +24,6 @@ AllowRepeatChoicesToggle_SeqTrackStep::AllowRepeatChoicesToggle_SeqTrackStep(
 		randomization->setRepeatChoicesAreAllowedForSeqTrackStep(shouldBeAllowed ? true : false, track, step);
 	};
 	toggle_AllowRepeatChoices.addShortcut(KeyPress{ 'r', ModifierKeys::ctrlModifier, 0 });
-	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	if (tooltips->shouldShowDescription()) {
 		String tip{ "" };
 		tip += "Toggles whether the current setting is allowed\n";

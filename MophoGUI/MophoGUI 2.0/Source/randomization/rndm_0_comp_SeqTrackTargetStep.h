@@ -9,7 +9,7 @@ using Step = SeqTrackStepNum;
 using Track = SeqTrackNum;
 
 class ExposedParamsRandomizationOptions;
-class UnexposedParameters;
+class TooltipsOptions;
 
 class SeqTrackTargetStep :
 	public Component,
@@ -22,7 +22,7 @@ class SeqTrackTargetStep :
 public:
 	SeqTrackTargetStep() = delete;
 
-	SeqTrackTargetStep(Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams);
+	SeqTrackTargetStep(Track track, ExposedParamsRandomizationOptions* randomization, TooltipsOptions* tooltips);
 	void paint(Graphics& g) override;
 	void comboBoxChanged(ComboBox* comboBox) override;
 	~SeqTrackTargetStep();

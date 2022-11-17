@@ -5,17 +5,17 @@
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 GUI_Layer_AllowedChoices_Standard::GUI_Layer_AllowedChoices_Standard(
-	uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	exposedParams{ exposedParams },
 	info{ exposedParams->info.get() },
-	allowChoiceToggles{ paramIndex, exposedParams, unexposedParams },
-	btn_Close{ unexposedParams->getTooltipsOptions() },
-	repeatChoicesToggle{ paramIndex, exposedParams, unexposedParams },
-	btn_Randomize{ paramIndex, exposedParams, unexposedParams },
+	allowChoiceToggles{ paramIndex, exposedParams, tooltips },
+	btn_Close{ tooltips },
+	repeatChoicesToggle{ paramIndex, exposedParams, tooltips },
+	btn_Randomize{ paramIndex, exposedParams, tooltips },
 	childrenShouldBeStackedVertically{ false },
 	background_x{ info->allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ info->allowedChoicesBackground_y_For(paramIndex) }
@@ -23,7 +23,6 @@ GUI_Layer_AllowedChoices_Standard::GUI_Layer_AllowedChoices_Standard(
 	jassert(paramIndex < EP::numberOfExposedParams);
 	jassert(info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::standard);
 	auto paramName{ info->exposedNameFor(paramIndex) };
-	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltips->shouldShowDescription() };
 
 	btn_AllowAll.setComponentID(ID::btn_AllowAll.toString());

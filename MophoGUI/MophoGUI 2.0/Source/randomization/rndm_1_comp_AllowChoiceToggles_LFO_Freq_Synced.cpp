@@ -2,14 +2,13 @@
 
 #include "../constants/constants_ExposedParameters.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
-
-AllowChoiceToggles_LFO_Freq_Synced::AllowChoiceToggles_LFO_Freq_Synced(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+AllowChoiceToggles_LFO_Freq_Synced::AllowChoiceToggles_LFO_Freq_Synced(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	info{ exposedParams->info.get() },
 	randomization{ exposedParams->randomization.get() },
-	tooltips{ unexposedParams->getTooltipsOptions() },
+	tooltips{ tooltips },
 	numberOfFreq{ EP::numberOfSynced_LFO_Frequencies },
 	AllowChoiceToggles_Base{ numberOfFreq, 2, 8, 0, 100 }
 {

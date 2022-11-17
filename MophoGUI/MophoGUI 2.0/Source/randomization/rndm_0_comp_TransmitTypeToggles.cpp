@@ -3,15 +3,14 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_2_tree_ExposedParamsRandomizationOptions.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 using namespace MophoConstants;
 
-TransmitTypeToggles::TransmitTypeToggles(ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams)
+TransmitTypeToggles::TransmitTypeToggles(ExposedParamsRandomizationOptions* randomization, TooltipsOptions* tooltips)
 {
 	setInterceptsMouseClicks(true, false);
 
-	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltips->shouldShowDescription() };
 	toggle_TransmitViaNRPN.setComponentID(ID::comp_RedToggle.toString());
 	toggle_TransmitViaNRPN.setToggleState(randomization->transmitMethodIsSysEx() == false, dontSendNotification);
@@ -22,7 +21,7 @@ TransmitTypeToggles::TransmitTypeToggles(ExposedParamsRandomizationOptions* rand
 		tip += "When NRPN is selected, new randomly generated parameter\n";
 		tip += "settings will be transmitted to the Mopho hardware via\n";
 		tip += "individual NRPN messages. Updating more than a few param-\n";
-		tip += "eters will be slow, butthe hardware will not be interrupted\n";
+		tip += "eters will be slow, but the hardware will not be interrupted\n";
 		tip += "if it is generating audio. Shortcut key: CTRL+N";
 		toggle_TransmitViaNRPN.setTooltip(tip);
 	}

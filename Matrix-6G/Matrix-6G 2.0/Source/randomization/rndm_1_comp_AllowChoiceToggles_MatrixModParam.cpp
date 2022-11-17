@@ -3,12 +3,12 @@
 #include "../constants/constants_MatrixMod.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../matrixMod/mMod_0_build_ChoiceName.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 using MM_ChoiceName = MatrixModParamChoiceName;
 
 AllowChoiceToggles_MatrixModParam::AllowChoiceToggles_MatrixModParam(
-	int modNum, MM_Type paramType, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	int modNum, MM_Type paramType, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	AllowChoiceToggles_Base{
 		paramType == MM_Type::source ? MMOD::numberOfSrcChoices : paramType == MM_Type::amount ? MMOD::numberOfAmtChoices : MMOD::numberOfDestChoices,
 		paramType == MM_Type::amount ? 16 : 3,
@@ -20,7 +20,7 @@ AllowChoiceToggles_MatrixModParam::AllowChoiceToggles_MatrixModParam(
 	paramType{ paramType },
 	matrixModOptions{ exposedParams->matrixModOptions.get() },
 	randomization{ exposedParams->randomization.get() },
-	tooltips{ unexposedParams->getTooltipsOptions() },
+	tooltips{ tooltips },
 	numberOfChoices{ paramType == MM_Type::source ? MMOD::numberOfSrcChoices : paramType == MM_Type::amount ? MMOD::numberOfAmtChoices : MMOD::numberOfDestChoices }
 {
 	jassert(modNum < MMOD::numberOfModulators);

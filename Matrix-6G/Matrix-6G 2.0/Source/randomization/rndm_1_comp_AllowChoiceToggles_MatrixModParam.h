@@ -12,7 +12,6 @@ class ExposedParameters;
 class MatrixModOptions;
 class ParamRandomizationOptions;
 class TooltipsOptions;
-class UnexposedParameters;
 
 class AllowChoiceToggles_MatrixModParam :
 	public AllowChoiceToggles_Base
@@ -27,7 +26,7 @@ class AllowChoiceToggles_MatrixModParam :
 public:
 	AllowChoiceToggles_MatrixModParam() = delete;
 
-	AllowChoiceToggles_MatrixModParam(int modNum, MM_Type paramType, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	AllowChoiceToggles_MatrixModParam(int modNum, MM_Type paramType, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 
 private:
 	String buildChoiceName(uint8 choiceNum) override;

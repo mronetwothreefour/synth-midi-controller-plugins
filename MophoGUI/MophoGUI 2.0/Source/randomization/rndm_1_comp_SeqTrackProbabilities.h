@@ -11,7 +11,7 @@ using KnobType = SeqTrackProbabilityKnobType;
 using Track = SeqTrackNum;
 
 class ExposedParameters;
-class UnexposedParameters;
+class TooltipsOptions;
 
 class SeqTrackProbabilities :
 	public Component
@@ -23,7 +23,7 @@ class SeqTrackProbabilities :
 public:
 	SeqTrackProbabilities() = delete;
 
-	SeqTrackProbabilities(Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams);
+	SeqTrackProbabilities(Track track, ExposedParamsRandomizationOptions* randomization, TooltipsOptions* tooltips);
 	void paint(Graphics& g) override;
 	~SeqTrackProbabilities();
 

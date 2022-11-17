@@ -3,15 +3,15 @@
 #include "../constants/constants_ExposedParameters.h"
 #include "../exposedParameters/ep_0_build_ChoiceNamesValueTree.h"
 #include "../exposedParameters/ep_2_tree_ExposedParamsRandomizationOptions.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 AllowChoiceToggles_SeqTrackStep::AllowChoiceToggles_SeqTrackStep(
-	Track track, bool destIsPitched, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams) :
+	Track track, bool destIsPitched, ExposedParamsRandomizationOptions* randomization, TooltipsOptions* tooltips) :
 	track{ track },
 	step{ randomization->targetStepForSeqTrack(track) },
 	destIsPitched{ destIsPitched },
 	randomization{ randomization },
-	tooltips{ unexposedParams->getTooltipsOptions() },
+	tooltips{ tooltips },
 	AllowChoiceToggles_Base{ 
 		EP::numberOfChoicesForSeqTrackSteps, 
 		destIsPitched ? 6 : 13, 

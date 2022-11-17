@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 class ExposedParamsRandomizationOptions;
-class UnexposedParameters;
+class TooltipsOptions;
 
 class TransmitTypeToggles :
 	public Component
@@ -14,7 +14,7 @@ class TransmitTypeToggles :
 public:
 	TransmitTypeToggles() = delete;
 
-	explicit TransmitTypeToggles(ExposedParamsRandomizationOptions* randomization,UnexposedParameters* unexposedParams);
+	explicit TransmitTypeToggles(ExposedParamsRandomizationOptions* randomization, TooltipsOptions* tooltips);
 	void mouseDown(const MouseEvent& event) override;
 
 private:

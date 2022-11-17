@@ -5,7 +5,7 @@
 class ExposedParameters;
 class ExposedParamsRandomizationOptions;
 class InfoForExposedParameters;
-class UnexposedParameters;
+class TooltipsOptions;
 
 class AllowRepeatChoicesToggle :
 	public Component,
@@ -20,7 +20,7 @@ class AllowRepeatChoicesToggle :
 public:
 	AllowRepeatChoicesToggle() = delete;
 
-	AllowRepeatChoicesToggle(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	AllowRepeatChoicesToggle(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void paint(Graphics& g) override;
 	void mouseDown(const MouseEvent& event) override;
 	void valueChanged(Value& value) override;

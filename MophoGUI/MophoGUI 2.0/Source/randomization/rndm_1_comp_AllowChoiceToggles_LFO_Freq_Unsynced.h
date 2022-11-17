@@ -8,7 +8,6 @@ class ExposedParameters;
 class ExposedParamsRandomizationOptions;
 class InfoForExposedParameters;
 class TooltipsOptions;
-class UnexposedParameters;
 
 class AllowChoiceToggles_LFO_Freq_Unsynced :
 	public AllowChoiceToggles_Base
@@ -22,7 +21,7 @@ class AllowChoiceToggles_LFO_Freq_Unsynced :
 public:
 	AllowChoiceToggles_LFO_Freq_Unsynced() = delete;
 
-	AllowChoiceToggles_LFO_Freq_Unsynced(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	AllowChoiceToggles_LFO_Freq_Unsynced(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 
 private:
 	String buildChoiceName(uint8 unsyncedFreq) override;

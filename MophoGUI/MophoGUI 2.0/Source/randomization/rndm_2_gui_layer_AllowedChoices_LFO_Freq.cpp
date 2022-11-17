@@ -4,26 +4,25 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 GUI_Layer_AllowedChoices_LFO_Freq::GUI_Layer_AllowedChoices_LFO_Freq(
-	uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	info{ exposedParams->info.get() },
 	randomization{ exposedParams->randomization.get() },
-	repeatChoices{ paramIndex, exposedParams, unexposedParams },
-	btn_Close{ unexposedParams->getTooltipsOptions() },
-	allowUnsyncedFreqToggles{ paramIndex, exposedParams, unexposedParams },
-	allowPitchedFreqToggles{ paramIndex, exposedParams, unexposedParams },
-	allowSyncedFreqToggles{ paramIndex, exposedParams, unexposedParams },
-	btn_Randomize{ paramIndex, exposedParams, unexposedParams },
+	repeatChoices{ paramIndex, exposedParams, tooltips },
+	btn_Close{ tooltips },
+	allowUnsyncedFreqToggles{ paramIndex, exposedParams, tooltips },
+	allowPitchedFreqToggles{ paramIndex, exposedParams, tooltips },
+	allowSyncedFreqToggles{ paramIndex, exposedParams, tooltips },
+	btn_Randomize{ paramIndex, exposedParams, tooltips },
 	background_x{ info->allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ info->allowedChoicesBackground_y_For(paramIndex) }
 {
 	jassert(info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::lfoFreq);
 	auto paramID{ info->IDfor(paramIndex).toString() };
 	auto paramName{ info->exposedNameFor(paramIndex) };
-	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltips->shouldShowDescription() };
 	auto lfoNumString{ paramID.fromFirstOccurrenceOf("LFO_", false, false).upToFirstOccurrenceOf("_Freq", false, false) };
 

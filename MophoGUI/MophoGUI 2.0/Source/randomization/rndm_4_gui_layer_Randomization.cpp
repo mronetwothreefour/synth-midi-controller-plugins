@@ -5,40 +5,38 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 using Step = SeqTrackStepNum;
 using Track = SeqTrackNum;
 using Type = AllowedChoicesType;
 
-
-
-GUI_Layer_Randomization::GUI_Layer_Randomization(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+GUI_Layer_Randomization::GUI_Layer_Randomization(ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	state{ exposedParams->state.get() },
 	exposedParams{ exposedParams },
 	info{ exposedParams->info.get() },
 	randomization{ exposedParams->randomization.get() },
-	btn_Close{ unexposedParams->getTooltipsOptions() },
-	transmitType{ randomization, unexposedParams },
-	allowedChoicesLayers{ exposedParams, unexposedParams },
-	lockStateButtons_All{ LockStateGroup::all, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
-	lockStateButtons_Osc{ LockStateGroup::osc, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
-	lockStateButtons_LPF{ LockStateGroup::lpf, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
-	lockStateButtons_VCA{ LockStateGroup::vca, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
-	lockStateButtons_LFO_1{ LockStateGroup::lfo_1, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
-	lockStateButtons_LFO_2{ LockStateGroup::lfo_2, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
-	lockStateButtons_LFO_3{ LockStateGroup::lfo_3, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
-	lockStateButtons_LFO_4{ LockStateGroup::lfo_4, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
-	lockStateButtons_Env_3{ LockStateGroup::env_3, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
-	lockStateButtons_Modulators{ LockStateGroup::modulators, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
-	lockStateButtons_MIDI_Controllers{ LockStateGroup::midiControllers, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
-	lockStateButtons_PushIt{ LockStateGroup::pushIt, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
-	lockStateButtons_KnobAssign{ LockStateGroup::knobAssign, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
-	lockStateButtons_SeqTrack_1{ LockStateGroup::seqTrack_1, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
-	lockStateButtons_SeqTrack_2{ LockStateGroup::seqTrack_2, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
-	lockStateButtons_SeqTrack_3{ LockStateGroup::seqTrack_3, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
-	lockStateButtons_SeqTrack_4{ LockStateGroup::seqTrack_4, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() },
-	lockStateButtons_VoiceNamerChars{ LockStateGroup::voiceNameChars, exposedParams->randomization.get(), unexposedParams->getTooltipsOptions() }
+	btn_Close{ tooltips },
+	transmitType{ randomization, tooltips },
+	allowedChoicesLayers{ exposedParams, tooltips },
+	lockStateButtons_All{ LockStateGroup::all, exposedParams->randomization.get(), tooltips },
+	lockStateButtons_Osc{ LockStateGroup::osc, exposedParams->randomization.get(), tooltips },
+	lockStateButtons_LPF{ LockStateGroup::lpf, exposedParams->randomization.get(), tooltips },
+	lockStateButtons_VCA{ LockStateGroup::vca, exposedParams->randomization.get(), tooltips },
+	lockStateButtons_LFO_1{ LockStateGroup::lfo_1, exposedParams->randomization.get(), tooltips },
+	lockStateButtons_LFO_2{ LockStateGroup::lfo_2, exposedParams->randomization.get(), tooltips },
+	lockStateButtons_LFO_3{ LockStateGroup::lfo_3, exposedParams->randomization.get(), tooltips },
+	lockStateButtons_LFO_4{ LockStateGroup::lfo_4, exposedParams->randomization.get(), tooltips },
+	lockStateButtons_Env_3{ LockStateGroup::env_3, exposedParams->randomization.get(), tooltips },
+	lockStateButtons_Modulators{ LockStateGroup::modulators, exposedParams->randomization.get(), tooltips },
+	lockStateButtons_MIDI_Controllers{ LockStateGroup::midiControllers, exposedParams->randomization.get(), tooltips },
+	lockStateButtons_PushIt{ LockStateGroup::pushIt, exposedParams->randomization.get(), tooltips },
+	lockStateButtons_KnobAssign{ LockStateGroup::knobAssign, exposedParams->randomization.get(), tooltips },
+	lockStateButtons_SeqTrack_1{ LockStateGroup::seqTrack_1, exposedParams->randomization.get(), tooltips },
+	lockStateButtons_SeqTrack_2{ LockStateGroup::seqTrack_2, exposedParams->randomization.get(), tooltips },
+	lockStateButtons_SeqTrack_3{ LockStateGroup::seqTrack_3, exposedParams->randomization.get(), tooltips },
+	lockStateButtons_SeqTrack_4{ LockStateGroup::seqTrack_4, exposedParams->randomization.get(), tooltips },
+	lockStateButtons_VoiceNamerChars{ LockStateGroup::voiceNameChars, exposedParams->randomization.get(), tooltips }
 {
 	setInterceptsMouseClicks(false, true);
 
@@ -48,7 +46,6 @@ GUI_Layer_Randomization::GUI_Layer_Randomization(ExposedParameters* exposedParam
 	transmitType.setTopLeftPosition(1138, 81);
 	addAndMakeVisible(transmitType);
 
-	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltips->shouldShowDescription() };
 	for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
 		paramLockToggles[paramIndex].reset(new LockToggleForParam{ paramIndex, exposedParams, });

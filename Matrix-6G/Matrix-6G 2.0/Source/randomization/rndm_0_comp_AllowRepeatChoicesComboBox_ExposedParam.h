@@ -5,7 +5,7 @@
 class ExposedParameters;
 class ParamRandomizationOptions;
 class InfoForExposedParameters;
-class UnexposedParameters;
+class TooltipsOptions;
 
 class AllowRepeatChoicesComboBox_ExposedParam :
 	public Component,
@@ -20,7 +20,7 @@ class AllowRepeatChoicesComboBox_ExposedParam :
 public:
 	AllowRepeatChoicesComboBox_ExposedParam() = delete;
 
-	AllowRepeatChoicesComboBox_ExposedParam(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	AllowRepeatChoicesComboBox_ExposedParam(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void paint(Graphics& g) override;
 	void valueChanged(Value& value) override;
 	~AllowRepeatChoicesComboBox_ExposedParam();

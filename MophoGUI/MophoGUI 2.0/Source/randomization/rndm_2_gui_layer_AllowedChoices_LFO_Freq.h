@@ -16,7 +16,7 @@ using Category = LFO_FreqCategory;
 class ExposedParameters;
 class ExposedParamsRandomizationOptions;
 class InfoForExposedParameters;
-class UnexposedParameters;
+class TooltipsOptions;
 
 class GUI_Layer_AllowedChoices_LFO_Freq :
 	public Component,
@@ -44,7 +44,7 @@ class GUI_Layer_AllowedChoices_LFO_Freq :
 public:
 	GUI_Layer_AllowedChoices_LFO_Freq() = delete;
 
-	GUI_Layer_AllowedChoices_LFO_Freq(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoices_LFO_Freq(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void paint(Graphics& g) override;
 	void mouseDown(const MouseEvent& event) override;
 	void buttonClicked(Button* button) override;

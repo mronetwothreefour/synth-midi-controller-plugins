@@ -4,16 +4,16 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_2_tree_ExposedParamsRandomizationOptions.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 KnobForSeqTrackProbability::KnobForSeqTrackProbability(
-	KnobType knobType, Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams) :
+	KnobType knobType, Track track, ExposedParamsRandomizationOptions* randomization, TooltipsOptions* tooltips) :
 	RotarySliderWithMouseWheelMoveOverride{ nullptr },
 	knobType{ knobType },
 	track{ track },
 	randomization{ randomization },
-	textEditor{ knobType, track, randomization, unexposedParams->getTooltipsOptions() },
-	tooltips{ unexposedParams->getTooltipsOptions() }
+	textEditor{ knobType, track, randomization, tooltips },
+	tooltips{ tooltips }
 {
 	if (knobType == KnobType::rest)
 		jassert(track == Track::one);

@@ -8,11 +8,11 @@
 
 using namespace P_600_G_Constants;
 
-AllowChoiceToggles::AllowChoiceToggles(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+AllowChoiceToggles::AllowChoiceToggles(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	info{ exposedParams->info.get() },
 	randomization{ exposedParams->randomization.get() },
-	tooltips{ unexposedParams->getTooltipsOptions() },
+	tooltips{ tooltips },
 	numberOfChoices{ exposedParams->info->numberOfChoicesFor(paramIndex) },
 	numberOfColumns{ exposedParams->info->numberOfAllowChoiceToggleColumnsFor(paramIndex) },
 	numberOfRows{ exposedParams->info->numberOfAllowChoiceToggleRowsFor(paramIndex) },

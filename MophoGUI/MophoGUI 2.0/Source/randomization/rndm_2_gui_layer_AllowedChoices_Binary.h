@@ -9,7 +9,7 @@
 class ExposedParameters;
 class InfoForExposedParameters;
 class ParamRandomizationMethods;
-class UnexposedParameters;
+class TooltipsOptions;
 
 class GUI_Layer_AllowedChoices_Binary :
 	public Component
@@ -27,7 +27,7 @@ class GUI_Layer_AllowedChoices_Binary :
 public:
 	GUI_Layer_AllowedChoices_Binary() = delete;
 
-	GUI_Layer_AllowedChoices_Binary(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoices_Binary(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void paint(Graphics& g) override;
 
 private:

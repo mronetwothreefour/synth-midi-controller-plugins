@@ -14,7 +14,7 @@ using namespace MophoConstants;
 class ExposedParameters;
 class ExposedParamsRandomizationOptions;
 class InfoForExposedParameters;
-class UnexposedParameters;
+class TooltipsOptions;
 
 class GUI_Layer_Randomization :
 	public Component,
@@ -52,7 +52,7 @@ class GUI_Layer_Randomization :
 public:
 	GUI_Layer_Randomization() = delete;
 
-	GUI_Layer_Randomization(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	GUI_Layer_Randomization(ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void paint(Graphics& g) override;
 	void mouseDown(const MouseEvent& event) override;
 	void buttonClicked(Button* button) override;

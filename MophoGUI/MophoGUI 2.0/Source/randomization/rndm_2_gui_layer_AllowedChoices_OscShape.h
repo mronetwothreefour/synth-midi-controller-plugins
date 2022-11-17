@@ -14,7 +14,7 @@ using Shape = OscWaveShape;
 class ExposedParameters;
 class ExposedParamsRandomizationOptions;
 class InfoForExposedParameters;
-class UnexposedParameters;
+class TooltipsOptions;
 
 class GUI_Layer_AllowedChoices_OscShape :
 	public Component,
@@ -43,7 +43,7 @@ class GUI_Layer_AllowedChoices_OscShape :
 public:
 	GUI_Layer_AllowedChoices_OscShape() = delete;
 
-	GUI_Layer_AllowedChoices_OscShape(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoices_OscShape(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void paint(Graphics& g) override;
 	void mouseDown(const MouseEvent& event) override;
 	void buttonClicked(Button* button) override;

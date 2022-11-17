@@ -6,7 +6,7 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 using namespace Matrix_6G_Constants;
 using MM_Type = MatrixModParamType;
@@ -19,13 +19,12 @@ class RandomizeButton_MatrixModParam :
 public:
 	RandomizeButton_MatrixModParam() = delete;
 
-	RandomizeButton_MatrixModParam(int modNum, MM_Type paramType, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	RandomizeButton_MatrixModParam(int modNum, MM_Type paramType, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 		randomize{ exposedParams->randomize.get() }
 	{
 		setComponentID(ID::btn_Randomize.toString());
 		onClick = [this, modNum, paramType] { randomize->randomizeMatrixModParameter(modNum, paramType); };
 		addShortcut(KeyPress{ 'd', ModifierKeys::ctrlModifier, 0 });
-		auto tooltips{ unexposedParams->getTooltipsOptions() };
 		if (tooltips->shouldShowDescription()) {
 			auto paramName{ "Modulator " + (String)modNum };
 			paramName += paramType == MM_Type::source ? " Source" : paramType == MM_Type::amount ? " Amount" : " Destination";

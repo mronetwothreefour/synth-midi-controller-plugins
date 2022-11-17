@@ -4,19 +4,17 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
-
-
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
-	Track track, bool destIsPitched, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	Track track, bool destIsPitched, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	track{ track },
 	destIsPitched{ destIsPitched },
-	unexposedParams{ unexposedParams },
+	tooltips{ tooltips },
 	randomization{ exposedParams->randomization.get() },
-	btn_Close{ unexposedParams->getTooltipsOptions() },
-	targetStepSelector{ track, randomization, unexposedParams },
-	btn_Randomize{ track, exposedParams, unexposedParams}
+	btn_Close{ tooltips },
+	targetStepSelector{ track, randomization, tooltips },
+	btn_Randomize{ track, exposedParams, tooltips }
 {
 	targetStepForSeqTrackAsValue = { randomization->getTargetStepForSeqTrackAsValue(track) };
 	targetStepForSeqTrackAsValue.addListener(this);
@@ -54,7 +52,6 @@ GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
 			allowChoiceToggles->restoreToggles();
 	};
 	btn_AllowAll.addShortcut(KeyPress{ 'a', ModifierKeys::ctrlModifier, 0 });
-	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltips->shouldShowDescription() };
 	if (shouldShowDescriptions) {
 		String tip{ "" };
@@ -83,13 +80,13 @@ GUI_Layer_AllowedChoices_SeqTrack::GUI_Layer_AllowedChoices_SeqTrack(
 }
 
 void GUI_Layer_AllowedChoices_SeqTrack::resetKnobsAndToggles() {
-	repeatChoices.reset(new AllowRepeatChoicesToggle_SeqTrackStep{ track, randomization, unexposedParams });
+	repeatChoices.reset(new AllowRepeatChoicesToggle_SeqTrackStep{ track, randomization, tooltips });
 	if (repeatChoices != nullptr) {
 		repeatChoices->setCentrePosition(destIsPitched ? center_x + 10 : center_x, destIsPitched ? 69 : 180);
 		addAndMakeVisible(repeatChoices.get());
 	}
 
-	probabilities.reset(new SeqTrackProbabilities{ track, randomization, unexposedParams });
+	probabilities.reset(new SeqTrackProbabilities{ track, randomization, tooltips });
 	if (probabilities != nullptr) {
 		auto probabilities_x{ track == Track::one ? 597 : 639 };
 		if (destIsPitched)
@@ -98,7 +95,7 @@ void GUI_Layer_AllowedChoices_SeqTrack::resetKnobsAndToggles() {
 		addAndMakeVisible(probabilities.get());
 	}
 
-	allowChoiceToggles.reset(new AllowChoiceToggles_SeqTrackStep{ track, destIsPitched, randomization, unexposedParams });
+	allowChoiceToggles.reset(new AllowChoiceToggles_SeqTrackStep{ track, destIsPitched, randomization, tooltips });
 	if (allowChoiceToggles != nullptr) {
 		allowChoiceToggles->setCentrePosition(center_x, 349);
 		addAndMakeVisible(allowChoiceToggles.get());

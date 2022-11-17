@@ -6,9 +6,9 @@
 using namespace MophoConstants;
 using KnobType = SeqTrackProbabilityKnobType;
 
-SeqTrackProbabilities::SeqTrackProbabilities(Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams) :
+SeqTrackProbabilities::SeqTrackProbabilities(Track track, ExposedParamsRandomizationOptions* randomization, TooltipsOptions* tooltips) :
 	track{ track },
-	knob_ResetProbability{ KnobType::reset, track, randomization, unexposedParams }
+	knob_ResetProbability{ KnobType::reset, track, randomization, tooltips }
 {
 	auto isTrackOne{ track == Track::one };
 
@@ -16,7 +16,7 @@ SeqTrackProbabilities::SeqTrackProbabilities(Track track, ExposedParamsRandomiza
 	addAndMakeVisible(knob_ResetProbability);
 
 	if (isTrackOne) {
-		knob_RestProbability.reset(new KnobForSeqTrackProbability{ KnobType::rest, track, randomization, unexposedParams });
+		knob_RestProbability.reset(new KnobForSeqTrackProbability{ KnobType::rest, track, randomization, tooltips });
 		if (knob_RestProbability != nullptr) {
 			knob_RestProbability->setTopLeftPosition(96, 1);
 			addAndMakeVisible(knob_RestProbability.get());

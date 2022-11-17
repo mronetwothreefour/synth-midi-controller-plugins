@@ -14,7 +14,6 @@ using Track = SeqTrackNum;
 class ExposedParameters;
 class ExposedParamsRandomizationOptions;
 class TooltipsOptions;
-class UnexposedParameters;
 
 class KnobForSeqTrackProbability :
 	public RotarySliderWithMouseWheelMoveOverride,
@@ -31,7 +30,7 @@ class KnobForSeqTrackProbability :
 public:
 	KnobForSeqTrackProbability() = delete;
 
-	KnobForSeqTrackProbability(KnobType knobType, Track track, ExposedParamsRandomizationOptions* randomization, UnexposedParameters* unexposedParams);
+	KnobForSeqTrackProbability(KnobType knobType, Track track, ExposedParamsRandomizationOptions* randomization, TooltipsOptions* tooltips);
 	void updateTooltip();
 	void mouseDoubleClick(const MouseEvent& event) override;
 	void valueChanged() override;

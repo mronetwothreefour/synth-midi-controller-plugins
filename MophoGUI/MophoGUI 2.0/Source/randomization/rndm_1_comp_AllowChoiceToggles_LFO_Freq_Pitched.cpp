@@ -3,13 +3,13 @@
 #include "../constants/constants_ExposedParameters.h"
 #include "../exposedParameters/ep_0_build_ChoiceNamesValueTree.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
-AllowChoiceToggles_LFO_Freq_Pitched::AllowChoiceToggles_LFO_Freq_Pitched(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+AllowChoiceToggles_LFO_Freq_Pitched::AllowChoiceToggles_LFO_Freq_Pitched(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	info{ exposedParams->info.get() },
 	randomization{ exposedParams->randomization.get() },
-	tooltips{ unexposedParams->getTooltipsOptions() },
+	tooltips{ tooltips },
 	numberOfFreq{ EP::numberOfPitched_LFO_Frequencies },
 	AllowChoiceToggles_Base{ numberOfFreq, 6, 12, 0, 36 }
 {

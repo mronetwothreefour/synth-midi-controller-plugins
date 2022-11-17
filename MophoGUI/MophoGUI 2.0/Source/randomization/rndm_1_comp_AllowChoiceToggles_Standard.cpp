@@ -2,9 +2,9 @@
 
 #include "../constants/constants_ExposedParameters.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
-AllowChoiceToggles_Standard::AllowChoiceToggles_Standard(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+AllowChoiceToggles_Standard::AllowChoiceToggles_Standard(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	AllowChoiceToggles_Base{
 		exposedParams->info->numberOfChoicesFor(paramIndex),
 		exposedParams->info->numberOfAllowChoiceToggleColumnsFor(paramIndex),
@@ -15,7 +15,7 @@ AllowChoiceToggles_Standard::AllowChoiceToggles_Standard(uint8 paramIndex, Expos
 	paramIndex{ paramIndex },
 	info{ exposedParams->info.get() },
 	randomization{ exposedParams->randomization.get() },
-	tooltips{ unexposedParams->getTooltipsOptions() },
+	tooltips{ tooltips },
 	numberOfChoices{ exposedParams->info->numberOfChoicesFor(paramIndex) }
 {
 	jassert(paramIndex < EP::numberOfExposedParams);

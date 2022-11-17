@@ -14,13 +14,13 @@ class GUI_Layer_AllowedChoices_SeqTrack;
 class GUI_Layer_AllowedChoices_Standard;
 class GUI_Layer_AllowedChoices_VoiceNameChar;
 class ExposedParameters;
-class UnexposedParameters;
+class TooltipsOptions;
 
 class GUI_Layer_AllowedChoicesServer :
 	public Component
 {
-	UnexposedParameters* unexposedParams;
 	ExposedParameters* exposedParams;
+	TooltipsOptions* tooltips;
 	std::unique_ptr<GUI_Layer_AllowedChoices_Binary> allowedChoices_Binary;
 	std::unique_ptr<GUI_Layer_AllowedChoices_LFO_Freq> allowedChoices_LFO_Freq;
 	std::unique_ptr<GUI_Layer_AllowedChoices_OscShape> allowedChoices_OscShape;
@@ -31,7 +31,7 @@ class GUI_Layer_AllowedChoicesServer :
 public:
 	GUI_Layer_AllowedChoicesServer() = delete;
 
-	GUI_Layer_AllowedChoicesServer(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoicesServer(ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void showAllowedChoicesLayerForBinaryParam(uint8 paramIndex);
 	void showAllowedChoicesLayerForLFO_FreqParam(uint8 paramIndex);
 	void showAllowedChoicesLayerForOscShapeParam(uint8 paramIndex);

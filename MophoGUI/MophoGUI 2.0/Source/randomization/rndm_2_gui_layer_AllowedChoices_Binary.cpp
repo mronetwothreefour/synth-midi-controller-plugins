@@ -3,15 +3,15 @@
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 GUI_Layer_AllowedChoices_Binary::GUI_Layer_AllowedChoices_Binary(
-	uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	info{ exposedParams->info.get() },
 	paramIndex{ paramIndex },
-	repeatChoicesToggle{ paramIndex, exposedParams, unexposedParams },
-	btn_Randomize{ paramIndex, exposedParams, unexposedParams },
-	btn_Close{ unexposedParams->getTooltipsOptions() },
+	repeatChoicesToggle{ paramIndex, exposedParams, tooltips },
+	btn_Randomize{ paramIndex, exposedParams, tooltips },
+	btn_Close{ tooltips },
 	background_x{ info->allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ info->allowedChoicesBackground_y_For(paramIndex) }
 {

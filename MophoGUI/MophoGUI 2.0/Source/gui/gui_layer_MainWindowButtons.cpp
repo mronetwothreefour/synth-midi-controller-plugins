@@ -295,7 +295,7 @@ void GUI_Layer_MainWindowButtons::showGlobalParamsLayer() {
 
 void GUI_Layer_MainWindowButtons::showRandomizationLayer() {
     layer_Randomization = nullptr;
-    layer_Randomization.reset(new GUI_Layer_Randomization{ exposedParams, unexposedParams });
+    layer_Randomization.reset(new GUI_Layer_Randomization{ exposedParams, tooltips });
     if (layer_Randomization != nullptr) {
         addAndMakeVisible(layer_Randomization.get());
         layer_Randomization->setBounds(getLocalBounds());

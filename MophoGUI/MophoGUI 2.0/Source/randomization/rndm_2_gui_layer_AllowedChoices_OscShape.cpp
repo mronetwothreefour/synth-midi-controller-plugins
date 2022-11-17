@@ -4,17 +4,17 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
-	uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	info{ exposedParams->info.get() },
 	randomization{ exposedParams->randomization.get() },
-	repeatChoices{ paramIndex, exposedParams, unexposedParams },
-	allowPulseWidthToggles{ paramIndex, exposedParams, unexposedParams },
-	btn_Close{ unexposedParams->getTooltipsOptions() },
-	btn_Randomize{ paramIndex, exposedParams, unexposedParams },
+	repeatChoices{ paramIndex, exposedParams, tooltips },
+	allowPulseWidthToggles{ paramIndex, exposedParams, tooltips },
+	btn_Close{ tooltips },
+	btn_Randomize{ paramIndex, exposedParams, tooltips },
 	background_x{ info->allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ info->allowedChoicesBackground_y_For(paramIndex) },
 	shapeTogglesRow_y{ background_y + 49 },
@@ -23,7 +23,6 @@ GUI_Layer_AllowedChoices_OscShape::GUI_Layer_AllowedChoices_OscShape(
 	jassert(info->allowedChoicesTypeFor(paramIndex) == AllowedChoicesType::oscShape);
 	auto paramID{ info->IDfor(paramIndex).toString() };
 	auto paramName{ info->exposedNameFor(paramIndex) };
-	auto tooltips{ unexposedParams->getTooltipsOptions() };
 	auto shouldShowDescriptions{ tooltips->shouldShowDescription() };
 	auto oscNumString{ paramID.fromFirstOccurrenceOf("Osc_", false, false).upToFirstOccurrenceOf("_Shape", false, false) };
 

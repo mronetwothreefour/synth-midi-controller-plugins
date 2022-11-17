@@ -16,7 +16,7 @@ using Track = SeqTrackNum;
 
 class ExposedParameters;
 class ExposedParamsRandomizationOptions;
-class UnexposedParameters;
+class TooltipsOptions;
 
 class GUI_Layer_AllowedChoices_SeqTrack :
 	public Component,
@@ -24,7 +24,7 @@ class GUI_Layer_AllowedChoices_SeqTrack :
 {
 	Track track;
 	bool destIsPitched;
-	UnexposedParameters* unexposedParams;
+	TooltipsOptions* tooltips;
 	ExposedParamsRandomizationOptions* randomization;
 	TextButton btn_AllowAll;
 	std::unique_ptr<AllowRepeatChoicesToggle_SeqTrackStep> repeatChoices;
@@ -43,7 +43,7 @@ class GUI_Layer_AllowedChoices_SeqTrack :
 public:
 	GUI_Layer_AllowedChoices_SeqTrack() = delete;
 
-	GUI_Layer_AllowedChoices_SeqTrack(Track track, bool destIsPitched, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoices_SeqTrack(Track track, bool destIsPitched, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 
 private:
 	void resetKnobsAndToggles();

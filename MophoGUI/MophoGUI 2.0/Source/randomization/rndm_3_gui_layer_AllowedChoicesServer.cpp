@@ -8,13 +8,13 @@
 #include "rndm_2_gui_layer_AllowedChoices_VoiceNameChar.h"
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 using Type = AllowedChoicesType;
 
-GUI_Layer_AllowedChoicesServer::GUI_Layer_AllowedChoicesServer(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+GUI_Layer_AllowedChoicesServer::GUI_Layer_AllowedChoicesServer(ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	exposedParams{ exposedParams },
-	unexposedParams{ unexposedParams }
+	tooltips{ tooltips }
 {
 	setInterceptsMouseClicks(false, true);
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -27,7 +27,7 @@ void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForBinaryParam(uint8
 	allowedChoices_SeqTrack = nullptr;
 	allowedChoices_Standard = nullptr;
 	allowedChoices_VoiceNameChar = nullptr;
-	allowedChoices_Binary.reset(new GUI_Layer_AllowedChoices_Binary{ paramIndex, exposedParams, unexposedParams });
+	allowedChoices_Binary.reset(new GUI_Layer_AllowedChoices_Binary{ paramIndex, exposedParams, tooltips });
 	addAndMakeVisible(allowedChoices_Binary.get());
 	allowedChoices_Binary->setTopLeftPosition(0, 0);
 }
@@ -39,7 +39,7 @@ void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForLFO_FreqParam(uin
 	allowedChoices_SeqTrack = nullptr;
 	allowedChoices_Standard = nullptr;
 	allowedChoices_VoiceNameChar = nullptr;
-	allowedChoices_LFO_Freq.reset(new GUI_Layer_AllowedChoices_LFO_Freq{ paramIndex, exposedParams, unexposedParams });
+	allowedChoices_LFO_Freq.reset(new GUI_Layer_AllowedChoices_LFO_Freq{ paramIndex, exposedParams, tooltips });
 	addAndMakeVisible(allowedChoices_LFO_Freq.get());
 	allowedChoices_LFO_Freq->setTopLeftPosition(0, 0);
 }
@@ -51,7 +51,7 @@ void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForOscShapeParam(uin
 	allowedChoices_SeqTrack = nullptr;
 	allowedChoices_Standard = nullptr;
 	allowedChoices_VoiceNameChar = nullptr;
-	allowedChoices_OscShape.reset(new GUI_Layer_AllowedChoices_OscShape{ paramIndex, exposedParams, unexposedParams });
+	allowedChoices_OscShape.reset(new GUI_Layer_AllowedChoices_OscShape{ paramIndex, exposedParams, tooltips });
 	addAndMakeVisible(allowedChoices_OscShape.get());
 	allowedChoices_OscShape->setTopLeftPosition(0, 0);
 }
@@ -62,7 +62,7 @@ void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForSeqTrack(Track tr
 	allowedChoices_OscShape = nullptr;
 	allowedChoices_Standard = nullptr;
 	allowedChoices_VoiceNameChar = nullptr;
-	allowedChoices_SeqTrack.reset(new GUI_Layer_AllowedChoices_SeqTrack{ track, destIsPitched, exposedParams, unexposedParams });
+	allowedChoices_SeqTrack.reset(new GUI_Layer_AllowedChoices_SeqTrack{ track, destIsPitched, exposedParams, tooltips });
 	addAndMakeVisible(allowedChoices_SeqTrack.get());
 	allowedChoices_SeqTrack->setTopLeftPosition(0, 0);
 }
@@ -74,7 +74,7 @@ void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForStandardParam(uin
 	allowedChoices_OscShape = nullptr;
 	allowedChoices_SeqTrack = nullptr;
 	allowedChoices_VoiceNameChar = nullptr;
-	allowedChoices_Standard.reset(new GUI_Layer_AllowedChoices_Standard{ paramIndex, exposedParams, unexposedParams });
+	allowedChoices_Standard.reset(new GUI_Layer_AllowedChoices_Standard{ paramIndex, exposedParams, tooltips });
 	addAndMakeVisible(allowedChoices_Standard.get());
 	allowedChoices_Standard->setTopLeftPosition(0, 0);
 }
@@ -86,7 +86,7 @@ void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForVoiceNameCharPara
 	allowedChoices_OscShape = nullptr;
 	allowedChoices_SeqTrack = nullptr;
 	allowedChoices_Standard = nullptr;
-	allowedChoices_VoiceNameChar.reset(new GUI_Layer_AllowedChoices_VoiceNameChar{ paramIndex, exposedParams, unexposedParams });
+	allowedChoices_VoiceNameChar.reset(new GUI_Layer_AllowedChoices_VoiceNameChar{ paramIndex, exposedParams, tooltips });
 	addAndMakeVisible(allowedChoices_VoiceNameChar.get());
 	allowedChoices_VoiceNameChar->setTopLeftPosition(0, 0);
 }

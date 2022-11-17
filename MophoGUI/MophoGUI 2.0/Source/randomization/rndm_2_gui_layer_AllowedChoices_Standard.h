@@ -9,7 +9,7 @@
 
 class ExposedParameters;
 class InfoForExposedParameters;
-class UnexposedParameters;
+class TooltipsOptions;
 
 class GUI_Layer_AllowedChoices_Standard :
 	public Component
@@ -31,7 +31,7 @@ class GUI_Layer_AllowedChoices_Standard :
 public:
 	GUI_Layer_AllowedChoices_Standard() = delete;
 
-	GUI_Layer_AllowedChoices_Standard(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoices_Standard(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void paint(Graphics& g) override;
 	void resized() override;
 

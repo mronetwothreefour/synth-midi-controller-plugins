@@ -9,7 +9,7 @@
 
 class ExposedParameters;
 class InfoForExposedParameters;
-class UnexposedParameters;
+class TooltipsOptions;
 
 class GUI_Layer_AllowedChoices_VoiceNameChar :
 	public Component
@@ -29,7 +29,7 @@ class GUI_Layer_AllowedChoices_VoiceNameChar :
 public:
 	GUI_Layer_AllowedChoices_VoiceNameChar() = delete;
 
-	GUI_Layer_AllowedChoices_VoiceNameChar(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoices_VoiceNameChar(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void paint(Graphics& g) override;
 
 private:

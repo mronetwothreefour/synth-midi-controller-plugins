@@ -11,7 +11,7 @@ class ExposedParameters;
 class MatrixModOptions;
 class ParamRandomizationOptions;
 class InfoForExposedParameters;
-class UnexposedParameters;
+class TooltipsOptions;
 
 class AllowRepeatChoicesComboBox_MatrixModParam :
 	public Component,
@@ -27,7 +27,7 @@ class AllowRepeatChoicesComboBox_MatrixModParam :
 public:
 	AllowRepeatChoicesComboBox_MatrixModParam() = delete;
 
-	AllowRepeatChoicesComboBox_MatrixModParam(int modNum, MM_Type paramType, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	AllowRepeatChoicesComboBox_MatrixModParam(int modNum, MM_Type paramType, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void paint(Graphics& g) override;
 	void valueChanged(Value& value) override;
 	~AllowRepeatChoicesComboBox_MatrixModParam();
