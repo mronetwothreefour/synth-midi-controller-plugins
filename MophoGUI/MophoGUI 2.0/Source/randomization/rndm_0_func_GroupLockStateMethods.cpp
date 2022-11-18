@@ -25,6 +25,7 @@ void GroupLockStateMethods::all_VCA_Params(ExposedParamsRandomizationOptions* ra
 }
 
 void GroupLockStateMethods::all_LFO_Params(int lfoNum, ExposedParamsRandomizationOptions* randomization, bool shouldBeLocked) {
+	jassert(lfoNum > 0 && lfoNum < 5);
 	auto firstLFO_FreqParam{ uint8(first_LFO_FreqParamIndex + (lfoNum - 1) * 5) };
 	for (auto i = 0; i != 5; ++i) {
 		auto paramIndex{ uint8(firstLFO_FreqParam + i) };

@@ -450,6 +450,10 @@
               compile="0" resource="0" file="Source/randomization/rndm_0_comp_RandomizeButton_MatrixModParam.h"/>
         <FILE id="y9xInP" name="rndm_0_comp_TransmitMethodComboBox.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_comp_TransmitMethodComboBox.h"/>
+        <FILE id="GUpbmR" name="rndm_0_func_GroupLockStateMethods.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_0_func_GroupLockStateMethods.cpp"/>
+        <FILE id="ugv7EM" name="rndm_0_func_GroupLockStateMethods.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_func_GroupLockStateMethods.h"/>
         <FILE id="WJwgN8" name="rndm_1_comp_AllowChoiceToggles_ExposedParam.cpp"
               compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_ExposedParam.cpp"/>
         <FILE id="IsrwbV" name="rndm_1_comp_AllowChoiceToggles_ExposedParam.h"

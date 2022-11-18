@@ -187,6 +187,7 @@
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles_Base.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox_ExposedParam.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesComboBox_MatrixModParam.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_func_GroupLockStateMethods.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_ExposedParam.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_MatrixModParam.cpp"/>
     <ClCompile Include="..\..\Source\splits\splits_0_comp_TextEditorForSplitParamSlider.cpp"/>
@@ -2443,6 +2444,7 @@
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButton_ExposedParam.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButton_MatrixModParam.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_TransmitMethodComboBox.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_func_GroupLockStateMethods.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_ExposedParam.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_AllowChoiceToggles_MatrixModParam.h"/>
     <ClInclude Include="..\..\Source\splits\splits_0_build_ChoiceName.h"/>
