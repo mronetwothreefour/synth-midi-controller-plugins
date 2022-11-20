@@ -22,6 +22,8 @@ namespace Matrix_6G_Constants
 		static const Identifier btn_Export_File{ "btn_Export_File" };
 		static const Identifier btn_Expt_VoiceFromBank_{ "btn_Expt_VoiceFromBank_" };
 		static const Identifier btn_Expt_VoicesBank_{ "btn_Expt_VoicesBank_" };
+		static const Identifier btn_GroupLock{ "btn_GroupLock" };
+		static const Identifier btn_GroupUnlock{ "btn_GroupUnlock" };
 		static const Identifier btn_Import_File{ "btn_Import_File" };
 		static const Identifier btn_Impt_AllVoicesIntoBank_{ "btn_Impt_AllVoicesIntoBank_" };
 		static const Identifier btn_Impt_VoiceIntoBank_{ "btn_Impt_VoiceIntoBank_" };

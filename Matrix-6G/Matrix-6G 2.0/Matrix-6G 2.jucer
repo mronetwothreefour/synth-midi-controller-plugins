@@ -462,6 +462,10 @@
               compile="1" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_MatrixModParam.cpp"/>
         <FILE id="oXKmDe" name="rndm_1_comp_AllowChoiceToggles_MatrixModParam.h"
               compile="0" resource="0" file="Source/randomization/rndm_1_comp_AllowChoiceToggles_MatrixModParam.h"/>
+        <FILE id="PfTwHx" name="rndm_1_comp_GroupLockStateButtons.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_1_comp_GroupLockStateButtons.cpp"/>
+        <FILE id="tJZyy5" name="rndm_1_comp_GroupLockStateButtons.h" compile="0"
+              resource="0" file="Source/randomization/rndm_1_comp_GroupLockStateButtons.h"/>
       </GROUP>
       <GROUP id="{523DAC2B-3476-DB28-4F85-435EA1B21E66}" name="splits">
         <FILE id="Bwebsh" name="splits_0_build_ChoiceName.h" compile="0" resource="0"

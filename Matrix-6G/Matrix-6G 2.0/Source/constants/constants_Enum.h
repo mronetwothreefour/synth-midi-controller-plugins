@@ -77,6 +77,23 @@ namespace Matrix_6G_Constants
 	};
 
 
+	const enum class LockStateGroup {
+		all = 0,
+		osc,
+		vcf,
+		vca,
+		vcf_FM,
+		porta,
+		lfo,
+		ramp,
+		tracking,
+		env_1,
+		env_2,
+		env_3,
+		matrixMod
+	};
+
+
 	const enum class MatrixModParamType {
 		source = 0,
 		amount,
