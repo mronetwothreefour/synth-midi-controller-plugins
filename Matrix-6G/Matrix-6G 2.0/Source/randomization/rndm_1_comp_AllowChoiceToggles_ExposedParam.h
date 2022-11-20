@@ -17,6 +17,7 @@ class AllowChoiceToggles_ExposedParam :
 	ParamRandomizationOptions* randomization;
 	TooltipsOptions* tooltips;
 	uint8 numberOfChoices;
+	bool rangeIsSigned;
 
 public:
 	AllowChoiceToggles_ExposedParam() = delete;

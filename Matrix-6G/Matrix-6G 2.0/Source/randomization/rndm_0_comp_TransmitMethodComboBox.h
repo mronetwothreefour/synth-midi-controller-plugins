@@ -21,6 +21,10 @@ public:
 		onChange = [this, randomization] {
 			auto currentChoice{ getSelectedItemIndex() };
 			randomization->setTransmitMethodIsQuickEdit(currentChoice == 1 ? true : false);
+			if (randomization->transmitMethodIsQuickEdit())
+				randomization->forbidAllNegativeChoicesForAllSignedParams();
+			else
+				randomization->allowAllNegativeChoicesForAllSignedParams();
 		};
 		if (tooltips->shouldShowDescription()) {
 			String tip{ "" };

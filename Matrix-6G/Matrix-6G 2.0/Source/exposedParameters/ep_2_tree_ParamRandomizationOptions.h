@@ -33,6 +33,8 @@ public:
 	void setChoiceIsAllowedForParam(uint8 choiceNum, bool shouldBeAllowed, uint8 paramIndex);
 	void clearAllowedChoicesForParam(uint8 paramIndex);
 	void allowAllChoicesForParam(uint8 paramIndex);
+	void forbidAllNegativeChoicesForAllSignedParams();
+	void allowAllNegativeChoicesForAllSignedParams();
 
 private:
 	void checkNumberOfChoicesAllowedForParam(uint8 paramIndex);

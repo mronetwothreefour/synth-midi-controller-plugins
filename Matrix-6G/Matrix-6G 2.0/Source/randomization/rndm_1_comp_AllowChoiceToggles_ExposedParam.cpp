@@ -17,7 +17,8 @@ AllowChoiceToggles_ExposedParam::AllowChoiceToggles_ExposedParam(
 	info{ exposedParams->info.get() },
 	randomization{ exposedParams->randomization.get() },
 	tooltips{ tooltips },
-	numberOfChoices{ exposedParams->info->numberOfChoicesFor(paramIndex) }
+	numberOfChoices{ info->numberOfChoicesFor(paramIndex) },
+	rangeIsSigned{ info->choiceNameFor(0, paramIndex).startsWith("-") ? true : false }
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	jassert(info->numberOfChoicesFor(paramIndex) > 2);
@@ -25,6 +26,12 @@ AllowChoiceToggles_ExposedParam::AllowChoiceToggles_ExposedParam(
 	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
 		allowedChoiceToggles[choiceNum]->setName(buildChoiceName(choiceNum));
 		allowedChoiceToggles[choiceNum]->setTooltip(buildTooltip());
+	}
+
+	if (rangeIsSigned && randomization->transmitMethodIsQuickEdit()) {
+		auto numberOfNegativeValues{ numberOfChoices == 63 ? 31 : 63 };
+		for (auto choiceNum = 0; choiceNum != numberOfNegativeValues; ++choiceNum)
+			allowedChoiceToggles[choiceNum]->setEnabled(false);
 	}
 }
 
@@ -47,6 +54,10 @@ String AllowChoiceToggles_ExposedParam::buildTooltip() {
 				tip += "are all in the same note row.";
 			else
 				tip += "are all in the same row.";
+		}
+		if (rangeIsSigned && randomization->transmitMethodIsQuickEdit()) {
+			tip += "When the transmit message type is set to QUICK,\n";
+			tip += "negative values cannot be generated.";
 		}
 	}
 	return tip;

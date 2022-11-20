@@ -114,6 +114,29 @@ void ParamRandomizationOptions::allowAllChoicesForParam(uint8 paramIndex) {
 		setChoiceIsAllowedForParam(choiceNum, true, paramIndex);
 }
 
+void ParamRandomizationOptions::forbidAllNegativeChoicesForAllSignedParams() {
+	for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
+		if (info->choiceNameFor((uint8)0, paramIndex).startsWith("-")) {
+			auto numberOfNegativeValues{ info->numberOfChoicesFor(paramIndex) == 63 ? (uint8)31 : (uint8)63 };
+			for (auto choiceNum = (uint8)0; choiceNum != numberOfNegativeValues; ++choiceNum)
+				setChoiceIsAllowedForParam(choiceNum, false, paramIndex);
+			checkNumberOfChoicesAllowedForParam(paramIndex);
+			if (noChoiceIsAllowedForParam(paramIndex))
+				setChoiceIsAllowedForParam(numberOfNegativeValues, true, paramIndex);
+		}
+	}
+}
+
+void ParamRandomizationOptions::allowAllNegativeChoicesForAllSignedParams() {
+	for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
+		if (info->choiceNameFor((uint8)0, paramIndex).startsWith("-")) {
+			auto numberOfNegativeValues{ info->numberOfChoicesFor(paramIndex) == 63 ? (uint8)31 : (uint8)63 };
+			for (auto choiceNum = (uint8)0; choiceNum != numberOfNegativeValues; ++choiceNum)
+				setChoiceIsAllowedForParam(choiceNum, true, paramIndex);
+		}
+	}
+}
+
 
 
 
