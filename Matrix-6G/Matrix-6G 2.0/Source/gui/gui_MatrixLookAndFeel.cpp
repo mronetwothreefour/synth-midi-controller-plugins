@@ -22,6 +22,9 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID == ID::btn_ActivateQuickEdit_Flash.toString())
 		mBlock = MemBlock{ btn_ActivateQuickEdit_Flash_png, (s_t)btn_ActivateQuickEdit_Flash_pngSize };
 
+	if (buttonID == ID::btn_AllowAll.toString())
+		mBlock = MemBlock{ isDown ? btn_AllowAll_Dn_png : btn_AllowAll_Up_png, isDown ? (s_t)btn_AllowAll_Dn_pngSize : (s_t)btn_AllowAll_Up_pngSize };
+
 	if (buttonID.startsWith("btn_Cancel"))
 		mBlock = MemBlock{ isDown ? btn_Cancel_Dn_png : btn_Cancel_Up_png, isDown ? (s_t)btn_Cancel_Dn_pngSize : (s_t)btn_Cancel_Up_pngSize };
 
@@ -39,6 +42,12 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 
 	if (buttonID.startsWith("btn_Expt_"))
 		mBlock = MemBlock{ isDown ? btn_Expt_Dn_png : btn_Expt_Up_png, isDown ? (s_t)btn_Expt_Dn_pngSize : (s_t)btn_Expt_Up_pngSize };
+
+	if (buttonID == ID::btn_GroupLock.toString())
+		mBlock = MemBlock{ isDown ? btn_GroupLock_Dn_png : btn_GroupLock_Up_png, isDown ? (s_t)btn_GroupLock_Dn_pngSize : (s_t)btn_GroupLock_Up_pngSize };
+
+	if (buttonID == ID::btn_GroupUnlock.toString())
+		mBlock = MemBlock{ isDown ? btn_GroupUnlock_Dn_png : btn_GroupUnlock_Up_png, isDown ? (s_t)btn_GroupUnlock_Dn_pngSize : (s_t)btn_GroupUnlock_Up_pngSize };
 
 	if (buttonID.startsWith("btn_Import"))
 		mBlock = MemBlock{ isDown ? btn_Import_Dn_png : btn_Import_Up_png, isDown ? (s_t)btn_Import_Dn_pngSize : (s_t)btn_Import_Up_pngSize };

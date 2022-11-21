@@ -13,6 +13,7 @@ namespace Matrix_6G_Constants
 
 		static const Identifier btn_ActivateQuickEdit{ "btn_ActivateQuickEdit" };
 		static const Identifier btn_ActivateQuickEdit_Flash{ "btn_ActivateQuickEdit_Flash" };
+		static const Identifier btn_AllowAll{ "btn_AllowAll" };
 		static const Identifier btn_Cancel_FileOverwrite{ "btn_Cancel_FileOverwrite" };
 		static const Identifier btn_Cancel_ImportExport{ "btn_Cancel_ImportExport" };
 		static const Identifier btn_Cancel_NewFolder{ "btn_Cancel_NewFolder" };

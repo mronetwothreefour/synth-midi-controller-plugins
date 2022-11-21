@@ -106,11 +106,14 @@ void ParamRandomizationOptions::clearAllowedChoicesForParam(uint8 paramIndex) {
 	allowedChoices.removeAllProperties(nullptr);
 }
 
-void ParamRandomizationOptions::allowAllChoicesForParam(uint8 paramIndex) {
+void ParamRandomizationOptions::allowAllChoicesForParam(uint8 paramIndex, bool rangeIsSigned) {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	auto numberOfChoices{ info->numberOfChoicesFor(paramIndex) };
+	auto choiceNum{ (uint8)0 };
+	if (rangeIsSigned && transmitMethodIsQuickEdit())
+		choiceNum = (numberOfChoices == 63 ? (uint8)32 : (uint8)64);
 	jassert(numberOfChoices > 2);
-	for (auto choiceNum = (uint8)0; choiceNum != numberOfChoices; ++choiceNum)
+	for (choiceNum; choiceNum != numberOfChoices; ++choiceNum)
 		setChoiceIsAllowedForParam(choiceNum, true, paramIndex);
 }
 

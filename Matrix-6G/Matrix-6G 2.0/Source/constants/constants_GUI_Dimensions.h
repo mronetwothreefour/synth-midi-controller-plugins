@@ -9,12 +9,15 @@ namespace Matrix_6G_Constants
 		const float ledDisplay_y{ 3 };
 
 		const int allowChoiceToggle_h{ 16 };
+		const int allowedChoices_Inset{ 15 };
+		const int allowedChoices_VertGap{ 10 };
 		const int bankTransmitButtons_y{ 317 };
 		const int bankTransmitCloseButton_w{ 42 };
 		const int bankTransmitCloseButton_x{ 605 };
 		const int bankTransmitStopButton_w{ 38 };
 		const int bankTransmitStopButton_x{ 607 };
 		const int borders_w{ 10 };
+		const int btn_AllowAll_w{ 61 };
 		const int btn_Randomize_w{ 61 };
 		const int buttons_large_h{ 38 };
 		const int buttons_large_w{ 68 };

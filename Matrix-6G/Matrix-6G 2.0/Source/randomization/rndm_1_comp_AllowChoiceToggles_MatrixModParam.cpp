@@ -76,3 +76,10 @@ void AllowChoiceToggles_MatrixModParam::clearAllowedChoices() {
 const bool AllowChoiceToggles_MatrixModParam::noChoiceIsAllowed() {
 	return randomization->noChoiceIsAllowedForMatrixModParam(modNum, paramType) == true;
 }
+
+void AllowChoiceToggles_MatrixModParam::restoreToggles() {
+	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
+		auto isAllowed{ randomization->choiceIsAllowedForMatrixModParam(choiceNum, modNum, paramType) };
+		allowedChoiceToggles[choiceNum]->setToggleState(isAllowed ? true : false, dontSendNotification);
+	}
+}

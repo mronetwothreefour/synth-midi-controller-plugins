@@ -32,6 +32,9 @@ private:
 	void clearAllowedChoices() override;
 	const bool noChoiceIsAllowed() override;
 
+public:
+	void restoreToggles() override;
+
 	//==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AllowChoiceToggles_ExposedParam)
 };

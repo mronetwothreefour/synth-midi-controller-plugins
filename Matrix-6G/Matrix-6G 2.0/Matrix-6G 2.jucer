@@ -15,6 +15,10 @@
               resource="1" file="BinaryResources/buttons/btn_ActivateQuickEdit_Flash.png"/>
         <FILE id="czSwj9" name="btn_ActivateQuickEdit_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_ActivateQuickEdit_Up.png"/>
+        <FILE id="WO7mdd" name="btn_AllowAll_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_AllowAll_Dn.png"/>
+        <FILE id="XFi4Xe" name="btn_AllowAll_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_AllowAll_Up.png"/>
         <FILE id="AT3Wos" name="btn_Cancel_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Cancel_Dn.png"/>
         <FILE id="luPzCa" name="btn_Cancel_Up.png" compile="0" resource="1"
@@ -466,6 +470,10 @@
               resource="0" file="Source/randomization/rndm_1_comp_GroupLockStateButtons.cpp"/>
         <FILE id="tJZyy5" name="rndm_1_comp_GroupLockStateButtons.h" compile="0"
               resource="0" file="Source/randomization/rndm_1_comp_GroupLockStateButtons.h"/>
+        <FILE id="eNQ7VP" name="rndm_2_gui_layer_AllowedChoices_ExposedParam.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_ExposedParam.cpp"/>
+        <FILE id="VFeHZC" name="rndm_2_gui_layer_AllowedChoices_ExposedParam.h"
+              compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_ExposedParam.h"/>
       </GROUP>
       <GROUP id="{523DAC2B-3476-DB28-4F85-435EA1B21E66}" name="splits">
         <FILE id="Bwebsh" name="splits_0_build_ChoiceName.h" compile="0" resource="0"

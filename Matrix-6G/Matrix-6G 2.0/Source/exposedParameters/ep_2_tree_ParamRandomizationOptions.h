@@ -32,7 +32,7 @@ public:
 	const bool choiceIsAllowedForParam(uint8 choiceNum, uint8 paramIndex);
 	void setChoiceIsAllowedForParam(uint8 choiceNum, bool shouldBeAllowed, uint8 paramIndex);
 	void clearAllowedChoicesForParam(uint8 paramIndex);
-	void allowAllChoicesForParam(uint8 paramIndex);
+	void allowAllChoicesForParam(uint8 paramIndex, bool rangeIsSigned);
 	void forbidAllNegativeChoicesForAllSignedParams();
 	void allowAllNegativeChoicesForAllSignedParams();
 

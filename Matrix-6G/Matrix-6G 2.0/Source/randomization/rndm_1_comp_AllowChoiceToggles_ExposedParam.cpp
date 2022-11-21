@@ -78,3 +78,10 @@ void AllowChoiceToggles_ExposedParam::clearAllowedChoices() {
 const bool AllowChoiceToggles_ExposedParam::noChoiceIsAllowed() {
 	return randomization->noChoiceIsAllowedForParam(paramIndex) == true;
 }
+
+void AllowChoiceToggles_ExposedParam::restoreToggles() {
+	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
+		auto isAllowed{ randomization->choiceIsAllowedForParam(choiceNum, paramIndex) };
+		allowedChoiceToggles[choiceNum]->setToggleState(isAllowed ? true : false, dontSendNotification);
+	}
+}

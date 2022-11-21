@@ -30,6 +30,7 @@ protected:
 
 public:
 	void buttonClicked(Button* button) override;
+	virtual void restoreToggles() = 0;
 	~AllowChoiceToggles_Base();
 
 private:
