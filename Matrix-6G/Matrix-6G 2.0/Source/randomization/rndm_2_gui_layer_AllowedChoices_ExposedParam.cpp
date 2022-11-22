@@ -12,23 +12,26 @@ GUI_Layer_AllowedChoices_ExposedParam::GUI_Layer_AllowedChoices_ExposedParam(
 	paramIndex{ paramIndex },
 	exposedParams{ exposedParams },
 	info{ exposedParams->info.get() },
-	allowChoiceToggles{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
 	btn_Close{ BorderColor::orange, unexposedParams },
 	comboBox_Repeats{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
+	allowChoiceToggles{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
 	btn_Randomize{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
 	childrenShouldBeStackedVertically{ false },
 	background_x{ info->allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ info->allowedChoicesBackground_y_For(paramIndex) }
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	auto paramName{ info->exposedNameFor(paramIndex) };
-	addAndMakeVisible(comboBox_Repeats);
 
 	addAndMakeVisible(btn_Close);
 
-	if (info->numberOfChoicesFor(paramIndex) > 2) {
-		auto shouldShowDescriptions{ unexposedParams->getTooltipsOptions()->shouldShowDescription() };
+	addAndMakeVisible(comboBox_Repeats);
 
+	if (info->numberOfChoicesFor(paramIndex) > 2) {
+		allowChoiceToggles.restoreToggles();
+		addAndMakeVisible(allowChoiceToggles);
+
+		auto paramName{ info->exposedNameFor(paramIndex) };
+		auto shouldShowDescriptions{ unexposedParams->getTooltipsOptions()->shouldShowDescription() };
 		btn_AllowAll.setComponentID(ID::btn_AllowAll.toString());
 		btn_AllowAll.onClick = [this, exposedParams, paramIndex] {
 			auto rangeIsSigned{ info->choiceNameFor(0, paramIndex).startsWith("-") ? true : false };
@@ -48,12 +51,9 @@ GUI_Layer_AllowedChoices_ExposedParam::GUI_Layer_AllowedChoices_ExposedParam(
 		btn_AllowAll.setSize(GUI::btn_AllowAll_w, GUI::control_h);
 		addAndMakeVisible(btn_AllowAll);
 
-		allowChoiceToggles.restoreToggles();
-		addAndMakeVisible(allowChoiceToggles);
-
 		background_w = 2 * GUI::allowedChoices_Inset;
 		background_h = 2 * GUI::allowedChoices_Inset + allowChoiceToggles.getHeight();
-		if (allowChoiceToggles.getWidth() < (btn_AllowAll.getWidth() + comboBox_Repeats.getWidth() + btn_Close.getWidth()))
+		if (allowChoiceToggles.getWidth() < comboBox_Repeats.getWidth())
 			childrenShouldBeStackedVertically = true;
 		if (childrenShouldBeStackedVertically) {
 			background_w += btn_Randomize.getWidth();

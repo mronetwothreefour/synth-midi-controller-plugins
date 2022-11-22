@@ -17,10 +17,10 @@ class GUI_Layer_AllowedChoices_ExposedParam :
 	uint8 paramIndex;
 	ExposedParameters* exposedParams;
 	InfoForExposedParameters* info;
-	TextButton btn_AllowAll;
-	AllowRepeatChoicesComboBox_ExposedParam comboBox_Repeats;
 	ButtonForHidingLayer btn_Close;
+	AllowRepeatChoicesComboBox_ExposedParam comboBox_Repeats;
 	AllowChoiceToggles_ExposedParam allowChoiceToggles;
+	TextButton btn_AllowAll;
 	RandomizeButton_ExposedParam btn_Randomize;
 	bool childrenShouldBeStackedVertically;
 	const int background_x;
