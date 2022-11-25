@@ -28,8 +28,10 @@ void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForBinaryParam(uint8
 	allowedChoices_Standard = nullptr;
 	allowedChoices_VoiceNameChar = nullptr;
 	allowedChoices_Binary.reset(new GUI_Layer_AllowedChoices_Binary{ paramIndex, exposedParams, tooltips });
-	addAndMakeVisible(allowedChoices_Binary.get());
-	allowedChoices_Binary->setTopLeftPosition(0, 0);
+	if (allowedChoices_Binary != nullptr) {
+		addAndMakeVisible(allowedChoices_Binary.get());
+		allowedChoices_Binary->setTopLeftPosition(0, 0);
+	}
 }
 
 void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForLFO_FreqParam(uint8 paramIndex) {
@@ -40,8 +42,10 @@ void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForLFO_FreqParam(uin
 	allowedChoices_Standard = nullptr;
 	allowedChoices_VoiceNameChar = nullptr;
 	allowedChoices_LFO_Freq.reset(new GUI_Layer_AllowedChoices_LFO_Freq{ paramIndex, exposedParams, tooltips });
-	addAndMakeVisible(allowedChoices_LFO_Freq.get());
-	allowedChoices_LFO_Freq->setTopLeftPosition(0, 0);
+	if (allowedChoices_LFO_Freq != nullptr) {
+		addAndMakeVisible(allowedChoices_LFO_Freq.get());
+		allowedChoices_LFO_Freq->setTopLeftPosition(0, 0);
+	}
 }
 
 void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForOscShapeParam(uint8 paramIndex) {
@@ -52,8 +56,10 @@ void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForOscShapeParam(uin
 	allowedChoices_Standard = nullptr;
 	allowedChoices_VoiceNameChar = nullptr;
 	allowedChoices_OscShape.reset(new GUI_Layer_AllowedChoices_OscShape{ paramIndex, exposedParams, tooltips });
-	addAndMakeVisible(allowedChoices_OscShape.get());
-	allowedChoices_OscShape->setTopLeftPosition(0, 0);
+	if (allowedChoices_OscShape != nullptr) {
+		addAndMakeVisible(allowedChoices_OscShape.get());
+		allowedChoices_OscShape->setTopLeftPosition(0, 0);
+	}
 }
 
 void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForSeqTrack(Track track, bool destIsPitched) {
@@ -63,8 +69,10 @@ void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForSeqTrack(Track tr
 	allowedChoices_Standard = nullptr;
 	allowedChoices_VoiceNameChar = nullptr;
 	allowedChoices_SeqTrack.reset(new GUI_Layer_AllowedChoices_SeqTrack{ track, destIsPitched, exposedParams, tooltips });
-	addAndMakeVisible(allowedChoices_SeqTrack.get());
-	allowedChoices_SeqTrack->setTopLeftPosition(0, 0);
+	if (allowedChoices_SeqTrack != nullptr) {
+		addAndMakeVisible(allowedChoices_SeqTrack.get());
+		allowedChoices_SeqTrack->setTopLeftPosition(0, 0);
+	}
 }
 
 void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForStandardParam(uint8 paramIndex) {
@@ -75,8 +83,10 @@ void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForStandardParam(uin
 	allowedChoices_SeqTrack = nullptr;
 	allowedChoices_VoiceNameChar = nullptr;
 	allowedChoices_Standard.reset(new GUI_Layer_AllowedChoices_Standard{ paramIndex, exposedParams, tooltips });
-	addAndMakeVisible(allowedChoices_Standard.get());
-	allowedChoices_Standard->setTopLeftPosition(0, 0);
+	if (allowedChoices_Standard != nullptr) {
+		addAndMakeVisible(allowedChoices_Standard.get());
+		allowedChoices_Standard->setTopLeftPosition(0, 0);
+	}
 }
 
 void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForVoiceNameCharParam(uint8 paramIndex) {
@@ -87,8 +97,10 @@ void GUI_Layer_AllowedChoicesServer::showAllowedChoicesLayerForVoiceNameCharPara
 	allowedChoices_SeqTrack = nullptr;
 	allowedChoices_Standard = nullptr;
 	allowedChoices_VoiceNameChar.reset(new GUI_Layer_AllowedChoices_VoiceNameChar{ paramIndex, exposedParams, tooltips });
-	addAndMakeVisible(allowedChoices_VoiceNameChar.get());
-	allowedChoices_VoiceNameChar->setTopLeftPosition(0, 0);
+	if (allowedChoices_VoiceNameChar != nullptr) {
+		addAndMakeVisible(allowedChoices_VoiceNameChar.get());
+		allowedChoices_VoiceNameChar->setTopLeftPosition(0, 0);
+	}
 }
 
 GUI_Layer_AllowedChoicesServer::~GUI_Layer_AllowedChoicesServer() {

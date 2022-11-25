@@ -31,7 +31,10 @@ public:
 
 		paramIsLockedAsValue.addListener(this);
 
-		setComponentID(ID::comp_LockToggle.toString());
+		auto componentID{ paramType == MM_Type::source ? ID::comp_ToggleLockMatrixMod_Src_Mod_ :
+			paramType == MM_Type::amount ? ID::comp_ToggleLockMatrixMod_Amt_Mod_ : ID::comp_ToggleLockMatrixMod_Dest_Mod_
+		};
+		setComponentID(componentID.toString() + (String)modNum);
 		setToggleState(exposedParams->randomization->matrixModParamIsLocked(modNum, paramType), dontSendNotification);
 		auto toggle_w{ paramType == MM_Type::amount ? GUI::matrixModSlider_w : GUI::matrixModComboBox_w };
 		setSize(toggle_w, GUI::control_h);

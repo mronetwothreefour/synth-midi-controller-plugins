@@ -20,8 +20,8 @@ class ButtonForHidingLayer :
 public:
 	ButtonForHidingLayer() = delete;
 
-	explicit ButtonForHidingLayer(BorderColor borderColor, UnexposedParameters* unexposedParams) :
-		tooltips{ unexposedParams->getTooltipsOptions() }
+	explicit ButtonForHidingLayer(BorderColor borderColor, TooltipsOptions* tooltips, Outgoing_MIDI_Buffers* outgoingBuffers) :
+		tooltips{ tooltips }
 	{
 		shouldShowDescriptionAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
 		shouldShowDescriptionAsValue.addListener(this);
@@ -32,8 +32,8 @@ public:
 		case BorderColor::orange: { setComponentID(ID::btn_X_Orange.toString()); break; }
 		default: break;
 		}
-		onClick = [this, borderColor, unexposedParams] {
-			SysExMessages::addActivateQuickEditMessageToOutgoingBuffers(unexposedParams->getOutgoing_MIDI_Buffers());
+		onClick = [this, borderColor, outgoingBuffers] {
+			SysExMessages::addActivateQuickEditMessageToOutgoingBuffers(outgoingBuffers);
 			getParentComponent()->getParentComponent()->grabKeyboardFocus();
 			getParentComponent()->setVisible(false);
 		};

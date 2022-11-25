@@ -787,6 +787,9 @@
     <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_MatrixModParam.cpp">
       <Filter>Matrix-6G 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_3_gui_layer_Randomization.cpp">
+      <Filter>Matrix-6G 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\splits\splits_0_comp_TextEditorForSplitParamSlider.cpp">
       <Filter>Matrix-6G 2\Source\splits</Filter>
     </ClCompile>
@@ -3415,6 +3418,9 @@
       <Filter>Matrix-6G 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_MatrixModParam.h">
+      <Filter>Matrix-6G 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_3_gui_layer_Randomization.h">
       <Filter>Matrix-6G 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\splits\splits_0_build_ChoiceName.h">

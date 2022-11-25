@@ -24,7 +24,9 @@ namespace Matrix_6G_Constants
 		static const Identifier btn_Expt_VoiceFromBank_{ "btn_Expt_VoiceFromBank_" };
 		static const Identifier btn_Expt_VoicesBank_{ "btn_Expt_VoicesBank_" };
 		static const Identifier btn_GroupLock{ "btn_GroupLock" };
+		static const Identifier btn_GroupLock_All{ "btn_GroupLock_All" };
 		static const Identifier btn_GroupUnlock{ "btn_GroupUnlock" };
+		static const Identifier btn_GroupUnlock_All{ "btn_GroupUnlock_All" };
 		static const Identifier btn_Import_File{ "btn_Import_File" };
 		static const Identifier btn_Impt_AllVoicesIntoBank_{ "btn_Impt_AllVoicesIntoBank_" };
 		static const Identifier btn_Impt_VoiceIntoBank_{ "btn_Impt_VoiceIntoBank_" };
@@ -62,7 +64,10 @@ namespace Matrix_6G_Constants
 		static const Identifier comp_TabbedComponentForVoicesBanks{ "comp_TabbedComponentForVoicesBanks" };
 		static const Identifier comp_TextEditorForSlider{ "comp_TextEditorForSlider" };
 		static const Identifier comp_ToggleAllow_Choice_{ "comp_ToggleAllow_Choice_" };
-		static const Identifier comp_LockToggle{ "comp_LockToggle" };
+		static const Identifier comp_ToggleLockExposedParam_{ "comp_ToggleLockExposedParam_" };
+		static const Identifier comp_ToggleLockMatrixMod_Amt_Mod_{ "comp_ToggleLockMatrixMod_Amt_Mod_" };
+		static const Identifier comp_ToggleLockMatrixMod_Dest_Mod_{ "comp_ToggleLockMatrixMod_Dest_Mod_" };
+		static const Identifier comp_ToggleLockMatrixMod_Src_Mod_{ "comp_ToggleLockMatrixMod_Src_Mod_" };
 		static const Identifier comp_VoiceNameEditor{ "comp_VoiceNameEditor" };
 
 		static const Identifier currentVoice_Name{ "currentVoice_Name" };

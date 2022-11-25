@@ -9,7 +9,8 @@
 
 class ExposedParameters;
 class InfoForExposedParameters;
-class UnexposedParameters;
+class Outgoing_MIDI_Buffers;
+class TooltipsOptions;
 
 class GUI_Layer_AllowedChoices_ExposedParam :
 	public Component
@@ -31,7 +32,8 @@ class GUI_Layer_AllowedChoices_ExposedParam :
 public:
 	GUI_Layer_AllowedChoices_ExposedParam() = delete;
 
-	GUI_Layer_AllowedChoices_ExposedParam(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoices_ExposedParam(
+		uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips, Outgoing_MIDI_Buffers* outgoingBuffers);
 	void paint(Graphics& g) override;
 	void resized() override;
 

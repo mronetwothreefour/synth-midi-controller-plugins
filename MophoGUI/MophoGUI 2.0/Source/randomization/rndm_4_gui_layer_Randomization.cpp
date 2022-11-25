@@ -48,7 +48,7 @@ GUI_Layer_Randomization::GUI_Layer_Randomization(ExposedParameters* exposedParam
 
 	auto shouldShowDescriptions{ tooltips->shouldShowDescription() };
 	for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
-		paramLockToggles[paramIndex].reset(new LockToggleForParam{ paramIndex, exposedParams, });
+		paramLockToggles[paramIndex].reset(new LockToggleForParam{ paramIndex, exposedParams });
 		paramLockToggles[paramIndex]->addListener(this);
 		paramLockToggles[paramIndex]->addMouseListener(this, false);
 		auto controlCenterPoint{ info->centerPointFor(paramIndex) };

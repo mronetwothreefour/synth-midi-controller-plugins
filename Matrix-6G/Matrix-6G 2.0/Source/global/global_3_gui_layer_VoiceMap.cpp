@@ -7,7 +7,7 @@
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 GUI_Layer_VoiceMap::GUI_Layer_VoiceMap(UnexposedParameters* unexposedParams, UndoManager* undoManager) :
-	btn_Close{ BorderColor::orange, unexposedParams }
+	btn_Close{ BorderColor::orange, unexposedParams->getTooltipsOptions(), unexposedParams->getOutgoing_MIDI_Buffers() }
 {
 	btn_Close.setTopRightPosition(borderBounds.getRight(), borderBounds.getY());
 	addAndMakeVisible(btn_Close);

@@ -14,7 +14,8 @@ using MM_Type = MatrixModParamType;
 class ExposedParameters;
 class InfoForExposedParameters;
 class MatrixModOptions;
-class UnexposedParameters;
+class Outgoing_MIDI_Buffers;
+class TooltipsOptions;
 
 class GUI_Layer_AllowedChoices_MatrixModParam :
 	public Component
@@ -35,7 +36,8 @@ class GUI_Layer_AllowedChoices_MatrixModParam :
 public:
 	GUI_Layer_AllowedChoices_MatrixModParam() = delete;
 
-	GUI_Layer_AllowedChoices_MatrixModParam(int modNum, MM_Type paramType, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	GUI_Layer_AllowedChoices_MatrixModParam(
+		int modNum, MM_Type paramType, ExposedParameters* exposedParams, TooltipsOptions* tooltips, Outgoing_MIDI_Buffers* outgoingBuffers);
 	void paint(Graphics& g) override;
 
 private:

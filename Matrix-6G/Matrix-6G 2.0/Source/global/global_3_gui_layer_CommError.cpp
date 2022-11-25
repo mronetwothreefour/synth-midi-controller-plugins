@@ -12,7 +12,7 @@ using namespace Matrix_6G_Constants;
 GUI_Layer_CommError::GUI_Layer_CommError(UnexposedParameters* unexposedParams) :
 	global{ unexposedParams->getGlobalOptions() },
 	outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() },
-	btn_Close{ BorderColor::orange, unexposedParams },
+	btn_Close{ BorderColor::orange, unexposedParams->getTooltipsOptions(), unexposedParams->getOutgoing_MIDI_Buffers() },
 	btn_RequestGlobalParamsDump{ "" }
 {
 	btn_Close.setTopLeftPosition(857, 119);

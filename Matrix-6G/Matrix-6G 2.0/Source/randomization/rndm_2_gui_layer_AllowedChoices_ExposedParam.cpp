@@ -5,17 +5,17 @@
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 GUI_Layer_AllowedChoices_ExposedParam::GUI_Layer_AllowedChoices_ExposedParam(
-	uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips, Outgoing_MIDI_Buffers* outgoingBuffers) :
 	paramIndex{ paramIndex },
 	exposedParams{ exposedParams },
 	info{ exposedParams->info.get() },
-	btn_Close{ BorderColor::orange, unexposedParams },
-	comboBox_Repeats{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
-	allowChoiceToggles{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
-	btn_Randomize{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
+	btn_Close{ BorderColor::orange, tooltips, outgoingBuffers },
+	comboBox_Repeats{ paramIndex, exposedParams, tooltips },
+	allowChoiceToggles{ paramIndex, exposedParams, tooltips },
+	btn_Randomize{ paramIndex, exposedParams, tooltips },
 	childrenShouldBeStackedVertically{ false },
 	background_x{ info->allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ info->allowedChoicesBackground_y_For(paramIndex) }
@@ -31,7 +31,7 @@ GUI_Layer_AllowedChoices_ExposedParam::GUI_Layer_AllowedChoices_ExposedParam(
 		addAndMakeVisible(allowChoiceToggles);
 
 		auto paramName{ info->exposedNameFor(paramIndex) };
-		auto shouldShowDescriptions{ unexposedParams->getTooltipsOptions()->shouldShowDescription() };
+		auto shouldShowDescriptions{ tooltips->shouldShowDescription() };
 		btn_AllowAll.setComponentID(ID::btn_AllowAll.toString());
 		btn_AllowAll.onClick = [this, exposedParams, paramIndex] {
 			auto rangeIsSigned{ info->choiceNameFor(0, paramIndex).startsWith("-") ? true : false };

@@ -17,7 +17,7 @@ GUI_Layer_GlobalParameters::GUI_Layer_GlobalParameters(UnexposedParameters* unex
 	unexposedParams{ unexposedParams },
 	tooltips{ unexposedParams->getTooltipsOptions() },
 	undoManager{ undoManager },
-	btn_Close{ BorderColor::orange, unexposedParams },
+	btn_Close{ BorderColor::orange, unexposedParams->getTooltipsOptions(), unexposedParams->getOutgoing_MIDI_Buffers() },
 	slider_BasicChannel{ GlobalParamSliderType::basicChannel, unexposedParams },
 	comboBox_OmniMode{ ComboBoxType::omniModeOffOn, unexposedParams },
 	comboBox_Controllers{ ComboBoxType::controllersOffOn, unexposedParams },

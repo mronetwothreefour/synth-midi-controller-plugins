@@ -12,7 +12,7 @@ GUI_Layer_Splits::GUI_Layer_Splits(UnexposedParameters* unexposedParams, UndoMan
 	unexposedParams{ unexposedParams },
 	splitSlots{ unexposedParams },
 	splitsBank{ unexposedParams->getSplitsBank() },
-	btn_Close{ BorderColor::grey, unexposedParams },
+	btn_Close{ BorderColor::grey, unexposedParams->getTooltipsOptions(), unexposedParams->getOutgoing_MIDI_Buffers() },
 	comboBox_ZoneVoiceAssignment{ SplitParamComboBoxType::zoneVoiceAssignment, unexposedParams},
 	slider_ZoneVolumeBalance{ unexposedParams, undoManager },
 	slider_LowerZoneLimit{ SplitParamSliderType::lowerZoneLimit, unexposedParams, undoManager },

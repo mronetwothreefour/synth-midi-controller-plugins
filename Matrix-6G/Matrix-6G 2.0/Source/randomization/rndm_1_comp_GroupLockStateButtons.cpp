@@ -1,18 +1,20 @@
 #include "rndm_1_comp_GroupLockStateButtons.h"
 
 #include "rndm_0_func_GroupLockStateMethods.h"
+#include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_2_tree_ParamRandomizationOptions.h"
 #include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
+using namespace Matrix_6G_Constants;
 using Lock = GroupLockStateMethods;
 
 GroupLockStateButtons::GroupLockStateButtons(LockStateGroup group, ParamRandomizationOptions* randomization, TooltipsOptions* tooltips) :
 	btn_Lock{ "" },
 	btn_Unlock{ "" }
 {
-	btn_Lock.setComponentID(ID::btn_GroupLock.toString());
-	btn_Unlock.setComponentID(ID::btn_GroupUnlock.toString());
+	btn_Lock.setComponentID(group == LockStateGroup::all ? ID::btn_GroupLock_All.toString() : ID::btn_GroupLock.toString());
+	btn_Unlock.setComponentID(group == LockStateGroup::all ? ID::btn_GroupUnlock_All.toString() : ID::btn_GroupUnlock.toString());
 
 	auto shouldShow{ tooltips->shouldShowDescription() };
 	switch (group)
@@ -101,11 +103,11 @@ GroupLockStateButtons::GroupLockStateButtons(LockStateGroup group, ParamRandomiz
 		break;
 	}
 
-	btn_Lock.setBounds(0, 0, 14, 20);
-	btn_Unlock.setBounds(17, 0, 14, 20);
+	btn_Lock.setBounds(0, 0, group == LockStateGroup::all ? 36 : 14, GUI::control_h);
+	btn_Unlock.setBounds(group == LockStateGroup::all ? 41 : 17, 0, group == LockStateGroup::all ? 46 : 14, GUI::control_h);
 
 	addAndMakeVisible(btn_Lock);
 	addAndMakeVisible(btn_Unlock);
 
-	setSize(31, 20);
+	setSize(group == LockStateGroup::all ? 87 : 31, GUI::control_h);
 }

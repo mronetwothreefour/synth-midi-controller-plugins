@@ -46,8 +46,14 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID == ID::btn_GroupLock.toString())
 		mBlock = MemBlock{ isDown ? btn_GroupLock_Dn_png : btn_GroupLock_Up_png, isDown ? (s_t)btn_GroupLock_Dn_pngSize : (s_t)btn_GroupLock_Up_pngSize };
 
+	if (buttonID == ID::btn_GroupLock_All.toString())
+		mBlock = MemBlock{ isDown ? btn_Lock_Dn_png : btn_Lock_Up_png, isDown ? (s_t)btn_Lock_Dn_pngSize : (s_t)btn_Lock_Up_pngSize };
+
 	if (buttonID == ID::btn_GroupUnlock.toString())
 		mBlock = MemBlock{ isDown ? btn_GroupUnlock_Dn_png : btn_GroupUnlock_Up_png, isDown ? (s_t)btn_GroupUnlock_Dn_pngSize : (s_t)btn_GroupUnlock_Up_pngSize };
+
+	if (buttonID == ID::btn_GroupUnlock_All.toString())
+		mBlock = MemBlock{ isDown ? btn_Unlock_Dn_png : btn_Unlock_Up_png, isDown ? (s_t)btn_Unlock_Dn_pngSize : (s_t)btn_Unlock_Up_pngSize };
 
 	if (buttonID.startsWith("btn_Import"))
 		mBlock = MemBlock{ isDown ? btn_Import_Dn_png : btn_Import_Up_png, isDown ? (s_t)btn_Import_Dn_pngSize : (s_t)btn_Import_Up_pngSize };
@@ -377,7 +383,7 @@ void MatrixLookAndFeel::drawTickBox(Graphics& g, Component& component, float x, 
 		Rectangle<float> textArea{ x + 3, y + 2, w - 3, h };
 		g.drawText(component.getName(), textArea, Justification::topLeft);
 	}
-	if (componentID == ID::comp_LockToggle.toString()) {
+	if (componentID.startsWith("comp_ToggleLock")) {
 		PNGImageFormat imageFormat;
 		MemoryInputStream memInputStream{ BinaryData::icon_Locked_png, BinaryData::icon_Locked_pngSize, false };
 		auto lockedIcon{ imageFormat.decodeImage(memInputStream) };

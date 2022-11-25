@@ -27,7 +27,7 @@ public:
 
 		paramIsLockedAsValue.addListener(this);
 
-		setComponentID(ID::comp_LockToggle.toString());
+		setComponentID(ID::comp_ToggleLockExposedParam_.toString() + (String)paramIndex);
 		setToggleState(exposedParams->randomization->paramIsLocked(paramIndex), dontSendNotification);
 		auto toggle_w{ exposedParams->info->widthFor(paramIndex) };
 		setSize(toggle_w, GUI::control_h);

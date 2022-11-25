@@ -5,17 +5,17 @@
 #include "../constants/constants_MatrixMod.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 GUI_Layer_AllowedChoices_MatrixModParam::GUI_Layer_AllowedChoices_MatrixModParam(
-	int modNum, MM_Type paramType, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	int modNum, MM_Type paramType, ExposedParameters* exposedParams, TooltipsOptions* tooltips, Outgoing_MIDI_Buffers* outgoingBuffers) :
 	modNum{ modNum },
 	paramType{ paramType },
 	matrixModOptions{ exposedParams->matrixModOptions.get() },
-	btn_Close{ BorderColor::orange, unexposedParams },
-	comboBox_Repeats{ modNum, paramType, exposedParams, unexposedParams->getTooltipsOptions() },
-	allowChoiceToggles{ modNum, paramType, exposedParams, unexposedParams->getTooltipsOptions() },
-	btn_Randomize{ modNum, paramType, exposedParams, unexposedParams->getTooltipsOptions() },
+	btn_Close{ BorderColor::orange, tooltips, outgoingBuffers },
+	comboBox_Repeats{ modNum, paramType, exposedParams, tooltips },
+	allowChoiceToggles{ modNum, paramType, exposedParams, tooltips },
+	btn_Randomize{ modNum, paramType, exposedParams, tooltips },
 	background_x{ paramType == MM_Type::source ? 842 : paramType == MM_Type::amount ? 664 : 950 },
 	background_y{ (59 + modNum * GUI::vertDistBtwnRows) - modNum > 7 && paramType == MM_Type::destination ? 158 : 0 },
 	background_w{ paramType == MM_Type::source ? 170 : paramType == MM_Type::amount ? 434 : 194 },
@@ -39,7 +39,7 @@ GUI_Layer_AllowedChoices_MatrixModParam::GUI_Layer_AllowedChoices_MatrixModParam
 	auto buttons_y{ center_y + allowChoiceToggles.getHeight() / 2 + GUI::allowedChoices_VertGap };
 	auto paramName{ "Modulator " + (String)modNum };
 	paramName += paramType == MM_Type::source ? " Source" : paramType == MM_Type::amount ? " Amount" : " Destination";
-	auto shouldShowDescriptions{ unexposedParams->getTooltipsOptions()->shouldShowDescription() };
+	auto shouldShowDescriptions{ tooltips->shouldShowDescription() };
 	btn_AllowAll.setComponentID(ID::btn_AllowAll.toString());
 	btn_AllowAll.onClick = [this, exposedParams, modNum, paramType] {
 		auto randomization{ exposedParams->randomization.get() };
