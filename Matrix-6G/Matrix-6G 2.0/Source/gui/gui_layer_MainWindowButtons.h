@@ -5,9 +5,12 @@
 #include "gui_comp_ButtonForActivatingQuickEdit.h"
 
 class ExposedParameters;
+class InfoForExposedParameters;
+class ParamRandomizationMethods;
 class GlobalOptions;
 class GUI_Layer_CommError;
 class GUI_Layer_GlobalParameters;
+class GUI_Layer_Randomization;
 class GUI_Layer_Splits;
 class GUI_Layer_VoicesBanks;
 class Outgoing_MIDI_Buffers;
@@ -21,6 +24,8 @@ class GUI_Layer_MainWindowButtons :
 	private Timer
 {
 	ExposedParameters* exposedParams;
+	InfoForExposedParameters* info;
+	ParamRandomizationMethods* randomize;
 	UnexposedParameters* unexposedParams;
 	GlobalOptions* global;
 	Outgoing_MIDI_Buffers* outgoingBuffers;
@@ -28,14 +33,17 @@ class GUI_Layer_MainWindowButtons :
 	ButtonForActivatingQuickEdit btn_ActivateQuickEdit;
 	TextButton btn_Push;
 	TextButton btn_Pull;
+	TextButton btn_Randomize;
 	TextButton btn_ShowVoicesBanks;
 	TextButton btn_ShowSplits;
 	TextButton btn_ShowGlobalParams;
+	std::unique_ptr<GUI_Layer_Randomization> layer_Randomization;
 	std::unique_ptr<GUI_Layer_Splits> layer_Splits;
 	std::unique_ptr<GUI_Layer_VoicesBanks> layer_VoicesBanks;
 	std::unique_ptr<GUI_Layer_GlobalParameters> layer_GlobalParams;
 	std::unique_ptr<GUI_Layer_CommError> layer_CommError;
 	Value shouldShowDescriptionAsValue;
+	bool wasRightClicked{ false };
 
 public:
 	GUI_Layer_MainWindowButtons() = delete;
@@ -46,6 +54,7 @@ private:
 	void updateTooltips();
 	void timerCallback() override;
 	void addProgramChangeMessageToOutgoingBuffersAfterDelay(int delayInMilliseconds);
+	void showRandomizationLayer();
 	void showSplitsLayer();
 	void showVoicesBanksLayer();
 	void prepareToShowGlobalParamsLayer();

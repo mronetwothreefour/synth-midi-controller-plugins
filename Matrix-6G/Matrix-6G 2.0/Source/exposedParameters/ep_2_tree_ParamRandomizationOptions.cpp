@@ -24,7 +24,8 @@ ParamRandomizationOptions::ParamRandomizationOptions(InfoForExposedParameters* i
 			setRepeatChoicesAreAllowedForParam(true, paramIndex);
 		}
 		else {
-			allowAllChoicesForParam(paramIndex);
+			auto rangeIsSigned{ info->choiceNameFor(0, paramIndex).startsWith("-") };
+			allowAllChoicesForParam(paramIndex, rangeIsSigned);
 			setRepeatChoicesAreAllowedForParam(false, paramIndex);
 		}
 	}

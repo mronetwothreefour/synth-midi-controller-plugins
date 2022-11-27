@@ -8,6 +8,7 @@
 #include "../global/global_3_gui_layer_CommError.h"
 #include "../global/global_4_gui_layer_GlobalParams.h"
 #include "../midi/midi_1_SysExMessages.h"
+#include "../randomization/rndm_3_gui_layer_Randomization.h"
 #include "../splits/splits_4_gui_layer_Splits.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 #include "../voices/voices_7_gui_layer_VoicesBanks.h"
@@ -17,6 +18,8 @@ using Description = MainWindowButtonDescription;
 
 GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
     exposedParams{ exposedParams },
+    info{ exposedParams->info.get() },
+    randomize{ exposedParams->randomize.get() },
     unexposedParams{ unexposedParams },
     global{ unexposedParams->getGlobalOptions() },
     outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() },
@@ -52,6 +55,19 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     btn_Pull.setBounds(664, smallButtons_y, pullAndPushButtons_w, GUI::buttons_small_h);
     btn_Pull.addShortcut(KeyPress{ '[', ModifierKeys::ctrlModifier, 0});
     addAndMakeVisible(btn_Pull);
+
+    btn_Randomize.setComponentID(ID::btn_Randomize.toString());
+    btn_Randomize.addMouseListener(this, false);
+    btn_Randomize.addListener(this);
+    btn_Randomize.onClick = [this] {
+        if (ModifierKeys::currentModifiers != ModifierKeys::ctrlModifier + ModifierKeys::altModifier && wasRightClicked == false)
+            randomize->randomizeAllUnlockedParameters();
+        wasRightClicked = false;
+    };
+    btn_Randomize.setBounds(787, smallButtons_y, GUI::btn_Randomize_w, GUI::buttons_small_h);
+    btn_Randomize.addShortcut(KeyPress{ 'd', ModifierKeys::ctrlModifier, 0 });
+    btn_Randomize.addShortcut(KeyPress{ 'd', ModifierKeys::ctrlModifier + ModifierKeys::altModifier, 0 });
+    addAndMakeVisible(btn_Randomize);
 
     auto largeButtons_y{ 353 };
     btn_ShowVoicesBanks.setComponentID(ID::btn_Patches.toString());
@@ -89,6 +105,9 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
     auto tipFor_btn_Push{ shouldShow ? Description::buildForPush() : String{ "" } };
     btn_Push.setTooltip(tipFor_btn_Push);
 
+    auto tipFor_btn_Randomize{ shouldShow ? Description::buildForShowRandomizationLayer() : String{ "" } };
+    btn_Randomize.setTooltip(tipFor_btn_Randomize);
+
     auto tipFor_btn_ShowSplits{ shouldShow ? Description::buildForShowSplitsLayer() : String{ "" } };
     btn_ShowSplits.setTooltip(tipFor_btn_ShowSplits);
 
@@ -108,6 +127,16 @@ void GUI_Layer_MainWindowButtons::addProgramChangeMessageToOutgoingBuffersAfterD
         auto currentVoiceNumber{ exposedParams->currentVoiceOptions.get()->currentVoiceNumber()};
         outgoingBuffers->addProgramChangeMessage(channel, currentVoiceNumber);
     });
+}
+
+void GUI_Layer_MainWindowButtons::showRandomizationLayer() {
+    layer_Randomization = nullptr;
+    layer_Randomization.reset(new GUI_Layer_Randomization{ exposedParams, tooltips, outgoingBuffers });
+    if (layer_Randomization != nullptr) {
+        addAndMakeVisible(layer_Randomization.get());
+        layer_Randomization->setBounds(getLocalBounds());
+        layer_Randomization->grabKeyboardFocus();
+    }
 }
 
 void GUI_Layer_MainWindowButtons::showSplitsLayer() {
@@ -158,10 +187,18 @@ void GUI_Layer_MainWindowButtons::showGlobalParamsLayer() {
     }
 }
 
-void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& /*event*/) {
+void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& event) {
+    if (btn_Randomize.isMouseOver() == true) {
+        if (event.mods == ModifierKeys::rightButtonModifier) {
+            wasRightClicked = true;
+            showRandomizationLayer();
+        }
+    }
 }
 
 void GUI_Layer_MainWindowButtons::buttonClicked(Button* /*button*/) {
+    if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier + ModifierKeys::altModifier)
+        showRandomizationLayer();
 }
 
 void GUI_Layer_MainWindowButtons::valueChanged(Value& /*value*/) {
@@ -169,8 +206,11 @@ void GUI_Layer_MainWindowButtons::valueChanged(Value& /*value*/) {
 }
 
 GUI_Layer_MainWindowButtons::~GUI_Layer_MainWindowButtons() {
+    layer_Randomization = nullptr;
     layer_VoicesBanks = nullptr;
     layer_Splits = nullptr;
     layer_GlobalParams = nullptr;
     shouldShowDescriptionAsValue.removeListener(this);
+    btn_Randomize.removeListener(this);
+    btn_Randomize.removeMouseListener(this);
 }

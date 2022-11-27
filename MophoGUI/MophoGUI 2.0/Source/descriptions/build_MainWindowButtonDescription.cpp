@@ -57,7 +57,7 @@ String MainWindowButtonDescription::buildForShowRandomizationLayer() {
     descriptionString += "options window where you can define which parameters get randomized\n";
     descriptionString += "and what choices are allowed for each of them. Right-click any program\n";
     descriptionString += "parameter control to generate a random setting for that parameter.\n";
-    descriptionString += "Shortcut keys: CTRL+D to randomize, CTRL+ALT+D to show the options";
+    descriptionString += "Shortcut keys: CTRL+D to randomize, CTRL+ALT+D to show the options.";
     return descriptionString;
 }
 

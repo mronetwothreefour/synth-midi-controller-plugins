@@ -22,6 +22,16 @@ String MainWindowButtonDescription::buildForShowGlobalParamsLayer() {
     return descriptionString;
 }
 
+String MainWindowButtonDescription::buildForShowRandomizationLayer() {
+    String descriptionString{ "" };
+    descriptionString += "Click to randomize the program settings. Right-click to open an\n";
+    descriptionString += "options window where you can define which parameters get randomized\n";
+    descriptionString += "and what choices are allowed for each of them. Right-click any patch\n";
+    descriptionString += "parameter control to generate a random setting for that parameter.\n";
+    descriptionString += "Shortcut keys: CTRL+D to randomize, CTRL+ALT+D to show the options.";
+    return descriptionString;
+}
+
 String MainWindowButtonDescription::buildForShowSplitsLayer() {
     String descriptionString{ "" };
     descriptionString += "Opens a window where you can create and store\n";
