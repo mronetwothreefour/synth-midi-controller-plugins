@@ -21,7 +21,6 @@ AllowChoiceToggles_ExposedParam::AllowChoiceToggles_ExposedParam(
 	rangeIsSigned{ info->choiceNameFor(0, paramIndex).startsWith("-") ? true : false }
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
-	jassert(info->numberOfChoicesFor(paramIndex) > 2);
 
 	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
 		allowedChoiceToggles[choiceNum]->setName(buildChoiceName(choiceNum));

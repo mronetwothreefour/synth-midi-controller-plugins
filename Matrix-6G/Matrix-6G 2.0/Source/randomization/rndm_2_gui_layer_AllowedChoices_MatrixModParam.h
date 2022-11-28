@@ -32,6 +32,7 @@ class GUI_Layer_AllowedChoices_MatrixModParam :
 	const int background_y;
 	const int background_w;
 	const int background_h;
+	const int modDestOffset;
 
 public:
 	GUI_Layer_AllowedChoices_MatrixModParam() = delete;

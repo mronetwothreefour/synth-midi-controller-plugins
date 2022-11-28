@@ -21,10 +21,20 @@ public:
 		onChange = [this, randomization] {
 			auto currentChoice{ getSelectedItemIndex() };
 			randomization->setTransmitMethodIsQuickEdit(currentChoice == 1 ? true : false);
-			if (randomization->transmitMethodIsQuickEdit())
+			if (randomization->transmitMethodIsQuickEdit()) {
 				randomization->forbidAllNegativeChoicesForAllSignedParams();
-			else
+				for (auto modNum = 0; modNum != MMOD::numberOfModulators; ++modNum) {
+					for (auto modType = (int)MM_Type::source; modType <= (int)MM_Type::destination; ++modType)
+						randomization->setMatrixModParamIsLocked(modNum, MM_Type{ modType }, true);
+				}
+			}
+			else {
 				randomization->allowAllNegativeChoicesForAllSignedParams();
+				for (auto modNum = 0; modNum != MMOD::numberOfModulators; ++modNum) {
+					for (auto modType = (int)MM_Type::source; modType <= (int)MM_Type::destination; ++modType)
+						randomization->setMatrixModParamIsLocked(modNum, MM_Type{ modType }, false);
+				}
+			}
 		};
 		if (tooltips->shouldShowDescription()) {
 			String tip{ "" };

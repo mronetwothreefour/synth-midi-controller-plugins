@@ -55,7 +55,6 @@ namespace MophoConstants
 		static const Identifier comp_TabbedComponentForFactoryBanks{ "comp_TabbedComponentForFactoryBanks" };
 		static const Identifier comp_TextEditorForKnob{ "comp_TextEditorForKnob" };
 		static const Identifier comp_TextEditorForSeqStep{ "comp_TextEditorForSeqStep" };
-		static const Identifier comp_ToggleAllow_{ "comp_ToggleAllow_" };
 		static const Identifier comp_ToggleAllow_Choice_{ "comp_ToggleAllow_Choice_" };
 		static const Identifier comp_ToggleLock_ComboBox_Param_{ "comp_ToggleLock_ComboBox_Param_" };
 		static const Identifier comp_ToggleLock_Knob_Param_{ "comp_ToggleLock_Knob_Param_" };

@@ -142,8 +142,8 @@ void GUI_Layer_Randomization::mouseDown(const MouseEvent& event) {
 				allowedChoices_ExposedParam->setTopLeftPosition(0, 0);
 			}
 		}
-		if (toggleID.startsWith("comp_ToggleLockMatrixMod")) {
-			auto modNum{ toggleID.fromFirstOccurrenceOf("Mod_", false, false).getIntValue() };
+		if (toggleID.startsWith("comp_ToggleLockMatrixMod_") && randomization->transmitMethodIsQuickEdit() == false) {
+			auto modNum{ toggleID.fromLastOccurrenceOf("Mod_", false, false).getIntValue() };
 			auto paramType{ toggleID.contains("Src") ? MM_Type::source : toggleID.contains("Amt") ? MM_Type::amount : MM_Type::destination };
 			allowedChoices_MatrixModParam.reset(new GUI_Layer_AllowedChoices_MatrixModParam{ modNum, paramType, exposedParams, tooltips, outgoingBuffers });
 			if (allowedChoices_MatrixModParam != nullptr) {
@@ -170,7 +170,7 @@ void GUI_Layer_Randomization::buttonClicked(Button* button) {
 		}
 	}
 	if (buttonID.startsWith("comp_ToggleLockMatrixMod_")) {
-		auto modNum{ buttonID.fromFirstOccurrenceOf("Mod_", false, false).getIntValue() };
+		auto modNum{ buttonID.fromLastOccurrenceOf("Mod_", false, false).getIntValue() };
 		auto paramType{ buttonID.contains("Src") ? MM_Type::source : buttonID.contains("Amt") ? MM_Type::amount : MM_Type::destination };
 		auto mmParamNum{ modNum * 3 + (int)paramType };
 		if (randomization->transmitMethodIsQuickEdit() == false) {
@@ -184,6 +184,11 @@ void GUI_Layer_Randomization::buttonClicked(Button* button) {
 				randomization->setMatrixModParamIsLocked(modNum, paramType, shouldBeLocked ? true : false);
 			}
 		}
+		else {
+			randomization->setMatrixModParamIsLocked(modNum, paramType, true);
+			lockToggles_MatrixModParams[mmParamNum]->setToggleState(true, dontSendNotification);
+			toggleWasRightClicked = false;
+		}
 	}
 }
 
@@ -194,8 +199,8 @@ GUI_Layer_Randomization::~GUI_Layer_Randomization() {
 		lockToggles_ExposedParams[paramIndex] = nullptr;
 	}
 	for (auto mmParamNum = 0; mmParamNum != MMOD::numberOfModulators * 3; ++mmParamNum) {
-		lockToggles_ExposedParams[mmParamNum]->removeListener(this);
-		lockToggles_ExposedParams[mmParamNum]->removeMouseListener(this);
-		lockToggles_ExposedParams[mmParamNum] = nullptr;
+		lockToggles_MatrixModParams[mmParamNum]->removeListener(this);
+		lockToggles_MatrixModParams[mmParamNum]->removeMouseListener(this);
+		lockToggles_MatrixModParams[mmParamNum] = nullptr;
 	}
 }

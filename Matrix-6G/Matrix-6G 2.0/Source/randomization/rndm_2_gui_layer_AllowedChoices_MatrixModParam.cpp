@@ -17,17 +17,18 @@ GUI_Layer_AllowedChoices_MatrixModParam::GUI_Layer_AllowedChoices_MatrixModParam
 	allowChoiceToggles{ modNum, paramType, exposedParams, tooltips },
 	btn_Randomize{ modNum, paramType, exposedParams, tooltips },
 	background_x{ paramType == MM_Type::source ? 842 : paramType == MM_Type::amount ? 664 : 950 },
-	background_y{ (59 + modNum * GUI::vertDistBtwnRows) - modNum > 7 && paramType == MM_Type::destination ? 158 : 0 },
+	background_y{ (59 + modNum * GUI::vertDistBtwnRows) },
 	background_w{ paramType == MM_Type::source ? 170 : paramType == MM_Type::amount ? 434 : 194 },
-	background_h{ paramType == MM_Type::source ? 252 : paramType == MM_Type::amount ? 238 : 316 }
+	background_h{ paramType == MM_Type::source ? 252 : paramType == MM_Type::amount ? 238 : 316 },
+	modDestOffset{ modNum > 7 && paramType == MM_Type::destination ? 158 : 0 }
 {
 	jassert(modNum < MMOD::numberOfModulators);
 
-	btn_Close.setTopRightPosition(background_x + background_w, background_y);
+	btn_Close.setTopRightPosition(background_x + background_w, background_y - modDestOffset);
 	addAndMakeVisible(btn_Close);
 
 	auto center_x{ background_x + background_w / 2 };
-	auto center_y{ background_y + GUI::borders_w + GUI::allowedChoices_Inset + GUI::control_h / 2 };
+	auto center_y{ background_y - modDestOffset + GUI::borders_w + GUI::allowedChoices_Inset + GUI::control_h / 2 };
 	comboBox_Repeats.setCentrePosition(center_x, center_y);
 	addAndMakeVisible(comboBox_Repeats);
 
@@ -70,9 +71,9 @@ void GUI_Layer_AllowedChoices_MatrixModParam::paint(Graphics& g) {
 	auto control_x{ paramType == MM_Type::source ? 1016 : paramType == MM_Type::amount ? 1104 : 1150 };
 	auto control_w{ paramType == MM_Type::amount ? 40 : 82 };
 	g.setColour(GUI::color_ButtonOrange);
-	g.drawRect(control_x, background_y, control_w + 4, GUI::control_h + 4, 2);
-	g.fillRect(background_x, background_y, background_w, background_h);
+	g.drawRect(control_x, background_y, control_w, GUI::control_h, 1);
+	g.fillRect(background_x, background_y - modDestOffset, background_w, background_h);
 	g.setColour(GUI::color_Device);
-	g.fillRect(background_x + GUI::borders_w, background_y + GUI::borders_w, background_w - 2 * GUI::borders_w, background_h - 2 * GUI::borders_w);
+	g.fillRect(background_x + GUI::borders_w, background_y + GUI::borders_w - modDestOffset, background_w - 2 * GUI::borders_w, background_h - 2 * GUI::borders_w);
 }
 

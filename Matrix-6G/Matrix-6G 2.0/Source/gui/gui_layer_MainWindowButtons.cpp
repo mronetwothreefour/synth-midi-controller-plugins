@@ -64,7 +64,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
             randomize->randomizeAllUnlockedParameters();
         wasRightClicked = false;
     };
-    btn_Randomize.setBounds(787, smallButtons_y, GUI::btn_Randomize_w, GUI::buttons_small_h);
+    btn_Randomize.setBounds(761, smallButtons_y, GUI::btn_Randomize_w, GUI::buttons_small_h);
     btn_Randomize.addShortcut(KeyPress{ 'd', ModifierKeys::ctrlModifier, 0 });
     btn_Randomize.addShortcut(KeyPress{ 'd', ModifierKeys::ctrlModifier + ModifierKeys::altModifier, 0 });
     addAndMakeVisible(btn_Randomize);

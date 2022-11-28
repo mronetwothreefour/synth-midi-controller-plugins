@@ -383,6 +383,16 @@ void MatrixLookAndFeel::drawTickBox(Graphics& g, Component& component, float x, 
 		Rectangle<float> textArea{ x + 3, y + 2, w - 3, h };
 		g.drawText(component.getName(), textArea, Justification::topLeft);
 	}
+	if (componentID.startsWith(ID::comp_ToggleAllow_Choice_.toString())) {
+		if (isTicked) {
+			g.setColour(GUI::color_OffWhite.withAlpha(0.1f));
+			g.fillRect(x, y, w, h);
+		}
+		g.setColour(GUI::color_OffWhite);
+		g.setFont(GUI::font_VoiceAndSplitSlotRadioButtons);
+		Rectangle<float> textArea{ x + 3, y, w - 3, h };
+		g.drawText(component.getName(), textArea, Justification::centredLeft);
+	}
 	if (componentID.startsWith("comp_ToggleLock")) {
 		PNGImageFormat imageFormat;
 		MemoryInputStream memInputStream{ BinaryData::icon_Locked_png, BinaryData::icon_Locked_pngSize, false };

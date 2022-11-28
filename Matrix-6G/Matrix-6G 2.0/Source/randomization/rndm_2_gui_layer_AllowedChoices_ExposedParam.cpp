@@ -81,7 +81,7 @@ void GUI_Layer_AllowedChoices_ExposedParam::paint(Graphics& g) {
 	auto controlCenter{ info->centerPointFor(paramIndex) };
 	auto control_w{ info->widthFor(paramIndex) };
 	g.setColour(GUI::color_ButtonOrange);
-	g.drawRect(controlCenter.x - control_w / 2 - 2, controlCenter.y - GUI::control_h / 2 - 2, control_w + 4, GUI::control_h + 4, 2);
+	g.drawRect(controlCenter.x - control_w / 2, controlCenter.y - GUI::control_h / 2, control_w, GUI::control_h, 1);
 	g.fillRect(background_x, background_y, background_w, background_h);
 	g.setColour(GUI::color_Device);
 	g.fillRect(background_x + GUI::borders_w, background_y + GUI::borders_w, background_w - 2 * GUI::borders_w, background_h - 2 * GUI::borders_w);

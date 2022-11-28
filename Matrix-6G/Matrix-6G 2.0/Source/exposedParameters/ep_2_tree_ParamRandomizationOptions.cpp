@@ -32,7 +32,7 @@ ParamRandomizationOptions::ParamRandomizationOptions(InfoForExposedParameters* i
 
 	for (auto modNum = 0; modNum != MMOD::numberOfModulators; ++modNum) {
 		for (auto modType = (int)MM_Type::source; modType <= (int)MM_Type::destination; ++modType) {
-			setMatrixModParamIsLocked(modNum, MM_Type{ modType }, false);
+			setMatrixModParamIsLocked(modNum, MM_Type{ modType }, true);
 			allowAllChoicesForMatrixModParam(modNum, MM_Type{ modType });
 			setRepeatChoicesAreAllowedForMatrixModParam(true, modNum, MM_Type{ modType });
 		}

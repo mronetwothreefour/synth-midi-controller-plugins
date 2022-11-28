@@ -454,7 +454,7 @@ void MophoLookAndFeel::drawTickBox(Graphics& g, Component& component, float x, f
 		Rectangle<float> textArea{ x + 3, y, w - 3, h };
 		g.drawText(component.getName(), textArea, Justification::centredLeft);
 	}
-	if (componentID.startsWith(ID::comp_ToggleAllow_.toString())) {
+	if (componentID.startsWith(ID::comp_ToggleAllow_Choice_.toString())) {
 		if (isTicked) {
 			g.setColour(GUI::color_White.withAlpha(0.2f));
 			g.fillRect(x, y, w, h);
