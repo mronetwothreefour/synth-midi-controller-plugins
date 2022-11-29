@@ -11,9 +11,10 @@ void GroupLockStateMethods::allParams(ParamRandomizationOptions* randomization, 
 	for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex)
 		randomization->setParamIsLocked(paramIndex, shouldBeLocked ? true : false);
 	for (int modNum = 0; modNum != MMOD::numberOfModulators; ++modNum) {
-		randomization->setMatrixModParamIsLocked(modNum, MM_Type::source, shouldBeLocked ? true : false);
-		randomization->setMatrixModParamIsLocked(modNum, MM_Type::amount, shouldBeLocked ? true : false);
-		randomization->setMatrixModParamIsLocked(modNum, MM_Type::destination, shouldBeLocked ? true : false);
+		auto transmitMethodIsQuickEdit{ randomization->transmitMethodIsQuickEdit() };
+		randomization->setMatrixModParamIsLocked(modNum, MM_Type::source, shouldBeLocked || transmitMethodIsQuickEdit ? true : false);
+		randomization->setMatrixModParamIsLocked(modNum, MM_Type::amount, shouldBeLocked || transmitMethodIsQuickEdit ? true : false);
+		randomization->setMatrixModParamIsLocked(modNum, MM_Type::destination, shouldBeLocked || transmitMethodIsQuickEdit ? true : false);
 	}
 }
 

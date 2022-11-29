@@ -10,15 +10,23 @@ class ParamRandomizationOptions;
 class TooltipsOptions;
 
 class GroupLockStateButtons :
-	public Component
+	public Component,
+	public Value::Listener
 {
+	LockStateGroup group;
+	ParamRandomizationOptions* randomization;
+	TooltipsOptions* tooltips;
 	TextButton btn_Lock;
 	TextButton btn_Unlock;
+	Value transmitMethodIsQuickEditAsValue;
 
 public:
 	GroupLockStateButtons() = delete;
 
 	GroupLockStateButtons(LockStateGroup group, ParamRandomizationOptions* randomization, TooltipsOptions* tooltips);
+	void updateTooltips();
+	void valueChanged(Value& value) override;
+	~GroupLockStateButtons();
 
 private:
 	//==============================================================================

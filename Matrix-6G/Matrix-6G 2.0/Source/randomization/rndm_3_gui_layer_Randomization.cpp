@@ -173,7 +173,12 @@ void GUI_Layer_Randomization::buttonClicked(Button* button) {
 		auto modNum{ buttonID.fromLastOccurrenceOf("Mod_", false, false).getIntValue() };
 		auto paramType{ buttonID.contains("Src") ? MM_Type::source : buttonID.contains("Amt") ? MM_Type::amount : MM_Type::destination };
 		auto mmParamNum{ modNum * 3 + (int)paramType };
-		if (randomization->transmitMethodIsQuickEdit() == false) {
+		if (randomization->transmitMethodIsQuickEdit()) {
+			randomization->setMatrixModParamIsLocked(modNum, paramType, true);
+			lockToggles_MatrixModParams[mmParamNum]->setToggleState(true, dontSendNotification);
+			toggleWasRightClicked = false;
+		}
+		else {
 			if (toggleWasRightClicked) {
 				randomization->setMatrixModParamIsLocked(modNum, paramType, false);
 				lockToggles_MatrixModParams[mmParamNum]->setToggleState(false, dontSendNotification);
@@ -183,11 +188,6 @@ void GUI_Layer_Randomization::buttonClicked(Button* button) {
 				auto shouldBeLocked{ button->getToggleState() };
 				randomization->setMatrixModParamIsLocked(modNum, paramType, shouldBeLocked ? true : false);
 			}
-		}
-		else {
-			randomization->setMatrixModParamIsLocked(modNum, paramType, true);
-			lockToggles_MatrixModParams[mmParamNum]->setToggleState(true, dontSendNotification);
-			toggleWasRightClicked = false;
 		}
 	}
 }

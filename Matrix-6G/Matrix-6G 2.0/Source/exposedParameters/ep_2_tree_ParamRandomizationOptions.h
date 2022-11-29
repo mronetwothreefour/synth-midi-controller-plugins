@@ -23,6 +23,7 @@ public:
 
 	const bool transmitMethodIsQuickEdit();
 	void setTransmitMethodIsQuickEdit(bool shouldBeQuickEdit);
+	Value getTransmitMethodIsQuickEditAsValue();
 
 	const bool paramIsLocked(uint8 paramIndex);
 	const bool paramIsUnlocked(uint8 paramIndex);

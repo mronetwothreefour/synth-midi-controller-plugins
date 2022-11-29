@@ -18,6 +18,7 @@ class LockToggle_MatrixModParam :
 	int modNum;
 	MM_Type paramType;
 	Value paramIsLockedAsValue;
+	Value transmitMethodIsQuickEditAsValue;
 
 public:
 	LockToggle_MatrixModParam() = delete;
@@ -30,6 +31,7 @@ public:
 		jassert(modNum < MMOD::numberOfModulators);
 
 		paramIsLockedAsValue.addListener(this);
+		transmitMethodIsQuickEditAsValue.addListener(this);
 
 		auto toggleLockID{ paramType == MM_Type::source ? ID::comp_ToggleLockMatrixMod_Src_Mod_ :
 			paramType == MM_Type::amount ? ID::comp_ToggleLockMatrixMod_Amt_Mod_ : ID::comp_ToggleLockMatrixMod_Dest_Mod_
@@ -41,12 +43,20 @@ public:
 
 	}
 
-	void valueChanged(Value& /*value*/) override {
-		setToggleState((bool)paramIsLockedAsValue.getValue(), dontSendNotification);
+	void valueChanged(Value& value) override {
+		if (value.refersToSameSourceAs(paramIsLockedAsValue))
+			setToggleState((bool)paramIsLockedAsValue.getValue(), dontSendNotification);
+		if (value.refersToSameSourceAs(transmitMethodIsQuickEditAsValue)) {
+			if ((bool)transmitMethodIsQuickEditAsValue.getValue())
+				setEnabled(false);
+			else
+				setEnabled(true);
+		}
 	}
 
 	~LockToggle_MatrixModParam() {
 		paramIsLockedAsValue.removeListener(this);
+		transmitMethodIsQuickEditAsValue.removeListener(this);
 	}
 
 private:

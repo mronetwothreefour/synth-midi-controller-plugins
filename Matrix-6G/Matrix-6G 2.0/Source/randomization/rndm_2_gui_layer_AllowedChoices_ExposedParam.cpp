@@ -51,12 +51,12 @@ GUI_Layer_AllowedChoices_ExposedParam::GUI_Layer_AllowedChoices_ExposedParam(
 		btn_AllowAll.setSize(GUI::btn_AllowAll_w, GUI::control_h);
 		addAndMakeVisible(btn_AllowAll);
 
-		background_w = 2 * GUI::allowedChoices_Inset;
-		background_h = 2 * GUI::allowedChoices_Inset + allowChoiceToggles.getHeight();
+		background_w = 2 * GUI::allowedChoices_Inset + 2 * GUI::borders_w;
+		background_h = 2 * GUI::allowedChoices_Inset + 2 * GUI::borders_w + allowChoiceToggles.getHeight();
 		if (allowChoiceToggles.getWidth() < comboBox_Repeats.getWidth())
 			childrenShouldBeStackedVertically = true;
 		if (childrenShouldBeStackedVertically) {
-			background_w += btn_Randomize.getWidth();
+			background_w += comboBox_Repeats.getWidth();
 			background_h += 3 * GUI::control_h;
 			background_h += 3 * GUI::allowedChoices_VertGap;
 		}
@@ -107,7 +107,7 @@ void GUI_Layer_AllowedChoices_ExposedParam::resized() {
 			comboBox_Repeats.setCentrePosition(center_x, center_y);
 			center_y += GUI::control_h / 2 + GUI::allowedChoices_VertGap + allowChoiceToggles.getHeight() / 2;
 			allowChoiceToggles.setCentrePosition(center_x, center_y);
-			center_y += allowChoiceToggles.getHeight() / 2 + GUI::allowedChoices_VertGap + GUI::control_h / 2;
+			center_y += allowChoiceToggles.getHeight() / 2 + GUI::allowedChoices_VertGap;
 			btn_AllowAll.setTopLeftPosition(background_x + GUI::borders_w + GUI::allowedChoices_Inset, center_y);
 			btn_Randomize.setTopRightPosition(background_x + background_w - (GUI::borders_w + GUI::allowedChoices_Inset), center_y);
 		}

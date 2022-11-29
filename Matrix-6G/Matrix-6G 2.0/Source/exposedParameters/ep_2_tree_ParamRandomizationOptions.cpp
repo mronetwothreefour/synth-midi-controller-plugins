@@ -47,6 +47,10 @@ void ParamRandomizationOptions::setTransmitMethodIsQuickEdit(bool shouldBeQuickE
 	randomizationOptionsTree.setProperty(ID::rndm_TransmitMethodIsQuickEdit, shouldBeQuickEdit ? true : false, nullptr);
 }
 
+Value ParamRandomizationOptions::getTransmitMethodIsQuickEditAsValue() {
+	return randomizationOptionsTree.getPropertyAsValue(ID::rndm_TransmitMethodIsQuickEdit, nullptr);
+}
+
 
 
 
@@ -112,7 +116,7 @@ void ParamRandomizationOptions::allowAllChoicesForParam(uint8 paramIndex, bool r
 	auto numberOfChoices{ info->numberOfChoicesFor(paramIndex) };
 	auto choiceNum{ (uint8)0 };
 	if (rangeIsSigned && transmitMethodIsQuickEdit())
-		choiceNum = (numberOfChoices == 63 ? (uint8)32 : (uint8)64);
+		choiceNum = (numberOfChoices == 63 ? (uint8)31 : (uint8)63);
 	jassert(numberOfChoices > 2);
 	for (choiceNum; choiceNum != numberOfChoices; ++choiceNum)
 		setChoiceIsAllowedForParam(choiceNum, true, paramIndex);

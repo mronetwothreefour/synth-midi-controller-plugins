@@ -19,7 +19,7 @@ ParamRandomizationMethods::ParamRandomizationMethods(ExposedParameters* exposedP
 }
 
 void ParamRandomizationMethods::randomizeAllUnlockedParameters() {
-	if (randomization->transmitMethodIsQuickEdit() == true) {
+	if (randomization->transmitMethodIsQuickEdit()) {
 		auto delayInMS{ 0 };
 		for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
 			auto paramID{ info->IDfor(paramIndex) };
