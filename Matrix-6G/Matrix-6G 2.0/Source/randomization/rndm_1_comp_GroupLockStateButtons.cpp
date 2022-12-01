@@ -106,8 +106,8 @@ void GroupLockStateButtons::updateTooltips() {
 		if (shouldShow && transmitMethodIsQuickEdit) {
 			unlockTip += "\nWhen the transmit message\n";
 			unlockTip += "type is set to QUICK, the\n";
-			unlockTip += "Matrix Mod parameters can-\n";
-			unlockTip += "not be unlocked.";
+			unlockTip += "Matrix Mod parameters\n";
+			unlockTip += "cannot be unlocked.";
 		}
 		btn_Lock.setTooltip(lockTip);
 		btn_Unlock.setTooltip(unlockTip);
@@ -142,8 +142,8 @@ void GroupLockStateButtons::updateTooltips() {
 		btn_Unlock.setTooltip(shouldShow ? "Unlock all the controls related to the ramps." : "");
 		break;
 	case LockStateGroup::tracking:
-		btn_Lock.setTooltip(shouldShow ? "Lock all the controls related to the ramps." : "");
-		btn_Unlock.setTooltip(shouldShow ? "Unlock all the controls related to the ramps." : "");
+		btn_Lock.setTooltip(shouldShow ? "Lock all the controls related\nto the tracking generator." : "");
+		btn_Unlock.setTooltip(shouldShow ? "Unlock all the controls related\nto the tracking generator." : "");
 		break;
 	case LockStateGroup::env_1:
 		btn_Lock.setTooltip(shouldShow ? "Lock all the controls\nrelated to envelope 1." : "");

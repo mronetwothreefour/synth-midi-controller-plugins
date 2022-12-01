@@ -61,7 +61,7 @@ GUI_Layer_AllowedChoices_ExposedParam::GUI_Layer_AllowedChoices_ExposedParam(
 			background_h += 3 * GUI::allowedChoices_VertGap;
 		}
 		else {
-			background_w += allowChoiceToggles.getWidth();
+			background_w += jmax(allowChoiceToggles.getWidth(), btn_AllowAll.getWidth() + btn_Randomize.getWidth() + 6);
 			background_h += 2 * GUI::control_h;
 			background_h += 2 * GUI::allowedChoices_VertGap;
 		}

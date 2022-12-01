@@ -16,11 +16,11 @@ GUI_Layer_AllowedChoices_MatrixModParam::GUI_Layer_AllowedChoices_MatrixModParam
 	comboBox_Repeats{ modNum, paramType, exposedParams, tooltips },
 	allowChoiceToggles{ modNum, paramType, exposedParams, tooltips },
 	btn_Randomize{ modNum, paramType, exposedParams, tooltips },
-	background_x{ paramType == MM_Type::source ? 842 : paramType == MM_Type::amount ? 664 : 950 },
+	background_x{ paramType == MM_Type::source ? 834 : paramType == MM_Type::amount ? 664 : 950 },
 	background_y{ (59 + modNum * GUI::vertDistBtwnRows) },
-	background_w{ paramType == MM_Type::source ? 170 : paramType == MM_Type::amount ? 434 : 194 },
-	background_h{ paramType == MM_Type::source ? 252 : paramType == MM_Type::amount ? 238 : 316 },
-	modDestOffset{ modNum > 7 && paramType == MM_Type::destination ? 158 : 0 }
+	background_w{ paramType == MM_Type::source ? 178 : paramType == MM_Type::amount ? 434 : 194 },
+	background_h{ paramType == MM_Type::source ? 222 : paramType == MM_Type::amount ? 238 : 286 },
+	modDestOffset{ modNum > 7 && paramType == MM_Type::destination ? 143 : 0 }
 {
 	jassert(modNum < MMOD::numberOfModulators);
 

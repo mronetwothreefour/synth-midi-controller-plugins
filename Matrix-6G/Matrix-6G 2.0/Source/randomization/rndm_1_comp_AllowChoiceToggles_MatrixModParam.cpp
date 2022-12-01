@@ -14,7 +14,7 @@ AllowChoiceToggles_MatrixModParam::AllowChoiceToggles_MatrixModParam(
 		paramType == MM_Type::amount ? 16 : 3,
 		paramType == MM_Type::source ? 7 : paramType == MM_Type::amount ? 8 : 11,
 		paramType == MM_Type::amount ? 1 : 0,
-		paramType == MM_Type::amount ? 24 : 42,
+		paramType == MM_Type::source ? 40 : paramType == MM_Type::amount ? 24 : 50,
 	},
 	modNum{ modNum },
 	paramType{ paramType },
