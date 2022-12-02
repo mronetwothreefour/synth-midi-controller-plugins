@@ -7,6 +7,8 @@
 
 class ExposedParameters;
 class MatrixModOptions;
+class ParamRandomizationMethods;
+class ParamRandomizationOptions;
 class TooltipsOptions;
 
 class SliderForMatrixModAmount :
@@ -15,6 +17,8 @@ class SliderForMatrixModAmount :
 {
 	int modNum;
 	MatrixModOptions* matrixModOptions;
+	ParamRandomizationMethods* randomize;
+	ParamRandomizationOptions* randomization;
 	TextEditorForMatrixModAmountSlider textEditor;
 	Value modAmountAsValue;
 	Value shouldShowDescriptionAsValue;
@@ -26,6 +30,7 @@ public:
 	SliderForMatrixModAmount(int modNum, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void updateTooltip();
 	void paint(Graphics& g) override;
+	void mouseDown(const MouseEvent& event) override;
 	void mouseDoubleClick(const MouseEvent& event) override;
 	void valueChanged() override;
 	void valueChanged(Value& value) override;

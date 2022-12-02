@@ -2,7 +2,10 @@
 
 #include <JuceHeader.h>
 
+class ExposedParameters;
 class MatrixModOptions;
+class ParamRandomizationMethods;
+class ParamRandomizationOptions;
 class TooltipsOptions;
 
 class ComboBoxForMatrixModDestination :
@@ -10,6 +13,8 @@ class ComboBoxForMatrixModDestination :
 {
 	int modNum;
 	MatrixModOptions* matrixModOptions;
+	ParamRandomizationMethods* randomize;
+	ParamRandomizationOptions* randomization;
 	Value modDestValue;
 	Value shouldShowDescriptionAsValue;
 	Value shouldShowCurrentChoiceAsValue;
@@ -17,9 +22,10 @@ class ComboBoxForMatrixModDestination :
 public:
 	ComboBoxForMatrixModDestination() = delete;
 
-	ComboBoxForMatrixModDestination(int modNum, MatrixModOptions* matrixModOptions, TooltipsOptions* tooltips);
+	ComboBoxForMatrixModDestination(int modNum, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void updateTooltip();
 	void valueChanged(Value& value) override;
+	void mouseDown(const MouseEvent& event) override;
 	~ComboBoxForMatrixModDestination();
 
 private:

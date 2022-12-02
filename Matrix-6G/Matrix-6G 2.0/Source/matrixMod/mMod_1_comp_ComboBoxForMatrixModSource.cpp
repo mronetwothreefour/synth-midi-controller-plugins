@@ -6,7 +6,7 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_MatrixMod.h"
-#include "../exposedParameters/ep_0_tree_MatrixModOptions.h"
+#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../gui/gui_build_LED_Path.h"
 #include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
@@ -14,9 +14,11 @@ using namespace Matrix_6G_Constants;
 using ChoiceName = MatrixModParamChoiceName;
 using MM_Type = MatrixModParamType;
 
-ComboBoxForMatrixModSource::ComboBoxForMatrixModSource(int modNum, MatrixModOptions* matrixModOptions, TooltipsOptions* tooltips) :
+ComboBoxForMatrixModSource::ComboBoxForMatrixModSource(int modNum, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	modNum{ modNum },
-	matrixModOptions{ matrixModOptions }
+	matrixModOptions{ exposedParams->matrixModOptions.get() },
+	randomize{ exposedParams->randomize.get() },
+	randomization{ exposedParams->randomization.get() }
 {
 	auto modSourceParamID{ matrixModOptions->buildMatrixModParamID(modNum, MM_Type::source) };
 	modSourceValue = matrixModOptions->getMatrixModPropertyAsValue(modSourceParamID);
@@ -27,7 +29,7 @@ ComboBoxForMatrixModSource::ComboBoxForMatrixModSource(int modNum, MatrixModOpti
 		choiceNamesList.add(ChoiceName::buildForModSource(choiceNum, ChoiceNameType::concise));
 	addItemList(choiceNamesList, 1);
 	setSelectedItemIndex((int)matrixModOptions->modSource(modNum), dontSendNotification);
-	onChange = [this, modNum, matrixModOptions] {
+	onChange = [this, modNum] {
 		auto currentChoice{ (uint8)getSelectedItemIndex() };
 		matrixModOptions->setModSource(modNum, currentChoice);
 	};
@@ -61,6 +63,11 @@ void ComboBoxForMatrixModSource::valueChanged(Value& value) {
 	if (value.refersToSameSourceAs(modSourceValue))
 		setSelectedItemIndex((int)value.getValue());
 	updateTooltip();
+}
+
+void ComboBoxForMatrixModSource::mouseDown(const MouseEvent& event) {
+	if (event.mods == ModifierKeys::rightButtonModifier && randomization->transmitMethodIsQuickEdit() == false)
+		randomize->randomizeMatrixModParameter(modNum, MM_Type::source);
 }
 
 ComboBoxForMatrixModSource::~ComboBoxForMatrixModSource() {

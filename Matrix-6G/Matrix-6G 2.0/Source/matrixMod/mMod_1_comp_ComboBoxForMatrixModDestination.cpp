@@ -6,7 +6,7 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../constants/constants_MatrixMod.h"
-#include "../exposedParameters/ep_0_tree_MatrixModOptions.h"
+#include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../gui/gui_build_LED_Path.h"
 #include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
@@ -14,9 +14,11 @@ using namespace Matrix_6G_Constants;
 using ChoiceName = MatrixModParamChoiceName;
 using MM_Type = MatrixModParamType;
 
-ComboBoxForMatrixModDestination::ComboBoxForMatrixModDestination(int modNum, MatrixModOptions* matrixModOptions, TooltipsOptions* tooltips) :
+ComboBoxForMatrixModDestination::ComboBoxForMatrixModDestination(int modNum, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	modNum{ modNum },
-	matrixModOptions{ matrixModOptions }
+	matrixModOptions{ exposedParams->matrixModOptions.get() },
+	randomize{ exposedParams->randomize.get() },
+	randomization{ exposedParams->randomization.get() }
 {
 	auto modDestParamID{ matrixModOptions->buildMatrixModParamID(modNum, MM_Type::destination) };
 	modDestValue = matrixModOptions->getMatrixModPropertyAsValue(modDestParamID);
@@ -27,7 +29,7 @@ ComboBoxForMatrixModDestination::ComboBoxForMatrixModDestination(int modNum, Mat
 		choiceNamesList.add(ChoiceName::buildForModDest(choiceNum, ChoiceNameType::concise));
 	addItemList(choiceNamesList, 1);
 	setSelectedItemIndex((int)matrixModOptions->modDest(modNum), dontSendNotification);
-	onChange = [this, modNum, matrixModOptions] {
+	onChange = [this, modNum] {
 		auto currentChoice{ (uint8)getSelectedItemIndex() };
 		matrixModOptions->setModDest(modNum, currentChoice);
 	};
@@ -61,6 +63,11 @@ void ComboBoxForMatrixModDestination::valueChanged(Value& value) {
 	if (value.refersToSameSourceAs(modDestValue))
 		setSelectedItemIndex((int)value.getValue());
 	updateTooltip();
+}
+
+void ComboBoxForMatrixModDestination::mouseDown(const MouseEvent& event) {
+	if (event.mods == ModifierKeys::rightButtonModifier && randomization->transmitMethodIsQuickEdit() == false)
+		randomize->randomizeMatrixModParameter(modNum, MM_Type::destination);
 }
 
 ComboBoxForMatrixModDestination::~ComboBoxForMatrixModDestination() {

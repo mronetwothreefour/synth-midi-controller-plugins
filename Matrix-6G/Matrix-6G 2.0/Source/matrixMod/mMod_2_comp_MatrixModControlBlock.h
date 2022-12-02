@@ -23,9 +23,9 @@ public:
 	MatrixModControlBlock() = delete;
 
 	MatrixModControlBlock(int modNum, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
-		comboBox_ModSource{ modNum, exposedParams->matrixModOptions.get() , tooltips },
+		comboBox_ModSource{ modNum, exposedParams, tooltips },
 		slider_ModAmount{ modNum, exposedParams, tooltips },
-		comboBox_ModDest{ modNum, exposedParams->matrixModOptions.get() , tooltips }
+		comboBox_ModDest{ modNum, exposedParams, tooltips }
 	{
 		comboBox_ModSource.setTopLeftPosition(0, 0);
 		addAndMakeVisible(comboBox_ModSource);

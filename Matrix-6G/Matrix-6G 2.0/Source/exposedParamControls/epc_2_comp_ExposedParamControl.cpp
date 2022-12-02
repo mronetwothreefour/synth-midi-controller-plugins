@@ -74,10 +74,9 @@ void ExposedParamControl::attachControlToExposedParameter() const {
 			comboBoxAndAttachment->attachComboBoxToExposedParameter();
 }
 
-void ExposedParamControl::mouseDown(const MouseEvent& /*event*/) {
-	// TODO:
-	//if (event.mods == ModifierKeys::rightButtonModifier)
-	//	exposedParams->randomize->randomizeExposedParameter(paramIndex);
+void ExposedParamControl::mouseDown(const MouseEvent& event) {
+	if (event.mods == ModifierKeys::rightButtonModifier)
+		exposedParams->randomize->randomizeExposedParameter(paramIndex);
 }
 
 void ExposedParamControl::deleteAttachmentBeforeControlToPreventMemLeak() const {

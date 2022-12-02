@@ -18,6 +18,8 @@ SliderForMatrixModAmount::SliderForMatrixModAmount(int modNum, ExposedParameters
 	RotarySliderWithMouseWheelMoveOverride{ &exposedParams->undoManager },
 	modNum{ modNum },
 	matrixModOptions{ exposedParams->matrixModOptions.get() },
+	randomize{ exposedParams->randomize.get() },
+	randomization{ exposedParams->randomization.get() },
 	textEditor{ modNum, matrixModOptions, tooltips }
 {
 	auto modAmountParamID{ matrixModOptions->buildMatrixModParamID(modNum, MM_Type::amount) };
@@ -65,6 +67,11 @@ void SliderForMatrixModAmount::paint(Graphics& g) {
 	auto choiceNameString{ ChoiceName::buildForModAmount(currentChoice) };
 	auto choiceNamePath{ LED_Path::buildLabelText(choiceNameString, GUI::matrixModSlider_w) };
 	g.fillPath(choiceNamePath);
+}
+
+void SliderForMatrixModAmount::mouseDown(const MouseEvent& event) {
+	if (event.mods == ModifierKeys::rightButtonModifier && randomization->transmitMethodIsQuickEdit() == false)
+		randomize->randomizeMatrixModParameter(modNum, MM_Type::amount);
 }
 
 void SliderForMatrixModAmount::mouseDoubleClick(const MouseEvent& /*event*/) {
