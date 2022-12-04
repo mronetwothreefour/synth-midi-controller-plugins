@@ -27,6 +27,7 @@ namespace Matrix_6G_Constants
 		static const Identifier btn_GroupLock_All{ "btn_GroupLock_All" };
 		static const Identifier btn_GroupUnlock{ "btn_GroupUnlock" };
 		static const Identifier btn_GroupUnlock_All{ "btn_GroupUnlock_All" };
+		static const Identifier btn_Hyperlink{ "btn_Hyperlink" };
 		static const Identifier btn_Import_File{ "btn_Import_File" };
 		static const Identifier btn_Impt_AllVoicesIntoBank_{ "btn_Impt_AllVoicesIntoBank_" };
 		static const Identifier btn_Impt_VoiceIntoBank_{ "btn_Impt_VoiceIntoBank_" };
@@ -46,12 +47,14 @@ namespace Matrix_6G_Constants
 		static const Identifier btn_RadioButton_SplitSlot{ "btn_RadioButton_SplitSlot" };
 		static const Identifier btn_RadioButton_VoiceSlot{ "btn_RadioButton_VoiceSlot" };
 		static const Identifier btn_Randomize{ "btn_Randomize" };
+		static const Identifier btn_Redo{ "btn_Redo" };
 		static const Identifier btn_Reset{ "btn_Reset" };
 		static const Identifier btn_Retry{ "btn_Retry" };
 		static const Identifier btn_Save_Split{ "btn_Save_Split" };
 		static const Identifier btn_Save_Voice{ "btn_Save_Voice" };
 		static const Identifier btn_Splits{ "btn_Splits" };
 		static const Identifier btn_Stop{ "btn_Stop" };
+		static const Identifier btn_Undo{ "btn_Undo" };
 		static const Identifier btn_Write_OverFile{ "btn_Write_OverFile" };
 		static const Identifier btn_X_Blue{ "btn_X_Blue" };
 		static const Identifier btn_X_Grey{ "btn_X_Grey" };
@@ -215,6 +218,8 @@ namespace Matrix_6G_Constants
 		static const Identifier rndm_ParamIsLocked{ "rndm_ParamIsLocked" };
 		static const Identifier rndm_RepeatChoicesAreAllowed{ "rndm_RepeatChoicesAreAllowed" };
 		static const Identifier rndm_TransmitMethodIsQuickEdit{ "rndm_TransmitMethodIsQuickEdit" };
+		static const Identifier rndmTrg_{ "rndmTrg_" };
+		static const Identifier rndmTrg_AllUnlocked{ "rndmTrg_AllUnlocked" };
 
 		static const Identifier split_Name{ "split_Name" };
 		static const Identifier split_LowerZoneLimit{ "split_LowerZoneLimit" };

@@ -107,17 +107,13 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     const int undoRedoButtons_w{ 44 };
     const int undoRedoButtons_x{ 832 };
     btn_Undo.setComponentID(ID::btn_Undo.toString());
-    btn_Undo.onClick = [exposedParams] {
-        exposedParams->undoManager.undo();
-    };
+    btn_Undo.onClick = [exposedParams] { exposedParams->undoManager.undo(); };
     btn_Undo.setBounds(undoRedoButtons_x, 19, undoRedoButtons_w, GUI::redButton_h);
     btn_Undo.addShortcut(KeyPress{ 'z', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_Undo);
 
     btn_Redo.setComponentID(ID::btn_Redo.toString());
-    btn_Redo.onClick = [exposedParams] {
-        exposedParams->undoManager.redo();
-    };
+    btn_Redo.onClick = [exposedParams] { exposedParams->undoManager.redo(); };
     btn_Redo.setBounds(undoRedoButtons_x, 48, undoRedoButtons_w, GUI::redButton_h);
     btn_Redo.addShortcut(KeyPress{ 'z', ModifierKeys::ctrlModifier + ModifierKeys::shiftModifier, 0 });
     addAndMakeVisible(btn_Redo);

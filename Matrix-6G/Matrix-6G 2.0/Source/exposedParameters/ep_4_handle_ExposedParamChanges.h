@@ -1,10 +1,11 @@
 #pragma once
 
 #include <JuceHeader.h>
-// TODO: randomization triggers
-//#include "ep_2_func_ParamRandomizationMethods.h"
 
-//using Randomize = ParamRandomizationMethods;
+#include "ep_2_func_ParamRandomizationMethods.h"
+#include "ep_2_tree_ParamRandomizationOptions.h"
+
+using Randomize = ParamRandomizationMethods;
 
 class ExposedParameters;
 class InfoForExposedParameters;
@@ -17,7 +18,7 @@ class ExposedParamChangesHandler :
 {
 	AudioProcessorValueTreeState* state;
 	InfoForExposedParameters* info;
-	//Randomize* randomize;
+	Randomize* randomize;
 	Outgoing_MIDI_Buffers* outgoingBuffers;
 	VoiceTransmissionOptions* transmitOptions;
 

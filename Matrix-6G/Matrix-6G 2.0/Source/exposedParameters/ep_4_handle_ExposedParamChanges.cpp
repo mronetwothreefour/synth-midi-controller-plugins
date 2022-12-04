@@ -10,7 +10,7 @@ using namespace Matrix_6G_Constants;
 ExposedParamChangesHandler::ExposedParamChangesHandler(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
-	//randomize{ exposedParams->randomize.get() },
+	randomize{ exposedParams->randomize.get() },
 	outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() },
 	transmitOptions{ unexposedParams->getVoiceTransmissionOptions() }
 {
@@ -18,11 +18,11 @@ ExposedParamChangesHandler::ExposedParamChangesHandler(ExposedParameters* expose
 		auto paramID{ info->IDfor(paramIndex) };
 		auto paramPtr{ state->getParameter(paramID) };
 		paramPtr->addListener(this);
-		//auto rndmTrigParamPtr{ state->getParameter(ID::rndmTrig_.toString() + paramID) };
-		//rndmTrigParamPtr->addListener(this);
+		auto rndmTrigParamPtr{ state->getParameter(ID::rndmTrg_.toString() + paramID) };
+		rndmTrigParamPtr->addListener(this);
 	}
-	//auto rndmTrigAllParamPtr{ state->getParameter(ID::rndmTrig_AllUnlocked) };
-	//rndmTrigAllParamPtr->addListener(this);
+	auto rndmTrigAllParamPtr{ state->getParameter(ID::rndmTrg_AllUnlocked) };
+	rndmTrigAllParamPtr->addListener(this);
 }
 
 void ExposedParamChangesHandler::parameterValueChanged(int changedParamIndex, float newValue) {
@@ -43,12 +43,12 @@ void ExposedParamChangesHandler::parameterValueChanged(int changedParamIndex, fl
 		}
 	}
 	else {
-		//if (changedParamIndex == EP::numberOfExposedParams)
-		//	randomize->randomizeAllUnlockedParameters();
-		//else {
-		//	auto paramIndex{ uint8(changedParamIndex - (EP::numberOfExposedParams + 1)) };
-		//	randomize->randomizeExposedParameter(paramIndex);
-		//}
+		if (changedParamIndex == EP::numberOfExposedParams)
+			randomize->randomizeAllUnlockedParameters();
+		else {
+			auto paramIndex{ uint8(changedParamIndex - (EP::numberOfExposedParams + 1)) };
+			randomize->randomizeExposedParameter(paramIndex);
+		}
 	}
 }
 
@@ -60,9 +60,9 @@ ExposedParamChangesHandler::~ExposedParamChangesHandler() {
 		auto paramID{ info->IDfor(paramIndex) };
 		auto paramPtr{ state->getParameter(paramID) };
 		paramPtr->removeListener(this);
-		//auto rndmTrigParamPtr{ state->getParameter(ID::rndmTrig_.toString() + paramID) };
-		//rndmTrigParamPtr->removeListener(this);
+		auto rndmTrigParamPtr{ state->getParameter(ID::rndmTrg_.toString() + paramID) };
+		rndmTrigParamPtr->removeListener(this);
 	}
-	//auto rndmTrigAllParamPtr{ state->getParameter(ID::rndmTrig_AllUnlocked) };
-	//rndmTrigAllParamPtr->removeListener(this);
+	auto rndmTrigAllParamPtr{ state->getParameter(ID::rndmTrg_AllUnlocked) };
+	rndmTrigAllParamPtr->removeListener(this);
 }

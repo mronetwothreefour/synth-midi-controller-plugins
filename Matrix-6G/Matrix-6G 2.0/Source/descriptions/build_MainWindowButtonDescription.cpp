@@ -14,6 +14,35 @@ String MainWindowButtonDescription::buildForActivateQuickEdit() {
     return descriptionString;
 }
 
+String MainWindowButtonDescription::buildForHyperlink() {
+    return "Click to go to programming.mr1234.com";
+}
+
+String MainWindowButtonDescription::buildForPull() {
+    String descriptionString{ "" };
+    descriptionString += "Pull the data from the selected patch storage slot in the Matrix-6R\n";
+    descriptionString += "hardware and apply it to the plugin GUI. Shortcut key: CTRL+[";
+    return descriptionString;
+}
+
+String MainWindowButtonDescription::buildForPush() {
+    String descriptionString{ "" };
+    descriptionString += "Sends a dump of the current patch data to the hard-\n";
+    descriptionString += "ware storage slot specified by the patch number\n";
+    descriptionString += "control to the right, NOTE: This overwrites the\n";
+    descriptionString += "data that is currently stored in the slot and\n";
+    descriptionString += "cannot be undone. Shortcut key: CTRL+]";
+    return descriptionString;
+}
+
+String MainWindowButtonDescription::buildForRedo() {
+    String descriptionString{ "" };
+    descriptionString += "Click this button to redo a pre-\n";
+    descriptionString += "viously undone parameter change.\n";
+    descriptionString += "Shortcut key: CTRL+SHIFT+Z";
+    return descriptionString;
+}
+
 String MainWindowButtonDescription::buildForShowGlobalParamsLayer() {
     String descriptionString{ "" };
     descriptionString += "Opens a window where you can edit the\n";
@@ -48,19 +77,9 @@ String MainWindowButtonDescription::buildForShowVoicesBanksLayer() {
     return descriptionString;
 }
 
-String MainWindowButtonDescription::buildForPull() {
+String MainWindowButtonDescription::buildForUndo() {
     String descriptionString{ "" };
-    descriptionString += "Pull the data from the selected patch storage slot in the Matrix-6R\n";
-    descriptionString += "hardware and apply it to the plugin GUI. Shortcut key: CTRL+[";
-    return descriptionString;
-}
-
-String MainWindowButtonDescription::buildForPush() {
-    String descriptionString{ "" };
-    descriptionString += "Sends a dump of the current patch data to the hard-\n";
-    descriptionString += "ware storage slot specified by the patch number\n";
-    descriptionString += "control to the right, NOTE: This overwrites the\n";
-    descriptionString += "data that is currently stored in the slot and\n";
-    descriptionString += "cannot be undone. Shortcut key: CTRL+]";
+    descriptionString += "Click this button to undo the previous\n";
+    descriptionString += "parameter change. Shortcut key: CTRL+Z";
     return descriptionString;
 }

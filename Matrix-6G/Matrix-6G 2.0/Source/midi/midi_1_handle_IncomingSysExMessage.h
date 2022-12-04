@@ -9,7 +9,6 @@ class SplitsBank;
 class UnexposedParameters;
 class VoicesBanks;
 class VoiceTransmissionOptions;
-// TODO: handle global and split data messages
 
 class IncomingSysExMessageHandler
 {

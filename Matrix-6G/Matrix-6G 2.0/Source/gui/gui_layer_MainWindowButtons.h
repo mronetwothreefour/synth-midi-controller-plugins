@@ -33,10 +33,13 @@ class GUI_Layer_MainWindowButtons :
 	ButtonForActivatingQuickEdit btn_ActivateQuickEdit;
 	TextButton btn_Push;
 	TextButton btn_Pull;
+	TextButton btn_Undo;
+	TextButton btn_Redo;
 	TextButton btn_Randomize;
 	TextButton btn_ShowVoicesBanks;
 	TextButton btn_ShowSplits;
 	TextButton btn_ShowGlobalParams;
+	HyperlinkButton btn_Hyperlink;
 	std::unique_ptr<GUI_Layer_Randomization> layer_Randomization;
 	std::unique_ptr<GUI_Layer_Splits> layer_Splits;
 	std::unique_ptr<GUI_Layer_VoicesBanks> layer_VoicesBanks;

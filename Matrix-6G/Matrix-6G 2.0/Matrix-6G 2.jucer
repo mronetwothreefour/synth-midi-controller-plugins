@@ -101,6 +101,8 @@
               file="BinaryResources/buttons/btn_Randomize_Dn.png"/>
         <FILE id="PSmU5f" name="btn_Randomize_Up.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Randomize_Up.png"/>
+        <FILE id="SfBtYq" name="btn_Redo_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Redo_Dn.png"/>
+        <FILE id="vYOZ5S" name="btn_Redo_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Redo_Up.png"/>
         <FILE id="V79S6K" name="btn_ResetPatchMap_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_ResetPatchMap_Dn.png"/>
         <FILE id="cl5TZY" name="btn_ResetPatchMap_Up.png" compile="0" resource="1"
@@ -123,6 +125,8 @@
               file="BinaryResources/buttons/btn_Splits_Up.png"/>
         <FILE id="N34dea" name="btn_Stop_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Stop_Dn.png"/>
         <FILE id="lV9u4I" name="btn_Stop_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Stop_Up.png"/>
+        <FILE id="BjOCdM" name="btn_Undo_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Undo_Dn.png"/>
+        <FILE id="rcQNQQ" name="btn_Undo_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Undo_Up.png"/>
         <FILE id="JRrXks" name="btn_Unlock_Dn.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_Unlock_Dn.png"/>
         <FILE id="mwkEhD" name="btn_Unlock_Up.png" compile="0" resource="1"

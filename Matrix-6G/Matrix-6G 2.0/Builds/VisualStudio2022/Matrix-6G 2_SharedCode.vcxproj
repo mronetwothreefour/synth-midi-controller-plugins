@@ -3440,6 +3440,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_PushVoice_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Randomize_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Randomize_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Redo_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Redo_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_ResetPatchMap_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_ResetPatchMap_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Retry_Dn.png"/>
@@ -3452,6 +3454,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_Splits_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Stop_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Stop_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Undo_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Undo_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Unlock_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Unlock_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Write_Dn.png"/>

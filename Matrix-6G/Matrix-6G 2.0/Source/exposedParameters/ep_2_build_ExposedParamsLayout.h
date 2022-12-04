@@ -20,14 +20,13 @@ struct ExposedParametersLayout
 			auto defaultChoice{ info->defaultChoiceFor(paramIndex) };
 			layout.add(std::make_unique<AudioParameterChoice>(paramID, exposedName, choiceNamesList, defaultChoice));
 		}
-		// TODO:
-		//StringArray rndmTrigChoices{ "0", "1" };
-		//layout.add(std::make_unique<AudioParameterChoice>(ID::rndmTrig_AllUnlocked.toString(), "Randomize: All Unlocked Parameters", rndmTrigChoices, 0));
-		//for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
-		//	auto paramID{ info->IDfor(paramIndex) };
-		//	auto paramName{ info->exposedNameFor(paramIndex) };
-		//	layout.add(std::make_unique<AudioParameterChoice>(ID::rndmTrig_.toString() + paramID, "Randomize: " + paramName, rndmTrigChoices, 0));
-		//}
+		StringArray rndmTrigChoices{ "0", "1" };
+		layout.add(std::make_unique<AudioParameterChoice>(ID::rndmTrg_AllUnlocked.toString(), "Randomize: All Unlocked Parameters", rndmTrigChoices, 0));
+		for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
+			auto paramID{ info->IDfor(paramIndex) };
+			auto paramName{ info->exposedNameFor(paramIndex) };
+			layout.add(std::make_unique<AudioParameterChoice>(ID::rndmTrg_.toString() + paramID, "Randomize: " + paramName, rndmTrigChoices, 0));
+		}
 		return layout;
 	};
 

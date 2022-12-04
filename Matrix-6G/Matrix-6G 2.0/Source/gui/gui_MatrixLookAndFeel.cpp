@@ -97,6 +97,9 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID.startsWith(ID::btn_Push_VoicesBank_.toString()))
 		mBlock = MemBlock{ isDown ? btn_PushVoice_Dn_png : btn_PushVoice_Up_png, isDown ? (s_t)btn_PushVoice_Dn_pngSize : (s_t)btn_PushVoice_Up_pngSize };
 
+	if (buttonID == ID::btn_Redo.toString())
+		mBlock = MemBlock{ isDown ? btn_Redo_Dn_png : btn_Redo_Up_png, isDown ? (s_t)btn_Redo_Dn_pngSize : (s_t)btn_Redo_Up_pngSize };
+
 	if (buttonID.startsWith(ID::btn_Reset.toString()))
 		mBlock = MemBlock{ isDown ? btn_ResetPatchMap_Dn_png : btn_ResetPatchMap_Up_png, isDown ? (s_t)btn_ResetPatchMap_Dn_pngSize : (s_t)btn_ResetPatchMap_Up_pngSize };
 
@@ -105,6 +108,9 @@ void MatrixLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 
 	if (buttonID.startsWith(ID::btn_Splits.toString()))
 		mBlock = MemBlock{ isDown ? btn_Splits_Dn_png : btn_Splits_Up_png, isDown ? (s_t)btn_Splits_Dn_pngSize : (s_t)btn_Splits_Up_pngSize };
+
+	if (buttonID == ID::btn_Undo.toString())
+		mBlock = MemBlock{ isDown ? btn_Undo_Dn_png : btn_Undo_Up_png, isDown ? (s_t)btn_Undo_Dn_pngSize : (s_t)btn_Undo_Up_pngSize };
 
 	if (buttonID == ID::btn_Save_Voice.toString())
 		mBlock = MemBlock{ isDown ? btn_SaveVoice_Dn_png : btn_SaveVoice_Up_png, isDown ? (s_t)btn_SaveVoice_Dn_pngSize : (s_t)btn_SaveVoice_Up_pngSize };

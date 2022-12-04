@@ -24,7 +24,8 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     global{ unexposedParams->getGlobalOptions() },
     outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() },
     tooltips{ unexposedParams->getTooltipsOptions() },
-    btn_ActivateQuickEdit{ unexposedParams }
+    btn_ActivateQuickEdit{ unexposedParams },
+    btn_Hyperlink{ "", URL("https://programming.mr1234.com/") }
 {
     setInterceptsMouseClicks(false, true);
 
@@ -55,6 +56,19 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     btn_Pull.setBounds(664, smallButtons_y, pullAndPushButtons_w, GUI::buttons_small_h);
     btn_Pull.addShortcut(KeyPress{ '[', ModifierKeys::ctrlModifier, 0});
     addAndMakeVisible(btn_Pull);
+
+    const int undoRedoButtons_w{ 30 };
+    btn_Undo.setComponentID(ID::btn_Undo.toString());
+    btn_Undo.onClick = [exposedParams] { exposedParams->undoManager.undo(); };
+    btn_Undo.setBounds(695, smallButtons_y, undoRedoButtons_w, GUI::buttons_small_h);
+    btn_Undo.addShortcut(KeyPress{ 'z', ModifierKeys::ctrlModifier, 0 });
+    addAndMakeVisible(btn_Undo);
+
+    btn_Redo.setComponentID(ID::btn_Redo.toString());
+    btn_Redo.onClick = [exposedParams] { exposedParams->undoManager.redo(); };
+    btn_Redo.setBounds(728, smallButtons_y, undoRedoButtons_w, GUI::buttons_small_h);
+    btn_Redo.addShortcut(KeyPress{ 'z', ModifierKeys::ctrlModifier + ModifierKeys::shiftModifier, 0 });
+    addAndMakeVisible(btn_Redo);
 
     btn_Randomize.setComponentID(ID::btn_Randomize.toString());
     btn_Randomize.addMouseListener(this, false);
@@ -88,6 +102,10 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     btn_ShowGlobalParams.addShortcut(KeyPress{ 'm', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_ShowGlobalParams);
 
+    btn_Hyperlink.setComponentID(ID::btn_Hyperlink.toString());
+    btn_Hyperlink.setBounds(176, 386, 146, 9);
+    addAndMakeVisible(btn_Hyperlink);
+
     updateTooltips();
 
     setSize(GUI::editor_w, GUI::editor_h);
@@ -105,6 +123,12 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
     auto tipFor_btn_Push{ shouldShow ? Description::buildForPush() : String{ "" } };
     btn_Push.setTooltip(tipFor_btn_Push);
 
+    auto tipFor_btn_Undo{ shouldShow ? Description::buildForUndo() : String{ "" } };
+    btn_Undo.setTooltip(tipFor_btn_Undo);
+
+    auto tipFor_btn_Redo{ shouldShow ? Description::buildForRedo() : String{ "" } };
+    btn_Redo.setTooltip(tipFor_btn_Redo);
+
     auto tipFor_btn_Randomize{ shouldShow ? Description::buildForShowRandomizationLayer() : String{ "" } };
     btn_Randomize.setTooltip(tipFor_btn_Randomize);
 
@@ -116,6 +140,9 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
 
     auto tipFor_btn_ShowGlobalParams{ shouldShow ? Description::buildForShowGlobalParamsLayer() : String{ "" } };
     btn_ShowGlobalParams.setTooltip(tipFor_btn_ShowGlobalParams);
+
+    auto tipFor_btn_Hyperlink{ shouldShow ? Description::buildForHyperlink() : String{ "" } };
+    btn_Hyperlink.setTooltip(tipFor_btn_Hyperlink);
 }
 
 void GUI_Layer_MainWindowButtons::timerCallback() {
