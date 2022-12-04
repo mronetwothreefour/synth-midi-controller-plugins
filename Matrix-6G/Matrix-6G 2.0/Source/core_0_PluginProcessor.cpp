@@ -89,11 +89,69 @@ AudioProcessorEditor* PluginProcessor::createEditor() {
     return new PluginEditor{ *this, exposedParams.get(), unexposedParams.get() };
 }
 
-void PluginProcessor::getStateInformation(MemoryBlock& /*destData*/) {
-    // TODO: remember to include the states of currentVoiceOptions and matrixModOptions in exposedParams
+void PluginProcessor::getStateInformation(MemoryBlock& destData) {
+    XmlElement pluginStateXml{ ID::state_PluginState };
+
+    auto exposedParamsStateTree{ exposedParams->state->copyState() };
+    auto exposedParamsStateXml{ exposedParamsStateTree.createXml() };
+    exposedParamsStateXml->setTagName(ID::state_ExposedParams.toString());
+    if (exposedParamsStateXml != nullptr)
+        pluginStateXml.addChildElement(exposedParamsStateXml.release());
+
+    auto currentVoiceOptionsStateXml{ exposedParams->currentVoiceOptions->getStateXml() };
+    if (currentVoiceOptionsStateXml != nullptr)
+        pluginStateXml.addChildElement(currentVoiceOptionsStateXml.release());
+
+    auto matrixModOptionsStateXml{ exposedParams->matrixModOptions->getStateXml() };
+    if (matrixModOptionsStateXml != nullptr)
+        pluginStateXml.addChildElement(matrixModOptionsStateXml.release());
+
+    auto randomizationStateXml{ exposedParams->randomization->getStateXml() };
+    if (randomizationStateXml != nullptr)
+        pluginStateXml.addChildElement(randomizationStateXml.release());
+
+    auto unexposedParamsStateXml{ unexposedParams->getStateXml() };
+    if (unexposedParamsStateXml != nullptr)
+        pluginStateXml.addChildElement(unexposedParamsStateXml.release());
+
+    copyXmlToBinary(pluginStateXml, destData);
 }
 
-void PluginProcessor::setStateInformation(const void* /*data*/, int /*sizeInBytes*/) {
+void PluginProcessor::setStateInformation(const void* data, int sizeInBytes) {
+    auto pluginStateXml{ getXmlFromBinary(data, sizeInBytes) };
+    if (pluginStateXml != nullptr) {
+        auto exposedParamsStateXml{ pluginStateXml->getChildByName(ID::state_ExposedParams.toString()) };
+        if (exposedParamsStateXml != nullptr) {
+            transmitOptions->setParamChangesShouldBeTransmitted(false);
+            auto exposedParamsStateTree{ ValueTree::fromXml(*exposedParamsStateXml) };
+            exposedParams->state->replaceState(exposedParamsStateTree);
+            transmitOptions->setParamChangesShouldBeTransmitted(true);
+        }
+
+        auto currentVoiceOptionsStateXml{ pluginStateXml->getChildByName(ID::state_CurrentVoiceOptions.toString()) };
+        if (currentVoiceOptionsStateXml != nullptr) {
+            auto currentVoiceStateTree{ ValueTree::fromXml(*currentVoiceOptionsStateXml) };
+            exposedParams->currentVoiceOptions->replaceState(currentVoiceStateTree);
+        }
+
+        auto matrixModOptionsStateXml{ pluginStateXml->getChildByName(ID::state_MatrixModOptions.toString()) };
+        if (matrixModOptionsStateXml != nullptr) {
+            auto matrixModOptionsStateTree{ ValueTree::fromXml(*matrixModOptionsStateXml) };
+            exposedParams->matrixModOptions->replaceState(matrixModOptionsStateTree);
+        }
+
+        auto randomizationStateXml{ pluginStateXml->getChildByName(ID::state_RandomizationOptions.toString()) };
+        if (randomizationStateXml != nullptr) {
+            auto randomizationStateTree{ ValueTree::fromXml(*randomizationStateXml) };
+            exposedParams->randomization->replaceState(randomizationStateTree);
+        }
+
+        auto unexposedParamsStateXml{ pluginStateXml->getChildByName(ID::state_UnexposedParams.toString()) };
+        if (unexposedParamsStateXml != nullptr) {
+            auto unexposedParamsStateTree{ ValueTree::fromXml(*unexposedParamsStateXml) };
+            unexposedParams->replaceState(unexposedParamsStateTree);
+        }
+    }
 }
 
 PluginProcessor::~PluginProcessor() {

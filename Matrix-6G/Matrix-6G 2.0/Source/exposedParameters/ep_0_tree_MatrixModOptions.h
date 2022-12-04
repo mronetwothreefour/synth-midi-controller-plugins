@@ -30,7 +30,7 @@ public:
 
 	Value getMatrixModPropertyAsValue(const Identifier propertyID);
 
-	XmlElement* getStateXml();
+	std::unique_ptr<XmlElement> getStateXml();
 	void replaceState(const ValueTree& newState);
 
 private:

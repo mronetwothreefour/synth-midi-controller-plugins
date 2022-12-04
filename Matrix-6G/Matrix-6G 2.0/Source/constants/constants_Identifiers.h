@@ -240,7 +240,9 @@ namespace Matrix_6G_Constants
 		static const Identifier state_CustomVoiceDataHexStrings{ "state_CustomVoiceDataHexStrings" };
 		static const Identifier state_CustomVoiceNameStrings{ "state_CustomVoiceNameStrings" };
 		static const Identifier state_CustomVoicesBanks{ "state_CustomVoicesBanks" };
+		static const Identifier state_ExposedParams{ "state_ExposedParams" };
 		static const Identifier state_MatrixModOptions{ "state_MatrixModOptions" };
+		static const Identifier state_PluginState{ "state_PluginState" };
 		static const Identifier state_RandomizationOptions{ "state_RandomizationOptions" };
 		static const Identifier state_SplitDataHexStrings{ "state_SplitDataHexStrings" };
 		static const Identifier state_SplitNameStrings{ "state_SplitNameStrings" };

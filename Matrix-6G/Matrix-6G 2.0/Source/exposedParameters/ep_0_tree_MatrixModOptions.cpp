@@ -84,11 +84,11 @@ Value MatrixModOptions::getMatrixModPropertyAsValue(const Identifier propertyID)
 	return matrixModOptionsTree.getPropertyAsValue(propertyID, nullptr);
 }
 
-XmlElement* MatrixModOptions::getStateXml() {
+std::unique_ptr<XmlElement> MatrixModOptions::getStateXml() {
 	auto matrixModOptionsTreeStateXml{ matrixModOptionsTree.createXml() };
 	if (matrixModOptionsTreeStateXml != nullptr)
 		matrixModOptionsTreeStateXml->setTagName(ID::state_MatrixModOptions);
-	return matrixModOptionsTreeStateXml.release();
+	return matrixModOptionsTreeStateXml;
 }
 
 void MatrixModOptions::replaceState(const ValueTree& newState) {

@@ -35,11 +35,11 @@ Value CurrentVoiceOptions::getCurrentVoicePropertyAsValue(const Identifier prope
     return currentVoiceOptionsTree.getPropertyAsValue(propertyID, nullptr);
 }
 
-XmlElement* CurrentVoiceOptions::getStateXml() {
+std::unique_ptr<XmlElement> CurrentVoiceOptions::getStateXml() {
     auto currentVoiceOptionsTreeStateXml{ currentVoiceOptionsTree.createXml() };
     if (currentVoiceOptionsTreeStateXml != nullptr)
         currentVoiceOptionsTreeStateXml->setTagName(ID::state_CurrentVoiceOptions);
-    return currentVoiceOptionsTreeStateXml.release();
+    return currentVoiceOptionsTreeStateXml;
 }
 
 void CurrentVoiceOptions::replaceState(const ValueTree& newState) {
