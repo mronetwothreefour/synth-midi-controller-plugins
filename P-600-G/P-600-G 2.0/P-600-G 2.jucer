@@ -9,6 +9,8 @@
   <MAINGROUP id="QgKzcN" name="P-600-G 2">
     <GROUP id="{349587B4-BC8D-9B3D-70F5-941FCF41BB5D}" name="BinaryResources">
       <GROUP id="{38BC1DF0-5C64-3C05-BEAB-F655A75E5D97}" name="buttons">
+        <FILE id="VE7r1h" name="btn_All_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_All_Dn.png"/>
+        <FILE id="voGq2w" name="btn_All_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_All_Up.png"/>
         <FILE id="hxZ4Me" name="btn_Esc_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Esc_Dn.png"/>
         <FILE id="mrPMsv" name="btn_Esc_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Esc_Up.png"/>
         <FILE id="FEoICk" name="btn_Exit_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Exit_Dn.png"/>
@@ -58,6 +60,20 @@
         <FILE id="VDdpOs" name="lbl_PushingEntireBank.png" compile="0" resource="1"
               file="BinaryResources/labels/lbl_PushingEntireBank.png"/>
       </GROUP>
+      <FILE id="hGCXj2" name="bkgrnd_AllowedChoices_0to16.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_AllowedChoices_0to16.png"/>
+      <FILE id="WkSYnu" name="bkgrnd_AllowedChoices_0to31.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_AllowedChoices_0to31.png"/>
+      <FILE id="cbZ9Os" name="bkgrnd_AllowedChoices_0to63.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_AllowedChoices_0to63.png"/>
+      <FILE id="VpFWgH" name="bkgrnd_AllowedChoices_0to127.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_AllowedChoices_0to127.png"/>
+      <FILE id="NPnpqp" name="bkgrnd_AllowedChoices_KeyTrackpng.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_AllowedChoices_KeyTrackpng.png"/>
+      <FILE id="mImKEd" name="bkgrnd_AllowedChoices_Pitch.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_AllowedChoices_Pitch.png"/>
+      <FILE id="Qvl7EY" name="bkgrnd_AllowedChoices_Toggles.png" compile="0"
+            resource="1" file="BinaryResources/bkgrnd_AllowedChoices_Toggles.png"/>
       <FILE id="p4h11g" name="bkgrnd_FactoryRestoreDialog.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_FactoryRestoreDialog.png"/>
       <FILE id="AeHQzB" name="bkgrnd_FileOverwriteDialog.png" compile="0"
@@ -218,6 +234,10 @@
               resource="0" file="Source/randomization/rndm_0_comp_AllowChoiceToggles.cpp"/>
         <FILE id="nbnMuy" name="rndm_0_comp_AllowChoiceToggles.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_comp_AllowChoiceToggles.h"/>
+        <FILE id="IWHgpN" name="rndm_0_comp_AllowRepeatChoicesSwitch.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesSwitch.cpp"/>
+        <FILE id="nl5Bke" name="rndm_0_comp_AllowRepeatChoicesSwitch.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesSwitch.h"/>
       </GROUP>
       <GROUP id="{4D51FC72-E327-166D-BDB8-46949E9FB675}" name="unexposedParameters">
         <FILE id="o7Ax01" name="up_0_tree_TooltipsOptions.cpp" compile="1"

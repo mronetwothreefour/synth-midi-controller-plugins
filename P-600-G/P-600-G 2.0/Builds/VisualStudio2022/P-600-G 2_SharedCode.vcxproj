@@ -162,6 +162,7 @@
     <ClCompile Include="..\..\Source\midi\midi_0_RawDataTools.cpp"/>
     <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesSwitch.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.cpp"/>
@@ -2308,6 +2309,7 @@
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp"/>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData2.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_devices.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_formats.cpp"/>
@@ -2367,6 +2369,7 @@
     <ClInclude Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.h"/>
     <ClInclude Include="..\..\Source\midi\midi_1_SysExMessages.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesSwitch.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.h"/>
@@ -3287,6 +3290,8 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\BinaryResources\buttons\btn_All_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_All_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Esc_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Esc_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Exit_Dn.png"/>
@@ -3322,6 +3327,13 @@
     <None Include="..\..\BinaryResources\labels\lbl_ImportVoicesBank.png"/>
     <None Include="..\..\BinaryResources\labels\lbl_PullingEntireBank.png"/>
     <None Include="..\..\BinaryResources\labels\lbl_PushingEntireBank.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_0to16.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_0to31.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_0to63.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_0to127.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_KeyTrackpng.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_Pitch.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_Toggles.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_FactoryRestoreDialog.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_FileOverwriteDialog.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_FileNotValidAlert.png"/>

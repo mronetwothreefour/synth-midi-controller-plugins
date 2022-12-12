@@ -685,6 +685,9 @@
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles.cpp">
       <Filter>P-600-G 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesSwitch.cpp">
+      <Filter>P-600-G 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp">
       <Filter>P-600-G 2\Source\unexposedParameters</Filter>
     </ClCompile>
@@ -2989,6 +2992,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData2.cpp">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
@@ -3148,6 +3154,9 @@
       <Filter>P-600-G 2\Source\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles.h">
+      <Filter>P-600-G 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesSwitch.h">
       <Filter>P-600-G 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h">
@@ -5906,6 +5915,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\BinaryResources\buttons\btn_All_Dn.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_All_Up.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
     <None Include="..\..\BinaryResources\buttons\btn_Esc_Dn.png">
       <Filter>P-600-G 2\BinaryResources\buttons</Filter>
     </None>
@@ -6010,6 +6025,27 @@
     </None>
     <None Include="..\..\BinaryResources\labels\lbl_PushingEntireBank.png">
       <Filter>P-600-G 2\BinaryResources\labels</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_0to16.png">
+      <Filter>P-600-G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_0to31.png">
+      <Filter>P-600-G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_0to63.png">
+      <Filter>P-600-G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_0to127.png">
+      <Filter>P-600-G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_KeyTrackpng.png">
+      <Filter>P-600-G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_Pitch.png">
+      <Filter>P-600-G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_Toggles.png">
+      <Filter>P-600-G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_FactoryRestoreDialog.png">
       <Filter>P-600-G 2\BinaryResources</Filter>

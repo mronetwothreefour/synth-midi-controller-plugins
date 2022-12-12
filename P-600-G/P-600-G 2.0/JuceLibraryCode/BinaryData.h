@@ -8,6 +8,12 @@
 
 namespace BinaryData
 {
+    extern const char*   btn_All_Dn_png;
+    const int            btn_All_Dn_pngSize = 551;
+
+    extern const char*   btn_All_Up_png;
+    const int            btn_All_Up_pngSize = 565;
+
     extern const char*   btn_Esc_Dn_png;
     const int            btn_Esc_Dn_pngSize = 658;
 
@@ -113,6 +119,27 @@ namespace BinaryData
     extern const char*   lbl_PushingEntireBank_png;
     const int            lbl_PushingEntireBank_pngSize = 2138;
 
+    extern const char*   bkgrnd_AllowedChoices_0to16_png;
+    const int            bkgrnd_AllowedChoices_0to16_pngSize = 60216;
+
+    extern const char*   bkgrnd_AllowedChoices_0to31_png;
+    const int            bkgrnd_AllowedChoices_0to31_pngSize = 79480;
+
+    extern const char*   bkgrnd_AllowedChoices_0to63_png;
+    const int            bkgrnd_AllowedChoices_0to63_pngSize = 96328;
+
+    extern const char*   bkgrnd_AllowedChoices_0to127_png;
+    const int            bkgrnd_AllowedChoices_0to127_pngSize = 227066;
+
+    extern const char*   bkgrnd_AllowedChoices_KeyTrackpng_png;
+    const int            bkgrnd_AllowedChoices_KeyTrackpng_pngSize = 55350;
+
+    extern const char*   bkgrnd_AllowedChoices_Pitch_png;
+    const int            bkgrnd_AllowedChoices_Pitch_pngSize = 109939;
+
+    extern const char*   bkgrnd_AllowedChoices_Toggles_png;
+    const int            bkgrnd_AllowedChoices_Toggles_pngSize = 29379;
+
     extern const char*   bkgrnd_FactoryRestoreDialog_png;
     const int            bkgrnd_FactoryRestoreDialog_pngSize = 78267;
 
@@ -153,7 +180,7 @@ namespace BinaryData
     const int            SWISSCL_TTFSize = 35064;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 48;
+    const int namedResourceListSize = 57;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
