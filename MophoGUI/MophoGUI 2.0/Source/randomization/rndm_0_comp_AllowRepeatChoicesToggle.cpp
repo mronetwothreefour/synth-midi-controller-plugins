@@ -37,14 +37,14 @@ AllowRepeatChoicesToggle::AllowRepeatChoicesToggle(uint8 paramIndex, ExposedPara
 		if (allowedChoicesType != AllowedChoicesType::binary) {
 			tip += "Obviously,\n";
 			tip += "if there is only one allowed setting then the\n";
-			tip += "same setting is always going to be produced.";
+			tip += "same setting is always going to be produced.\n";
 		}
 		else {
 			tip += "This means\n";
 			tip += "that the toggle will simply alternate between\n";
 			tip += "states with every randomization.\n";
-			tip += "Shortcut key: CTRL+R";
 		}
+		tip += "Shortcut key: CTRL+R";
 		toggle_AllowRepeatChoices.setTooltip(tip);
 	}
 	toggle_AllowRepeatChoices.setBounds(0, 0, GUI::redToggle_diameter, GUI::redToggle_diameter);

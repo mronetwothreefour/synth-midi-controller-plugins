@@ -688,6 +688,9 @@
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesSwitch.cpp">
       <Filter>P-600-G 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_LockToggleForParam.cpp">
+      <Filter>P-600-G 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp">
       <Filter>P-600-G 2\Source\unexposedParameters</Filter>
     </ClCompile>
@@ -3157,6 +3160,9 @@
       <Filter>P-600-G 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesSwitch.h">
+      <Filter>P-600-G 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_LockToggleForParam.h">
       <Filter>P-600-G 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h">
@@ -5945,6 +5951,18 @@
     <None Include="..\..\BinaryResources\buttons\btn_Fact_Up.png">
       <Filter>P-600-G 2\BinaryResources\buttons</Filter>
     </None>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupLock_Dn.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupLock_Up.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupUnlock_Dn.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupUnlock_Up.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
     <None Include="..\..\BinaryResources\buttons\btn_Impt_Dn.png">
       <Filter>P-600-G 2\BinaryResources\buttons</Filter>
     </None>
@@ -5991,6 +6009,12 @@
       <Filter>P-600-G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Up.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Rand_Dn.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Rand_Up.png">
       <Filter>P-600-G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Save_Dn.png">
@@ -6068,6 +6092,9 @@
     <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png">
       <Filter>P-600-G 2\BinaryResources</Filter>
     </None>
+    <None Include="..\..\BinaryResources\bkgrnd_Randomization.png">
+      <Filter>P-600-G 2\BinaryResources</Filter>
+    </None>
     <None Include="..\..\BinaryResources\bkgrnd_TooltipsOptions.png">
       <Filter>P-600-G 2\BinaryResources</Filter>
     </None>
@@ -6075,6 +6102,9 @@
       <Filter>P-600-G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_VoicesBankTransmit.png">
+      <Filter>P-600-G 2\BinaryResources</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\icon_Locked.png">
       <Filter>P-600-G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF">

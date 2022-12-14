@@ -37,6 +37,9 @@ namespace P_600_G_Constants
 		static const Identifier btn_VoiceSlotRadioButton{ "btn_VoiceSlotRadioButton" };
 
 		static const Identifier comp_ImptExptBrowser{ "comp_ImptExptBrowser" };
+		static const Identifier comp_ToggleLock_Knob_Param_{ "comp_ToggleLock_Knob_Param_" };
+		static const Identifier comp_ToggleLock_ThreePoleSwitch_Param_{ "comp_ToggleLock_ThreePoleSwitch_Param_" };
+		static const Identifier comp_ToggleLock_TwoPoleSwitch_Param_{ "comp_ToggleLock_TwoPoleSwitch_Param_" };
 		static const Identifier comp_TextEditorForKnob{ "comp_TextEditorForKnob" };
 		static const Identifier comp_TextEditorForTooltipDelayTime{ "comp_TextEditorForTooltipDelayTime" };
 		static const Identifier comp_TextEditorForTransmitTime{ "comp_TextEditorForTransmitTime" };

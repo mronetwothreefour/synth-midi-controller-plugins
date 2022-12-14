@@ -163,6 +163,7 @@
     <ClCompile Include="..\..\Source\midi\midi_1_handle_IncomingSysExMessage.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesSwitch.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_comp_LockToggleForParam.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.cpp"/>
@@ -2370,6 +2371,7 @@
     <ClInclude Include="..\..\Source\midi\midi_1_SysExMessages.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesSwitch.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_LockToggleForParam.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.h"/>
@@ -3300,6 +3302,10 @@
     <None Include="..\..\BinaryResources\buttons\btn_Expt_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Fact_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Fact_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupLock_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupLock_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupUnlock_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_GroupUnlock_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Impt_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Impt_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Load_Dn.png"/>
@@ -3316,6 +3322,8 @@
     <None Include="..\..\BinaryResources\buttons\btn_Pull_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Push_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Rand_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Rand_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Save_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Save_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_SwitchTab.png"/>
@@ -3341,9 +3349,11 @@
     <None Include="..\..\BinaryResources\bkgrnd_ImportExportWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_MainWindow.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_NewFolderDialog.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_Randomization.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_TooltipsOptions.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_VoicesBank.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_VoicesBankTransmit.png"/>
+    <None Include="..\..\BinaryResources\icon_Locked.png"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSB.TTF"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCK.TTF"/>
     <None Include="..\..\..\..\..\..\..\..\WINDOWS\Fonts\SWISSCL.TTF"/>

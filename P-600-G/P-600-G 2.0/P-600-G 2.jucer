@@ -19,6 +19,14 @@
         <FILE id="Xbpeju" name="btn_Expt_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Expt_Up.png"/>
         <FILE id="NwDWwr" name="btn_Fact_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Fact_Dn.png"/>
         <FILE id="qSuTZ3" name="btn_Fact_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Fact_Up.png"/>
+        <FILE id="Tm5W4G" name="btn_GroupLock_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_GroupLock_Dn.png"/>
+        <FILE id="imKBey" name="btn_GroupLock_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_GroupLock_Up.png"/>
+        <FILE id="I2Lze4" name="btn_GroupUnlock_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_GroupUnlock_Dn.png"/>
+        <FILE id="xF2twV" name="btn_GroupUnlock_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_GroupUnlock_Up.png"/>
         <FILE id="gA8vAA" name="btn_Impt_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Impt_Dn.png"/>
         <FILE id="TXeMCU" name="btn_Impt_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Impt_Up.png"/>
         <FILE id="bhXV0p" name="btn_Load_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Load_Dn.png"/>
@@ -39,6 +47,8 @@
         <FILE id="Kx9v7U" name="btn_Pull_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Pull_Up.png"/>
         <FILE id="feOLRz" name="btn_Push_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Dn.png"/>
         <FILE id="XDoREn" name="btn_Push_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Up.png"/>
+        <FILE id="qzVpLv" name="btn_Rand_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Rand_Dn.png"/>
+        <FILE id="Rtgod5" name="btn_Rand_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Rand_Up.png"/>
         <FILE id="rZ3Kng" name="btn_Save_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Save_Dn.png"/>
         <FILE id="LDpvJJ" name="btn_Save_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Save_Up.png"/>
         <FILE id="L1rWAB" name="btn_SwitchTab.png" compile="0" resource="1"
@@ -88,12 +98,15 @@
             file="BinaryResources/bkgrnd_MainWindow.png"/>
       <FILE id="cHIT77" name="bkgrnd_NewFolderDialog.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_NewFolderDialog.png"/>
+      <FILE id="srRB3X" name="bkgrnd_Randomization.png" compile="0" resource="1"
+            file="BinaryResources/bkgrnd_Randomization.png"/>
       <FILE id="ICCxlb" name="bkgrnd_TooltipsOptions.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_TooltipsOptions.png"/>
       <FILE id="V9ZGyR" name="bkgrnd_VoicesBank.png" compile="0" resource="1"
             file="BinaryResources/bkgrnd_VoicesBank.png"/>
       <FILE id="Hd8YV8" name="bkgrnd_VoicesBankTransmit.png" compile="0"
             resource="1" file="BinaryResources/bkgrnd_VoicesBankTransmit.png"/>
+      <FILE id="O12oGI" name="icon_Locked.png" compile="0" resource="1" file="BinaryResources/icon_Locked.png"/>
       <FILE id="h4ZOcY" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSB.TTF"/>
       <FILE id="UazGl9" name="SWISSCK.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCK.TTF"/>
       <FILE id="Jv8T7b" name="SWISSCL.TTF" compile="0" resource="1" file="../../../../../../WINDOWS/Fonts/SWISSCL.TTF"/>
@@ -238,6 +251,10 @@
               resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesSwitch.cpp"/>
         <FILE id="nl5Bke" name="rndm_0_comp_AllowRepeatChoicesSwitch.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_comp_AllowRepeatChoicesSwitch.h"/>
+        <FILE id="CmyMyM" name="rndm_0_comp_LockToggleForParam.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_0_comp_LockToggleForParam.cpp"/>
+        <FILE id="guT5OB" name="rndm_0_comp_LockToggleForParam.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_comp_LockToggleForParam.h"/>
       </GROUP>
       <GROUP id="{4D51FC72-E327-166D-BDB8-46949E9FB675}" name="unexposedParameters">
         <FILE id="o7Ax01" name="up_0_tree_TooltipsOptions.cpp" compile="1"
