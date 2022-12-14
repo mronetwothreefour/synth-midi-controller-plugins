@@ -31,6 +31,14 @@
         <FILE id="TXeMCU" name="btn_Impt_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Impt_Up.png"/>
         <FILE id="bhXV0p" name="btn_Load_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Load_Dn.png"/>
         <FILE id="uNh8I7" name="btn_Load_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Load_Up.png"/>
+        <FILE id="UmZH3r" name="btn_LockAll_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_LockAll_Dn.png"/>
+        <FILE id="Uw0G8d" name="btn_LockAll_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_LockAll_Up.png"/>
+        <FILE id="xlFckU" name="btn_LockNone_Dn.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_LockNone_Dn.png"/>
+        <FILE id="W5Cjnp" name="btn_LockNone_Up.png" compile="0" resource="1"
+              file="BinaryResources/buttons/btn_LockNone_Up.png"/>
         <FILE id="IuDmga" name="btn_Name_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Name_Dn.png"/>
         <FILE id="mA3u5k" name="btn_Name_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Name_Up.png"/>
         <FILE id="pDly9f" name="btn_NewFldr_Dn.png" compile="0" resource="1"
@@ -255,6 +263,8 @@
               resource="0" file="Source/randomization/rndm_0_comp_LockToggleForParam.cpp"/>
         <FILE id="guT5OB" name="rndm_0_comp_LockToggleForParam.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_comp_LockToggleForParam.h"/>
+        <FILE id="ijTv6o" name="rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"
+              compile="0" resource="0" file="Source/randomization/rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"/>
       </GROUP>
       <GROUP id="{4D51FC72-E327-166D-BDB8-46949E9FB675}" name="unexposedParameters">
         <FILE id="o7Ax01" name="up_0_tree_TooltipsOptions.cpp" compile="1"

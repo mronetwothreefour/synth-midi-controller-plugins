@@ -2372,6 +2372,7 @@
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowChoiceToggles.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesSwitch.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_LockToggleForParam.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.h"/>
@@ -3310,6 +3311,10 @@
     <None Include="..\..\BinaryResources\buttons\btn_Impt_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Load_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Load_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_LockAll_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_LockAll_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_LockNone_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_LockNone_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Name_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Name_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_NewFldr_Dn.png"/>

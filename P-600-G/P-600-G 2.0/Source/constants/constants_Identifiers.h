@@ -20,6 +20,8 @@ namespace P_600_G_Constants
 		static const Identifier btn_Impt_Voice{ "btn_Impt_Voice" };
 		static const Identifier btn_Impt_VoicesBank{ "btn_Impt_VoicesBank" };
 		static const Identifier btn_Load{ "btn_Load" };
+		static const Identifier btn_LockAll{ "btn_LockAll" };
+		static const Identifier btn_LockNone{ "btn_LockNone" };
 		static const Identifier btn_Name{ "btn_Name" };
 		static const Identifier btn_NewFolder{ "btn_NewFolder" };
 		static const Identifier btn_OK{ "btn_OK" };
@@ -31,6 +33,7 @@ namespace P_600_G_Constants
 		static const Identifier btn_Pull_VoicesBank{ "btn_Pull_VoicesBank" };
 		static const Identifier btn_Push_Voice{ "btn_Push_Voice" };
 		static const Identifier btn_Push_VoicesBank{ "btn_Push_VoicesBank" };
+		static const Identifier btn_Randomize{ "btn_Randomize" };
 		static const Identifier btn_RestoreFactoryVoices{ "btn_RestoreFactoryVoices" };
 		static const Identifier btn_Save{ "btn_Save" };
 		static const Identifier btn_Tips{ "btn_Tips" };

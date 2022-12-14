@@ -3165,6 +3165,9 @@
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_LockToggleForParam.h">
       <Filter>P-600-G 2\Source\randomization</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h">
+      <Filter>P-600-G 2\Source\randomization</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h">
       <Filter>P-600-G 2\Source\unexposedParameters</Filter>
     </ClInclude>
@@ -5973,6 +5976,18 @@
       <Filter>P-600-G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Load_Up.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_LockAll_Dn.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_LockAll_Up.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_LockNone_Dn.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_LockNone_Up.png">
       <Filter>P-600-G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Name_Dn.png">

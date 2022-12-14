@@ -31,6 +31,12 @@ void P_600_LookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID == ID::btn_Load.toString())
 		mBlock = MemBlock{ isDown ? btn_Load_Dn_png : btn_Load_Up_png, isDown ? (s_t)btn_Load_Dn_pngSize : (s_t)btn_Load_Up_pngSize };
 
+	if (buttonID == ID::btn_LockAll.toString())
+		mBlock = MemBlock{ isDown ? btn_LockAll_Dn_png : btn_LockAll_Up_png, isDown ? (s_t)btn_LockAll_Dn_pngSize : (s_t)btn_LockAll_Up_pngSize };
+
+	if (buttonID == ID::btn_LockNone.toString())
+		mBlock = MemBlock{ isDown ? btn_LockNone_Dn_png : btn_LockNone_Up_png, isDown ? (s_t)btn_LockNone_Dn_pngSize : (s_t)btn_LockNone_Up_pngSize };
+
 	if (buttonID == ID::btn_Name.toString())
 		mBlock = MemBlock{ isDown ? btn_Name_Dn_png : btn_Name_Up_png, isDown ? (s_t)btn_Name_Dn_pngSize : (s_t)btn_Name_Up_pngSize };
 
@@ -48,6 +54,9 @@ void P_600_LookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 
 	if (buttonID.startsWith("btn_Push"))
 		mBlock = MemBlock{ isDown ? btn_Push_Dn_png : btn_Push_Up_png, isDown ? (s_t)btn_Push_Dn_pngSize : (s_t)btn_Push_Up_pngSize };
+
+	if (buttonID == ID::btn_Randomize.toString())
+		mBlock = MemBlock{ isDown ? btn_Rand_Dn_png : btn_Rand_Up_png, isDown ? (s_t)btn_Rand_Dn_pngSize : (s_t)btn_Rand_Up_pngSize };
 
 	if (buttonID == ID::btn_RestoreFactoryVoices.toString())
 		mBlock = MemBlock{ isDown ? btn_Fact_Dn_png : btn_Fact_Up_png, isDown ? (s_t)btn_Fact_Dn_pngSize : (s_t)btn_Fact_Up_pngSize };
@@ -363,6 +372,30 @@ void P_600_LookAndFeel::drawTickBox(Graphics& g, Component& component, float x, 
 		g.setFont(GUI::font_VoiceSlotRadioButtons);
 		Rectangle<float> textArea{ x + 2, y, w, h };
 		g.drawText(component.getName(), textArea, Justification::centredLeft);
+	}
+	if (componentID.startsWith("comp_ToggleLock")) {
+		PNGImageFormat imageFormat;
+		MemoryInputStream memInputStream{ BinaryData::icon_Locked_png, BinaryData::icon_Locked_pngSize, false };
+		auto lockedIcon{ imageFormat.decodeImage(memInputStream) };
+		g.setColour(isTicked ? GUI::color_Black.withAlpha(0.3f) : GUI::color_LED_Red.withAlpha(0.2f));
+		if (componentID.contains("Knob")) {
+			if (isTicked) {
+				g.fillEllipse(x, y, w, h);
+				g.setOpacity(1.0f);
+				g.drawImageAt(lockedIcon, 8, 5);
+			}
+			else
+				g.fillEllipse(x, y, w, h);
+		}
+		if (componentID.contains("Switch")) {
+			if (isTicked) {
+				g.fillRect(x, y, w, h);
+				g.setOpacity(1.0f);
+				g.drawImageAt(lockedIcon, 6, 3);
+			}
+			else
+				g.fillRect(x, y, w, h);
+		}
 	}
 }
 
