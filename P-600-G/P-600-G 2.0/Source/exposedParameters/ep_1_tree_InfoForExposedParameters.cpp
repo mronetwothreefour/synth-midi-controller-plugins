@@ -157,6 +157,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 			}, -1, nullptr);
 	}
 
+	// ----------------------------------------------------------------------------------------------------------- mixer / glide
+
 	const auto mixerGlide_x{ 999 };
 	exposedParamsInfoTree.addChild(
 		ValueTree{ "ep_12", {
@@ -461,7 +463,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 			}
 		}, -1, nullptr);
 
-	// ------------------------------------------------------------------------------------------------------------------- poly-mod
+	// ---------------------------------------------------------------------------------------------------------------- poly-mod
 
 	exposedParamsInfoTree.addChild(
 		ValueTree{ "ep_26", {
@@ -547,6 +549,8 @@ InfoForExposedParameters::InfoForExposedParameters() :
 			}
 		}, -1, nullptr);
 
+	// ------------------------------------------------------------------------------------------------------------------ unison
+
 	exposedParamsInfoTree.addChild(
 		ValueTree{ "ep_30", {
 				{ ID::property_ParamID, ID::ep_30_UnisonTrack.toString() },
@@ -568,7 +572,7 @@ InfoForExposedParameters::InfoForExposedParameters() :
 			}
 		}, -1, nullptr);
 
-	// ------------------------------------------------------------------------------------------------------------------------ LFO
+	// --------------------------------------------------------------------------------------------------------------------- LFO
 
 	exposedParamsInfoTree.addChild(
 		ValueTree{ "ep_31", {

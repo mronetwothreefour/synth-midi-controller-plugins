@@ -691,6 +691,9 @@
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_LockToggleForParam.cpp">
       <Filter>P-600-G 2\Source\randomization</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\randomization\rndm_0_func_GroupLockStateMethods.cpp">
+      <Filter>P-600-G 2\Source\randomization</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp">
       <Filter>P-600-G 2\Source\unexposedParameters</Filter>
     </ClCompile>
@@ -3166,6 +3169,9 @@
       <Filter>P-600-G 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h">
+      <Filter>P-600-G 2\Source\randomization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\randomization\rndm_0_func_GroupLockStateMethods.h">
       <Filter>P-600-G 2\Source\randomization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h">

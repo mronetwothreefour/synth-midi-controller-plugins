@@ -265,6 +265,10 @@
               resource="0" file="Source/randomization/rndm_0_comp_LockToggleForParam.h"/>
         <FILE id="ijTv6o" name="rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"
               compile="0" resource="0" file="Source/randomization/rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"/>
+        <FILE id="fxBOrw" name="rndm_0_func_GroupLockStateMethods.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_0_func_GroupLockStateMethods.cpp"/>
+        <FILE id="VNFP4E" name="rndm_0_func_GroupLockStateMethods.h" compile="0"
+              resource="0" file="Source/randomization/rndm_0_func_GroupLockStateMethods.h"/>
       </GROUP>
       <GROUP id="{4D51FC72-E327-166D-BDB8-46949E9FB675}" name="unexposedParameters">
         <FILE id="o7Ax01" name="up_0_tree_TooltipsOptions.cpp" compile="1"
