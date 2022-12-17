@@ -269,6 +269,10 @@
               resource="0" file="Source/randomization/rndm_0_func_GroupLockStateMethods.cpp"/>
         <FILE id="VNFP4E" name="rndm_0_func_GroupLockStateMethods.h" compile="0"
               resource="0" file="Source/randomization/rndm_0_func_GroupLockStateMethods.h"/>
+        <FILE id="a2L2Wa" name="rndm_1_comp_GroupLockStateButtons.cpp" compile="1"
+              resource="0" file="Source/randomization/rndm_1_comp_GroupLockStateButtons.cpp"/>
+        <FILE id="WI3fa4" name="rndm_1_comp_GroupLockStateButtons.h" compile="0"
+              resource="0" file="Source/randomization/rndm_1_comp_GroupLockStateButtons.h"/>
       </GROUP>
       <GROUP id="{4D51FC72-E327-166D-BDB8-46949E9FB675}" name="unexposedParameters">
         <FILE id="o7Ax01" name="up_0_tree_TooltipsOptions.cpp" compile="1"

@@ -35,7 +35,7 @@ void GroupLockStateMethods::allPolyModParams(ExposedParamsRandomizationOptions* 
 		randomization->setParamIsLocked(paramIndex, shouldBeLocked ? true : false);
 }
 
-void GroupLockStateMethods::all_LFO_Params(int lfoNum, ExposedParamsRandomizationOptions* randomization, bool shouldBeLocked) {
+void GroupLockStateMethods::all_LFO_Params(ExposedParamsRandomizationOptions* randomization, bool shouldBeLocked) {
 	for (auto paramIndex = first_LFO_ParamIndex; paramIndex != EP::numberOfExposedParams; ++paramIndex)
 		randomization->setParamIsLocked(paramIndex, shouldBeLocked ? true : false);
 }

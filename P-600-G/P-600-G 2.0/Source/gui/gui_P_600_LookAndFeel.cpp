@@ -25,17 +25,23 @@ void P_600_LookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID.startsWith("btn_Expt"))
 		mBlock = MemBlock{ isDown ? btn_Expt_Dn_png : btn_Expt_Up_png, isDown ? (s_t)btn_Expt_Dn_pngSize : (s_t)btn_Expt_Up_pngSize };
 
+	if (buttonID == ID::btn_GroupLock.toString())
+		mBlock = MemBlock{ isDown ? btn_GroupLock_Dn_png : btn_GroupLock_Up_png, isDown ? (s_t)btn_GroupLock_Dn_pngSize : (s_t)btn_GroupLock_Up_pngSize };
+
+	if (buttonID == ID::btn_GroupLock_All.toString())
+		mBlock = MemBlock{ isDown ? btn_LockAll_Dn_png : btn_LockAll_Up_png, isDown ? (s_t)btn_LockAll_Dn_pngSize : (s_t)btn_LockAll_Up_pngSize };
+
+	if (buttonID == ID::btn_GroupUnlock.toString())
+		mBlock = MemBlock{ isDown ? btn_GroupUnlock_Dn_png : btn_GroupUnlock_Up_png, isDown ? (s_t)btn_GroupUnlock_Dn_pngSize : (s_t)btn_GroupUnlock_Up_pngSize };
+
+	if (buttonID == ID::btn_GroupUnlock_All.toString())
+		mBlock = MemBlock{ isDown ? btn_LockNone_Dn_png : btn_LockNone_Up_png, isDown ? (s_t)btn_LockNone_Dn_pngSize : (s_t)btn_LockNone_Up_pngSize };
+
 	if (buttonID.startsWith("btn_Impt"))
 		mBlock = MemBlock{ isDown ? btn_Impt_Dn_png : btn_Impt_Up_png, isDown ? (s_t)btn_Impt_Dn_pngSize : (s_t)btn_Impt_Up_pngSize };
 
 	if (buttonID == ID::btn_Load.toString())
 		mBlock = MemBlock{ isDown ? btn_Load_Dn_png : btn_Load_Up_png, isDown ? (s_t)btn_Load_Dn_pngSize : (s_t)btn_Load_Up_pngSize };
-
-	if (buttonID == ID::btn_LockAll.toString())
-		mBlock = MemBlock{ isDown ? btn_LockAll_Dn_png : btn_LockAll_Up_png, isDown ? (s_t)btn_LockAll_Dn_pngSize : (s_t)btn_LockAll_Up_pngSize };
-
-	if (buttonID == ID::btn_LockNone.toString())
-		mBlock = MemBlock{ isDown ? btn_LockNone_Dn_png : btn_LockNone_Up_png, isDown ? (s_t)btn_LockNone_Dn_pngSize : (s_t)btn_LockNone_Up_pngSize };
 
 	if (buttonID == ID::btn_Name.toString())
 		mBlock = MemBlock{ isDown ? btn_Name_Dn_png : btn_Name_Up_png, isDown ? (s_t)btn_Name_Dn_pngSize : (s_t)btn_Name_Up_pngSize };

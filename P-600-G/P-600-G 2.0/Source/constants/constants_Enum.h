@@ -37,4 +37,15 @@ namespace P_600_G_Constants
 		importVoice,
 		importVoicesBank
 	};
+
+
+	const enum class LockStateGroup {
+		all = 0,
+		osc_A,
+		osc_B,
+		filter,
+		amp,
+		polyMod,
+		lfo
+	};
 }

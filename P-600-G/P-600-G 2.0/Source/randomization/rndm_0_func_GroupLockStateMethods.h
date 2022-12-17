@@ -17,7 +17,7 @@ struct GroupLockStateMethods {
 	static void allFilterParams(ExposedParamsRandomizationOptions* randomization, bool shouldBeLocked);
 	static void allAmpParams(ExposedParamsRandomizationOptions* randomization, bool shouldBeLocked);
 	static void allPolyModParams(ExposedParamsRandomizationOptions* randomization, bool shouldBeLocked);
-	static void all_LFO_Params(int lfoNum, ExposedParamsRandomizationOptions* randomization, bool shouldBeLocked);
+	static void all_LFO_Params(ExposedParamsRandomizationOptions* randomization, bool shouldBeLocked);
 
 private:
 	//==============================================================================

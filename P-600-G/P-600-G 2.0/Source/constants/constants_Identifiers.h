@@ -17,11 +17,13 @@ namespace P_600_G_Constants
 		static const Identifier btn_Exit{ "btn_Exit" };
 		static const Identifier btn_Expt_Voice{ "btn_Expt_Voice" };
 		static const Identifier btn_Expt_VoicesBank{ "btn_Expt_VoicesBank" };
+		static const Identifier btn_GroupLock{ "btn_GroupLock" };
+		static const Identifier btn_GroupLock_All{ "btn_GroupLock_All" };
+		static const Identifier btn_GroupUnlock{ "btn_GroupUnlock" };
+		static const Identifier btn_GroupUnlock_All{ "btn_GroupUnlock_All" };
 		static const Identifier btn_Impt_Voice{ "btn_Impt_Voice" };
 		static const Identifier btn_Impt_VoicesBank{ "btn_Impt_VoicesBank" };
 		static const Identifier btn_Load{ "btn_Load" };
-		static const Identifier btn_LockAll{ "btn_LockAll" };
-		static const Identifier btn_LockNone{ "btn_LockNone" };
 		static const Identifier btn_Name{ "btn_Name" };
 		static const Identifier btn_NewFolder{ "btn_NewFolder" };
 		static const Identifier btn_OK{ "btn_OK" };

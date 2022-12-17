@@ -165,6 +165,7 @@
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_AllowRepeatChoicesSwitch.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_comp_LockToggleForParam.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_0_func_GroupLockStateMethods.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_1_comp_GroupLockStateButtons.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.cpp"/>
@@ -2375,6 +2376,7 @@
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_LockToggleForParam.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_0_func_GroupLockStateMethods.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_1_comp_GroupLockStateButtons.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_1_facade_UnexposedParameters.h"/>
