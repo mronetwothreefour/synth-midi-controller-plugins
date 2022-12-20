@@ -10,6 +10,7 @@ namespace P_600_G_Constants
 		static const Identifier bank_VoiceDataHexStrings{ "bank_VoiceDataHexStrings" };
 		static const Identifier bank_VoiceNameStrings{ "bank_VoiceNameStrings" };
 
+		static const Identifier btn_All{ "btn_All" };
 		static const Identifier btn_Esc{ "btn_Esc" };
 		static const Identifier btn_Esc_FileOverwrite{ "btn_Esc_FileOverwrite" };
 		static const Identifier btn_Esc_NewFolder{ "btn_Esc_NewFolder" };

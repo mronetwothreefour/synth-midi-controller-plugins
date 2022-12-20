@@ -10,7 +10,6 @@
 GUI_Layer_AllowedChoices_Standard::GUI_Layer_AllowedChoices_Standard(
 	uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
-	exposedParams{ exposedParams },
 	info{ exposedParams->info.get() },
 	allowChoiceToggles{ paramIndex, exposedParams, tooltips },
 	btn_Close{ tooltips },

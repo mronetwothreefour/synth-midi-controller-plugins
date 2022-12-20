@@ -277,6 +277,10 @@
               compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Binary.cpp"/>
         <FILE id="tGh8CE" name="rndm_2_gui_layer_AllowedChoices_Binary.h" compile="0"
               resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Binary.h"/>
+        <FILE id="P6edgn" name="rndm_2_gui_layer_AllowedChoices_OscPitch.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_OscPitch.cpp"/>
+        <FILE id="gSK0PR" name="rndm_2_gui_layer_AllowedChoices_OscPitch.h"
+              compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_OscPitch.h"/>
       </GROUP>
       <GROUP id="{4D51FC72-E327-166D-BDB8-46949E9FB675}" name="unexposedParameters">
         <FILE id="o7Ax01" name="up_0_tree_TooltipsOptions.cpp" compile="1"
