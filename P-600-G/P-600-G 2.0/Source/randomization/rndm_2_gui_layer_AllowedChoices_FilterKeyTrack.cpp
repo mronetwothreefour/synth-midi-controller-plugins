@@ -1,15 +1,12 @@
-#include "rndm_2_gui_layer_AllowedChoices_OscPitch.h"
+#include "rndm_2_gui_layer_AllowedChoices_FilterKeyTrack.h"
 
 #include "../constants/constants_GUI_Colors.h"
 #include "../constants/constants_GUI_Dimensions.h"
-#include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
-GUI_Layer_AllowedChoices_OscPitch::GUI_Layer_AllowedChoices_OscPitch(
-	uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
-	paramIndex{ paramIndex },
+GUI_Layer_AllowedChoices_FilterKeyTrack::GUI_Layer_AllowedChoices_FilterKeyTrack(ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	info{ exposedParams->info.get() },
 	repeatChoicesSwitch{ paramIndex, exposedParams, tooltips },
 	btn_Exit{ tooltips },
@@ -18,9 +15,6 @@ GUI_Layer_AllowedChoices_OscPitch::GUI_Layer_AllowedChoices_OscPitch(
 	background_x{ info->allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ info->allowedChoicesBackground_y_For(paramIndex) }
 {
-	jassert(paramIndex < EP::numberOfExposedParams);
-	jassert(info->controlTypeFor(paramIndex) == ControlType::knobForPitch);
-	auto paramName{ info->exposedNameFor(paramIndex) };
 	auto shouldShowDescriptions{ tooltips->shouldShowDescription() };
 
 	repeatChoicesSwitch.setTopLeftPosition(background_x + 37, background_y + 31);
@@ -33,7 +27,7 @@ GUI_Layer_AllowedChoices_OscPitch::GUI_Layer_AllowedChoices_OscPitch(
 	addAndMakeVisible(allowChoiceToggles);
 
 	btn_AllowAll.setComponentID(ID::btn_All.toString());
-	btn_AllowAll.onClick = [this, exposedParams, paramIndex] {
+	btn_AllowAll.onClick = [this, exposedParams] {
 		auto randomization{ exposedParams->randomization.get() };
 		randomization->allowAllChoicesForParam(paramIndex);
 	};
@@ -42,7 +36,7 @@ GUI_Layer_AllowedChoices_OscPitch::GUI_Layer_AllowedChoices_OscPitch(
 		String tip{ "" };
 		tip += "Click to allow all the choices when\n";
 		tip += "generating a random setting for\n";
-		tip += paramName + ".\n";
+		tip += info->exposedNameFor(paramIndex) + ".\n";
 		tip += "Shortcut key: CTRL+A";
 		btn_AllowAll.setTooltip(tip);
 	}
@@ -55,15 +49,15 @@ GUI_Layer_AllowedChoices_OscPitch::GUI_Layer_AllowedChoices_OscPitch(
 	setSize(GUI::editor_w, GUI::editor_h);
 }
 
-void GUI_Layer_AllowedChoices_OscPitch::paint(Graphics& g) {
+void GUI_Layer_AllowedChoices_FilterKeyTrack::paint(Graphics& g) {
 	g.fillAll(GUI::color_Black.withAlpha(0.4f));
 	auto controlCenter{ info->centerPointFor(paramIndex) };
-	auto knob_w{ info->widthFor(paramIndex) };
-	auto knob_h{ info->heightFor(paramIndex) };
+	auto switch_w{ info->widthFor(paramIndex) };
+	auto switch_h{ info->heightFor(paramIndex) };
 	g.setColour(GUI::color_LED_Red);
-	g.drawEllipse(controlCenter.x - knob_w / 2 - 2, controlCenter.y - knob_h / 2 - 2, knob_w + 4, knob_h + 4, 2);
+	g.drawRect(controlCenter.x - switch_w / 2 - 2, controlCenter.y - switch_h / 2 - 2, switch_w + 4, switch_h + 4, 2);
 	PNGImageFormat imageFormat;
-	MemoryInputStream memInputStream{ BinaryData::bkgrnd_AllowedChoices_Pitch_png, BinaryData::bkgrnd_AllowedChoices_Pitch_pngSize, false };
+	MemoryInputStream memInputStream{ BinaryData::bkgrnd_AllowedChoices_Toggles_png, BinaryData::bkgrnd_AllowedChoices_Toggles_pngSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(backgroundImage, background_x, background_y);
 }

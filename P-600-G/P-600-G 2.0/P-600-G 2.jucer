@@ -277,6 +277,10 @@
               compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Binary.cpp"/>
         <FILE id="tGh8CE" name="rndm_2_gui_layer_AllowedChoices_Binary.h" compile="0"
               resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_Binary.h"/>
+        <FILE id="CE5tuK" name="rndm_2_gui_layer_AllowedChoices_FilterKeyTrack.cpp"
+              compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_FilterKeyTrack.cpp"/>
+        <FILE id="rPfHND" name="rndm_2_gui_layer_AllowedChoices_FilterKeyTrack.h"
+              compile="0" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_FilterKeyTrack.h"/>
         <FILE id="P6edgn" name="rndm_2_gui_layer_AllowedChoices_OscPitch.cpp"
               compile="1" resource="0" file="Source/randomization/rndm_2_gui_layer_AllowedChoices_OscPitch.cpp"/>
         <FILE id="gSK0PR" name="rndm_2_gui_layer_AllowedChoices_OscPitch.h"

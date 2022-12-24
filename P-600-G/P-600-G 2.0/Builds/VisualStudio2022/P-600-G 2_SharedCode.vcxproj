@@ -167,6 +167,7 @@
     <ClCompile Include="..\..\Source\randomization\rndm_0_func_GroupLockStateMethods.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_1_comp_GroupLockStateButtons.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_Binary.cpp"/>
+    <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_FilterKeyTrack.cpp"/>
     <ClCompile Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_OscPitch.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.cpp"/>
     <ClCompile Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.cpp"/>
@@ -2380,6 +2381,7 @@
     <ClInclude Include="..\..\Source\randomization\rndm_0_func_GroupLockStateMethods.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_1_comp_GroupLockStateButtons.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_Binary.h"/>
+    <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_FilterKeyTrack.h"/>
     <ClInclude Include="..\..\Source\randomization\rndm_2_gui_layer_AllowedChoices_OscPitch.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_TooltipsOptions.h"/>
     <ClInclude Include="..\..\Source\unexposedParameters\up_0_tree_VoiceTransmissionOptions.h"/>

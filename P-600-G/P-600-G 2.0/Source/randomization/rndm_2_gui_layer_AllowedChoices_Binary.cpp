@@ -26,6 +26,11 @@ GUI_Layer_AllowedChoices_Binary::GUI_Layer_AllowedChoices_Binary(uint8 paramInde
 
 void GUI_Layer_AllowedChoices_Binary::paint(Graphics& g) {
 	g.fillAll(GUI::color_Black.withAlpha(0.4f));
+	auto controlCenter{ info->centerPointFor(paramIndex) };
+	auto switch_w{ info->widthFor(paramIndex) };
+	auto switch_h{ info->heightFor(paramIndex) };
+	g.setColour(GUI::color_LED_Red);
+	g.drawRect(controlCenter.x - switch_w / 2 - 2, controlCenter.y - switch_h / 2 - 2, switch_w + 4, switch_h + 4, 2);
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ BinaryData::bkgrnd_AllowedChoices_Toggles_png, BinaryData::bkgrnd_AllowedChoices_Toggles_pngSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
