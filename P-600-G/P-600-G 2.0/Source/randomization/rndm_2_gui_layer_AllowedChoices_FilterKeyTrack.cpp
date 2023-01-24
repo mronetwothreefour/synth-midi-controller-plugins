@@ -17,13 +17,13 @@ GUI_Layer_AllowedChoices_FilterKeyTrack::GUI_Layer_AllowedChoices_FilterKeyTrack
 {
 	auto shouldShowDescriptions{ tooltips->shouldShowDescription() };
 
-	repeatChoicesSwitch.setTopLeftPosition(background_x + 37, background_y + 31);
+	repeatChoicesSwitch.setTopLeftPosition(background_x + 29, background_y + 31);
 	addAndMakeVisible(repeatChoicesSwitch);
 
-	btn_Exit.setTopLeftPosition(background_x + 85, background_y + 23);
+	btn_Exit.setTopLeftPosition(background_x + 77, background_y + 23);
 	addAndMakeVisible(btn_Exit);
 
-	allowChoiceToggles.setTopLeftPosition(background_x + 15, background_y + 73);
+	allowChoiceToggles.setTopLeftPosition(background_x + 58, background_y + 73);
 	addAndMakeVisible(allowChoiceToggles);
 
 	btn_AllowAll.setComponentID(ID::btn_All.toString());
@@ -40,10 +40,10 @@ GUI_Layer_AllowedChoices_FilterKeyTrack::GUI_Layer_AllowedChoices_FilterKeyTrack
 		tip += "Shortcut key: CTRL+A";
 		btn_AllowAll.setTooltip(tip);
 	}
-	btn_AllowAll.setBounds(background_x + 35, background_y + 275, GUI::buttons_w, GUI::buttons_h);
+	btn_AllowAll.setBounds(background_x + 27, background_y + 131, GUI::buttons_w, GUI::buttons_h);
 	addAndMakeVisible(btn_AllowAll);
 
-	btn_Randomize.setBounds(background_x + 85, background_y + 275, GUI::buttons_w, GUI::buttons_h);
+	btn_Randomize.setBounds(background_x + 77, background_y + 131, GUI::buttons_w, GUI::buttons_h);
 	addAndMakeVisible(btn_Randomize);
 
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -57,7 +57,7 @@ void GUI_Layer_AllowedChoices_FilterKeyTrack::paint(Graphics& g) {
 	g.setColour(GUI::color_LED_Red);
 	g.drawRect(controlCenter.x - switch_w / 2 - 2, controlCenter.y - switch_h / 2 - 2, switch_w + 4, switch_h + 4, 2);
 	PNGImageFormat imageFormat;
-	MemoryInputStream memInputStream{ BinaryData::bkgrnd_AllowedChoices_Toggles_png, BinaryData::bkgrnd_AllowedChoices_Toggles_pngSize, false };
+	MemoryInputStream memInputStream{ BinaryData::bkgrnd_AllowedChoices_KeyTrackpng_png, BinaryData::bkgrnd_AllowedChoices_KeyTrackpng_pngSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(backgroundImage, background_x, background_y);
 }
