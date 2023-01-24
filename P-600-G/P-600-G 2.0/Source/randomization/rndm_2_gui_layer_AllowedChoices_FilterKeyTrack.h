@@ -2,8 +2,8 @@
 
 #include <JuceHeader.h>
 
-#include "rndm_0_comp_AllowRepeatChoicesSwitch.h"
 #include "rndm_0_comp_AllowChoiceToggles.h"
+#include "rndm_0_comp_AllowRepeatChoicesSwitch.h"
 #include "rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
 
@@ -24,8 +24,6 @@ class GUI_Layer_AllowedChoices_FilterKeyTrack :
 	RandomizeButtonForAllowedChoicesLayers btn_Randomize;
 	const int background_x;
 	const int background_y;
-	const int background_w{ 144 };
-	const int background_h{ 186 };
 
 public:
 	GUI_Layer_AllowedChoices_FilterKeyTrack() = delete;

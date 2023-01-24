@@ -2,33 +2,35 @@
 
 #include <JuceHeader.h>
 
+#include "rndm_0_comp_AllowChoiceToggles.h"
 #include "rndm_0_comp_AllowRepeatChoicesSwitch.h"
 #include "rndm_0_comp_RandomizeButtonForAllowedChoicesLayers.h"
 #include "../gui/gui_comp_ButtonForHidingLayer.h"
 
 class ExposedParameters;
 class InfoForExposedParameters;
-class ParamRandomizationMethods;
 class TooltipsOptions;
 
-class GUI_Layer_AllowedChoices_Binary :
+class GUI_Layer_AllowedChoices_Numeric :
 	public Component
 {
 	uint8 paramIndex;
 	InfoForExposedParameters* info;
 	AllowRepeatChoicesSwitch repeatChoicesSwitch;
-	RandomizeButtonForAllowedChoicesLayers btn_Randomize;
 	ButtonForHidingLayer btn_Exit;
+	AllowChoiceToggles allowChoiceToggles;
+	TextButton btn_AllowAll;
+	RandomizeButtonForAllowedChoicesLayers btn_Randomize;
 	const int background_x;
 	const int background_y;
 
 public:
-	GUI_Layer_AllowedChoices_Binary() = delete;
+	GUI_Layer_AllowedChoices_Numeric() = delete;
 
-	GUI_Layer_AllowedChoices_Binary(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
+	GUI_Layer_AllowedChoices_Numeric(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void paint(Graphics& g) override;
 
 private:
 	//==============================================================================
-	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GUI_Layer_AllowedChoices_Binary)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GUI_Layer_AllowedChoices_Numeric)
 };

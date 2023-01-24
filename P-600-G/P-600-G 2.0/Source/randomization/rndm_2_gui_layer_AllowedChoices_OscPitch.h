@@ -24,8 +24,6 @@ class GUI_Layer_AllowedChoices_OscPitch :
 	RandomizeButtonForAllowedChoicesLayers btn_Randomize;
 	const int background_x;
 	const int background_y;
-	const int background_w{ 160 };
-	const int background_h{ 330 };
 
 public:
 	GUI_Layer_AllowedChoices_OscPitch() = delete;
