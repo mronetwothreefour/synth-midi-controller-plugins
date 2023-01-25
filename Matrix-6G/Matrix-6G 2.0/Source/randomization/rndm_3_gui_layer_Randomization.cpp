@@ -138,8 +138,8 @@ void GUI_Layer_Randomization::mouseDown(const MouseEvent& event) {
 			auto paramIndex{ (uint8)toggleID.fromFirstOccurrenceOf("Param_", false, false).getIntValue() };
 			allowedChoices_ExposedParam.reset(new GUI_Layer_AllowedChoices_ExposedParam{ paramIndex, exposedParams, tooltips, outgoingBuffers });
 			if (allowedChoices_ExposedParam != nullptr) {
-				addAndMakeVisible(allowedChoices_ExposedParam.get());
 				allowedChoices_ExposedParam->setTopLeftPosition(0, 0);
+				addAndMakeVisible(allowedChoices_ExposedParam.get());
 			}
 		}
 		if (toggleID.startsWith("comp_ToggleLockMatrixMod_") && randomization->transmitMethodIsQuickEdit() == false) {
@@ -147,8 +147,8 @@ void GUI_Layer_Randomization::mouseDown(const MouseEvent& event) {
 			auto paramType{ toggleID.contains("Src") ? MM_Type::source : toggleID.contains("Amt") ? MM_Type::amount : MM_Type::destination };
 			allowedChoices_MatrixModParam.reset(new GUI_Layer_AllowedChoices_MatrixModParam{ modNum, paramType, exposedParams, tooltips, outgoingBuffers });
 			if (allowedChoices_MatrixModParam != nullptr) {
-				addAndMakeVisible(allowedChoices_MatrixModParam.get());
 				allowedChoices_MatrixModParam->setTopLeftPosition(0, 0);
+				addAndMakeVisible(allowedChoices_MatrixModParam.get());
 			}
 		}
 	}
@@ -203,4 +203,6 @@ GUI_Layer_Randomization::~GUI_Layer_Randomization() {
 		lockToggles_MatrixModParams[mmParamNum]->removeMouseListener(this);
 		lockToggles_MatrixModParams[mmParamNum] = nullptr;
 	}
+	allowedChoices_ExposedParam = nullptr;
+	allowedChoices_MatrixModParam = nullptr;
 }
