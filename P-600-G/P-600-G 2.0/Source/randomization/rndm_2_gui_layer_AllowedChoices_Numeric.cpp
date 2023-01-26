@@ -29,7 +29,6 @@ GUI_Layer_AllowedChoices_Numeric::GUI_Layer_AllowedChoices_Numeric(
 	repeatChoicesSwitch.setTopLeftPosition(repeatChoices_x, 31);
 	addAndMakeVisible(repeatChoicesSwitch);
 
-	auto btn_Exit_x{ repeatChoices_x + 48 };
 	btn_Exit.setTopLeftPosition(repeatChoices_x + 48, 23);
 	addAndMakeVisible(btn_Exit);
 
@@ -65,10 +64,8 @@ GUI_Layer_AllowedChoices_Numeric::GUI_Layer_AllowedChoices_Numeric(
 void GUI_Layer_AllowedChoices_Numeric::paint(Graphics& g) {
 	g.fillAll(GUI::color_Black.withAlpha(0.4f));
 	auto controlCenter{ info->centerPointFor(paramIndex) };
-	auto knob_w{ info->widthFor(paramIndex) };
-	auto knob_h{ info->heightFor(paramIndex) };
 	g.setColour(GUI::color_LED_Red);
-	g.drawEllipse(controlCenter.x - knob_w / 2 - 2, controlCenter.y - knob_h / 2 - 2, knob_w + 4, knob_h + 4, 2);
+	g.drawEllipse((float)controlCenter.x - 19.0f, (float)controlCenter.y - 19.0f, GUI::knob_diameter + 4, GUI::knob_diameter + 4, 2);
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ BinaryData::bkgrnd_AllowedChoices_Pitch_png, BinaryData::bkgrnd_AllowedChoices_Pitch_pngSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };

@@ -6,7 +6,6 @@
 
 class ExposedParameters;
 class InfoForExposedParameters;
-class ParamRandomizationMethods;
 class GlobalOptions;
 class GUI_Layer_CommError;
 class GUI_Layer_GlobalParameters;
@@ -14,6 +13,7 @@ class GUI_Layer_Randomization;
 class GUI_Layer_Splits;
 class GUI_Layer_VoicesBanks;
 class Outgoing_MIDI_Buffers;
+class ParamRandomizationMethods;
 class TooltipsOptions;
 class UnexposedParameters;
 

@@ -23,6 +23,16 @@ String MainWindowButtonDescription::buildForPush() {
     return descriptionString;
 }
 
+String MainWindowButtonDescription::buildForRandomize() {
+    String descriptionString{ "" };
+    descriptionString += "Click to randomize the program settings. Right-click to open an\n";
+    descriptionString += "options window where you can define which parameters get randomized\n";
+    descriptionString += "and what choices are allowed for each of them. Right-click any program\n";
+    descriptionString += "parameter control to generate a random setting for that parameter.\n";
+    descriptionString += "Shortcut keys: CTRL+D to randomize, CTRL+ALT+D to show the options.";
+    return descriptionString;
+}
+
 String MainWindowButtonDescription::buildForShowTooltipsOptionsLayer() {
     String descriptionString{ "" };
     descriptionString += "Opens a window where you can\n";

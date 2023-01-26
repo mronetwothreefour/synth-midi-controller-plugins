@@ -9,6 +9,7 @@
 #include "../descriptions/build_MainWindowButtonDescription.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../midi/midi_1_SysExMessages.h"
+#include "../randomization/rndm_3_gui_layer_Randomization.h"
 #include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 #include "../voices/voices_5_gui_layer_VoicesBank.h"
 
@@ -18,7 +19,8 @@ using Description = MainWindowButtonDescription;
 GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
-    tooltips{ unexposedParams->getTooltipsOptions() }
+    tooltips{ unexposedParams->getTooltipsOptions() },
+    randomize{ exposedParams->randomize.get() }
 {
     setInterceptsMouseClicks(false, true);
 
@@ -61,6 +63,22 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     btn_ShowTooltipsOptions.addShortcut(KeyPress{ 't', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_ShowTooltipsOptions);
 
+    btn_Randomize.setComponentID(ID::btn_Randomize.toString());
+    btn_Randomize.addMouseListener(this, false);
+    btn_Randomize.addListener(this);
+    btn_Randomize.onClick = [this, unexposedParams] {
+        if (ModifierKeys::currentModifiers != ModifierKeys::ctrlModifier + ModifierKeys::altModifier && wasRightClicked == false) {
+            randomize->randomizeAllUnlockedParameters();
+            auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
+            addProgramChangeMessageToOutgoingBuffersAfterDelay(transmitOptions->voiceTransmitTime());
+        }
+        wasRightClicked = false;
+    };
+    btn_Randomize.setBounds(979, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
+    btn_Randomize.addShortcut(KeyPress{ 'd', ModifierKeys::ctrlModifier, 0 });
+    btn_Randomize.addShortcut(KeyPress{ 'd', ModifierKeys::ctrlModifier + ModifierKeys::altModifier, 0 });
+    addAndMakeVisible(btn_Randomize);
+
     updateTooltips();
 
     setSize(GUI::editor_w, GUI::editor_h);
@@ -74,6 +92,9 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
 
     auto tipFor_btn_Push{ shouldShow ? Description::buildForPush() : String{ "" } };
     btn_Push.setTooltip(tipFor_btn_Push);
+
+    auto tipFor_btn_Randomize{ shouldShow ? Description::buildForRandomize() : String{ "" } };
+    btn_Randomize.setTooltip(tipFor_btn_Randomize);
 
     auto tipFor_btn_ShowVoicesBank{ shouldShow ? Description::buildForShowVoicesBankLayer() : String{ "" } };
     btn_ShowVoicesBank.setTooltip(tipFor_btn_ShowVoicesBank);
@@ -110,10 +131,28 @@ void GUI_Layer_MainWindowButtons::showTooltipsOptionsLayer() {
     }
 }
 
-void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& /*event*/) {
+void GUI_Layer_MainWindowButtons::showRandomizationLayer() {
+    layer_Randomization = nullptr;
+    layer_Randomization.reset(new GUI_Layer_Randomization{ exposedParams, tooltips, unexposedParams->getOutgoing_MIDI_Buffers() });
+    if (layer_Randomization != nullptr) {
+        addAndMakeVisible(layer_Randomization.get());
+        layer_Randomization->setBounds(getLocalBounds());
+        layer_Randomization->grabKeyboardFocus();
+    }
+}
+
+void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& event) {
+    if (btn_Randomize.isMouseOver() == true) {
+        if (event.mods == ModifierKeys::rightButtonModifier) {
+            wasRightClicked = true;
+            showRandomizationLayer();
+        }
+    }
 }
 
 void GUI_Layer_MainWindowButtons::buttonClicked(Button* /*button*/) {
+    if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier + ModifierKeys::altModifier)
+        showRandomizationLayer();
 }
 
 void GUI_Layer_MainWindowButtons::valueChanged(Value& /*value*/) {
@@ -123,5 +162,8 @@ void GUI_Layer_MainWindowButtons::valueChanged(Value& /*value*/) {
 GUI_Layer_MainWindowButtons::~GUI_Layer_MainWindowButtons() {
     layer_VoicesBank = nullptr;
     layer_TooltipsOptions = nullptr;
+    layer_Randomization = nullptr;
     shouldShowDescriptionAsValue.removeListener(this);
+    btn_Randomize.removeListener(this);
+    btn_Randomize.removeMouseListener(this);
 }
