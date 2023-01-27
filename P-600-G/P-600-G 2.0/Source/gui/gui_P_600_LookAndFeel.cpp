@@ -391,7 +391,7 @@ void P_600_LookAndFeel::drawTickBox(Graphics& g, Component& component, float x, 
 			if (isTicked) {
 				g.fillEllipse(x, y, w, h);
 				g.setOpacity(1.0f);
-				g.drawImageAt(lockedIcon, 8, 5);
+				g.drawImageAt(lockedIcon, 10, 7);
 			}
 			else
 				g.fillEllipse(x, y, w, h);
@@ -400,7 +400,8 @@ void P_600_LookAndFeel::drawTickBox(Graphics& g, Component& component, float x, 
 			if (isTicked) {
 				g.fillRect(x, y, w, h);
 				g.setOpacity(1.0f);
-				g.drawImageAt(lockedIcon, 6, 3);
+				auto lockedIcon_y{ componentID.contains("ThreePole") ? 14 : 4};
+				g.drawImageAt(lockedIcon, 3, lockedIcon_y);
 			}
 			else
 				g.fillRect(x, y, w, h);

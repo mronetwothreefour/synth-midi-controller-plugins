@@ -36,7 +36,7 @@ GUI_Layer_Randomization::GUI_Layer_Randomization(
 	btn_RandomizeAllUnlocked.addShortcut(KeyPress{ 'd', ModifierKeys::ctrlModifier, 0 });
 	if (shouldShowDescriptions)
 		btn_RandomizeAllUnlocked.setTooltip("Click to generate random settings\nfor all unlocked parameters.\nShortcut key: CTRL+D");
-	btn_RandomizeAllUnlocked.setTopLeftPosition(915, topButtonsRow_y);
+	btn_RandomizeAllUnlocked.setBounds(915, topButtonsRow_y, GUI::buttons_w, GUI::buttons_h);
 	addAndMakeVisible(btn_RandomizeAllUnlocked);
 
 	btn_Exit.setTopLeftPosition(965, topButtonsRow_y);
@@ -62,14 +62,14 @@ GUI_Layer_Randomization::GUI_Layer_Randomization(
 	lockStateButtons_Osc_A.setTopLeftPosition(482, 118);
 	lockStateButtons_Osc_B.setTopLeftPosition(482, 256);
 	lockStateButtons_Filter.setTopLeftPosition(1076, 17);
-	lockStateButtons_Filter.setTopLeftPosition(1076, 256);
+	lockStateButtons_Amp.setTopLeftPosition(1076, 256);
 	lockStateButtons_PolyMod.setTopLeftPosition(17, 118);
 	lockStateButtons_LFO.setTopLeftPosition(17, 256);
 
 	addAndMakeVisible(lockStateButtons_Osc_A);
 	addAndMakeVisible(lockStateButtons_Osc_B);
 	addAndMakeVisible(lockStateButtons_Filter);
-	addAndMakeVisible(lockStateButtons_Filter);
+	addAndMakeVisible(lockStateButtons_Amp);
 	addAndMakeVisible(lockStateButtons_PolyMod);
 	addAndMakeVisible(lockStateButtons_LFO);
 

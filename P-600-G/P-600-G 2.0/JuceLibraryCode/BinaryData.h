@@ -204,7 +204,7 @@ namespace BinaryData
     const int            bkgrnd_VoicesBankTransmit_pngSize = 83994;
 
     extern const char*   icon_Locked_png;
-    const int            icon_Locked_pngSize = 344;
+    const int            icon_Locked_pngSize = 348;
 
     extern const char*   SWISSB_TTF;
     const int            SWISSB_TTFSize = 36852;
