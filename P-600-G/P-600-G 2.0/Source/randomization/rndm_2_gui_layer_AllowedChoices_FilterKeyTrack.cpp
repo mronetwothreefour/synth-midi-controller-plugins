@@ -6,16 +6,17 @@
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
-GUI_Layer_AllowedChoices_FilterKeyTrack::GUI_Layer_AllowedChoices_FilterKeyTrack(ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
+GUI_Layer_AllowedChoices_FilterKeyTrack::GUI_Layer_AllowedChoices_FilterKeyTrack(
+	ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	info{ exposedParams->info.get() },
-	repeatChoicesSwitch{ paramIndex, exposedParams, tooltips },
-	btn_Exit{ tooltips },
-	allowChoiceToggles{ paramIndex, exposedParams, tooltips },
-	btn_Randomize{ paramIndex, exposedParams, tooltips },
+	repeatChoicesSwitch{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
+	btn_Exit{ unexposedParams->getTooltipsOptions() },
+	allowChoiceToggles{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
+	btn_Randomize{ paramIndex, exposedParams, unexposedParams },
 	background_x{ info->allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ info->allowedChoicesBackground_y_For(paramIndex) }
 {
-	auto shouldShowDescriptions{ tooltips->shouldShowDescription() };
+	auto shouldShowDescriptions{ unexposedParams->getTooltipsOptions()->shouldShowDescription() };
 
 	repeatChoicesSwitch.setTopLeftPosition(background_x + 29, background_y + 31);
 	addAndMakeVisible(repeatChoicesSwitch);

@@ -10,7 +10,7 @@
 class ExposedParameters;
 class InfoForExposedParameters;
 class ParamRandomizationMethods;
-class TooltipsOptions;
+class UnexposedParameters;
 
 class GUI_Layer_AllowedChoices_OscPitch :
 	public Component
@@ -28,7 +28,7 @@ class GUI_Layer_AllowedChoices_OscPitch :
 public:
 	GUI_Layer_AllowedChoices_OscPitch() = delete;
 
-	GUI_Layer_AllowedChoices_OscPitch(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
+	GUI_Layer_AllowedChoices_OscPitch(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 
 private:

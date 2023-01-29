@@ -27,8 +27,10 @@ void ExposedParamsRandomizationMethods::randomizeAllUnlockedParameters() {
 			applyNewSettingToExposedParameterAfterDelay(newSetting, paramID, 0);
 		}
 	}
-	SysExMessages::addDataMessageForCurrentVoiceToOutgoingBuffers(exposedParams, transmitOptions, outgoingBuffers);
-	callAfterDelay(200, [this] { transmitOptions->setParamChangesShouldBeTransmitted(true); });
+	callAfterDelay(200, [this]
+		{ SysExMessages::addDataMessageForCurrentVoiceToOutgoingBuffers(exposedParams, transmitOptions, outgoingBuffers); }
+	);
+	callAfterDelay(300, [this] { transmitOptions->setParamChangesShouldBeTransmitted(true); });
 }
 
 void ExposedParamsRandomizationMethods::randomizeParameter(uint8 paramIndex) {

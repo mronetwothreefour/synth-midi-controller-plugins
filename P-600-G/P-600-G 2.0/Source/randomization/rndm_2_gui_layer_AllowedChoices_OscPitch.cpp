@@ -8,20 +8,20 @@
 #include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 GUI_Layer_AllowedChoices_OscPitch::GUI_Layer_AllowedChoices_OscPitch(
-	uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
+	uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
 	info{ exposedParams->info.get() },
-	repeatChoicesSwitch{ paramIndex, exposedParams, tooltips },
-	btn_Exit{ tooltips },
-	allowChoiceToggles{ paramIndex, exposedParams, tooltips },
-	btn_Randomize{ paramIndex, exposedParams, tooltips },
+	repeatChoicesSwitch{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
+	btn_Exit{ unexposedParams->getTooltipsOptions() },
+	allowChoiceToggles{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
+	btn_Randomize{ paramIndex, exposedParams, unexposedParams },
 	background_x{ info->allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ info->allowedChoicesBackground_y_For(paramIndex) }
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	jassert(info->controlTypeFor(paramIndex) == ControlType::knobForPitch);
 	auto paramName{ info->exposedNameFor(paramIndex) };
-	auto shouldShowDescriptions{ tooltips->shouldShowDescription() };
+	auto shouldShowDescriptions{ unexposedParams->getTooltipsOptions()->shouldShowDescription() };
 
 	repeatChoicesSwitch.setTopLeftPosition(background_x + 37, background_y + 31);
 	addAndMakeVisible(repeatChoicesSwitch);

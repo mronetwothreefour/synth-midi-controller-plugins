@@ -21,10 +21,12 @@ public:
 		bundleBuffersAddedWithin_10ms_ToPreventLoss(localMidiBuffer);
 	}
 
-	void addProgramChangeMessage(int programNum) {
+	void addProgramChangeMessageAfterDelay(int voiceNum, int delayInMilliseconds) {
 		MidiBuffer localMidiBuffer;
-		localMidiBuffer.addEvent(MidiMessage::programChange(1, programNum), 0);
-		bundleBuffersAddedWithin_10ms_ToPreventLoss(localMidiBuffer);
+		localMidiBuffer.addEvent(MidiMessage::programChange(1, voiceNum), 0);
+		callAfterDelay(delayInMilliseconds, [this, localMidiBuffer] {
+			bundleBuffersAddedWithin_10ms_ToPreventLoss(localMidiBuffer);
+		});
 	}
 
 private:

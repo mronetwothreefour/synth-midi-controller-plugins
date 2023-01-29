@@ -9,7 +9,7 @@
 
 class ExposedParameters;
 class InfoForExposedParameters;
-class TooltipsOptions;
+class UnexposedParameters;
 
 class GUI_Layer_AllowedChoices_Numeric :
 	public Component
@@ -27,7 +27,7 @@ class GUI_Layer_AllowedChoices_Numeric :
 public:
 	GUI_Layer_AllowedChoices_Numeric() = delete;
 
-	GUI_Layer_AllowedChoices_Numeric(uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
+	GUI_Layer_AllowedChoices_Numeric(uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 
 private:

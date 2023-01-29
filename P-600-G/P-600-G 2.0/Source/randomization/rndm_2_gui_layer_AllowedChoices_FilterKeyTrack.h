@@ -10,7 +10,7 @@
 class ExposedParameters;
 class InfoForExposedParameters;
 class ParamRandomizationMethods;
-class TooltipsOptions;
+class UnexposedParameters;
 
 class GUI_Layer_AllowedChoices_FilterKeyTrack :
 	public Component
@@ -28,7 +28,7 @@ class GUI_Layer_AllowedChoices_FilterKeyTrack :
 public:
 	GUI_Layer_AllowedChoices_FilterKeyTrack() = delete;
 
-	GUI_Layer_AllowedChoices_FilterKeyTrack(ExposedParameters* exposedParams, TooltipsOptions* tooltips);
+	GUI_Layer_AllowedChoices_FilterKeyTrack(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 
 private:

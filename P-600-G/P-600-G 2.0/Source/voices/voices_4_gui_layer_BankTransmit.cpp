@@ -101,7 +101,7 @@ void GUI_Layer_VoicesBankTransmit::transmitMidiBufferForVoiceSlot(uint8 voiceSlo
 	else {
 		auto voicesBank{ unexposedParams->getVoicesBank() };
 		SysExMessages::addDataMessageForVoiceStoredInSlotToOutgoingBuffers(voicesBank, voiceSlot, outgoingBuffers);
-		callAfterDelay(10, [this, outgoingBuffers, voiceSlot] { outgoingBuffers->addProgramChangeMessage(voiceSlot); });
+		outgoingBuffers->addProgramChangeMessageAfterDelay(voiceSlot, 10);
 	}
 }
 

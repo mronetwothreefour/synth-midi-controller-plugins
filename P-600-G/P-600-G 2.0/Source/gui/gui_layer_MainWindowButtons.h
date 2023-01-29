@@ -7,14 +7,14 @@ class ExposedParamsRandomizationMethods;
 class GUI_Layer_Randomization;
 class GUI_Layer_TooltipsOptions;
 class GUI_Layer_VoicesBank;
+class Outgoing_MIDI_Buffers;
 class TooltipsOptions;
 class UnexposedParameters;
 
 class GUI_Layer_MainWindowButtons :
 	public Component,
 	public Button::Listener,
-	public Value::Listener,
-	private Timer
+	public Value::Listener
 {
 	ExposedParameters* exposedParams;
 	UnexposedParameters* unexposedParams;
@@ -38,8 +38,6 @@ public:
 
 private:
 	void updateTooltips();
-	void timerCallback() override;
-	void addProgramChangeMessageToOutgoingBuffersAfterDelay(int delayInMilliseconds);
 	void showVoicesBankLayer();
 	void showTooltipsOptionsLayer();
 	void showRandomizationLayer();

@@ -173,9 +173,7 @@ public:
 			if (voiceSlots->selectedSlot < VCS::numberOfSlotsInVoicesBank) {
 				voiceSlots->loadVoiceFromSelectedSlot();
 				auto transmitTime{ unexposedParams->getVoiceTransmissionOptions()->voiceTransmitTime() };
-				callAfterDelay(transmitTime, [this, unexposedParams, voiceSlots] {
-					unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessage(voiceSlots->selectedSlot);
-				});
+				unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessageAfterDelay(voiceSlots->selectedSlot, transmitTime);
 			}
 		};
 		setSize(GUI::buttons_w, GUI::buttons_h);
@@ -243,10 +241,8 @@ public:
 		onClick = [this, voiceSlots, unexposedParams] {
 			voiceSlots->pullSelectedVoiceFromHardware(); 
 			auto transmitTime{ unexposedParams->getVoiceTransmissionOptions()->voiceTransmitTime() };
-			callAfterDelay(transmitTime, [unexposedParams, voiceSlots] {
-				unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessage(voiceSlots->selectedSlot);
-				voiceSlots->showVoiceNameEditorForSelectedSlot();
-			});
+			unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessageAfterDelay(voiceSlots->selectedSlot, transmitTime);
+			callAfterDelay(transmitTime, [unexposedParams, voiceSlots] { voiceSlots->showVoiceNameEditorForSelectedSlot(); });
 		};
 		setSize(GUI::buttons_w, GUI::buttons_h);
 	}
@@ -344,10 +340,8 @@ public:
 			if (voiceSlots->selectedSlot < VCS::numberOfSlotsInVoicesBank) {
 				voiceSlots->saveCurrentVoiceSettingsIntoSelectedSlot();
 				auto transmitTime{ unexposedParams->getVoiceTransmissionOptions()->voiceTransmitTime() };
-				callAfterDelay(transmitTime, [unexposedParams, voiceSlots] {
-					unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessage(voiceSlots->selectedSlot);
-					voiceSlots->showVoiceNameEditorForSelectedSlot();
-				});
+				unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessageAfterDelay(voiceSlots->selectedSlot, transmitTime);
+				callAfterDelay(transmitTime, [unexposedParams, voiceSlots] { voiceSlots->showVoiceNameEditorForSelectedSlot(); });
 			}
 		};
 		setSize(GUI::buttons_w, GUI::buttons_h);

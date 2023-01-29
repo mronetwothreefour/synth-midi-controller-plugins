@@ -30,9 +30,7 @@ void ExposedParamChangesHandler::parameterValueChanged(int changedParamIndex, fl
 	if (changedParamIndex < EP::numberOfExposedParams) {
 		if (transmitOptions->paramChangesShouldBeTransmitted()) {
 			SysExMessages::addDataMessageForCurrentVoiceToOutgoingBuffers(exposedParams, transmitOptions, outgoingBuffers);
-			auto currentVoiceNumber{ transmitOptions->currentVoiceNumber() };
-			auto transmitTime{ transmitOptions->voiceTransmitTime() };
-			callAfterDelay(transmitTime, [this, currentVoiceNumber] { outgoingBuffers->addProgramChangeMessage(currentVoiceNumber); });
+			outgoingBuffers->addProgramChangeMessageAfterDelay(transmitOptions->currentVoiceNumber(), transmitOptions->voiceTransmitTime());
 		}
 	}
 	else {
@@ -46,9 +44,6 @@ void ExposedParamChangesHandler::parameterValueChanged(int changedParamIndex, fl
 }
 
 void ExposedParamChangesHandler::parameterGestureChanged(int /*paramIndex*/, bool /*gestureIsStarting*/) {
-}
-
-void ExposedParamChangesHandler::timerCallback() {
 }
 
 ExposedParamChangesHandler::~ExposedParamChangesHandler() {

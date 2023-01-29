@@ -9,20 +9,20 @@
 #include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 GUI_Layer_AllowedChoices_Numeric::GUI_Layer_AllowedChoices_Numeric(
-	uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
+	uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	paramIndex{ paramIndex },
 	info{ exposedParams->info.get() },
-	allowChoiceToggles{ paramIndex, exposedParams, tooltips },
-	btn_Exit{ tooltips },
-	repeatChoicesSwitch{ paramIndex, exposedParams, tooltips },
-	btn_Randomize{ paramIndex, exposedParams, tooltips },
+	allowChoiceToggles{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
+	btn_Exit{ unexposedParams->getTooltipsOptions() },
+	repeatChoicesSwitch{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
+	btn_Randomize{ paramIndex, exposedParams, unexposedParams },
 	background_x{ info->allowedChoicesBackground_x_For(paramIndex) },
 	background_y{ info->allowedChoicesBackground_y_For(paramIndex) }
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
 	jassert(info->controlTypeFor(paramIndex) == ControlType::knob);
 	auto paramName{ info->exposedNameFor(paramIndex) };
-	auto shouldShowDescriptions{ tooltips->shouldShowDescription() };
+	auto shouldShowDescriptions{ unexposedParams->getTooltipsOptions()->shouldShowDescription() };
 	auto numChoices{ info->numberOfChoicesFor(paramIndex) };
 
 	auto repeatChoices_x{ numChoices == 128 ? 164 : numChoices == 64 ? 44 : 29 };

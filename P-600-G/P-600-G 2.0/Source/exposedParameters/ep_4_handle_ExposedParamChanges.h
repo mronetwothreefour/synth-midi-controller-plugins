@@ -13,8 +13,7 @@ class UnexposedParameters;
 class VoiceTransmissionOptions;
 
 class ExposedParamChangesHandler :
-	private AudioProcessorParameter::Listener,
-	private Timer
+	private AudioProcessorParameter::Listener
 {
 	ExposedParameters* exposedParams;
 	AudioProcessorValueTreeState* state;
@@ -31,7 +30,6 @@ public:
 private:
 	void parameterValueChanged(int changedParamIndex, float newValue) override;
 	void parameterGestureChanged(int paramIndex, bool gestureIsStarting) override;
-	void timerCallback() override;
 
 public:
 	~ExposedParamChangesHandler();

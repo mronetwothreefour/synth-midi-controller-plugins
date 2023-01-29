@@ -5,16 +5,17 @@
 #include "../constants/constants_GUI_Dimensions.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
+#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 GUI_Layer_Randomization::GUI_Layer_Randomization(
-	ExposedParameters* exposedParams, TooltipsOptions* tooltips, Outgoing_MIDI_Buffers* outgoingBuffers) :
+	ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
 	state{ exposedParams->state.get() },
 	exposedParams{ exposedParams },
 	info{ exposedParams->info.get() },
 	randomization{ exposedParams->randomization.get() },
+	unexposedParams{ unexposedParams },
+	tooltips{ unexposedParams->getTooltipsOptions() },
 	btn_Exit{ tooltips },
-	tooltips{ tooltips },
 	outgoingBuffers{ outgoingBuffers },
 	lockStateButtons_All{ LockStateGroup::all, exposedParams->randomization.get(), tooltips },
 	lockStateButtons_Osc_A{ LockStateGroup::osc_A, exposedParams->randomization.get(), tooltips },
@@ -32,7 +33,12 @@ GUI_Layer_Randomization::GUI_Layer_Randomization(
 
 	auto shouldShowDescriptions{ tooltips->shouldShowDescription() };
 	btn_RandomizeAllUnlocked.setComponentID(ID::btn_Randomize.toString());
-	btn_RandomizeAllUnlocked.onClick = [exposedParams] { exposedParams->randomize->randomizeAllUnlockedParameters(); };
+	btn_RandomizeAllUnlocked.onClick = [exposedParams, unexposedParams] {
+		exposedParams->randomize->randomizeAllUnlockedParameters();
+		auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
+		auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
+		outgoingBuffers->addProgramChangeMessageAfterDelay(transmitOptions->currentVoiceNumber(), transmitOptions->voiceTransmitTime());
+	};
 	btn_RandomizeAllUnlocked.addShortcut(KeyPress{ 'd', ModifierKeys::ctrlModifier, 0 });
 	if (shouldShowDescriptions)
 		btn_RandomizeAllUnlocked.setTooltip("Click to generate random settings\nfor all unlocked parameters.\nShortcut key: CTRL+D");
@@ -92,28 +98,28 @@ void GUI_Layer_Randomization::mouseDown(const MouseEvent& event) {
 		switch (controlType)
 		{
 		case P_600_G_Constants::ControlType::knob:
-			allowedChoices_Numeric.reset(new GUI_Layer_AllowedChoices_Numeric{ paramIndex, exposedParams, tooltips });
+			allowedChoices_Numeric.reset(new GUI_Layer_AllowedChoices_Numeric{ paramIndex, exposedParams, unexposedParams });
 			if (allowedChoices_Numeric != nullptr) {
 				allowedChoices_Numeric->setTopLeftPosition(0, 0);
 				addAndMakeVisible(allowedChoices_Numeric.get());
 			}
 			break;
 		case P_600_G_Constants::ControlType::knobForPitch:
-			allowedChoices_OscPitch.reset(new GUI_Layer_AllowedChoices_OscPitch{ paramIndex, exposedParams, tooltips });
+			allowedChoices_OscPitch.reset(new GUI_Layer_AllowedChoices_OscPitch{ paramIndex, exposedParams, unexposedParams });
 			if (allowedChoices_OscPitch != nullptr) {
 				allowedChoices_OscPitch->setTopLeftPosition(0, 0);
 				addAndMakeVisible(allowedChoices_OscPitch.get());
 			}
 			break;
 		case P_600_G_Constants::ControlType::twoPoleSwitch:
-			allowedChoices_Binary.reset(new GUI_Layer_AllowedChoices_Binary{ paramIndex, exposedParams, tooltips });
+			allowedChoices_Binary.reset(new GUI_Layer_AllowedChoices_Binary{ paramIndex, exposedParams, unexposedParams });
 			if (allowedChoices_Binary != nullptr) {
 				allowedChoices_Binary->setTopLeftPosition(0, 0);
 				addAndMakeVisible(allowedChoices_Binary.get());
 			}
 			break;
 		case P_600_G_Constants::ControlType::threePoleSwitch:
-			allowedChoices_FilterKeyTrack.reset(new GUI_Layer_AllowedChoices_FilterKeyTrack{ exposedParams, tooltips });
+			allowedChoices_FilterKeyTrack.reset(new GUI_Layer_AllowedChoices_FilterKeyTrack{ exposedParams, unexposedParams });
 			if (allowedChoices_FilterKeyTrack != nullptr) {
 				allowedChoices_FilterKeyTrack->setTopLeftPosition(0, 0);
 				addAndMakeVisible(allowedChoices_FilterKeyTrack.get());

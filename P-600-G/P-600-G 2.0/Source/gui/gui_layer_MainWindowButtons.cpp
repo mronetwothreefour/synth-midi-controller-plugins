@@ -27,25 +27,23 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     shouldShowDescriptionAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
     shouldShowDescriptionAsValue.addListener(this);
 
+    auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
+    auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
     const int buttonsRow_y{ 47 };
     btn_Push.setComponentID(ID::btn_Push_Voice.toString());
-    btn_Push.onClick = [this, exposedParams, unexposedParams] {
-        auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
-        auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
+    btn_Push.onClick = [this, exposedParams, transmitOptions, outgoingBuffers] {
         SysExMessages::addDataMessageForCurrentVoiceToOutgoingBuffers(exposedParams, transmitOptions, outgoingBuffers);
-        addProgramChangeMessageToOutgoingBuffersAfterDelay(10);
+        outgoingBuffers->addProgramChangeMessageAfterDelay(transmitOptions->currentVoiceNumber(), 10);
     };
     btn_Push.setBounds(478, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
     btn_Push.addShortcut(KeyPress{ 'p', ModifierKeys::ctrlModifier + ModifierKeys::altModifier, 0 });
     addAndMakeVisible(btn_Push);
 
     btn_Pull.setComponentID(ID::btn_Pull_Voice.toString());
-    btn_Pull.onClick = [this, unexposedParams] {
-        auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
+    btn_Pull.onClick = [this, transmitOptions, outgoingBuffers] {
         auto currentVoiceNumber{ transmitOptions->currentVoiceNumber() };
-        auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
         SysExMessages::addRequestForVoiceDataStoredInSlotToOutgoingBuffers(currentVoiceNumber, outgoingBuffers);
-        addProgramChangeMessageToOutgoingBuffersAfterDelay(transmitOptions->voiceTransmitTime());
+        outgoingBuffers->addProgramChangeMessageAfterDelay(currentVoiceNumber, transmitOptions->voiceTransmitTime());
     };
     btn_Pull.setBounds(528, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
     btn_Pull.addShortcut(KeyPress{ 'p', ModifierKeys::ctrlModifier, 0 });
@@ -66,11 +64,10 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     btn_Randomize.setComponentID(ID::btn_Randomize.toString());
     btn_Randomize.addMouseListener(this, false);
     btn_Randomize.addListener(this);
-    btn_Randomize.onClick = [this, unexposedParams] {
+    btn_Randomize.onClick = [this, transmitOptions, outgoingBuffers] {
         if (ModifierKeys::currentModifiers != ModifierKeys::ctrlModifier + ModifierKeys::altModifier && wasRightClicked == false) {
             randomize->randomizeAllUnlockedParameters();
-            auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
-            addProgramChangeMessageToOutgoingBuffersAfterDelay(transmitOptions->voiceTransmitTime());
+            outgoingBuffers->addProgramChangeMessageAfterDelay(transmitOptions->currentVoiceNumber(), transmitOptions->voiceTransmitTime());
         }
         wasRightClicked = false;
     };
@@ -103,16 +100,6 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
     btn_ShowTooltipsOptions.setTooltip(tipFor_btn_ShowTooltipsOptions);
 }
 
-void GUI_Layer_MainWindowButtons::timerCallback() {
-}
-
-void GUI_Layer_MainWindowButtons::addProgramChangeMessageToOutgoingBuffersAfterDelay(int delayInMilliseconds) {
-    callAfterDelay(delayInMilliseconds, [this] {
-        auto currentVoiceNumber{ unexposedParams->getVoiceTransmissionOptions()->currentVoiceNumber() };
-        unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessage(currentVoiceNumber); 
-    });
-}
-
 void GUI_Layer_MainWindowButtons::showVoicesBankLayer() {
     layer_VoicesBank.reset(new GUI_Layer_VoicesBank{ exposedParams, unexposedParams });
     if (layer_VoicesBank != nullptr) {
@@ -133,7 +120,7 @@ void GUI_Layer_MainWindowButtons::showTooltipsOptionsLayer() {
 
 void GUI_Layer_MainWindowButtons::showRandomizationLayer() {
     layer_Randomization = nullptr;
-    layer_Randomization.reset(new GUI_Layer_Randomization{ exposedParams, tooltips, unexposedParams->getOutgoing_MIDI_Buffers() });
+    layer_Randomization.reset(new GUI_Layer_Randomization{ exposedParams, unexposedParams });
     if (layer_Randomization != nullptr) {
         addAndMakeVisible(layer_Randomization.get());
         layer_Randomization->setBounds(getLocalBounds());

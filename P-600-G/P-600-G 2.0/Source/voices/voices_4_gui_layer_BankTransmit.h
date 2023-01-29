@@ -7,7 +7,6 @@
 
 using namespace P_600_G_Constants;
 
-class Outgoing_MIDI_Buffers;
 class UnexposedParameters;
 
 class GUI_Layer_VoicesBankTransmit :

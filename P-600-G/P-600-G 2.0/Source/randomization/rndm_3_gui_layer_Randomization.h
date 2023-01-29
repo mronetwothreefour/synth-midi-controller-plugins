@@ -16,8 +16,7 @@ using namespace P_600_G_Constants;
 class ExposedParameters;
 class ExposedParamsRandomizationOptions;
 class InfoForExposedParameters;
-class Outgoing_MIDI_Buffers;
-class TooltipsOptions;
+class UnexposedParameters;
 
 class GUI_Layer_Randomization :
 	public Component,
@@ -27,6 +26,7 @@ class GUI_Layer_Randomization :
 	ExposedParameters* exposedParams;
 	InfoForExposedParameters* info;
 	ExposedParamsRandomizationOptions* randomization;
+	UnexposedParameters* unexposedParams;
 	TooltipsOptions* tooltips;
 	Outgoing_MIDI_Buffers* outgoingBuffers;
 	ButtonForHidingLayer btn_Exit;
@@ -48,7 +48,7 @@ class GUI_Layer_Randomization :
 public:
 	GUI_Layer_Randomization() = delete;
 
-	GUI_Layer_Randomization(ExposedParameters* exposedParams, TooltipsOptions* tooltips, Outgoing_MIDI_Buffers* outgoingBuffers);
+	GUI_Layer_Randomization(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
 	void paint(Graphics& g) override;
 	void mouseDown(const MouseEvent& event) override;
 	void buttonClicked(Button* button) override;
