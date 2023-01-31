@@ -68,7 +68,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
         SysExMessages::addEditBufferDataMessageToOutgoingBuffers(exposedParams, outgoingBuffers);
     };
     btn_WriteEditBuffer.setBounds(580, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
-    btn_WriteEditBuffer.addShortcut(KeyPress{ 'w', ModifierKeys::ctrlModifier, 0 });
+    btn_WriteEditBuffer.addShortcut(KeyPress{ ']', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_WriteEditBuffer);
 
     btn_ReadEditBuffer.setComponentID(ID::btn_Read.toString());
@@ -76,7 +76,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
         SysExMessages::addRequestForEditBufferDataToOutgoingBuffers(outgoingBuffers);
     };
     btn_ReadEditBuffer.setBounds(632, rowBeneathProgramName_y, writeReadButtons_w, GUI::redButton_h);
-    btn_ReadEditBuffer.addShortcut(KeyPress{ 'r', ModifierKeys::ctrlModifier, 0 });
+    btn_ReadEditBuffer.addShortcut(KeyPress{ '[', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_ReadEditBuffer);
 
     btn_ShowVoicesBanks.setComponentID(ID::btn_Banks.toString());

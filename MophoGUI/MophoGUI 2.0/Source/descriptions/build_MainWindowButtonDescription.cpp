@@ -19,7 +19,7 @@ String MainWindowButtonDescription::buildForEditBufferRead() {
     String descriptionString{ "" };
     descriptionString += "Requests a program edit buffer dump\n";
     descriptionString += "from the Mopho hardware and applies it\n";
-    descriptionString += "to the plugin GUI. Shortcut key: CTRL+R";
+    descriptionString += "to the plugin GUI. Shortcut key: CTRL+[";
     return descriptionString;
 }
 
@@ -27,7 +27,7 @@ String MainWindowButtonDescription::buildForEditBufferWrite() {
     String descriptionString{ "" };
     descriptionString += "Writes the plugin" + GUI::apostrophe + "s current program\n";
     descriptionString += "settings into the Mopho hardware" + GUI::apostrophe + "s program\n";
-    descriptionString += "edit buffer. Shortcut key: CTRL+W";
+    descriptionString += "edit buffer. Shortcut key: CTRL+]";
     return descriptionString;
 }
 

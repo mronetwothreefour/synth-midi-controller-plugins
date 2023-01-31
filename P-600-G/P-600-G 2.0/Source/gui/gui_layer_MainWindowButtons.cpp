@@ -36,7 +36,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
         outgoingBuffers->addProgramChangeMessageAfterDelay(transmitOptions->currentVoiceNumber(), 10);
     };
     btn_Push.setBounds(478, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
-    btn_Push.addShortcut(KeyPress{ 'p', ModifierKeys::ctrlModifier + ModifierKeys::altModifier, 0 });
+    btn_Push.addShortcut(KeyPress{ ']', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_Push);
 
     btn_Pull.setComponentID(ID::btn_Pull_Voice.toString());
@@ -46,7 +46,7 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
         outgoingBuffers->addProgramChangeMessageAfterDelay(currentVoiceNumber, transmitOptions->voiceTransmitTime());
     };
     btn_Pull.setBounds(528, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
-    btn_Pull.addShortcut(KeyPress{ 'p', ModifierKeys::ctrlModifier, 0 });
+    btn_Pull.addShortcut(KeyPress{ '[', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_Pull);
 
     btn_ShowVoicesBank.setComponentID(ID::btn_PgmBank.toString());
