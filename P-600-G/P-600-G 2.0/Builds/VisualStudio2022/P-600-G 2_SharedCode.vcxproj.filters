@@ -6074,6 +6074,12 @@
     <None Include="..\..\BinaryResources\buttons\btn_Rand_Up.png">
       <Filter>P-600-G 2\BinaryResources\buttons</Filter>
     </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Redo_Dn.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Redo_Up.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
     <None Include="..\..\BinaryResources\buttons\btn_Save_Dn.png">
       <Filter>P-600-G 2\BinaryResources\buttons</Filter>
     </None>
@@ -6087,6 +6093,12 @@
       <Filter>P-600-G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\buttons\btn_Tips_Up.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Undo_Dn.png">
+      <Filter>P-600-G 2\BinaryResources\buttons</Filter>
+    </None>
+    <None Include="..\..\BinaryResources\buttons\btn_Undo_Up.png">
       <Filter>P-600-G 2\BinaryResources\buttons</Filter>
     </None>
     <None Include="..\..\BinaryResources\labels\lbl_ExportVoice.png">

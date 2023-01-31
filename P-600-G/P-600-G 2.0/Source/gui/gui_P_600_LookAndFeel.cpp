@@ -67,6 +67,9 @@ void P_600_LookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 	if (buttonID == ID::btn_Randomize.toString())
 		mBlock = MemBlock{ isDown ? btn_Rand_Dn_png : btn_Rand_Up_png, isDown ? (s_t)btn_Rand_Dn_pngSize : (s_t)btn_Rand_Up_pngSize };
 
+	if (buttonID == ID::btn_Redo.toString())
+		mBlock = MemBlock{ isDown ? btn_Redo_Dn_png : btn_Redo_Up_png, isDown ? (s_t)btn_Redo_Dn_pngSize : (s_t)btn_Redo_Up_pngSize };
+
 	if (buttonID == ID::btn_RestoreFactoryVoices.toString())
 		mBlock = MemBlock{ isDown ? btn_Fact_Dn_png : btn_Fact_Up_png, isDown ? (s_t)btn_Fact_Dn_pngSize : (s_t)btn_Fact_Up_pngSize };
 
@@ -75,6 +78,9 @@ void P_600_LookAndFeel::drawButtonBackground(Graphics& g, Button& button, const 
 
 	if (buttonID == ID::btn_Tips.toString())
 		mBlock = MemBlock{ isDown ? btn_Tips_Dn_png : btn_Tips_Up_png, isDown ? (s_t)btn_Tips_Dn_pngSize : (s_t)btn_Tips_Up_pngSize };
+
+	if (buttonID == ID::btn_Undo.toString())
+		mBlock = MemBlock{ isDown ? btn_Undo_Dn_png : btn_Undo_Up_png, isDown ? (s_t)btn_Undo_Dn_pngSize : (s_t)btn_Undo_Up_pngSize };
 
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ mBlock, false };

@@ -61,6 +61,18 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     btn_ShowTooltipsOptions.addShortcut(KeyPress{ 't', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_ShowTooltipsOptions);
 
+    btn_Undo.setComponentID(ID::btn_Undo.toString());
+    btn_Undo.onClick = [exposedParams] { exposedParams->undoManager.undo(); };
+    btn_Undo.setBounds(795, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
+    btn_Undo.addShortcut(KeyPress{ 'z', ModifierKeys::ctrlModifier, 0 });
+    addAndMakeVisible(btn_Undo);
+
+    btn_Redo.setComponentID(ID::btn_Redo.toString());
+    btn_Redo.onClick = [exposedParams] { exposedParams->undoManager.redo(); };
+    btn_Redo.setBounds(845, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
+    btn_Redo.addShortcut(KeyPress{ 'z', ModifierKeys::ctrlModifier + ModifierKeys::shiftModifier, 0 });
+    addAndMakeVisible(btn_Redo);
+
     btn_Randomize.setComponentID(ID::btn_Randomize.toString());
     btn_Randomize.addMouseListener(this, false);
     btn_Randomize.addListener(this);

@@ -57,12 +57,16 @@
         <FILE id="XDoREn" name="btn_Push_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Push_Up.png"/>
         <FILE id="qzVpLv" name="btn_Rand_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Rand_Dn.png"/>
         <FILE id="Rtgod5" name="btn_Rand_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Rand_Up.png"/>
+        <FILE id="k1COjC" name="btn_Redo_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Redo_Dn.png"/>
+        <FILE id="WotTAl" name="btn_Redo_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Redo_Up.png"/>
         <FILE id="rZ3Kng" name="btn_Save_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Save_Dn.png"/>
         <FILE id="LDpvJJ" name="btn_Save_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Save_Up.png"/>
         <FILE id="L1rWAB" name="btn_SwitchTab.png" compile="0" resource="1"
               file="BinaryResources/buttons/btn_SwitchTab.png"/>
         <FILE id="RnlEZD" name="btn_Tips_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Tips_Dn.png"/>
         <FILE id="sSPxim" name="btn_Tips_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Tips_Up.png"/>
+        <FILE id="K68yPN" name="btn_Undo_Dn.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Undo_Dn.png"/>
+        <FILE id="Z6qW1R" name="btn_Undo_Up.png" compile="0" resource="1" file="BinaryResources/buttons/btn_Undo_Up.png"/>
       </GROUP>
       <GROUP id="{F5983AB5-758F-7D11-54F4-125D555DF7D5}" name="labels">
         <FILE id="Dvq9Qt" name="lbl_ExportVoice.png" compile="0" resource="1"

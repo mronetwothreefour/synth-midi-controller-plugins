@@ -3343,11 +3343,15 @@
     <None Include="..\..\BinaryResources\buttons\btn_Push_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Rand_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Rand_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Redo_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Redo_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Save_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Save_Up.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_SwitchTab.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Tips_Dn.png"/>
     <None Include="..\..\BinaryResources\buttons\btn_Tips_Up.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Undo_Dn.png"/>
+    <None Include="..\..\BinaryResources\buttons\btn_Undo_Up.png"/>
     <None Include="..\..\BinaryResources\labels\lbl_ExportVoice.png"/>
     <None Include="..\..\BinaryResources\labels\lbl_ExportVoicesBank.png"/>
     <None Include="..\..\BinaryResources\labels\lbl_ImportVoice.png"/>

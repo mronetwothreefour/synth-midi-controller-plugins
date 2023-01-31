@@ -37,9 +37,11 @@ namespace P_600_G_Constants
 		static const Identifier btn_Push_Voice{ "btn_Push_Voice" };
 		static const Identifier btn_Push_VoicesBank{ "btn_Push_VoicesBank" };
 		static const Identifier btn_Randomize{ "btn_Randomize" };
+		static const Identifier btn_Redo{ "btn_Redo" };
 		static const Identifier btn_RestoreFactoryVoices{ "btn_RestoreFactoryVoices" };
 		static const Identifier btn_Save{ "btn_Save" };
 		static const Identifier btn_Tips{ "btn_Tips" };
+		static const Identifier btn_Undo{ "btn_Undo" };
 		static const Identifier btn_VoiceSlotRadioButton{ "btn_VoiceSlotRadioButton" };
 
 		static const Identifier comp_ImptExptBrowser{ "comp_ImptExptBrowser" };
