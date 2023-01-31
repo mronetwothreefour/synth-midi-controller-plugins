@@ -18,7 +18,6 @@ class AllowChoiceToggles :
 	const uint8 numberOfChoices;
 	const int numberOfColumns;
 	const int numberOfRows;
-	const int firstChoiceRow;
 	const int toggle_w;
 
 protected:
@@ -37,6 +36,7 @@ protected:
 
 public:
 	void buttonClicked(Button* button) override;
+	void restoreToggles();
 	~AllowChoiceToggles();
 
 private:

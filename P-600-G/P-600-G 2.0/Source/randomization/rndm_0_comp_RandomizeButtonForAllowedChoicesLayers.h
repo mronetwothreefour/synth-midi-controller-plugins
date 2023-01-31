@@ -21,11 +21,7 @@ public:
 		randomize{ exposedParams->randomize.get() }
 	{
 		setComponentID(ID::btn_Randomize.toString());
-		onClick = [this, paramIndex, unexposedParams] { 
-			randomize->randomizeParameter(paramIndex);
-			auto currentVoiceNum{ unexposedParams->getVoiceTransmissionOptions()->currentVoiceNumber() };
-			unexposedParams->getOutgoing_MIDI_Buffers()->addProgramChangeMessageAfterDelay(currentVoiceNum, 10);
-		};
+		onClick = [this, paramIndex, unexposedParams] { randomize->randomizeParameter(paramIndex); };
 		addShortcut(KeyPress{ 'd', ModifierKeys::ctrlModifier, 0 });
 		if (unexposedParams->getTooltipsOptions()->shouldShowDescription()) {
 			auto paramName{ exposedParams->info->exposedNameFor(paramIndex) };

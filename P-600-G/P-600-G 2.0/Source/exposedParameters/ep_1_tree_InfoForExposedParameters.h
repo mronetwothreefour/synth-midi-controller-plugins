@@ -32,7 +32,6 @@ public:
 	int numberOfAllowChoiceToggleColumnsFor(const uint8 paramIndex) const;
 	int widthOfAllowChoiceToggleColumnFor(const uint8 paramIndex) const;
 	int numberOfAllowChoiceToggleRowsFor(const uint8 paramIndex) const;
-	int firstAllowChoiceToggleRowFor(const uint8 paramIndex) const;
 	int allowedChoicesBackground_x_For(const uint8 paramIndex) const;
 	int allowedChoicesBackground_y_For(const uint8 paramIndex) const;
 

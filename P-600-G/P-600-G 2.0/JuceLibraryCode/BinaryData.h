@@ -149,8 +149,8 @@ namespace BinaryData
     extern const char*   lbl_PushingEntireBank_png;
     const int            lbl_PushingEntireBank_pngSize = 2138;
 
-    extern const char*   bkgrnd_AllowedChoices_0to16_png;
-    const int            bkgrnd_AllowedChoices_0to16_pngSize = 60216;
+    extern const char*   bkgrnd_AllowedChoices_0to15_png;
+    const int            bkgrnd_AllowedChoices_0to15_pngSize = 60216;
 
     extern const char*   bkgrnd_AllowedChoices_0to31_png;
     const int            bkgrnd_AllowedChoices_0to31_pngSize = 79480;

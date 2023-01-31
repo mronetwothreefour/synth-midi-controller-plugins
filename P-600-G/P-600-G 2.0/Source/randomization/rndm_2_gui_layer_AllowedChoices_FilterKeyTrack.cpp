@@ -31,6 +31,7 @@ GUI_Layer_AllowedChoices_FilterKeyTrack::GUI_Layer_AllowedChoices_FilterKeyTrack
 	btn_AllowAll.onClick = [this, exposedParams] {
 		auto randomization{ exposedParams->randomization.get() };
 		randomization->allowAllChoicesForParam(paramIndex);
+		allowChoiceToggles.restoreToggles();
 	};
 	btn_AllowAll.addShortcut(KeyPress{ 'a', ModifierKeys::ctrlModifier, 0 });
 	if (shouldShowDescriptions) {

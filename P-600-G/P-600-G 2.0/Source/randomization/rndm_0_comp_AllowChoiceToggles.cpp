@@ -16,12 +16,11 @@ AllowChoiceToggles::AllowChoiceToggles(uint8 paramIndex, ExposedParameters* expo
 	numberOfChoices{ exposedParams->info->numberOfChoicesFor(paramIndex) },
 	numberOfColumns{ exposedParams->info->numberOfAllowChoiceToggleColumnsFor(paramIndex) },
 	numberOfRows{ exposedParams->info->numberOfAllowChoiceToggleRowsFor(paramIndex) },
-	firstChoiceRow{ exposedParams->info->firstAllowChoiceToggleRowFor(paramIndex) },
 	toggle_w{ exposedParams->info->widthOfAllowChoiceToggleColumnFor(paramIndex) }
 {
 	jassert(paramIndex < EP::numberOfExposedParams);
 
-	auto rowCount{ firstChoiceRow };
+	auto rowCount{ 0 };
 	auto colCount{ 0 };
 	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
 		if (rowCount == numberOfRows) {
@@ -50,6 +49,8 @@ AllowChoiceToggles::AllowChoiceToggles(uint8 paramIndex, ExposedParameters* expo
 					tip += "are all in the same row.";
 			}
 		}
+		auto isAllowed{ randomization->choiceIsAllowedForParam(choiceNum, paramIndex) };
+		allowedChoiceToggles[choiceNum]->setToggleState(isAllowed ? true : false, dontSendNotification);
 		allowedChoiceToggles[choiceNum]->setTooltip(tip);
 		addAndMakeVisible(allowedChoiceToggles[choiceNum].get());
 		++rowCount;
@@ -133,6 +134,13 @@ void AllowChoiceToggles::buttonClicked(Button* button) {
 	if (noChoiceIsAllowed()) {
 		allowedChoiceToggles[clickedChoice]->setToggleState(true, dontSendNotification);
 		setChoiceIsAllowed(clickedChoice, true);
+	}
+}
+
+void AllowChoiceToggles::restoreToggles() {
+	for (auto choiceNum = (uint8)0; choiceNum < numberOfChoices; ++choiceNum) {
+		auto isAllowed{ randomization->choiceIsAllowedForParam(choiceNum, paramIndex) };
+		allowedChoiceToggles[choiceNum]->setToggleState(isAllowed ? true : false, dontSendNotification);
 	}
 }
 

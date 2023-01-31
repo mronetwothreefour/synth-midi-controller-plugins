@@ -3354,7 +3354,7 @@
     <None Include="..\..\BinaryResources\labels\lbl_ImportVoicesBank.png"/>
     <None Include="..\..\BinaryResources\labels\lbl_PullingEntireBank.png"/>
     <None Include="..\..\BinaryResources\labels\lbl_PushingEntireBank.png"/>
-    <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_0to16.png"/>
+    <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_0to15.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_0to31.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_0to63.png"/>
     <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_0to127.png"/>

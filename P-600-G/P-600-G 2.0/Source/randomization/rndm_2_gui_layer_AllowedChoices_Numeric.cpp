@@ -26,20 +26,21 @@ GUI_Layer_AllowedChoices_Numeric::GUI_Layer_AllowedChoices_Numeric(
 	auto numChoices{ info->numberOfChoicesFor(paramIndex) };
 
 	auto repeatChoices_x{ numChoices == 128 ? 164 : numChoices == 64 ? 44 : 29 };
-	repeatChoicesSwitch.setTopLeftPosition(repeatChoices_x, 31);
+	repeatChoicesSwitch.setTopLeftPosition(background_x + repeatChoices_x, background_y + 31);
 	addAndMakeVisible(repeatChoicesSwitch);
 
-	btn_Exit.setTopLeftPosition(repeatChoices_x + 48, 23);
+	btn_Exit.setTopLeftPosition(background_x + repeatChoices_x + 48, background_y + 23);
 	addAndMakeVisible(btn_Exit);
 
 	auto allowChoiceToggles_x{ numChoices <= 32 ? 36 : 15  };
-	allowChoiceToggles.setTopLeftPosition(allowChoiceToggles_x, 73);
+	allowChoiceToggles.setTopLeftPosition(background_x + allowChoiceToggles_x, background_y + 73);
 	addAndMakeVisible(allowChoiceToggles);
 
 	btn_AllowAll.setComponentID(ID::btn_All.toString());
 	btn_AllowAll.onClick = [this, exposedParams, paramIndex] {
 		auto randomization{ exposedParams->randomization.get() };
 		randomization->allowAllChoicesForParam(paramIndex);
+		allowChoiceToggles.restoreToggles();
 	};
 	btn_AllowAll.addShortcut(KeyPress{ 'a', ModifierKeys::ctrlModifier, 0 });
 	if (shouldShowDescriptions) {
@@ -51,11 +52,11 @@ GUI_Layer_AllowedChoices_Numeric::GUI_Layer_AllowedChoices_Numeric(
 		btn_AllowAll.setTooltip(tip);
 	}
 	auto allowAll_x{ numChoices == 128 ? 162 : numChoices == 64 ? 42 : 27 };
-	auto allowAllAndRand_y{ numChoices == 128 ? 204 : numChoices == 16 ? 57 : 211 };
-	btn_AllowAll.setBounds(allowAll_x, allowAllAndRand_y, GUI::buttons_w, GUI::buttons_h);
+	auto allowAllAndRand_y{ numChoices == 16 ? 147 : 211 };
+	btn_AllowAll.setBounds(background_x + allowAll_x, background_y + allowAllAndRand_y, GUI::buttons_w, GUI::buttons_h);
 	addAndMakeVisible(btn_AllowAll);
 
-	btn_Randomize.setTopLeftPosition(allowAll_x + 50, allowAllAndRand_y);
+	btn_Randomize.setTopLeftPosition(background_x + allowAll_x + 50, background_y + allowAllAndRand_y);
 	addAndMakeVisible(btn_Randomize);
 
 	setSize(GUI::editor_w, GUI::editor_h);
@@ -65,9 +66,22 @@ void GUI_Layer_AllowedChoices_Numeric::paint(Graphics& g) {
 	g.fillAll(GUI::color_Black.withAlpha(0.4f));
 	auto controlCenter{ info->centerPointFor(paramIndex) };
 	g.setColour(GUI::color_LED_Red);
-	g.drawEllipse((float)controlCenter.x - 19.0f, (float)controlCenter.y - 19.0f, GUI::knob_diameter + 4, GUI::knob_diameter + 4, 2);
+	g.drawEllipse((float)controlCenter.x - 18.0f, (float)controlCenter.y - 18.0f, GUI::knob_diameter + 2, GUI::knob_diameter + 2, 2);
 	PNGImageFormat imageFormat;
-	MemoryInputStream memInputStream{ BinaryData::bkgrnd_AllowedChoices_Pitch_png, BinaryData::bkgrnd_AllowedChoices_Pitch_pngSize, false };
+	auto numChoices{ info->numberOfChoicesFor(paramIndex) };
+	auto imageData{ 
+		numChoices == 128 ? BinaryData::bkgrnd_AllowedChoices_0to127_png :
+		numChoices == 64 ? BinaryData::bkgrnd_AllowedChoices_0to63_png :
+		numChoices == 32 ? BinaryData::bkgrnd_AllowedChoices_0to31_png :
+		BinaryData::bkgrnd_AllowedChoices_0to15_png
+	};
+	auto imageSize{
+		numChoices == 128 ? BinaryData::bkgrnd_AllowedChoices_0to127_pngSize :
+		numChoices == 64 ? BinaryData::bkgrnd_AllowedChoices_0to63_pngSize :
+		numChoices == 32 ? BinaryData::bkgrnd_AllowedChoices_0to31_pngSize :
+		BinaryData::bkgrnd_AllowedChoices_0to15_pngSize
+	};
+	MemoryInputStream memInputStream{ imageData, (size_t)imageSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
 	g.drawImageAt(backgroundImage, background_x, background_y);
 }

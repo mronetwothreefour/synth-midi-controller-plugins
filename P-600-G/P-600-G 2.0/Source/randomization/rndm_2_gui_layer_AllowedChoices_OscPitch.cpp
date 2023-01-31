@@ -36,6 +36,7 @@ GUI_Layer_AllowedChoices_OscPitch::GUI_Layer_AllowedChoices_OscPitch(
 	btn_AllowAll.onClick = [this, exposedParams, paramIndex] {
 		auto randomization{ exposedParams->randomization.get() };
 		randomization->allowAllChoicesForParam(paramIndex);
+		allowChoiceToggles.restoreToggles();
 	};
 	btn_AllowAll.addShortcut(KeyPress{ 'a', ModifierKeys::ctrlModifier, 0 });
 	if (shouldShowDescriptions) {
@@ -59,7 +60,7 @@ void GUI_Layer_AllowedChoices_OscPitch::paint(Graphics& g) {
 	g.fillAll(GUI::color_Black.withAlpha(0.4f));
 	auto controlCenter{ info->centerPointFor(paramIndex) };
 	g.setColour(GUI::color_LED_Red);
-	g.drawEllipse((float)controlCenter.x - 19.0f, (float)controlCenter.y - 19.0f, GUI::knob_diameter + 4, GUI::knob_diameter + 4, 2);
+	g.drawEllipse((float)controlCenter.x - 18.0f, (float)controlCenter.y - 18.0f, GUI::knob_diameter + 2, GUI::knob_diameter + 2, 2);
 	PNGImageFormat imageFormat;
 	MemoryInputStream memInputStream{ BinaryData::bkgrnd_AllowedChoices_Pitch_png, BinaryData::bkgrnd_AllowedChoices_Pitch_pngSize, false };
 	auto backgroundImage{ imageFormat.decodeImage(memInputStream) };

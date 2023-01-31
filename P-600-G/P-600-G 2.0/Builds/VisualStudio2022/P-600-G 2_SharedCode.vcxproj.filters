@@ -6107,7 +6107,7 @@
     <None Include="..\..\BinaryResources\labels\lbl_PushingEntireBank.png">
       <Filter>P-600-G 2\BinaryResources\labels</Filter>
     </None>
-    <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_0to16.png">
+    <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_0to15.png">
       <Filter>P-600-G 2\BinaryResources</Filter>
     </None>
     <None Include="..\..\BinaryResources\bkgrnd_AllowedChoices_0to31.png">

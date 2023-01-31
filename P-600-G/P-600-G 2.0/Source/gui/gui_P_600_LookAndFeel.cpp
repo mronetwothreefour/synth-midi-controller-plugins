@@ -369,7 +369,7 @@ void P_600_LookAndFeel::drawTickBox(Graphics& g, Component& component, float x, 
 	const bool isTicked, const bool /*isEnabled*/, const bool isHighlighted, const bool /*isDown*/)
 {
 	auto componentID{ component.getComponentID() };
-	if (componentID == ID::btn_VoiceSlotRadioButton.toString()) {
+	if (componentID == ID::btn_VoiceSlotRadioButton.toString() || componentID.startsWith(ID::comp_ToggleAllow_Choice_.toString())) {
 		auto buttonColor{ GUI::color_OffWhite.withAlpha(0.0f) };
 		if (isHighlighted)
 			buttonColor = buttonColor.withAlpha(0.1f);
