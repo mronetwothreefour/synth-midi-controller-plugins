@@ -120,6 +120,8 @@ namespace P_600_G_Constants
 		static const Identifier rndm_OnlyOneChoiceIsAllowed{ "rndm_OnlyOneChoiceIsAllowed" };
 		static const Identifier rndm_ParamIsLocked{ "rndm_ParamIsLocked" };
 		static const Identifier rndm_RepeatChoicesAreAllowed{ "rndm_RepeatChoicesAreAllowed" };
+		static const Identifier rndmTrig_AllUnlocked{ "rndmTrig_AllUnlocked" };
+		static const Identifier rndmTrig_{ "rndmTrig_" };
 
 		static const Identifier state_RandomizationOptions{ "state_RandomizationOptions" };
 		static const Identifier state_TooltipsOptions{ "state_TooltipsOptions" };
