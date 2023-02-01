@@ -125,6 +125,8 @@ namespace P_600_G_Constants
 		static const Identifier rndmTrig_AllUnlocked{ "rndmTrig_AllUnlocked" };
 		static const Identifier rndmTrig_{ "rndmTrig_" };
 
+		static const Identifier state_ExposedParams{ "state_ExposedParams" };
+		static const Identifier state_PluginState{ "state_PluginState" };
 		static const Identifier state_RandomizationOptions{ "state_RandomizationOptions" };
 		static const Identifier state_TooltipsOptions{ "state_TooltipsOptions" };
 		static const Identifier state_UnexposedParams{ "state_UnexposedParams" };

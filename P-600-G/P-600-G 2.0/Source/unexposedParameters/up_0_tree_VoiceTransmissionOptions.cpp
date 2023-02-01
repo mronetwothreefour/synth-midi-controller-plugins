@@ -50,13 +50,17 @@ void VoiceTransmissionOptions::setIncomingVoiceShouldBeStored(const bool shouldB
 std::unique_ptr<XmlElement> VoiceTransmissionOptions::getStateXml() {
 	std::unique_ptr<XmlElement> voiceTransmissionOptionsTreeStateXml{ new XmlElement(ID::state_VoiceTxOptions) };
 	if (voiceTransmissionOptionsTreeStateXml != nullptr) {
+		voiceTransmissionOptionsTreeStateXml->setAttribute(ID::voiceTx_CurrentVoiceNumber, currentVoiceNumber());
 		voiceTransmissionOptionsTreeStateXml->setAttribute(ID::voiceTx_Time, voiceTransmitTime());
 	}
 	return voiceTransmissionOptionsTreeStateXml;
 }
 
 void VoiceTransmissionOptions::replaceState(const ValueTree& newState) {
+	auto currentVoiceNumber{ newState.getProperty(ID::voiceTx_CurrentVoiceNumber) };
+	if (currentVoiceNumber.isVoid() == false)
+		voiceTransmissionOptionsTree.setProperty(ID::voiceTx_CurrentVoiceNumber, currentVoiceNumber, nullptr);
 	auto voiceTransmitTime{ newState.getProperty(ID::voiceTx_Time) };
-	if (!voiceTransmitTime.isVoid())
+	if (voiceTransmitTime.isVoid() == false)
 		voiceTransmissionOptionsTree.setProperty(ID::voiceTx_Time, voiceTransmitTime, nullptr);
 }
