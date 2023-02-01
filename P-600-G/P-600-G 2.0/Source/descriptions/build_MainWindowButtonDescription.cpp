@@ -4,6 +4,10 @@
 
 using namespace P_600_G_Constants;
 
+String MainWindowButtonDescription::buildForHyperlink() {
+    return "Click to go to programming.mr1234.com";
+}
+
 String MainWindowButtonDescription::buildForPull() {
     String descriptionString{ "" };
     descriptionString += "Pull the data from a program storage slot in\n";

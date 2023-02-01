@@ -22,6 +22,7 @@ namespace P_600_G_Constants
 		static const Identifier btn_GroupLock_All{ "btn_GroupLock_All" };
 		static const Identifier btn_GroupUnlock{ "btn_GroupUnlock" };
 		static const Identifier btn_GroupUnlock_All{ "btn_GroupUnlock_All" };
+		static const Identifier btn_Hyperlink{ "btn_Hyperlink" };
 		static const Identifier btn_Impt_Voice{ "btn_Impt_Voice" };
 		static const Identifier btn_Impt_VoicesBank{ "btn_Impt_VoicesBank" };
 		static const Identifier btn_Load{ "btn_Load" };

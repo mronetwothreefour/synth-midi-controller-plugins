@@ -20,7 +20,8 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     exposedParams{ exposedParams },
     unexposedParams{ unexposedParams },
     tooltips{ unexposedParams->getTooltipsOptions() },
-    randomize{ exposedParams->randomize.get() }
+    randomize{ exposedParams->randomize.get() },
+    btn_Hyperlink{ "", URL("https://programming.mr1234.com/") }
 {
     setInterceptsMouseClicks(false, true);
 
@@ -88,6 +89,10 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     btn_Randomize.addShortcut(KeyPress{ 'd', ModifierKeys::ctrlModifier + ModifierKeys::altModifier, 0 });
     addAndMakeVisible(btn_Randomize);
 
+    btn_Hyperlink.setComponentID(ID::btn_Hyperlink.toString());
+    btn_Hyperlink.setBounds(100, 88, 187, 8);
+    addAndMakeVisible(btn_Hyperlink);
+
     updateTooltips();
 
     setSize(GUI::editor_w, GUI::editor_h);
@@ -110,6 +115,9 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
 
     auto tipFor_btn_ShowTooltipsOptions{ shouldShow ? Description::buildForShowTooltipsOptionsLayer() : String{ "" } };
     btn_ShowTooltipsOptions.setTooltip(tipFor_btn_ShowTooltipsOptions);
+
+    auto tipFor_btn_Hyperlink{ shouldShow ? Description::buildForHyperlink() : String{ "" } };
+    btn_Hyperlink.setTooltip(tipFor_btn_Hyperlink);
 }
 
 void GUI_Layer_MainWindowButtons::showVoicesBankLayer() {

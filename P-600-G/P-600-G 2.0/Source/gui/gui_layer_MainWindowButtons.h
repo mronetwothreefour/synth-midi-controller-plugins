@@ -27,6 +27,7 @@ class GUI_Layer_MainWindowButtons :
 	TextButton btn_Undo;
 	TextButton btn_Redo;
 	TextButton btn_Randomize;
+	HyperlinkButton btn_Hyperlink;
 	std::unique_ptr<GUI_Layer_VoicesBank> layer_VoicesBank;
 	std::unique_ptr<GUI_Layer_TooltipsOptions> layer_TooltipsOptions;
 	std::unique_ptr<GUI_Layer_Randomization> layer_Randomization;
