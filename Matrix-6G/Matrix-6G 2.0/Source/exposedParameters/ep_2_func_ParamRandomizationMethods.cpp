@@ -48,8 +48,8 @@ void ParamRandomizationMethods::randomizeAllUnlockedParameters() {
 				}
 			}
 		}
-		SysExMessages::addDataMessageForCurrentVoiceToOutgoingBuffers(exposedParams, outgoingBuffers);
-		callAfterDelay(200, [this] { transmitOptions->setParamChangesShouldBeTransmitted(true); });
+		callAfterDelay(300, [this] { SysExMessages::addDataMessageForCurrentVoiceToOutgoingBuffers(exposedParams, outgoingBuffers); });
+		callAfterDelay(400, [this] { transmitOptions->setParamChangesShouldBeTransmitted(true); });
 	}
 }
 

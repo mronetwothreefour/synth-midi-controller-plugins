@@ -33,8 +33,8 @@ void ExposedParamsRandomizationMethods::randomizeAllUnlockedParameters() {
 			}
 		}
 		randomizeArpAndSeqOnOffParametersAfterDelay(0);
-		SysExMessages::addEditBufferDataMessageToOutgoingBuffers(exposedParams, outgoingBuffers);
-		callAfterDelay(200, [this] { transmitOptions->setParamChangesShouldBeTransmitted(true); });
+		callAfterDelay(300, [this] { SysExMessages::addEditBufferDataMessageToOutgoingBuffers(exposedParams, outgoingBuffers); });
+		callAfterDelay(400, [this] { transmitOptions->setParamChangesShouldBeTransmitted(true); });
 	}
 	else {
 		auto delayInMS{ 0 };
