@@ -13,7 +13,7 @@ ParamRandomizationOptions::ParamRandomizationOptions(InfoForExposedParameters* i
 	info{ info },
 	matrixModOptions{ matrixModOptions }
 {
-	setTransmitMethodIsQuickEdit(true);
+	setTransmitMethodIsQuickEdit(false);
 
 	for (auto paramIndex = (uint8)0; paramIndex != EP::numberOfExposedParams; ++paramIndex) {
 		setParamIsLocked(paramIndex, false);
