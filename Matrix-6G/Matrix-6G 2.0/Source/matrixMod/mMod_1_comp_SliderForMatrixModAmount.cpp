@@ -72,6 +72,8 @@ void SliderForMatrixModAmount::paint(Graphics& g) {
 void SliderForMatrixModAmount::mouseDown(const MouseEvent& event) {
 	if (event.mods == ModifierKeys::rightButtonModifier && randomization->transmitMethodIsQuickEdit() == false)
 		randomize->randomizeMatrixModParameter(modNum, MM_Type::amount);
+	else
+		RotarySliderWithMouseWheelMoveOverride::mouseDown(event);
 }
 
 void SliderForMatrixModAmount::mouseDoubleClick(const MouseEvent& /*event*/) {

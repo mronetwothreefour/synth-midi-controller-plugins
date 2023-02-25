@@ -68,6 +68,8 @@ void ComboBoxForMatrixModDestination::valueChanged(Value& value) {
 void ComboBoxForMatrixModDestination::mouseDown(const MouseEvent& event) {
 	if (event.mods == ModifierKeys::rightButtonModifier && randomization->transmitMethodIsQuickEdit() == false)
 		randomize->randomizeMatrixModParameter(modNum, MM_Type::destination);
+	else
+		ComboBox::mouseDown(event);
 }
 
 ComboBoxForMatrixModDestination::~ComboBoxForMatrixModDestination() {
