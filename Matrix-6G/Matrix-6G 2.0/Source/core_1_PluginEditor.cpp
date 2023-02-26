@@ -58,7 +58,7 @@ PluginEditor::PluginEditor (PluginProcessor& processor, ExposedParameters* expos
     callAfterDelay(50, [this] { grabKeyboardFocus(); });
 }
 
-void PluginEditor::paint (Graphics& g) {
+void PluginEditor::paint(Graphics& g) {
     MemoryInputStream memInputStream{ BinaryData::bkgrnd_MainWindow_png, BinaryData::bkgrnd_MainWindow_pngSize, false };
     PNGImageFormat imageFormat;
     auto backgroundImage{ imageFormat.decodeImage(memInputStream) };
