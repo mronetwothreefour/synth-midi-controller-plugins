@@ -28,7 +28,7 @@ void SysExMessages::addRequestForVoiceDataStoredInSlotToOutgoingBuffers(uint8 sl
     jassert(slotNum < VCS::numberOfSlotsInVoicesBank);
     auto requestVector{ RawDataTools::createRawDataVectorWithMatrix_6_SysExID() };
     requestVector.push_back((uint8)SysExMessageType::dataRequest);
-    requestVector.push_back((uint8)SysExMessageType::voiceData);
+    requestVector.push_back((uint8)SysExDataRequestType::voice);
     requestVector.push_back(slotNum);
     outgoingBuffers->addDataMessage(requestVector);
 }
@@ -68,7 +68,7 @@ void SysExMessages::addRequestForSplitDataStoredInSlotToOutgoingBuffers(uint8 sl
     jassert(slotNum < SPLT::numberOfSlotsInSplitsBank);
     auto requestVector{ RawDataTools::createRawDataVectorWithMatrix_6_SysExID() };
     requestVector.push_back((uint8)SysExMessageType::dataRequest);
-    requestVector.push_back((uint8)SysExMessageType::splitData);
+    requestVector.push_back((uint8)SysExDataRequestType::split);
     requestVector.push_back(slotNum);
     outgoingBuffers->addDataMessage(requestVector);
 }
@@ -88,7 +88,7 @@ void SysExMessages::addDataMessageForSplitStoredInSlotToOutgoingBuffers(SplitsBa
 void SysExMessages::addRequestForGlobalDataToOutgoingBuffers(OutgoingBuffers* outgoingBuffers) {
     auto requestVector{ RawDataTools::createRawDataVectorWithMatrix_6_SysExID() };
     requestVector.push_back((uint8)SysExMessageType::dataRequest);
-    requestVector.push_back((uint8)SysExMessageType::globalData);
+    requestVector.push_back((uint8)SysExDataRequestType::global);
     requestVector.push_back(0);
     outgoingBuffers->addDataMessage(requestVector);
 }

@@ -159,7 +159,7 @@ namespace Matrix_6G_Constants
 	};
 
 
-	const enum class SysExDatatrRequestType {
+	const enum class SysExDataRequestType {
 		voice = 1,
 		split,
 		global
