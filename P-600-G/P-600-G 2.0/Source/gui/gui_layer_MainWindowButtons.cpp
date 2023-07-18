@@ -51,13 +51,19 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     addAndMakeVisible(btn_Pull);
 
     btn_ShowVoicesBank.setComponentID(ID::btn_PgmBank.toString());
-    btn_ShowVoicesBank.onClick = [this] { showVoicesBankLayer(); };
+    btn_ShowVoicesBank.onClick = [this] {
+        if (noOtherLayerIsVisble())
+            showVoicesBankLayer();
+    };
     btn_ShowVoicesBank.setBounds(578, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
     btn_ShowVoicesBank.addShortcut(KeyPress{ 'b', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_ShowVoicesBank);
 
     btn_ShowTooltipsOptions.setComponentID(ID::btn_Tips.toString());
-    btn_ShowTooltipsOptions.onClick = [this] { showTooltipsOptionsLayer(); };
+    btn_ShowTooltipsOptions.onClick = [this] {
+        if (noOtherLayerIsVisble())
+            showTooltipsOptionsLayer();
+    };
     btn_ShowTooltipsOptions.setBounds(687, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
     btn_ShowTooltipsOptions.addShortcut(KeyPress{ 't', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_ShowTooltipsOptions);
@@ -120,6 +126,19 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
     btn_Hyperlink.setTooltip(tipFor_btn_Hyperlink);
 }
 
+bool GUI_Layer_MainWindowButtons::noOtherLayerIsVisble() {
+    if (layer_TooltipsOptions != nullptr)
+        if (layer_TooltipsOptions->isVisible())
+            return false;
+    if (layer_Randomization != nullptr)
+        if (layer_Randomization->isVisible())
+            return false;
+    if (layer_VoicesBank != nullptr)
+        if (layer_VoicesBank->isVisible())
+            return false;
+    return true;
+}
+
 void GUI_Layer_MainWindowButtons::showVoicesBankLayer() {
     layer_VoicesBank.reset(new GUI_Layer_VoicesBank{ exposedParams, unexposedParams });
     if (layer_VoicesBank != nullptr) {
@@ -159,7 +178,8 @@ void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& event) {
 
 void GUI_Layer_MainWindowButtons::buttonClicked(Button* /*button*/) {
     if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier + ModifierKeys::altModifier)
-        showRandomizationLayer();
+        if (noOtherLayerIsVisble())
+            showRandomizationLayer();
 }
 
 void GUI_Layer_MainWindowButtons::valueChanged(Value& /*value*/) {

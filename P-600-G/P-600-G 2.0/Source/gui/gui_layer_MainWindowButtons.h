@@ -41,6 +41,7 @@ public:
 
 private:
 	void updateTooltips();
+	bool noOtherLayerIsVisble();
 	void showVoicesBankLayer();
 	void showTooltipsOptionsLayer();
 	void showRandomizationLayer();

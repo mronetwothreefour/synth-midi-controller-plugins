@@ -66,6 +66,7 @@ private:
 	void timerCallback(int timerID) override;
 	void updateExposedParamForNameChar();
 	void clearSequencerStep(int trackNum, int stepNum);
+	bool noOtherLayerIsVisble();
 	void showVoicesBanksLayer();
 	void prepareToShowGlobalParamsLayer();
 	void showCommError_SysExLayer();

@@ -85,19 +85,28 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
 
     auto largeButtons_y{ 353 };
     btn_ShowVoicesBanks.setComponentID(ID::btn_Patches.toString());
-    btn_ShowVoicesBanks.onClick = [this] { showVoicesBanksLayer(); };
+    btn_ShowVoicesBanks.onClick = [this] {
+        if (noOtherLayerIsVisble())
+            showVoicesBanksLayer();
+    };
     btn_ShowVoicesBanks.setBounds(1006, largeButtons_y, GUI::buttons_large_w, GUI::buttons_large_h);
     btn_ShowVoicesBanks.addShortcut(KeyPress{ 'p', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_ShowVoicesBanks);
 
     btn_ShowSplits.setComponentID(ID::btn_Splits.toString());
-    btn_ShowSplits.onClick = [this] { showSplitsLayer(); };
+    btn_ShowSplits.onClick = [this] {
+        if (noOtherLayerIsVisble())
+            showSplitsLayer(); 
+    };
     btn_ShowSplits.setBounds(1085, largeButtons_y, GUI::buttons_large_w, GUI::buttons_large_h);
     btn_ShowSplits.addShortcut(KeyPress{ 's', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_ShowSplits);
 
     btn_ShowGlobalParams.setComponentID(ID::btn_Master.toString());
-    btn_ShowGlobalParams.onClick = [this] { prepareToShowGlobalParamsLayer(); };
+    btn_ShowGlobalParams.onClick = [this] {
+        if (noOtherLayerIsVisble())
+            prepareToShowGlobalParamsLayer(); 
+    };
     btn_ShowGlobalParams.setBounds(1164, largeButtons_y, GUI::buttons_large_w, GUI::buttons_large_h);
     btn_ShowGlobalParams.addShortcut(KeyPress{ 'm', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_ShowGlobalParams);
@@ -154,6 +163,25 @@ void GUI_Layer_MainWindowButtons::addProgramChangeMessageToOutgoingBuffersAfterD
         auto currentVoiceNumber{ exposedParams->currentVoiceOptions.get()->currentVoiceNumber()};
         outgoingBuffers->addProgramChangeMessage(channel, currentVoiceNumber);
     });
+}
+
+bool GUI_Layer_MainWindowButtons::noOtherLayerIsVisble() {
+    if (layer_CommError != nullptr)
+        if (layer_CommError->isVisible())
+            return false;
+    if (layer_GlobalParams != nullptr)
+        if (layer_GlobalParams->isVisible())
+            return false;
+    if (layer_Randomization != nullptr)
+        if (layer_Randomization->isVisible())
+            return false;
+    if (layer_Splits != nullptr)
+        if (layer_Splits->isVisible())
+            return false;
+    if (layer_VoicesBanks != nullptr)
+        if (layer_VoicesBanks->isVisible())
+            return false;
+    return true;
 }
 
 void GUI_Layer_MainWindowButtons::showRandomizationLayer() {
@@ -225,7 +253,8 @@ void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& event) {
 
 void GUI_Layer_MainWindowButtons::buttonClicked(Button* /*button*/) {
     if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier + ModifierKeys::altModifier)
-        showRandomizationLayer();
+        if (noOtherLayerIsVisble())
+            showRandomizationLayer();
 }
 
 void GUI_Layer_MainWindowButtons::valueChanged(Value& /*value*/) {

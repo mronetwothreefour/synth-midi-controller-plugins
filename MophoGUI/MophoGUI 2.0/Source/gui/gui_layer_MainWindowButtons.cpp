@@ -80,13 +80,19 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     addAndMakeVisible(btn_ReadEditBuffer);
 
     btn_ShowVoicesBanks.setComponentID(ID::btn_Banks.toString());
-    btn_ShowVoicesBanks.onClick = [this] { showVoicesBanksLayer(); };
+    btn_ShowVoicesBanks.onClick = [this] {
+        if (noOtherLayerIsVisble())
+            showVoicesBanksLayer();
+    };
     btn_ShowVoicesBanks.setBounds(684, rowBeneathProgramName_y, 47, GUI::redButton_h);
     btn_ShowVoicesBanks.addShortcut(KeyPress{ 'b', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_ShowVoicesBanks);
 
     btn_ShowGlobalParams.setComponentID(ID::btn_Global.toString());
-    btn_ShowGlobalParams.onClick = [this] { prepareToShowGlobalParamsLayer(); };
+    btn_ShowGlobalParams.onClick = [this] {
+        if (noOtherLayerIsVisble())
+            prepareToShowGlobalParamsLayer();
+    };
     btn_ShowGlobalParams.setBounds(739, rowBeneathProgramName_y, 53, GUI::redButton_h);
     btn_ShowGlobalParams.addShortcut(KeyPress{ 'g', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_ShowGlobalParams);
@@ -238,6 +244,25 @@ void GUI_Layer_MainWindowButtons::clearSequencerStep(int trackNum, int stepNum) 
         param->setValueNotifyingHost(clearedValue);
 }
 
+bool GUI_Layer_MainWindowButtons::noOtherLayerIsVisble() {
+    if (layer_CommError_NRPN != nullptr)
+        if (layer_CommError_NRPN->isVisible())
+            return false;
+    if (layer_CommError_SysEx != nullptr)
+        if (layer_CommError_SysEx->isVisible())
+            return false;
+    if (layer_GlobalParams != nullptr)
+        if (layer_GlobalParams->isVisible())
+            return false;
+    if (layer_Randomization != nullptr)
+        if (layer_Randomization->isVisible())
+            return false;
+    if (layer_VoicesBanks != nullptr)
+        if (layer_VoicesBanks->isVisible())
+            return false;
+    return true;
+}
+
 void GUI_Layer_MainWindowButtons::showVoicesBanksLayer() {
     layer_VoicesBanks.reset(new GUI_Layer_VoicesBanks{ exposedParams, unexposedParams });
     if (layer_VoicesBanks != nullptr) {
@@ -314,7 +339,8 @@ void GUI_Layer_MainWindowButtons::mouseDown(const MouseEvent& event) {
 
 void GUI_Layer_MainWindowButtons::buttonClicked(Button* /*button*/) {
     if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier + ModifierKeys::altModifier)
-        showRandomizationLayer();
+        if (noOtherLayerIsVisble())
+            showRandomizationLayer();
 }
 
 void GUI_Layer_MainWindowButtons::valueChanged(Value& /*value*/) {

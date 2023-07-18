@@ -57,6 +57,7 @@ private:
 	void updateTooltips();
 	void timerCallback() override;
 	void addProgramChangeMessageToOutgoingBuffersAfterDelay(int delayInMilliseconds);
+	bool noOtherLayerIsVisble();
 	void showRandomizationLayer();
 	void showSplitsLayer();
 	void showVoicesBanksLayer();

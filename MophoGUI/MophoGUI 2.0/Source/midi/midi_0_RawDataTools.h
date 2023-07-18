@@ -10,7 +10,6 @@ struct RawDataTools
     static const uint8 daveSmithInstruments_ID = 1;
     static const uint8 mopho_ID = 37;
 
-
     static const std::vector<uint8> convertHexStringToDataVector(const String& hexString);
     static const String convertDataVectorToHexString(const std::vector<uint8>& dataVector);
     static bool isValidVoiceDataHexString(const String& hexString);
