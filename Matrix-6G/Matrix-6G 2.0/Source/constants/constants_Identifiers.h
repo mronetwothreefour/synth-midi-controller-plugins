@@ -194,8 +194,8 @@ namespace Matrix_6G_Constants
 
 		static const Identifier property_AllowedChoicesBackground_x{ "property_AllowedChoicesBackground_x" };
 		static const Identifier property_AllowedChoicesBackground_y{ "property_AllowedChoicesBackground_y" };
-		static const Identifier property_Center_x{ "property_ControlCenter_x" };
-		static const Identifier property_Center_y{ "property_ControlCenter_y" };
+		static const Identifier property_ControlCenter_x{ "property_ControlCenter_x" };
+		static const Identifier property_ControlCenter_y{ "property_ControlCenter_y" };
 		static const Identifier property_ControlType{ "property_ControlType" };
 		static const Identifier property_DataByteIndex{ "property_DataByteIndex" };
 		static const Identifier property_DefaultChoice{ "property_DefaultChoice" };
@@ -209,7 +209,7 @@ namespace Matrix_6G_Constants
 		static const Identifier property_ParamNum{ "property_ParamNum" };
 		static const Identifier property_ParamID{ "property_ParamID" };
 		static const Identifier property_SliderTextEditorType{ "property_SliderTextEditorType" };
-		static const Identifier property_Width{ "property_Width" };
+		static const Identifier property_ControlWidth{ "property_ControlWidth" };
 		static const Identifier property_WidthOfAllowChoiceToggleColumn{ "property_WidthOfAllowChoiceToggleColumn" };
 
 		static const Identifier rndm_AllowedChoices{ "rndm_AllowedChoices" };

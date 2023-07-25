@@ -99,8 +99,10 @@ namespace P_600_G_Constants
 
 		static const Identifier property_AllowedChoicesBackground_x{ "property_AllowedChoicesBackground_x" };
 		static const Identifier property_AllowedChoicesBackground_y{ "property_AllowedChoicesBackground_y" };
-		static const Identifier property_Center_x{ "property_ControlCenter_x" };
-		static const Identifier property_Center_y{ "property_ControlCenter_y" };
+		static const Identifier property_Control_h{ "property_Control_h" };
+		static const Identifier property_Control_w{ "property_Control_w" };
+		static const Identifier property_ControlCenter_x{ "property_ControlCenter_x" };
+		static const Identifier property_ControlCenter_y{ "property_ControlCenter_y" };
 		static const Identifier property_ControlType{ "property_ControlType" };
 		static const Identifier property_DefaultChoice{ "property_DefaultChoice" };
 		static const Identifier property_Description{ "property_Description" };
@@ -108,14 +110,12 @@ namespace P_600_G_Constants
 		static const Identifier property_FirstAllowChoiceToggleRow{ "property_FirstAllowChoiceToggleRow" };
 		static const Identifier property_FirstBitIndex{ "property_FirstBitIndex" };
 		static const Identifier property_FirstNybbleIndex{ "property_FirstNybbleIndex" };
-		static const Identifier property_Height{ "property_Height" };
 		static const Identifier property_KnobTextEditorType{ "property_KnobTextEditorType" };
 		static const Identifier property_NumberOfBits{ "property_NumberOfBits" };
 		static const Identifier property_NumberOfAllowChoiceToggleColumns{ "property_NumberOfAllowChoiceToggleColumns" };
 		static const Identifier property_NumberOfAllowChoiceToggleRows{ "property_NumberOfAllowChoiceToggleRows" };
 		static const Identifier property_NumberOfChoices{ "property_NumberOfChoices" };
 		static const Identifier property_ParamID{ "property_ParamID" };
-		static const Identifier property_Width{ "property_Width" };
 		static const Identifier property_WidthOfAllowChoiceToggleColumn{ "property_WidthOfAllowChoiceToggleColumn" };
 
 		static const Identifier rndm_AllowedChoices{ "rndm_AllowedChoices" };

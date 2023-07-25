@@ -154,14 +154,15 @@ namespace MophoConstants
 		static const Identifier property_AllowedChoicesBackground_x{ "property_AllowedChoicesBackground_x" };
 		static const Identifier property_AllowedChoicesBackground_y{ "property_AllowedChoicesBackground_y" };
 		static const Identifier property_AllowedChoicesType{ "property_AllowedChoicesType" };
-		static const Identifier property_Center_x{ "property_ControlCenter_x" };
-		static const Identifier property_Center_y{ "property_ControlCenter_y" };
+		static const Identifier property_Control_h{ "property_Control_h" };
+		static const Identifier property_Control_w{ "property_Control_w" };
+		static const Identifier property_ControlCenter_x{ "property_ControlCenter_x" };
+		static const Identifier property_ControlCenter_y{ "property_ControlCenter_y" };
 		static const Identifier property_ControlType{ "property_ControlType" };
 		static const Identifier property_DefaultChoice{ "property_DefaultChoice" };
 		static const Identifier property_Description{ "property_Description" };
 		static const Identifier property_ExposedName{ "property_ExposedName" };
 		static const Identifier property_FirstAllowChoiceToggleRow{ "property_FirstAllowChoiceToggleRow" };
-		static const Identifier property_Height{ "property_Height" };
 		static const Identifier property_KnobTextEditorType{ "property_KnobTextEditorType" };
 		static const Identifier property_LSByteLocation{ "property_LSByteLocation" };
 		static const Identifier property_MSBitMask{ "property_MSBitMask" };
@@ -175,7 +176,6 @@ namespace MophoConstants
 		static const Identifier property_RedToggleCenter_y{ "property_RedToggleCenter_y" };
 		static const Identifier property_SeqTrackNum{ "property_SeqTrackNum" };
 		static const Identifier property_SeqTrackStepNum{ "property_SeqTrackStepNum" };
-		static const Identifier property_Width{ "property_Width" };
 		static const Identifier property_WidthOfAllowChoiceToggleColumn{ "property_WidthOfAllowChoiceToggleColumn" };
 
 		static const Identifier rndmTrig_{ "rndmTrig_" };
