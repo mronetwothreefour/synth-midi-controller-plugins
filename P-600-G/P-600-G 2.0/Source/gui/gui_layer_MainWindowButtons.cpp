@@ -31,24 +31,24 @@ GUI_Layer_MainWindowButtons::GUI_Layer_MainWindowButtons(ExposedParameters* expo
     auto transmitOptions{ unexposedParams->getVoiceTransmissionOptions() };
     auto outgoingBuffers{ unexposedParams->getOutgoing_MIDI_Buffers() };
     const int buttonsRow_y{ 47 };
-    btn_Push.setComponentID(ID::btn_Push_Voice.toString());
-    btn_Push.onClick = [this, exposedParams, transmitOptions, outgoingBuffers] {
-        SysExMessages::addDataMessageForCurrentVoiceToOutgoingBuffers(exposedParams, transmitOptions, outgoingBuffers);
-        outgoingBuffers->addProgramChangeMessageAfterDelay(transmitOptions->currentVoiceNumber(), 10);
-    };
-    btn_Push.setBounds(478, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
-    btn_Push.addShortcut(KeyPress{ ']', ModifierKeys::ctrlModifier, 0 });
-    addAndMakeVisible(btn_Push);
-
     btn_Pull.setComponentID(ID::btn_Pull_Voice.toString());
     btn_Pull.onClick = [this, transmitOptions, outgoingBuffers] {
         auto currentVoiceNumber{ transmitOptions->currentVoiceNumber() };
         SysExMessages::addRequestForVoiceDataStoredInSlotToOutgoingBuffers(currentVoiceNumber, outgoingBuffers);
         outgoingBuffers->addProgramChangeMessageAfterDelay(currentVoiceNumber, transmitOptions->voiceTransmitTime());
     };
-    btn_Pull.setBounds(528, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
+    btn_Pull.setBounds(478, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
     btn_Pull.addShortcut(KeyPress{ '[', ModifierKeys::ctrlModifier, 0 });
     addAndMakeVisible(btn_Pull);
+
+    btn_Push.setComponentID(ID::btn_Push_Voice.toString());
+    btn_Push.onClick = [this, exposedParams, transmitOptions, outgoingBuffers] {
+        SysExMessages::addDataMessageForCurrentVoiceToOutgoingBuffers(exposedParams, transmitOptions, outgoingBuffers);
+        outgoingBuffers->addProgramChangeMessageAfterDelay(transmitOptions->currentVoiceNumber(), 10);
+    };
+    btn_Push.setBounds(528, buttonsRow_y, GUI::buttons_w, GUI::buttons_h);
+    btn_Push.addShortcut(KeyPress{ ']', ModifierKeys::ctrlModifier, 0 });
+    addAndMakeVisible(btn_Push);
 
     btn_ShowVoicesBank.setComponentID(ID::btn_PgmBank.toString());
     btn_ShowVoicesBank.onClick = [this] {
@@ -113,14 +113,20 @@ void GUI_Layer_MainWindowButtons::updateTooltips() {
     auto tipFor_btn_Push{ shouldShow ? Description::buildForPush() : String{ "" } };
     btn_Push.setTooltip(tipFor_btn_Push);
 
-    auto tipFor_btn_Randomize{ shouldShow ? Description::buildForRandomize() : String{ "" } };
-    btn_Randomize.setTooltip(tipFor_btn_Randomize);
-
     auto tipFor_btn_ShowVoicesBank{ shouldShow ? Description::buildForShowVoicesBankLayer() : String{ "" } };
     btn_ShowVoicesBank.setTooltip(tipFor_btn_ShowVoicesBank);
 
     auto tipFor_btn_ShowTooltipsOptions{ shouldShow ? Description::buildForShowTooltipsOptionsLayer() : String{ "" } };
     btn_ShowTooltipsOptions.setTooltip(tipFor_btn_ShowTooltipsOptions);
+
+    auto tipFor_btn_Undo{ shouldShow ? Description::buildForUndo() : String{ "" } };
+    btn_Undo.setTooltip(tipFor_btn_Undo);
+
+    auto tipFor_btn_Redo{ shouldShow ? Description::buildForRedo() : String{ "" } };
+    btn_Redo.setTooltip(tipFor_btn_Redo);
+
+    auto tipFor_btn_Randomize{ shouldShow ? Description::buildForRandomize() : String{ "" } };
+    btn_Randomize.setTooltip(tipFor_btn_Randomize);
 
     auto tipFor_btn_Hyperlink{ shouldShow ? Description::buildForHyperlink() : String{ "" } };
     btn_Hyperlink.setTooltip(tipFor_btn_Hyperlink);

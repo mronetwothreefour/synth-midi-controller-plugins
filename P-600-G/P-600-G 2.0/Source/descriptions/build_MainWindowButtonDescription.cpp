@@ -37,11 +37,26 @@ String MainWindowButtonDescription::buildForRandomize() {
     return descriptionString;
 }
 
+String MainWindowButtonDescription::buildForRedo() {
+    String descriptionString{ "" };
+    descriptionString += "Click this button to redo a pre-\n";
+    descriptionString += "viously undone parameter change.\n";
+    descriptionString += "Shortcut key: CTRL+SHIFT+Z";
+    return descriptionString;
+}
+
 String MainWindowButtonDescription::buildForShowTooltipsOptionsLayer() {
     String descriptionString{ "" };
     descriptionString += "Opens a window where you can\n";
     descriptionString += "set display options for control";
     descriptionString += "tooltips. Shortcut key: CTRL+T";
+    return descriptionString;
+}
+
+String MainWindowButtonDescription::buildForUndo() {
+    String descriptionString{ "" };
+    descriptionString += "Click this button to undo the previous\n";
+    descriptionString += "parameter change. Shortcut key: CTRL+Z";
     return descriptionString;
 }
 
