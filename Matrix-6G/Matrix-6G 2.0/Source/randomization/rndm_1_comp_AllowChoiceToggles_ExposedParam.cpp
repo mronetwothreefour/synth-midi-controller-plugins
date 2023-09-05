@@ -42,17 +42,17 @@ String AllowChoiceToggles_ExposedParam::buildTooltip() {
 	String tip{ "" };
 	if (tooltips->shouldShowDescription()) {
 		auto paramName{ info->exposedNameFor(paramIndex) };
-		tip += "Click a choice to toggle whether or not it\n";
-		tip += "is allowed when generating a random setting\n";
-		tip += "for " + paramName + ".\n";
-		tip += "CTRL-click a choice to make it the only one\n";
-		tip += "allowed. SHIFT-click to allow a range of choices.\n";
-		if (info->numberOfAllowChoiceToggleColumnsFor(paramIndex) > 2) {
-			tip += "ALT-click to allow a range of choices that\n";
-			if (info->IDfor(paramIndex) == ID::ep_00_Osc_1_Pitch || info->IDfor(paramIndex) == ID::ep_10_Osc_2_Pitch)
-				tip += "are all in the same note row.";
-			else
-				tip += "are all in the same row.";
+			tip += "Click a value to toggle whether or not it\n";
+			tip += "is allowed when generating a random setting\n";
+			tip += "for " + paramName + ".\n";
+			tip += "CTRL-click a value to make it the only one allowed.\n";
+			tip += "Use SHIFT-click to allow a set of consecutive values.\n";
+			if (info->numberOfAllowChoiceToggleColumnsFor(paramIndex) > 2) {
+				tip += "Use ALT-click to allow a set of values that are\n";
+				if (info->IDfor(paramIndex) == ID::ep_00_Osc_1_Pitch || info->IDfor(paramIndex) == ID::ep_10_Osc_2_Pitch)
+					tip += "all in the same note row.";
+				else
+					tip += "all in the same row.";
 		}
 		if (rangeIsSigned && randomization->transmitMethodIsQuickEdit()) {
 			tip += "When the transmit message type is set to QUICK,\n";

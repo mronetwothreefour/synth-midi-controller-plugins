@@ -36,17 +36,17 @@ AllowChoiceToggles::AllowChoiceToggles(uint8 paramIndex, ExposedParameters* expo
 		String tip{ "" };
 		if (tooltips->shouldShowDescription()) {
 			auto paramName{ info->exposedNameFor(paramIndex) };
-			tip += "Click a choice to toggle whether or not it\n";
+			tip += "Click a value to toggle whether or not it\n";
 			tip += "is allowed when generating a random setting\n";
 			tip += "for " + paramName + ".\n";
-			tip += "CTRL-click a choice to make it the only one\n";
-			tip += "allowed. SHIFT-click to allow a range of choices.\n";
+			tip += "CTRL-click a value to make it the only one allowed.\n";
+			tip += "Use SHIFT-click to allow a set of consecutive values.\n";
 			if (info->numberOfAllowChoiceToggleColumnsFor(paramIndex) > 2) {
-				tip += "ALT-click to allow a range of choices that\n";
+				tip += "Use ALT-click to allow a set of values that are\n";
 				if (info->controlTypeFor(paramIndex) == ControlType::knobForPitch)
-					tip += "are all in the same note row.";
+					tip += "all in the same note row.";
 				else
-					tip += "are all in the same row.";
+					tip += "all in the same row.";
 			}
 		}
 		auto isAllowed{ randomization->choiceIsAllowedForParam(choiceNum, paramIndex) };
