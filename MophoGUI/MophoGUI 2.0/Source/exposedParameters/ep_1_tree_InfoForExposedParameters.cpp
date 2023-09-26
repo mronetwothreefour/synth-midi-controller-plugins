@@ -2273,8 +2273,7 @@ ControlType InfoForExposedParameters::controlTypeFor(const uint8 paramIndex) con
 }
 
 KnobTextEditorType InfoForExposedParameters::knobTextEditorTypeFor(const uint8 paramIndex) const {
-	auto controlType{ controlTypeFor(paramIndex) };
-	jassert(controlType == ControlType::knob || controlType == ControlType::knobForOscShape || controlType == ControlType::knobForPitch);
+	jassert(controlTypeFor(paramIndex) == ControlType::knob || controlTypeFor(paramIndex) == ControlType::knobForOscShape || controlTypeFor(paramIndex) == ControlType::knobForPitch);
 	auto paramTree{ exposedParamsInfoTree.getChild(paramIndex) };
 	return KnobTextEditorType{ (int)paramTree.getProperty(ID::property_KnobTextEditorType) };
 }

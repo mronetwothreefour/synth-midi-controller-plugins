@@ -5,10 +5,7 @@
 using namespace MophoConstants;
 
 String GlobalParamChoiceName::buildForAudioOutput(const bool isMono) {
-    if (isMono)
-        return "AUDIO OUTPUT : MONO";
-    else
-        return "AUDIO OUTPUT : STEREO";
+    return isMono ? "AUDIO OUTPUT : MONO" : "AUDIO OUTPUT : STEREO";
 }
 
 String GlobalParamChoiceName::buildForGlobalFineTune(const int choiceNum, const ChoiceNameType type) {
@@ -82,10 +79,7 @@ String GlobalParamChoiceName::buildForMIDI_ClockSource(const MIDI_ClockSource so
 }
 
 String GlobalParamChoiceName::buildForMIDI_Controllers(const bool areEnabled) {
-    if (areEnabled)
-        return "MIDI CONTROLLERS : ON";
-    else
-        return "MIDI CONTROLLERS : OFF ( ! )";
+    return areEnabled ? "MIDI CONTROLLERS : ON" : "MIDI CONTROLLERS : OFF ( ! )";
 }
 
 String GlobalParamChoiceName::buildForParamChangeReceiveType(const ParamChangeReceiveType receiveType) {
@@ -119,22 +113,13 @@ String GlobalParamChoiceName::buildForParamChangeSendType(const ParamChangeSendT
 }
 
 String GlobalParamChoiceName::buildForPedalMode(const bool isArpLatch) {
-    if (isArpLatch)
-        return "Arpeggiator Latch";
-    else
-        return "Normal";
+    return isArpLatch ? "Arpeggiator Latch" : "Normal";
 }
 
 String GlobalParamChoiceName::buildForSysEx(const bool isOn) {
-    if (isOn)
-        return "SYSTEM EXCLUSIVE : ON";
-    else
-        return "SYSTEM EXCLUSIVE : OFF ( ! )";
+    return isOn ? "SYSTEM EXCLUSIVE : ON" : "SYSTEM EXCLUSIVE : OFF ( ! )";
 }
 
 String GlobalParamChoiceName::buildForVoiceChanges(const bool isEnabled) {
-    if (isEnabled)
-        return "Enabled";
-    else
-        return "Disabled";
+    return isEnabled ? "Enabled" : "Disabled";
 }

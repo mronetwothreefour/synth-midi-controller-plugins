@@ -2,8 +2,6 @@
 
 #include <JuceHeader.h>
 
-
-
 namespace MophoConstants
 {
 	namespace GP
