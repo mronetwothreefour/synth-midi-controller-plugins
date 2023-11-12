@@ -7,15 +7,15 @@
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_0_build_ChoiceNamesValueTree.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
-	const uint8 paramIndex, const Track track, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	const uint8 paramIndex, const Track track, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
 	knob{ track, &exposedParams->undoManager },
-	tooltipUpdater{ paramIndex, knob, exposedParams, unexposedParams },
+	tooltipUpdater{ paramIndex, knob, exposedParams, tooltips },
 	trackDestID{ info->IDfor(uint8(EP::firstSeqTrackDestParamIndex + ((int)track - 1))) }
 {
 	trackDestination.setInterceptsMouseClicks(false, false);
@@ -38,14 +38,14 @@ KnobAndAttachment_ForSeqStep::KnobAndAttachment_ForSeqStep(
 	textEditor->setInterceptsMouseClicks(false, true);
 	textEditor->setComponentID(ID::comp_TextEditorForSeqStep.toString());
 	textEditor->setFont(GUI::font_SeqSteps);
-	textEditor->onEditorShow = [this, track, unexposedParams] {
+	textEditor->onEditorShow = [this, track, tooltips] {
 		auto editor{ textEditor->getCurrentTextEditor() };
 		auto maxLength{ knob.isModifyingPitch ? 4 : 3 };
 		String allowedChar{ knob.isModifyingPitch ? "abcdefgABCDEFG012345#+<" : "0123456789<" };
 		if (track == Track::one)
 			allowedChar += ".";
 		editor->setInputRestrictions(maxLength, allowedChar);
-		if (unexposedParams->getTooltipsOptions()->shouldShowDescription()) {
+		if (tooltips->shouldShowDescription()) {
 			String description{ "" };
 			if (knob.isModifyingPitch) {
 				description += "Type in either a pitch name and octave number\n";

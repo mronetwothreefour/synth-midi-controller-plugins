@@ -27,7 +27,7 @@ class KnobAndAttachment_ForSeqStep :
 public:
 	KnobAndAttachment_ForSeqStep() = delete;
 
-	KnobAndAttachment_ForSeqStep(const uint8 paramIndex, const Track track, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	KnobAndAttachment_ForSeqStep(const uint8 paramIndex, const Track track, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void setEditorText();
 	void paint(Graphics& g) override;
 	void paintResetSequenceArrow(Graphics& g);

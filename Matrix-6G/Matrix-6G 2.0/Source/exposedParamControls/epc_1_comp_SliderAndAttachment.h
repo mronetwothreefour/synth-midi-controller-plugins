@@ -23,7 +23,7 @@ class SliderAndAttachment :
 public:
 	SliderAndAttachment() = delete;
 
-	SliderAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	SliderAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void paint(Graphics& g) override;
 	void mouseDoubleClick(const MouseEvent& event) override;
 	void attachSliderToExposedParameter();

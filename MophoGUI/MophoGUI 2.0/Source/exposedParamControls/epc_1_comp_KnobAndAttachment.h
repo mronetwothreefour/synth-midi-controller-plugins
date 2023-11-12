@@ -22,7 +22,7 @@ class KnobAndAttachment :
 public:
 	KnobAndAttachment() = delete;
 
-	KnobAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	KnobAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void paint(Graphics& g) override;
 	void mouseDoubleClick(const MouseEvent& event) override;
 	void attachKnobToExposedParameter();

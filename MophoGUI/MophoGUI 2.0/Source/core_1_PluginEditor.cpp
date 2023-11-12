@@ -14,7 +14,7 @@ PluginEditor::PluginEditor(PluginProcessor& processor, ExposedParameters* expose
     AudioProcessorEditor{ &processor },
     processor{ processor },
     layer_EnvelopePainters{ new GUI_Layer_EnvelopePainters{ exposedParams } },
-    layer_ExposedParamControls{ new GUI_Layer_ExposedParamControls{ exposedParams, unexposedParams } },
+    layer_ExposedParamControls{ new GUI_Layer_ExposedParamControls{ exposedParams, unexposedParams->getTooltipsOptions() } },
     layer_Buttons{ new GUI_Layer_MainWindowButtons(exposedParams, unexposedParams) },
     lookAndFeel{ new MophoLookAndFeel{} },
     tooltipsDelayInMillisecondsAsValue{ unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_DelayInMilliseconds) },

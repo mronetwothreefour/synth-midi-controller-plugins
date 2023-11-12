@@ -10,21 +10,21 @@ using namespace P_600_G_Constants;
 class ExposedParamControlsServer
 {
 	ExposedParameters* exposedParams;
-	UnexposedParameters* unexposedParams;
+	TooltipsOptions* tooltips;
 	std::vector<std::unique_ptr<ExposedParamControl>> controlsVector;
 
 public:
 	ExposedParamControlsServer() = delete;
 
-	explicit ExposedParamControlsServer(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	explicit ExposedParamControlsServer(ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 		exposedParams{ exposedParams },
-		unexposedParams{ unexposedParams }
+		tooltips{ tooltips }
 	{
 	}
 
 	void fillControlsVector() {
 		for (uint8 paramIndex = 0; paramIndex != EP::numberOfExposedParams; ++paramIndex)
-			controlsVector.push_back(std::make_unique<ExposedParamControl>(paramIndex, exposedParams, unexposedParams));
+			controlsVector.push_back(std::make_unique<ExposedParamControl>(paramIndex, exposedParams, tooltips));
 	}
 
 	ExposedParamControl* controlPtrFor(uint8 paramIndex) const {

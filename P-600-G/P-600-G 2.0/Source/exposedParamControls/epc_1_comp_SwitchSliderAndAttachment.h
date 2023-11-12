@@ -20,7 +20,7 @@ class SwitchSliderAndAttachment :
 public:
 	SwitchSliderAndAttachment() = delete;
 
-	SwitchSliderAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	SwitchSliderAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void attachSwitchSliderToExposedParameter();
 	void deleteAttachmentBeforeSwitchSliderToPreventMemLeak();
 

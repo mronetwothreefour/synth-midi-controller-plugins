@@ -20,7 +20,7 @@ class KnobAndAttachment_ForVoiceNameChar :
 public:
 	KnobAndAttachment_ForVoiceNameChar() = delete;
 
-	KnobAndAttachment_ForVoiceNameChar(const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	KnobAndAttachment_ForVoiceNameChar(const uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void paint(Graphics& g) override;
 	void attachKnobToExposedParameter();
 	void limitKnobRangeToBasic_ASCII_CharsThatAreVisible();

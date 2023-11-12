@@ -1,15 +1,14 @@
 #include "epc_1_comp_ComboBoxAndAttachment.h"
 
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
 
-ComboBoxAndAttachment::ComboBoxAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+ComboBoxAndAttachment::ComboBoxAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
-	tooltipUpdater{ paramIndex, comboBox, exposedParams, unexposedParams }
+	tooltipUpdater{ paramIndex, comboBox, exposedParams, tooltips }
 {
 	auto choiceNamesList{ info->choiceNamesListFor(paramIndex) };
 	comboBox.addItemList(choiceNamesList, 1);

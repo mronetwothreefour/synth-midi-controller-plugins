@@ -1,10 +1,10 @@
 #include "epc_0_comp_TooltipUpdaterForExposedParamControl.h"
 
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
+#include "../unexposedParameters/up_0_tree_TooltipsOptions.h"
 
 TooltipUpdaterForExposedParamControl::TooltipUpdaterForExposedParamControl(
-    const uint8 paramIndex, SettableTooltipClient& clientComponent, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+    const uint8 paramIndex, SettableTooltipClient& clientComponent, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
     paramIndex{ paramIndex },
     clientComponent{ clientComponent },
     state{ exposedParams->state.get() },
@@ -14,10 +14,10 @@ TooltipUpdaterForExposedParamControl::TooltipUpdaterForExposedParamControl(
     paramAsValue = state->getParameterAsValue(paramID);
     paramAsValue.addListener(this);
 
-    shouldShowDescriptionAsValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
+    shouldShowDescriptionAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowDescription);
     shouldShowDescriptionAsValue.addListener(this);
 
-    shouldShowCurrentChoiceAsValue = unexposedParams->getTooltipsOptions()->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowCurrentChoice);
+    shouldShowCurrentChoiceAsValue = tooltips->getTooltipsPropertyAsValue(ID::tooltips_ShouldShowCurrentChoice);
     shouldShowCurrentChoiceAsValue.addListener(this);
 
     updateTooltip();

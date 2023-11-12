@@ -14,7 +14,7 @@ using namespace P_600_G_Constants;
 PluginEditor::PluginEditor(PluginProcessor& processor, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
     AudioProcessorEditor{ &processor },
     processor{ processor },
-    layer_ExposedParamControls{ new GUI_Layer_ExposedParamControls{ exposedParams, unexposedParams } },
+    layer_ExposedParamControls{ new GUI_Layer_ExposedParamControls{ exposedParams, unexposedParams->getTooltipsOptions() } },
     layer_MainWindowButtons{ new GUI_Layer_MainWindowButtons{ exposedParams, unexposedParams } },
     layer_CurrentVoiceNumber{ new GUI_Layer_CurrentVoiceNumber{ unexposedParams } },
     lookAndFeel{ new P_600_LookAndFeel{} },

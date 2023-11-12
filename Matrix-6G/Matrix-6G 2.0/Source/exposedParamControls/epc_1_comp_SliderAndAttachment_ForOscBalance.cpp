@@ -4,16 +4,15 @@
 #include "../constants/constants_ExposedParameters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using namespace Matrix_6G_Constants;
 
-SliderAndAttachment_ForOscBalance::SliderAndAttachment_ForOscBalance(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+SliderAndAttachment_ForOscBalance::SliderAndAttachment_ForOscBalance(ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ EP::indexForOscBalance },
 	state{ exposedParams->state.get() },
 	slider{ &exposedParams->undoManager },
-	textEditor{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
-	tooltipUpdater{ paramIndex, slider, exposedParams, unexposedParams }
+	textEditor{ paramIndex, exposedParams, tooltips },
+	tooltipUpdater{ paramIndex, slider, exposedParams, tooltips }
 {
 	slider.addMouseListener(this, false);
 	slider.setMouseDragSensitivity(exposedParams->info->mouseDragSensitivityFor(paramIndex));

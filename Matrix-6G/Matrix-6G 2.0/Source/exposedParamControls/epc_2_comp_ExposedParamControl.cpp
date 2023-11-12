@@ -8,17 +8,17 @@
 ExposedParamControl::ExposedParamControl() :
 	paramIndex{ (uint8)255 },
 	exposedParams{ nullptr },
-	unexposedParams{ nullptr },
+	tooltips{ nullptr },
 	controlType{ ControlType::nullControl }
 {
 	// this default constructor is needed when initializing the vector in ExposedParamControlsServer
 }
 
 ExposedParamControl::ExposedParamControl(
-	const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	const uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	exposedParams{ exposedParams },
-	unexposedParams{ unexposedParams },
+	tooltips{ tooltips },
 	controlType{ exposedParams->info->controlTypeFor(paramIndex) }
 {
 	jassert(controlType != ControlType::nullControl);
@@ -31,7 +31,7 @@ ExposedParamControl::ExposedParamControl(
 }
 
 void ExposedParamControl::buildSliderAndAttachmentControlForExposedParam() {
-	sliderAndAttachment.reset(new SliderAndAttachment(paramIndex, exposedParams, unexposedParams));
+	sliderAndAttachment.reset(new SliderAndAttachment(paramIndex, exposedParams, tooltips));
 	if (sliderAndAttachment != nullptr) {
 		addAndMakeVisible(sliderAndAttachment.get());
 		setSize(sliderAndAttachment->getWidth(), sliderAndAttachment->getHeight());
@@ -44,7 +44,7 @@ void ExposedParamControl::buildSliderAndAttachmentControlForExposedParam() {
 }
 
 void ExposedParamControl::buildSliderAndAttachmentControlForOscBalance() {
-	sliderAndAttachment_ForOscBalance.reset(new SliderAndAttachment_ForOscBalance(exposedParams, unexposedParams));
+	sliderAndAttachment_ForOscBalance.reset(new SliderAndAttachment_ForOscBalance(exposedParams, tooltips));
 	if (sliderAndAttachment_ForOscBalance != nullptr) {
 		addAndMakeVisible(sliderAndAttachment_ForOscBalance.get());
 		setSize(sliderAndAttachment_ForOscBalance->getWidth(), sliderAndAttachment_ForOscBalance->getHeight());
@@ -53,7 +53,7 @@ void ExposedParamControl::buildSliderAndAttachmentControlForOscBalance() {
 }
 
 void ExposedParamControl::buildComboBoxAndAttachmentControlForExposedParam() {
-	comboBoxAndAttachment.reset(new ComboBoxAndAttachment(paramIndex, exposedParams, unexposedParams));
+	comboBoxAndAttachment.reset(new ComboBoxAndAttachment(paramIndex, exposedParams, tooltips));
 	if (comboBoxAndAttachment != nullptr) {
 		addAndMakeVisible(comboBoxAndAttachment.get());
 		setSize(comboBoxAndAttachment->getWidth(), comboBoxAndAttachment->getHeight());

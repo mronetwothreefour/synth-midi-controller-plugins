@@ -9,14 +9,14 @@ using namespace P_600_G_Constants;
 class ExposedParameters;
 class KnobAndAttachment;
 class SwitchSliderAndAttachment;
-class UnexposedParameters;
+class TooltipsOptions;
 
 class ExposedParamControl :
 	public Component
 {
 	const uint8 paramIndex;
 	ExposedParameters* exposedParams;
-	UnexposedParameters* unexposedParams;
+	TooltipsOptions* tooltips;
 	ControlType controlType;
 	std::unique_ptr<KnobAndAttachment> knobAndAttachment;
 	std::unique_ptr<SwitchSliderAndAttachment> switchSliderAndAttachment;
@@ -24,7 +24,7 @@ class ExposedParamControl :
 	ExposedParamControl();
 
 public:
-	ExposedParamControl(const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	ExposedParamControl(const uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 
 private:
 	void buildKnobAndAttachmentControlForExposedParam();

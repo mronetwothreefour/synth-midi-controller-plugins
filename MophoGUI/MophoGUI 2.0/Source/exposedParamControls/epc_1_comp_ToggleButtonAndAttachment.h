@@ -20,7 +20,7 @@ protected:
 public:
 	ToggleButtonAndAttachment() = delete;
 
-	explicit ToggleButtonAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	explicit ToggleButtonAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void attachToggleToExposedParameter();
 	void deleteAttachmentBeforeToggleToPreventMemLeak();
 	void mouseDown(const MouseEvent& event) override;

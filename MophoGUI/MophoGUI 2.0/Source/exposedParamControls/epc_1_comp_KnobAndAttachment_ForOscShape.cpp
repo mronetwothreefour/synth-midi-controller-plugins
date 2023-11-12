@@ -7,18 +7,17 @@
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using namespace MophoConstants;
 
 KnobAndAttachment_ForOscShape::KnobAndAttachment_ForOscShape(
-	const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	const uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
 	knob{ &exposedParams->undoManager },
-	textEditor{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
-	tooltipUpdater{ paramIndex, knob, exposedParams, unexposedParams },
+	textEditor{ paramIndex, exposedParams, tooltips },
+	tooltipUpdater{ paramIndex, knob, exposedParams, tooltips },
 	strokeType{ 1.0f, PathStrokeType::mitered, PathStrokeType::rounded },
 	choiceNum{ 0 }
 {

@@ -6,17 +6,16 @@
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../gui/gui_build_LED_Path.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using namespace Matrix_6G_Constants;
 
-SliderAndAttachment::SliderAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+SliderAndAttachment::SliderAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
 	slider{ &exposedParams->undoManager },
-	textEditor{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
-	tooltipUpdater{ paramIndex, slider, exposedParams, unexposedParams },
+	textEditor{ paramIndex, exposedParams, tooltips },
+	tooltipUpdater{ paramIndex, slider, exposedParams, tooltips },
 	slider_w{ info->widthFor(paramIndex) }
 {
 	slider.addMouseListener(this, false);

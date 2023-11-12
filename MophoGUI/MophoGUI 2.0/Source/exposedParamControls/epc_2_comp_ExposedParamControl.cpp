@@ -13,17 +13,17 @@ using Track = SeqTrackNum;
 ExposedParamControl::ExposedParamControl() :
 	paramIndex{ (uint8)255 },
 	exposedParams{ nullptr },
-	unexposedParams{ nullptr },
+	tooltips{ nullptr },
 	controlType{ ControlType::nullControl }
 {
 	// this default constructor is needed when initializing the vector in ExposedParamControlsServer
 }
 
 ExposedParamControl::ExposedParamControl(
-	const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	const uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	exposedParams{ exposedParams },
-	unexposedParams{ unexposedParams },
+	tooltips{ tooltips },
 	controlType{ exposedParams->info->controlTypeFor(paramIndex) }
 {
 	jassert(controlType != ControlType::nullControl);
@@ -55,7 +55,7 @@ ExposedParamControl::ExposedParamControl(
 }
 
 void ExposedParamControl::buildKnobAndAttachmentControlForExposedParam() {
-	knobAndAttachment.reset(new KnobAndAttachment(paramIndex, exposedParams, unexposedParams));
+	knobAndAttachment.reset(new KnobAndAttachment(paramIndex, exposedParams, tooltips));
 	if (knobAndAttachment != nullptr) {
 		addAndMakeVisible(knobAndAttachment.get());
 		setSize(knobAndAttachment->getWidth(), knobAndAttachment->getHeight());
@@ -68,7 +68,7 @@ void ExposedParamControl::buildKnobAndAttachmentControlForExposedParam() {
 }
 
 void ExposedParamControl::buildKnobAndAttachment_ForOscShape_ControlForExposedParam() {
-	knobAndAttachment_ForOscShape.reset(new KnobAndAttachment_ForOscShape(paramIndex, exposedParams, unexposedParams));
+	knobAndAttachment_ForOscShape.reset(new KnobAndAttachment_ForOscShape(paramIndex, exposedParams, tooltips));
 	if (knobAndAttachment_ForOscShape != nullptr) {
 		addAndMakeVisible(knobAndAttachment_ForOscShape.get());
 		setSize(knobAndAttachment_ForOscShape->getWidth(), knobAndAttachment_ForOscShape->getHeight());
@@ -79,7 +79,7 @@ void ExposedParamControl::buildKnobAndAttachment_ForOscShape_ControlForExposedPa
 void ExposedParamControl::buildKnobAndAttachment_ForSeqStep_ControlForExposedParam() {
 	auto paramID{ exposedParams->info->IDfor(paramIndex).toString()};
 	auto trackNum{ paramID.fromFirstOccurrenceOf("Track_", false, false).upToFirstOccurrenceOf("_Step", false, false).getIntValue() };
-	knobAndAttachment_ForSeqStep.reset(new KnobAndAttachment_ForSeqStep(paramIndex, Track{ trackNum }, exposedParams, unexposedParams));
+	knobAndAttachment_ForSeqStep.reset(new KnobAndAttachment_ForSeqStep(paramIndex, Track{ trackNum }, exposedParams, tooltips));
 	if (knobAndAttachment_ForSeqStep != nullptr) {
 		addAndMakeVisible(knobAndAttachment_ForSeqStep.get());
 		setSize(knobAndAttachment_ForSeqStep->getWidth(), knobAndAttachment_ForSeqStep->getHeight());
@@ -88,7 +88,7 @@ void ExposedParamControl::buildKnobAndAttachment_ForSeqStep_ControlForExposedPar
 }
 
 void ExposedParamControl::buildKnobAndAttachment_ForVoiceNameChar_ControlForExposedParam() {
-	knobAndAttachment_ForVoiceNameChar.reset(new KnobAndAttachment_ForVoiceNameChar(paramIndex, exposedParams, unexposedParams));
+	knobAndAttachment_ForVoiceNameChar.reset(new KnobAndAttachment_ForVoiceNameChar(paramIndex, exposedParams, tooltips));
 	if (knobAndAttachment_ForVoiceNameChar != nullptr) {
 		addAndMakeVisible(knobAndAttachment_ForVoiceNameChar.get());
 		setSize(knobAndAttachment_ForVoiceNameChar->getWidth(), knobAndAttachment_ForVoiceNameChar->getHeight());
@@ -97,7 +97,7 @@ void ExposedParamControl::buildKnobAndAttachment_ForVoiceNameChar_ControlForExpo
 }
 
 void ExposedParamControl::buildToggleButtonAndAttachmentControlForExposedParam() {
-	toggleButtonAndAttachment.reset(new ToggleButtonAndAttachment(paramIndex, exposedParams, unexposedParams));
+	toggleButtonAndAttachment.reset(new ToggleButtonAndAttachment(paramIndex, exposedParams, tooltips));
 	if (toggleButtonAndAttachment != nullptr) {
 		addAndMakeVisible(toggleButtonAndAttachment.get());
 		setSize(toggleButtonAndAttachment->getWidth(), toggleButtonAndAttachment->getHeight());
@@ -106,7 +106,7 @@ void ExposedParamControl::buildToggleButtonAndAttachmentControlForExposedParam()
 }
 
 void ExposedParamControl::buildComboBoxAndAttachmentControlForExposedParam() {
-	comboBoxAndAttachment.reset(new ComboBoxAndAttachment(paramIndex, exposedParams, unexposedParams));
+	comboBoxAndAttachment.reset(new ComboBoxAndAttachment(paramIndex, exposedParams, tooltips));
 	if (comboBoxAndAttachment != nullptr) {
 		addAndMakeVisible(comboBoxAndAttachment.get());
 		setSize(comboBoxAndAttachment->getWidth(), comboBoxAndAttachment->getHeight());

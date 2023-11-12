@@ -5,7 +5,6 @@
 class ExposedParameters;
 class InfoForExposedParameters;
 class TooltipsOptions;
-class UnexposedParameters;
 
 class TooltipUpdaterForExposedParamControl :
 	public Value::Listener
@@ -21,7 +20,7 @@ class TooltipUpdaterForExposedParamControl :
 public:
 	TooltipUpdaterForExposedParamControl() = delete;
 
-	TooltipUpdaterForExposedParamControl(const uint8 paramIndex, SettableTooltipClient& clientComponent, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	TooltipUpdaterForExposedParamControl(const uint8 paramIndex, SettableTooltipClient& clientComponent, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 
 private:
 	void updateTooltip();

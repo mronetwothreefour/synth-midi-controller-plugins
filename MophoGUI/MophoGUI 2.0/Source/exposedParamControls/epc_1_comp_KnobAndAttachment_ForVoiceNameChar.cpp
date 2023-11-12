@@ -10,12 +10,12 @@
 using namespace MophoConstants;
 
 KnobAndAttachment_ForVoiceNameChar::KnobAndAttachment_ForVoiceNameChar(
-	const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	const uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
 	knob{ &exposedParams->undoManager },
-	tooltipUpdater{ paramIndex, knob, exposedParams, unexposedParams }
+	tooltipUpdater{ paramIndex, knob, exposedParams, tooltips }
 {
 	addAndMakeVisible(knob);
 	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));

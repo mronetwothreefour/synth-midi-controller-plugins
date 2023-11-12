@@ -4,7 +4,6 @@
 
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
 #include "../exposedParamControls/epc_3_vector_ExposedParamControlsServer.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 class GUI_Layer_ExposedParamControls :
 	public Component,
@@ -13,8 +12,8 @@ class GUI_Layer_ExposedParamControls :
 public:
 	GUI_Layer_ExposedParamControls() = delete;
 
-	GUI_Layer_ExposedParamControls(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
-		ExposedParamControlsServer{ exposedParams, unexposedParams }
+	GUI_Layer_ExposedParamControls(ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
+		ExposedParamControlsServer{ exposedParams, tooltips }
 	{
 		rebuildControlsVector();
 		for (uint8 paramIndex = 0; paramIndex != paramIndexOutOfRange(); ++paramIndex) {

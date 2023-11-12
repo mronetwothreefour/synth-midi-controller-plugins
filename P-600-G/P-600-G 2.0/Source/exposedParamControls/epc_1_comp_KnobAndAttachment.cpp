@@ -5,17 +5,16 @@
 #include "../constants/constants_GUI_FontsAndSpecialCharacters.h"
 #include "../constants/constants_Identifiers.h"
 #include "../exposedParameters/ep_3_facade_ExposedParameters.h"
-#include "../unexposedParameters/up_1_facade_UnexposedParameters.h"
 
 using namespace P_600_G_Constants;
 
-KnobAndAttachment::KnobAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+KnobAndAttachment::KnobAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
 	knob{ &exposedParams->undoManager },
-	textEditor{ paramIndex, exposedParams, unexposedParams->getTooltipsOptions() },
-	tooltipUpdater{ paramIndex, knob, exposedParams, unexposedParams }
+	textEditor{ paramIndex, exposedParams, tooltips },
+	tooltipUpdater{ paramIndex, knob, exposedParams, tooltips }
 {
 	knob.addMouseListener(this, false);
 	knob.setMouseDragSensitivity(info->mouseDragSensitivityFor(paramIndex));

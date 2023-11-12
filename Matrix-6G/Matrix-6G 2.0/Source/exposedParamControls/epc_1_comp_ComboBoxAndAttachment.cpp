@@ -8,11 +8,11 @@
 
 using namespace Matrix_6G_Constants;
 
-ComboBoxAndAttachment::ComboBoxAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+ComboBoxAndAttachment::ComboBoxAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
-	tooltipUpdater{ paramIndex, comboBox, exposedParams, unexposedParams },
+	tooltipUpdater{ paramIndex, comboBox, exposedParams, tooltips },
 	comboBox_w{ info->widthFor(paramIndex) }
 {
 	auto choiceNamesList{ info->choiceNamesListFor(paramIndex) };

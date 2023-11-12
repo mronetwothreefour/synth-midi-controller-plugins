@@ -5,12 +5,12 @@
 
 using namespace P_600_G_Constants;
 
-SwitchSliderAndAttachment::SwitchSliderAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+SwitchSliderAndAttachment::SwitchSliderAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
 	switchSlider{ &exposedParams->undoManager },
-	tooltipUpdater{ paramIndex, switchSlider, exposedParams, unexposedParams }
+	tooltipUpdater{ paramIndex, switchSlider, exposedParams, tooltips }
 {
 	addAndMakeVisible(switchSlider);
 	auto controlType{ info->controlTypeFor(paramIndex) };

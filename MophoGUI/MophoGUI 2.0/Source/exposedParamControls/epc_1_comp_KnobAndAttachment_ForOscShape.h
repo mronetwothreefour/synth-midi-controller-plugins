@@ -24,7 +24,7 @@ class KnobAndAttachment_ForOscShape :
 public:
 	KnobAndAttachment_ForOscShape() = delete;
 
-	KnobAndAttachment_ForOscShape(const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	KnobAndAttachment_ForOscShape(const uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void paint(Graphics& g) override;
 	void paintText(Graphics& g, String text);
 	void paintSawtooth(Graphics& g, Path path);

@@ -21,7 +21,7 @@ class SliderAndAttachment_ForOscBalance :
 public:
 	SliderAndAttachment_ForOscBalance() = delete;
 
-	SliderAndAttachment_ForOscBalance(ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	SliderAndAttachment_ForOscBalance(ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void mouseDoubleClick(const MouseEvent& event) override;
 	void attachSliderToExposedParameter();
 	void deleteAttachmentBeforeSliderToPreventMemLeak();

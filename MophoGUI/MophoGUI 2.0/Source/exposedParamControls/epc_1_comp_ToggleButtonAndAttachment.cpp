@@ -7,11 +7,11 @@
 using namespace MophoConstants;
 
 ToggleButtonAndAttachment::ToggleButtonAndAttachment(
-	const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams) :
+	const uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips) :
 	paramIndex{ paramIndex },
 	state{ exposedParams->state.get() },
 	info{ exposedParams->info.get() },
-	tooltipUpdater{ paramIndex, redToggle, exposedParams, unexposedParams }
+	tooltipUpdater{ paramIndex, redToggle, exposedParams, tooltips }
 {
 	setInterceptsMouseClicks(true, false);
 

@@ -19,7 +19,7 @@ PluginEditor::PluginEditor (PluginProcessor& processor, ExposedParameters* expos
     processor{ processor },
     layer_EnvelopePainters{ new GUI_Layer_EnvelopePainters{ exposedParams } },
     layer_TrackingGraphPainter{ new GUI_Layer_TrackingGraphPainter{ exposedParams } },
-    layer_ExposedParamControls{ new GUI_Layer_ExposedParamControls{ exposedParams, unexposedParams } },
+    layer_ExposedParamControls{ new GUI_Layer_ExposedParamControls{ exposedParams, unexposedParams->getTooltipsOptions() } },
     layer_MatrixMod{ new GUI_Layer_MatrixMod{ exposedParams, unexposedParams->getTooltipsOptions() } },
     layer_CurrentVoiceNameAndNumber{ new GUI_Layer_CurrentVoiceNameAndNumber{ exposedParams, unexposedParams->getTooltipsOptions()}},
     layer_MainWindowButtons{ new GUI_Layer_MainWindowButtons{ exposedParams, unexposedParams } },

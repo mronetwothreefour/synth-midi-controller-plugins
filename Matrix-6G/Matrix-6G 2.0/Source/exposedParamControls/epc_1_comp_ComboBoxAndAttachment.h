@@ -21,7 +21,7 @@ protected:
 public:
 	ComboBoxAndAttachment() = delete;
 
-	ComboBoxAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, UnexposedParameters* unexposedParams);
+	ComboBoxAndAttachment(const uint8 paramIndex, ExposedParameters* exposedParams, TooltipsOptions* tooltips);
 	void attachComboBoxToExposedParameter();
 	void deleteAttachmentBeforeComboBoxToPreventMemLeak();
 
