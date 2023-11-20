@@ -28,7 +28,7 @@ ExposedParamControl::ExposedParamControl(
 }
 
 void ExposedParamControl::buildKnobAndAttachmentControlForExposedParam() {
-	knobAndAttachment.reset(new KnobAndAttachment(paramIndex, exposedParams, tooltips));
+	knobAndAttachment.reset(new KnobAndAttachment{ paramIndex, exposedParams, tooltips });
 	if (knobAndAttachment != nullptr) {
 		addAndMakeVisible(knobAndAttachment.get());
 		setSize(knobAndAttachment->getWidth(), knobAndAttachment->getHeight());
@@ -41,7 +41,7 @@ void ExposedParamControl::buildKnobAndAttachmentControlForExposedParam() {
 }
 
 void ExposedParamControl::buildSwitchSliderAndAttachmentControlForExposedParam() {
-	switchSliderAndAttachment.reset(new SwitchSliderAndAttachment(paramIndex, exposedParams, tooltips));
+	switchSliderAndAttachment.reset(new SwitchSliderAndAttachment{ paramIndex, exposedParams, tooltips });
 	if (switchSliderAndAttachment != nullptr) {
 		addAndMakeVisible(switchSliderAndAttachment.get());
 		setSize(switchSliderAndAttachment->getWidth(), switchSliderAndAttachment->getHeight());
