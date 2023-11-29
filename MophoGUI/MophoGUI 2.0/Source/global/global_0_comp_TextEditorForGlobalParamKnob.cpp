@@ -19,7 +19,7 @@ TextEditorForGlobalParamKnob::TextEditorForGlobalParamKnob(KnobType knobType, Un
 	{
 	case KnobType::globalTranspose:
 		globalParamAsValue = globalOptions->getGobalParamAsValue(ID::global_Transpose);
-		textEditor.onEditorShow = [this, globalOptions, tooltips] {
+		textEditor.onEditorShow = [this, tooltips] {
 			auto editor{ textEditor.getCurrentTextEditor() };
 			editor->setInputRestrictions(3, "-0123456789");
 			if (tooltips->shouldShowDescription())
@@ -35,11 +35,13 @@ TextEditorForGlobalParamKnob::TextEditorForGlobalParamKnob(KnobType knobType, Un
 					newSetting = 12;
 				globalOptions->setGlobalTranspose(uint8(newSetting + 12));
 			}
+			else
+				setEditorTextUsingStoredValue();
 		};
 		break;
 	case KnobType::globalFineTune:
 		globalParamAsValue = globalOptions->getGobalParamAsValue(ID::global_FineTune);
-		textEditor.onEditorShow = [this, globalOptions, tooltips] {
+		textEditor.onEditorShow = [this, tooltips] {
 			auto editor{ textEditor.getCurrentTextEditor() };
 			editor->setInputRestrictions(3, "-0123456789");
 			if (tooltips->shouldShowDescription())
@@ -55,11 +57,13 @@ TextEditorForGlobalParamKnob::TextEditorForGlobalParamKnob(KnobType knobType, Un
 					newSetting = 50;
 				globalOptions->setGlobalFineTune(uint8(newSetting + 50));
 			}
+			else
+				setEditorTextUsingStoredValue();
 		};
 		break;
 	case KnobType::hardwareReceiveChannel:
 		globalParamAsValue = globalOptions->getGobalParamAsValue(ID::global_HardwareReceiveChannel);
-		textEditor.onEditorShow = [this, globalOptions, tooltips] {
+		textEditor.onEditorShow = [this, tooltips] {
 			auto editor{ textEditor.getCurrentTextEditor() };
 			editor->setInputRestrictions(3, "alAL0123456789");
 			auto oq{ GUI::openQuote };
@@ -79,6 +83,8 @@ TextEditorForGlobalParamKnob::TextEditorForGlobalParamKnob(KnobType knobType, Un
 					globalOptions->setHardwareReceiveChannel(newSetting);
 				}
 			}
+			else
+				setEditorTextUsingStoredValue();
 		};
 		break;
 	default:
