@@ -21,7 +21,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_OmniModeIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->omniModeIsEnabled(), dontSendNotification);
-		onChange = [this, global, unexposedParams] {
+		onChange = [this, global] {
 			auto currentChoice{ getSelectedItemIndex() };
 			auto shouldBeEnabled{ currentChoice == 1 };
 			global->setOmniModeIsEnabled(shouldBeEnabled ? true : false);
@@ -31,7 +31,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_ControllersAreEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->controllersAreEnabled(), dontSendNotification);
-		onChange = [this, global, unexposedParams] {
+		onChange = [this, global] {
 			auto currentChoice{ getSelectedItemIndex() };
 			auto shouldBeEnabled{ currentChoice == 1 };
 			global->setControllersAreEnabled(shouldBeEnabled ? true : false);
@@ -41,7 +41,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_VoiceChangesAreEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->voiceChangesAreEnabled(), dontSendNotification);
-		onChange = [this, global, unexposedParams] {
+		onChange = [this, global] {
 			auto currentChoice{ getSelectedItemIndex() };
 			auto shouldBeEnabled{ currentChoice == 1 };
 			global->setVoiceChangesAreEnabled(shouldBeEnabled ? true : false);
@@ -51,7 +51,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_SysExIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->sysExIsEnabled(), dontSendNotification);
-		onChange = [this, global, unexposedParams] {
+		onChange = [this, global] {
 			auto currentChoice{ getSelectedItemIndex() };
 			auto shouldBeEnabled{ currentChoice == 1 };
 			global->setSysExIsEnabled(shouldBeEnabled ? true : false);
@@ -61,7 +61,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_SpilloverIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->spilloverIsEnabled(), dontSendNotification);
-		onChange = [this, global, unexposedParams] {
+		onChange = [this, global] {
 			auto currentChoice{ getSelectedItemIndex() };
 			auto shouldBeEnabled{ currentChoice == 1 };
 			global->setSpilloverIsEnabled(shouldBeEnabled ? true : false);
@@ -71,7 +71,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_MIDI_EchoIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->midiEchoIsEnabled(), dontSendNotification);
-		onChange = [this, global, unexposedParams] {
+		onChange = [this, global] {
 			auto currentChoice{ getSelectedItemIndex() };
 			auto shouldBeEnabled{ currentChoice == 1 };
 			global->set_MIDI_EchoIsEnabled(shouldBeEnabled ? true : false);
@@ -81,7 +81,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_MIDI_MonoIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->midiMonoIsEnabled(), dontSendNotification);
-		onChange = [this, global, unexposedParams] {
+		onChange = [this, global] {
 			auto currentChoice{ getSelectedItemIndex() };
 			auto shouldBeEnabled{ currentChoice == 1 };
 			global->set_MIDI_MonoIsEnabled(shouldBeEnabled ? true : false);
@@ -91,7 +91,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_ActiveSensingIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->activeSensingIsEnabled(), dontSendNotification);
-		onChange = [this, global, unexposedParams] {
+		onChange = [this, global] {
 			auto currentChoice{ getSelectedItemIndex() };
 			auto shouldBeEnabled{ currentChoice == 1 };
 			global->setActiveSensingIsEnabled(shouldBeEnabled ? true : false);
@@ -101,7 +101,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_LocalControIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->localControlIsEnabled(), dontSendNotification);
-		onChange = [this, global, unexposedParams] {
+		onChange = [this, global] {
 			auto currentChoice{ getSelectedItemIndex() };
 			auto shouldBeEnabled{ currentChoice == 1 };
 			global->setLocalControIsEnabled(shouldBeEnabled ? true : false);
@@ -111,7 +111,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_VibratoWaveType);
 		addItemList(choiceNamesList_VibratoWaveType(), 1);
 		setSelectedItemIndex((int)global->vibratoWaveType(), dontSendNotification);
-		onChange = [this, global, unexposedParams] {
+		onChange = [this, global] {
 			auto currentChoice{ getSelectedItemIndex() };
 			global->setVibratoWaveType(VibratoWaveType{ currentChoice });
 		};
@@ -121,7 +121,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_VibratoSpeedModSource);
 		addItemList(choiceNamesList_VibratoModSource(), 1);
 		setSelectedItemIndex((int)global->vibratoSpeedModSource(), dontSendNotification);
-		onChange = [this, global, unexposedParams] {
+		onChange = [this, global] {
 			auto currentChoice{ getSelectedItemIndex() };
 			global->setVibratoSpeedModSource(VibratoModSource{ currentChoice });
 		};
@@ -131,7 +131,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_VibratoAmpModSource);
 		addItemList(choiceNamesList_VibratoModSource(), 1);
 		setSelectedItemIndex((int)global->vibratoAmpModSource(), dontSendNotification);
-		onChange = [this, global, unexposedParams] {
+		onChange = [this, global] {
 			auto currentChoice{ getSelectedItemIndex() };
 			global->setVibratoAmpModSource(VibratoModSource{ currentChoice });
 		};
@@ -141,7 +141,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_SplitStereoIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->splitStereoIsEnabled(), dontSendNotification);
-		onChange = [this, global, unexposedParams] {
+		onChange = [this, global] {
 			auto currentChoice{ getSelectedItemIndex() };
 			auto shouldBeEnabled{ currentChoice == 1 };
 			global->setSplitStereoIsEnabled(shouldBeEnabled ? true : false);
@@ -152,7 +152,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_VoiceMapIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->voiceMapIsEnabled(), dontSendNotification);
-		onChange = [this, global, unexposedParams] {
+		onChange = [this, global] {
 			auto currentChoice{ getSelectedItemIndex() };
 			auto shouldBeEnabled{ currentChoice == 1 };
 			global->setVoiceMapIsEnabled(shouldBeEnabled ? true : false);
@@ -163,7 +163,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_VoiceMapEchoIsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->voiceMapEchoIsEnabled(), dontSendNotification);
-		onChange = [this, global, unexposedParams] {
+		onChange = [this, global] {
 			auto currentChoice{ getSelectedItemIndex() };
 			auto shouldBeEnabled{ currentChoice == 1 };
 			global->setVoiceMapEchoIsEnabled(shouldBeEnabled ? true : false);
@@ -174,7 +174,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 		globalParamAsValue = global->getGobalParamAsValue(ID::global_SQUICK_IsEnabled);
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)global->squickIsEnabled(), dontSendNotification);
-		onChange = [this, global, unexposedParams] {
+		onChange = [this, global] {
 			auto currentChoice{ getSelectedItemIndex() };
 			auto shouldBeEnabled{ currentChoice == 1 };
 			global->set_SQUICK_IsEnabled(shouldBeEnabled ? true : false);
@@ -184,7 +184,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 	case GlobalParamComboBoxType::descriptionTipsOffOn:
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)tooltips->shouldShowDescription(), dontSendNotification);
-		onChange = [this, tooltips, unexposedParams] {
+		onChange = [this, tooltips] {
 			auto currentChoice{ getSelectedItemIndex() };
 			auto shouldShowDescription{ currentChoice == 1 };
 			tooltips->setShouldShowDescription(shouldShowDescription ? true : false);
@@ -194,7 +194,7 @@ ComboBoxForGlobalParameter::ComboBoxForGlobalParameter(GlobalParamComboBoxType c
 	case GlobalParamComboBoxType::currentChoiceTipsOffOn:
 		addItemList(choiceNamesList_OffOn(), 1);
 		setSelectedItemIndex((int)tooltips->shouldShowCurrentChoice(), dontSendNotification);
-		onChange = [this, tooltips, unexposedParams] {
+		onChange = [this, tooltips] {
 			auto currentChoice{ getSelectedItemIndex() };
 			auto shouldShowCurrentChoice{ currentChoice == 1 };
 			tooltips->setShouldShowCurrentChoice(shouldShowCurrentChoice ? true : false);
@@ -305,6 +305,7 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 			tip += Description::buildForCurrentValueTooltip();
 			break;
 		default:
+			tip += "Invalid Parameter";
 			break;
 		}
 	}

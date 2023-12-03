@@ -125,6 +125,7 @@ void ComboBoxForGlobalParameter::updateTooltip() {
 			tip += "Current setting: " + ChoiceName::buildForParamChangeSendType(ParamChangeSendType{ currentChoice });
 		break;
 	default:
+		tip += "Invalid Parameter";
 		break;
 	}
 	setTooltip(tip);
