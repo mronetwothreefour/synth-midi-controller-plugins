@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio Version 17
+
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Matrix-6G 2.0 - VST3", "Matrix-6G 2.vcxproj", "{E014D10B-29CF-A740-5461-9B6B16785E74}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7084373C-2183-AA27-9DC0-685B1A58DB0A} = {7084373C-2183-AA27-9DC0-685B1A58DB0A}
+		{D7077929-76B7-B027-0CC7-059C8C9BF679} = {D7077929-76B7-B027-0CC7-059C8C9BF679}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Matrix-6G 2.0 - Shared Code", "Matrix-6G 2.vcxproj", "{7084373C-2183-AA27-9DC0-685B1A58DB0A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Matrix-6G 2.0 - VST3 Manifest Helper", "Matrix-6G 2.vcxproj", "{D7077929-76B7-B027-0CC7-059C8C9BF679}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E014D10B-29CF-A740-5461-9B6B16785E74}.Debug|x64.ActiveCfg = Debug|x64
+		{E014D10B-29CF-A740-5461-9B6B16785E74}.Debug|x64.Build.0 = Debug|x64
+		{E014D10B-29CF-A740-5461-9B6B16785E74}.Release|x64.ActiveCfg = Release|x64
+		{E014D10B-29CF-A740-5461-9B6B16785E74}.Release|x64.Build.0 = Release|x64
+		{7084373C-2183-AA27-9DC0-685B1A58DB0A}.Debug|x64.ActiveCfg = Debug|x64
+		{7084373C-2183-AA27-9DC0-685B1A58DB0A}.Debug|x64.Build.0 = Debug|x64
+		{7084373C-2183-AA27-9DC0-685B1A58DB0A}.Release|x64.ActiveCfg = Release|x64
+		{7084373C-2183-AA27-9DC0-685B1A58DB0A}.Release|x64.Build.0 = Release|x64
+		{D7077929-76B7-B027-0CC7-059C8C9BF679}.Debug|x64.ActiveCfg = Debug|x64
+		{D7077929-76B7-B027-0CC7-059C8C9BF679}.Debug|x64.Build.0 = Debug|x64
+		{D7077929-76B7-B027-0CC7-059C8C9BF679}.Release|x64.ActiveCfg = Release|x64
+		{D7077929-76B7-B027-0CC7-059C8C9BF679}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

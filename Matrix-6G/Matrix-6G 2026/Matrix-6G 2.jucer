@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="qP09q8" name="Matrix-6G 2026" projectType="audioplug" useAppConfig="1"
+              addUsingNamespaceToJuceHeader="1" jucerFormatVersion="1" pluginFormats="buildVST3"
+              pluginCharacteristicsValue="pluginEditorRequiresKeys,pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
+              version="2.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com"
+              companyEmail="programming@mr1234.com" pluginDesc="Sound editor/librarian for use with the Oberheim Matrix-6R synthesizer"
+              pluginManufacturerCode="TimD" pluginAUMainType="'aumi'" pluginVST3Category="Tools"
+              cppLanguageStandard="20">
+  <MAINGROUP id="F43Kyc" name="Matrix-6G 2026">
+    <GROUP id="{68F6EC30-D555-22DE-B2F4-153CA8D599C1}" name="Source">
+      <FILE id="CxjsoK" name="A_0_Processor.cpp" compile="1" resource="0"
+            file="Source/A_0_Processor.cpp"/>
+      <FILE id="QyMnDh" name="A_0_Processor.h" compile="0" resource="0" file="Source/A_0_Processor.h"/>
+      <FILE id="MCAR8M" name="G_0_Editor.cpp" compile="1" resource="0" file="Source/G_0_Editor.cpp"/>
+      <FILE id="pW6WIY" name="G_0_Editor.h" compile="0" resource="0" file="Source/G_0_Editor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors_headless" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_midi_ci" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2022 targetFolder="Builds/VisualStudio2022">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Matrix-6G 2026 (Debug)"
+                       binaryPath="C:\Users\Public\Documents\VST3 Builds\Debug" defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING"
+                       enableIncrementalLinking="1"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Matrix-6G 2026" binaryPath="C:\Users\Public\Documents\VST3 Builds\VST3\"
+                       defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING" useRuntimeLibDLL="0"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors_headless" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_midi_ci" path="../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2022>
+  </EXPORTFORMATS>
+</JUCERPROJECT>
