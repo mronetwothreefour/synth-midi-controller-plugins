@@ -17,6 +17,10 @@ void Editor::paint(Graphics& g) {
     auto scale_factor{ (float)getWidth() / XYWH::gui_init_w };
     Paint_Path::editor_black(g, scale_factor);
     Paint_Path::editor_blue(g, scale_factor);
+    Paint_Path::editor_grey(g, scale_factor);
+    Paint_Path::editor_light_grey(g, scale_factor);
+    Paint_Path::editor_orange(g, scale_factor);
+    Paint_Path::editor_red(g, scale_factor);
 }
 
 void Editor::resized() {
