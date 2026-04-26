@@ -22,7 +22,11 @@
         <FILE id="RldXHe" name="G_0_Editor.cpp" compile="1" resource="0" file="Source/gui/G_0_Editor.cpp"/>
         <FILE id="vRFzFP" name="G_0_Editor.h" compile="0" resource="0" file="Source/gui/G_0_Editor.h"/>
       </GROUP>
-      <GROUP id="{7327B662-1644-43A7-5CC7-9773814A64CD}" name="helpers"/>
+      <GROUP id="{7327B662-1644-43A7-5CC7-9773814A64CD}" name="helpers">
+        <FILE id="mI0nD9" name="H_Paint_Path.cpp" compile="1" resource="0"
+              file="Source/helpers/H_Paint_Path.cpp"/>
+        <FILE id="WsVEIw" name="H_Paint_Path.h" compile="0" resource="0" file="Source/helpers/H_Paint_Path.h"/>
+      </GROUP>
       <GROUP id="{624DA82D-0A93-2A89-9B22-F69890F563C2}" name="midi"/>
     </GROUP>
   </MAINGROUP>
