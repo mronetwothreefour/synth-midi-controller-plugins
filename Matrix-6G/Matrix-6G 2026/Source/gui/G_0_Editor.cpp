@@ -1,20 +1,17 @@
-#include "A_0_Processor.h"
-
 #include "G_0_Editor.h"
 
 Editor::Editor(Processor& processor) :
     AudioProcessorEditor{ &processor },
     processor{ processor }
 {
-    setSize(400, 300);
+    setResizable(true, true);
+    setSize(XYWH::gui_init_w, XYWH::gui_init_h);
+    getConstrainer()->setFixedAspectRatio(XYWH::gui_aspect_ratio);
     Timer::callAfterDelay(50, [this] { grabKeyboardFocus(); });
 }
 
 void Editor::paint(Graphics& g) {
-    g.fillAll(getLookAndFeel().findColour (ResizableWindow::backgroundColourId));
-    g.setColour(Colours::white);
-    g.setFont(FontOptions (15.0f));
-    g.drawFittedText("Hello World!", getLocalBounds(), Justification::centred, 1);
+    g.fillAll(COLOR::background);
 }
 
 void Editor::resized() {

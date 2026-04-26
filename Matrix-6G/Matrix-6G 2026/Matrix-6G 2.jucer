@@ -9,11 +9,21 @@
               cppLanguageStandard="20">
   <MAINGROUP id="F43Kyc" name="Matrix-6G 2026">
     <GROUP id="{68F6EC30-D555-22DE-B2F4-153CA8D599C1}" name="Source">
-      <FILE id="CxjsoK" name="A_0_Processor.cpp" compile="1" resource="0"
-            file="Source/A_0_Processor.cpp"/>
-      <FILE id="QyMnDh" name="A_0_Processor.h" compile="0" resource="0" file="Source/A_0_Processor.h"/>
-      <FILE id="MCAR8M" name="G_0_Editor.cpp" compile="1" resource="0" file="Source/G_0_Editor.cpp"/>
-      <FILE id="pW6WIY" name="G_0_Editor.h" compile="0" resource="0" file="Source/G_0_Editor.h"/>
+      <GROUP id="{9EA4D472-F93A-EFB9-4E5A-056C69A708FC}" name="audio">
+        <FILE id="xfR64p" name="A_0_Processor.cpp" compile="1" resource="0"
+              file="Source/audio/A_0_Processor.cpp"/>
+        <FILE id="EBnJA6" name="A_0_Processor.h" compile="0" resource="0" file="Source/audio/A_0_Processor.h"/>
+      </GROUP>
+      <GROUP id="{61413DA9-F8D5-3B19-66D5-C470B7229C50}" name="constants">
+        <FILE id="mJ8U7w" name="C_COLOR.h" compile="0" resource="0" file="Source/constants/C_COLOR.h"/>
+        <FILE id="hKVwG0" name="C_XYWH.h" compile="0" resource="0" file="Source/constants/C_XYWH.h"/>
+      </GROUP>
+      <GROUP id="{893D5EA5-28A6-8EA7-278F-088A844CE155}" name="gui">
+        <FILE id="RldXHe" name="G_0_Editor.cpp" compile="1" resource="0" file="Source/gui/G_0_Editor.cpp"/>
+        <FILE id="vRFzFP" name="G_0_Editor.h" compile="0" resource="0" file="Source/gui/G_0_Editor.h"/>
+      </GROUP>
+      <GROUP id="{7327B662-1644-43A7-5CC7-9773814A64CD}" name="helpers"/>
+      <GROUP id="{624DA82D-0A93-2A89-9B22-F69890F563C2}" name="midi"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
@@ -40,9 +50,10 @@
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="Matrix-6G 2026 (Debug)"
                        binaryPath="C:\Users\Public\Documents\VST3 Builds\Debug" defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING"
-                       enableIncrementalLinking="1"/>
+                       enableIncrementalLinking="1" headerPath="C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\audio&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\constants&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\gui&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\helpers&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\midi&#10;"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="Matrix-6G 2026" binaryPath="C:\Users\Public\Documents\VST3 Builds\VST3\"
-                       defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING" useRuntimeLibDLL="0"/>
+                       defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING" useRuntimeLibDLL="0"
+                       headerPath="C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\audio&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\constants&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\gui&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\helpers&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\midi"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>

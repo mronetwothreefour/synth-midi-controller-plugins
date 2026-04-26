@@ -2,6 +2,15 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Matrix-6G 2026\Source\audio">
+      <UniqueIdentifier>{4F14F6D0-BA5E-C977-2191-B7CC8585B5DD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matrix-6G 2026\Source\constants">
+      <UniqueIdentifier>{2DF23CEA-F8F3-D53B-4F52-C02F098BB2C9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matrix-6G 2026\Source\gui">
+      <UniqueIdentifier>{2E3BE27B-F217-A8C0-B1DF-B6EF2D2974ED}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Matrix-6G 2026\Source">
       <UniqueIdentifier>{7E526C83-4F05-96FC-9D3B-6B078F123B52}</UniqueIdentifier>
     </Filter>
@@ -688,11 +697,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\A_0_Processor.cpp">
-      <Filter>Matrix-6G 2026\Source</Filter>
+    <ClCompile Include="..\..\Source\audio\A_0_Processor.cpp">
+      <Filter>Matrix-6G 2026\Source\audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\G_0_Editor.cpp">
-      <Filter>Matrix-6G 2026\Source</Filter>
+    <ClCompile Include="..\..\Source\gui\G_0_Editor.cpp">
+      <Filter>Matrix-6G 2026\Source\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -3657,11 +3666,17 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\A_0_Processor.h">
-      <Filter>Matrix-6G 2026\Source</Filter>
+    <ClInclude Include="..\..\Source\audio\A_0_Processor.h">
+      <Filter>Matrix-6G 2026\Source\audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\G_0_Editor.h">
-      <Filter>Matrix-6G 2026\Source</Filter>
+    <ClInclude Include="..\..\Source\constants\C_COLOR.h">
+      <Filter>Matrix-6G 2026\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\constants\C_XYWH.h">
+      <Filter>Matrix-6G 2026\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\G_0_Editor.h">
+      <Filter>Matrix-6G 2026\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
