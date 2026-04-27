@@ -16,6 +16,7 @@ public: Editor(Processor& processor);
 
 public: void paint(Graphics& g) override;
 public: void resized() override;
+public: void modifierKeysChanged(const ModifierKeys& mods) override;
 public: ~Editor() override;
 
 //==============================================================================

@@ -706,7 +706,7 @@
     <ClCompile Include="..\..\Source\gui\G_0_Editor.cpp">
       <Filter>Matrix-6G 2026\Source\gui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\helpers\H_Paint_Path.cpp">
+    <ClCompile Include="..\..\Source\helpers\H_Paths_For_Editor.cpp">
       <Filter>Matrix-6G 2026\Source\helpers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -3684,7 +3684,10 @@
     <ClInclude Include="..\..\Source\gui\G_0_Editor.h">
       <Filter>Matrix-6G 2026\Source\gui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\helpers\H_Paint_Path.h">
+    <ClInclude Include="..\..\Source\helpers\H_Path_From_Data.h">
+      <Filter>Matrix-6G 2026\Source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\helpers\H_Paths_For_Editor.h">
       <Filter>Matrix-6G 2026\Source\helpers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
