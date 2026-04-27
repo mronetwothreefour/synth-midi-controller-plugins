@@ -2935,6 +2935,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\audio\A_0_Processor.h"/>
     <ClInclude Include="..\..\Source\constants\C_COLOR.h"/>
+    <ClInclude Include="..\..\Source\constants\C_ID.h"/>
     <ClInclude Include="..\..\Source\constants\C_XYWH.h"/>
     <ClInclude Include="..\..\Source\gui\G_0_Editor.h"/>
     <ClInclude Include="..\..\Source\helpers\H_Path_From_Data.h"/>

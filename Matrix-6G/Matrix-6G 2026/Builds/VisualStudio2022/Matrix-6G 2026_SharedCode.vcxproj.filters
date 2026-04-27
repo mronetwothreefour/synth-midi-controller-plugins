@@ -3678,6 +3678,9 @@
     <ClInclude Include="..\..\Source\constants\C_COLOR.h">
       <Filter>Matrix-6G 2026\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\C_ID.h">
+      <Filter>Matrix-6G 2026\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\C_XYWH.h">
       <Filter>Matrix-6G 2026\Source\constants</Filter>
     </ClInclude>

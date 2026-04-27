@@ -16,6 +16,7 @@
       </GROUP>
       <GROUP id="{61413DA9-F8D5-3B19-66D5-C470B7229C50}" name="constants">
         <FILE id="mJ8U7w" name="C_COLOR.h" compile="0" resource="0" file="Source/constants/C_COLOR.h"/>
+        <FILE id="owd745" name="C_ID.h" compile="0" resource="0" file="Source/constants/C_ID.h"/>
         <FILE id="hKVwG0" name="C_XYWH.h" compile="0" resource="0" file="Source/constants/C_XYWH.h"/>
       </GROUP>
       <GROUP id="{893D5EA5-28A6-8EA7-278F-088A844CE155}" name="gui">
