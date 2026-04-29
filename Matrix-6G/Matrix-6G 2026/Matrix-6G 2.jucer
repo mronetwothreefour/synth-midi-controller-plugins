@@ -17,20 +17,18 @@
       <GROUP id="{61413DA9-F8D5-3B19-66D5-C470B7229C50}" name="constants">
         <FILE id="mJ8U7w" name="C_COLOR.h" compile="0" resource="0" file="Source/constants/C_COLOR.h"/>
         <FILE id="owd745" name="C_ID.h" compile="0" resource="0" file="Source/constants/C_ID.h"/>
+        <FILE id="ANJ4ul" name="C_PATH_Editor_Background.h" compile="0" resource="0"
+              file="Source/constants/C_PATH_Editor_Background.h"/>
         <FILE id="hKVwG0" name="C_XYWH.h" compile="0" resource="0" file="Source/constants/C_XYWH.h"/>
       </GROUP>
       <GROUP id="{893D5EA5-28A6-8EA7-278F-088A844CE155}" name="gui">
         <FILE id="RldXHe" name="G_0_Editor.cpp" compile="1" resource="0" file="Source/gui/G_0_Editor.cpp"/>
         <FILE id="vRFzFP" name="G_0_Editor.h" compile="0" resource="0" file="Source/gui/G_0_Editor.h"/>
+        <FILE id="sBZ7Jd" name="G_Paint_Paths.cpp" compile="1" resource="0"
+              file="Source/gui/G_Paint_Paths.cpp"/>
+        <FILE id="JC5fLR" name="G_Paint_Paths.h" compile="0" resource="0" file="Source/gui/G_Paint_Paths.h"/>
       </GROUP>
-      <GROUP id="{7327B662-1644-43A7-5CC7-9773814A64CD}" name="helpers">
-        <FILE id="IwHv8l" name="H_Path_From_Data.h" compile="0" resource="0"
-              file="Source/helpers/H_Path_From_Data.h"/>
-        <FILE id="mI0nD9" name="H_Paths_For_Editor.cpp" compile="1" resource="0"
-              file="Source/helpers/H_Paths_For_Editor.cpp"/>
-        <FILE id="WsVEIw" name="H_Paths_For_Editor.h" compile="0" resource="0"
-              file="Source/helpers/H_Paths_For_Editor.h"/>
-      </GROUP>
+      <GROUP id="{7327B662-1644-43A7-5CC7-9773814A64CD}" name="helpers"/>
       <GROUP id="{624DA82D-0A93-2A89-9B22-F69890F563C2}" name="midi"/>
     </GROUP>
   </MAINGROUP>

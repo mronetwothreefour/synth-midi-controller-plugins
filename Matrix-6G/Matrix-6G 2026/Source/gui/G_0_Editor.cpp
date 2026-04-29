@@ -1,6 +1,6 @@
 #include "G_0_Editor.h"
 
-#include "H_Paths_For_Editor.h"
+#include "G_Paint_Paths.h"
 
 Editor::Editor(Processor& processor) :
     AudioProcessorEditor{ &processor },
@@ -14,9 +14,8 @@ Editor::Editor(Processor& processor) :
 }
 
 void Editor::paint(Graphics& g) {
-    g.fillAll(COLOR::background);
     auto scale_factor{ (float)getWidth() / XYWH::gui_init_w };
-    Paths_For_Editor::paint(g, scale_factor);
+    Paint_Paths::editor_background(g, scale_factor);
 }
 
 void Editor::resized() {

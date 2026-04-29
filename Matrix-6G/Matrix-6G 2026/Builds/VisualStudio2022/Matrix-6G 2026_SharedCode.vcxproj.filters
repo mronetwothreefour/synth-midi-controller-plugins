@@ -11,9 +11,6 @@
     <Filter Include="Matrix-6G 2026\Source\gui">
       <UniqueIdentifier>{2E3BE27B-F217-A8C0-B1DF-B6EF2D2974ED}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Matrix-6G 2026\Source\helpers">
-      <UniqueIdentifier>{F2BFEC0F-56D6-650C-F17A-8DF7A083B469}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Matrix-6G 2026\Source">
       <UniqueIdentifier>{7E526C83-4F05-96FC-9D3B-6B078F123B52}</UniqueIdentifier>
     </Filter>
@@ -706,8 +703,8 @@
     <ClCompile Include="..\..\Source\gui\G_0_Editor.cpp">
       <Filter>Matrix-6G 2026\Source\gui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\helpers\H_Paths_For_Editor.cpp">
-      <Filter>Matrix-6G 2026\Source\helpers</Filter>
+    <ClCompile Include="..\..\Source\gui\G_Paint_Paths.cpp">
+      <Filter>Matrix-6G 2026\Source\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -3681,17 +3678,17 @@
     <ClInclude Include="..\..\Source\constants\C_ID.h">
       <Filter>Matrix-6G 2026\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\C_PATH_Editor_Background.h">
+      <Filter>Matrix-6G 2026\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\C_XYWH.h">
       <Filter>Matrix-6G 2026\Source\constants</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\G_0_Editor.h">
       <Filter>Matrix-6G 2026\Source\gui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\helpers\H_Path_From_Data.h">
-      <Filter>Matrix-6G 2026\Source\helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\helpers\H_Paths_For_Editor.h">
-      <Filter>Matrix-6G 2026\Source\helpers</Filter>
+    <ClInclude Include="..\..\Source\gui\G_Paint_Paths.h">
+      <Filter>Matrix-6G 2026\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
