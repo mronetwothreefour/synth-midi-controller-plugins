@@ -14,7 +14,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E014D10B-29CF-A740-5461-9B6B16785E74}</ProjectGuid>
+    <ProjectGuid>{438787E7-FB18-E475-BF05-9C1D2220C968}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"
@@ -44,18 +44,18 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <TargetExt>.dll</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Public\Documents\VST3 Builds\Debug\Matrix-6G 2026\VST3\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Public\Documents\VST3 Builds\Debug\MophoGUI 2026\VST3\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\VST3\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Matrix-6G 2026 (Debug)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MophoGUI 2026 (Debug)</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(LibraryPath);C:\Users\Public\Documents\VST3 Builds\Debug\Matrix-6G 2026\Shared Code</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(LibraryPath);C:\Users\Public\Documents\VST3 Builds\Debug\MophoGUI 2026\Shared Code</LibraryPath>
     <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</PreBuildEventUseInBuild>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</PostBuildEventUseInBuild>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Public\Documents\VST3 Builds\Release\Matrix-6G 2026\VST3\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Public\Documents\VST3 Builds\Release\MophoGUI 2026\VST3\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\VST3\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Matrix-6G 2026</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MophoGUI 2026</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(LibraryPath);C:\Users\Public\Documents\VST3 Builds\Release\Matrix-6G 2026\Shared Code</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(LibraryPath);C:\Users\Public\Documents\VST3 Builds\Release\MophoGUI 2026\Shared Code</LibraryPath>
     <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</PreBuildEventUseInBuild>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</PostBuildEventUseInBuild>
   </PropertyGroup>
@@ -70,60 +70,60 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\Matrix-6G 2026 (Debug).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)\MophoGUI 2026 (Debug).pdb</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\Matrix-6G 2026 (Debug).dll</OutputFile>
+      <OutputFile>$(OutDir)\MophoGUI 2026 (Debug).dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmt.lib; msvcrt.lib;;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)\Matrix-6G 2026 (Debug).pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(IntDir)\MophoGUI 2026 (Debug).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <LargeAddressAware>true</LargeAddressAware>
-      <AdditionalDependencies>Matrix-6G 2026 (Debug).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>MophoGUI 2026 (Debug).lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>$(IntDir)\Matrix-6G 2026 (Debug).bsc</OutputFile>
+      <OutputFile>$(IntDir)\MophoGUI 2026 (Debug).bsc</OutputFile>
     </Bscmake>
     <Lib>
-      <AdditionalDependencies>Matrix-6G 2026 (Debug).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>MophoGUI 2026 (Debug).lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <PreBuildEvent>
       <Command>if &quot;$(PROCESSOR_ARCHITECTURE)&quot; == &quot;x86&quot; if defined PROCESSOR_ARCHITEW6432 (
     echo : Warning: Toolchain configuration issue! You are using a 32-bit toolchain to compile a 64-bit target on a 64-bit system. This may cause problems with the build system. To resolve this, use the x64 version of MSBuild. You can invoke it directly at: &quot;&lt;VisualStudioPathHere&gt;/MSBuild/Current/Bin/amd64/MSBuild.exe&quot; Or, use the &quot;x64 Native Tools Command Prompt&quot; script.
 )
-if not exist &quot;$(OutDir)\\Matrix-6G 2026 (Debug).vst3\&quot; (
-    del /s /q &quot;$(OutDir)\\Matrix-6G 2026 (Debug).vst3&quot;
-    mkdir &quot;$(OutDir)\\Matrix-6G 2026 (Debug).vst3&quot;
+if not exist &quot;$(OutDir)\\MophoGUI 2026 (Debug).vst3\&quot; (
+    del /s /q &quot;$(OutDir)\\MophoGUI 2026 (Debug).vst3&quot;
+    mkdir &quot;$(OutDir)\\MophoGUI 2026 (Debug).vst3&quot;
 )
-if not exist &quot;$(OutDir)\\Matrix-6G 2026 (Debug).vst3\Contents\&quot; (
-    del /s /q &quot;$(OutDir)\\Matrix-6G 2026 (Debug).vst3\Contents&quot;
-    mkdir &quot;$(OutDir)\\Matrix-6G 2026 (Debug).vst3\Contents&quot;
+if not exist &quot;$(OutDir)\\MophoGUI 2026 (Debug).vst3\Contents\&quot; (
+    del /s /q &quot;$(OutDir)\\MophoGUI 2026 (Debug).vst3\Contents&quot;
+    mkdir &quot;$(OutDir)\\MophoGUI 2026 (Debug).vst3\Contents&quot;
 )
-if not exist &quot;$(OutDir)\\Matrix-6G 2026 (Debug).vst3\Contents\x86_64-win\&quot; (
-    del /s /q &quot;$(OutDir)\\Matrix-6G 2026 (Debug).vst3\Contents\x86_64-win&quot;
-    mkdir &quot;$(OutDir)\\Matrix-6G 2026 (Debug).vst3\Contents\x86_64-win&quot;
+if not exist &quot;$(OutDir)\\MophoGUI 2026 (Debug).vst3\Contents\x86_64-win\&quot; (
+    del /s /q &quot;$(OutDir)\\MophoGUI 2026 (Debug).vst3\Contents\x86_64-win&quot;
+    mkdir &quot;$(OutDir)\\MophoGUI 2026 (Debug).vst3\Contents\x86_64-win&quot;
 )
 </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy /Y &quot;$(OutDir)\Matrix-6G 2026 (Debug).dll&quot; &quot;$(OutDir)\Matrix-6G 2026 (Debug).vst3\Contents\x86_64-win\Matrix-6G 2026 (Debug).vst3&quot;
+      <Command>copy /Y &quot;$(OutDir)\MophoGUI 2026 (Debug).dll&quot; &quot;$(OutDir)\MophoGUI 2026 (Debug).vst3\Contents\x86_64-win\MophoGUI 2026 (Debug).vst3&quot;
 set manifest_generated=0
 if &quot;$(PROCESSOR_ARCHITECTURE)&quot; == &quot;ARM64&quot; if &quot;$(Platform)&quot; == &quot;x64&quot; (
     call :_generate_manifest
@@ -138,22 +138,22 @@ if %manifest_generated% equ 0 (
 )
 goto :_continue
 :_generate_manifest
-if exist &quot;$(OutDir)\Matrix-6G 2026 (Debug).vst3\Contents\Resources\moduleinfo.json&quot; (
-    del /s /q &quot;$(OutDir)\Matrix-6G 2026 (Debug).vst3\Contents\Resources\moduleinfo.json&quot;
+if exist &quot;$(OutDir)\MophoGUI 2026 (Debug).vst3\Contents\Resources\moduleinfo.json&quot; (
+    del /s /q &quot;$(OutDir)\MophoGUI 2026 (Debug).vst3\Contents\Resources\moduleinfo.json&quot;
 )
-if not exist &quot;$(OutDir)\Matrix-6G 2026 (Debug).vst3\Contents\Resources\&quot; (
-    mkdir &quot;$(OutDir)\Matrix-6G 2026 (Debug).vst3\Contents\Resources\&quot;
+if not exist &quot;$(OutDir)\MophoGUI 2026 (Debug).vst3\Contents\Resources\&quot; (
+    mkdir &quot;$(OutDir)\MophoGUI 2026 (Debug).vst3\Contents\Resources\&quot;
 )
-&quot;C:\Users\Public\Documents\VST3 Builds\Debug\Matrix-6G 2026\VST3 Manifest Helper\juce_vst3_helper.exe&quot; &gt; &quot;$(OutDir)\Matrix-6G 2026 (Debug).vst3\Contents\Resources\moduleinfo.json&quot;
+&quot;C:\Users\Public\Documents\VST3 Builds\Debug\MophoGUI 2026\VST3 Manifest Helper\juce_vst3_helper.exe&quot; &gt; &quot;$(OutDir)\MophoGUI 2026 (Debug).vst3\Contents\Resources\moduleinfo.json&quot;
 if %ERRORLEVEL% equ 0 (
-    echo : Info: Successfully generated a manifest for Matrix-6G 2026
+    echo : Info: Successfully generated a manifest for MophoGUI 2026
     goto :_continue
 ) else (
     echo : Info: The manifest helper failed
     goto :_continue
 )
 :_arch_mismatch
-echo : Info: VST3 manifest generation is disabled for Matrix-6G 2026 because a AMD64 manifest helper cannot run on a host system processor detected to be $(PROCESSOR_ARCHITECTURE).
+echo : Info: VST3 manifest generation is disabled for MophoGUI 2026 because a AMD64 manifest helper cannot run on a host system processor detected to be $(PROCESSOR_ARCHITECTURE).
 :_continue
 </Command>
     </PostBuildEvent>
@@ -169,63 +169,63 @@ echo : Info: VST3 manifest generation is disabled for Matrix-6G 2026 because a A
     <ClCompile>
       <Optimization>Full</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\Matrix-6G 2026.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)\MophoGUI 2026.pdb</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\Matrix-6G 2026.dll</OutputFile>
+      <OutputFile>$(OutDir)\MophoGUI 2026.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)\Matrix-6G 2026.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(IntDir)\MophoGUI 2026.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LargeAddressAware>true</LargeAddressAware>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-      <AdditionalDependencies>Matrix-6G 2026.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>MophoGUI 2026.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>$(IntDir)\Matrix-6G 2026.bsc</OutputFile>
+      <OutputFile>$(IntDir)\MophoGUI 2026.bsc</OutputFile>
     </Bscmake>
     <Lib>
-      <AdditionalDependencies>Matrix-6G 2026.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>MophoGUI 2026.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <PreBuildEvent>
       <Command>if &quot;$(PROCESSOR_ARCHITECTURE)&quot; == &quot;x86&quot; if defined PROCESSOR_ARCHITEW6432 (
     echo : Warning: Toolchain configuration issue! You are using a 32-bit toolchain to compile a 64-bit target on a 64-bit system. This may cause problems with the build system. To resolve this, use the x64 version of MSBuild. You can invoke it directly at: &quot;&lt;VisualStudioPathHere&gt;/MSBuild/Current/Bin/amd64/MSBuild.exe&quot; Or, use the &quot;x64 Native Tools Command Prompt&quot; script.
 )
-if not exist &quot;$(OutDir)\\Matrix-6G 2026.vst3\&quot; (
-    del /s /q &quot;$(OutDir)\\Matrix-6G 2026.vst3&quot;
-    mkdir &quot;$(OutDir)\\Matrix-6G 2026.vst3&quot;
+if not exist &quot;$(OutDir)\\MophoGUI 2026.vst3\&quot; (
+    del /s /q &quot;$(OutDir)\\MophoGUI 2026.vst3&quot;
+    mkdir &quot;$(OutDir)\\MophoGUI 2026.vst3&quot;
 )
-if not exist &quot;$(OutDir)\\Matrix-6G 2026.vst3\Contents\&quot; (
-    del /s /q &quot;$(OutDir)\\Matrix-6G 2026.vst3\Contents&quot;
-    mkdir &quot;$(OutDir)\\Matrix-6G 2026.vst3\Contents&quot;
+if not exist &quot;$(OutDir)\\MophoGUI 2026.vst3\Contents\&quot; (
+    del /s /q &quot;$(OutDir)\\MophoGUI 2026.vst3\Contents&quot;
+    mkdir &quot;$(OutDir)\\MophoGUI 2026.vst3\Contents&quot;
 )
-if not exist &quot;$(OutDir)\\Matrix-6G 2026.vst3\Contents\x86_64-win\&quot; (
-    del /s /q &quot;$(OutDir)\\Matrix-6G 2026.vst3\Contents\x86_64-win&quot;
-    mkdir &quot;$(OutDir)\\Matrix-6G 2026.vst3\Contents\x86_64-win&quot;
+if not exist &quot;$(OutDir)\\MophoGUI 2026.vst3\Contents\x86_64-win\&quot; (
+    del /s /q &quot;$(OutDir)\\MophoGUI 2026.vst3\Contents\x86_64-win&quot;
+    mkdir &quot;$(OutDir)\\MophoGUI 2026.vst3\Contents\x86_64-win&quot;
 )
 </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy /Y &quot;$(OutDir)\Matrix-6G 2026.dll&quot; &quot;$(OutDir)\Matrix-6G 2026.vst3\Contents\x86_64-win\Matrix-6G 2026.vst3&quot;
+      <Command>copy /Y &quot;$(OutDir)\MophoGUI 2026.dll&quot; &quot;$(OutDir)\MophoGUI 2026.vst3\Contents\x86_64-win\MophoGUI 2026.vst3&quot;
 set manifest_generated=0
 if &quot;$(PROCESSOR_ARCHITECTURE)&quot; == &quot;ARM64&quot; if &quot;$(Platform)&quot; == &quot;x64&quot; (
     call :_generate_manifest
@@ -240,22 +240,22 @@ if %manifest_generated% equ 0 (
 )
 goto :_continue
 :_generate_manifest
-if exist &quot;$(OutDir)\Matrix-6G 2026.vst3\Contents\Resources\moduleinfo.json&quot; (
-    del /s /q &quot;$(OutDir)\Matrix-6G 2026.vst3\Contents\Resources\moduleinfo.json&quot;
+if exist &quot;$(OutDir)\MophoGUI 2026.vst3\Contents\Resources\moduleinfo.json&quot; (
+    del /s /q &quot;$(OutDir)\MophoGUI 2026.vst3\Contents\Resources\moduleinfo.json&quot;
 )
-if not exist &quot;$(OutDir)\Matrix-6G 2026.vst3\Contents\Resources\&quot; (
-    mkdir &quot;$(OutDir)\Matrix-6G 2026.vst3\Contents\Resources\&quot;
+if not exist &quot;$(OutDir)\MophoGUI 2026.vst3\Contents\Resources\&quot; (
+    mkdir &quot;$(OutDir)\MophoGUI 2026.vst3\Contents\Resources\&quot;
 )
-&quot;C:\Users\Public\Documents\VST3 Builds\Release\Matrix-6G 2026\VST3 Manifest Helper\juce_vst3_helper.exe&quot; &gt; &quot;$(OutDir)\Matrix-6G 2026.vst3\Contents\Resources\moduleinfo.json&quot;
+&quot;C:\Users\Public\Documents\VST3 Builds\Release\MophoGUI 2026\VST3 Manifest Helper\juce_vst3_helper.exe&quot; &gt; &quot;$(OutDir)\MophoGUI 2026.vst3\Contents\Resources\moduleinfo.json&quot;
 if %ERRORLEVEL% equ 0 (
-    echo : Info: Successfully generated a manifest for Matrix-6G 2026
+    echo : Info: Successfully generated a manifest for MophoGUI 2026
     goto :_continue
 ) else (
     echo : Info: The manifest helper failed
     goto :_continue
 )
 :_arch_mismatch
-echo : Info: VST3 manifest generation is disabled for Matrix-6G 2026 because a AMD64 manifest helper cannot run on a host system processor detected to be $(PROCESSOR_ARCHITECTURE).
+echo : Info: VST3 manifest generation is disabled for MophoGUI 2026 because a AMD64 manifest helper cannot run on a host system processor detected to be $(PROCESSOR_ARCHITECTURE).
 :_continue
 </Command>
     </PostBuildEvent>

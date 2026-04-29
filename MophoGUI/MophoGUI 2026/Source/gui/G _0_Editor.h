@@ -1,10 +1,7 @@
 #pragma once
 
 #include <JuceHeader.h>
-
-#include "A_0_Processor.h"
-#include "C_COLOR.h"
-#include "C_XYWH.h"
+#include "A _0_Processor.h"
 
 class Editor :
     public AudioProcessorEditor

@@ -14,7 +14,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D7077929-76B7-B027-0CC7-059C8C9BF679}</ProjectGuid>
+    <ProjectGuid>{646892EC-FBCF-CDA5-860A-FA24E5360D24}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"
@@ -44,13 +44,13 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <TargetExt>.exe</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Public\Documents\VST3 Builds\Debug\Matrix-6G 2026\VST3 Manifest Helper\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Public\Documents\VST3 Builds\Debug\MophoGUI 2026\VST3 Manifest Helper\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\VST3 Manifest Helper\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">juce_vst3_helper</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
     <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</PreBuildEventUseInBuild>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</PostBuildEventUseInBuild>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Public\Documents\VST3 Builds\Release\Matrix-6G 2026\VST3 Manifest Helper\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Public\Documents\VST3 Builds\Release\MophoGUI 2026\VST3 Manifest Helper\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\VST3 Manifest Helper\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">juce_vst3_helper</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
@@ -68,7 +68,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -82,7 +82,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
@@ -113,8 +113,8 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -127,8 +127,8 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
       <OutputFile>$(OutDir)\juce_vst3_helper.exe</OutputFile>

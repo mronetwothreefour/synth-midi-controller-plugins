@@ -41,10 +41,10 @@
  #define JucePlugin_Enable_ARA             0
 #endif
 #ifndef  JucePlugin_Name
- #define JucePlugin_Name                   "Matrix-6G 2026"
+ #define JucePlugin_Name                   "MophoGUI 2026"
 #endif
 #ifndef  JucePlugin_Desc
- #define JucePlugin_Desc                   "Sound editor/librarian for use with the Oberheim Matrix-6R synthesizer"
+ #define JucePlugin_Desc                   "Sound editor/librarian for use with the DSI Mopho synthesizer"
 #endif
 #ifndef  JucePlugin_Manufacturer
  #define JucePlugin_Manufacturer           "Mister 1-2-3-4 Programming"
@@ -59,7 +59,7 @@
  #define JucePlugin_ManufacturerCode       0x54696d44
 #endif
 #ifndef  JucePlugin_PluginCode
- #define JucePlugin_PluginCode             0x51703039
+ #define JucePlugin_PluginCode             0x4a767a78
 #endif
 #ifndef  JucePlugin_IsSynth
  #define JucePlugin_IsSynth                0
@@ -101,19 +101,19 @@
  #define JucePlugin_AUSubType              JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_AUExportPrefix
- #define JucePlugin_AUExportPrefix         Matrix6G2026AU
+ #define JucePlugin_AUExportPrefix         MophoGUI2026AU
 #endif
 #ifndef  JucePlugin_AUExportPrefixQuoted
- #define JucePlugin_AUExportPrefixQuoted   "Matrix6G2026AU"
+ #define JucePlugin_AUExportPrefixQuoted   "MophoGUI2026AU"
 #endif
 #ifndef  JucePlugin_AUManufacturerCode
  #define JucePlugin_AUManufacturerCode     JucePlugin_ManufacturerCode
 #endif
 #ifndef  JucePlugin_CFBundleIdentifier
- #define JucePlugin_CFBundleIdentifier     com.Mister1234Programming.Matrix6G2026
+ #define JucePlugin_CFBundleIdentifier     com.Mister1234Programming.MophoGUI2026
 #endif
 #ifndef  JucePlugin_AAXIdentifier
- #define JucePlugin_AAXIdentifier          com.Mister1234Programming.Matrix6G2026
+ #define JucePlugin_AAXIdentifier          com.Mister1234Programming.MophoGUI2026
 #endif
 #ifndef  JucePlugin_AAXManufacturerCode
  #define JucePlugin_AAXManufacturerCode    JucePlugin_ManufacturerCode
@@ -137,7 +137,7 @@
  #define JucePlugin_IAASubType             JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_IAAName
- #define JucePlugin_IAAName                "Mister 1-2-3-4 Programming: Matrix-6G 2026"
+ #define JucePlugin_IAAName                "Mister 1-2-3-4 Programming: MophoGUI 2026"
 #endif
 #ifndef  JucePlugin_VSTNumMidiInputs
  #define JucePlugin_VSTNumMidiInputs       16
@@ -152,10 +152,10 @@
  #define JucePlugin_ARATransformationFlags  0
 #endif
 #ifndef  JucePlugin_ARAFactoryID
- #define JucePlugin_ARAFactoryID           "com.Mister1234Programming.Matrix6G2026.factory"
+ #define JucePlugin_ARAFactoryID           "com.Mister1234Programming.MophoGUI2026.factory"
 #endif
 #ifndef  JucePlugin_ARADocumentArchiveID
- #define JucePlugin_ARADocumentArchiveID   "com.Mister1234Programming.Matrix6G2026.aradocumentarchive.2.1.0"
+ #define JucePlugin_ARADocumentArchiveID   "com.Mister1234Programming.MophoGUI2026.aradocumentarchive.2.1.0"
 #endif
 #ifndef  JucePlugin_ARACompatibleArchiveIDs
  #define JucePlugin_ARACompatibleArchiveIDs  ""

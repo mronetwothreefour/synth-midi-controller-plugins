@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="jVZxxb" name="MophoGUI 2026" projectType="audioplug" useAppConfig="1"
+              addUsingNamespaceToJuceHeader="1" jucerFormatVersion="1" version="2.1.0"
+              companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com"
+              companyEmail="programming@mr1234.com" pluginFormats="buildVST3"
+              pluginCharacteristicsValue="pluginEditorRequiresKeys,pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
+              pluginDesc="Sound editor/librarian for use with the DSI Mopho synthesizer"
+              pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20">
+  <MAINGROUP id="dJIzaK" name="MophoGUI 2026">
+    <GROUP id="{A2786EB7-8C36-A64F-316F-62B213E09B14}" name="Source">
+      <GROUP id="{AE5A8D03-A5D0-278B-AC0E-A80E807ACF9E}" name="audio">
+        <FILE id="UAMs7s" name="A _0_Processor.cpp" compile="1" resource="0"
+              file="Source/audio/A _0_Processor.cpp"/>
+        <FILE id="gyQ3KU" name="A _0_Processor.h" compile="0" resource="0"
+              file="Source/audio/A _0_Processor.h"/>
+      </GROUP>
+      <GROUP id="{935C59FD-3965-C9A7-FF3A-A62F762AB96D}" name="constants"/>
+      <GROUP id="{5A7A13F5-672B-6200-8941-2840AD7FAD0B}" name="gui">
+        <FILE id="wXAiuH" name="G _0_Editor.cpp" compile="1" resource="0" file="Source/gui/G _0_Editor.cpp"/>
+        <FILE id="HkhLpY" name="G _0_Editor.h" compile="0" resource="0" file="Source/gui/G _0_Editor.h"/>
+      </GROUP>
+      <GROUP id="{98CAC78D-FB8B-CC8C-B5CA-D114C1396F6D}" name="helpers"/>
+      <GROUP id="{3E8F0EDE-BF0F-9C58-39D7-80FCD1DD86E9}" name="midi"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors_headless" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_midi_ci" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2022 targetFolder="Builds/VisualStudio2022">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="MophoGUI 2026 (Debug)" headerPath="C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\audio&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\constants&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\gui&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\helpers&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\midi&#10;"
+                       binaryPath="C:\Users\Public\Documents\VST3 Builds\Debug\MophoGUI 2026"
+                       defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING" enableIncrementalLinking="1"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="MophoGUI 2026" binaryPath="C:\Users\Public\Documents\VST3 Builds\Release\MophoGUI 2026"
+                       useRuntimeLibDLL="0"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors_headless" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_midi_ci" path="../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2022>
+  </EXPORTFORMATS>
+</JUCERPROJECT>

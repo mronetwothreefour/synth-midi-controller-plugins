@@ -1,7 +1,8 @@
-#include "A_0_Processor.h"
+#include "A _0_Processor.h"
 
-#include "G_0_Editor.h"
+#include "G _0_Editor.h"
 
+//==============================================================================
 Processor::Processor() :
     AudioProcessor{ BusesProperties{} }
 {
@@ -78,3 +79,4 @@ Processor::~Processor() {
 AudioProcessor* JUCE_CALLTYPE createPluginFilter() {
     return new Processor();
 }
+

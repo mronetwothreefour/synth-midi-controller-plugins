@@ -2,20 +2,17 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Matrix-6G 2026\Source\audio">
-      <UniqueIdentifier>{4F14F6D0-BA5E-C977-2191-B7CC8585B5DD}</UniqueIdentifier>
+    <Filter Include="MophoGUI 2026\Source\audio">
+      <UniqueIdentifier>{9577215D-2B1F-52A0-3B8A-0169CE0D0281}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Matrix-6G 2026\Source\constants">
-      <UniqueIdentifier>{2DF23CEA-F8F3-D53B-4F52-C02F098BB2C9}</UniqueIdentifier>
+    <Filter Include="MophoGUI 2026\Source\gui">
+      <UniqueIdentifier>{063E3F5A-2180-738A-B587-145B83DFA056}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Matrix-6G 2026\Source\gui">
-      <UniqueIdentifier>{2E3BE27B-F217-A8C0-B1DF-B6EF2D2974ED}</UniqueIdentifier>
+    <Filter Include="MophoGUI 2026\Source">
+      <UniqueIdentifier>{A167C77B-B583-7B65-93D0-A07D9B01ADCA}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Matrix-6G 2026\Source">
-      <UniqueIdentifier>{7E526C83-4F05-96FC-9D3B-6B078F123B52}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Matrix-6G 2026">
-      <UniqueIdentifier>{8AF9ABAB-DEA9-3C31-5EAC-CA93652B3366}</UniqueIdentifier>
+    <Filter Include="MophoGUI 2026">
+      <UniqueIdentifier>{4F61884B-D185-071A-25A8-A981DBDC5850}</UniqueIdentifier>
     </Filter>
     <Filter Include="JUCE Modules\juce_audio_basics\audio_play_head">
       <UniqueIdentifier>{EB58F05A-A968-CEBE-40C4-107CDD8F240F}</UniqueIdentifier>
@@ -698,13 +695,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\audio\A _0_Processor.cpp">
-      <Filter>Matrix-6G 2026\Source\audio</Filter>
+      <Filter>MophoGUI 2026\Source\audio</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\G _0_Editor.cpp">
-      <Filter>Matrix-6G 2026\Source\gui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\gui\G_Paint_Paths.cpp">
-      <Filter>Matrix-6G 2026\Source\gui</Filter>
+      <Filter>MophoGUI 2026\Source\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -3670,25 +3664,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\audio\A _0_Processor.h">
-      <Filter>Matrix-6G 2026\Source\audio</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\constants\C_COLOR.h">
-      <Filter>Matrix-6G 2026\Source\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\constants\C_ID.h">
-      <Filter>Matrix-6G 2026\Source\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\constants\C_PATH_Editor_Background.h">
-      <Filter>Matrix-6G 2026\Source\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\constants\C_XYWH.h">
-      <Filter>Matrix-6G 2026\Source\constants</Filter>
+      <Filter>MophoGUI 2026\Source\audio</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\G _0_Editor.h">
-      <Filter>Matrix-6G 2026\Source\gui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\gui\G_Paint_Paths.h">
-      <Filter>Matrix-6G 2026\Source\gui</Filter>
+      <Filter>MophoGUI 2026\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
