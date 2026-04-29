@@ -3,8 +3,6 @@
 #include <JuceHeader.h>
 
 #include "A _0_Processor.h"
-#include "C_COLOR.h"
-#include "C_XYWH.h"
 
 class Editor :
     public AudioProcessorEditor

@@ -5,6 +5,9 @@
     <Filter Include="MophoGUI 2026\Source\audio">
       <UniqueIdentifier>{9577215D-2B1F-52A0-3B8A-0169CE0D0281}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2026\Source\constants">
+      <UniqueIdentifier>{AB53608E-9D4E-793E-AE08-6D832AD61A72}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2026\Source\gui">
       <UniqueIdentifier>{063E3F5A-2180-738A-B587-145B83DFA056}</UniqueIdentifier>
     </Filter>
@@ -698,6 +701,9 @@
       <Filter>MophoGUI 2026\Source\audio</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\G _0_Editor.cpp">
+      <Filter>MophoGUI 2026\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\G_Paint_Paths.cpp">
       <Filter>MophoGUI 2026\Source\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -3666,7 +3672,19 @@
     <ClInclude Include="..\..\Source\audio\A _0_Processor.h">
       <Filter>MophoGUI 2026\Source\audio</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\C_COLOR.h">
+      <Filter>MophoGUI 2026\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\constants\C_PATH_Editor_Background.h">
+      <Filter>MophoGUI 2026\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\constants\C_XYWH.h">
+      <Filter>MophoGUI 2026\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\gui\G _0_Editor.h">
+      <Filter>MophoGUI 2026\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\G_Paint_Paths.h">
       <Filter>MophoGUI 2026\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

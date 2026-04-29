@@ -15,10 +15,18 @@
         <FILE id="gyQ3KU" name="A _0_Processor.h" compile="0" resource="0"
               file="Source/audio/A _0_Processor.h"/>
       </GROUP>
-      <GROUP id="{935C59FD-3965-C9A7-FF3A-A62F762AB96D}" name="constants"/>
+      <GROUP id="{935C59FD-3965-C9A7-FF3A-A62F762AB96D}" name="constants">
+        <FILE id="lQrAjY" name="C_COLOR.h" compile="0" resource="0" file="Source/constants/C_COLOR.h"/>
+        <FILE id="pZsbLI" name="C_PATH_Editor_Background.h" compile="0" resource="0"
+              file="Source/constants/C_PATH_Editor_Background.h"/>
+        <FILE id="hPjYH7" name="C_XYWH.h" compile="0" resource="0" file="Source/constants/C_XYWH.h"/>
+      </GROUP>
       <GROUP id="{5A7A13F5-672B-6200-8941-2840AD7FAD0B}" name="gui">
         <FILE id="wXAiuH" name="G _0_Editor.cpp" compile="1" resource="0" file="Source/gui/G _0_Editor.cpp"/>
         <FILE id="HkhLpY" name="G _0_Editor.h" compile="0" resource="0" file="Source/gui/G _0_Editor.h"/>
+        <FILE id="PcIorc" name="G_Paint_Paths.cpp" compile="1" resource="0"
+              file="Source/gui/G_Paint_Paths.cpp"/>
+        <FILE id="ocrq1d" name="G_Paint_Paths.h" compile="0" resource="0" file="Source/gui/G_Paint_Paths.h"/>
       </GROUP>
       <GROUP id="{98CAC78D-FB8B-CC8C-B5CA-D114C1396F6D}" name="helpers"/>
       <GROUP id="{3E8F0EDE-BF0F-9C58-39D7-80FCD1DD86E9}" name="midi"/>
