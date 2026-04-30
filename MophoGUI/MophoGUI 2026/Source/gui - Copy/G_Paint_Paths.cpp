@@ -14,8 +14,6 @@ void Paint_Paths::editor_background(Graphics& g, float scale_factor) {
 	g.fillAll(COLOR::background);
 	g.setColour(COLOR::yellow);
 	g.fillPath(load_path(PATH::editor_bullseye, sizeof(PATH::editor_bullseye), scale_factor));
-	g.setColour(COLOR::black);
-	g.fillPath(load_path(PATH::editor_black, sizeof(PATH::editor_black), scale_factor));
 	g.setColour(COLOR::red_toggle_off);
 	g.fillPath(load_path(PATH::editor_red_toggle_off, sizeof(PATH::editor_red_toggle_off), scale_factor));
 }

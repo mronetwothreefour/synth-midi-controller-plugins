@@ -16,7 +16,6 @@ Editor::Editor(Processor& processor) :
 }
 
 void Editor::paint(Graphics& g) {
-    g.fillAll(COLOR::background);
     auto scale_factor{ (float)getWidth() / XYWH::gui_init_w };
     Paint_Paths::editor_background(g, scale_factor);
 }
