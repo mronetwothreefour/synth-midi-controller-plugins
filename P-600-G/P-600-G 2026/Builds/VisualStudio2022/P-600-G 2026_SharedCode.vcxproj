@@ -14,7 +14,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{6D59A86C-8F64-59B0-7B37-C402BEDC4005}</ProjectGuid>
+    <ProjectGuid>{74A5C355-A2EC-AE16-CC2F-D963F253D7E8}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"
@@ -44,15 +44,15 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <TargetExt>.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Public\Documents\VST3 Builds\Debug\MophoGUI 2026\Shared Code\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Public\Documents\VST3 Builds\Debug\MophoGUI 2026\P-600-G\Shared Code\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\Shared Code\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MophoGUI 2026 (Debug)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">P-600-G 2026 (Debug)</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
     <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</PreBuildEventUseInBuild>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</PostBuildEventUseInBuild>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Public\Documents\VST3 Builds\Release\MophoGUI 2026\Shared Code\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Public\Documents\VST3 Builds\Release\MophoGUI 2026\P-600-G\Shared Code\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\Shared Code\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MophoGUI 2026</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">P-600-G 2026</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
     <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</PreBuildEventUseInBuild>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</PostBuildEventUseInBuild>
@@ -68,35 +68,35 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\MophoGUI 2026 (Debug).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)\P-600-G 2026 (Debug).pdb</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\MophoGUI 2026 (Debug).lib</OutputFile>
+      <OutputFile>$(OutDir)\P-600-G 2026 (Debug).lib</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmt.lib; msvcrt.lib;;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)\MophoGUI 2026 (Debug).pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(IntDir)\P-600-G 2026 (Debug).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>$(IntDir)\MophoGUI 2026 (Debug).bsc</OutputFile>
+      <OutputFile>$(IntDir)\P-600-G 2026 (Debug).bsc</OutputFile>
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -110,29 +110,29 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\MophoGUI 2026.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)\P-600-G 2026.pdb</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\MophoGUI 2026.lib</OutputFile>
+      <OutputFile>$(OutDir)\P-600-G 2026.lib</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)\MophoGUI 2026.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(IntDir)\P-600-G 2026.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -141,13 +141,12 @@
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>$(IntDir)\MophoGUI 2026.bsc</OutputFile>
+      <OutputFile>$(IntDir)\P-600-G 2026.bsc</OutputFile>
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\audio\A _0_Processor.cpp"/>
     <ClCompile Include="..\..\Source\gui\G _0_Editor.cpp"/>
-    <ClCompile Include="..\..\Source\gui\G_Paint_Paths.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2934,11 +2933,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\audio\A _0_Processor.h"/>
-    <ClInclude Include="..\..\Source\constants\C_COLOR.h"/>
-    <ClInclude Include="..\..\Source\constants\C_PATH_Editor_Background.h"/>
-    <ClInclude Include="..\..\Source\constants\C_XYWH.h"/>
     <ClInclude Include="..\..\Source\gui\G _0_Editor.h"/>
-    <ClInclude Include="..\..\Source\gui\G_Paint_Paths.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

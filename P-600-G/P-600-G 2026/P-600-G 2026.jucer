@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="f0Ch32" name="P-600-G 2026" projectType="audioplug" jucerFormatVersion="1"
+              version="2.1.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com"
+              companyEmail="programming@mr1234.com" useAppConfig="1" addUsingNamespaceToJuceHeader="1"
+              pluginFormats="buildVST3" pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
+              pluginDesc="Sound editor/librarian for use with the SCI Prophet-600 synthesizer"
+              pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20">
+  <MAINGROUP id="sSCaXP" name="P-600-G 2026">
+    <GROUP id="{ACCCDFB4-EC40-C977-EE9D-D79E37F82BFC}" name="Source">
+      <GROUP id="{F2C8F9E2-1E22-7D86-7779-1492A943DE2F}" name="audio">
+        <FILE id="K6zQVn" name="A _0_Processor.cpp" compile="1" resource="0"
+              file="Source/audio/A _0_Processor.cpp"/>
+        <FILE id="m53gGy" name="A _0_Processor.h" compile="0" resource="0"
+              file="Source/audio/A _0_Processor.h"/>
+      </GROUP>
+      <GROUP id="{76B2A651-9896-F9CA-5BBE-D481A8CD88C2}" name="constants"/>
+      <GROUP id="{4C640C64-7121-8F68-A94E-73E105B7F589}" name="gui">
+        <FILE id="DeH7MP" name="G _0_Editor.cpp" compile="1" resource="0" file="Source/gui/G _0_Editor.cpp"/>
+        <FILE id="T3Aqdn" name="G _0_Editor.h" compile="0" resource="0" file="Source/gui/G _0_Editor.h"/>
+      </GROUP>
+      <GROUP id="{2EB0A2E0-6463-CB84-2578-5C4C79DCACAB}" name="helpers"/>
+      <GROUP id="{977AC7C6-6025-25C7-AB23-0C0CE78CE0A8}" name="midi"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors_headless" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_midi_ci" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2022 targetFolder="Builds/VisualStudio2022">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="P-600-G 2026 (Debug)" headerPath="C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\audio&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\constants&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\gui&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\helpers&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\midi&#10;"
+                       binaryPath="C:\Users\Public\Documents\VST3 Builds\Debug\MophoGUI 2026\P-600-G"
+                       defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING" enableIncrementalLinking="1"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="P-600-G 2026" defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING"
+                       headerPath="C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\audio&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\constants&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\gui&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\helpers&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\midi&#10;"
+                       binaryPath="C:\Users\Public\Documents\VST3 Builds\Release\MophoGUI 2026\P-600-G"
+                       useRuntimeLibDLL="0"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors_headless" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_midi_ci" path="../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2022>
+  </EXPORTFORMATS>
+</JUCERPROJECT>

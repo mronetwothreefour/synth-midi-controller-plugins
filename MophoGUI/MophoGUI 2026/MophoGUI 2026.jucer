@@ -58,7 +58,8 @@
                        binaryPath="C:\Users\Public\Documents\VST3 Builds\Debug\MophoGUI 2026"
                        defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING" enableIncrementalLinking="1"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="MophoGUI 2026" binaryPath="C:\Users\Public\Documents\VST3 Builds\Release\MophoGUI 2026"
-                       useRuntimeLibDLL="0"/>
+                       useRuntimeLibDLL="0" headerPath="C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\audio&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\constants&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\gui&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\helpers&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\MophoGUI\MophoGUI 2026\Source\midi&#10;"
+                       defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>

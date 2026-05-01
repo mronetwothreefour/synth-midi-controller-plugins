@@ -2,7 +2,6 @@
 
 #include "G _0_Editor.h"
 
-//==============================================================================
 Processor::Processor() :
     AudioProcessor{ BusesProperties{} }
 {

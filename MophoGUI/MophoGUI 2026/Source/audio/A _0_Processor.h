@@ -5,7 +5,6 @@
 class Processor :
     public AudioProcessor
 {
-
 //==============================================================================
 public: Processor();
 
