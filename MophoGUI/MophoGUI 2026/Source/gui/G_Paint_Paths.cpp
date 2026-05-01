@@ -18,4 +18,18 @@ void Paint_Paths::editor_background(Graphics& g, float scale_factor) {
 	g.fillPath(load_path(PATH::editor_black, sizeof(PATH::editor_black), scale_factor));
 	g.setColour(COLOR::red_toggle_off);
 	g.fillPath(load_path(PATH::editor_red_toggle_off, sizeof(PATH::editor_red_toggle_off), scale_factor));
+	g.setColour(COLOR::yellow);
+	g.fillPath(load_path(PATH::editor_yellow, sizeof(PATH::editor_yellow), scale_factor));
+	g.setColour(COLOR::red_btn);
+	g.fillPath(load_path(PATH::editor_red_btn, sizeof(PATH::editor_red_btn), scale_factor));
+	g.setColour(COLOR::red_btn_shadow_1);
+	g.fillPath(load_path(PATH::editor_red_btn_shadow_1, sizeof(PATH::editor_red_btn_shadow_1), scale_factor));
+	g.setColour(COLOR::red_btn_shadow_2);
+	g.fillPath(load_path(PATH::editor_red_btn_shadow_2, sizeof(PATH::editor_red_btn_shadow_2), scale_factor));
+	g.setColour(COLOR::red_btn_hilite_1);
+	g.fillPath(load_path(PATH::editor_red_btn_hilite_1, sizeof(PATH::editor_red_btn_hilite_1), scale_factor));
+	g.setColour(COLOR::red_btn_hilite_2);
+	g.fillPath(load_path(PATH::editor_red_btn_hilite_2, sizeof(PATH::editor_red_btn_hilite_2), scale_factor));
+	g.setColour(COLOR::white);
+	g.fillPath(load_path(PATH::editor_white, sizeof(PATH::editor_white), scale_factor));
 }
