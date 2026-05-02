@@ -1,22 +1,22 @@
 #include "G _0_Editor.h"
 
+#include "C_COLOR.h"
+#include "C_XYWH.h"
+#include "G_Paint_Paths.h"
+
 Editor::Editor(Processor& processor) :
     AudioProcessorEditor{ &processor },
     processor{ processor }
 {
     setWantsKeyboardFocus(true);
     setResizable(true, true);
-    setSize (400, 300);
+    setSize(XYWH::gui_init_w, XYWH::gui_init_h);
+    getConstrainer()->setFixedAspectRatio(XYWH::gui_aspect_ratio);
     Timer::callAfterDelay(50, [this] { grabKeyboardFocus(); });
 }
 
 void Editor::paint(Graphics& g) {
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
-
-    g.setColour (juce::Colours::white);
-    g.setFont (juce::FontOptions (15.0f));
-    g.drawFittedText ("Hello World!", getLocalBounds(), juce::Justification::centred, 1);
+    g.fillAll(COLOR::background);
 }
 
 void Editor::resized() {

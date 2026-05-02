@@ -44,18 +44,18 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <TargetExt>.dll</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Public\Documents\VST3 Builds\Debug\MophoGUI 2026\P-600-G\VST3\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Public\Documents\VST3 Builds\Debug\P-600-G\VST3\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\VST3\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">P-600-G 2026 (Debug)</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(LibraryPath);C:\Users\Public\Documents\VST3 Builds\Debug\MophoGUI 2026\P-600-G\Shared Code</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(LibraryPath);C:\Users\Public\Documents\VST3 Builds\Debug\P-600-G\Shared Code</LibraryPath>
     <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</PreBuildEventUseInBuild>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</PostBuildEventUseInBuild>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Public\Documents\VST3 Builds\Release\MophoGUI 2026\P-600-G\VST3\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Public\Documents\VST3 Builds\Release\P-600-G\VST3\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\VST3\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">P-600-G 2026</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(LibraryPath);C:\Users\Public\Documents\VST3 Builds\Release\MophoGUI 2026\P-600-G\Shared Code</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(LibraryPath);C:\Users\Public\Documents\VST3 Builds\Release\P-600-G\Shared Code</LibraryPath>
     <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</PreBuildEventUseInBuild>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</PostBuildEventUseInBuild>
   </PropertyGroup>
@@ -144,7 +144,7 @@ if exist &quot;$(OutDir)\P-600-G 2026 (Debug).vst3\Contents\Resources\moduleinfo
 if not exist &quot;$(OutDir)\P-600-G 2026 (Debug).vst3\Contents\Resources\&quot; (
     mkdir &quot;$(OutDir)\P-600-G 2026 (Debug).vst3\Contents\Resources\&quot;
 )
-&quot;C:\Users\Public\Documents\VST3 Builds\Debug\MophoGUI 2026\P-600-G\VST3 Manifest Helper\juce_vst3_helper.exe&quot; &gt; &quot;$(OutDir)\P-600-G 2026 (Debug).vst3\Contents\Resources\moduleinfo.json&quot;
+&quot;C:\Users\Public\Documents\VST3 Builds\Debug\P-600-G\VST3 Manifest Helper\juce_vst3_helper.exe&quot; &gt; &quot;$(OutDir)\P-600-G 2026 (Debug).vst3\Contents\Resources\moduleinfo.json&quot;
 if %ERRORLEVEL% equ 0 (
     echo : Info: Successfully generated a manifest for P-600-G 2026
     goto :_continue
@@ -246,7 +246,7 @@ if exist &quot;$(OutDir)\P-600-G 2026.vst3\Contents\Resources\moduleinfo.json&qu
 if not exist &quot;$(OutDir)\P-600-G 2026.vst3\Contents\Resources\&quot; (
     mkdir &quot;$(OutDir)\P-600-G 2026.vst3\Contents\Resources\&quot;
 )
-&quot;C:\Users\Public\Documents\VST3 Builds\Release\MophoGUI 2026\P-600-G\VST3 Manifest Helper\juce_vst3_helper.exe&quot; &gt; &quot;$(OutDir)\P-600-G 2026.vst3\Contents\Resources\moduleinfo.json&quot;
+&quot;C:\Users\Public\Documents\VST3 Builds\Release\P-600-G\VST3 Manifest Helper\juce_vst3_helper.exe&quot; &gt; &quot;$(OutDir)\P-600-G 2026.vst3\Contents\Resources\moduleinfo.json&quot;
 if %ERRORLEVEL% equ 0 (
     echo : Info: Successfully generated a manifest for P-600-G 2026
     goto :_continue

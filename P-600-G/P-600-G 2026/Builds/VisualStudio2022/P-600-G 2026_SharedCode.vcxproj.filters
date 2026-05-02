@@ -5,6 +5,9 @@
     <Filter Include="P-600-G 2026\Source\audio">
       <UniqueIdentifier>{C0E04E65-C4E4-9C51-CA16-6D1D0C3D3C73}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G 2026\Source\constants">
+      <UniqueIdentifier>{9221B2E5-A206-3C1A-24D1-DBB5988908D0}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G 2026\Source\gui">
       <UniqueIdentifier>{3516DA3A-9B31-E63D-AA21-AB8EE0389EF9}</UniqueIdentifier>
     </Filter>
@@ -698,6 +701,9 @@
       <Filter>P-600-G 2026\Source\audio</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\G _0_Editor.cpp">
+      <Filter>P-600-G 2026\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\G_Paint_Paths.cpp">
       <Filter>P-600-G 2026\Source\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -3666,7 +3672,19 @@
     <ClInclude Include="..\..\Source\audio\A _0_Processor.h">
       <Filter>P-600-G 2026\Source\audio</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\C_COLOR.h">
+      <Filter>P-600-G 2026\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\constants\C_PATH_Editor_Background.h">
+      <Filter>P-600-G 2026\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\constants\C_XYWH.h">
+      <Filter>P-600-G 2026\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\gui\G _0_Editor.h">
+      <Filter>P-600-G 2026\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\G_Paint_Paths.h">
       <Filter>P-600-G 2026\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

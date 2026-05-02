@@ -14,10 +14,18 @@
         <FILE id="m53gGy" name="A _0_Processor.h" compile="0" resource="0"
               file="Source/audio/A _0_Processor.h"/>
       </GROUP>
-      <GROUP id="{76B2A651-9896-F9CA-5BBE-D481A8CD88C2}" name="constants"/>
+      <GROUP id="{76B2A651-9896-F9CA-5BBE-D481A8CD88C2}" name="constants">
+        <FILE id="EFFlsC" name="C_COLOR.h" compile="0" resource="0" file="Source/constants/C_COLOR.h"/>
+        <FILE id="BsNK8k" name="C_PATH_Editor_Background.h" compile="0" resource="0"
+              file="Source/constants/C_PATH_Editor_Background.h"/>
+        <FILE id="pBjHyP" name="C_XYWH.h" compile="0" resource="0" file="Source/constants/C_XYWH.h"/>
+      </GROUP>
       <GROUP id="{4C640C64-7121-8F68-A94E-73E105B7F589}" name="gui">
         <FILE id="DeH7MP" name="G _0_Editor.cpp" compile="1" resource="0" file="Source/gui/G _0_Editor.cpp"/>
         <FILE id="T3Aqdn" name="G _0_Editor.h" compile="0" resource="0" file="Source/gui/G _0_Editor.h"/>
+        <FILE id="lbggGk" name="G_Paint_Paths.cpp" compile="1" resource="0"
+              file="Source/gui/G_Paint_Paths.cpp"/>
+        <FILE id="WPziDF" name="G_Paint_Paths.h" compile="0" resource="0" file="Source/gui/G_Paint_Paths.h"/>
       </GROUP>
       <GROUP id="{2EB0A2E0-6463-CB84-2578-5C4C79DCACAB}" name="helpers"/>
       <GROUP id="{977AC7C6-6025-25C7-AB23-0C0CE78CE0A8}" name="midi"/>
@@ -46,11 +54,11 @@
     <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="P-600-G 2026 (Debug)" headerPath="C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\audio&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\constants&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\gui&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\helpers&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\midi&#10;"
-                       binaryPath="C:\Users\Public\Documents\VST3 Builds\Debug\MophoGUI 2026\P-600-G"
+                       binaryPath="C:\Users\Public\Documents\VST3 Builds\Debug\P-600-G"
                        defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING" enableIncrementalLinking="1"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="P-600-G 2026" defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING"
                        headerPath="C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\audio&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\constants&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\gui&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\helpers&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\midi&#10;"
-                       binaryPath="C:\Users\Public\Documents\VST3 Builds\Release\MophoGUI 2026\P-600-G"
+                       binaryPath="C:\Users\Public\Documents\VST3 Builds\Release\P-600-G"
                        useRuntimeLibDLL="0"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
