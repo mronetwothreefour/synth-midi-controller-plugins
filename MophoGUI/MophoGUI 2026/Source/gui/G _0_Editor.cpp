@@ -1,6 +1,5 @@
 #include "G _0_Editor.h"
 
-#include "C_COLOR.h"
 #include "C_XYWH.h"
 #include "G_Paint_Paths.h"
 
