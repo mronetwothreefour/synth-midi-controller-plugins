@@ -5,6 +5,9 @@
     <Filter Include="P-600-G 2026\Source\audio">
       <UniqueIdentifier>{C0E04E65-C4E4-9C51-CA16-6D1D0C3D3C73}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G 2026\Source\binaries">
+      <UniqueIdentifier>{490C5823-BF8D-5F67-66EA-3E5C579F5DF5}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G 2026\Source\constants">
       <UniqueIdentifier>{9221B2E5-A206-3C1A-24D1-DBB5988908D0}</UniqueIdentifier>
     </Filter>
@@ -3609,6 +3612,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_midi_ci\juce_midi_ci.cpp">
       <Filter>JUCE Modules\juce_midi_ci</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
+      <Filter>JUCE Library Code</Filter>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp">
       <Filter>JUCE Library Code</Filter>
@@ -7815,6 +7821,9 @@
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h">
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h">
+      <Filter>JUCE Library Code</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h">
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
@@ -7823,6 +7832,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Source\binaries\texture.jpg">
+      <Filter>P-600-G 2026\Source\binaries</Filter>
+    </None>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt">
       <Filter>JUCE Modules\juce_audio_devices\native\asio</Filter>
     </None>

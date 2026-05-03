@@ -14,6 +14,9 @@
         <FILE id="m53gGy" name="A _0_Processor.h" compile="0" resource="0"
               file="Source/audio/A _0_Processor.h"/>
       </GROUP>
+      <GROUP id="{C807AFBC-18B2-2305-F7B7-E8FE93C8B03F}" name="binaries">
+        <FILE id="GJF1bF" name="texture.jpg" compile="0" resource="1" file="Source/binaries/texture.jpg"/>
+      </GROUP>
       <GROUP id="{76B2A651-9896-F9CA-5BBE-D481A8CD88C2}" name="constants">
         <FILE id="EFFlsC" name="C_COLOR.h" compile="0" resource="0" file="Source/constants/C_COLOR.h"/>
         <FILE id="BsNK8k" name="C_PATH_Editor_Background.h" compile="0" resource="0"

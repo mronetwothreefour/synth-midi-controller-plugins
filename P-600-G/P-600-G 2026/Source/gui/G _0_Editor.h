@@ -8,6 +8,7 @@ class Editor :
     public AudioProcessorEditor
 {
 private: Processor& processor;
+private: Image background_texture;
 
 //==============================================================================
 public: Editor(Processor& processor);

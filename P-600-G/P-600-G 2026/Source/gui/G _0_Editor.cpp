@@ -4,10 +4,16 @@
 #include "C_XYWH.h"
 #include "G_Paint_Paths.h"
 
+using namespace BinaryData;
+
 Editor::Editor(Processor& processor) :
     AudioProcessorEditor{ &processor },
     processor{ processor }
 {
+    MemoryInputStream texture_stream{ texture_jpg, texture_jpgSize, false };
+    JPEGImageFormat img_format;
+    background_texture = img_format.decodeImage(texture_stream);
+
     setWantsKeyboardFocus(true);
     setResizable(true, true);
     setSize(XYWH::gui_init_w, XYWH::gui_init_h);
@@ -16,7 +22,8 @@ Editor::Editor(Processor& processor) :
 }
 
 void Editor::paint(Graphics& g) {
-    g.fillAll(COLOR::background);
+    g.drawImageAt(background_texture.rescaled(getWidth(), getHeight()), 0, 0);
+    //auto scale_factor{ (float)getWidth() / XYWH::gui_init_w };
 }
 
 void Editor::resized() {
