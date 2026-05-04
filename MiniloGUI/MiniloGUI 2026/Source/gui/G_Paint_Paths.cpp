@@ -21,4 +21,11 @@ ColourGradient Paint_Paths::gradient_fill_silver(float w, float h) {
 void Paint_Paths::editor_background(Graphics& g) {
 	g.setGradientFill(gradient_fill_silver((float)XYWH::gui_init_w, (float)XYWH::gui_init_h));
 	g.fillAll();
+	Path screws_path{ load_path(PATH::editor_screws, sizeof(PATH::editor_screws)) };
+	DropShadow screws_shadow{ COLOR::black, 1, Point<int>{ -1, 1 } };
+	screws_shadow.drawForPath(g, screws_path);
+	g.setColour(COLOR::screw);
+	g.fillPath(screws_path);
+	g.setColour(COLOR::screw_hole);
+	g.fillPath(load_path(PATH::editor_screw_holes, sizeof(PATH::editor_screw_holes)));
 }
