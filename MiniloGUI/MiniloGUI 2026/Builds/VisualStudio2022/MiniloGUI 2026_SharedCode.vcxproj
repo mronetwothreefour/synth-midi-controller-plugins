@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\audio\A _0_Processor.cpp"/>
     <ClCompile Include="..\..\Source\gui\G _0_Editor.cpp"/>
+    <ClCompile Include="..\..\Source\gui\G_Paint_Paths.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2933,7 +2934,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\audio\A _0_Processor.h"/>
+    <ClInclude Include="..\..\Source\constants\C_COLOR.h"/>
+    <ClInclude Include="..\..\Source\constants\C_PATH_Editor_Background.h"/>
+    <ClInclude Include="..\..\Source\constants\C_XYWH.h"/>
     <ClInclude Include="..\..\Source\gui\G _0_Editor.h"/>
+    <ClInclude Include="..\..\Source\gui\G_Paint_Paths.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

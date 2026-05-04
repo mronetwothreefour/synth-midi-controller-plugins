@@ -1,20 +1,24 @@
 #include "G _0_Editor.h"
 
+#include "C_COLOR.h"
+#include "C_XYWH.h"
+#include "G_Paint_Paths.h"
+
 Editor::Editor(Processor& processor) :
     AudioProcessorEditor{ &processor },
     processor{ processor }
 {
     setWantsKeyboardFocus(true);
     setResizable(true, true);
-    setSize (400, 300);
+    setSize(XYWH::gui_init_w, XYWH::gui_init_h);
+    getConstrainer()->setFixedAspectRatio(XYWH::gui_aspect_ratio);
     Timer::callAfterDelay(50, [this] { grabKeyboardFocus(); });
 }
 
 void Editor::paint (Graphics& g) {
-    g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));
-    g.setColour (Colours::white);
-    g.setFont (FontOptions (15.0f));
-    g.drawFittedText ("Hello World!", getLocalBounds(), Justification::centred, 1);
+    auto scale_factor{ (float)getWidth() / XYWH::gui_init_w };
+    g.addTransform(AffineTransform::scale(scale_factor));
+    Paint_Paths::editor_background(g);
 }
 
 void Editor::resized() {

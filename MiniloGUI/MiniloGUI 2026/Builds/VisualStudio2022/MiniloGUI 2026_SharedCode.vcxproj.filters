@@ -5,6 +5,9 @@
     <Filter Include="MiniloGUI 2026\Source\audio">
       <UniqueIdentifier>{CB8614D2-D057-AA23-C4C8-49243073A4B4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MiniloGUI 2026\Source\constants">
+      <UniqueIdentifier>{E3950852-BC54-A0DB-86F6-3D1DDF231D8A}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MiniloGUI 2026\Source\gui">
       <UniqueIdentifier>{CA75AB6F-45B6-44B7-55B8-75ECA1148FE0}</UniqueIdentifier>
     </Filter>
@@ -698,6 +701,9 @@
       <Filter>MiniloGUI 2026\Source\audio</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\G _0_Editor.cpp">
+      <Filter>MiniloGUI 2026\Source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\gui\G_Paint_Paths.cpp">
       <Filter>MiniloGUI 2026\Source\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -3666,7 +3672,19 @@
     <ClInclude Include="..\..\Source\audio\A _0_Processor.h">
       <Filter>MiniloGUI 2026\Source\audio</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\C_COLOR.h">
+      <Filter>MiniloGUI 2026\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\constants\C_PATH_Editor_Background.h">
+      <Filter>MiniloGUI 2026\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\constants\C_XYWH.h">
+      <Filter>MiniloGUI 2026\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\gui\G _0_Editor.h">
+      <Filter>MiniloGUI 2026\Source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\gui\G_Paint_Paths.h">
       <Filter>MiniloGUI 2026\Source\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
