@@ -21,9 +21,10 @@ Editor::Editor(Processor& processor) :
 }
 
 void Editor::paint(Graphics& g) {
-    g.drawImageAt(background_texture.rescaled(getWidth(), getHeight()), 0, 0);
     auto scale_factor{ (float)getWidth() / XYWH::gui_init_w };
-    Paint_Paths::editor_background(g, scale_factor);
+    g.addTransform(AffineTransform::scale(scale_factor));
+    g.drawImageAt(background_texture, 0, 0);
+    Paint_Paths::editor_background(g);
 }
 
 void Editor::resized() {

@@ -1,5 +1,6 @@
 #include "G _0_Editor.h"
 
+#include "C_COLOR.h"
 #include "C_XYWH.h"
 #include "G_Paint_Paths.h"
 
@@ -17,7 +18,8 @@ Editor::Editor(Processor& processor) :
 void Editor::paint(Graphics& g) {
     g.fillAll(COLOR::background);
     auto scale_factor{ (float)getWidth() / XYWH::gui_init_w };
-    Paint_Paths::editor_background(g, scale_factor);
+    g.addTransform(AffineTransform::scale(scale_factor));
+    Paint_Paths::editor_background(g);
 }
 
 void Editor::resized() {
