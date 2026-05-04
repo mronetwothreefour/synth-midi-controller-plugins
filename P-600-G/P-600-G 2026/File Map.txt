@@ -1,0 +1,12 @@
+P-600-G 2026
+
+A _0_Processor
+
+C_COLOR
+C_ID
+C_PATH_Editor_Background
+C_XYWH
+
+G _0_Editor
+G_Paint_Paths
+
