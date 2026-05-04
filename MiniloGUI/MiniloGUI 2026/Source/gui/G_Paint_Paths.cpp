@@ -28,4 +28,12 @@ void Paint_Paths::editor_background(Graphics& g) {
 	g.fillPath(screws_path);
 	g.setColour(COLOR::screw_hole);
 	g.fillPath(load_path(PATH::editor_screw_holes, sizeof(PATH::editor_screw_holes)));
+	g.setColour(COLOR::black);
+	g.fillPath(load_path(PATH::editor_black, sizeof(PATH::editor_black)));
+	g.setColour(COLOR::grey_buttons);
+	g.fillPath(load_path(PATH::editor_grey_buttons, sizeof(PATH::editor_grey_buttons)));
+	g.setColour(COLOR::grey_cbox_arrows);
+	g.fillPath(load_path(PATH::editor_grey_cbox_arrows, sizeof(PATH::editor_grey_cbox_arrows)));
+	g.setColour(COLOR::red_led_off);
+	g.fillPath(load_path(PATH::editor_red_led_off, sizeof(PATH::editor_red_led_off)));
 }
