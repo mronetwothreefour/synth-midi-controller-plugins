@@ -24,4 +24,6 @@ void Paint_Paths::editor_background(Graphics& g) {
 	g.fillPath(load_path(PATH::editor_red_btn, sizeof(PATH::editor_red_btn)));
 	g.setColour(COLOR::grey_lite);
 	g.fillPath(load_path(PATH::editor_grey_lite, sizeof(PATH::editor_grey_lite)));
+	if (ModifierKeys::currentModifiers == ModifierKeys::altModifier)
+		g.fillPath(load_path(PATH::editor_alt_underlines, sizeof(PATH::editor_alt_underlines)));
 }
