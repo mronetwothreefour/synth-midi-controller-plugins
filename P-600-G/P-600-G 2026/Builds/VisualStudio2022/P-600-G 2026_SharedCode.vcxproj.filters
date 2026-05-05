@@ -3681,6 +3681,9 @@
     <ClInclude Include="..\..\Source\constants\C_COLOR.h">
       <Filter>P-600-G 2026\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\C_ID.h">
+      <Filter>P-600-G 2026\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\C_PATH_Editor_Background.h">
       <Filter>P-600-G 2026\Source\constants</Filter>
     </ClInclude>
