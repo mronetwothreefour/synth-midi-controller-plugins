@@ -25,6 +25,7 @@ void Editor::resized() {
 }
 
 void Editor::modifierKeysChanged(const ModifierKeys& /*mods*/) {
+    repaint();
 }
 
 Editor::~Editor() {
