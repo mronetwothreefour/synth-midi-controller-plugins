@@ -3675,6 +3675,9 @@
     <ClInclude Include="..\..\Source\constants\C_COLOR.h">
       <Filter>MiniloGUI 2026\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\C_ID.h">
+      <Filter>MiniloGUI 2026\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\C_PATH_Editor_Background.h">
       <Filter>MiniloGUI 2026\Source\constants</Filter>
     </ClInclude>

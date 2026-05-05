@@ -16,6 +16,7 @@
       </GROUP>
       <GROUP id="{5E4A7270-0E8C-8862-A117-793B0C4F7046}" name="constants">
         <FILE id="HMSaYv" name="C_COLOR.h" compile="0" resource="0" file="Source/constants/C_COLOR.h"/>
+        <FILE id="WKuYJQ" name="C_ID.h" compile="0" resource="0" file="Source/constants/C_ID.h"/>
         <FILE id="XnQuto" name="C_PATH_Editor_Background.h" compile="0" resource="0"
               file="Source/constants/C_PATH_Editor_Background.h"/>
         <FILE id="LUo1Dt" name="C_XYWH.h" compile="0" resource="0" file="Source/constants/C_XYWH.h"/>
