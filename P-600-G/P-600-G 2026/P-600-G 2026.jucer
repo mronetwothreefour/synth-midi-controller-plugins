@@ -5,7 +5,8 @@
               companyEmail="programming@mr1234.com" useAppConfig="1" addUsingNamespaceToJuceHeader="1"
               pluginFormats="buildVST3" pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginDesc="Sound editor/librarian for use with the SCI Prophet-600 synthesizer"
-              pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20">
+              pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20"
+              headerPath="..\..\Source\audio&#10;..\..\Source\constants&#10;..\..\Source\exposed_parameters&#10;..\..\Source\gui&#10;..\..\Source\helpers&#10;..\..\Source\midi">
   <MAINGROUP id="sSCaXP" name="P-600-G 2026">
     <GROUP id="{ACCCDFB4-EC40-C977-EE9D-D79E37F82BFC}" name="Source">
       <GROUP id="{F2C8F9E2-1E22-7D86-7779-1492A943DE2F}" name="audio">
@@ -57,11 +58,9 @@
   <EXPORTFORMATS>
     <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="P-600-G 2026 (Debug)" headerPath="C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\audio&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\constants&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\gui&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\helpers&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\midi&#10;"
-                       binaryPath="C:\Users\Public\Documents\VST3 Builds\Debug\P-600-G"
+        <CONFIGURATION isDebug="1" name="Debug" targetName="P-600-G 2026 (Debug)" binaryPath="C:\Users\Public\Documents\VST3 Builds\Debug\P-600-G"
                        defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING" enableIncrementalLinking="1"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="P-600-G 2026" defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING"
-                       headerPath="C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\audio&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\constants&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\gui&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\helpers&#10;C:\Users\Public\git-repos\synth-midi-controller-plugins\P-600-G\P-600-G 2026\Source\midi&#10;"
                        binaryPath="C:\Users\Public\Documents\VST3 Builds\Release\P-600-G"
                        useRuntimeLibDLL="0"/>
       </CONFIGURATIONS>

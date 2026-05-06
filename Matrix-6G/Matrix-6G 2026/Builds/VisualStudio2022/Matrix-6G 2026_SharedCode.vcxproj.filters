@@ -8,6 +8,9 @@
     <Filter Include="Matrix-6G 2026\Source\constants">
       <UniqueIdentifier>{2DF23CEA-F8F3-D53B-4F52-C02F098BB2C9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G 2026\Source\exposed_parameters">
+      <UniqueIdentifier>{B428FDEA-1003-EC69-D5F9-0642284566FC}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Matrix-6G 2026\Source\gui">
       <UniqueIdentifier>{2E3BE27B-F217-A8C0-B1DF-B6EF2D2974ED}</UniqueIdentifier>
     </Filter>
@@ -699,6 +702,9 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\audio\A _0_Processor.cpp">
       <Filter>Matrix-6G 2026\Source\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\exposed_parameters\EP _0_Exposed_Parameter_Info.cpp">
+      <Filter>Matrix-6G 2026\Source\exposed_parameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\G _0_Editor.cpp">
       <Filter>Matrix-6G 2026\Source\gui</Filter>
@@ -3675,6 +3681,12 @@
     <ClInclude Include="..\..\Source\constants\C_COLOR.h">
       <Filter>Matrix-6G 2026\Source\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\constants\C_ENUM.h">
+      <Filter>Matrix-6G 2026\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\constants\C_EP.h">
+      <Filter>Matrix-6G 2026\Source\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\constants\C_ID.h">
       <Filter>Matrix-6G 2026\Source\constants</Filter>
     </ClInclude>
@@ -3683,6 +3695,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\constants\C_XYWH.h">
       <Filter>Matrix-6G 2026\Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\exposed_parameters\EP _0_Exposed_Parameter_Info.h">
+      <Filter>Matrix-6G 2026\Source\exposed_parameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\G _0_Editor.h">
       <Filter>Matrix-6G 2026\Source\gui</Filter>

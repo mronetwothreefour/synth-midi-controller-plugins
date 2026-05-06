@@ -68,7 +68,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\Source\audio;..\..\Source\constants;..\..\Source\exposed_parameters;..\..\Source\gui;..\..\Source\helpers;..\..\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -82,7 +82,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\Source\audio;..\..\Source\constants;..\..\Source\exposed_parameters;..\..\Source\gui;..\..\Source\helpers;..\..\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
@@ -110,7 +110,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\Source\audio;..\..\Source\constants;..\..\Source\exposed_parameters;..\..\Source\gui;..\..\Source\helpers;..\..\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -124,7 +124,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\audio;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\constants;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\gui;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\helpers;C:\Users\Public\git-repos\synth-midi-controller-plugins\Matrix-6G\Matrix-6G 2026\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\Source\audio;..\..\Source\constants;..\..\Source\exposed_parameters;..\..\Source\gui;..\..\Source\helpers;..\..\Source\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\audio\A _0_Processor.cpp"/>
+    <ClCompile Include="..\..\Source\exposed_parameters\EP _0_Exposed_Parameter_Info.cpp"/>
     <ClCompile Include="..\..\Source\gui\G _0_Editor.cpp"/>
     <ClCompile Include="..\..\Source\gui\G_Paint_Paths.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -2935,9 +2936,12 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\audio\A _0_Processor.h"/>
     <ClInclude Include="..\..\Source\constants\C_COLOR.h"/>
+    <ClInclude Include="..\..\Source\constants\C_ENUM.h"/>
+    <ClInclude Include="..\..\Source\constants\C_EP.h"/>
     <ClInclude Include="..\..\Source\constants\C_ID.h"/>
     <ClInclude Include="..\..\Source\constants\C_PATH_Editor_Background.h"/>
     <ClInclude Include="..\..\Source\constants\C_XYWH.h"/>
+    <ClInclude Include="..\..\Source\exposed_parameters\EP _0_Exposed_Parameter_Info.h"/>
     <ClInclude Include="..\..\Source\gui\G _0_Editor.h"/>
     <ClInclude Include="..\..\Source\gui\G_Paint_Paths.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
