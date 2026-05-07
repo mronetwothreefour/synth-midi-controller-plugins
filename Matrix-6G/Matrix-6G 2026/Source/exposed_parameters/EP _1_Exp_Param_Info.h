@@ -3,20 +3,18 @@
 #include <JuceHeader.h>
 
 #include "C_ENUM.h"
+#include "EP _0_Exp_Param_Info_Base.h"
 
 using namespace ENUM;
 
-class Exposed_Parameter_Info
+class Exposed_Parameter_Info :
+	public Exposed_Parameter_Info_Base
 {
 private: ValueTree tree;
 
 //==============================================================================
 public: Exposed_Parameter_Info();
 
-private: const ValueTree param(const uint8 param_index) const;
-public: const Identifier id_for(const uint8 param_index) const;
-public: const uint8 param_num_for(const uint8 param_index) const;
-public: const String name_for(const uint8 param_index) const;
 public: const Ctrl_Type ctrl_type_for(const uint8 param_index) const;
 
 //==============================================================================

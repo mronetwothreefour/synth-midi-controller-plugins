@@ -2,6 +2,15 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Matrix-6G 2026\_Shared_Source\constants">
+      <UniqueIdentifier>{5F17F43C-E440-94AF-52A9-447B71AFF8B8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matrix-6G 2026\_Shared_Source\exposed_parameters">
+      <UniqueIdentifier>{DFC62CEF-490D-E004-FBCF-A8FBBFD8ACE2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matrix-6G 2026\_Shared_Source">
+      <UniqueIdentifier>{9F04EA9A-563A-3DC8-2C79-6FF1B881DF01}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Matrix-6G 2026\Source\audio">
       <UniqueIdentifier>{4F14F6D0-BA5E-C977-2191-B7CC8585B5DD}</UniqueIdentifier>
     </Filter>
@@ -700,10 +709,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\_Shared_Source\exposed_parameters\EP _0_Exp_Param_Info_Base.cpp">
+      <Filter>Matrix-6G 2026\_Shared_Source\exposed_parameters</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\audio\A _0_Processor.cpp">
       <Filter>Matrix-6G 2026\Source\audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\exposed_parameters\EP _0_Exposed_Parameter_Info.cpp">
+    <ClCompile Include="..\..\Source\exposed_parameters\EP _1_Exp_Param_Info.cpp">
       <Filter>Matrix-6G 2026\Source\exposed_parameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\gui\G _0_Editor.cpp">
@@ -3675,6 +3687,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\_Shared_Source\constants\C_ID _Shared.h">
+      <Filter>Matrix-6G 2026\_Shared_Source\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Shared_Source\exposed_parameters\EP _0_Exp_Param_Info_Base.h">
+      <Filter>Matrix-6G 2026\_Shared_Source\exposed_parameters</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\audio\A _0_Processor.h">
       <Filter>Matrix-6G 2026\Source\audio</Filter>
     </ClInclude>
@@ -3696,7 +3714,7 @@
     <ClInclude Include="..\..\Source\constants\C_XYWH.h">
       <Filter>Matrix-6G 2026\Source\constants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\exposed_parameters\EP _0_Exposed_Parameter_Info.h">
+    <ClInclude Include="..\..\Source\exposed_parameters\EP _1_Exp_Param_Info.h">
       <Filter>Matrix-6G 2026\Source\exposed_parameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\gui\G _0_Editor.h">

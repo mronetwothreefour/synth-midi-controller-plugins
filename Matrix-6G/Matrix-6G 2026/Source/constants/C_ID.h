@@ -2,6 +2,8 @@
 
 #include <JuceHeader.h>
 
+#include "C_ ID_Shared.h"
+
 namespace ID
 {
 
@@ -86,12 +88,5 @@ namespace ID
 	static const Identifier ep_93_env_3_decay        { "ep_93_env_3_decay" };
 	static const Identifier ep_94_env_3_sustain      { "ep_94_env_3_sustain" };
 	static const Identifier ep_95_env_3_release      { "ep_95_env_3_release" };
-
-	static const Identifier param_choice_count { "param_choice_count" };
-	static const Identifier param_ctrl_type { "param_ctrl_type" };
-	static const Identifier param_name { "param_name" };
-	static const Identifier param_num { "param_num" };
-
-	static const Identifier tree_exp_param_info { "tree_exp_param_info" };
 
 }

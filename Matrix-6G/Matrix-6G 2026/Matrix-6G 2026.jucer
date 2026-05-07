@@ -6,8 +6,19 @@
               version="2.1.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com"
               companyEmail="programming@mr1234.com" pluginDesc="Sound editor/librarian for use with the Oberheim Matrix-6R synthesizer"
               pluginManufacturerCode="TimD" pluginAUMainType="'aumi'" pluginVST3Category="Tools"
-              cppLanguageStandard="20" headerPath="..\..\Source\audio&#10;..\..\Source\constants&#10;..\..\Source\exposed_parameters&#10;..\..\Source\gui&#10;..\..\Source\helpers&#10;..\..\Source\midi">
+              cppLanguageStandard="20" headerPath="..\..\..\..\_Shared_Source\constants&#10;..\..\..\..\_Shared_Source\exposed_parameters&#10;..\..\Source\audio&#10;..\..\Source\constants&#10;..\..\Source\exposed_parameters&#10;..\..\Source\gui&#10;..\..\Source\helpers&#10;..\..\Source\midi">
   <MAINGROUP id="F43Kyc" name="Matrix-6G 2026">
+    <GROUP id="{CE0778DF-0367-DFE3-2A9A-C669BC5EF673}" name="_Shared_Source">
+      <GROUP id="{332C6D27-6FE3-9C44-1E4B-BC4EC140A750}" name="constants">
+        <FILE id="BVf5zX" name="C_ID _Shared.h" compile="0" resource="0" file="../../_Shared_Source/constants/C_ID _Shared.h"/>
+      </GROUP>
+      <GROUP id="{35B78455-1CAA-0EF0-9BDF-EB769D6E290A}" name="exposed_parameters">
+        <FILE id="zEYANg" name="EP _0_Exp_Param_Info_Base.cpp" compile="1"
+              resource="0" file="../../_Shared_Source/exposed_parameters/EP _0_Exp_Param_Info_Base.cpp"/>
+        <FILE id="oefVw1" name="EP _0_Exp_Param_Info_Base.h" compile="0" resource="0"
+              file="../../_Shared_Source/exposed_parameters/EP _0_Exp_Param_Info_Base.h"/>
+      </GROUP>
+    </GROUP>
     <GROUP id="{68F6EC30-D555-22DE-B2F4-153CA8D599C1}" name="Source">
       <GROUP id="{9EA4D472-F93A-EFB9-4E5A-056C69A708FC}" name="audio">
         <FILE id="xfR64p" name="A _0_Processor.cpp" compile="1" resource="0"
@@ -25,10 +36,10 @@
         <FILE id="hKVwG0" name="C_XYWH.h" compile="0" resource="0" file="Source/constants/C_XYWH.h"/>
       </GROUP>
       <GROUP id="{B4F7A7C5-0B8F-20C4-BA35-519461A0EE78}" name="exposed_parameters">
-        <FILE id="G0ptbF" name="EP _0_Exposed_Parameter_Info.cpp" compile="1"
-              resource="0" file="Source/exposed_parameters/EP _0_Exposed_Parameter_Info.cpp"/>
-        <FILE id="GGrrMc" name="EP _0_Exposed_Parameter_Info.h" compile="0"
-              resource="0" file="Source/exposed_parameters/EP _0_Exposed_Parameter_Info.h"/>
+        <FILE id="G0ptbF" name="EP _1_Exp_Param_Info.cpp" compile="1" resource="0"
+              file="Source/exposed_parameters/EP _1_Exp_Param_Info.cpp"/>
+        <FILE id="GGrrMc" name="EP _1_Exp_Param_Info.h" compile="0" resource="0"
+              file="Source/exposed_parameters/EP _1_Exp_Param_Info.h"/>
       </GROUP>
       <GROUP id="{893D5EA5-28A6-8EA7-278F-088A844CE155}" name="gui">
         <FILE id="RldXHe" name="G _0_Editor.cpp" compile="1" resource="0" file="Source/gui/G _0_Editor.cpp"/>
