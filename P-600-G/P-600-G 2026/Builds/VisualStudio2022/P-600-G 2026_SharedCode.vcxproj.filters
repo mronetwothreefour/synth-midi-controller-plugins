@@ -23,6 +23,9 @@
     <Filter Include="P-600-G 2026\Project_Source_Files\constants">
       <UniqueIdentifier>{FD16794A-63F6-DD56-F391-99ADE9BE4532}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G 2026\Project_Source_Files\exposed_parameters">
+      <UniqueIdentifier>{A14FF19E-9ABB-80DA-DB43-FA2426E31FAA}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G 2026\Project_Source_Files\gui">
       <UniqueIdentifier>{1438909E-BFD4-CE86-9643-F720CD181E65}</UniqueIdentifier>
     </Filter>
@@ -720,6 +723,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\audio\A_00-P_Processor.cpp">
       <Filter>P-600-G 2026\Project_Source_Files\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\exposed_parameters\E_00-P_Exp_Param_Info.cpp">
+      <Filter>P-600-G 2026\Project_Source_Files\exposed_parameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\gui\G_01-P_Editor.cpp">
       <Filter>P-600-G 2026\Project_Source_Files\gui</Filter>
@@ -3711,6 +3717,9 @@
     <ClInclude Include="..\..\Project_Source_Files\constants\C_00-P_ID.h">
       <Filter>P-600-G 2026\Project_Source_Files\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_01-P_ENUM.h">
+      <Filter>P-600-G 2026\Project_Source_Files\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\constants\C_10-P_COLOR.h">
       <Filter>P-600-G 2026\Project_Source_Files\constants</Filter>
     </ClInclude>
@@ -3719,6 +3728,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\constants\C_20-P_PATH_Editor_Bkgrnd.h">
       <Filter>P-600-G 2026\Project_Source_Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_50-P_EP.h">
+      <Filter>P-600-G 2026\Project_Source_Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\exposed_parameters\E_00-P_Exp_Param_Info.h">
+      <Filter>P-600-G 2026\Project_Source_Files\exposed_parameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\gui\G_01-P_Editor.h">
       <Filter>P-600-G 2026\Project_Source_Files\gui</Filter>

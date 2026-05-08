@@ -12,64 +12,69 @@ const ValueTree Base_Exposed_Parameter_Info::param(uint8 i) const {
 const Identifier Base_Exposed_Parameter_Info::id_for(uint8 i) const {
 	if (i < exp_param_count)
 		return param(i).getType();
-	return Identifier{};
+	return {};
 }
 
-const uint8 Base_Exposed_Parameter_Info::param_num_for(uint8 i) const {
+const uint8 Base_Exposed_Parameter_Info::number_for(uint8 i) const {
 	if (i < exp_param_count)
-		return (uint8)(int)param(i)[ID::param_num];
-	return uint8{ 255 };
+		return (uint8)(int)param(i)[ID::ep_p_number];
+	return (uint8)255;
 }
 
 const String Base_Exposed_Parameter_Info::name_for(uint8 i) const {
 	if (i < exp_param_count)
-		return param(i)[ID::param_name].toString();
-	return String{};
+		return param(i)[ID::ep_p_name].toString();
+	return {};
 }
 
 const uint8 Base_Exposed_Parameter_Info::choice_count_for(uint8 i) const {
 	if (i < exp_param_count)
-		return (uint8)(int)param(i)[ID::param_choice_count];
-	return uint8{ 255 };
+		return (uint8)(int)param(i)[ID::ep_p_choice_count];
+	return (uint8)255;
 }
 
 const uint8 Base_Exposed_Parameter_Info::init_choice_for(uint8 i) const {
 	if (i < exp_param_count)
-		return (uint8)(int)param(i)[ID::param_init_choice];
-	return uint8{ 255 };
+		return (uint8)(int)param(i)[ID::ep_p_init_choice];
+	return (uint8)255;
 }
 
 Point<int> Base_Exposed_Parameter_Info::ctrl_center_for(uint8 i) const {
 	if (i < exp_param_count) {
-		auto x = (int)param(i)[ID::param_ctrl_center_x];
-		auto y = (int)param(i)[ID::param_ctrl_center_y];
+		auto x = (int)param(i)[ID::ep_p_ctrl_center_x];
+		auto y = (int)param(i)[ID::ep_p_ctrl_center_y];
 		return Point<int>{ x, y };
 	}
-	return Point<int>{};
+	return {};
 }
 
 int Base_Exposed_Parameter_Info::ctrl_width_for(uint8 i) const {
 	if (i < exp_param_count)
-		return (int)param(i)[ID::param_ctrl_width];
+		return (int)param(i)[ID::ep_p_ctrl_width];
+	return 0;
+}
+
+int Base_Exposed_Parameter_Info::ctrl_height_for(uint8 i) const {
+	if (i < exp_param_count)
+		return (int)param(i)[ID::ep_p_ctrl_height];
 	return 0;
 }
 
 const String Base_Exposed_Parameter_Info::description_for(uint8 i) const {
 	if (i < exp_param_count)
-		return param(i)[ID::param_description].toString();
-	return String{};
+		return param(i)[ID::ep_p_description].toString();
+	return {};
 }
 
 const String Base_Exposed_Parameter_Info::choice_name_for(
 						uint8 i, const uint8 num, bool curt) const 
 {
-	String choice_name{};
 	if (i < exp_param_count && num < choice_count_for(i)) {
 		auto& tree_id = curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names;
 		auto choices = param(i).getChildWithName(tree_id);
-		choice_name = choices["choice_" + (String)num].toString();
+		return choices["choice_" + (String)num].toString();
 	}
-	return choice_name;
+	return {};
 }
 
 const StringArray Base_Exposed_Parameter_Info::choice_name_list_for(
@@ -91,6 +96,42 @@ const int Base_Exposed_Parameter_Info::drag_sensitivity_for(uint8 i, float scale
 		auto sensitivity = (80.0f + choice_count_for(i) / 2.0f) * scale_factor;
 		return roundToInt(sensitivity);
 	}
+	return -1;
+}
+
+const int Base_Exposed_Parameter_Info::choice_menu_col_count_for(const uint8 i) const {
+	if (i < exp_param_count)
+		return (int)param(i)[ID::ep_p_choice_menu_col_count];
+	return -1;
+}
+
+int Base_Exposed_Parameter_Info::choice_menu_col_width_for(const uint8 i) const {
+	if (i < exp_param_count)
+		return (int)param(i)[ID::ep_p_choice_menu_col_width];
+	return -1;
+}
+
+const int Base_Exposed_Parameter_Info::choice_menu_row_count_for(const uint8 i) const {
+	if (i < exp_param_count)
+		return (int)param(i)[ID::ep_p_choice_menu_row_count];
+	return -1;
+}
+
+const int Base_Exposed_Parameter_Info::choice_menu_first_row_for(const uint8 i) const {
+	if (i < exp_param_count)
+		return (int)param(i)[ID::ep_p_choice_menu_first_row];
+	return -1;
+}
+
+int Base_Exposed_Parameter_Info::choice_menu_x_for(const uint8 i) const {
+	if (i < exp_param_count)
+		return (int)param(i)[ID::ep_p_choice_menu_x];
+	return -1;
+}
+
+int Base_Exposed_Parameter_Info::choice_menu_y_for(const uint8 i) const {
+	if (i < exp_param_count)
+		return (int)param(i)[ID::ep_p_choice_menu_y];
 	return -1;
 }
 

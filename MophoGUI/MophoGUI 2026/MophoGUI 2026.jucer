@@ -36,12 +36,19 @@
       </GROUP>
       <GROUP id="{DF99C696-0762-7DBB-F7E4-65B7216A082F}" name="constants">
         <FILE id="jCGh6P" name="C_00-P_ID.h" compile="0" resource="0" file="Project_Source_Files/constants/C_00-P_ID.h"/>
+        <FILE id="GfPUMN" name="C_01-P_ENUM.h" compile="0" resource="0" file="Project_Source_Files/constants/C_01-P_ENUM.h"/>
         <FILE id="VeHEUe" name="C_10-P_COLOR.h" compile="0" resource="0" file="Project_Source_Files/constants/C_10-P_COLOR.h"/>
         <FILE id="ywGOG3" name="C_11-P_XYWH.h" compile="0" resource="0" file="Project_Source_Files/constants/C_11-P_XYWH.h"/>
         <FILE id="LGnb41" name="C_20-P_PATH_Editor_Bkgrnd.h" compile="0" resource="0"
               file="Project_Source_Files/constants/C_20-P_PATH_Editor_Bkgrnd.h"/>
+        <FILE id="ol9C77" name="C_50-P_EP.h" compile="0" resource="0" file="Project_Source_Files/constants/C_50-P_EP.h"/>
       </GROUP>
-      <GROUP id="{6AE090E5-1717-50ED-08A1-A04ADF21229D}" name="exposed_parameters"/>
+      <GROUP id="{6AE090E5-1717-50ED-08A1-A04ADF21229D}" name="exposed_parameters">
+        <FILE id="f3CHf8" name="E_00-P_Exp_Param_Info.cpp" compile="1" resource="0"
+              file="Project_Source_Files/exposed_parameters/E_00-P_Exp_Param_Info.cpp"/>
+        <FILE id="TXKsWL" name="E_00-P_Exp_Param_Info.h" compile="0" resource="0"
+              file="Project_Source_Files/exposed_parameters/E_00-P_Exp_Param_Info.h"/>
+      </GROUP>
       <GROUP id="{603CE7AE-372C-D847-E165-FCDD818EF3E0}" name="gui">
         <FILE id="B12hrP" name="G_01-P_Editor.cpp" compile="1" resource="0"
               file="Project_Source_Files/gui/G_01-P_Editor.cpp"/>

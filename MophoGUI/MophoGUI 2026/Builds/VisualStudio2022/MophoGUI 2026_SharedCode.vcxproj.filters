@@ -20,6 +20,9 @@
     <Filter Include="MophoGUI 2026\Project_Source_Files\constants">
       <UniqueIdentifier>{5E49CDCC-AA86-3505-08BC-1FA5D3C2CBD2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2026\Project_Source_Files\exposed_parameters">
+      <UniqueIdentifier>{8A03905B-A9DB-8C66-E3DF-8A2DF4F1DDA1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2026\Project_Source_Files\gui">
       <UniqueIdentifier>{42737FA7-9BB3-2014-C2C3-FBB2692C7A23}</UniqueIdentifier>
     </Filter>
@@ -717,6 +720,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\audio\A_00-P_Processor.cpp">
       <Filter>MophoGUI 2026\Project_Source_Files\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\exposed_parameters\E_00-P_Exp_Param_Info.cpp">
+      <Filter>MophoGUI 2026\Project_Source_Files\exposed_parameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\gui\G_01-P_Editor.cpp">
       <Filter>MophoGUI 2026\Project_Source_Files\gui</Filter>
@@ -3705,6 +3711,9 @@
     <ClInclude Include="..\..\Project_Source_Files\constants\C_00-P_ID.h">
       <Filter>MophoGUI 2026\Project_Source_Files\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_01-P_ENUM.h">
+      <Filter>MophoGUI 2026\Project_Source_Files\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\constants\C_10-P_COLOR.h">
       <Filter>MophoGUI 2026\Project_Source_Files\constants</Filter>
     </ClInclude>
@@ -3713,6 +3722,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\constants\C_20-P_PATH_Editor_Bkgrnd.h">
       <Filter>MophoGUI 2026\Project_Source_Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_50-P_EP.h">
+      <Filter>MophoGUI 2026\Project_Source_Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\exposed_parameters\E_00-P_Exp_Param_Info.h">
+      <Filter>MophoGUI 2026\Project_Source_Files\exposed_parameters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\gui\G_01-P_Editor.h">
       <Filter>MophoGUI 2026\Project_Source_Files\gui</Filter>

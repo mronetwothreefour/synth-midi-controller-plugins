@@ -45,4 +45,9 @@ namespace ID
 	static const Identifier ep_35_lfo_dest_pw           { "ep_35_lfo_dest_pw" };
 	static const Identifier ep_36_lfo_dest_filter       { "ep_36_lfo_dest_filter" };
 
+	// exposed parameter properties
+	static const Identifier ep_p_bit_count{ "ep_p_bit_count" };
+	static const Identifier ep_p_ctrl_type{ "ep_p_ctrl_type" };
+	static const Identifier ep_p_first_bit_index{ "ep_p_first_bit_index" };
+	static const Identifier ep_p_first_nybble_index{ "ep_p_first_nybble_index" };
 }

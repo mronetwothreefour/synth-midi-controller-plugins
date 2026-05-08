@@ -89,4 +89,7 @@ namespace ID
 	static const Identifier ep_94_env_3_sustain      { "ep_94_env_3_sustain" };
 	static const Identifier ep_95_env_3_release      { "ep_95_env_3_release" };
 
+	// exposed parameter properties
+	static const Identifier ep_p_byte_index{ "ep_p_byte_index" };
+	static const Identifier ep_p_slider_display_type{ "ep_p_slider_display_type" };
 }

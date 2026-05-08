@@ -47,4 +47,10 @@ namespace ID
 	static const Identifier ep_37_delay_routing      { "ep_37_delay_routing" };
 	static const Identifier ep_38_voice_mode_depth   { "ep_38_voice_mode_depth" };
 
+	// exposed parameter properties
+	static const Identifier ep_p_bit_count{ "ep_p_bit_count" };
+	static const Identifier ep_p_cc_num{ "cc_num" };
+	static const Identifier ep_p_knob_display_type{ "ep_p_knob_display_type" };
+
+	static const Identifier tree_bit_locations{ "tree_bit_locations" };
 }

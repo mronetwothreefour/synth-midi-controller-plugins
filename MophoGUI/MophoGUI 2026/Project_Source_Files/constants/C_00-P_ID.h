@@ -77,4 +77,12 @@ namespace ID
 	static const Identifier ep_099_seq_trig_mode   { "ep_099_seq_trig_mode" };
 	static const Identifier ep_100_seq_on_off      { "ep_100_seq_on_off" };
 
+	// exposed parameter properties
+	static const Identifier ep_p_byte_index{ "ep_p_byte_index" };
+	static const Identifier ep_p_knob_display_type{ "ep_p_knob_display_type" };
+	static const Identifier ep_p_nrpn{ "ep_p_nrpn" };
+	static const Identifier ep_p_packed_bits_byte_index{ "ep_p_packed_bits_byte_index" };
+	static const Identifier ep_p_packed_bits_mask{ "ep_p_packed_bits_mask" };
+	static const Identifier ep_p_red_toggle_center_x{ "ep_p_red_toggle_center_x" };
+	static const Identifier ep_p_red_toggle_center_y{ "ep_p_red_toggle_center_y" };
 }

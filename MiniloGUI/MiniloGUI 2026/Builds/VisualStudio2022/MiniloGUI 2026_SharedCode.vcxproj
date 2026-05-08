@@ -148,6 +148,7 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\audio\A_00-B_Processor.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\audio\A_00-P_Processor.cpp"/>
+    <ClCompile Include="..\..\Project_Source_Files\exposed_parameters\E_00-P_Exp_Param_Info.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\gui\G_01-P_Editor.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\gui\G_05-P_Paint_Paths.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -2940,10 +2941,13 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_10-B_COLOR.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.h"/>
     <ClInclude Include="..\..\Project_Source_Files\audio\A_00-P_Processor.h"/>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_10-P_COLOR.h"/>
     <ClInclude Include="..\..\Project_Source_Files\constants\C_00-P_ID.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_01-P_ENUM.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_10-P_COLOR.h"/>
     <ClInclude Include="..\..\Project_Source_Files\constants\C_11-P_XYWH.h"/>
     <ClInclude Include="..\..\Project_Source_Files\constants\C_20-P_PATH_Editor_Bkgrnd.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_50-P_EP.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\exposed_parameters\E_00-P_Exp_Param_Info.h"/>
     <ClInclude Include="..\..\Project_Source_Files\gui\G_01-P_Editor.h"/>
     <ClInclude Include="..\..\Project_Source_Files\gui\G_05-P_Paint_Paths.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
