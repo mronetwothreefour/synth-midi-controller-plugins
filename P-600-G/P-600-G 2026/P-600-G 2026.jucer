@@ -6,34 +6,55 @@
               pluginFormats="buildVST3" pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginDesc="Sound editor/librarian for use with the SCI Prophet-600 synthesizer"
               pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20"
-              headerPath="..\..\Source\audio&#10;..\..\Source\constants&#10;..\..\Source\exposed_parameters&#10;..\..\Source\gui&#10;..\..\Source\helpers&#10;..\..\Source\midi">
+              headerPath="..\..\..\..\_Base_Source_Files\audio&#10;..\..\..\..\_Base_Source_Files\constants&#10;..\..\..\..\_Base_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\audio&#10;..\..\Project_Source_Files\constants&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
   <MAINGROUP id="sSCaXP" name="P-600-G 2026">
-    <GROUP id="{ACCCDFB4-EC40-C977-EE9D-D79E37F82BFC}" name="Source">
-      <GROUP id="{F2C8F9E2-1E22-7D86-7779-1492A943DE2F}" name="audio">
-        <FILE id="K6zQVn" name="A _0_Processor.cpp" compile="1" resource="0"
-              file="Source/audio/A _0_Processor.cpp"/>
-        <FILE id="m53gGy" name="A _0_Processor.h" compile="0" resource="0"
-              file="Source/audio/A _0_Processor.h"/>
+    <GROUP id="{E250642F-4444-B780-0392-6400C2CA6C29}" name="_Base_Source_Files">
+      <GROUP id="{3BDF9967-A820-40DA-7D0A-36EA6C3C8630}" name="audio">
+        <FILE id="EG8V2A" name="A_00-B_Processor.cpp" compile="1" resource="0"
+              file="../../_Base_Source_Files/audio/A_00-B_Processor.cpp"/>
+        <FILE id="QTDzl7" name="A_00-B_Processor.h" compile="0" resource="0"
+              file="../../_Base_Source_Files/audio/A_00-B_Processor.h"/>
       </GROUP>
-      <GROUP id="{C807AFBC-18B2-2305-F7B7-E8FE93C8B03F}" name="binaries">
-        <FILE id="GJF1bF" name="texture.jpg" compile="0" resource="1" file="Source/binaries/texture.jpg"/>
+      <GROUP id="{26AFA828-8571-45CE-F092-77B24B62C3CF}" name="constants">
+        <FILE id="ISpyhZ" name="C_00-B_ID.h" compile="0" resource="0" file="../../_Base_Source_Files/constants/C_00-B_ID.h"/>
+        <FILE id="bnrck1" name="C_10-B_COLOR.h" compile="0" resource="0" file="../../_Base_Source_Files/constants/C_10-B_COLOR.h"/>
       </GROUP>
-      <GROUP id="{76B2A651-9896-F9CA-5BBE-D481A8CD88C2}" name="constants">
-        <FILE id="EFFlsC" name="C_COLOR.h" compile="0" resource="0" file="Source/constants/C_COLOR.h"/>
-        <FILE id="W62yr2" name="C_ID.h" compile="0" resource="0" file="Source/constants/C_ID.h"/>
-        <FILE id="BsNK8k" name="C_PATH_Editor_Background.h" compile="0" resource="0"
-              file="Source/constants/C_PATH_Editor_Background.h"/>
-        <FILE id="pBjHyP" name="C_XYWH.h" compile="0" resource="0" file="Source/constants/C_XYWH.h"/>
+      <GROUP id="{CD315361-50D8-65AA-D089-3489243AD394}" name="exposed_parameters">
+        <FILE id="foa4Md" name="E_00-B_Exp_Param_Info.cpp" compile="1" resource="0"
+              file="../../_Base_Source_Files/exposed_parameters/E_00-B_Exp_Param_Info.cpp"/>
+        <FILE id="bxkPfj" name="E_00-B_Exp_Param_Info.h" compile="0" resource="0"
+              file="../../_Base_Source_Files/exposed_parameters/E_00-B_Exp_Param_Info.h"/>
       </GROUP>
-      <GROUP id="{4C640C64-7121-8F68-A94E-73E105B7F589}" name="gui">
-        <FILE id="DeH7MP" name="G _0_Editor.cpp" compile="1" resource="0" file="Source/gui/G _0_Editor.cpp"/>
-        <FILE id="T3Aqdn" name="G _0_Editor.h" compile="0" resource="0" file="Source/gui/G _0_Editor.h"/>
-        <FILE id="lbggGk" name="G_Paint_Paths.cpp" compile="1" resource="0"
-              file="Source/gui/G_Paint_Paths.cpp"/>
-        <FILE id="WPziDF" name="G_Paint_Paths.h" compile="0" resource="0" file="Source/gui/G_Paint_Paths.h"/>
+    </GROUP>
+    <GROUP id="{BA905641-A131-634A-864A-8FA5B8689C94}" name="Project_Source_Files">
+      <GROUP id="{4A8290AC-1620-158A-3B89-25F388FE03D7}" name="audio">
+        <FILE id="ndTAne" name="A_00-P_Processor.cpp" compile="1" resource="0"
+              file="Project_Source_Files/audio/A_00-P_Processor.cpp"/>
+        <FILE id="EeSeFN" name="A_00-P_Processor.h" compile="0" resource="0"
+              file="Project_Source_Files/audio/A_00-P_Processor.h"/>
       </GROUP>
-      <GROUP id="{2EB0A2E0-6463-CB84-2578-5C4C79DCACAB}" name="helpers"/>
-      <GROUP id="{977AC7C6-6025-25C7-AB23-0C0CE78CE0A8}" name="midi"/>
+      <GROUP id="{16C95D19-7475-5417-F8AF-AC05E9B5689B}" name="binaries">
+        <FILE id="qVHTXX" name="texture.jpg" compile="0" resource="1" file="Project_Source_Files/binaries/texture.jpg"/>
+      </GROUP>
+      <GROUP id="{FD34FCA0-4457-0CE7-265C-B464E68C8154}" name="constants">
+        <FILE id="rYrnaP" name="C_00-P_ID.h" compile="0" resource="0" file="Project_Source_Files/constants/C_00-P_ID.h"/>
+        <FILE id="w6d6Cl" name="C_10-P_COLOR.h" compile="0" resource="0" file="Project_Source_Files/constants/C_10-P_COLOR.h"/>
+        <FILE id="YFEGny" name="C_11-P_XYWH.h" compile="0" resource="0" file="Project_Source_Files/constants/C_11-P_XYWH.h"/>
+        <FILE id="ROjRVw" name="C_20-P_PATH_Editor_Bkgrnd.h" compile="0" resource="0"
+              file="Project_Source_Files/constants/C_20-P_PATH_Editor_Bkgrnd.h"/>
+      </GROUP>
+      <GROUP id="{F607CFF9-148C-815F-9CC8-086295A17406}" name="exposed_parameters"/>
+      <GROUP id="{EB53D7E1-18EB-7767-EBBC-0EA52436DB98}" name="gui">
+        <FILE id="E39kFv" name="G_01-P_Editor.cpp" compile="1" resource="0"
+              file="Project_Source_Files/gui/G_01-P_Editor.cpp"/>
+        <FILE id="xFoMcq" name="G_01-P_Editor.h" compile="0" resource="0" file="Project_Source_Files/gui/G_01-P_Editor.h"/>
+        <FILE id="lRWPNu" name="G_05-P_Paint_Paths.cpp" compile="1" resource="0"
+              file="Project_Source_Files/gui/G_05-P_Paint_Paths.cpp"/>
+        <FILE id="Ax1FEk" name="G_05-P_Paint_Paths.h" compile="0" resource="0"
+              file="Project_Source_Files/gui/G_05-P_Paint_Paths.h"/>
+      </GROUP>
+      <GROUP id="{8134257B-9166-AF40-CE75-ECF54E599699}" name="helpers"/>
+      <GROUP id="{88C334BA-22FC-3291-CCEB-16BC6D86ED0C}" name="midi"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

@@ -2,20 +2,32 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="P-600-G 2026\Source\audio">
-      <UniqueIdentifier>{C0E04E65-C4E4-9C51-CA16-6D1D0C3D3C73}</UniqueIdentifier>
+    <Filter Include="P-600-G 2026\_Base_Source_Files\audio">
+      <UniqueIdentifier>{C54BA42C-7AD3-959C-3BBA-EF387BB1B599}</UniqueIdentifier>
     </Filter>
-    <Filter Include="P-600-G 2026\Source\binaries">
-      <UniqueIdentifier>{490C5823-BF8D-5F67-66EA-3E5C579F5DF5}</UniqueIdentifier>
+    <Filter Include="P-600-G 2026\_Base_Source_Files\constants">
+      <UniqueIdentifier>{B46CD1C4-7D65-9F63-C5E5-B94DAB90B570}</UniqueIdentifier>
     </Filter>
-    <Filter Include="P-600-G 2026\Source\constants">
-      <UniqueIdentifier>{9221B2E5-A206-3C1A-24D1-DBB5988908D0}</UniqueIdentifier>
+    <Filter Include="P-600-G 2026\_Base_Source_Files\exposed_parameters">
+      <UniqueIdentifier>{3DD9D968-2022-A9A0-A35A-F9FE1B16F39C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="P-600-G 2026\Source\gui">
-      <UniqueIdentifier>{3516DA3A-9B31-E63D-AA21-AB8EE0389EF9}</UniqueIdentifier>
+    <Filter Include="P-600-G 2026\_Base_Source_Files">
+      <UniqueIdentifier>{B5A3599C-11FF-8186-4C23-6AFF141688EE}</UniqueIdentifier>
     </Filter>
-    <Filter Include="P-600-G 2026\Source">
-      <UniqueIdentifier>{31F851AC-93FC-5FF9-60F6-2D38AF2DC28B}</UniqueIdentifier>
+    <Filter Include="P-600-G 2026\Project_Source_Files\audio">
+      <UniqueIdentifier>{A1BF5590-AF4C-59F0-9EBC-1B2A4EBAB3DC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="P-600-G 2026\Project_Source_Files\binaries">
+      <UniqueIdentifier>{A984E672-01FA-1BBB-D1DA-67857A5A5AF1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="P-600-G 2026\Project_Source_Files\constants">
+      <UniqueIdentifier>{FD16794A-63F6-DD56-F391-99ADE9BE4532}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="P-600-G 2026\Project_Source_Files\gui">
+      <UniqueIdentifier>{1438909E-BFD4-CE86-9643-F720CD181E65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="P-600-G 2026\Project_Source_Files">
+      <UniqueIdentifier>{6761B3B4-51D8-02E0-9F9A-2487D2634CAA}</UniqueIdentifier>
     </Filter>
     <Filter Include="P-600-G 2026">
       <UniqueIdentifier>{90274C83-7F67-98F5-A025-F0F047011873}</UniqueIdentifier>
@@ -700,14 +712,20 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\audio\A _0_Processor.cpp">
-      <Filter>P-600-G 2026\Source\audio</Filter>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\audio\A_00-B_Processor.cpp">
+      <Filter>P-600-G 2026\_Base_Source_Files\audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\gui\G _0_Editor.cpp">
-      <Filter>P-600-G 2026\Source\gui</Filter>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.cpp">
+      <Filter>P-600-G 2026\_Base_Source_Files\exposed_parameters</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\gui\G_Paint_Paths.cpp">
-      <Filter>P-600-G 2026\Source\gui</Filter>
+    <ClCompile Include="..\..\Project_Source_Files\audio\A_00-P_Processor.cpp">
+      <Filter>P-600-G 2026\Project_Source_Files\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\gui\G_01-P_Editor.cpp">
+      <Filter>P-600-G 2026\Project_Source_Files\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\gui\G_05-P_Paint_Paths.cpp">
+      <Filter>P-600-G 2026\Project_Source_Files\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -3675,26 +3693,38 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\audio\A _0_Processor.h">
-      <Filter>P-600-G 2026\Source\audio</Filter>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\audio\A_00-B_Processor.h">
+      <Filter>P-600-G 2026\_Base_Source_Files\audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\constants\C_COLOR.h">
-      <Filter>P-600-G 2026\Source\constants</Filter>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_00-B_ID.h">
+      <Filter>P-600-G 2026\_Base_Source_Files\constants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\constants\C_ID.h">
-      <Filter>P-600-G 2026\Source\constants</Filter>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_10-B_COLOR.h">
+      <Filter>P-600-G 2026\_Base_Source_Files\constants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\constants\C_PATH_Editor_Background.h">
-      <Filter>P-600-G 2026\Source\constants</Filter>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.h">
+      <Filter>P-600-G 2026\_Base_Source_Files\exposed_parameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\constants\C_XYWH.h">
-      <Filter>P-600-G 2026\Source\constants</Filter>
+    <ClInclude Include="..\..\Project_Source_Files\audio\A_00-P_Processor.h">
+      <Filter>P-600-G 2026\Project_Source_Files\audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\gui\G _0_Editor.h">
-      <Filter>P-600-G 2026\Source\gui</Filter>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_00-P_ID.h">
+      <Filter>P-600-G 2026\Project_Source_Files\constants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\gui\G_Paint_Paths.h">
-      <Filter>P-600-G 2026\Source\gui</Filter>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_10-P_COLOR.h">
+      <Filter>P-600-G 2026\Project_Source_Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_11-P_XYWH.h">
+      <Filter>P-600-G 2026\Project_Source_Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_20-P_PATH_Editor_Bkgrnd.h">
+      <Filter>P-600-G 2026\Project_Source_Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\gui\G_01-P_Editor.h">
+      <Filter>P-600-G 2026\Project_Source_Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\gui\G_05-P_Paint_Paths.h">
+      <Filter>P-600-G 2026\Project_Source_Files\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -7835,8 +7865,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Source\binaries\texture.jpg">
-      <Filter>P-600-G 2026\Source\binaries</Filter>
+    <None Include="..\..\Project_Source_Files\binaries\texture.jpg">
+      <Filter>P-600-G 2026\Project_Source_Files\binaries</Filter>
     </None>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt">
       <Filter>JUCE Modules\juce_audio_devices\native\asio</Filter>

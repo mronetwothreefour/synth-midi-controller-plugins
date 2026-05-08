@@ -1,15 +1,22 @@
 MophoGUI 2026
 
-A _0_Processor
+A_00-B_Processor    Base_Processor
+A_00-P_Processor    Processor
 
-C_COLOR
-C_EP
-C_ID
-C_PATH_Editor_Background
-C_XYWH
+C_00-B_ID
+C_00-P_ID
+C_01-P_ENUM
+C_10-B_COLOR
+C_10-P_COLOR
+C_11-P_XYWH
+C_12-P_FONT
+C_20-P_PATH_Editor_Bkgrnd
+C_50-P_EP
 
-EP _0_Exposed_Paremeter_Info
+E_00-B_Exp_Param_Info
+E_00-P_Exp_Param_Info
 
-G _0_Editor
-G_Paint_Paths
+G_00-P_Look_And_Feel
+G_01-P_Editor
+G_05-P_Paint_Paths
 

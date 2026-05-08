@@ -6,50 +6,58 @@
               version="2.1.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com"
               companyEmail="programming@mr1234.com" pluginDesc="Sound editor/librarian for use with the Oberheim Matrix-6R synthesizer"
               pluginManufacturerCode="TimD" pluginAUMainType="'aumi'" pluginVST3Category="Tools"
-              cppLanguageStandard="20" headerPath="..\..\..\..\_Shared_Source\constants&#10;..\..\..\..\_Shared_Source\exposed_parameters&#10;..\..\Source\audio&#10;..\..\Source\constants&#10;..\..\Source\exposed_parameters&#10;..\..\Source\gui&#10;..\..\Source\helpers&#10;..\..\Source\midi">
+              cppLanguageStandard="20" headerPath="..\..\..\..\_Base_Source_Files\audio&#10;..\..\..\..\_Base_Source_Files\constants&#10;..\..\..\..\_Base_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\audio&#10;..\..\Project_Source_Files\constants&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
   <MAINGROUP id="F43Kyc" name="Matrix-6G 2026">
-    <GROUP id="{CE0778DF-0367-DFE3-2A9A-C669BC5EF673}" name="_Shared_Source">
-      <GROUP id="{332C6D27-6FE3-9C44-1E4B-BC4EC140A750}" name="constants">
-        <FILE id="BVf5zX" name="C_ID _Shared.h" compile="0" resource="0" file="../../_Shared_Source/constants/C_ID _Shared.h"/>
+    <GROUP id="{602BA233-B181-6E09-6E24-6847DA41A16A}" name="_Base_Source_Files">
+      <GROUP id="{E5073477-AFDF-16B8-CD4A-74E39E2E3A18}" name="audio">
+        <FILE id="rwFGba" name="A_00-B_Processor.cpp" compile="1" resource="0"
+              file="../../_Base_Source_Files/audio/A_00-B_Processor.cpp"/>
+        <FILE id="y4wZTA" name="A_00-B_Processor.h" compile="0" resource="0"
+              file="../../_Base_Source_Files/audio/A_00-B_Processor.h"/>
       </GROUP>
-      <GROUP id="{35B78455-1CAA-0EF0-9BDF-EB769D6E290A}" name="exposed_parameters">
-        <FILE id="zEYANg" name="EP _0_Exp_Param_Info_Base.cpp" compile="1"
-              resource="0" file="../../_Shared_Source/exposed_parameters/EP _0_Exp_Param_Info_Base.cpp"/>
-        <FILE id="oefVw1" name="EP _0_Exp_Param_Info_Base.h" compile="0" resource="0"
-              file="../../_Shared_Source/exposed_parameters/EP _0_Exp_Param_Info_Base.h"/>
+      <GROUP id="{2328719B-BB73-8BBF-9586-4461F1E16425}" name="constants">
+        <FILE id="ZCUkaP" name="C_00-B_ID.h" compile="0" resource="0" file="../../_Base_Source_Files/constants/C_00-B_ID.h"/>
+        <FILE id="g8FmG9" name="C_10-B_COLOR.h" compile="0" resource="0" file="../../_Base_Source_Files/constants/C_10-B_COLOR.h"/>
+      </GROUP>
+      <GROUP id="{B6A0BB0A-171F-3053-B649-B2C400DFC8AC}" name="exposed_parameters">
+        <FILE id="zJQR05" name="E_00-B_Exp_Param_Info.cpp" compile="1" resource="0"
+              file="../../_Base_Source_Files/exposed_parameters/E_00-B_Exp_Param_Info.cpp"/>
+        <FILE id="fKr3n0" name="E_00-B_Exp_Param_Info.h" compile="0" resource="0"
+              file="../../_Base_Source_Files/exposed_parameters/E_00-B_Exp_Param_Info.h"/>
       </GROUP>
     </GROUP>
-    <GROUP id="{68F6EC30-D555-22DE-B2F4-153CA8D599C1}" name="Source">
-      <GROUP id="{9EA4D472-F93A-EFB9-4E5A-056C69A708FC}" name="audio">
-        <FILE id="xfR64p" name="A _0_Processor.cpp" compile="1" resource="0"
-              file="Source/audio/A _0_Processor.cpp"/>
-        <FILE id="EBnJA6" name="A _0_Processor.h" compile="0" resource="0"
-              file="Source/audio/A _0_Processor.h"/>
+    <GROUP id="{B2F6A865-4EED-AC49-FF3C-B4C5A690524D}" name="Project_Source_Files">
+      <GROUP id="{7B57155B-E016-DA63-4C69-EC1BE2B0A21B}" name="audio">
+        <FILE id="RqmkBE" name="A_00-P_Processor.cpp" compile="1" resource="0"
+              file="Project_Source_Files/audio/A_00-P_Processor.cpp"/>
+        <FILE id="xmn4Ta" name="A_00-P_Processor.h" compile="0" resource="0"
+              file="Project_Source_Files/audio/A_00-P_Processor.h"/>
       </GROUP>
-      <GROUP id="{61413DA9-F8D5-3B19-66D5-C470B7229C50}" name="constants">
-        <FILE id="mJ8U7w" name="C_COLOR.h" compile="0" resource="0" file="Source/constants/C_COLOR.h"/>
-        <FILE id="gepjot" name="C_ENUM.h" compile="0" resource="0" file="Source/constants/C_ENUM.h"/>
-        <FILE id="pkEyuY" name="C_EP.h" compile="0" resource="0" file="Source/constants/C_EP.h"/>
-        <FILE id="owd745" name="C_ID.h" compile="0" resource="0" file="Source/constants/C_ID.h"/>
-        <FILE id="ANJ4ul" name="C_PATH_Editor_Background.h" compile="0" resource="0"
-              file="Source/constants/C_PATH_Editor_Background.h"/>
-        <FILE id="hKVwG0" name="C_XYWH.h" compile="0" resource="0" file="Source/constants/C_XYWH.h"/>
+      <GROUP id="{F72E8AD8-1813-E1BA-E0CE-814C6CEE681E}" name="constants">
+        <FILE id="kovwhu" name="C_00-P_ID.h" compile="0" resource="0" file="Project_Source_Files/constants/C_00-P_ID.h"/>
+        <FILE id="dxq7NI" name="C_01-P_ENUM.h" compile="0" resource="0" file="Project_Source_Files/constants/C_01-P_ENUM.h"/>
+        <FILE id="fVydNy" name="C_10-P_COLOR.h" compile="0" resource="0" file="Project_Source_Files/constants/C_10-P_COLOR.h"/>
+        <FILE id="E4h86s" name="C_11-P_XYWH.h" compile="0" resource="0" file="Project_Source_Files/constants/C_11-P_XYWH.h"/>
+        <FILE id="jJDxTh" name="C_20-P_PATH_Editor_Bkgrnd.h" compile="0" resource="0"
+              file="Project_Source_Files/constants/C_20-P_PATH_Editor_Bkgrnd.h"/>
+        <FILE id="AwcLwp" name="C_50-P_EP.h" compile="0" resource="0" file="Project_Source_Files/constants/C_50-P_EP.h"/>
       </GROUP>
-      <GROUP id="{B4F7A7C5-0B8F-20C4-BA35-519461A0EE78}" name="exposed_parameters">
-        <FILE id="G0ptbF" name="EP _1_Exp_Param_Info.cpp" compile="1" resource="0"
-              file="Source/exposed_parameters/EP _1_Exp_Param_Info.cpp"/>
-        <FILE id="GGrrMc" name="EP _1_Exp_Param_Info.h" compile="0" resource="0"
-              file="Source/exposed_parameters/EP _1_Exp_Param_Info.h"/>
+      <GROUP id="{E405D4B1-9FE2-A563-0967-6F4A38F32DB1}" name="exposed_parameters">
+        <FILE id="xfrn2w" name="E_00-P_Exp_Param_Info.cpp" compile="1" resource="0"
+              file="Project_Source_Files/exposed_parameters/E_00-P_Exp_Param_Info.cpp"/>
+        <FILE id="jmceh5" name="E_00-P_Exp_Param_Info.h" compile="0" resource="0"
+              file="Project_Source_Files/exposed_parameters/E_00-P_Exp_Param_Info.h"/>
       </GROUP>
-      <GROUP id="{893D5EA5-28A6-8EA7-278F-088A844CE155}" name="gui">
-        <FILE id="RldXHe" name="G _0_Editor.cpp" compile="1" resource="0" file="Source/gui/G _0_Editor.cpp"/>
-        <FILE id="vRFzFP" name="G _0_Editor.h" compile="0" resource="0" file="Source/gui/G _0_Editor.h"/>
-        <FILE id="sBZ7Jd" name="G_Paint_Paths.cpp" compile="1" resource="0"
-              file="Source/gui/G_Paint_Paths.cpp"/>
-        <FILE id="JC5fLR" name="G_Paint_Paths.h" compile="0" resource="0" file="Source/gui/G_Paint_Paths.h"/>
+      <GROUP id="{6C9D8C95-FEB6-D2FE-B988-29C6B3E22A4B}" name="gui">
+        <FILE id="KLgQrY" name="G_01-P_Editor.cpp" compile="1" resource="0"
+              file="Project_Source_Files/gui/G_01-P_Editor.cpp"/>
+        <FILE id="PXKGzA" name="G_01-P_Editor.h" compile="0" resource="0" file="Project_Source_Files/gui/G_01-P_Editor.h"/>
+        <FILE id="XXsQpf" name="G_05-P_Paint_Paths.cpp" compile="1" resource="0"
+              file="Project_Source_Files/gui/G_05-P_Paint_Paths.cpp"/>
+        <FILE id="K66Ton" name="G_05-P_Paint_Paths.h" compile="0" resource="0"
+              file="Project_Source_Files/gui/G_05-P_Paint_Paths.h"/>
       </GROUP>
-      <GROUP id="{7327B662-1644-43A7-5CC7-9773814A64CD}" name="helpers"/>
-      <GROUP id="{624DA82D-0A93-2A89-9B22-F69890F563C2}" name="midi"/>
+      <GROUP id="{F065A800-D25C-D406-9916-1A8742D8C906}" name="midi"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

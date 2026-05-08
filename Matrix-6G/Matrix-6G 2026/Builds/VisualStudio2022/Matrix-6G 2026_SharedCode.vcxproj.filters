@@ -2,29 +2,32 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Matrix-6G 2026\_Shared_Source\constants">
-      <UniqueIdentifier>{5F17F43C-E440-94AF-52A9-447B71AFF8B8}</UniqueIdentifier>
+    <Filter Include="Matrix-6G 2026\_Base_Source_Files\audio">
+      <UniqueIdentifier>{5A13A449-5A33-76E7-F572-FC50BDFD039E}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Matrix-6G 2026\_Shared_Source\exposed_parameters">
-      <UniqueIdentifier>{DFC62CEF-490D-E004-FBCF-A8FBBFD8ACE2}</UniqueIdentifier>
+    <Filter Include="Matrix-6G 2026\_Base_Source_Files\constants">
+      <UniqueIdentifier>{49B9748B-F9FD-E6C0-5F84-ED5B6363CC55}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Matrix-6G 2026\_Shared_Source">
-      <UniqueIdentifier>{9F04EA9A-563A-3DC8-2C79-6FF1B881DF01}</UniqueIdentifier>
+    <Filter Include="Matrix-6G 2026\_Base_Source_Files\exposed_parameters">
+      <UniqueIdentifier>{27E08E7B-2452-0EAA-6264-D6ADAF283F00}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Matrix-6G 2026\Source\audio">
-      <UniqueIdentifier>{4F14F6D0-BA5E-C977-2191-B7CC8585B5DD}</UniqueIdentifier>
+    <Filter Include="Matrix-6G 2026\_Base_Source_Files">
+      <UniqueIdentifier>{D07546E5-03E5-FA00-1E40-29284C87C73E}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Matrix-6G 2026\Source\constants">
-      <UniqueIdentifier>{2DF23CEA-F8F3-D53B-4F52-C02F098BB2C9}</UniqueIdentifier>
+    <Filter Include="Matrix-6G 2026\Project_Source_Files\audio">
+      <UniqueIdentifier>{C604D399-5493-F8FD-AF56-133931D7AA8F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Matrix-6G 2026\Source\exposed_parameters">
-      <UniqueIdentifier>{B428FDEA-1003-EC69-D5F9-0642284566FC}</UniqueIdentifier>
+    <Filter Include="Matrix-6G 2026\Project_Source_Files\constants">
+      <UniqueIdentifier>{9D74E286-FF6E-87AB-74C2-566551F590AB}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Matrix-6G 2026\Source\gui">
-      <UniqueIdentifier>{2E3BE27B-F217-A8C0-B1DF-B6EF2D2974ED}</UniqueIdentifier>
+    <Filter Include="Matrix-6G 2026\Project_Source_Files\exposed_parameters">
+      <UniqueIdentifier>{E10CD62B-5C67-BA63-0565-8A012AA82EE6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Matrix-6G 2026\Source">
-      <UniqueIdentifier>{7E526C83-4F05-96FC-9D3B-6B078F123B52}</UniqueIdentifier>
+    <Filter Include="Matrix-6G 2026\Project_Source_Files\gui">
+      <UniqueIdentifier>{411A2759-A6E9-6FE2-FE18-7DF2B9E6EFEF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matrix-6G 2026\Project_Source_Files">
+      <UniqueIdentifier>{1387CCDE-7DEF-6203-10B4-C8A92700FFD3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Matrix-6G 2026">
       <UniqueIdentifier>{8AF9ABAB-DEA9-3C31-5EAC-CA93652B3366}</UniqueIdentifier>
@@ -709,20 +712,23 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\_Shared_Source\exposed_parameters\EP _0_Exp_Param_Info_Base.cpp">
-      <Filter>Matrix-6G 2026\_Shared_Source\exposed_parameters</Filter>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\audio\A_00-B_Processor.cpp">
+      <Filter>Matrix-6G 2026\_Base_Source_Files\audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\audio\A _0_Processor.cpp">
-      <Filter>Matrix-6G 2026\Source\audio</Filter>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.cpp">
+      <Filter>Matrix-6G 2026\_Base_Source_Files\exposed_parameters</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\exposed_parameters\EP _1_Exp_Param_Info.cpp">
-      <Filter>Matrix-6G 2026\Source\exposed_parameters</Filter>
+    <ClCompile Include="..\..\Project_Source_Files\audio\A_00-P_Processor.cpp">
+      <Filter>Matrix-6G 2026\Project_Source_Files\audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\gui\G _0_Editor.cpp">
-      <Filter>Matrix-6G 2026\Source\gui</Filter>
+    <ClCompile Include="..\..\Project_Source_Files\exposed_parameters\E_00-P_Exp_Param_Info.cpp">
+      <Filter>Matrix-6G 2026\Project_Source_Files\exposed_parameters</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\gui\G_Paint_Paths.cpp">
-      <Filter>Matrix-6G 2026\Source\gui</Filter>
+    <ClCompile Include="..\..\Project_Source_Files\gui\G_01-P_Editor.cpp">
+      <Filter>Matrix-6G 2026\Project_Source_Files\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\gui\G_05-P_Paint_Paths.cpp">
+      <Filter>Matrix-6G 2026\Project_Source_Files\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -3687,41 +3693,47 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\_Shared_Source\constants\C_ID _Shared.h">
-      <Filter>Matrix-6G 2026\_Shared_Source\constants</Filter>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\audio\A_00-B_Processor.h">
+      <Filter>Matrix-6G 2026\_Base_Source_Files\audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Shared_Source\exposed_parameters\EP _0_Exp_Param_Info_Base.h">
-      <Filter>Matrix-6G 2026\_Shared_Source\exposed_parameters</Filter>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_00-B_ID.h">
+      <Filter>Matrix-6G 2026\_Base_Source_Files\constants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\audio\A _0_Processor.h">
-      <Filter>Matrix-6G 2026\Source\audio</Filter>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_10-B_COLOR.h">
+      <Filter>Matrix-6G 2026\_Base_Source_Files\constants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\constants\C_COLOR.h">
-      <Filter>Matrix-6G 2026\Source\constants</Filter>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.h">
+      <Filter>Matrix-6G 2026\_Base_Source_Files\exposed_parameters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\constants\C_ENUM.h">
-      <Filter>Matrix-6G 2026\Source\constants</Filter>
+    <ClInclude Include="..\..\Project_Source_Files\audio\A_00-P_Processor.h">
+      <Filter>Matrix-6G 2026\Project_Source_Files\audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\constants\C_EP.h">
-      <Filter>Matrix-6G 2026\Source\constants</Filter>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_00-P_ID.h">
+      <Filter>Matrix-6G 2026\Project_Source_Files\constants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\constants\C_ID.h">
-      <Filter>Matrix-6G 2026\Source\constants</Filter>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_01-P_ENUM.h">
+      <Filter>Matrix-6G 2026\Project_Source_Files\constants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\constants\C_PATH_Editor_Background.h">
-      <Filter>Matrix-6G 2026\Source\constants</Filter>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_10-P_COLOR.h">
+      <Filter>Matrix-6G 2026\Project_Source_Files\constants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\constants\C_XYWH.h">
-      <Filter>Matrix-6G 2026\Source\constants</Filter>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_11-P_XYWH.h">
+      <Filter>Matrix-6G 2026\Project_Source_Files\constants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\exposed_parameters\EP _1_Exp_Param_Info.h">
-      <Filter>Matrix-6G 2026\Source\exposed_parameters</Filter>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_20-P_PATH_Editor_Bkgrnd.h">
+      <Filter>Matrix-6G 2026\Project_Source_Files\constants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\gui\G _0_Editor.h">
-      <Filter>Matrix-6G 2026\Source\gui</Filter>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_50-P_EP.h">
+      <Filter>Matrix-6G 2026\Project_Source_Files\constants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\gui\G_Paint_Paths.h">
-      <Filter>Matrix-6G 2026\Source\gui</Filter>
+    <ClInclude Include="..\..\Project_Source_Files\exposed_parameters\E_00-P_Exp_Param_Info.h">
+      <Filter>Matrix-6G 2026\Project_Source_Files\exposed_parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\gui\G_01-P_Editor.h">
+      <Filter>Matrix-6G 2026\Project_Source_Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\gui\G_05-P_Paint_Paths.h">
+      <Filter>Matrix-6G 2026\Project_Source_Files\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
