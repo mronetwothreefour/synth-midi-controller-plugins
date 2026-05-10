@@ -11,6 +11,9 @@
     <Filter Include="P-600-G 2026\_Base_Source_Files\exposed_parameters">
       <UniqueIdentifier>{3DD9D968-2022-A9A0-A35A-F9FE1B16F39C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="P-600-G 2026\_Base_Source_Files\helpers">
+      <UniqueIdentifier>{0CCF92FC-9026-39EC-AE3D-49DF289B0C57}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-G 2026\_Base_Source_Files">
       <UniqueIdentifier>{B5A3599C-11FF-8186-4C23-6AFF141688EE}</UniqueIdentifier>
     </Filter>
@@ -28,6 +31,9 @@
     </Filter>
     <Filter Include="P-600-G 2026\Project_Source_Files\gui">
       <UniqueIdentifier>{1438909E-BFD4-CE86-9643-F720CD181E65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="P-600-G 2026\Project_Source_Files\helpers">
+      <UniqueIdentifier>{DE831D7B-515D-3668-92D0-531A844E7AC4}</UniqueIdentifier>
     </Filter>
     <Filter Include="P-600-G 2026\Project_Source_Files">
       <UniqueIdentifier>{6761B3B4-51D8-02E0-9F9A-2487D2634CAA}</UniqueIdentifier>
@@ -721,6 +727,12 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.cpp">
       <Filter>P-600-G 2026\_Base_Source_Files\exposed_parameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\helpers\H_00-B_Build_Tree.cpp">
+      <Filter>P-600-G 2026\_Base_Source_Files\helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\helpers\H_99-B_Misc.cpp">
+      <Filter>P-600-G 2026\_Base_Source_Files\helpers</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\audio\A_00-P_Processor.cpp">
       <Filter>P-600-G 2026\Project_Source_Files\audio</Filter>
     </ClCompile>
@@ -732,6 +744,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\gui\G_05-P_Paint_Paths.cpp">
       <Filter>P-600-G 2026\Project_Source_Files\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\helpers\H_00-P_Build_Tree.cpp">
+      <Filter>P-600-G 2026\Project_Source_Files\helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\helpers\H_10-P_Describe_Exp_Param.cpp">
+      <Filter>P-600-G 2026\Project_Source_Files\helpers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -3708,8 +3726,17 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_10-B_COLOR.h">
       <Filter>P-600-G 2026\_Base_Source_Files\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_12-B_FONT.h">
+      <Filter>P-600-G 2026\_Base_Source_Files\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.h">
       <Filter>P-600-G 2026\_Base_Source_Files\exposed_parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\helpers\H_00-B_Build_Tree.h">
+      <Filter>P-600-G 2026\_Base_Source_Files\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\helpers\H_99-B_Misc.h">
+      <Filter>P-600-G 2026\_Base_Source_Files\helpers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\audio\A_00-P_Processor.h">
       <Filter>P-600-G 2026\Project_Source_Files\audio</Filter>
@@ -3740,6 +3767,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\gui\G_05-P_Paint_Paths.h">
       <Filter>P-600-G 2026\Project_Source_Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\helpers\H_00-P_Build_Tree.h">
+      <Filter>P-600-G 2026\Project_Source_Files\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\helpers\H_10-P_Describe_Exp_Param.h">
+      <Filter>P-600-G 2026\Project_Source_Files\helpers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>

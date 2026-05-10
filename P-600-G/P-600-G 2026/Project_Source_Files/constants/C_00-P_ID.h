@@ -7,13 +7,13 @@
 namespace ID
 {
 
-	static const Identifier ep_00_osc_a_freq            { "ep_00_osc_a_freq" };
+	static const Identifier ep_00_osc_1_pitch           { "ep_00_osc_1_pitch" };
 	static const Identifier ep_01_osc_a_sync            { "ep_01_osc_a_sync" };
 	static const Identifier ep_02_osc_a_saw             { "ep_02_osc_a_saw" };
 	static const Identifier ep_03_osc_a_tri             { "ep_03_osc_a_tri" };
 	static const Identifier ep_04_osc_a_pulse           { "ep_04_osc_a_pulse" };
 	static const Identifier ep_05_osc_a_pulse_w         { "ep_05_osc_a_pulse_w" };
-	static const Identifier ep_06_osc_b_freq            { "ep_06_osc_b_freq" };
+	static const Identifier ep_06_osc_2_pitch           { "ep_06_osc_2_pitch" };
 	static const Identifier ep_07_osc_b_fine            { "ep_07_osc_b_fine" };
 	static const Identifier ep_08_osc_b_saw             { "ep_08_osc_b_saw" };
 	static const Identifier ep_09_osc_b_tri             { "ep_09_osc_b_tri" };
@@ -47,7 +47,6 @@ namespace ID
 
 	// exposed parameter properties
 	static const Identifier ep_p_bit_count{ "ep_p_bit_count" };
-	static const Identifier ep_p_ctrl_type{ "ep_p_ctrl_type" };
 	static const Identifier ep_p_first_bit_index{ "ep_p_first_bit_index" };
 	static const Identifier ep_p_first_nybble_index{ "ep_p_first_nybble_index" };
 }

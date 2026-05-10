@@ -1,10 +1,30 @@
 #include "E_00-P_Exp_Param_Info.h"
 
+#include "H_10-P_Describe_Exp_Param.h"
+
 using namespace EP;
+using namespace XYWH;
 
 Exposed_Parameter_Info::Exposed_Parameter_Info() :
 	Base_Exposed_Parameter_Info{ EP::exp_param_count }
 {
+	// *************************************************************** osc section
+	for (auto osc = 1; osc < 3; ++osc) {
+		String osc_letter{ osc == 1 ? "A" : "B" };
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				osc == 1 ? ID::ep_00_osc_1_pitch : ID::ep_06_osc_2_pitch,
+				"Oscillator " + osc_letter + " Frequency", Ctrl_Type::knob_osc_pitch,
+				osc == 1 ? 8 : 6, osc == 1 ? 1 : 3, 6,
+				choice_count_osc_pitch, (uint8)12, osc_col_1_x,
+				osc == 1 ? knob_row_1_y : knob_row_2_y, knob_diameter, knob_diameter, 
+				Describe_Exp_Param::osc_pitch(osc), 5, 26, 12,
+				osc_col_1_x + choice_menu_x_offset_knob, osc == 1 ? 10 : 52,
+				Build_Tree::choice_names_osc_pitch(true, EP::choice_count_osc_pitch),
+				Build_Tree::choice_names_osc_pitch(false, EP::choice_count_osc_pitch)
+			),
+			-1, nullptr);
+	} // ---------------------------------------------------------- end osc section
 }
 
 const Ctrl_Type Exposed_Parameter_Info::ctrl_type_for(const uint8 i) const {

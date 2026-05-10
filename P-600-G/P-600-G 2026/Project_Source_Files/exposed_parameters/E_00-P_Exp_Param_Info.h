@@ -2,12 +2,9 @@
 
 #include <JuceHeader.h>
 
-#include "C_00-P_ID.h"
-#include "C_01-P_ENUM.h"
-#include "C_50-P_EP.h"
 #include "E_00-B_Exp_Param_Info.h"
-
-using namespace ENUM;
+#include "C_11-P_XYWH.h"
+#include "H_00-P_Build_Tree.h"
 
 class Exposed_Parameter_Info :
 	public Base_Exposed_Parameter_Info

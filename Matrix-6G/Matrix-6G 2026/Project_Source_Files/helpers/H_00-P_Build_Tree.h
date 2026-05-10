@@ -15,7 +15,7 @@ struct Build_Tree :
 	static ValueTree exposed_parameter(Identifier id, uint8 number, String name, 
 									   Ctrl_Type ctrl, uint8 byte_index, Range_Type range,
 									   Slider_Display_Type display, uint8 choice_count,
-									   uint8 default_choice, int ctrl_center_x, int ctrl_center_y,
+									   uint8 init_choice, int ctrl_center_x, int ctrl_center_y,
 									   int ctrl_w, String description, int choice_menu_col_count,
 									   int choice_menu_col_w, int choice_menu_row_count,
 									   int choice_menu_first_row, int choice_menu_x,

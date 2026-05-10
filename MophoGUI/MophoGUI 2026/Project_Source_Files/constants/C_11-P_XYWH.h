@@ -12,7 +12,7 @@ namespace XYWH
 	constexpr int knob_diameter{ 40 };
 
 	constexpr int choice_menu_col_w_pitch{ 38 };
-	const int choice_menu_offset_knob{ knob_diameter / 2 + 10 };
+	constexpr int choice_menu_offset_knob{ knob_diameter / 2 + 10 };
 
 	constexpr int ctrl_col_w{ knob_diameter + 5 };
 	constexpr int ctrl_col_1_x{ 48 };
