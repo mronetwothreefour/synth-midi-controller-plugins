@@ -14,7 +14,6 @@ public: explicit Base_Exposed_Parameter_Info(const uint8 exp_param_count);
 
 protected: const ValueTree param(uint8 param_index) const;
 public: const Identifier id_for(uint8 param_index) const;
-public: const uint8 number_for(uint8 param_index) const;
 public: const String name_for(uint8 param_index) const;
 public: const uint8 choice_count_for(uint8 param_index) const;
 public: const uint8 init_choice_for(uint8 param_index) const;

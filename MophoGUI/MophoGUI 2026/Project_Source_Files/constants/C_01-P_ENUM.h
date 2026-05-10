@@ -3,6 +3,16 @@
 namespace ENUM
 {
 
+	const enum class Choice_Menu_Type {
+		error = -1,
+		standard,
+		osc_shape,
+		binary,
+		lfo_freq,
+		seq_step,
+		voice_name_char
+	};
+
 	constexpr enum class Ctrl_Type {
 		error = -1,
 		dummy,

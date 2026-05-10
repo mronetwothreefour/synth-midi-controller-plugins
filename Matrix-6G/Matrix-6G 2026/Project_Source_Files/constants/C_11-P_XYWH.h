@@ -15,7 +15,7 @@ namespace XYWH
 	constexpr int choice_menu_row_count_numeric{ 8 };
 
 	constexpr int ctrl_h{ 20 };
-	constexpr int ctrl_row_h{ 28 };
+	constexpr int ctrl_row_h{ ctrl_h + 8 };
 	constexpr int ctrl_row_01_y{ 69 };
 	constexpr int ctrl_row_02_y{ ctrl_row_01_y + ctrl_row_h };
 	constexpr int ctrl_row_03_y{ ctrl_row_02_y + ctrl_row_h };

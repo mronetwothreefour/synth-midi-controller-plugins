@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\audio\A_00-B_Processor.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.cpp"/>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\helpers\H_00-B_Build_Tree.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\helpers\H_99-B_Misc.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\audio\A_00-P_Processor.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\exposed_parameters\E_00-P_Exp_Param_Info.cpp"/>
@@ -2944,6 +2945,7 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_10-B_COLOR.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_12-B_FONT.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.h"/>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\helpers\H_00-B_Build_Tree.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\helpers\H_99-B_Misc.h"/>
     <ClInclude Include="..\..\Project_Source_Files\audio\A_00-P_Processor.h"/>
     <ClInclude Include="..\..\Project_Source_Files\constants\C_00-P_ID.h"/>

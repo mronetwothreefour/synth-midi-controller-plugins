@@ -7,7 +7,7 @@
               pluginCharacteristicsValue="pluginEditorRequiresKeys,pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginDesc="Sound editor/librarian for use with the DSI Mopho synthesizer"
               pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20"
-              headerPath="..\..\..\..\_Base_Source_Files\audio&#10;..\..\..\..\_Base_Source_Files\constants&#10;..\..\..\..\_Base_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\audio&#10;..\..\Project_Source_Files\constants&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
+              headerPath="..\..\..\..\_Base_Source_Files\audio&#10;..\..\..\..\_Base_Source_Files\constants&#10;..\..\..\..\_Base_Source_Files\exposed_parameters&#10;..\..\..\..\_Base_Source_Files\helpers&#10;..\..\Project_Source_Files\audio&#10;..\..\Project_Source_Files\constants&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
   <MAINGROUP id="dJIzaK" name="MophoGUI 2026">
     <GROUP id="{B8F9FC92-404F-36C4-DF45-FBA4F345394D}" name="_Base_Source_Files">
       <GROUP id="{76D43FB1-8B75-2410-04D7-94B063AD22BE}" name="audio">
@@ -19,12 +19,21 @@
       <GROUP id="{BF696E2C-3987-F3B2-5BFC-77880D27DEAF}" name="constants">
         <FILE id="KX0Ai9" name="C_00-B_ID.h" compile="0" resource="0" file="../../_Base_Source_Files/constants/C_00-B_ID.h"/>
         <FILE id="s5TwdD" name="C_10-B_COLOR.h" compile="0" resource="0" file="../../_Base_Source_Files/constants/C_10-B_COLOR.h"/>
+        <FILE id="jEYTVj" name="C_12-B_FONT.h" compile="0" resource="0" file="../../_Base_Source_Files/constants/C_12-B_FONT.h"/>
       </GROUP>
       <GROUP id="{5CD95D89-ECFF-E352-C359-FBD59A8AD1FF}" name="exposed_parameters">
         <FILE id="lBV8wO" name="E_00-B_Exp_Param_Info.cpp" compile="1" resource="0"
               file="../../_Base_Source_Files/exposed_parameters/E_00-B_Exp_Param_Info.cpp"/>
         <FILE id="HCHw5b" name="E_00-B_Exp_Param_Info.h" compile="0" resource="0"
               file="../../_Base_Source_Files/exposed_parameters/E_00-B_Exp_Param_Info.h"/>
+      </GROUP>
+      <GROUP id="{CA24A922-DB5B-24C7-F1C9-C7DDA5540B40}" name="helpers">
+        <FILE id="pQOzOI" name="H_00-B_Build_Tree.cpp" compile="1" resource="0"
+              file="../../_Base_Source_Files/helpers/H_00-B_Build_Tree.cpp"/>
+        <FILE id="tkzWln" name="H_00-B_Build_Tree.h" compile="0" resource="0"
+              file="../../_Base_Source_Files/helpers/H_00-B_Build_Tree.h"/>
+        <FILE id="yup0u1" name="H_99-B_Misc.cpp" compile="1" resource="0" file="../../_Base_Source_Files/helpers/H_99-B_Misc.cpp"/>
+        <FILE id="WPwkg9" name="H_99-B_Misc.h" compile="0" resource="0" file="../../_Base_Source_Files/helpers/H_99-B_Misc.h"/>
       </GROUP>
     </GROUP>
     <GROUP id="{C02A1A4E-C369-BB7A-1A3F-4F81F5D39CBF}" name="Project_Source_Files">
@@ -58,7 +67,16 @@
         <FILE id="CcCPB2" name="G_05-P_Paint_Paths.h" compile="0" resource="0"
               file="Project_Source_Files/gui/G_05-P_Paint_Paths.h"/>
       </GROUP>
-      <GROUP id="{E6AB1BC3-D3A4-5416-6FC8-A5D9FB5CCABA}" name="helpers"/>
+      <GROUP id="{E6AB1BC3-D3A4-5416-6FC8-A5D9FB5CCABA}" name="helpers">
+        <FILE id="r498G6" name="H_00-P_Build_Tree.cpp" compile="1" resource="0"
+              file="Project_Source_Files/helpers/H_00-P_Build_Tree.cpp"/>
+        <FILE id="sLxEZn" name="H_00-P_Build_Tree.h" compile="0" resource="0"
+              file="Project_Source_Files/helpers/H_00-P_Build_Tree.h"/>
+        <FILE id="xp55Mb" name="H_10-P_Describe_Exp_Param.cpp" compile="1"
+              resource="0" file="Project_Source_Files/helpers/H_10-P_Describe_Exp_Param.cpp"/>
+        <FILE id="KAN9Uk" name="H_10-P_Describe_Exp_Param.h" compile="0" resource="0"
+              file="Project_Source_Files/helpers/H_10-P_Describe_Exp_Param.h"/>
+      </GROUP>
       <GROUP id="{37319267-FB7F-2A07-65E2-632C758E04C2}" name="midi"/>
     </GROUP>
   </MAINGROUP>

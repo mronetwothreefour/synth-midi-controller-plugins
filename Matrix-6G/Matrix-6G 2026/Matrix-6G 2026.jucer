@@ -27,6 +27,10 @@
               file="../../_Base_Source_Files/exposed_parameters/E_00-B_Exp_Param_Info.h"/>
       </GROUP>
       <GROUP id="{B098C86A-39B6-47FA-5A4F-2D5B6D43DD83}" name="helpers">
+        <FILE id="buBZuJ" name="H_00-B_Build_Tree.cpp" compile="1" resource="0"
+              file="../../_Base_Source_Files/helpers/H_00-B_Build_Tree.cpp"/>
+        <FILE id="WZHWTG" name="H_00-B_Build_Tree.h" compile="0" resource="0"
+              file="../../_Base_Source_Files/helpers/H_00-B_Build_Tree.h"/>
         <FILE id="wOsK34" name="H_99-B_Misc.cpp" compile="1" resource="0" file="../../_Base_Source_Files/helpers/H_99-B_Misc.cpp"/>
         <FILE id="rxiKon" name="H_99-B_Misc.h" compile="0" resource="0" file="../../_Base_Source_Files/helpers/H_99-B_Misc.h"/>
       </GROUP>

@@ -11,6 +11,9 @@
     <Filter Include="MophoGUI 2026\_Base_Source_Files\exposed_parameters">
       <UniqueIdentifier>{36AB1948-3502-D6D4-9513-1580BDD8CAF8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MophoGUI 2026\_Base_Source_Files\helpers">
+      <UniqueIdentifier>{9DB4732F-9691-FC04-09E8-A8BD7D36A6B5}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2026\_Base_Source_Files">
       <UniqueIdentifier>{905052CD-5E92-486A-A716-8B140744CBAF}</UniqueIdentifier>
     </Filter>
@@ -25,6 +28,9 @@
     </Filter>
     <Filter Include="MophoGUI 2026\Project_Source_Files\gui">
       <UniqueIdentifier>{42737FA7-9BB3-2014-C2C3-FBB2692C7A23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MophoGUI 2026\Project_Source_Files\helpers">
+      <UniqueIdentifier>{AFE77074-F965-B0F3-B5FC-5988497D76C2}</UniqueIdentifier>
     </Filter>
     <Filter Include="MophoGUI 2026\Project_Source_Files">
       <UniqueIdentifier>{3D253BEA-A08C-1C81-66E5-39B180E2C1F7}</UniqueIdentifier>
@@ -718,6 +724,12 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.cpp">
       <Filter>MophoGUI 2026\_Base_Source_Files\exposed_parameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\helpers\H_00-B_Build_Tree.cpp">
+      <Filter>MophoGUI 2026\_Base_Source_Files\helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\helpers\H_99-B_Misc.cpp">
+      <Filter>MophoGUI 2026\_Base_Source_Files\helpers</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\audio\A_00-P_Processor.cpp">
       <Filter>MophoGUI 2026\Project_Source_Files\audio</Filter>
     </ClCompile>
@@ -729,6 +741,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\gui\G_05-P_Paint_Paths.cpp">
       <Filter>MophoGUI 2026\Project_Source_Files\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\helpers\H_00-P_Build_Tree.cpp">
+      <Filter>MophoGUI 2026\Project_Source_Files\helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\helpers\H_10-P_Describe_Exp_Param.cpp">
+      <Filter>MophoGUI 2026\Project_Source_Files\helpers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -3702,8 +3720,17 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_10-B_COLOR.h">
       <Filter>MophoGUI 2026\_Base_Source_Files\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_12-B_FONT.h">
+      <Filter>MophoGUI 2026\_Base_Source_Files\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.h">
       <Filter>MophoGUI 2026\_Base_Source_Files\exposed_parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\helpers\H_00-B_Build_Tree.h">
+      <Filter>MophoGUI 2026\_Base_Source_Files\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\helpers\H_99-B_Misc.h">
+      <Filter>MophoGUI 2026\_Base_Source_Files\helpers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\audio\A_00-P_Processor.h">
       <Filter>MophoGUI 2026\Project_Source_Files\audio</Filter>
@@ -3734,6 +3761,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\gui\G_05-P_Paint_Paths.h">
       <Filter>MophoGUI 2026\Project_Source_Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\helpers\H_00-P_Build_Tree.h">
+      <Filter>MophoGUI 2026\Project_Source_Files\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\helpers\H_10-P_Describe_Exp_Param.h">
+      <Filter>MophoGUI 2026\Project_Source_Files\helpers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>

@@ -21,6 +21,7 @@ G_00-P_Look_And_Feel
 G_01-P_Editor
 G_05-P_Paint_Paths
 
+H_00-B_Build_Tree
 H_00-P_Build_Tree
 H_10-P_Describe_Exp_Param
 H_99-B_Misc

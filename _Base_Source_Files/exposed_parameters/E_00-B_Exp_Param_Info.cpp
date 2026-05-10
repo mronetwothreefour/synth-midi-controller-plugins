@@ -15,12 +15,6 @@ const Identifier Base_Exposed_Parameter_Info::id_for(uint8 i) const {
 	return {};
 }
 
-const uint8 Base_Exposed_Parameter_Info::number_for(uint8 i) const {
-	if (i < exp_param_count)
-		return (uint8)(int)param(i)[ID::ep_p_number];
-	return (uint8)255;
-}
-
 const String Base_Exposed_Parameter_Info::name_for(uint8 i) const {
 	if (i < exp_param_count)
 		return param(i)[ID::ep_p_name].toString();

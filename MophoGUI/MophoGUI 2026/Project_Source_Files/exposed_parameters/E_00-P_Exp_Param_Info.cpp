@@ -1,10 +1,31 @@
 #include "E_00-P_Exp_Param_Info.h"
 
+#include "H_10-P_Describe_Exp_Param.h"
+
 using namespace EP;
+using namespace XYWH;
 
 Exposed_Parameter_Info::Exposed_Parameter_Info() :
 	Base_Exposed_Parameter_Info{ EP::exp_param_count }
 {
+	// *************************************************************** osc section
+	for (auto osc = 1; osc < 3; ++osc) {
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				osc == 1 ? ID::ep_000_osc_1_pitch : ID::ep_006_osc_2_pitch,
+				"Oscillator " + (String)osc + " Pitch", Ctrl_Type::knob_pitch,
+				Knob_Display_Type::osc_pitch, osc == 1 ? (uint8)0 : (uint8)5,
+				choice_count_osc_pitch, (uint8)24, ctrl_col_1_x,
+				osc == 1 ? osc_row_1_center_y : osc_row_2_center_y, knob_diameter, knob_diameter,
+				Describe_Exp_Param::osc_pitch(osc), Choice_Menu_Type::standard,
+				choice_menu_col_count_pitch, choice_menu_col_w_pitch, choice_menu_row_count_pitch, 
+				0, ctrl_col_1_x + choice_menu_offset_knob, 
+				osc == 1 ? osc_row_1_knob_top_y : osc_row_2_knob_top_y,
+				Build_Tree::choice_names_osc_pitch(true, EP::choice_count_osc_pitch),
+				Build_Tree::choice_names_osc_pitch(false, EP::choice_count_osc_pitch)
+			),
+			-1, nullptr);
+	} // ---------------------------------------------------------- end osc section
 }
 
 const Identifier Exposed_Parameter_Info::id_for(Track track, Step step) const {
@@ -91,4 +112,10 @@ const Step Exposed_Parameter_Info::seq_track_step_for(const uint8 i) const {
 		return Step::none;
 	}
 	return Step::error;
+}
+
+const Choice_Menu_Type Exposed_Parameter_Info::choice_menu_type_for(const uint8 i) const {
+	if (i < exp_param_count)
+		return Choice_Menu_Type{ (int)param(i)[ID::ep_p_choice_menu_type] };
+	return Choice_Menu_Type::error;
 }

@@ -8,6 +8,7 @@ using namespace XYWH;
 Exposed_Parameter_Info::Exposed_Parameter_Info() :
 	Base_Exposed_Parameter_Info{ EP::exp_param_count }
 {
+	// *************************************************************** osc section
 	for (auto osc = 1; osc < 3; ++osc) {
 		tree.addChild(
 			Build_Tree::exposed_parameter(
@@ -17,11 +18,18 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				choice_count_osc_pitch, (uint8)0, osc == 1 ? osc_col_1_x : osc_col_2_x, 
 				ctrl_row_01_y, osc_ctrl_w, Describe_Exp_Param::osc_pitch(osc), 6, 30, 12, 0,
 				osc == 1 ? osc_col_1_choice_menu_x : osc_col_2_choice_menu_x,
-				ctrl_row_01_y - ctrl_h / 2, Build_Tree::choice_names_osc_pitch(true),
-				Build_Tree::choice_names_osc_pitch(false)
+				ctrl_row_01_y - ctrl_h / 2,
+				Build_Tree::choice_names_osc_pitch(true, EP::choice_count_osc_pitch),
+				Build_Tree::choice_names_osc_pitch(false, EP::choice_count_osc_pitch)
 			), 
 			-1, nullptr);
-	} // end osc section
+	} // ---------------------------------------------------------- end osc section
+}
+
+const uint8 Exposed_Parameter_Info::number_for(uint8 i) const {
+	if (i < exp_param_count)
+		return (uint8)(int)param(i)[ID::ep_p_number];
+	return (uint8)255;
 }
 
 const uint8 Exposed_Parameter_Info::byte_index_for(uint8 i) const {

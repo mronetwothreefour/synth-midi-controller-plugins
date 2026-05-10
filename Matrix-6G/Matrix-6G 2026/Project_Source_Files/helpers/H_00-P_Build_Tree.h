@@ -5,10 +5,12 @@
 #include "C_00-P_ID.h"
 #include "C_01-P_ENUM.h"
 #include "C_50-P_EP.h"
+#include "H_00-B_Build_Tree.h"
 
 using namespace ENUM;
 
-struct Build_Tree
+struct Build_Tree :
+	public Base_Build_Tree
 {
 	static ValueTree exposed_parameter(Identifier id, uint8 number, String name, 
 									   Ctrl_Type ctrl, uint8 byte_index, Range_Type range,
@@ -20,5 +22,4 @@ struct Build_Tree
 									   int choice_menu_y, ValueTree curt_choice_names,
 									   ValueTree choice_names);
 
-	static ValueTree choice_names_osc_pitch(const bool curt);
 };
