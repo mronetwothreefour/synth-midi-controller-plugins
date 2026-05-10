@@ -6,7 +6,7 @@
 
 class Base_Exposed_Parameter_Info
 {
-private: ValueTree tree;
+protected: ValueTree tree;
 protected: const uint8 exp_param_count;
 
 //==============================================================================

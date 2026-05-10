@@ -9,6 +9,7 @@ C_01-P_ENUM
 C_10-B_COLOR
 C_10-P_COLOR
 C_11-P_XYWH
+C_12-B_FONT
 C_12-P_FONT
 C_20-P_PATH_Editor_Bkgrnd
 C_50-P_EP
@@ -20,3 +21,6 @@ G_00-P_Look_And_Feel
 G_01-P_Editor
 G_05-P_Paint_Paths
 
+H_00-P_Build_Tree
+H_10-P_Describe_Exp_Param
+H_99-B_Misc

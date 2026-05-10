@@ -6,7 +6,7 @@
               version="2.1.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com"
               companyEmail="programming@mr1234.com" pluginDesc="Sound editor/librarian for use with the Oberheim Matrix-6R synthesizer"
               pluginManufacturerCode="TimD" pluginAUMainType="'aumi'" pluginVST3Category="Tools"
-              cppLanguageStandard="20" headerPath="..\..\..\..\_Base_Source_Files\audio&#10;..\..\..\..\_Base_Source_Files\constants&#10;..\..\..\..\_Base_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\audio&#10;..\..\Project_Source_Files\constants&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
+              cppLanguageStandard="20" headerPath="..\..\..\..\_Base_Source_Files\audio&#10;..\..\..\..\_Base_Source_Files\constants&#10;..\..\..\..\_Base_Source_Files\exposed_parameters&#10;..\..\..\..\_Base_Source_Files\helpers&#10;..\..\Project_Source_Files\audio&#10;..\..\Project_Source_Files\constants&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
   <MAINGROUP id="F43Kyc" name="Matrix-6G 2026">
     <GROUP id="{602BA233-B181-6E09-6E24-6847DA41A16A}" name="_Base_Source_Files">
       <GROUP id="{E5073477-AFDF-16B8-CD4A-74E39E2E3A18}" name="audio">
@@ -18,12 +18,17 @@
       <GROUP id="{2328719B-BB73-8BBF-9586-4461F1E16425}" name="constants">
         <FILE id="ZCUkaP" name="C_00-B_ID.h" compile="0" resource="0" file="../../_Base_Source_Files/constants/C_00-B_ID.h"/>
         <FILE id="g8FmG9" name="C_10-B_COLOR.h" compile="0" resource="0" file="../../_Base_Source_Files/constants/C_10-B_COLOR.h"/>
+        <FILE id="LkKhpc" name="C_12-B_FONT.h" compile="0" resource="0" file="../../_Base_Source_Files/constants/C_12-B_FONT.h"/>
       </GROUP>
       <GROUP id="{B6A0BB0A-171F-3053-B649-B2C400DFC8AC}" name="exposed_parameters">
         <FILE id="zJQR05" name="E_00-B_Exp_Param_Info.cpp" compile="1" resource="0"
               file="../../_Base_Source_Files/exposed_parameters/E_00-B_Exp_Param_Info.cpp"/>
         <FILE id="fKr3n0" name="E_00-B_Exp_Param_Info.h" compile="0" resource="0"
               file="../../_Base_Source_Files/exposed_parameters/E_00-B_Exp_Param_Info.h"/>
+      </GROUP>
+      <GROUP id="{B098C86A-39B6-47FA-5A4F-2D5B6D43DD83}" name="helpers">
+        <FILE id="wOsK34" name="H_99-B_Misc.cpp" compile="1" resource="0" file="../../_Base_Source_Files/helpers/H_99-B_Misc.cpp"/>
+        <FILE id="rxiKon" name="H_99-B_Misc.h" compile="0" resource="0" file="../../_Base_Source_Files/helpers/H_99-B_Misc.h"/>
       </GROUP>
     </GROUP>
     <GROUP id="{B2F6A865-4EED-AC49-FF3C-B4C5A690524D}" name="Project_Source_Files">
@@ -56,6 +61,16 @@
               file="Project_Source_Files/gui/G_05-P_Paint_Paths.cpp"/>
         <FILE id="K66Ton" name="G_05-P_Paint_Paths.h" compile="0" resource="0"
               file="Project_Source_Files/gui/G_05-P_Paint_Paths.h"/>
+      </GROUP>
+      <GROUP id="{729D7B24-969B-2015-EBDA-581B33ECBCB0}" name="helpers">
+        <FILE id="KvGKib" name="H_00-P_Build_Tree.cpp" compile="1" resource="0"
+              file="Project_Source_Files/helpers/H_00-P_Build_Tree.cpp"/>
+        <FILE id="GIsow7" name="H_00-P_Build_Tree.h" compile="0" resource="0"
+              file="Project_Source_Files/helpers/H_00-P_Build_Tree.h"/>
+        <FILE id="BFfvK1" name="H_10-P_Describe_Exp_Param.cpp" compile="1"
+              resource="0" file="Project_Source_Files/helpers/H_10-P_Describe_Exp_Param.cpp"/>
+        <FILE id="jzYnSU" name="H_10-P_Describe_Exp_Param.h" compile="0" resource="0"
+              file="Project_Source_Files/helpers/H_10-P_Describe_Exp_Param.h"/>
       </GROUP>
       <GROUP id="{F065A800-D25C-D406-9916-1A8742D8C906}" name="midi"/>
     </GROUP>

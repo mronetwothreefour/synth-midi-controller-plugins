@@ -12,6 +12,13 @@ namespace ENUM
 		cbox
 	};
 
+	constexpr enum class Range_Type {
+		error = -1,
+		unsigned_int,
+		signed_6_bit,
+		signed_7_bit
+	};
+
 	constexpr enum class Slider_Display_Type {
 		error = -1,
 		none,
