@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="f0Ch32" name="P-600-G 2026" projectType="audioplug" jucerFormatVersion="1"
-              version="2.1.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com"
+<JUCERPROJECT id="f0Ch32" name="P-600-GUI 2026" projectType="audioplug" jucerFormatVersion="1"
+              version="2.0.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com"
               companyEmail="programming@mr1234.com" useAppConfig="1" addUsingNamespaceToJuceHeader="1"
               pluginFormats="buildVST3" pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginDesc="Sound editor/librarian for use with the SCI Prophet-600 synthesizer"
               pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20"
               headerPath="..\..\..\..\_Base_Source_Files\audio&#10;..\..\..\..\_Base_Source_Files\constants&#10;..\..\..\..\_Base_Source_Files\exposed_parameters&#10;..\..\..\..\_Base_Source_Files\helpers&#10;..\..\Project_Source_Files\audio&#10;..\..\Project_Source_Files\constants&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
-  <MAINGROUP id="sSCaXP" name="P-600-G 2026">
+  <MAINGROUP id="sSCaXP" name="P-600-GUI 2026">
     <GROUP id="{E250642F-4444-B780-0392-6400C2CA6C29}" name="_Base_Source_Files">
       <GROUP id="{3BDF9967-A820-40DA-7D0A-36EA6C3C8630}" name="audio">
         <FILE id="EG8V2A" name="A_00-B_Processor.cpp" compile="1" resource="0"
@@ -104,10 +104,11 @@
   <EXPORTFORMATS>
     <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="P-600-G 2026 (Debug)" binaryPath="C:\Users\Public\Documents\VST3 Builds\Debug\P-600-G"
+        <CONFIGURATION isDebug="1" name="Debug" targetName="P-600-GUI 2026 (Debug)"
+                       binaryPath="C:\Users\Public\Documents\VST3 Builds\Debug\P-600-GUI 2026"
                        defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING" enableIncrementalLinking="1"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="P-600-G 2026" defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING"
-                       binaryPath="C:\Users\Public\Documents\VST3 Builds\Release\P-600-G"
+        <CONFIGURATION isDebug="0" name="Release" targetName="P-600-GUI 2026" defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING"
+                       binaryPath="C:\Users\Public\Documents\VST3 Builds\Release\P-600-GUI 2026"
                        useRuntimeLibDLL="0"/>
       </CONFIGURATIONS>
       <MODULEPATHS>

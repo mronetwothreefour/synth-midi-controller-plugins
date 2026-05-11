@@ -12,6 +12,8 @@ namespace COLOR
 	const Colour grey_lite{ 0xffa6a6a6 };
 	const Colour red_btn{ 0xff7d0000 };
 	const Colour red_led_1{ 0xff2d0000 };
+	const Colour red_led_2{ 0xff460000 };
+	const Colour red_led_3{ 0xffed1c24 };
 	const Colour translucent_white{ 0xa6ffffff };
 
 }

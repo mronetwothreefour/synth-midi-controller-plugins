@@ -41,7 +41,7 @@
  #define JucePlugin_Enable_ARA             0
 #endif
 #ifndef  JucePlugin_Name
- #define JucePlugin_Name                   "P-600-G 2026"
+ #define JucePlugin_Name                   "P-600-GUI 2026"
 #endif
 #ifndef  JucePlugin_Desc
  #define JucePlugin_Desc                   "Sound editor/librarian for use with the SCI Prophet-600 synthesizer"
@@ -77,13 +77,13 @@
  #define JucePlugin_EditorRequiresKeyboardFocus  0
 #endif
 #ifndef  JucePlugin_Version
- #define JucePlugin_Version                2.1.0
+ #define JucePlugin_Version                2.0.0
 #endif
 #ifndef  JucePlugin_VersionCode
- #define JucePlugin_VersionCode            0x20100
+ #define JucePlugin_VersionCode            0x20000
 #endif
 #ifndef  JucePlugin_VersionString
- #define JucePlugin_VersionString          "2.1.0"
+ #define JucePlugin_VersionString          "2.0.0"
 #endif
 #ifndef  JucePlugin_VSTUniqueID
  #define JucePlugin_VSTUniqueID            JucePlugin_PluginCode
@@ -101,19 +101,19 @@
  #define JucePlugin_AUSubType              JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_AUExportPrefix
- #define JucePlugin_AUExportPrefix         P600G2026AU
+ #define JucePlugin_AUExportPrefix         P600GUI2026AU
 #endif
 #ifndef  JucePlugin_AUExportPrefixQuoted
- #define JucePlugin_AUExportPrefixQuoted   "P600G2026AU"
+ #define JucePlugin_AUExportPrefixQuoted   "P600GUI2026AU"
 #endif
 #ifndef  JucePlugin_AUManufacturerCode
  #define JucePlugin_AUManufacturerCode     JucePlugin_ManufacturerCode
 #endif
 #ifndef  JucePlugin_CFBundleIdentifier
- #define JucePlugin_CFBundleIdentifier     com.Mister1234Programming.P600G2026
+ #define JucePlugin_CFBundleIdentifier     com.Mister1234Programming.P600GUI2026
 #endif
 #ifndef  JucePlugin_AAXIdentifier
- #define JucePlugin_AAXIdentifier          com.Mister1234Programming.P600G2026
+ #define JucePlugin_AAXIdentifier          com.Mister1234Programming.P600GUI2026
 #endif
 #ifndef  JucePlugin_AAXManufacturerCode
  #define JucePlugin_AAXManufacturerCode    JucePlugin_ManufacturerCode
@@ -137,7 +137,7 @@
  #define JucePlugin_IAASubType             JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_IAAName
- #define JucePlugin_IAAName                "Mister 1-2-3-4 Programming: P-600-G 2026"
+ #define JucePlugin_IAAName                "Mister 1-2-3-4 Programming: P-600-GUI 2026"
 #endif
 #ifndef  JucePlugin_VSTNumMidiInputs
  #define JucePlugin_VSTNumMidiInputs       16
@@ -152,10 +152,10 @@
  #define JucePlugin_ARATransformationFlags  0
 #endif
 #ifndef  JucePlugin_ARAFactoryID
- #define JucePlugin_ARAFactoryID           "com.Mister1234Programming.P600G2026.factory"
+ #define JucePlugin_ARAFactoryID           "com.Mister1234Programming.P600GUI2026.factory"
 #endif
 #ifndef  JucePlugin_ARADocumentArchiveID
- #define JucePlugin_ARADocumentArchiveID   "com.Mister1234Programming.P600G2026.aradocumentarchive.2.1.0"
+ #define JucePlugin_ARADocumentArchiveID   "com.Mister1234Programming.P600GUI2026.aradocumentarchive.2.0.0"
 #endif
 #ifndef  JucePlugin_ARACompatibleArchiveIDs
  #define JucePlugin_ARACompatibleArchiveIDs  ""

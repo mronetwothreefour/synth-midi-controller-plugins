@@ -20,6 +20,8 @@ void Paint_Paths::editor_background(Graphics& g) {
 	g.fillPath(load_path(PATH::editor_grey, sizeof(PATH::editor_grey)));
 	g.setColour(COLOR::red_led_1);
 	g.fillPath(load_path(PATH::editor_red_led_1, sizeof(PATH::editor_red_led_1)));
+	g.setColour(COLOR::red_led_2);
+	g.fillPath(load_path(PATH::editor_red_led_2, sizeof(PATH::editor_red_led_2)));
 	g.setColour(COLOR::red_btn);
 	g.fillPath(load_path(PATH::editor_red_btn, sizeof(PATH::editor_red_btn)));
 	g.setColour(COLOR::grey_lite);
