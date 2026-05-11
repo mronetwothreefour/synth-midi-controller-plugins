@@ -21,5 +21,4 @@ struct Build_Tree :
 									   int choice_menu_first_row, int choice_menu_x,
 									   int choice_menu_y, ValueTree curt_choice_names,
 									   ValueTree choice_names);
-
 };

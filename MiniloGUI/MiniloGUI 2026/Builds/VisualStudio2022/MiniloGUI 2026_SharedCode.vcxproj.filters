@@ -11,6 +11,9 @@
     <Filter Include="MiniloGUI 2026\_Base_Source_Files\exposed_parameters">
       <UniqueIdentifier>{AAA7097C-4DE6-6F96-6105-54C528FA6543}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MiniloGUI 2026\_Base_Source_Files\helpers">
+      <UniqueIdentifier>{7613D58D-0E18-B3A6-CD34-BB3293F64C74}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MiniloGUI 2026\_Base_Source_Files">
       <UniqueIdentifier>{8147FFAD-0E6B-E135-F026-FFD897B392E3}</UniqueIdentifier>
     </Filter>
@@ -25,6 +28,9 @@
     </Filter>
     <Filter Include="MiniloGUI 2026\Project_Source_Files\gui">
       <UniqueIdentifier>{6398D337-FD39-0F06-B72D-803B45059CCB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MiniloGUI 2026\Project_Source_Files\helpers">
+      <UniqueIdentifier>{033C7F2D-38B4-DA49-3969-16A771C0BD97}</UniqueIdentifier>
     </Filter>
     <Filter Include="MiniloGUI 2026\Project_Source_Files">
       <UniqueIdentifier>{FC476E2E-3901-4825-555B-F591C62F1CF6}</UniqueIdentifier>
@@ -718,6 +724,12 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.cpp">
       <Filter>MiniloGUI 2026\_Base_Source_Files\exposed_parameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\helpers\H_00-B_Build_Tree.cpp">
+      <Filter>MiniloGUI 2026\_Base_Source_Files\helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\helpers\H_99-B_Misc.cpp">
+      <Filter>MiniloGUI 2026\_Base_Source_Files\helpers</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\audio\A_00-P_Processor.cpp">
       <Filter>MiniloGUI 2026\Project_Source_Files\audio</Filter>
     </ClCompile>
@@ -729,6 +741,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\gui\G_05-P_Paint_Paths.cpp">
       <Filter>MiniloGUI 2026\Project_Source_Files\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\helpers\H_00-P_Build_Tree.cpp">
+      <Filter>MiniloGUI 2026\Project_Source_Files\helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\helpers\H_10-P_Describe_Exp_Param.cpp">
+      <Filter>MiniloGUI 2026\Project_Source_Files\helpers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -3702,8 +3720,17 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_10-B_COLOR.h">
       <Filter>MiniloGUI 2026\_Base_Source_Files\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_12-B_FONT.h">
+      <Filter>MiniloGUI 2026\_Base_Source_Files\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.h">
       <Filter>MiniloGUI 2026\_Base_Source_Files\exposed_parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\helpers\H_00-B_Build_Tree.h">
+      <Filter>MiniloGUI 2026\_Base_Source_Files\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\helpers\H_99-B_Misc.h">
+      <Filter>MiniloGUI 2026\_Base_Source_Files\helpers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\audio\A_00-P_Processor.h">
       <Filter>MiniloGUI 2026\Project_Source_Files\audio</Filter>
@@ -3734,6 +3761,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\gui\G_05-P_Paint_Paths.h">
       <Filter>MiniloGUI 2026\Project_Source_Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\helpers\H_00-P_Build_Tree.h">
+      <Filter>MiniloGUI 2026\Project_Source_Files\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\helpers\H_10-P_Describe_Exp_Param.h">
+      <Filter>MiniloGUI 2026\Project_Source_Files\helpers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>

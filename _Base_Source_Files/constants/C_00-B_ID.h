@@ -20,7 +20,6 @@ namespace ID
 	static const Identifier ep_p_description{ "ep_p_description" };
 	static const Identifier ep_p_init_choice{ "ep_p_init_choice" };
 	static const Identifier ep_p_name{ "ep_p_name" };
-	static const Identifier ep_p_number{ "ep_p_number" };
 
 	static const Identifier tree_exp_param_info{ "tree_exp_param_info" };
 	static const Identifier tree_param_choice_names{ "tree_param_choice_names" };

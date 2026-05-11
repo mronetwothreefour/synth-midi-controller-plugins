@@ -9,11 +9,11 @@ namespace ID
 
 	static const Identifier ep_00_osc_1_octave       { "ep_00_osc_1_octave" };
 	static const Identifier ep_01_osc_1_wave         { "ep_01_osc_1_wave" };
-	static const Identifier ep_02_osc_1_pitch        { "ep_02_osc_1_pitch" };
+	static const Identifier ep_02_osc_1_pitch_fine   { "ep_02_osc_1_pitch_fine" };
 	static const Identifier ep_03_osc_1_shape        { "ep_03_osc_1_shape" };
 	static const Identifier ep_04_osc_2_octave       { "ep_04_osc_2_octave" };
 	static const Identifier ep_05_osc_2_wave         { "ep_05_osc_2_wave" };
-	static const Identifier ep_06_osc_2_pitch        { "ep_06_osc_2_pitch" };
+	static const Identifier ep_06_osc_2_pitch_fine   { "ep_06_osc_2_pitch_fine" };
 	static const Identifier ep_07_osc_2_shape        { "ep_07_osc_2_shape" };
 	static const Identifier ep_08_osc_2_xmod_depth   { "ep_08_osc_2_xmod_depth" };
 	static const Identifier ep_09_osc_2_pitch_eg_int { "ep_09_osc_2_pitch_eg_int" };

@@ -91,6 +91,7 @@ namespace ID
 
 	// exposed parameter properties
 	static const Identifier ep_p_byte_index{ "ep_p_byte_index" };
+	static const Identifier ep_p_number{ "ep_p_number" };
 	static const Identifier ep_p_range_type{ "ep_p_range_type" };
 	static const Identifier ep_p_slider_display_type{ "ep_p_slider_display_type" };
 }
