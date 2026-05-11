@@ -23,8 +23,6 @@ void Paint_Paths::editor_background(Graphics& g) {
 	g.fillPath(load_path(PATH::editor_grey, sizeof(PATH::editor_grey)));
 	g.setColour(COLOR::orange);
 	g.fillPath(load_path(PATH::editor_orange, sizeof(PATH::editor_orange)));
-	g.setColour(COLOR::red);
-	g.fillPath(load_path(PATH::editor_red, sizeof(PATH::editor_red)));
 	g.setColour(COLOR::off_white);
 	g.fillPath(load_path(PATH::editor_off_white, sizeof(PATH::editor_off_white)));
 	if (ModifierKeys::currentModifiers == ModifierKeys::altModifier)
