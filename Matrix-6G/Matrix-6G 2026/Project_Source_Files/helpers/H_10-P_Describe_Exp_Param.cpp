@@ -21,6 +21,76 @@ String Describe_Exp_Param::osc_2_detune() {
     return s;
 }
 
+String Describe_Exp_Param::osc_balance() {
+    String s{ "" };
+    s += "Sets the relative levels of the two oscillators.\n";
+    s += "Range: 0 to 63. At 63, only oscillator 1 is heard.\n";
+    s += "At 0, only oscillator 2 is heard. 31 is an equal mix.";
+    return s;
+}
+
+String Describe_Exp_Param::osc_key_click() {
+    String s{ "" };
+    s += "Adds percussive punch to\n";
+    s += "the start of the sound.";
+    return s;
+}
+
+String Describe_Exp_Param::osc_key_track(const int o) {
+    String s{ "" };
+    s += "Selects how oscillator " + (String)o + " responds to incoming pitch\n";
+    s += "change messages (e.g. notes played on a keyboard controller).\n";
+    if (o == 1) {
+        s += "KEYBD: Oscillater 1" + apostrophe + "s pitch tracks note key changes normally.\n";
+        s += "PORTA: Tracking is active, but transitions between pitches are smoothed\n";
+        s += "according to the settings in the portamento (aka " + open_quote + "glide" + close_quote + ") section.";
+    }
+    else {
+        s += "OFF: Oscillater 2" + apostrophe + "s pitch will not change as notes are played.\n";
+        s += "PORTA: Tracking is active, but transitions between pitches are smoothed\n";
+        s += "according to the settings in the portamento (aka " + open_quote + "glide" + close_quote + ") section.\n";
+        s += "KEYBD: Oscillator 2" + apostrophe + "s pitch tracks note key changes normally.";
+    }
+    return s;
+}
+
+String Describe_Exp_Param::osc_lever_control(const int o) {
+    String s{ "" };
+    s += "Selects which of the performance " + open_quote + "levers" + open_quote + "\n";
+    s += "(wheel-type controllers) will modulate oscillator " + (String)o + ".\n";
+    s += "OFF: Oscillator " + (String)o + " is not modulated by either lever.\n";
+    s += "BEND: Pitch bend is modulated by lever 1 (pitch wheel).\n";
+    s += "VIB: Vibrato amount is modulated by lever 2 (mod wheel).\n";
+    s += "BOTH: Oscillator " + (String)o + " is modulated by both levers.";
+    return s;
+}
+
+String Describe_Exp_Param::osc_lfo_1_fm(const int o) {
+    String s{ "" };
+    s += "Sets whether and to what degree LFO 1\n";
+    s += "modulates the pitch of oscillator " + (String)o + ".\n";
+    s += "Range: -63 to +63. 0 is no modulation.\n";
+    s += "Negative values invert the LFO waveform.\n";
+    s += "NOTE: Negative values cannot be\n";
+    s += "assigned to individual parameters via\n";
+    s += "Quick Patch Edit. Use the PUSH button\n";
+    s += "to send the entire patch instead.";
+    return s;
+}
+
+String Describe_Exp_Param::osc_lfo_2_pwm(const int o) {
+    String s{ "" };
+    s += "Sets whether and to what degree LFO 2\n";
+    s += "modulates the pulse width of oscillator " + (String)o + ".\n";
+    s += "Range: -63 to +63. 0 is no modulation.\n";
+    s += "Negative values invert the LFO waveform.\n";
+    s += "NOTE: Negative values cannot be\n";
+    s += "assigned to individual parameters via\n";
+    s += "Quick Patch Edit. Use the PUSH button\n";
+    s += "to send the entire patch instead.";
+    return s;
+}
+
 String Describe_Exp_Param::osc_pitch(const int o) {
     String s{ "" };
     s += "Sets oscillator " + (String)o + apostrophe + "s base pitch in semitone steps.\n";

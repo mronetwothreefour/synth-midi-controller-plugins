@@ -76,6 +76,74 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				Build_Tree::choice_names_unsigned_int(64)
 			), 
 			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				osc == 1 ? ID::ep_05_osc_1_lfo_1_fm : ID::ep_15_osc_2_lfo_1_fm, osc == 1 ? 1 : 11,
+				"Oscillator " + (String)osc + " Frequency Mod. by LFO 1", Ctrl_Type::slider, 
+				osc == 1 ? 78 : 80, Range_Type::signed_7_bit, Slider_Display_Type::signed_7_bit,
+				127, 63, osc == 1 ? osc_col_1_x : osc_col_2_x, ctrl_row_06_y, osc_ctrl_w, 
+				osc == 1 ? Describe::osc_1_sync() : Describe::osc_lfo_1_fm(osc),
+				Build_Tree::choice_names_signed_7_bit_int(curt),
+				Build_Tree::choice_names_signed_7_bit_int()
+			), 
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				osc == 1 ? ID::ep_06_osc_1_lfo_2_pwm : ID::ep_16_osc_2_lfo_2_pwm, osc == 1 ? 4 : 14,
+				"Oscillator " + (String)osc + " Pulse Width Mod. by LFO 2", Ctrl_Type::slider, 
+				osc == 1 ? 79 : 81, Range_Type::signed_7_bit, Slider_Display_Type::signed_7_bit,
+				127, 63, osc == 1 ? osc_col_1_x : osc_col_2_x, ctrl_row_07_y, osc_ctrl_w, 
+				osc == 1 ? Describe::osc_1_sync() : Describe::osc_lfo_2_pwm(osc),
+				Build_Tree::choice_names_signed_7_bit_int(curt),
+				Build_Tree::choice_names_signed_7_bit_int()
+			), 
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				osc == 1 ? ID::ep_07_osc_1_key_click : ID::ep_17_osc_2_key_click, osc == 1 ? 9 : 19,
+				"Oscillator " + (String)osc + " Key Click", Ctrl_Type::cbox, 
+				osc == 1 ? 14 : 16, Range_Type::unsigned_int, Slider_Display_Type::none,
+				2, 0, osc == 1 ? osc_col_1_x : osc_col_2_x, ctrl_row_08_y, osc_ctrl_w, 
+				Describe::osc_key_click(), Build_Tree::choice_names_off_on_matrix(curt),
+				Build_Tree::choice_names_off_on_matrix()
+			), 
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				osc == 1 ? ID::ep_08_osc_1_key_track : ID::ep_18_osc_2_key_track, osc == 1 ? 8 : 18,
+				"Oscillator " + (String)osc + " Key Tracking", Ctrl_Type::cbox, 
+				osc == 1 ? 13 : 15, Range_Type::unsigned_int, Slider_Display_Type::none,
+				osc == 1 ? 2 : 3, osc == 1 ? 0 : 2, osc == 1 ? osc_col_1_x : osc_col_2_x, 
+				ctrl_row_09_y, osc_ctrl_w, Describe::osc_key_track(osc),
+				osc == 1 ? Build_Tree::choice_names_osc_1_key_track(curt) : Build_Tree::choice_names_osc_2_and_vcf_key_track(curt),
+				osc == 1 ? Build_Tree::choice_names_osc_1_key_track() : Build_Tree::choice_names_osc_2_and_vcf_key_track()
+			), 
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				osc == 1 ? ID::ep_09_osc_1_lever_ctrl : ID::ep_19_osc_2_lever_ctrl, 
+				osc == 1 ? 7 : 17, "Oscillator " + (String)osc + " Lever Control", Ctrl_Type::cbox,
+				osc == 1 ? 4 : 9, Range_Type::unsigned_int, Slider_Display_Type::none,
+				4, 3, osc == 1 ? osc_col_1_x : osc_col_2_x, ctrl_row_10_y, osc_ctrl_w,
+				Describe::osc_lever_control(osc), Build_Tree::choice_names_osc_lever_control(curt),
+				Build_Tree::choice_names_osc_lever_control()
+			), 
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				ID::ep_20_osc_balance, 20, "Oscillator Balance", Ctrl_Type::slider_osc_balance,
+				12, Range_Type::unsigned_int, Slider_Display_Type::unsigned_int,
+				64, 31, 163, ctrl_row_11_y, 126, Describe::osc_balance(),
+				Build_Tree::choice_names_unsigned_int(64, curt),
+				Build_Tree::choice_names_unsigned_int(64)
+			), 
+			-1, nullptr);
 	} // ---------------------------------------------------------- end osc section
 }
 

@@ -24,7 +24,7 @@ namespace ENUM
 		none,
 		osc_pitch,
 		signed_6_bit_int,
-		signed_7_bit_int,
+		signed_7_bit,
 		unsigned_int
 	};
 
