@@ -6,12 +6,6 @@ namespace ID
 {
 	// exposed parameter properties
 	static const Identifier ep_p_choice_count{ "ep_p_choice_count" };
-	static const Identifier ep_p_choice_menu_col_count{ "ep_p_choice_menu_col_count" };
-	static const Identifier ep_p_choice_menu_col_width{ "ep_p_choice_menu_col_width" };
-	static const Identifier ep_p_choice_menu_first_row{ "ep_p_choice_menu_first_row" };
-	static const Identifier ep_p_choice_menu_row_count{ "ep_p_choice_menu_row_count" };
-	static const Identifier ep_p_choice_menu_x{ "ep_p_choice_menu_x" };
-	static const Identifier ep_p_choice_menu_y{ "ep_p_choice_menu_y" };
 	static const Identifier ep_p_ctrl_center_x{ "ep_p_ctrl_center_x" };
 	static const Identifier ep_p_ctrl_center_y{ "ep_p_ctrl_center_y" };
 	static const Identifier ep_p_ctrl_height{ "ep_p_ctrl_height" };

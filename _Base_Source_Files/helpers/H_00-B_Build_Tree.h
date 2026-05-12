@@ -5,6 +5,6 @@
 
 struct Base_Build_Tree
 {
-	static ValueTree choice_names_osc_pitch(const bool curt, uint8 choice_count);
+	static ValueTree choice_names_osc_pitch(uint8 choice_count, const bool curt = false);
 };
 

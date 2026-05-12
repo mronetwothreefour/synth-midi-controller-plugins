@@ -8,6 +8,8 @@ using namespace XYWH;
 Exposed_Parameter_Info::Exposed_Parameter_Info() :
 	Base_Exposed_Parameter_Info{ EP::exp_param_count }
 {
+	const bool curt{ true };
+
 	// *************************************************************** osc section
 	for (auto osc = 1; osc < 3; ++osc) {
 		tree.addChild(
@@ -17,12 +19,9 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				Knob_Display_Type::osc_pitch, osc == 1 ? (uint8)0 : (uint8)5,
 				choice_count_osc_pitch, (uint8)24, ctrl_col_1_x,
 				osc == 1 ? osc_row_1_center_y : osc_row_2_center_y, knob_diameter, knob_diameter,
-				Describe_Exp_Param::osc_pitch(osc), Choice_Menu_Type::standard,
-				choice_menu_col_count_pitch, choice_menu_col_w_pitch, choice_menu_row_count_pitch, 
-				0, ctrl_col_1_x + choice_menu_offset_knob, 
-				osc == 1 ? osc_row_1_knob_top_y : osc_row_2_knob_top_y,
-				Build_Tree::choice_names_osc_pitch(true, EP::choice_count_osc_pitch),
-				Build_Tree::choice_names_osc_pitch(false, EP::choice_count_osc_pitch)
+				Describe_Exp_Param::osc_pitch(osc),
+				Build_Tree::choice_names_osc_pitch(EP::choice_count_osc_pitch, curt),
+				Build_Tree::choice_names_osc_pitch(EP::choice_count_osc_pitch)
 			),
 			-1, nullptr);
 	} // ---------------------------------------------------------- end osc section

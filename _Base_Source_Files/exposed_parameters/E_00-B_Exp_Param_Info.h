@@ -21,15 +21,9 @@ public: Point<int> ctrl_center_for(uint8 param_index) const;
 public: int ctrl_width_for(uint8 param_index) const;
 public: int ctrl_height_for(uint8 param_index) const;
 public: const String description_for(uint8 param_index) const;
-public: const String choice_name_for(uint8 param_index, const uint8 choice_num, bool curt = true) const;
-public: const StringArray choice_name_list_for(uint8 param_index, bool curt = true) const;
+public: const String choice_name_for(uint8 param_index, const uint8 choice_num, bool curt = false) const;
+public: const StringArray choice_name_list_for(uint8 param_index, bool curt = false) const;
 public: virtual const int drag_sensitivity_for(uint8 param_index, float scale_factor) const;
-public: const int choice_menu_col_count_for(const uint8 param_index) const;
-public: int choice_menu_col_width_for(const uint8 param_index) const;
-public: const int choice_menu_row_count_for(const uint8 param_index) const;
-public: const int choice_menu_first_row_for(const uint8 param_index) const;
-public: int choice_menu_x_for(const uint8 param_index) const;
-public: int choice_menu_y_for(const uint8 param_index) const;
 
 //==============================================================================
 private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Base_Exposed_Parameter_Info)

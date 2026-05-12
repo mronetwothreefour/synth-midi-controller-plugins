@@ -8,6 +8,8 @@ using namespace XYWH;
 Exposed_Parameter_Info::Exposed_Parameter_Info() :
 	Base_Exposed_Parameter_Info{ EP::exp_param_count }
 {
+	const bool curt{ true };
+
 	// *************************************************************** osc section
 	for (auto osc = 1; osc < 3; ++osc) {
 		tree.addChild(
@@ -29,8 +31,9 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 					{ "bit_7", osc == 1 ? "byte_22__bit_5" : "byte_25__bit_5" },
 					{ "bit_8", osc == 1 ? "byte_22__bit_6" : "byte_25__bit_6" },
 					{ "bit_9", osc == 1 ? "byte_15__bit_6" : "byte_23__bit_1" },
-				} }, Build_Tree::choice_names_osc_pitch_fine(true),
-				Build_Tree::choice_names_osc_pitch_fine(false)
+				} }, 
+				Build_Tree::choice_names_osc_pitch_fine(curt),
+				Build_Tree::choice_names_osc_pitch_fine()
 			),
 			-1, nullptr);
 	} // ---------------------------------------------------------- end osc section

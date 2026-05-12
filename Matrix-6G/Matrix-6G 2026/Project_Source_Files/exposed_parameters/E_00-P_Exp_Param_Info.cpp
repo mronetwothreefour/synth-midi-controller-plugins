@@ -8,6 +8,8 @@ using namespace XYWH;
 Exposed_Parameter_Info::Exposed_Parameter_Info() :
 	Base_Exposed_Parameter_Info{ EP::exp_param_count }
 {
+	const bool curt{ true };
+
 	// *************************************************************** osc section
 	for (auto osc = 1; osc < 3; ++osc) {
 		tree.addChild(
@@ -16,11 +18,9 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				"Oscillator " + (String)osc + " Pitch", Ctrl_Type::slider_osc_pitch,
 				osc == 1 ? 1 : 6, Range_Type::unsigned_int, Slider_Display_Type::osc_pitch,
 				choice_count_osc_pitch, (uint8)0, osc == 1 ? osc_col_1_x : osc_col_2_x, 
-				ctrl_row_01_y, osc_ctrl_w, Describe_Exp_Param::osc_pitch(osc), 6, 30, 12, 0,
-				osc == 1 ? osc_col_1_choice_menu_x : osc_col_2_choice_menu_x,
-				ctrl_row_01_y - ctrl_h / 2,
-				Build_Tree::choice_names_osc_pitch(true, EP::choice_count_osc_pitch),
-				Build_Tree::choice_names_osc_pitch(false, EP::choice_count_osc_pitch)
+				ctrl_row_01_y, osc_ctrl_w, Describe_Exp_Param::osc_pitch(osc),
+				Build_Tree::choice_names_osc_pitch(EP::choice_count_osc_pitch, curt),
+				Build_Tree::choice_names_osc_pitch(EP::choice_count_osc_pitch)
 			), 
 			-1, nullptr);
 	} // ---------------------------------------------------------- end osc section

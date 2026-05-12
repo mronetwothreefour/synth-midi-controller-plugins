@@ -16,9 +16,6 @@ struct Build_Tree :
 									   Ctrl_Type ctrl, uint8 byte_index, Range_Type range,
 									   Slider_Display_Type display, uint8 choice_count,
 									   uint8 init_choice, int ctrl_center_x, int ctrl_center_y,
-									   int ctrl_w, String description, int choice_menu_col_count,
-									   int choice_menu_col_w, int choice_menu_row_count,
-									   int choice_menu_first_row, int choice_menu_x,
-									   int choice_menu_y, ValueTree curt_choice_names,
-									   ValueTree choice_names);
+									   int ctrl_w, String description, 
+									   ValueTree curt_choice_names,ValueTree choice_names);
 };

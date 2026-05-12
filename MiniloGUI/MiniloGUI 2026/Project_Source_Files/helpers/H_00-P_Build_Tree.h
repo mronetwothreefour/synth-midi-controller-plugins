@@ -19,5 +19,5 @@ struct Build_Tree :
 									   int ctrl_h,String description, ValueTree bit_locations,
 									   ValueTree curt_choice_names, ValueTree choice_names);
 	// TODO: choice name trees for when transmitting via CC
-	static ValueTree choice_names_osc_pitch_fine(const bool curt);
+	static ValueTree choice_names_osc_pitch_fine(const bool curt = false);
 };

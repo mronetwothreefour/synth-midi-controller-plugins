@@ -5,9 +5,6 @@ ValueTree Build_Tree::exposed_parameter(Identifier id, uint8 number, String name
 										Slider_Display_Type display, uint8 choice_count, 
 										uint8 init_choice, int ctrl_center_x, 
 										int ctrl_center_y, int ctrl_w, String description, 
-										int choice_menu_col_count, int choice_menu_col_w, 
-										int choice_menu_row_count, int choice_menu_first_row, 
-										int choice_menu_x, int choice_menu_y, 
 										ValueTree curt_choice_names, ValueTree choice_names)
 {
 	ValueTree tree_ep{ id, 
@@ -24,12 +21,6 @@ ValueTree Build_Tree::exposed_parameter(Identifier id, uint8 number, String name
 			{ ID::ep_p_ctrl_center_y, ctrl_center_y },
 			{ ID::ep_p_ctrl_width, ctrl_w },
 			{ ID::ep_p_description, description },
-			{ ID::ep_p_choice_menu_col_count, choice_menu_col_count },
-			{ ID::ep_p_choice_menu_col_width, choice_menu_col_w },
-			{ ID::ep_p_choice_menu_row_count, choice_menu_row_count },
-			{ ID::ep_p_choice_menu_first_row, choice_menu_first_row },
-			{ ID::ep_p_choice_menu_x, choice_menu_x },
-			{ ID::ep_p_choice_menu_x, choice_menu_y }
 		}, 
 		{ curt_choice_names, choice_names } 
 	};
