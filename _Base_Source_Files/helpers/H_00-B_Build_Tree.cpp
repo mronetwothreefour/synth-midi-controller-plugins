@@ -12,3 +12,12 @@ ValueTree Base_Build_Tree::choice_names_osc_pitch(uint8 choice_count, const bool
 	}
 	return tree;
 }
+
+ValueTree Base_Build_Tree::choice_names_unsigned_int(uint16 count, const bool curt) {
+	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	for (auto choice = 0; choice < count; ++choice) {
+		auto name{ (String)choice };
+		tree.setProperty("choice_" + name, name, nullptr);
+	}
+	return tree;
+}

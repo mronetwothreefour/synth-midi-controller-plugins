@@ -4,5 +4,10 @@
 
 struct Describe_Exp_Param
 {
+	static String osc_1_sync();
+	static String osc_2_detune();
 	static String osc_pitch(const int osc_num);
+	static String osc_pulse_w(const int osc_num);
+	static String osc_saw_tri(const int osc_num);
+	static String osc_type(const int osc_num);
 };

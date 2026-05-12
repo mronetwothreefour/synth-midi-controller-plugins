@@ -27,3 +27,12 @@ ValueTree Build_Tree::exposed_parameter(Identifier id, uint8 number, String name
 	return tree_ep;
 }
 
+ValueTree Build_Tree::choice_names_osc_type(int o, const bool curt) {
+	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	tree.setProperty("choice_0", curt ? "OFF" : "Off", nullptr);
+	tree.setProperty("choice_1", curt ? "PULSE" : "Pulse", nullptr);
+	tree.setProperty("choice_2", curt ? "WAVE" : "Wave (Saw/Triangle)", nullptr);
+	tree.setProperty("choice_3", curt ? "NOISE" : "Noise", nullptr);
+	return tree;
+}
+
