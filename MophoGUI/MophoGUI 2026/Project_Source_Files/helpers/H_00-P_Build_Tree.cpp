@@ -26,6 +26,33 @@ ValueTree Build_Tree::exposed_parameter(Identifier id, String name, Ctrl_Type ct
 	return tree_ep;
 }
 
+ValueTree Build_Tree::choice_names_bend_range(const bool curt) {
+	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	tree.setProperty("choice_0",  curt ? "0" : "No Bend", nullptr);;
+	tree.setProperty("choice_1",  "+/-1"  + curt ? "" : " semitone", nullptr);
+	tree.setProperty("choice_2",  "+/-2"  + curt ? "" : " semitones", nullptr);
+	tree.setProperty("choice_3",  "+/-3"  + curt ? "" : " semitones", nullptr);
+	tree.setProperty("choice_4",  "+/-4"  + curt ? "" : " semitones", nullptr);
+	tree.setProperty("choice_5",  "+/-5"  + curt ? "" : " semitones", nullptr);
+	tree.setProperty("choice_6",  "+/-6"  + curt ? "" : " semitones", nullptr);
+	tree.setProperty("choice_7",  "+/-7"  + curt ? "" : " semitones", nullptr);
+	tree.setProperty("choice_8",  "+/-8"  + curt ? "" : " semitones", nullptr);
+	tree.setProperty("choice_9",  "+/-9"  + curt ? "" : " semitones", nullptr);
+	tree.setProperty("choice_10", "+/-10" + curt ? "" : " semitones", nullptr);
+	tree.setProperty("choice_11", "+/-11" + curt ? "" : " semitones", nullptr);
+	tree.setProperty("choice_12", "+/-12" + curt ? "" : " semitones", nullptr);
+	return tree;
+}
+
+ValueTree Build_Tree::choice_names_glide_mode(const bool curt) {
+	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	tree.setProperty("choice_0", "Fixed Rate", nullptr);;
+	tree.setProperty("choice_1", "Fixed Rate Auto", nullptr);
+	tree.setProperty("choice_2", "Fixed Time", nullptr);
+	tree.setProperty("choice_3", "Fixed Time Auto", nullptr);
+	return tree;
+}
+
 ValueTree Build_Tree::choice_names_osc_fine(const bool curt) {
 	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
 	for (auto choice = 0; choice < 101; ++choice) {

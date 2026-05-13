@@ -4,6 +4,23 @@
 
 using namespace FONT;
 
+String Describe_Exp_Param::bend_range() {
+    String s{ "" };
+    s += "Sets the maximum amount (in semitones) by which pitch wheel\n";
+    s += "messages can raise or lower the pitches of the oscillators.\n";
+    s += "Range: 0 (no pitch bend) to +/-12 semitones.";
+    return s;
+}
+
+String Describe_Exp_Param::glide_mode() {
+    String s{ "" };
+    s += "Fixed Rate: The actual glide time depends on the size of the note interval.\n";
+    s += "Fixed Time: The glide time is constant, regardless of the interval size.\n";
+    s += "The Auto modes only apply glide when a note is played legato\n";
+    s += "(i.e. a new note is triggered before the previous note is released).";
+    return s;
+}
+
 String Describe_Exp_Param::osc_fine(const int o) {
     String s{ "" };
     s += "Sets oscillator " + (String)o + apostrophe + "s glide (portamento) rate.\n";
@@ -45,6 +62,14 @@ String Describe_Exp_Param::osc_shape(const int o) {
     s += "0 = Off;  1 = Sawtooth;  2 = Triangle;\n";
     s += "3 = Sawtooth / Triangle Mixture;\n";
     s += "4 = Square (a Pulse with width 50).";
+    return s;
+}
+
+String Describe_Exp_Param::osc_slop() {
+    String s{ "" };
+    s += "Introduces a subtle amount of random oscillator\n";
+    s += "pitch drift for a " + open_quote + "vintage analog" + close_quote + " sound.\n";
+    s += "Range: 0 to 5.";
     return s;
 }
 

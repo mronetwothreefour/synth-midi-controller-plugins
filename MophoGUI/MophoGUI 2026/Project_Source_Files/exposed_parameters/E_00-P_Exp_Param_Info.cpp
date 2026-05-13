@@ -91,6 +91,33 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			Build_Tree::choice_names_off_on()
 		),
 		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_013_glide_mode, "Glide Mode", Ctrl_Type::cbox,
+			Knob_Display_Type::none, 11, 4, 0, ctrl_col_10_x, 78, osc_cbox_w, cbox_h,
+			Describe_Exp_Param::glide_mode(), Build_Tree::choice_names_glide_mode(curt),
+			Build_Tree::choice_names_glide_mode()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_014_osc_slop, "Oscillator Slop", Ctrl_Type::knob,
+			Knob_Display_Type::osc_slop, 12, 6, 2, ctrl_col_7_x, osc_row_1_center_y, 
+			knob_diameter, knob_diameter, Describe_Exp_Param::osc_slop(),
+			Build_Tree::choice_names_unsigned_int(6, curt), Build_Tree::choice_names_unsigned_int(6)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_015_bend_range, "Pitch Bend Range", Ctrl_Type::knob,
+			Knob_Display_Type::pitch_bend, 93, choice_count_bend_range, 4, ctrl_col_9_x, osc_row_1_center_y,
+			knob_diameter, knob_diameter, Describe_Exp_Param::bend_range(),
+			Build_Tree::choice_names_bend_range(curt), Build_Tree::choice_names_bend_range()
+		),
+		-1, nullptr);
 	// ---------------------------------------------------------- end osc section
 }
 

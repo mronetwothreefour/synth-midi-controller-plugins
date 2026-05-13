@@ -5,6 +5,7 @@
 namespace EP
 {
 
+	constexpr uint8 choice_count_bend_range{ 13 };
 	constexpr uint8 choice_count_osc_pitch{ 121 };
 	constexpr uint8 choice_count_osc_fine{ 101 };
 	constexpr uint8 choice_count_osc_shape{ 104 };
