@@ -118,6 +118,42 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			Build_Tree::choice_names_bend_range(curt), Build_Tree::choice_names_bend_range()
 		),
 		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_016_note_priority, "Note Priority (Key Assign)", Ctrl_Type::cbox,
+			Knob_Display_Type::none, 96, 6, 4, ctrl_col_10_x, 38,
+			osc_cbox_w, cbox_h, Describe_Exp_Param::note_priority(),
+			Build_Tree::choice_names_note_priority(curt), Build_Tree::choice_names_note_priority()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_017_osc_mix, "Oscillator 1 & 2 Mix", Ctrl_Type::knob,
+			Knob_Display_Type::unsigned_7_bit, 13, 128, 64, ctrl_col_8_x, osc_row_1_center_y,
+			knob_diameter, knob_diameter, Describe_Exp_Param::osc_mix(),
+			Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_018_noise_level, "Noise Level", Ctrl_Type::knob,
+			Knob_Display_Type::unsigned_7_bit, 14, 128, 0, ctrl_col_7_x, osc_row_2_center_y,
+			knob_diameter, knob_diameter, Describe_Exp_Param::noise_level(),
+			Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_019_ext_in_level, "External Audio Input Level", Ctrl_Type::knob,
+			Knob_Display_Type::unsigned_7_bit, 116, 128, 0, ctrl_col_8_x, osc_row_2_center_y,
+			knob_diameter, knob_diameter, Describe_Exp_Param::ext_in_level(),
+			Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
 	// ---------------------------------------------------------- end osc section
 }
 

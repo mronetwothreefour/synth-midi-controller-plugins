@@ -12,12 +12,40 @@ String Describe_Exp_Param::bend_range() {
     return s;
 }
 
+String Describe_Exp_Param::ext_in_level() {
+    String s{ "" };
+    s += "Sets the level of external audio\n";
+    s += "input sent into the low-pass filter.\n";
+    s += "When nothing is connected to audio in,\n";
+    s += "this controls the level of feedback\n";
+    s += "from the left audio output.\n";
+    s += "Range: 0 to 127.";
+    return s;
+}
+
 String Describe_Exp_Param::glide_mode() {
     String s{ "" };
     s += "Fixed Rate: The actual glide time depends on the size of the note interval.\n";
     s += "Fixed Time: The glide time is constant, regardless of the interval size.\n";
     s += "The Auto modes only apply glide when a note is played legato\n";
     s += "(i.e. a new note is triggered before the previous note is released).";
+    return s;
+}
+
+String Describe_Exp_Param::note_priority() {
+    String s{ "" };
+    s += "Selects which note is given priority when multiple\n";
+    s += "notes are played, and whether the envelopes are\n";
+    s += "re-triggered when a note is played legato (before\n";
+    s += "the previous note has been released).";
+    return s;
+}
+
+String Describe_Exp_Param::noise_level() {
+    String s{ "" };
+    s += "Sets the level of white noise\n";
+    s += "sent into the low-pass filter.\n";
+    s += "Range: 0 to 127.";
     return s;
 }
 
@@ -42,6 +70,15 @@ String Describe_Exp_Param::osc_key_track(const int o) {
     s += "on or off. When turned off, the oscillator\n";
     s += "always produces its base pitch, ignoring\n";
     s += "the pitch of incoming MIDI note messages.";
+    return s;
+}
+
+String Describe_Exp_Param::osc_mix() {
+    String s{ "" };
+    s += "Controls the level balance between oscillators 1 & 2.\n";
+    s += "Range: 0 to 127. At 0, only oscillator 1 is heard.\n";
+    s += "At 127, only oscillator 2 is heard. At 64, an equal\n";
+    s += "mix of the two oscillators is heard.";
     return s;
 }
 

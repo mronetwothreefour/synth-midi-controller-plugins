@@ -53,6 +53,17 @@ ValueTree Build_Tree::choice_names_glide_mode(const bool curt) {
 	return tree;
 }
 
+ValueTree Build_Tree::choice_names_note_priority(const bool curt) {
+	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	tree.setProperty("choice_0", curt ? "Low Note" : "Low Note Has Priority", nullptr);
+	tree.setProperty("choice_1", curt ? "Low Note (Re-trigger)" : "Low Note Has Priority (Re-trigger)", nullptr);
+	tree.setProperty("choice_2", curt ? "High Note" : "High Note Has Priority", nullptr);
+	tree.setProperty("choice_3", curt ? "High Note (Re-trigger)" : "High Note Has Priority (Re-trigger)", nullptr);
+	tree.setProperty("choice_4", curt ? "Last Note" : "Last Note Hit Has Priority", nullptr);
+	tree.setProperty("choice_5", curt ? "Last Note (Re-trigger)" : "Last Note Hit Has Priority (Re-trigger)", nullptr);
+	return tree;
+}
+
 ValueTree Build_Tree::choice_names_osc_fine(const bool curt) {
 	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
 	for (auto choice = 0; choice < 101; ++choice) {
