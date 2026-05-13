@@ -63,7 +63,7 @@ String Describe_Exp_Param::env_attack(const String env) {
     s += "Sets the length of " + env + apostrophe + "s attack segment\n";
     s += "(the amount of time it takes for the envelope" + apostrophe + "s\n";
     s += "level to rise from minimum to maximum).\n";
-    s += "Range: 0 to 127.";
+    s += "Range: 0 (instantaneous) to 127 (longest time)";
     return s;
 }
 
@@ -72,7 +72,7 @@ String Describe_Exp_Param::env_decay(const String env) {
     s += "Sets the length of " + env + apostrophe + "s decay segment\n";
     s += "(the amount of time it takes for the envelope" + apostrophe + "s\n";
     s += "level to fall from maximum to the sustain level).\n";
-    s += "Range: 0 to 127.";
+    s += "Range: 0 (instantaneous) to 127 (longest time)";
     return s;
 }
 
@@ -81,7 +81,7 @@ String Describe_Exp_Param::env_delay(const String env) {
     s += "Sets the length of " + env + apostrophe + "s delay segment\n";
     s += "(the amount of time that passes after the envelope\n";
     s += "is triggered before its attack segment begins).\n";
-    s += "Range: 0 to 127.";
+    s += "Range: 0 (instantaneous) to 127 (longest time)";
     return s;
 }
 
@@ -90,7 +90,7 @@ String Describe_Exp_Param::env_release(const String env) {
     s += "Sets the length of " + env + apostrophe + "s release segment\n";
     s += "(the amount of time it takes to fall from the sustain\n";
     s += "level down to minimum once the envelope is gated off).\n";
-    s += "Range: 0 to 127.";
+    s += "Range: 0 (instantaneous) to 127 (longest time)";
     return s;
 }
 
@@ -99,7 +99,7 @@ String Describe_Exp_Param::env_sustain(const String env) {
     s += "Sets " + env + apostrophe + "s sustain level (once the\n";
     s += "decay segment completes, the envelope stays\n";
     s += "at this level until it is gated off).\n";
-    s += "Range: 0 to 127.";
+    s += "Range: 0 (instantaneous) to 127 (longest time)";
     return s;
 }
 
