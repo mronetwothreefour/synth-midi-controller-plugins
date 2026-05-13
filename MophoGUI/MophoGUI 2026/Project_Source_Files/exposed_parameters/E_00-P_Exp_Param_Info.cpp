@@ -12,19 +12,86 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 
 	// *************************************************************** osc section
 	for (auto osc = 1; osc < 3; ++osc) {
+		auto center_y = osc == 1 ? osc_row_1_center_y : osc_row_2_center_y;
 		tree.addChild(
 			Build_Tree::exposed_parameter(
 				osc == 1 ? ID::ep_000_osc_1_pitch : ID::ep_006_osc_2_pitch,
 				"Oscillator " + (String)osc + " Pitch", Ctrl_Type::knob_pitch,
-				Knob_Display_Type::osc_pitch, osc == 1 ? (uint8)0 : (uint8)5,
-				choice_count_osc_pitch, (uint8)24, ctrl_col_1_x,
-				osc == 1 ? osc_row_1_center_y : osc_row_2_center_y, knob_diameter, knob_diameter,
+				Knob_Display_Type::osc_pitch, osc == 1 ? 0 : 5,
+				choice_count_osc_pitch, 24, ctrl_col_1_x, center_y, knob_diameter, knob_diameter,
 				Describe_Exp_Param::osc_pitch(osc),
 				Build_Tree::choice_names_osc_pitch(EP::choice_count_osc_pitch, curt),
 				Build_Tree::choice_names_osc_pitch(EP::choice_count_osc_pitch)
 			),
 			-1, nullptr);
-	} // ---------------------------------------------------------- end osc section
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				osc == 1 ? ID::ep_001_osc_1_fine_tune : ID::ep_007_osc_2_fine_tune,
+				"Oscillator " + (String)osc + " Fine Tune", Ctrl_Type::knob,
+				Knob_Display_Type::osc_fine, osc == 1 ? 1 : 6,
+				choice_count_osc_fine, osc == 1 ? 49 : 51, ctrl_col_2_x, center_y, 
+				knob_diameter, knob_diameter, Describe_Exp_Param::osc_fine(osc),
+				Build_Tree::choice_names_osc_fine(curt), Build_Tree::choice_names_osc_fine()
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				osc == 1 ? ID::ep_002_osc_1_shape : ID::ep_008_osc_2_shape,
+				"Oscillator " + (String)osc + " Wave Shape", Ctrl_Type::knob_osc_shape,
+				Knob_Display_Type::osc_shape, osc == 1 ? 2 : 7,
+				choice_count_osc_shape, 1, ctrl_col_3_x, center_y, knob_diameter, knob_diameter,
+				Describe_Exp_Param::osc_shape(osc),
+				Build_Tree::choice_names_osc_shape(curt),
+				Build_Tree::choice_names_osc_shape()
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				osc == 1 ? ID::ep_003_osc_1_glide : ID::ep_009_osc_2_glide,
+				"Oscillator " + (String)osc + " Glide Rate", Ctrl_Type::knob,
+				Knob_Display_Type::unsigned_7_bit, osc == 1 ? 3 : 8,
+				128, 0, ctrl_col_4_x, center_y, knob_diameter, knob_diameter,
+				Describe_Exp_Param::osc_fine(osc),
+				Build_Tree::choice_names_unsigned_int(128, curt),
+				Build_Tree::choice_names_unsigned_int(128)
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				osc == 1 ? ID::ep_004_osc_1_key_track : ID::ep_010_osc_2_key_track,
+				"Oscillator " + (String)osc + " Keyboard Track On/Off", Ctrl_Type::toggle,
+				Knob_Display_Type::none, osc == 1 ? 4 : 9, 2, 1, ctrl_col_6_x, 
+				center_y + toggle_center_offset, toggle_diameter, toggle_diameter,
+				Describe_Exp_Param::osc_key_track(osc), Build_Tree::choice_names_off_on(curt),
+				Build_Tree::choice_names_off_on()
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				osc == 1 ? ID::ep_005_osc_1_sub_level : ID::ep_011_osc_2_sub_level,
+				"Sub-Oscillator " + (String)osc + " Level", Ctrl_Type::knob,
+				Knob_Display_Type::unsigned_7_bit, osc == 1 ? 114 : 115, 128, 0, ctrl_col_5_x,
+				center_y, knob_diameter, knob_diameter, Describe_Exp_Param::osc_sub_level(osc), 
+				Build_Tree::choice_names_unsigned_int(128, curt), 
+				Build_Tree::choice_names_unsigned_int(128)
+			),
+			-1, nullptr);
+	} 
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_012_osc_sync, "Hard Oscillator Sync On / Off", Ctrl_Type::toggle,
+			Knob_Display_Type::none, 10, 2, 0, 242, 22, toggle_diameter, toggle_diameter,
+			Describe_Exp_Param::osc_sync(), Build_Tree::choice_names_off_on(curt),
+			Build_Tree::choice_names_off_on()
+		),
+		-1, nullptr);
+	// ---------------------------------------------------------- end osc section
 }
 
 const Identifier Exposed_Parameter_Info::id_for(Track track, Step step) const {

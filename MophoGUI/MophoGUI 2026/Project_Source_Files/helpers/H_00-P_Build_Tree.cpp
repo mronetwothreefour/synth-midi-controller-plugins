@@ -25,3 +25,46 @@ ValueTree Build_Tree::exposed_parameter(Identifier id, String name, Ctrl_Type ct
 	};
 	return tree_ep;
 }
+
+ValueTree Build_Tree::choice_names_osc_fine(const bool curt) {
+	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	for (auto choice = 0; choice < 101; ++choice) {
+		if (curt) {
+			auto name = (choice > EP::choice_count_osc_fine ? "+" : "") + String{ choice - 50 };
+			tree.setProperty("choice_" + (String)choice, name, nullptr);
+		}
+		else {
+			String name{ "" };
+			if (choice < 49)
+				name = String{ choice - 50 } + " cents";
+			if (choice == 49)
+				name = "-1 cent";
+			if (choice == 50)
+				name = "No Detune";
+			if (choice == 51)
+				name = "+1 cent";
+			if (choice > 51)
+				name = "+" + String{ choice - 50 } + " cents";
+			tree.setProperty("choice_" + (String)choice, name, nullptr);
+		}
+	}
+	return tree;
+}
+
+ValueTree Build_Tree::choice_names_osc_shape(const bool curt) {
+	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	tree.setProperty("choice_0", curt ? "OFF" : "Oscillator Off", nullptr);
+	tree.setProperty("choice_1", curt ? "SAW" : "Sawtooth", nullptr);
+	tree.setProperty("choice_2", curt ? "TRI" : "Triangle", nullptr);
+	tree.setProperty("choice_3", curt ? "S/T" : "Sawtooth/Triangle Mix", nullptr);
+	for (int choice = 4; choice < EP::choice_count_osc_shape; ++choice) {
+		if (choice == 54)
+			tree.setProperty("choice_54", curt ? "SQR" : "Square (Pulse: Width 50)", nullptr);
+		else {
+			auto pw = String{ choice - 4 };
+			tree.setProperty("choice_" + (String)choice, curt ? "PW " + pw : 
+				"Pulse: Width " + pw, nullptr);
+		}
+	}
+	return tree;
+}

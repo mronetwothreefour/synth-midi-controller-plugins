@@ -27,6 +27,7 @@ namespace ENUM
 
 	constexpr enum class Knob_Display_Type {
 		error = -1,
+		none,
 		tempo,
 		lfo_freq,
 		lpf_freq,

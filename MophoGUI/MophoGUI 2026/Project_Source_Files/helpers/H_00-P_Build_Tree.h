@@ -17,4 +17,6 @@ struct Build_Tree :
 									   uint8 init_choice, int ctrl_center_x, int ctrl_center_y,
 									   int ctrl_w, int ctrl_h, String description, 
 									   ValueTree curt_choice_names, ValueTree choice_names);
+	static ValueTree choice_names_osc_fine(const bool curt = false);
+	static ValueTree choice_names_osc_shape(const bool curt = false);
 };

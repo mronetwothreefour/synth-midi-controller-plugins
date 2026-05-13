@@ -10,6 +10,8 @@ namespace XYWH
 	constexpr int gui_init_w{ 1273 }, gui_init_h{ 626 };
 
 	constexpr int knob_diameter{ 40 };
+	constexpr int toggle_center_offset{ 1 };
+	constexpr int toggle_diameter{ 14 };
 
 	constexpr int choice_menu_col_w_pitch{ 38 };
 	constexpr int choice_menu_offset_knob{ knob_diameter / 2 + 10 };

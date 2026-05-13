@@ -14,7 +14,7 @@ namespace ID
 	static const Identifier ep_004_osc_1_key_track { "ep_004_osc_1_key_track" };
 	static const Identifier ep_005_osc_1_sub_level { "ep_005_osc_1_sub_level" };
 	static const Identifier ep_006_osc_2_pitch     { "ep_006_osc_2_pitch" };
-	static const Identifier ep_007_osc_2_fineTune  { "ep_007_osc_2_fineTune" };
+	static const Identifier ep_007_osc_2_fine_tune  { "ep_007_osc_2_fine_tune" };
 	static const Identifier ep_008_osc_2_shape     { "ep_008_osc_2_shape" };
 	static const Identifier ep_009_osc_2_glide     { "ep_009_osc_2_glide" };
 	static const Identifier ep_010_osc_2_key_track { "ep_010_osc_2_key_track" };
