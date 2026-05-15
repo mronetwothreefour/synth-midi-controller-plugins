@@ -13,6 +13,7 @@ C_12-B_FONT
 C_12-P_FONT
 C_20-P_PATH_Editor_Bkgrnd
 C_50-P_EP
+C_60-P_SL_EP_Descriptions
 
 E_00-B_Exp_Param_Info
 E_00-P_Exp_Param_Info

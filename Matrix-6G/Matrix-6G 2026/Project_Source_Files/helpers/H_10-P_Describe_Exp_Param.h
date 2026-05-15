@@ -4,6 +4,8 @@
 
 struct Describe_Exp_Param
 {
+	static String from_string_literal(const char8_t* sl);
+
 	static String env_amp(const String env_num);
 	static String env_attack(const String env_num);
 	static String env_decay(const String env_num);
