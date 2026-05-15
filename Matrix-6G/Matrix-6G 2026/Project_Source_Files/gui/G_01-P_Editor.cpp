@@ -22,7 +22,7 @@ void Editor::paint(Graphics& g) {
     g.fillAll(Colours::black);
     g.setColour(Colours::white);
     g.setFont(Font{ "Arial", 16.0f, 0 });
-    g.drawMultiLineText(Describe_Exp_Param::porta_velo(), 15, 20, 600, Justification::centred);
+    g.drawMultiLineText(Describe_Exp_Param::vcf_reso(), 15, 20, 600, Justification::centred);
 }
 
 void Editor::resized() {

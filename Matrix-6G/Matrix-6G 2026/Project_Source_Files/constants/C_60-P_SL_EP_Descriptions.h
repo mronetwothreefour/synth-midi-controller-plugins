@@ -184,7 +184,7 @@ waveform is synchronized with oscillator 2’s.)";
 Slightly lowers or raises oscillator 2’s pitch.
 Range -31 to +31 (-/+ ~25 cents). 0 is no detune.
 Note: Negative values cannot be transmitted to
-individual parameters via quick patch edit. Send 
+individual parameters via quick patch edit. Send
 the entire patch using the PUSH button instead.)";
 
     constexpr auto osc_balance_description = u8R"(
@@ -294,5 +294,127 @@ Negative values invert the velocity response.
 Note: Negative values cannot be transmitted to
 individual parameters via quick patch edit. Send
 the entire patch using the PUSH button instead.)";
+
+    constexpr auto ramp_rate_description = u8R"(
+Sets the amount of time it takes for
+ramp _ to complete its control cycle.
+Range: 0 (instantaneous) to 63 (longest).)";
+
+    constexpr auto ramp_trig_description = u8R"(
+Selects the type of trigger that will start ramp _’s control cycle.
+• STRIG (single): A new note triggers the ramp only when no other
+notes are currently held down (only active in unison mode).
+• MTRIG (multiple): The ramp is triggered with every new note played.
+• XTRIG (external): An external signal (e.g. a footswitch) triggers the ramp.
+• GATEX (gated external): An external signal triggers the ramp only when
+there are one or more notes being played.)";
+
+    constexpr auto track_input_description = u8R"(
+Selects the modulation source which
+will be shaped by the tracking generator.)";
+
+    constexpr auto track_point_description = u8R"(
+Tracking Point _
+Range: 0 to 63.
+Linear output value: %.)";
+
+    constexpr auto vca_1_velo_amt_description = u8R"(
+Sets whether and to what degree note velocity
+modulates the output level of VCA 1.
+Range: -63 to +63. 0 is no modulation.
+Negative values invert the velocity response.
+Note: Negative values cannot be transmitted to
+individual parameters via quick patch edit. Send
+the entire patch using the PUSH button instead.)";
+
+    constexpr auto vca_1_volume_description = u8R"(
+Sets the initial output level of the
+first-stage voltage-controlled amplifier.
+Range: 0 (silence) to 63 (maximum).)";
+
+    constexpr auto vca_2_env_2_amt_description = u8R"(
+Sets whether and to what degree envelope 2
+modulates the output level of the second-
+stage voltage-controlled amplifier.
+Range: -63 to +63. 0 is no modulation.
+Negative values invert the envelope.
+Note: Negative values cannot be
+transmitted to individual parameters
+via quick patch edit. Send the entire
+patch using the PUSH button instead.)";
+
+    constexpr auto vcf_env_1_amt_description = u8R"(
+Sets whether and to what degree envelope 1
+modulates the VCF’s cutoff frequency.
+Range: -63 to +63. 0 is no modulation.
+Negative values invert the envelope.
+Note: Negative values cannot be
+transmitted to individual parameters
+via quick patch edit. Send the entire
+patch using the PUSH button instead.)";
+
+    constexpr auto vcf_fm_env_3_amt_description = u8R"(
+Sets whether and to what degree
+envelope 3 modulates the amount of
+VCF FM by oscillator 1.
+Range: -63 to +63. 0 is no modulation.
+Negative values invert the envelope.
+Note: Negative values cannot be
+transmitted to individual parameters
+via quick patch edit. Send the entire
+patch using the PUSH button instead.)";
+
+    constexpr auto vcf_fm_osc_1_amt_description = u8R"(
+Sets whether and to what degree oscillator 1
+modulates the VCF’s cutoff frequency.
+Range: 0 (no modulation) to 63 (maximum).)";
+
+    constexpr auto vcf_fm_pressure_amt_description = u8R"(
+Sets whether and to what degree keyboard
+pressure (aftertouch) modulates the
+amount of VCF FM by oscillator 1.
+Range: -63 to +63. 0 is no modulation.
+Negative values invert the pressure response.
+Note: Negative values cannot be
+transmitted to individual parameters
+via quick patch edit. Send the entire
+patch using the PUSH button instead.)";
+
+    constexpr auto vcf_freq_description = u8R"(
+Sets the base cutoff frequency
+of the voltage-controlled filter.
+Range: 0 to 127.)";
+
+    constexpr auto vcf_key_track_description = u8R"(
+Selects how the VCF’s cutoff frequency responds to incoming pitch
+change messages (such as notes played on a keyboard controller).
+• OFF: Note key changes have no effect on the VCF’s cutoff frequency.
+• PORTA: Tracking is active, but transitions between cutoff frequencies
+are smoothed according to the settings in the portamento section.
+• KEYBD: The VCF’s cutoff frequency tracks note key changes, rising as
+higher notes are played and dropping as lower notes are played.)";
+
+    constexpr auto vcf_lever_ctrl_description = u8R"(
+Selects which of the performance ‘levers’
+(wheel-type controllers) modulate the VCF frequency.
+• OFF: VCF frequency is not modulated by either lever.
+• BEND: VCF frequency is modulated by lever 1 (pitch wheel).
+• VIB: VCF frequency is modulated by lever 2 (mod wheel).
+• BOTH: VCF frequency is modulated by both levers.)";
+
+    constexpr auto vcf_pressure_amt_description = u8R"(
+Sets whether and to what degree keyboard pressure 
+(aftertouch) modulates the VCF’s cutoff frequency.
+Range: -63 to +63. 0 is no modulation.
+Negative values invert the pressure response.
+Note: Negative values cannot be transmitted
+to individual parameters via quick patch edit. Send
+the entire patch using the PUSH button instead.)";
+
+    constexpr auto vcf_reso_description = u8R"(
+Sets the resonance level of
+the voltage-controlled filter.
+Range: 0 to 63. At 63, the
+filter will self-oscillate.)";
 
 }

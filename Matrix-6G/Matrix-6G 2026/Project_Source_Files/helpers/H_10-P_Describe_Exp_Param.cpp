@@ -164,173 +164,68 @@ String Describe_Exp_Param::porta_velo() {
     return from_string_literal(SL::porta_velo_description);
 }
 
-String Describe_Exp_Param::ramp_rate(const int ramp) {
-    String s{ "" };
-    s += "Sets the amount of time it takes for\n";;
-    s += "Ramp " + (String)ramp + " to complete its control cycle.\n";
-    s += "Range: 0 (instantaneous) to 63 (longest).";
-    return s;
+String Describe_Exp_Param::ramp_rate(const int r) {
+    return from_string_literal(SL::ramp_rate_description).replaceCharacters("_", (String)r);
 }
 
-String Describe_Exp_Param::ramp_trig(const int ramp) {
-    String s{ "" };
-    s += "Selects the type of trigger that will start ramp " + (String)ramp + apostrophe + "s control cycle.\n";
-    s += "STRIG: Single - A new note triggers the ramp only when no other\n";
-    s += "notes are currently held down (only active in unison mode).\n";
-    s += "MTRIG: Multiple - the ramp is triggered with every new note played.\n";
-    s += "XTRIG: External - an external signal (e.g. a footswitch) triggers the ramp.\n";
-    s += "GATEX: Gated External - an external signal triggers the ramp only when\n";
-    s += "there are one or more notes being played.";
-    return s;
+String Describe_Exp_Param::ramp_trig(const int r) {
+    return from_string_literal(SL::ramp_trig_description).replaceCharacters("_", (String)r);
 }
 
 String Describe_Exp_Param::track_input() {
-    String s{ "" };
-    s += "Selects the modulation source which\n";
-    s += "will be shaped by the tracking generator.";
-    return s;
+    return from_string_literal(SL::track_input_description);
 }
 
-String Describe_Exp_Param::track_point(const int point, int init_choice) {
-    String s{ "" };
-    s += "Tracking Point " + (String)point + "\n";
-    s += "Range: 0 to 63.\n";
-    s += "Linear output value: " + (String)init_choice + ".";
+String Describe_Exp_Param::track_point(const int p, int c) {
+    String s{ from_string_literal(SL::track_point_description) };
+    s = s.replaceCharacters("_", (String)p).replaceSection(s.indexOf("%"), 1, (String)c);
     return s;
 }
 
 String Describe_Exp_Param::vca_1_velo_amt() {
-    String s{ "" };
-    s += "Sets whether and to what degree note velocity\n";
-    s += "modulates the output level of VCA 1.\n";
-    s += "Range: -63 to +63. 0 is no modulation.\n";
-    s += "Negative values invert the velocity response.\n";
-    s += "NOTE: Negative values cannot be\n";
-    s += "assigned to individual parameters via\n";
-    s += "Quick Patch Edit. Use the PUSH button\n";
-    s += "to send the entire patch instead.";
-    return s;
+    return from_string_literal(SL::vca_1_velo_amt_description);
 }
 
 String Describe_Exp_Param::vca_1_volume() {
-    String s{ "" };
-    s += "Sets the initial output level of the\n";
-    s += "first-stage voltage-controlled amplifier.\n";
-    s += "Range: 0 (silence) to 63 (maximum).";
-    return s;
+    return from_string_literal(SL::vca_1_volume_description);
 }
 
 String Describe_Exp_Param::vca_2_env_2_amt() {
-    String s{ "" };
-    s += "Sets whether and to what degree envelope 2\n";
-    s += "modulates the output level of the second-\n";
-    s += "stage voltage-controlled amplifier.\n";
-    s += "Range: -63 to +63. 0 is no modulation.\n";
-    s += "Negative values invert the envelope.\n";
-    s += "NOTE: Negative values cannot be\n";
-    s += "assigned to individual parameters via\n";
-    s += "Quick Patch Edit. Use the PUSH button\n";
-    s += "to send the entire patch instead.";
-    return s;
+    return from_string_literal(SL::vca_2_env_2_amt_description);
 }
 
 String Describe_Exp_Param::vcf_env_1_amt() {
-    String s{ "" };
-    s += "Sets whether and to what degree envelope 1\n";
-    s += "modulates the VCF" + apostrophe + "s cutoff frequency.\n";
-    s += "Range: -63 to +63. 0 is no modulation.\n";
-    s += "Negative values invert the envelope.\n";
-    s += "NOTE: Negative values cannot be\n";
-    s += "assigned to individual parameters via\n";
-    s += "Quick Patch Edit. Use the PUSH button\n";
-    s += "to send the entire patch instead.";
-    return s;
+    return from_string_literal(SL::vcf_env_1_amt_description);
 }
 
 String Describe_Exp_Param::vcf_fm_env_3_amt() {
-    String s{ "" };
-    s += "Sets whether and to what degree envelope 3\n";
-    s += "modulates the amount of VCF FM by oscillator 1.\n";
-    s += "Range: -63 to +63. 0 is no modulation.\n";
-    s += "Negative values invert the envelope.\n";
-    s += "NOTE: Negative values cannot be\n";
-    s += "assigned to individual parameters via\n";
-    s += "Quick Patch Edit. Use the PUSH button\n";
-    s += "to send the entire patch instead.";
-    return s;
+    return from_string_literal(SL::vcf_fm_env_3_amt_description);
 }
 
 String Describe_Exp_Param::vcf_fm_osc_1_amt() {
-    String s{ "" };
-    s += "Sets whether and to what degree oscillator 1\n";
-    s += "modulates the VCF" + apostrophe + "s cutoff frequency.\n";
-    s += "Range: 0 (no modulation) to 63 (maximum).";
-    return s;
+    return from_string_literal(SL::vcf_fm_osc_1_amt_description);
 }
 
 String Describe_Exp_Param::vcf_fm_pressure_amt() {
-    String s{ "" };
-    s += "Sets whether and to what degree keyboard\n";
-    s += "pressure (aftertouch) modulates the\n";
-    s += "amount of VCF FM by oscillator 1.\n";
-    s += "Range: -63 to +63. 0 is no modulation.\n";
-    s += "Negative values invert the pressure response.\n";
-    s += "NOTE: Negative values cannot be\n";
-    s += "assigned to individual parameters via\n";
-    s += "Quick Patch Edit. Use the PUSH button\n";
-    s += "to send the entire patch instead.";
-    return s;
+    return from_string_literal(SL::vcf_fm_pressure_amt_description);
 }
 
 String Describe_Exp_Param::vcf_freq() {
-    String s{ "" };
-    s += "Sets the base cutoff frequency of\n";
-    s += "the voltage-controlled filter.\n";
-    s += "Range: 0 to 127.";
-    return s;
+    return from_string_literal(SL::vcf_freq_description);
 }
 
 String Describe_Exp_Param::vcf_key_track() {
-    String s{ "" };
-    s += "Selects how the VCF" + apostrophe + "s cutoff frequency responds to incoming pitch\n";
-    s += "change messages (e.g. notes played on a keyboard controller).\n";
-    s += "OFF: Note key changes have no effect on the VCF" + apostrophe + "s cutoff frequency.\n";
-    s += "PORTA: Tracking is active, but transitions between cutoff frequencies are\n";
-    s += "smoothed according to the settings in the portamento (aka " + open_quote + "glide" + close_quote + ") section.\n";
-    s += "KEYBD: The VCF" + apostrophe + "s cutoff frequency tracks note key changes, rising as\n";
-    s += "higher notes are played and dropping as lower notes are played.";
-    return s;
+    return from_string_literal(SL::vcf_key_track_description);
 }
 
 String Describe_Exp_Param::vcf_lever_ctrl() {
-    String s{ "" };
-    s += "Selects which of the performance " + open_quote + "levers" + close_quote + "\n";
-    s += "(wheel-type controllers) modulate the VCF frequency.\n";
-    s += "OFF: VCF frequency is not modulated by either lever.\n";
-    s += "BEND: VCF frequency is modulated by lever 1 (pitch wheel).\n";
-    s += "VIB: VCF frequency vibrato is modulated by lever 2 (mod wheel).\n";
-    s += "BOTH: VCF frequency is modulated by both levers.";
-    return s;
+    return from_string_literal(SL::vcf_lever_ctrl_description);
 }
 
 String Describe_Exp_Param::vcf_pressure_amt() {
-    String s{ "" };
-    s += "Sets whether and to what degree keyboard pressure \n";
-    s += "(aftertouch) modulates the VCF" + apostrophe + "s cutoff frequency.\n";
-    s += "Range: -63 to +63. 0 is no modulation.\n";
-    s += "Negative values invert the pressure response.\n";
-    s += "NOTE: Negative values cannot be\n";
-    s += "assigned to individual parameters via\n";
-    s += "Quick Patch Edit. Use the PUSH button\n";
-    s += "to send the entire patch instead.";
-    return s;
+    return from_string_literal(SL::vcf_pressure_amt_description);
 }
 
 String Describe_Exp_Param::vcf_reso() {
-    String s{ "" };
-    s += "Sets the resonance level of\n";
-    s += "the voltage-controlled filter.\n";
-    s += "Range: 0 to 63. At 63, the/n";
-    s += "filter will self-oscillate.";
-    return s;
+    return from_string_literal(SL::vcf_reso_description);
 }
