@@ -51,6 +51,8 @@
         <FILE id="LGnb41" name="C_20-P_PATH_Editor_Bkgrnd.h" compile="0" resource="0"
               file="Project_Source_Files/constants/C_20-P_PATH_Editor_Bkgrnd.h"/>
         <FILE id="ol9C77" name="C_50-P_EP.h" compile="0" resource="0" file="Project_Source_Files/constants/C_50-P_EP.h"/>
+        <FILE id="vwAZlu" name="C_60-P_SL_EP_Descriptions.h" compile="0" resource="0"
+              file="Project_Source_Files/constants/C_60-P_SL_EP_Descriptions.h"/>
       </GROUP>
       <GROUP id="{6AE090E5-1717-50ED-08A1-A04ADF21229D}" name="exposed_parameters">
         <FILE id="f3CHf8" name="E_00-P_Exp_Param_Info.cpp" compile="1" resource="0"

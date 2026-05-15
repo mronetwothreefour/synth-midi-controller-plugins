@@ -4,6 +4,8 @@
 
 struct Describe_Exp_Param
 {
+	static String from_string_literal(const char8_t* sl);
+
 	static String arpeg_mode();
 	static String arpeg_on_off();
 
@@ -33,7 +35,7 @@ struct Describe_Exp_Param
 	static String lpf_env_amt();
 	static String lpf_fm_amt();
 	static String lpf_freq();
-	static String lpf_keyAmount();
+	static String lpf_key_amt();
 	static String lpf_reso();
 	static String lpf_type();
 
