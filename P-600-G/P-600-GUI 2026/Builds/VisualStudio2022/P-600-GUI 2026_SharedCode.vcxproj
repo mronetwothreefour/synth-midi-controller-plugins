@@ -2955,6 +2955,7 @@
     <ClInclude Include="..\..\Project_Source_Files\constants\C_11-P_XYWH.h"/>
     <ClInclude Include="..\..\Project_Source_Files\constants\C_20-P_PATH_Editor_Bkgrnd.h"/>
     <ClInclude Include="..\..\Project_Source_Files\constants\C_50-P_EP.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_60-P_SL_EP_Descriptions.h"/>
     <ClInclude Include="..\..\Project_Source_Files\exposed_parameters\E_00-P_Exp_Param_Info.h"/>
     <ClInclude Include="..\..\Project_Source_Files\gui\G_01-P_Editor.h"/>
     <ClInclude Include="..\..\Project_Source_Files\gui\G_05-P_Paint_Paths.h"/>

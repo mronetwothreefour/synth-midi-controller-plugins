@@ -1,43 +1,37 @@
 #include "H_10-P_Describe_Exp_Param.h"
 
 #include "C_12-B_FONT.h"
+#include "C_60-P_SL_EP_Descriptions.h"
 
 using namespace FONT;
 
+String Describe_Exp_Param::from_string_literal(const char8_t* sl) {
+    String s{ sl };
+    s = s.trimCharactersAtStart("\n");
+    return s;
+}
+
 String Describe_Exp_Param::env_attack(bool filter) {
-    String env{ filter ? "filter" : "amplifier" };
-    String s{ "" };
-    s += "Sets the amount of time it takes for the " + env + "\n";
-    s += "envelope to rise from zero to maximum level.\n";
-    s += "Range: 0 (instantaneous) to 15 (longest time)";
+    String s{ from_string_literal(SL::env_attack_description) };
+    s = s.replaceSection(s.indexOf("_"), 9, filter ? "filter" : "amplifier");
     return s;
 }
 
 String Describe_Exp_Param::env_decay(bool filter) {
-    String env{ filter ? "filter" : "amplifier" };
-    String s{ "" };
-    s += "Sets the amount of time it takes for the " + env + " envelope\n";
-    s += "to fall from maximum level down to the sustain level.\n";
-    s += "Range: 0 (instantaneous) to 15 (longest time)";
+    String s{ from_string_literal(SL::env_decay_description) };
+    s = s.replaceSection(s.indexOf("_"), 9, filter ? "filter" : "amplifier");
     return s;
 }
 
 String Describe_Exp_Param::env_release(bool filter) {
-    String env{ filter ? "filter" : "amplifier" };
-    String s{ "" };
-    s += "Sets the amount of time it takes for the " + env + "\n";
-    s += "envelope to fall to zero once the note is released.\n";
-    s += "Range: 0 (instantaneous) to 15 (longest time)";
+    String s{ from_string_literal(SL::env_release_description) };
+    s = s.replaceSection(s.indexOf("_"), 9, filter ? "filter" : "amplifier");
     return s;
 }
 
 String Describe_Exp_Param::env_sustain(bool filter) {
-    String env{ filter ? "filter" : "amplifier" };
-    String s{ "" };
-    s += "Sets the sustain level for the " + env + " envelope.\n";
-    s += "The envelope decays to this level and stays\n";
-    s += "there until the note is released.\n";
-    s += "Range: 0 to 15 (maximum level)";
+    String s{ from_string_literal(SL::env_sustain_description) };
+    s = s.replaceSection(s.indexOf("_"), 9, filter ? "filter" : "amplifier");
     return s;
 }
 
