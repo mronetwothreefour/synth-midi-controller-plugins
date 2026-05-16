@@ -37,5 +37,5 @@ struct Describe_Exp_Param
 	static String poly_mod_src_filter_env_amt();
 	static String poly_mod_src_osc_b_amt();
 
-	static String unisonTrack();
+	static String unison_track();
 };
