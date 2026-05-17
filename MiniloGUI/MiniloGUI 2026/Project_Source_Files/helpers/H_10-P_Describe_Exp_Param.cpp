@@ -1,9 +1,6 @@
 #include "H_10-P_Describe_Exp_Param.h"
 
-#include "C_12-B_FONT.h"
 #include "C_60-P_SL_EP_Descriptions.h"
-
-using namespace FONT;
 
 String Describe_Exp_Param::from_string_literal(const char8_t* sl) {
     String s{ sl };
@@ -66,6 +63,62 @@ String Describe_Exp_Param::level_knob(const int k) {
     return s;
 }
 
+String Describe_Exp_Param::lfo_eg_mod() {
+    return from_string_literal(SL::lfo_eg_mod_description);
+}
+
+String Describe_Exp_Param::lfo_int() {
+    return from_string_literal(SL::lfo_int_description);
+}
+
+String Describe_Exp_Param::lfo_rate() {
+    return from_string_literal(SL::lfo_rate_description);
+}
+
+String Describe_Exp_Param::lfo_target() {
+    return from_string_literal(SL::lfo_target_description);
+}
+
+String Describe_Exp_Param::lfo_wave() {
+    return from_string_literal(SL::lfo_wave_description);
+}
+
+String Describe_Exp_Param::lpf_eg_int() {
+    return from_string_literal(SL::lpf_eg_int_description);
+}
+
+String Describe_Exp_Param::lpf_freq() {
+    return from_string_literal(SL::lpf_freq_description);
+}
+
+String Describe_Exp_Param::lpf_reso() {
+    return from_string_literal(SL::lpf_reso_description);
+}
+
+String Describe_Exp_Param::lpf_type() {
+    return from_string_literal(SL::lpf_type_description);
+}
+
+String Describe_Exp_Param::lpf_vel_amt() {
+    return from_string_literal(SL::lpf_vel_amt_description);
+}
+
+String Describe_Exp_Param::osc_2_pitch_eg_int() {
+    return from_string_literal(SL::osc_2_pitch_eg_int_description);
+}
+
+String Describe_Exp_Param::osc_2_ring_mod() {
+    return from_string_literal(SL::osc_2_ring_mod_description);
+}
+
+String Describe_Exp_Param::osc_2_sync() {
+    return from_string_literal(SL::osc_2_sync_description);
+}
+
+String Describe_Exp_Param::osc_2_x_mod_depth() {
+    return from_string_literal(SL::osc_2_x_mod_depth_description);
+}
+
 String Describe_Exp_Param::osc_octave(const int o) {
     String s{ from_string_literal(SL::osc_octave_description) };
     s = s.replace("_", (String)o);
@@ -92,4 +145,8 @@ String Describe_Exp_Param::osc_wave(const int o) {
     s = s.replace("_", (String)o);
     s = s.replace("%%", o == 1 ? "50" : "51");
     return s;
+}
+
+String Describe_Exp_Param::voice_mode_depth() {
+    return from_string_literal(SL::voice_mode_depth_description);
 }
