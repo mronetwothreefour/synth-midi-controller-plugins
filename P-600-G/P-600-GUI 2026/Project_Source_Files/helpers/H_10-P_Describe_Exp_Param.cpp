@@ -1,9 +1,6 @@
 #include "H_10-P_Describe_Exp_Param.h"
 
-#include "C_12-B_FONT.h"
 #include "C_60-P_SL_EP_Descriptions.h"
-
-using namespace FONT;
 
 String Describe_Exp_Param::from_string_literal(const char8_t* sl) {
     String s{ sl };

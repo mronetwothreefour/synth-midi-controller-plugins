@@ -3753,6 +3753,9 @@
     <ClInclude Include="..\..\Project_Source_Files\constants\C_50-P_EP.h">
       <Filter>MiniloGUI 2026\Project_Source_Files\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_60-P_SL_EP_Descriptions.h">
+      <Filter>MiniloGUI 2026\Project_Source_Files\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\exposed_parameters\E_00-P_Exp_Param_Info.h">
       <Filter>MiniloGUI 2026\Project_Source_Files\exposed_parameters</Filter>
     </ClInclude>
