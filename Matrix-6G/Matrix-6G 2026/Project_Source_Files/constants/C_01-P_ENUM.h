@@ -12,6 +12,12 @@ namespace ENUM
 		cbox
 	};
 
+	constexpr enum class Input_Choice_Type {
+		mod,
+		lfo,
+		tracking
+	};
+
 	constexpr enum class Range_Type {
 		error = -1,
 		unsigned_int,
