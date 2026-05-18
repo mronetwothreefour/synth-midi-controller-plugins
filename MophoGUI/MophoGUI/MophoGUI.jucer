@@ -7,21 +7,513 @@
               pluginDesc="Lets you control the DSI Mopho synthesizer from your DAW"
               pluginManufacturerCode="TimD" pluginChannelConfigs="{0, 0}" pluginVST3Category="Tools">
   <MAINGROUP id="ALfiN8" name="MophoGUI">
+    <GROUP id="{3D54E409-D4A4-682C-C12B-533A90C3F673}" name="Resources">
+      <FILE id="ZMdF0A" name="Button-Down-Banks.png" compile="0" resource="1"
+            file="Resources/Button-Down-Banks.png"/>
+      <FILE id="c02V0f" name="Button-Down-Clear.png" compile="0" resource="1"
+            file="Resources/Button-Down-Clear.png"/>
+      <FILE id="A7NYPI" name="Button-Down-Close.png" compile="0" resource="1"
+            file="Resources/Button-Down-Close.png"/>
+      <FILE id="mp81X7" name="Button-Down-Export.png" compile="0" resource="1"
+            file="Resources/Button-Down-Export.png"/>
+      <FILE id="FcPzBq" name="Button-Down-Global.png" compile="0" resource="1"
+            file="Resources/Button-Down-Global.png"/>
+      <FILE id="yQ2XZq" name="Button-Down-Import.png" compile="0" resource="1"
+            file="Resources/Button-Down-Import.png"/>
+      <FILE id="DLEosO" name="Button-Down-Load.png" compile="0" resource="1"
+            file="Resources/Button-Down-Load.png"/>
+      <FILE id="BMi4xI" name="Button-Down-Program-Name-Edit.png" compile="0"
+            resource="1" file="Resources/Button-Down-Program-Name-Edit.png"/>
+      <FILE id="NZZ9FB" name="Button-Down-Pull.png" compile="0" resource="1"
+            file="Resources/Button-Down-Pull.png"/>
+      <FILE id="R3dtNU" name="Button-Down-Push.png" compile="0" resource="1"
+            file="Resources/Button-Down-Push.png"/>
+      <FILE id="WwLGlQ" name="Button-Down-Read.png" compile="0" resource="1"
+            file="Resources/Button-Down-Read.png"/>
+      <FILE id="nsJ9Mv" name="Button-Down-Redo.png" compile="0" resource="1"
+            file="Resources/Button-Down-Redo.png"/>
+      <FILE id="u8INXL" name="Button-Down-Retry.png" compile="0" resource="1"
+            file="Resources/Button-Down-Retry.png"/>
+      <FILE id="lO1AvN" name="Button-Down-Save.png" compile="0" resource="1"
+            file="Resources/Button-Down-Save.png"/>
+      <FILE id="W6YTlL" name="Button-Down-Stop.png" compile="0" resource="1"
+            file="Resources/Button-Down-Stop.png"/>
+      <FILE id="hirGaZ" name="Button-Down-Undo.png" compile="0" resource="1"
+            file="Resources/Button-Down-Undo.png"/>
+      <FILE id="ZWEunW" name="Button-Down-Write.png" compile="0" resource="1"
+            file="Resources/Button-Down-Write.png"/>
+      <FILE id="s2Sx2d" name="Button-Up-Banks.png" compile="0" resource="1"
+            file="Resources/Button-Up-Banks.png"/>
+      <FILE id="XGRk0R" name="Button-Up-Clear.png" compile="0" resource="1"
+            file="Resources/Button-Up-Clear.png"/>
+      <FILE id="YymHHX" name="Button-Up-Close.png" compile="0" resource="1"
+            file="Resources/Button-Up-Close.png"/>
+      <FILE id="g0JaOu" name="Button-Up-Export.png" compile="0" resource="1"
+            file="Resources/Button-Up-Export.png"/>
+      <FILE id="x4jMjJ" name="Button-Up-Global.png" compile="0" resource="1"
+            file="Resources/Button-Up-Global.png"/>
+      <FILE id="hrE4eC" name="Button-Up-Import.png" compile="0" resource="1"
+            file="Resources/Button-Up-Import.png"/>
+      <FILE id="Bpih6R" name="Button-Up-Load.png" compile="0" resource="1"
+            file="Resources/Button-Up-Load.png"/>
+      <FILE id="B6orAX" name="Button-Up-Program-Name-Edit.png" compile="0"
+            resource="1" file="Resources/Button-Up-Program-Name-Edit.png"/>
+      <FILE id="mTvYH6" name="Button-Up-Pull.png" compile="0" resource="1"
+            file="Resources/Button-Up-Pull.png"/>
+      <FILE id="hpTzgn" name="Button-Up-Push.png" compile="0" resource="1"
+            file="Resources/Button-Up-Push.png"/>
+      <FILE id="BcpymT" name="Button-Up-Read.png" compile="0" resource="1"
+            file="Resources/Button-Up-Read.png"/>
+      <FILE id="i9TfKT" name="Button-Up-Redo.png" compile="0" resource="1"
+            file="Resources/Button-Up-Redo.png"/>
+      <FILE id="vrQLxL" name="Button-Up-Retry.png" compile="0" resource="1"
+            file="Resources/Button-Up-Retry.png"/>
+      <FILE id="DbLLz4" name="Button-Up-Save.png" compile="0" resource="1"
+            file="Resources/Button-Up-Save.png"/>
+      <FILE id="Trg1hx" name="Button-Up-Stop.png" compile="0" resource="1"
+            file="Resources/Button-Up-Stop.png"/>
+      <FILE id="KEXgHc" name="Button-Up-Undo.png" compile="0" resource="1"
+            file="Resources/Button-Up-Undo.png"/>
+      <FILE id="YyU8JA" name="Button-Up-Write.png" compile="0" resource="1"
+            file="Resources/Button-Up-Write.png"/>
+      <FILE id="pNzdRb" name="Global-Parameters-Background.png" compile="0"
+            resource="1" file="Resources/Global-Parameters-Background.png"/>
+      <FILE id="D78LIZ" name="Label-Bank-1.png" compile="0" resource="1"
+            file="Resources/Label-Bank-1.png"/>
+      <FILE id="N56KnW" name="Label-Bank-2.png" compile="0" resource="1"
+            file="Resources/Label-Bank-2.png"/>
+      <FILE id="wI56MP" name="Label-Bank-3.png" compile="0" resource="1"
+            file="Resources/Label-Bank-3.png"/>
+      <FILE id="EAMPaO" name="Label-Custom-Banks.png" compile="0" resource="1"
+            file="Resources/Label-Custom-Banks.png"/>
+      <FILE id="S7Sqk6" name="Label-Factory-Banks.png" compile="0" resource="1"
+            file="Resources/Label-Factory-Banks.png"/>
+      <FILE id="hTTKoX" name="MophoGUI-Main-Window-Background.png" compile="0"
+            resource="1" file="Resources/MophoGUI-Main-Window-Background.png"/>
+      <FILE id="h9X7Jg" name="No-NRPN-Warning-Background.png" compile="0"
+            resource="1" file="Resources/No-NRPN-Warning-Background.png"/>
+      <FILE id="iJDdzu" name="No-Sysex-Warning-Background.png" compile="0"
+            resource="1" file="Resources/No-Sysex-Warning-Background.png"/>
+      <FILE id="HBJYii" name="OVERPASS-BOLD.TTF" compile="0" resource="1"
+            file="../../../../../SOCL0/APPDATA/LOCAL/MICROSOFT/WINDOWS/FONTS/OVERPASS-BOLD.TTF"/>
+      <FILE id="GqCmNf" name="Program-Banks-Tab-Background.png" compile="0"
+            resource="1" file="Resources/Program-Banks-Tab-Background.png"/>
+      <FILE id="hR0ALp" name="Title-Pulling-Entire-Bank.png" compile="0"
+            resource="1" file="Resources/Title-Pulling-Entire-Bank.png"/>
+      <FILE id="oNnPTK" name="Title-Pushing-Entire-Bank.png" compile="0"
+            resource="1" file="Resources/Title-Pushing-Entire-Bank.png"/>
+    </GROUP>
     <GROUP id="{F8048726-577C-A7EA-6687-5D0699EF1FFB}" name="Source">
-      <FILE id="Ogg3BD" name="PluginProcessor.cpp" compile="1" resource="0"
-            file="Source/PluginProcessor.cpp"/>
-      <FILE id="m5i53y" name="PluginProcessor.h" compile="0" resource="0"
-            file="Source/PluginProcessor.h"/>
-      <FILE id="gVIEST" name="PluginEditor.cpp" compile="1" resource="0"
-            file="Source/PluginEditor.cpp"/>
-      <FILE id="DSAZPR" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="G0CR2E" name="core_PluginEditor.cpp" compile="1" resource="0"
+            file="Source/core_PluginEditor.cpp"/>
+      <FILE id="l5wyPu" name="core_PluginEditor.h" compile="0" resource="0"
+            file="Source/core_PluginEditor.h"/>
+      <FILE id="lUQnsn" name="core_PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/core_PluginProcessor.cpp"/>
+      <FILE id="HUTENj" name="core_PluginProcessor.h" compile="0" resource="0"
+            file="Source/core_PluginProcessor.h"/>
+      <GROUP id="{E9145C2A-8C47-E5CE-82D4-4AEDD42CE27D}" name="banks">
+        <FILE id="jqz09b" name="banks_Constants.h" compile="0" resource="0"
+              file="Source/banks/banks_Constants.h"/>
+        <FILE id="JcYZb4" name="banks_FactoryProgamDataHexStrings_Singleton.cpp"
+              compile="1" resource="0" file="Source/banks/banks_FactoryProgamDataHexStrings_Singleton.cpp"/>
+        <FILE id="TFOTmu" name="banks_FactoryProgamDataHexStrings_Singleton.h"
+              compile="0" resource="0" file="Source/banks/banks_FactoryProgamDataHexStrings_Singleton.h"/>
+        <FILE id="FciW98" name="banks_ProgramBanks.cpp" compile="1" resource="0"
+              file="Source/banks/banks_ProgramBanks.cpp"/>
+        <FILE id="BHp3g1" name="banks_ProgramBanks.h" compile="0" resource="0"
+              file="Source/banks/banks_ProgramBanks.h"/>
+        <FILE id="kzAyE7" name="banks_ProgramBanksComponent.cpp" compile="1"
+              resource="0" file="Source/banks/banks_ProgramBanksComponent.cpp"/>
+        <FILE id="Hm9JVh" name="banks_ProgramBanksComponent.h" compile="0"
+              resource="0" file="Source/banks/banks_ProgramBanksComponent.h"/>
+        <FILE id="Zt3Pmm" name="banks_ProgramSlotsWidget.cpp" compile="1" resource="0"
+              file="Source/banks/banks_ProgramSlotsWidget.cpp"/>
+        <FILE id="aikKm4" name="banks_ProgramSlotsWidget.h" compile="0" resource="0"
+              file="Source/banks/banks_ProgramSlotsWidget.h"/>
+        <FILE id="ZWt1Lo" name="banks_RawProgramData.cpp" compile="1" resource="0"
+              file="Source/banks/banks_RawProgramData.cpp"/>
+        <FILE id="l63LWR" name="banks_RawProgramData.h" compile="0" resource="0"
+              file="Source/banks/banks_RawProgramData.h"/>
+        <FILE id="cWmvys" name="banks_TabbedComponentForAllProgramBanks.cpp"
+              compile="1" resource="0" file="Source/banks/banks_TabbedComponentForAllProgramBanks.cpp"/>
+        <FILE id="RKQuXd" name="banks_TabbedComponentForAllProgramBanks.h"
+              compile="0" resource="0" file="Source/banks/banks_TabbedComponentForAllProgramBanks.h"/>
+        <FILE id="mJN4Dc" name="banks_TabbedComponentForCustomProgramBanks.cpp"
+              compile="1" resource="0" file="Source/banks/banks_TabbedComponentForCustomProgramBanks.cpp"/>
+        <FILE id="f0flvg" name="banks_TabbedComponentForCustomProgramBanks.h"
+              compile="0" resource="0" file="Source/banks/banks_TabbedComponentForCustomProgramBanks.h"/>
+        <FILE id="DOpInZ" name="banks_TabbedComponentForFactoryProgramBanks.cpp"
+              compile="1" resource="0" file="Source/banks/banks_TabbedComponentForFactoryProgramBanks.cpp"/>
+        <FILE id="JxaOKE" name="banks_TabbedComponentForFactoryProgramBanks.h"
+              compile="0" resource="0" file="Source/banks/banks_TabbedComponentForFactoryProgramBanks.h"/>
+        <FILE id="UauLUw" name="banks_TabForCustomProgramBank.cpp" compile="1"
+              resource="0" file="Source/banks/banks_TabForCustomProgramBank.cpp"/>
+        <FILE id="MjXbSe" name="banks_TabForCustomProgramBank.h" compile="0"
+              resource="0" file="Source/banks/banks_TabForCustomProgramBank.h"/>
+        <FILE id="PI9qlX" name="banks_TabForFactoryProgramBank.cpp" compile="1"
+              resource="0" file="Source/banks/banks_TabForFactoryProgramBank.cpp"/>
+        <FILE id="f3U79J" name="banks_TabForFactoryProgramBank.h" compile="0"
+              resource="0" file="Source/banks/banks_TabForFactoryProgramBank.h"/>
+      </GROUP>
+      <GROUP id="{5BE37D99-5B36-DF17-0FBA-7F42E64C53B0}" name="global">
+        <FILE id="vbIJpI" name="global_GlobalParametersComponent.cpp" compile="1"
+              resource="0" file="Source/global/global_GlobalParametersComponent.cpp"/>
+        <FILE id="akCLY3" name="global_GlobalParametersComponent.h" compile="0"
+              resource="0" file="Source/global/global_GlobalParametersComponent.h"/>
+        <FILE id="h55TpG" name="global_GlobalParametersConstants.h" compile="0"
+              resource="0" file="Source/global/global_GlobalParametersConstants.h"/>
+        <FILE id="DfPWPj" name="global_HardwareSettingsWarningComponent.cpp"
+              compile="1" resource="0" file="Source/global/global_HardwareSettingsWarningComponent.cpp"/>
+        <FILE id="tPGT1C" name="global_HardwareSettingsWarningComponent.h"
+              compile="0" resource="0" file="Source/global/global_HardwareSettingsWarningComponent.h"/>
+        <FILE id="g2Ffbk" name="global_NRPNisOffWarningComponent.cpp" compile="1"
+              resource="0" file="Source/global/global_NRPNisOffWarningComponent.cpp"/>
+        <FILE id="K7f5iz" name="global_NRPNisOffWarningComponent.h" compile="0"
+              resource="0" file="Source/global/global_NRPNisOffWarningComponent.h"/>
+        <FILE id="qyVw5s" name="global_ParameterReceiveType.h" compile="0"
+              resource="0" file="Source/global/global_ParameterReceiveType.h"/>
+        <FILE id="Iw4hEq" name="global_SysExIsOffWarningComponent.cpp" compile="1"
+              resource="0" file="Source/global/global_SysExIsOffWarningComponent.cpp"/>
+        <FILE id="DmnkLB" name="global_SysExIsOffWarningComponent.h" compile="0"
+              resource="0" file="Source/global/global_SysExIsOffWarningComponent.h"/>
+      </GROUP>
+      <GROUP id="{D252424C-25C9-9886-8B7A-C6DBA7580AD0}" name="gui">
+        <FILE id="apo46S" name="gui_Colors.h" compile="0" resource="0" file="Source/gui/gui_Colors.h"/>
+        <FILE id="SUuEFa" name="gui_Constants.h" compile="0" resource="0" file="Source/gui/gui_Constants.h"/>
+        <FILE id="r3ZTPX" name="gui_Fonts.h" compile="0" resource="0" file="Source/gui/gui_Fonts.h"/>
+        <FILE id="vA841e" name="gui_Layer_Buttons.cpp" compile="1" resource="0"
+              file="Source/gui/gui_Layer_Buttons.cpp"/>
+        <FILE id="DFXVPN" name="gui_Layer_Buttons.h" compile="0" resource="0"
+              file="Source/gui/gui_Layer_Buttons.h"/>
+        <FILE id="zGUWrI" name="gui_Layer_EnvelopeRenderers.h" compile="0"
+              resource="0" file="Source/gui/gui_Layer_EnvelopeRenderers.h"/>
+        <FILE id="vritry" name="gui_Layer_ExposedParamControls.cpp" compile="1"
+              resource="0" file="Source/gui/gui_Layer_ExposedParamControls.cpp"/>
+        <FILE id="tlzdch" name="gui_Layer_ExposedParamControls.h" compile="0"
+              resource="0" file="Source/gui/gui_Layer_ExposedParamControls.h"/>
+        <FILE id="ywLPAq" name="gui_LCDcharacterPaths_Singleton.cpp" compile="1"
+              resource="0" file="Source/gui/gui_LCDcharacterPaths_Singleton.cpp"/>
+        <FILE id="u3lWMG" name="gui_LCDcharacterPaths_Singleton.h" compile="0"
+              resource="0" file="Source/gui/gui_LCDcharacterPaths_Singleton.h"/>
+        <FILE id="CrpYeU" name="gui_LookAndFeel.cpp" compile="1" resource="0"
+              file="Source/gui/gui_LookAndFeel.cpp"/>
+        <FILE id="tb2EgU" name="gui_LookAndFeel.h" compile="0" resource="0"
+              file="Source/gui/gui_LookAndFeel.h"/>
+      </GROUP>
+      <GROUP id="{A6EC8467-A654-8FEE-453F-8E1B94EA9E8A}" name="guiRenderers">
+        <FILE id="cNyH6F" name="guiRenderer_ForEnvelopes.cpp" compile="1" resource="0"
+              file="Source/guiRenderers/guiRenderer_ForEnvelopes.cpp"/>
+        <FILE id="B0L5hw" name="guiRenderer_ForEnvelopes.h" compile="0" resource="0"
+              file="Source/guiRenderers/guiRenderer_ForEnvelopes.h"/>
+        <FILE id="glO6qi" name="guiRenderer_ForKnobValueStrings.cpp" compile="1"
+              resource="0" file="Source/guiRenderers/guiRenderer_ForKnobValueStrings.cpp"/>
+        <FILE id="OnzUs0" name="guiRenderer_ForKnobValueStrings.h" compile="0"
+              resource="0" file="Source/guiRenderers/guiRenderer_ForKnobValueStrings.h"/>
+        <FILE id="RPZjmX" name="guiRenderer_ForKnobWaveShapes.cpp" compile="1"
+              resource="0" file="Source/guiRenderers/guiRenderer_ForKnobWaveShapes.cpp"/>
+        <FILE id="Daafwz" name="guiRenderer_ForKnobWaveShapes.h" compile="0"
+              resource="0" file="Source/guiRenderers/guiRenderer_ForKnobWaveShapes.h"/>
+        <FILE id="ennkAo" name="guiRenderer_ForSequencerStepValues.cpp" compile="1"
+              resource="0" file="Source/guiRenderers/guiRenderer_ForSequencerStepValues.cpp"/>
+        <FILE id="ZdCeGE" name="guiRenderer_ForSequencerStepValues.h" compile="0"
+              resource="0" file="Source/guiRenderers/guiRenderer_ForSequencerStepValues.h"/>
+      </GROUP>
+      <GROUP id="{2DCD75CD-8A81-D5F4-5E9A-29E99788C543}" name="midi">
+        <FILE id="ovSqCE" name="midi_Constants.h" compile="0" resource="0"
+              file="Source/midi/midi_Constants.h"/>
+        <FILE id="Bn0pk6" name="midi_GlobalParametersDump.cpp" compile="1"
+              resource="0" file="Source/midi/midi_GlobalParametersDump.cpp"/>
+        <FILE id="J47s0K" name="midi_GlobalParametersDump.h" compile="0" resource="0"
+              file="Source/midi/midi_GlobalParametersDump.h"/>
+        <FILE id="NEp6tp" name="midi_IncomingNRPNhandler.cpp" compile="1" resource="0"
+              file="Source/midi/midi_IncomingNRPNhandler.cpp"/>
+        <FILE id="Pd7Lb5" name="midi_IncomingNRPNhandler.h" compile="0" resource="0"
+              file="Source/midi/midi_IncomingNRPNhandler.h"/>
+        <FILE id="tEndvA" name="midi_IncomingSysExHandler.cpp" compile="1"
+              resource="0" file="Source/midi/midi_IncomingSysExHandler.cpp"/>
+        <FILE id="iUcUUL" name="midi_IncomingSysExHandler.h" compile="0" resource="0"
+              file="Source/midi/midi_IncomingSysExHandler.h"/>
+        <FILE id="nnrDii" name="midi_NRPNbufferWithLeadingMSBs.cpp" compile="1"
+              resource="0" file="Source/midi/midi_NRPNbufferWithLeadingMSBs.cpp"/>
+        <FILE id="V9swXu" name="midi_NRPNbufferWithLeadingMSBs.h" compile="0"
+              resource="0" file="Source/midi/midi_NRPNbufferWithLeadingMSBs.h"/>
+        <FILE id="zdx9Q2" name="midi_OutgoingMidiBuffers.cpp" compile="1" resource="0"
+              file="Source/midi/midi_OutgoingMidiBuffers.cpp"/>
+        <FILE id="PrIQOF" name="midi_OutgoingMidiBuffers.h" compile="0" resource="0"
+              file="Source/midi/midi_OutgoingMidiBuffers.h"/>
+        <FILE id="eKszI2" name="midi_ParameterChangeMessage.h" compile="0"
+              resource="0" file="Source/midi/midi_ParameterChangeMessage.h"/>
+        <FILE id="RYpkJO" name="midi_ProgramDump.cpp" compile="1" resource="0"
+              file="Source/midi/midi_ProgramDump.cpp"/>
+        <FILE id="NW0BUI" name="midi_ProgramDump.h" compile="0" resource="0"
+              file="Source/midi/midi_ProgramDump.h"/>
+        <FILE id="tMarlv" name="midi_ProgramEditBufferDump.cpp" compile="1"
+              resource="0" file="Source/midi/midi_ProgramEditBufferDump.cpp"/>
+        <FILE id="kLZ1nz" name="midi_ProgramEditBufferDump.h" compile="0" resource="0"
+              file="Source/midi/midi_ProgramEditBufferDump.h"/>
+        <FILE id="Pr0Z98" name="midi_SysExHelpers.cpp" compile="1" resource="0"
+              file="Source/midi/midi_SysExHelpers.cpp"/>
+        <FILE id="BcLCOG" name="midi_SysExHelpers.h" compile="0" resource="0"
+              file="Source/midi/midi_SysExHelpers.h"/>
+      </GROUP>
+      <GROUP id="{036EA90E-D645-E07A-48F8-6DADDCC75978}" name="params">
+        <FILE id="qZ9iN0" name="params_Constants.h" compile="0" resource="0"
+              file="Source/params/params_Constants.h"/>
+        <FILE id="pb2w2P" name="params_ExposedParametersListener.cpp" compile="1"
+              resource="0" file="Source/params/params_ExposedParametersListener.cpp"/>
+        <FILE id="cWluY2" name="params_ExposedParametersListener.h" compile="0"
+              resource="0" file="Source/params/params_ExposedParametersListener.h"/>
+        <FILE id="ygOChi" name="params_ExposedParamsInfo_Singleton.cpp" compile="1"
+              resource="0" file="Source/params/params_ExposedParamsInfo_Singleton.cpp"/>
+        <FILE id="qUuQ1v" name="params_ExposedParamsInfo_Singleton.h" compile="0"
+              resource="0" file="Source/params/params_ExposedParamsInfo_Singleton.h"/>
+        <FILE id="KzpBqB" name="params_ExposedParamsLayout_Factory.cpp" compile="1"
+              resource="0" file="Source/params/params_ExposedParamsLayout_Factory.cpp"/>
+        <FILE id="iphZOg" name="params_ExposedParamsLayout_Factory.h" compile="0"
+              resource="0" file="Source/params/params_ExposedParamsLayout_Factory.h"/>
+        <FILE id="g7uQS2" name="params_GlobalAudioOptions.cpp" compile="1"
+              resource="0" file="Source/params/params_GlobalAudioOptions.cpp"/>
+        <FILE id="t3p7Dy" name="params_GlobalAudioOptions.h" compile="0" resource="0"
+              file="Source/params/params_GlobalAudioOptions.h"/>
+        <FILE id="HyBySL" name="params_Identifiers.h" compile="0" resource="0"
+              file="Source/params/params_Identifiers.h"/>
+        <FILE id="OhYvo9" name="params_IntToContextualStringConverters.cpp"
+              compile="1" resource="0" file="Source/params/params_IntToContextualStringConverters.cpp"/>
+        <FILE id="bbK7rS" name="params_IntToContextualStringConverters.h" compile="0"
+              resource="0" file="Source/params/params_IntToContextualStringConverters.h"/>
+        <FILE id="F2QH4Y" name="params_MidiOptions.cpp" compile="1" resource="0"
+              file="Source/params/params_MidiOptions.cpp"/>
+        <FILE id="LFNCFc" name="params_MidiOptions.h" compile="0" resource="0"
+              file="Source/params/params_MidiOptions.h"/>
+        <FILE id="hK2Bzt" name="params_SpecialValueOffsets.cpp" compile="1"
+              resource="0" file="Source/params/params_SpecialValueOffsets.cpp"/>
+        <FILE id="YNUPkt" name="params_SpecialValueOffsets.h" compile="0" resource="0"
+              file="Source/params/params_SpecialValueOffsets.h"/>
+        <FILE id="qMujX3" name="params_TooltipOptions.cpp" compile="1" resource="0"
+              file="Source/params/params_TooltipOptions.cpp"/>
+        <FILE id="PQeoT3" name="params_TooltipOptions.h" compile="0" resource="0"
+              file="Source/params/params_TooltipOptions.h"/>
+        <FILE id="ZeIxgr" name="params_UnexposedParameters_Facade.cpp" compile="1"
+              resource="0" file="Source/params/params_UnexposedParameters_Facade.cpp"/>
+        <FILE id="xiDsMC" name="params_UnexposedParameters_Facade.h" compile="0"
+              resource="0" file="Source/params/params_UnexposedParameters_Facade.h"/>
+      </GROUP>
+      <GROUP id="{52B3A529-7B99-49C6-6848-EDA5BB9FADE9}" name="tooltipSetters">
+        <FILE id="B0UKkz" name="tooltipSetter_Base.cpp" compile="1" resource="0"
+              file="Source/tooltipSetters/tooltipSetter_Base.cpp"/>
+        <FILE id="arLONE" name="tooltipSetter_Base.h" compile="0" resource="0"
+              file="Source/tooltipSetters/tooltipSetter_Base.h"/>
+        <FILE id="qFeV1Q" name="tooltipSetter_ForExposedParamComboBoxes.cpp"
+              compile="1" resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamComboBoxes.cpp"/>
+        <FILE id="gkMKFQ" name="tooltipSetter_ForExposedParamComboBoxes.h"
+              compile="0" resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamComboBoxes.h"/>
+        <FILE id="bvwbW8" name="tooltipSetter_ForExposedParamSliders.cpp" compile="1"
+              resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamSliders.cpp"/>
+        <FILE id="Ga9bGL" name="tooltipSetter_ForExposedParamSliders.h" compile="0"
+              resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamSliders.h"/>
+        <FILE id="fCOev7" name="tooltipSetter_ForExposedParamToggles.cpp" compile="1"
+              resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamToggles.cpp"/>
+        <FILE id="fe6vhI" name="tooltipSetter_ForExposedParamToggles.h" compile="0"
+              resource="0" file="Source/tooltipSetters/tooltipSetter_ForExposedParamToggles.h"/>
+      </GROUP>
+      <GROUP id="{AED59551-CF0B-EC6E-FE7D-1AB78CF98AD9}" name="widgets_BankTransmission">
+        <FILE id="gB2xxk" name="widget_BankTransmissionComponent.cpp" compile="1"
+              resource="0" file="Source/widgets_BankTransmission/widget_BankTransmissionComponent.cpp"/>
+        <FILE id="semIqU" name="widget_BankTransmissionComponent.h" compile="0"
+              resource="0" file="Source/widgets_BankTransmission/widget_BankTransmissionComponent.h"/>
+      </GROUP>
+      <GROUP id="{EC3A70F4-0BB4-8EAC-28B5-B315A6623329}" name="widgets_Button">
+        <FILE id="q9lers" name="widget_banks_ButtonForLoadingSelectedProgram.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_banks_ButtonForLoadingSelectedProgram.cpp"/>
+        <FILE id="pqk8C2" name="widget_banks_ButtonForLoadingSelectedProgram.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_banks_ButtonForLoadingSelectedProgram.h"/>
+        <FILE id="Z6eSSE" name="widget_banks_ButtonForPullingEntireBankFromHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_banks_ButtonForPullingEntireBankFromHardware.cpp"/>
+        <FILE id="CX2WYN" name="widget_banks_ButtonForPullingEntireBankFromHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_banks_ButtonForPullingEntireBankFromHardware.h"/>
+        <FILE id="CkoCdR" name="widget_banks_ButtonForPullingSelectedProgramFromHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_banks_ButtonForPullingSelectedProgramFromHardware.cpp"/>
+        <FILE id="t71in4" name="widget_banks_ButtonForPullingSelectedProgramFromHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_banks_ButtonForPullingSelectedProgramFromHardware.h"/>
+        <FILE id="pSIVyX" name="widget_banks_ButtonForPushingEntireBankToHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_banks_ButtonForPushingEntireBankToHardware.cpp"/>
+        <FILE id="mcZQVc" name="widget_banks_ButtonForPushingEntireBankToHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_banks_ButtonForPushingEntireBankToHardware.h"/>
+        <FILE id="ueWMcg" name="widget_banks_ButtonForPushingSelectedProgramToHardware.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_banks_ButtonForPushingSelectedProgramToHardware.cpp"/>
+        <FILE id="f8WWfo" name="widget_banks_ButtonForPushingSelectedProgramToHardware.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_banks_ButtonForPushingSelectedProgramToHardware.h"/>
+        <FILE id="isQSFE" name="widget_banks_ButtonForSavingProgramInSelectedSlot.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_banks_ButtonForSavingProgramInSelectedSlot.cpp"/>
+        <FILE id="YYW8SZ" name="widget_banks_ButtonForSavingProgramInSelectedSlot.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_banks_ButtonForSavingProgramInSelectedSlot.h"/>
+        <FILE id="cG5S0X" name="widget_BaseButtonWithOnClickAndTooltipMethods.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_BaseButtonWithOnClickAndTooltipMethods.cpp"/>
+        <FILE id="qgQJmR" name="widget_BaseButtonWithOnClickAndTooltipMethods.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_BaseButtonWithOnClickAndTooltipMethods.h"/>
+        <FILE id="wlpo3r" name="widget_ButtonAndLabelForEditingPgmName.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonAndLabelForEditingPgmName.cpp"/>
+        <FILE id="bQvcgn" name="widget_ButtonAndLabelForEditingPgmName.h" compile="0"
+              resource="0" file="Source/widgets_Button/widget_ButtonAndLabelForEditingPgmName.h"/>
+        <FILE id="DOhlSo" name="widget_ButtonForClearingSequencerTrack.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForClearingSequencerTrack.cpp"/>
+        <FILE id="ylBV8d" name="widget_ButtonForClearingSequencerTrack.h" compile="0"
+              resource="0" file="Source/widgets_Button/widget_ButtonForClearingSequencerTrack.h"/>
+        <FILE id="wfT6GC" name="widget_ButtonForOpeningPgmNameEditor.cpp" compile="1"
+              resource="0" file="Source/widgets_Button/widget_ButtonForOpeningPgmNameEditor.cpp"/>
+        <FILE id="a6UNOp" name="widget_ButtonForOpeningPgmNameEditor.h" compile="0"
+              resource="0" file="Source/widgets_Button/widget_ButtonForOpeningPgmNameEditor.h"/>
+        <FILE id="EbcNad" name="widget_ButtonForPerformingRedo.cpp" compile="1"
+              resource="0" file="Source/widgets_Button/widget_ButtonForPerformingRedo.cpp"/>
+        <FILE id="w1Ckpx" name="widget_ButtonForPerformingRedo.h" compile="0"
+              resource="0" file="Source/widgets_Button/widget_ButtonForPerformingRedo.h"/>
+        <FILE id="Zr5a9J" name="widget_ButtonForPerformingUndo.cpp" compile="1"
+              resource="0" file="Source/widgets_Button/widget_ButtonForPerformingUndo.cpp"/>
+        <FILE id="CgKh6V" name="widget_ButtonForPerformingUndo.h" compile="0"
+              resource="0" file="Source/widgets_Button/widget_ButtonForPerformingUndo.h"/>
+        <FILE id="L97Nze" name="widget_ButtonForSendingProgramEditBufferDump.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForSendingProgramEditBufferDump.cpp"/>
+        <FILE id="cIrZfb" name="widget_ButtonForSendingProgramEditBufferDump.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForSendingProgramEditBufferDump.h"/>
+        <FILE id="taLinA" name="widget_ButtonForSendingProgramEditBufferDumpRequest.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForSendingProgramEditBufferDumpRequest.cpp"/>
+        <FILE id="lM7R1B" name="widget_ButtonForSendingProgramEditBufferDumpRequest.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForSendingProgramEditBufferDumpRequest.h"/>
+        <FILE id="U1Pmve" name="widget_ButtonForShowingGlobalParametersComponent.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingGlobalParametersComponent.cpp"/>
+        <FILE id="d2JHSy" name="widget_ButtonForShowingGlobalParametersComponent.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingGlobalParametersComponent.h"/>
+        <FILE id="kOnwyI" name="widget_ButtonForShowingProgramBanksComponent.cpp"
+              compile="1" resource="0" file="Source/widgets_Button/widget_ButtonForShowingProgramBanksComponent.cpp"/>
+        <FILE id="UHNgAN" name="widget_ButtonForShowingProgramBanksComponent.h"
+              compile="0" resource="0" file="Source/widgets_Button/widget_ButtonForShowingProgramBanksComponent.h"/>
+      </GROUP>
+      <GROUP id="{F305B5F9-BF76-992B-80A7-B2762A30A8D6}" name="widgets_ComboBox">
+        <FILE id="APjA37" name="widget_ComboBoxWithExposedParamAttacher.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_ComboBoxWithExposedParamAttacher.cpp"/>
+        <FILE id="guiJV2" name="widget_ComboBoxWithExposedParamAttacher.h"
+              compile="0" resource="0" file="Source/widgets_ComboBox/widget_ComboBoxWithExposedParamAttacher.h"/>
+        <FILE id="XfJp9t" name="widget_global_ComboBoxForMidiClock.cpp" compile="1"
+              resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForMidiClock.cpp"/>
+        <FILE id="BoQeQi" name="widget_global_ComboBoxForMidiClock.h" compile="0"
+              resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForMidiClock.h"/>
+        <FILE id="eZrKWp" name="widget_global_ComboBoxForParameterSend.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForParameterSend.cpp"/>
+        <FILE id="omWDcL" name="widget_global_ComboBoxForParameterSend.h" compile="0"
+              resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForParameterSend.h"/>
+        <FILE id="h1OqZt" name="widget_global_ComboBoxForPedalMode.cpp" compile="1"
+              resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForPedalMode.cpp"/>
+        <FILE id="c6vA1n" name="widget_global_ComboBoxForPedalMode.h" compile="0"
+              resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForPedalMode.h"/>
+        <FILE id="w789fx" name="widget_global_ComboBoxForProgramChange.cpp"
+              compile="1" resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForProgramChange.cpp"/>
+        <FILE id="n8ejy5" name="widget_global_ComboBoxForProgramChange.h" compile="0"
+              resource="0" file="Source/widgets_ComboBox/widget_global_ComboBoxForProgramChange.h"/>
+      </GROUP>
+      <GROUP id="{7E06E5A5-5172-6865-9586-1E46F61E3AB4}" name="widgets_ControlsForParameters">
+        <FILE id="lymyB1" name="widget_ControlForExposedParameter.cpp" compile="1"
+              resource="0" file="Source/widgets_ControlsForParameters/widget_ControlForExposedParameter.cpp"/>
+        <FILE id="oNHEmh" name="widget_ControlForExposedParameter.h" compile="0"
+              resource="0" file="Source/widgets_ControlsForParameters/widget_ControlForExposedParameter.h"/>
+        <FILE id="ATIqNK" name="widget_ControlsForExposedParameters.cpp" compile="1"
+              resource="0" file="Source/widgets_ControlsForParameters/widget_ControlsForExposedParameters.cpp"/>
+        <FILE id="kclHA4" name="widget_ControlsForExposedParameters.h" compile="0"
+              resource="0" file="Source/widgets_ControlsForParameters/widget_ControlsForExposedParameters.h"/>
+        <FILE id="Rq7RUw" name="widget_ControlTypes.h" compile="0" resource="0"
+              file="Source/widgets_ControlsForParameters/widget_ControlTypes.h"/>
+      </GROUP>
+      <GROUP id="{BA87F652-D525-89A4-29AB-AC41C32A547E}" name="widgets_Labels">
+        <FILE id="P0Esur" name="widget_global_DisplayLabelForAudioOutput.cpp"
+              compile="1" resource="0" file="Source/widgets_Labels/widget_global_DisplayLabelForAudioOutput.cpp"/>
+        <FILE id="JKlTvQ" name="widget_global_DisplayLabelForAudioOutput.h"
+              compile="0" resource="0" file="Source/widgets_Labels/widget_global_DisplayLabelForAudioOutput.h"/>
+        <FILE id="iUuak3" name="widget_global_DisplayLabelForBalanceTweak.cpp"
+              compile="1" resource="0" file="Source/widgets_Labels/widget_global_DisplayLabelForBalanceTweak.cpp"/>
+        <FILE id="f4oZk5" name="widget_global_DisplayLabelForBalanceTweak.h"
+              compile="0" resource="0" file="Source/widgets_Labels/widget_global_DisplayLabelForBalanceTweak.h"/>
+        <FILE id="R9tPYk" name="widget_global_DisplayLabelForMidiControllers.cpp"
+              compile="1" resource="0" file="Source/widgets_Labels/widget_global_DisplayLabelForMidiControllers.cpp"/>
+        <FILE id="wpPmVo" name="widget_global_DisplayLabelForMidiControllers.h"
+              compile="0" resource="0" file="Source/widgets_Labels/widget_global_DisplayLabelForMidiControllers.h"/>
+        <FILE id="QhLSFD" name="widget_global_DisplayLabelForParameterReceive.cpp"
+              compile="1" resource="0" file="Source/widgets_Labels/widget_global_DisplayLabelForParameterReceive.cpp"/>
+        <FILE id="vm1lTv" name="widget_global_DisplayLabelForParameterReceive.h"
+              compile="0" resource="0" file="Source/widgets_Labels/widget_global_DisplayLabelForParameterReceive.h"/>
+        <FILE id="lD3KkY" name="widget_global_DisplayLabelForSysEx.cpp" compile="1"
+              resource="0" file="Source/widgets_Labels/widget_global_DisplayLabelForSysEx.cpp"/>
+        <FILE id="UyftNk" name="widget_global_DisplayLabelForSysEx.h" compile="0"
+              resource="0" file="Source/widgets_Labels/widget_global_DisplayLabelForSysEx.h"/>
+        <FILE id="FuK2FX" name="widget_global_LabelForSettingTooltipDelay.cpp"
+              compile="1" resource="0" file="Source/widgets_Labels/widget_global_LabelForSettingTooltipDelay.cpp"/>
+        <FILE id="R8fS2N" name="widget_global_LabelForSettingTooltipDelay.h"
+              compile="0" resource="0" file="Source/widgets_Labels/widget_global_LabelForSettingTooltipDelay.h"/>
+      </GROUP>
+      <GROUP id="{60D4B7D7-7D68-4344-6B5A-2B0B75D0CD8F}" name="widgets_Slider">
+        <FILE id="xi27IL" name="widget_global_KnobForGlobalFineTune.cpp" compile="1"
+              resource="0" file="Source/widgets_Slider/widget_global_KnobForGlobalFineTune.cpp"/>
+        <FILE id="igZ8YJ" name="widget_global_KnobForGlobalFineTune.h" compile="0"
+              resource="0" file="Source/widgets_Slider/widget_global_KnobForGlobalFineTune.h"/>
+        <FILE id="VFlYoZ" name="widget_global_KnobForGlobalMidiChannel.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_global_KnobForGlobalMidiChannel.cpp"/>
+        <FILE id="ScaWT4" name="widget_global_KnobForGlobalMidiChannel.h" compile="0"
+              resource="0" file="Source/widgets_Slider/widget_global_KnobForGlobalMidiChannel.h"/>
+        <FILE id="uHR7H4" name="widget_global_KnobForGlobalTranspose.cpp" compile="1"
+              resource="0" file="Source/widgets_Slider/widget_global_KnobForGlobalTranspose.cpp"/>
+        <FILE id="AAXxKA" name="widget_global_KnobForGlobalTranspose.h" compile="0"
+              resource="0" file="Source/widgets_Slider/widget_global_KnobForGlobalTranspose.h"/>
+        <FILE id="aJb5Rj" name="widget_KnobForPitchWithExposedParamAttacher.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_KnobForPitchWithExposedParamAttacher.cpp"/>
+        <FILE id="FWj041" name="widget_KnobForPitchWithExposedParamAttacher.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_KnobForPitchWithExposedParamAttacher.h"/>
+        <FILE id="jg1nfo" name="widget_KnobForPitchWithValueStringDisplay.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_KnobForPitchWithValueStringDisplay.h"/>
+        <FILE id="jOQ10l" name="widget_KnobWithExposedParamAttacher.cpp" compile="1"
+              resource="0" file="Source/widgets_Slider/widget_KnobWithExposedParamAttacher.cpp"/>
+        <FILE id="Rpq0sT" name="widget_KnobWithExposedParamAttacher.h" compile="0"
+              resource="0" file="Source/widgets_Slider/widget_KnobWithExposedParamAttacher.h"/>
+        <FILE id="erpybf" name="widget_KnobWithExposedParamAttacherForOscWaveShapes.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_KnobWithExposedParamAttacherForOscWaveShapes.cpp"/>
+        <FILE id="iCUw8a" name="widget_KnobWithExposedParamAttacherForOscWaveShapes.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_KnobWithExposedParamAttacherForOscWaveShapes.h"/>
+        <FILE id="LzsCjI" name="widget_KnobWithValueStringDisplay.h" compile="0"
+              resource="0" file="Source/widgets_Slider/widget_KnobWithValueStringDisplay.h"/>
+        <FILE id="e6I1cy" name="widget_KnobWithWaveShapeDisplay.h" compile="0"
+              resource="0" file="Source/widgets_Slider/widget_KnobWithWaveShapeDisplay.h"/>
+        <FILE id="Ryd9Ff" name="widget_ModifiedJuceSliders.cpp" compile="1"
+              resource="0" file="Source/widgets_Slider/widget_ModifiedJuceSliders.cpp"/>
+        <FILE id="cKzYtM" name="widget_ModifiedJuceSliders.h" compile="0" resource="0"
+              file="Source/widgets_Slider/widget_ModifiedJuceSliders.h"/>
+        <FILE id="kOU1lL" name="widget_ProgramNameCharWithExposedParamAttacher.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_ProgramNameCharWithExposedParamAttacher.cpp"/>
+        <FILE id="tC3GRt" name="widget_ProgramNameCharWithExposedParamAttacher.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_ProgramNameCharWithExposedParamAttacher.h"/>
+        <FILE id="ofg0Jk" name="widget_SequencerStepWithExposedParamAttacher.cpp"
+              compile="1" resource="0" file="Source/widgets_Slider/widget_SequencerStepWithExposedParamAttacher.cpp"/>
+        <FILE id="CRZER0" name="widget_SequencerStepWithExposedParamAttacher.h"
+              compile="0" resource="0" file="Source/widgets_Slider/widget_SequencerStepWithExposedParamAttacher.h"/>
+      </GROUP>
+      <GROUP id="{E9C8D6EC-D707-68CA-A2C3-2453A89C3805}" name="widgets_ToggleButton">
+        <FILE id="jCRc7F" name="widget_global_ToggleButtonForCurrentSettingTooltip.cpp"
+              compile="1" resource="0" file="Source/widgets_ToggleButton/widget_global_ToggleButtonForCurrentSettingTooltip.cpp"/>
+        <FILE id="IEymyT" name="widget_global_ToggleButtonForCurrentSettingTooltip.h"
+              compile="0" resource="0" file="Source/widgets_ToggleButton/widget_global_ToggleButtonForCurrentSettingTooltip.h"/>
+        <FILE id="tTqQaw" name="widget_global_ToggleButtonForDescriptionTooltip.cpp"
+              compile="1" resource="0" file="Source/widgets_ToggleButton/widget_global_ToggleButtonForDescriptionTooltip.cpp"/>
+        <FILE id="E0Yjtm" name="widget_global_ToggleButtonForDescriptionTooltip.h"
+              compile="0" resource="0" file="Source/widgets_ToggleButton/widget_global_ToggleButtonForDescriptionTooltip.h"/>
+        <FILE id="az9Ni9" name="widget_ToggleButtonWithWithExposedParamAttacher.cpp"
+              compile="1" resource="0" file="Source/widgets_ToggleButton/widget_ToggleButtonWithWithExposedParamAttacher.cpp"/>
+        <FILE id="LXZNjQ" name="widget_ToggleButtonWithWithExposedParamAttacher.h"
+              compile="0" resource="0" file="Source/widgets_ToggleButton/widget_ToggleButtonWithWithExposedParamAttacher.h"/>
+      </GROUP>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>
     <VS2019 targetFolder="Builds/VisualStudio2019">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="MophoGUI (Debug)" binaryPath="C:\Users\Public\Documents\VST3 Builds"
+        <CONFIGURATION isDebug="1" name="Debug" targetName="MophoGUI (Debug)" binaryPath="C:\Users\Public\Documents\VST3 Builds\Debug\MophoGUI"
                        enableIncrementalLinking="1"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="MophoGUI" binaryPath="C:\Users\Public\Documents\VST3 Builds"
                        useRuntimeLibDLL="0"/>
@@ -39,8 +531,32 @@
         <MODULEPATH id="juce_graphics" path="../../../Juce/modules"/>
         <MODULEPATH id="juce_gui_basics" path="../../../Juce/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_processors_headless" path="../../../JUCE/modules"/>
       </MODULEPATHS>
     </VS2019>
+    <VS2022 targetFolder="Builds/VisualStudio2022">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" binaryPath="C:\Users\Public\Documents\VST3 Builds\Debug\MophoGUI"
+                       targetName="MophoGUI (Debug)" enableIncrementalLinking="1"/>
+        <CONFIGURATION isDebug="0" name="Release" binaryPath="C:\Users\Public\Documents\VST3 Builds\Release\MophoGUI"
+                       useRuntimeLibDLL="0"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="C:\Users\Public\git-repos\JUCE\modules"/>
+        <MODULEPATH id="juce_audio_devices" path="C:\Users\Public\git-repos\JUCE\modules"/>
+        <MODULEPATH id="juce_audio_formats" path="C:\Users\Public\git-repos\JUCE\modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="C:\Users\Public\git-repos\JUCE\modules"/>
+        <MODULEPATH id="juce_audio_processors" path="C:\Users\Public\git-repos\JUCE\modules"/>
+        <MODULEPATH id="juce_audio_utils" path="C:\Users\Public\git-repos\JUCE\modules"/>
+        <MODULEPATH id="juce_core" path="C:\Users\Public\git-repos\JUCE\modules"/>
+        <MODULEPATH id="juce_data_structures" path="C:\Users\Public\git-repos\JUCE\modules"/>
+        <MODULEPATH id="juce_events" path="C:\Users\Public\git-repos\JUCE\modules"/>
+        <MODULEPATH id="juce_graphics" path="C:\Users\Public\git-repos\JUCE\modules"/>
+        <MODULEPATH id="juce_gui_basics" path="C:\Users\Public\git-repos\JUCE\modules"/>
+        <MODULEPATH id="juce_gui_extra" path="C:\Users\Public\git-repos\JUCE\modules"/>
+        <MODULEPATH id="juce_audio_processors_headless" path="../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2022>
   </EXPORTFORMATS>
   <MODULES>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
@@ -49,6 +565,8 @@
     <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
             useGlobalPath="1"/>
     <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors_headless" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
     <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>

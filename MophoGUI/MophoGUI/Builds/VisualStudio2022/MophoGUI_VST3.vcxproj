@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Project DefaultTargets="Build"
-         ToolsVersion="16.0"
+         ToolsVersion="17.0"
          xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -23,7 +23,7 @@
     <UseOfMfc>false</UseOfMfc>
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <LinkIncremental>true</LinkIncremental>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'"
@@ -31,7 +31,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
@@ -51,11 +51,11 @@
     <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(LibraryPath);C:\Users\Public\Documents\VST3 Builds\Debug\MophoGUI\Shared Code</LibraryPath>
     <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</PreBuildEventUseInBuild>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</PostBuildEventUseInBuild>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Public\Documents\VST3 Builds\VST3\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Public\Documents\VST3 Builds\Release\MophoGUI\VST3\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\VST3\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MophoGUI</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(LibraryPath);C:\Users\Public\Documents\VST3 Builds\Shared Code</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(LibraryPath);C:\Users\Public\Documents\VST3 Builds\Release\MophoGUI\Shared Code</LibraryPath>
     <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</PreBuildEventUseInBuild>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</PostBuildEventUseInBuild>
   </PropertyGroup>
@@ -71,7 +71,7 @@
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=0.1.0;JUCE_APP_VERSION_HEX=0x100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=0.1.0;JUCE_APP_VERSION_HEX=0x100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -85,7 +85,7 @@
     </ClCompile>
     <ResourceCompile>
       <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=0.1.0;JUCE_APP_VERSION_HEX=0x100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=0.1.0;JUCE_APP_VERSION_HEX=0x100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
       <OutputFile>$(OutDir)\MophoGUI (Debug).dll</OutputFile>
@@ -170,7 +170,7 @@ echo : Info: VST3 manifest generation is disabled for MophoGUI because a AMD64 m
       <Optimization>Full</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=0.1.0;JUCE_APP_VERSION_HEX=0x100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=0.1.0;JUCE_APP_VERSION_HEX=0x100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -184,7 +184,7 @@ echo : Info: VST3 manifest generation is disabled for MophoGUI because a AMD64 m
     </ClCompile>
     <ResourceCompile>
       <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=0.1.0;JUCE_APP_VERSION_HEX=0x100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=0.1.0;JUCE_APP_VERSION_HEX=0x100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
       <OutputFile>$(OutDir)\MophoGUI.dll</OutputFile>
@@ -246,7 +246,7 @@ if exist &quot;$(OutDir)\MophoGUI.vst3\Contents\Resources\moduleinfo.json&quot; 
 if not exist &quot;$(OutDir)\MophoGUI.vst3\Contents\Resources\&quot; (
     mkdir &quot;$(OutDir)\MophoGUI.vst3\Contents\Resources\&quot;
 )
-&quot;C:\Users\Public\Documents\VST3 Builds\VST3 Manifest Helper\juce_vst3_helper.exe&quot; &gt; &quot;$(OutDir)\MophoGUI.vst3\Contents\Resources\moduleinfo.json&quot;
+&quot;C:\Users\Public\Documents\VST3 Builds\Release\MophoGUI\VST3 Manifest Helper\juce_vst3_helper.exe&quot; &gt; &quot;$(OutDir)\MophoGUI.vst3\Contents\Resources\moduleinfo.json&quot;
 if %ERRORLEVEL% equ 0 (
     echo : Info: Successfully generated a manifest for MophoGUI
     goto :_continue

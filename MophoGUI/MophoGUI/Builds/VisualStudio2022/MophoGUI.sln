@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio Version 16
+# Visual Studio Version 17
 
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MophoGUI - VST3", "MophoGUI_VST3.vcxproj", "{ED100F56-4792-6324-F45D-C0F258A79E47}"
 	ProjectSection(ProjectDependencies) = postProject

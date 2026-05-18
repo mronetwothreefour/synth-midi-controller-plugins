@@ -6,4 +6,4 @@
 */
 
 #include "AppConfig.h"
-#include <juce_audio_plugin_client_AU.r>
+#include <juce_audio_processors_headless/juce_audio_processors_headless.mm>

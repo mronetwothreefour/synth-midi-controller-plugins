@@ -14,7 +14,7 @@ struct FontCreator {
 
 namespace FontsMenu
 {
-	static const Typeface::Ptr Overpass_Bold{ Typeface::createSystemTypefaceFor(BinaryData::OverpassBold_ttf, BinaryData::OverpassBold_ttfSize) };
+	static const Typeface::Ptr Overpass_Bold{ Typeface::createSystemTypefaceFor(BinaryData::OVERPASSBOLD_TTF, BinaryData::OVERPASSBOLD_TTFSize) };
 
 	static const Font fontFor_DisplayLabels{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 15.0f, 0.0f) };
 	static const Font fontFor_KnobValueDisplays{ FontCreator::createFontFromTypeface_Size_Kerning(Overpass_Bold, 15.0f, 0.0f) };

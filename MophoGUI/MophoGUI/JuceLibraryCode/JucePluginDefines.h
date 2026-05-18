@@ -22,9 +22,6 @@
 #ifndef  JucePlugin_Build_AUv3
  #define JucePlugin_Build_AUv3             0
 #endif
-#ifndef  JucePlugin_Build_RTAS
- #define JucePlugin_Build_RTAS             0
-#endif
 #ifndef  JucePlugin_Build_AAX
  #define JucePlugin_Build_AAX              0
 #endif
@@ -34,15 +31,17 @@
 #ifndef  JucePlugin_Build_Unity
  #define JucePlugin_Build_Unity            0
 #endif
+#ifndef  JucePlugin_Build_LV2
+ #define JucePlugin_Build_LV2              0
+#endif
 #ifndef  JucePlugin_Enable_IAA
  #define JucePlugin_Enable_IAA             0
 #endif
+#ifndef  JucePlugin_Enable_ARA
+ #define JucePlugin_Enable_ARA             0
+#endif
 #ifndef  JucePlugin_Name
-    #if HOST_DOES_NOT_ADD_F0_AND_F7 
-        #define JucePlugin_Name                   "MophoGUI"
-    #else
-        #define JucePlugin_Name                   "MophoGUI For Hosts That Add F0 and F7"
-    #endif
+ #define JucePlugin_Name                   "MophoGUI"
 #endif
 #ifndef  JucePlugin_Desc
  #define JucePlugin_Desc                   "Lets you control the DSI Mopho synthesizer from your DAW"
@@ -60,11 +59,7 @@
  #define JucePlugin_ManufacturerCode       0x54696d44
 #endif
 #ifndef  JucePlugin_PluginCode
-    #if HOST_DOES_NOT_ADD_F0_AND_F7 
-        #define JucePlugin_PluginCode             0x46647863
-    #else
-        #define JucePlugin_PluginCode             0x4e6b7277
-    #endif
+ #define JucePlugin_PluginCode             0x46647863
 #endif
 #ifndef  JucePlugin_IsSynth
  #define JucePlugin_IsSynth                0
@@ -82,13 +77,13 @@
  #define JucePlugin_EditorRequiresKeyboardFocus  0
 #endif
 #ifndef  JucePlugin_Version
- #define JucePlugin_Version                1.0.0
+ #define JucePlugin_Version                0.1.0
 #endif
 #ifndef  JucePlugin_VersionCode
- #define JucePlugin_VersionCode            0x10000
+ #define JucePlugin_VersionCode            0x100
 #endif
 #ifndef  JucePlugin_VersionString
- #define JucePlugin_VersionString          "1.0.0"
+ #define JucePlugin_VersionString          "0.1.0"
 #endif
 #ifndef  JucePlugin_VSTUniqueID
  #define JucePlugin_VSTUniqueID            JucePlugin_PluginCode
@@ -116,21 +111,6 @@
 #endif
 #ifndef  JucePlugin_CFBundleIdentifier
  #define JucePlugin_CFBundleIdentifier     com.Mister1234Programming.MophoGUI
-#endif
-#ifndef  JucePlugin_RTASCategory
- #define JucePlugin_RTASCategory           0
-#endif
-#ifndef  JucePlugin_RTASManufacturerCode
- #define JucePlugin_RTASManufacturerCode   JucePlugin_ManufacturerCode
-#endif
-#ifndef  JucePlugin_RTASProductId
- #define JucePlugin_RTASProductId          JucePlugin_PluginCode
-#endif
-#ifndef  JucePlugin_RTASDisableBypass
- #define JucePlugin_RTASDisableBypass      0
-#endif
-#ifndef  JucePlugin_RTASDisableMultiMono
- #define JucePlugin_RTASDisableMultiMono   0
 #endif
 #ifndef  JucePlugin_AAXIdentifier
  #define JucePlugin_AAXIdentifier          com.Mister1234Programming.MophoGUI
@@ -165,6 +145,21 @@
 #ifndef  JucePlugin_VSTNumMidiOutputs
  #define JucePlugin_VSTNumMidiOutputs      16
 #endif
+#ifndef  JucePlugin_ARAContentTypes
+ #define JucePlugin_ARAContentTypes        0
+#endif
+#ifndef  JucePlugin_ARATransformationFlags
+ #define JucePlugin_ARATransformationFlags  0
+#endif
+#ifndef  JucePlugin_ARAFactoryID
+ #define JucePlugin_ARAFactoryID           "com.Mister1234Programming.MophoGUI.factory"
+#endif
+#ifndef  JucePlugin_ARADocumentArchiveID
+ #define JucePlugin_ARADocumentArchiveID   "com.Mister1234Programming.MophoGUI.aradocumentarchive.0.1.0"
+#endif
+#ifndef  JucePlugin_ARACompatibleArchiveIDs
+ #define JucePlugin_ARACompatibleArchiveIDs  ""
+#endif
 #ifndef  JucePlugin_MaxNumInputChannels
  #define JucePlugin_MaxNumInputChannels    0
 #endif
@@ -172,5 +167,5 @@
  #define JucePlugin_MaxNumOutputChannels   0
 #endif
 #ifndef  JucePlugin_PreferredChannelConfigurations
-// #define JucePlugin_PreferredChannelConfigurations  {0, 0}
+ #define JucePlugin_PreferredChannelConfigurations  {0, 0}
 #endif

@@ -19,6 +19,7 @@
 #include <juce_audio_formats/juce_audio_formats.h>
 #include <juce_audio_plugin_client/juce_audio_plugin_client.h>
 #include <juce_audio_processors/juce_audio_processors.h>
+#include <juce_audio_processors_headless/juce_audio_processors_headless.h>
 #include <juce_audio_utils/juce_audio_utils.h>
 #include <juce_core/juce_core.h>
 #include <juce_data_structures/juce_data_structures.h>
@@ -33,7 +34,7 @@
  /** If you've hit this error then the version of the Projucer that was used to generate this project is
      older than the version of the JUCE modules being included. To fix this error, re-save your project
      using the latest version of the Projucer or, if you aren't using the Projucer to manage your project,
-     remove the JUCE_PROJUCER_VERSION define from the AppConfig.h file.
+     remove the JUCE_PROJUCER_VERSION define.
  */
  #error "This project was last saved using an outdated version of the Projucer! Re-save this project with the latest version to fix this error."
 #endif
@@ -47,9 +48,9 @@
 #if ! JUCE_DONT_DECLARE_PROJECTINFO
 namespace ProjectInfo
 {
-    const char* const  projectName    = JucePlugin_Name;
-    const char* const  companyName    = JucePlugin_Manufacturer;
-    const char* const  versionString  = JucePlugin_VersionString;
-    const int          versionNumber  = JucePlugin_VersionCode;
+    const char* const  projectName    = "MophoGUI";
+    const char* const  companyName    = "Mister 1-2-3-4 Programming";
+    const char* const  versionString  = "0.1.0";
+    const int          versionNumber  = 0x100;
 }
 #endif

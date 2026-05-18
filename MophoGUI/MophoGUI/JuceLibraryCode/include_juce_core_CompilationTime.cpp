@@ -6,4 +6,4 @@
 */
 
 #include "AppConfig.h"
-#include <juce_audio_plugin_client_RTAS.r>
+#include <juce_core/juce_core_CompilationTime.cpp>
