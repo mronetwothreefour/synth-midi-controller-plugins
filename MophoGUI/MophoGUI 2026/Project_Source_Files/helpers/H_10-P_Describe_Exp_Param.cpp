@@ -37,39 +37,27 @@ String Describe_Exp_Param::env_3_repeat() {
 }
 
 String Describe_Exp_Param::env_attack(const String env) {
-    String s{ from_string_literal(SL::env_attack_description) };
-    s = s.replaceSection(s.indexOf("_"), 15, env);
-    return s;
+    return from_string_literal(SL::env_attack_description).replace("_envelope name_", env);
 }
 
 String Describe_Exp_Param::env_decay(const String env) {
-    String s{ from_string_literal(SL::env_decay_description) };
-    s = s.replaceSection(s.indexOf("_"), 15, env);
-    return s;
+    return from_string_literal(SL::env_decay_description).replace("_envelope name_", env);
 }
 
 String Describe_Exp_Param::env_delay(const String env) {
-    String s{ from_string_literal(SL::env_delay_description) };
-    s = s.replaceSection(s.indexOf("_"), 15, env);
-    return s;
+    return from_string_literal(SL::env_delay_description).replace("_envelope name_", env);
 }
 
 String Describe_Exp_Param::env_release(const String env) {
-    String s{ from_string_literal(SL::env_release_description) };
-    s = s.replaceSection(s.indexOf("_"), 15, env);
-    return s;
+    return from_string_literal(SL::env_release_description).replace("_envelope name_", env);
 }
 
 String Describe_Exp_Param::env_sustain(const String env) {
-    String s{ from_string_literal(SL::env_sustain_description) };
-    s = s.replaceSection(s.indexOf("_"), 15, env);
-    return s;
+    return from_string_literal(SL::env_sustain_description).replace("_envelope name_", env);
 }
 
 String Describe_Exp_Param::env_vel_amt(const String env) {
-    String s{ from_string_literal(SL::env_vel_amt_description) };
-    s = s.replaceSection(s.indexOf("_"), 15, env);
-    return s;
+    return from_string_literal(SL::env_vel_amt_description).replace("_envelope name_", env);
 }
 
 String Describe_Exp_Param::ext_in_level() {
@@ -81,23 +69,23 @@ String Describe_Exp_Param::glide_mode() {
 }
 
 String Describe_Exp_Param::knob_assign(const int knob) {
-    return from_string_literal(SL::knob_assign_description).replaceCharacters("_", (String)knob);
+    return from_string_literal(SL::knob_assign_description).replace("_", (String)knob);
 }
 
 String Describe_Exp_Param::lfo_amt(const int lfo) {
-    return from_string_literal(SL::lfo_amt_description).replaceCharacters("_", (String)lfo);
+    return from_string_literal(SL::lfo_amt_description).replace("_", (String)lfo);
 }
 
 String Describe_Exp_Param::lfo_freq(const int lfo) {
-    return from_string_literal(SL::lfo_freq_description).replaceCharacters("_", (String)lfo);
+    return from_string_literal(SL::lfo_freq_description).replace("_", (String)lfo);
 }
 
 String Describe_Exp_Param::lfo_key_sync(const int lfo) {
-    return from_string_literal(SL::lfo_key_sync_description).replaceCharacters("_", (String)lfo);
+    return from_string_literal(SL::lfo_key_sync_description).replace("_", (String)lfo);
 }
 
 String Describe_Exp_Param::lfo_shape(const int lfo) {
-    return from_string_literal(SL::lfo_shape_description).replaceCharacters("_", (String)lfo);
+    return from_string_literal(SL::lfo_shape_description).replace("_", (String)lfo);
 }
 
 String Describe_Exp_Param::lpf_env_amt() {
@@ -157,15 +145,15 @@ String Describe_Exp_Param::note_priority() {
 }
 
 String Describe_Exp_Param::osc_fine(const int o) {
-    return from_string_literal(SL::osc_fine_description).replaceCharacters("_", (String)o);
+    return from_string_literal(SL::osc_fine_description).replace("_", (String)o);
 }
 
 String Describe_Exp_Param::osc_glide(const int o) {
-    return from_string_literal(SL::osc_glide_description).replaceCharacters("_", (String)o);
+    return from_string_literal(SL::osc_glide_description).replace("_", (String)o);
 }
 
 String Describe_Exp_Param::osc_key_track(const int o) {
-    return from_string_literal(SL::osc_key_track_description).replaceCharacters("_", (String)o);
+    return from_string_literal(SL::osc_key_track_description).replace("_", (String)o);
 }
 
 String Describe_Exp_Param::osc_mix() {
@@ -173,11 +161,11 @@ String Describe_Exp_Param::osc_mix() {
 }
 
 String Describe_Exp_Param::osc_pitch(const int o) {
-    return from_string_literal(SL::osc_pitch_description).replaceCharacters("_", (String)o);
+    return from_string_literal(SL::osc_pitch_description).replace("_", (String)o);
 }
 
 String Describe_Exp_Param::osc_shape(const int o) {
-    return from_string_literal(SL::osc_shape_description).replaceCharacters("_", (String)o);
+    return from_string_literal(SL::osc_shape_description).replace("_", (String)o);
 }
 
 String Describe_Exp_Param::osc_slop() {
@@ -185,7 +173,7 @@ String Describe_Exp_Param::osc_slop() {
 }
 
 String Describe_Exp_Param::osc_sub_level(const int o) {
-    return from_string_literal(SL::osc_sub_level_description).replaceCharacters("_", (String)o);
+    return from_string_literal(SL::osc_sub_level_description).replace("_", (String)o);
 }
 
 String Describe_Exp_Param::osc_sync() {
@@ -209,13 +197,13 @@ String Describe_Exp_Param::seq_on_off() {
 }
 
 String Describe_Exp_Param::seq_track_dest(const int track) {
-    return from_string_literal(SL::seq_track_dest_description).replaceCharacters("_", (String)track);
+    return from_string_literal(SL::seq_track_dest_description).replace("_", String{ track + 1 });
 }
 
 String Describe_Exp_Param::seq_track_step(const int track, int step) {
     String s{ from_string_literal(SL::seq_track_step_description_1) };
-    s = s.replaceCharacters("_", String{ track + 1 });
-    s = s.replaceSection(s.indexOf("%"), 1, String{ step + 1 });
+    s = s.replace("_", String{ track + 1 });
+    s = s.replace("%", String{ step + 1 });
     if (track == 0)
         s += from_string_literal(SL::seq_track_step_description_2);
     s += from_string_literal(SL::seq_track_step_description_3);
@@ -234,10 +222,8 @@ String Describe_Exp_Param::vca_level() {
     return from_string_literal(SL::vca_level_description);
 }
 
-String Describe_Exp_Param::voice_name_char(const int char_num) {
-    String s{ from_string_literal(SL::voice_name_char_description) };
-    s = s.replaceSection(s.indexOf("_"), 1, String{ char_num + 1 });
-    return s;
+String Describe_Exp_Param::voice_name_char(const int c) {
+    return from_string_literal(SL::voice_name_char_description).replace("_", String{ c + 1 });
 }
 
 String Describe_Exp_Param::voice_volume() {

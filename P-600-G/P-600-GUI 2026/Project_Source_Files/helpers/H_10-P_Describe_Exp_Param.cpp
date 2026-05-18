@@ -9,27 +9,19 @@ String Describe_Exp_Param::from_string_literal(const char8_t* sl) {
 }
 
 String Describe_Exp_Param::env_attack(bool filter) {
-    String s{ from_string_literal(SL::env_attack_description) };
-    s = s.replaceSection(s.indexOf("_"), 9, filter ? "filter" : "amplifier");
-    return s;
+    return from_string_literal(SL::env_attack_description).replace("_type of_", filter ? "filter" : "amplifier");
 }
 
 String Describe_Exp_Param::env_decay(bool filter) {
-    String s{ from_string_literal(SL::env_decay_description) };
-    s = s.replaceSection(s.indexOf("_"), 9, filter ? "filter" : "amplifier");
-    return s;
+    return from_string_literal(SL::env_decay_description).replace("_type of_", filter ? "filter" : "amplifier");
 }
 
 String Describe_Exp_Param::env_release(bool filter) {
-    String s{ from_string_literal(SL::env_release_description) };
-    s = s.replaceSection(s.indexOf("_"), 9, filter ? "filter" : "amplifier");
-    return s;
+    return from_string_literal(SL::env_release_description).replace("_type of_", filter ? "filter" : "amplifier");
 }
 
 String Describe_Exp_Param::env_sustain(bool filter) {
-    String s{ from_string_literal(SL::env_sustain_description) };
-    s = s.replaceSection(s.indexOf("_"), 9, filter ? "filter" : "amplifier");
-    return s;
+    return from_string_literal(SL::env_sustain_description).replace("_type of_", filter ? "filter" : "amplifier");
 }
 
 String Describe_Exp_Param::filter_cutoff() {
@@ -81,11 +73,11 @@ String Describe_Exp_Param::mixer() {
 }
 
 String Describe_Exp_Param::osc_pitch(const int o) {
-    return from_string_literal(SL::osc_pitch_description).replaceCharacter('_', o == 1 ? 'A' : 'B');
+    return from_string_literal(SL::osc_pitch_description).replace("_", o == 1 ? "A" : "B");
 }
 
 String Describe_Exp_Param::osc_pulse_w(const int o) {
-    return from_string_literal(SL::osc_pulse_w_description).replaceCharacter('_', o == 1 ? 'A' : 'B');
+    return from_string_literal(SL::osc_pulse_w_description).replace("_", o == 1 ? "A" : "B");
 }
 
 String Describe_Exp_Param::osc_a_sync() {
