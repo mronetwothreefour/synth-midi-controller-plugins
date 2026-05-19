@@ -19,4 +19,6 @@ struct Build_Tree :
 									   int ctrl_w, int ctrl_h, String description,
 									   ValueTree curt_choice_names, ValueTree choice_names);
 
+	static ValueTree choice_names_filter_key_track(const bool curt = false);
+	static ValueTree choice_names_lfo_shape(const bool curt = false);
 };
