@@ -18,6 +18,10 @@ struct Build_Tree :
 									   int ctrl_center_x,int ctrl_center_y, int ctrl_w, 
 									   int ctrl_h,String description, ValueTree bit_locations,
 									   ValueTree curt_choice_names, ValueTree choice_names);
-	// TODO: choice name trees for when transmitting via CC
+
+	static ValueTree choice_names_delay_routing(const bool curt = false);
+	static ValueTree choice_names_osc_2_pitch_eg_int(const bool curt = false);
+	static ValueTree choice_names_osc_and_lfo_wave(const bool curt = false);
+	static ValueTree choice_names_osc_octave(const bool curt = false);
 	static ValueTree choice_names_osc_pitch_fine(const bool curt = false);
 };
