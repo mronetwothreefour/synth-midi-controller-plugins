@@ -250,6 +250,12 @@
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\midi\ump\juce_UMP_test.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\midi\ump\juce_UMPDeviceInfo.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\midi\ump\juce_UMPFactory.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\midi\ump\juce_UMPIterator.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -380,6 +386,12 @@
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\audio_io\juce_SampleRateHelpers.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPBlock.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPEndpointId.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPEndpoints.cpp">
@@ -2851,6 +2863,18 @@
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_gui_basics\juce_gui_basics.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_gui_basics\juce_gui_basics_2.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_gui_basics\juce_gui_basics_3.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_gui_basics\juce_gui_basics_4.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_gui_basics\juce_gui_basics_5.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_gui_extra\code_editor\juce_CodeDocument.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2975,6 +2999,10 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics.cpp">
       <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics_2.cpp"/>
+    <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics_3.cpp"/>
+    <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics_4.cpp"/>
+    <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics_5.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp"/>
   </ItemGroup>
   <ItemGroup>
@@ -3350,6 +3378,7 @@
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_plugin_client\detail\juce_IncludeModuleHeaders.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_plugin_client\detail\juce_IncludeSystemHeaders.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_plugin_client\detail\juce_LinuxMessageThread.h"/>
+    <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_plugin_client\detail\juce_PluginScaleFactorUtilities.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_plugin_client\detail\juce_PluginUtilities.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_plugin_client\detail\juce_VSTWindowUtilities.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_plugin_client\juce_audio_plugin_client.h"/>
@@ -3567,9 +3596,9 @@
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_processors_headless\utilities\juce_AudioParameterChoice.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_processors_headless\utilities\juce_AudioParameterFloat.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_processors_headless\utilities\juce_AudioParameterInt.h"/>
+    <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_processors_headless\utilities\juce_AudioPluginExtensions.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_processors_headless\utilities\juce_AudioProcessorParameterWithID.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_processors_headless\utilities\juce_CommonProcessorUtilities.h"/>
-    <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_processors_headless\utilities\juce_ExtensionsVisitor.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_processors_headless\utilities\juce_FlagCache.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_processors_headless\utilities\juce_RangedAudioParameter.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_processors_headless\utilities\juce_VST2ClientExtensions.h"/>
@@ -3735,6 +3764,8 @@
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_core\time\juce_PerformanceCounter.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_core\time\juce_RelativeTime.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_core\time\juce_Time.h"/>
+    <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_core\time\juce_TimedDiagnostic.h"/>
+    <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_core\time\juce_TimeUnits.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_core\unit_tests\juce_UnitTest.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_core\unit_tests\juce_UnitTestCategories.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_core\xml\juce_XmlDocument.h"/>
@@ -3804,7 +3835,6 @@
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_graphics\contexts\juce_GraphicsContext.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_graphics\contexts\juce_LowLevelGraphicsContext.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_graphics\contexts\juce_LowLevelGraphicsSoftwareRenderer.h"/>
-    <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_graphics\detail\juce_FontRendering.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_graphics\detail\juce_JustifiedText.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_graphics\detail\juce_Ranges.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_graphics\detail\juce_ShapedText.h"/>
@@ -4493,6 +4523,7 @@
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK\public.sdk\source\vst\moduleinfo\ReadMe.md"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK\public.sdk\LICENSE.txt"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK\public.sdk\README.md"/>
+    <None Include="..\..\..\..\..\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK\JUCE_README.md"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK\LICENSE.txt"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK\README.md"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_core\native\java\README.txt"/>

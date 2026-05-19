@@ -105,10 +105,7 @@
       <AdditionalDependencies>MophoGUI (Debug).lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <PreBuildEvent>
-      <Command>if &quot;$(PROCESSOR_ARCHITECTURE)&quot; == &quot;x86&quot; if defined PROCESSOR_ARCHITEW6432 (
-    echo : Warning: Toolchain configuration issue! You are using a 32-bit toolchain to compile a 64-bit target on a 64-bit system. This may cause problems with the build system. To resolve this, use the x64 version of MSBuild. You can invoke it directly at: &quot;&lt;VisualStudioPathHere&gt;/MSBuild/Current/Bin/amd64/MSBuild.exe&quot; Or, use the &quot;x64 Native Tools Command Prompt&quot; script.
-)
-if not exist &quot;$(OutDir)\\MophoGUI (Debug).vst3\&quot; (
+      <Command>if not exist &quot;$(OutDir)\\MophoGUI (Debug).vst3\&quot; (
     del /s /q &quot;$(OutDir)\\MophoGUI (Debug).vst3&quot;
     mkdir &quot;$(OutDir)\\MophoGUI (Debug).vst3&quot;
 )
@@ -124,37 +121,14 @@ if not exist &quot;$(OutDir)\\MophoGUI (Debug).vst3\Contents\x86_64-win\&quot; (
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>copy /Y &quot;$(OutDir)\MophoGUI (Debug).dll&quot; &quot;$(OutDir)\MophoGUI (Debug).vst3\Contents\x86_64-win\MophoGUI (Debug).vst3&quot;
-set manifest_generated=0
-if &quot;$(PROCESSOR_ARCHITECTURE)&quot; == &quot;ARM64&quot; if &quot;$(Platform)&quot; == &quot;x64&quot; (
-    call :_generate_manifest
-    set manifest_generated=1
-)
-if &quot;$(PROCESSOR_ARCHITECTURE)&quot; == &quot;AMD64&quot; if &quot;$(Platform)&quot; == &quot;x64&quot; (
-    call :_generate_manifest
-    set manifest_generated=1
-)
-if %manifest_generated% equ 0 (
-    goto :_arch_mismatch
-)
-goto :_continue
-:_generate_manifest
 if exist &quot;$(OutDir)\MophoGUI (Debug).vst3\Contents\Resources\moduleinfo.json&quot; (
     del /s /q &quot;$(OutDir)\MophoGUI (Debug).vst3\Contents\Resources\moduleinfo.json&quot;
 )
 if not exist &quot;$(OutDir)\MophoGUI (Debug).vst3\Contents\Resources\&quot; (
     mkdir &quot;$(OutDir)\MophoGUI (Debug).vst3\Contents\Resources\&quot;
 )
-&quot;C:\Users\Public\Documents\VST3 Builds\Debug\MophoGUI\VST3 Manifest Helper\juce_vst3_helper.exe&quot; &gt; &quot;$(OutDir)\MophoGUI (Debug).vst3\Contents\Resources\moduleinfo.json&quot;
-if %ERRORLEVEL% equ 0 (
-    echo : Info: Successfully generated a manifest for MophoGUI
-    goto :_continue
-) else (
-    echo : Info: The manifest helper failed
-    goto :_continue
-)
-:_arch_mismatch
-echo : Info: VST3 manifest generation is disabled for MophoGUI because a AMD64 manifest helper cannot run on a host system processor detected to be $(PROCESSOR_ARCHITECTURE).
-:_continue
+echo &quot;running &quot;$(SolutionDir)Win32\$(Configuration)\VST3 Manifest Helper\juce_vst3_helper.exe&quot; &gt; &quot;$(OutDir)\MophoGUI (Debug).vst3\Contents\Resources\moduleinfo.json&quot;&quot;
+&quot;$(SolutionDir)Win32\$(Configuration)\VST3 Manifest Helper\juce_vst3_helper.exe&quot; &gt; &quot;$(OutDir)\MophoGUI (Debug).vst3\Contents\Resources\moduleinfo.json&quot;
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -207,10 +181,7 @@ echo : Info: VST3 manifest generation is disabled for MophoGUI because a AMD64 m
       <AdditionalDependencies>MophoGUI.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <PreBuildEvent>
-      <Command>if &quot;$(PROCESSOR_ARCHITECTURE)&quot; == &quot;x86&quot; if defined PROCESSOR_ARCHITEW6432 (
-    echo : Warning: Toolchain configuration issue! You are using a 32-bit toolchain to compile a 64-bit target on a 64-bit system. This may cause problems with the build system. To resolve this, use the x64 version of MSBuild. You can invoke it directly at: &quot;&lt;VisualStudioPathHere&gt;/MSBuild/Current/Bin/amd64/MSBuild.exe&quot; Or, use the &quot;x64 Native Tools Command Prompt&quot; script.
-)
-if not exist &quot;$(OutDir)\\MophoGUI.vst3\&quot; (
+      <Command>if not exist &quot;$(OutDir)\\MophoGUI.vst3\&quot; (
     del /s /q &quot;$(OutDir)\\MophoGUI.vst3&quot;
     mkdir &quot;$(OutDir)\\MophoGUI.vst3&quot;
 )
@@ -226,37 +197,14 @@ if not exist &quot;$(OutDir)\\MophoGUI.vst3\Contents\x86_64-win\&quot; (
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>copy /Y &quot;$(OutDir)\MophoGUI.dll&quot; &quot;$(OutDir)\MophoGUI.vst3\Contents\x86_64-win\MophoGUI.vst3&quot;
-set manifest_generated=0
-if &quot;$(PROCESSOR_ARCHITECTURE)&quot; == &quot;ARM64&quot; if &quot;$(Platform)&quot; == &quot;x64&quot; (
-    call :_generate_manifest
-    set manifest_generated=1
-)
-if &quot;$(PROCESSOR_ARCHITECTURE)&quot; == &quot;AMD64&quot; if &quot;$(Platform)&quot; == &quot;x64&quot; (
-    call :_generate_manifest
-    set manifest_generated=1
-)
-if %manifest_generated% equ 0 (
-    goto :_arch_mismatch
-)
-goto :_continue
-:_generate_manifest
 if exist &quot;$(OutDir)\MophoGUI.vst3\Contents\Resources\moduleinfo.json&quot; (
     del /s /q &quot;$(OutDir)\MophoGUI.vst3\Contents\Resources\moduleinfo.json&quot;
 )
 if not exist &quot;$(OutDir)\MophoGUI.vst3\Contents\Resources\&quot; (
     mkdir &quot;$(OutDir)\MophoGUI.vst3\Contents\Resources\&quot;
 )
-&quot;C:\Users\Public\Documents\VST3 Builds\Release\MophoGUI\VST3 Manifest Helper\juce_vst3_helper.exe&quot; &gt; &quot;$(OutDir)\MophoGUI.vst3\Contents\Resources\moduleinfo.json&quot;
-if %ERRORLEVEL% equ 0 (
-    echo : Info: Successfully generated a manifest for MophoGUI
-    goto :_continue
-) else (
-    echo : Info: The manifest helper failed
-    goto :_continue
-)
-:_arch_mismatch
-echo : Info: VST3 manifest generation is disabled for MophoGUI because a AMD64 manifest helper cannot run on a host system processor detected to be $(PROCESSOR_ARCHITECTURE).
-:_continue
+echo &quot;running &quot;$(SolutionDir)Win32\$(Configuration)\VST3 Manifest Helper\juce_vst3_helper.exe&quot; &gt; &quot;$(OutDir)\MophoGUI.vst3\Contents\Resources\moduleinfo.json&quot;&quot;
+&quot;$(SolutionDir)Win32\$(Configuration)\VST3 Manifest Helper\juce_vst3_helper.exe&quot; &gt; &quot;$(OutDir)\MophoGUI.vst3\Contents\Resources\moduleinfo.json&quot;
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
