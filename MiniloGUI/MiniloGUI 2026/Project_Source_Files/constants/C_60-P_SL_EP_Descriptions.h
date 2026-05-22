@@ -116,6 +116,14 @@ low-pass filter. Frequencies above
 the cutoff point will be attenuated.
 Transmits on CC #43. Range: 0 to 1023.)";
 
+    constexpr auto lpf_key_track_description = u8R"(
+Selects the degree to which the pitch of
+notes played on the keyboard shifts the
+filter’s cutoff frequency (i.e. the higher
+the pitch, the more the cutoff frequency is
+raised and the ‘brighter’ the note sounds).
+Choices: 0%, 50%, 100%. Transmits on CC #82.)";
+
     constexpr auto lpf_reso_description = u8R"(
 Sets the resonance level for the low-pass filter.
 Increasing resonance will add boost to freq-
@@ -132,7 +140,7 @@ Selects the degree to which the velocity
 of notes played on the keyboard shifts the
 filter’s cutoff frequency (i.e. the harder a key
 is struck, the more the cutoff frequency is
-raised and the brighter the note sounds).
+raised and the ‘brighter’ the note sounds).
 Choices: 0%, 50%, 100%. Transmits on CC #82.)";
 
     constexpr auto osc_2_pitch_eg_int_description = u8R"(
