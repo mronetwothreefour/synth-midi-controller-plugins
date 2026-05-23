@@ -61,7 +61,7 @@ struct Describe_Exp_Param
 	static String vcf_env_1_amt();
 	static String vcf_fm_env_3_amt();
 	static String vcf_fm_osc_1_amt();
-	static String vcf_fm_pressure_amt();
+	static String vcf_fm_press_amt();
 	static String vcf_freq();
 	static String vcf_key_track();
 	static String vcf_lever_ctrl();

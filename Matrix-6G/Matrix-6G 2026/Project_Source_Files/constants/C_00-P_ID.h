@@ -58,7 +58,7 @@ namespace ID
 	static const Identifier ep_48_lfo_2_wave_type    { "ep_48_lfo_2_wave_type" };
 	static const Identifier ep_49_lfo_2_Samp_source  { "ep_49_lfo_2_samp_source" };
 	static const Identifier ep_50_lfo_2_amp          { "ep_50_lfo_2_amp" };
-	static const Identifier ep_51_lfo_2_press_amt    { "ep_51_lfo_2_press_amt" };
+	static const Identifier ep_51_lfo_2_key_track_amt    { "ep_51_lfo_2_key_track_amt" };
 	static const Identifier ep_52_lfo_2_ramp_1_amt   { "ep_52_lfo_2_ramp_1_amt" };
 	static const Identifier ep_53_lfo_2_trig_mode    { "ep_53_lfo_2_trig_mode" };
 	static const Identifier ep_54_lfo_2_retrig_point { "ep_54_lfo_2_retrig_point" };

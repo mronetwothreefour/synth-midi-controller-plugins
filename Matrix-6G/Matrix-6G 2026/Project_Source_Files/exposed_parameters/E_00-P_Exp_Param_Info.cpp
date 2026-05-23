@@ -40,7 +40,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			Build_Tree::exposed_parameter(
 				osc == 1 ? ID::ep_02_osc_1_pulse_w : ID::ep_12_osc_2_pulse_w, osc == 1 ? 3 : 13,
 				"Oscillator " + (String)osc + " Pulse Width", Ctrl_Type::slider, osc == 1 ? 3 : 8,
-				Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, osc == 64,
+				Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64,
 				osc == 1 ? 31 : 24, center_x, ctrl_row_03_y, osc_ctrl_w, Describe::osc_pulse_w(osc),
 				Build_Tree::choice_names_unsigned_int(64, curt),
 				Build_Tree::choice_names_unsigned_int(64)
@@ -52,7 +52,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				osc == 1 ? ID::ep_03_osc_1_saw_tri : ID::ep_13_osc_2_saw_tri, osc == 1 ? 5 : 15,
 				"Oscillator " + (String)osc + " Saw / Triangle Wave Blend", Ctrl_Type::slider,
 				osc == 1 ? 2 : 7, Range_Type::unsigned_int, Slider_Display_Type::unsigned_int,
-				osc == 64, 31, center_x, ctrl_row_04_y, osc_ctrl_w, Describe::osc_saw_tri(osc),
+				64, 31, center_x, ctrl_row_04_y, osc_ctrl_w, Describe::osc_saw_tri(osc),
 				Build_Tree::choice_names_unsigned_int(64, curt),
 				Build_Tree::choice_names_unsigned_int(64)
 			), 
@@ -141,6 +141,343 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			), 
 			-1, nullptr);
 	} // ---------------------------------------------------------- end osc section
+
+	// *************************************************************** vcf section
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_21_vcf_freq, 21, "VCF Cutoff Frequency", Ctrl_Type::slider, 18,
+			Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 128, 55,
+			vcf_vca_col_x, ctrl_row_01_y, vcf_vca_col_w, Describe::vcf_freq(),
+			Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_22_vcf_reso, 24, "VCF Resonance", Ctrl_Type::slider, 19,
+			Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, 0,
+			vcf_vca_col_x, ctrl_row_02_y, vcf_vca_col_w, Describe::vcf_reso(),
+			Build_Tree::choice_names_unsigned_int(64, curt),
+			Build_Tree::choice_names_unsigned_int(64)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_23_vcf_env_1_amt, 22, "VCF Envelope 1 Amount", Ctrl_Type::slider,
+			82, Range_Type::signed_7_bit, Slider_Display_Type::signed_7_bit, 127, 105,
+			vcf_vca_col_x, ctrl_row_03_y, vcf_vca_col_w, Describe::vcf_env_1_amt(),
+			Build_Tree::choice_names_signed_7_bit_int(curt),
+			Build_Tree::choice_names_signed_7_bit_int()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_24_vcf_press_amt, 23, "VCF Pressure Amount", Ctrl_Type::slider,
+			83, Range_Type::signed_7_bit, Slider_Display_Type::signed_7_bit, 127, 63,
+			vcf_vca_col_x, ctrl_row_04_y, vcf_vca_col_w, Describe::vcf_pressure_amt(),
+			Build_Tree::choice_names_signed_7_bit_int(curt),
+			Build_Tree::choice_names_signed_7_bit_int()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_25_vcf_lever_ctrl, 25, "VCF Lever Control", Ctrl_Type::cbox,
+			20, Range_Type::unsigned_int, Slider_Display_Type::none, 4, 0,
+			vcf_vca_col_x, ctrl_row_05_y, vcf_vca_col_w, Describe::vcf_lever_ctrl(),
+			Build_Tree::choice_names_lever_ctrl(curt),
+			Build_Tree::choice_names_lever_ctrl()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_26_vcf_key_track, 26, "VCF Key Tracking", Ctrl_Type::cbox,
+			21, Range_Type::unsigned_int, Slider_Display_Type::none, 3, 2,
+			vcf_vca_col_x, ctrl_row_06_y, vcf_vca_col_w, Describe::vcf_key_track(),
+			Build_Tree::choice_names_osc_2_and_vcf_key_track(curt),
+			Build_Tree::choice_names_osc_2_and_vcf_key_track()
+		),
+		-1, nullptr);
+	// ---------------------------------------------------------- end vcf section
+	
+	// *************************************************************** vca section
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_27_vca_1_volume, 27, "VCA 1 Volume", Ctrl_Type::slider,
+			23, Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, 63,
+			vcf_vca_col_x, ctrl_row_09_y, vcf_vca_col_w, Describe::vca_1_volume(),
+			Build_Tree::choice_names_unsigned_int(64, curt),
+			Build_Tree::choice_names_unsigned_int(64)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_28_vca_1_velo_amt, 28, "VCA 1 Velocity Amount", Ctrl_Type::slider,
+			84, Range_Type::signed_7_bit, Slider_Display_Type::signed_7_bit, 127, 63,
+			vcf_vca_col_x, ctrl_row_10_y, vcf_vca_col_w, Describe::vca_1_velo_amt(),
+			Build_Tree::choice_names_signed_7_bit_int(curt),
+			Build_Tree::choice_names_signed_7_bit_int()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_29_vca_2_env_2_amt, 29, "VCA 2 Envelope 2 Amount", Ctrl_Type::slider,
+			85, Range_Type::signed_7_bit, Slider_Display_Type::signed_7_bit, 127, 126,
+			vcf_vca_col_x, ctrl_row_11_y, vcf_vca_col_w, Describe::vca_2_env_2_amt(),
+			Build_Tree::choice_names_signed_7_bit_int(curt),
+			Build_Tree::choice_names_signed_7_bit_int()
+		),
+		-1, nullptr);
+	// ---------------------------------------------------------- end vca section
+
+	// *************************************************************** vcf fm section
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_30_vcf_fm_osc_1_amt, 30, "VCF FM By Oscillator 1 Amount", Ctrl_Type::slider,
+			22, Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, 0,
+			vcf_fm_col_x, ctrl_row_01_y, vcf_fm_col_w, Describe::vcf_fm_osc_1_amt(),
+			Build_Tree::choice_names_unsigned_int(64, curt),
+			Build_Tree::choice_names_unsigned_int(64)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_31_vcf_fm_env_3_amt, 31, "VCF FM Envelope 3 Amount", Ctrl_Type::slider,
+			92, Range_Type::signed_7_bit, Slider_Display_Type::signed_7_bit, 127, 63,
+			vcf_fm_col_x, ctrl_row_02_y, vcf_fm_col_w, Describe::vcf_fm_env_3_amt(),
+			Build_Tree::choice_names_signed_7_bit_int(curt),
+			Build_Tree::choice_names_signed_7_bit_int()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_32_vcf_fm_press_amt, 32, "VCF FM Pressure Amount", Ctrl_Type::slider,
+			93, Range_Type::signed_7_bit, Slider_Display_Type::signed_7_bit, 127, 63,
+			vcf_fm_col_x, ctrl_row_03_y, vcf_fm_col_w, Describe::vcf_fm_press_amt(),
+			Build_Tree::choice_names_signed_7_bit_int(curt),
+			Build_Tree::choice_names_signed_7_bit_int()
+		),
+		-1, nullptr);
+	// ---------------------------------------------------------- end vcf fm section
+
+	// *************************************************************** portamento section
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_33_porta_rate, 44, "Portamento Rate", Ctrl_Type::slider,
+			24, Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, 0,
+			porta_key_mode_col_x, ctrl_row_06_y, porta_key_mode_col_w, Describe::porta_rate(),
+			Build_Tree::choice_names_unsigned_int(64, curt),
+			Build_Tree::choice_names_unsigned_int(64)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_34_porta_velo, 45, "Portamento Velocity Amount", Ctrl_Type::slider,
+			91, Range_Type::signed_7_bit, Slider_Display_Type::signed_7_bit, 127, 63,
+			porta_key_mode_col_x, ctrl_row_07_y, porta_key_mode_col_w, Describe::porta_velo(),
+			Build_Tree::choice_names_signed_7_bit_int(curt),
+			Build_Tree::choice_names_signed_7_bit_int()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_35_porta_mode, 46, "Portamento Mode", Ctrl_Type::cbox,
+			25, Range_Type::unsigned_int, Slider_Display_Type::none, 3, 0,
+			porta_key_mode_col_x, ctrl_row_08_y, porta_key_mode_col_w, Describe::porta_mode(),
+			Build_Tree::choice_names_porta_mode(curt),
+			Build_Tree::choice_names_porta_mode()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_36_porta_legato, 47, "Portamento Legato Off / On", Ctrl_Type::cbox,
+			26, Range_Type::unsigned_int, Slider_Display_Type::none, 2, 0,
+			porta_key_mode_col_x, ctrl_row_09_y, porta_key_mode_col_w, Describe::porta_legato(),
+			Build_Tree::choice_names_off_on_matrix(curt),
+			Build_Tree::choice_names_off_on_matrix()
+		),
+		-1, nullptr);
+	// ---------------------------------------------------------- end portamento section
+
+	// *************************************************************** keyboard mode section
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_37_keyboard_mode, 48, "Keyboard Mode", Ctrl_Type::cbox,
+			0, Range_Type::unsigned_int, Slider_Display_Type::none, 4, 0,
+			porta_key_mode_col_x, ctrl_row_12_y, porta_key_mode_col_w, Describe::keyboard_mode(),
+			Build_Tree::choice_names_keyboard_mode(curt),
+			Build_Tree::choice_names_keyboard_mode()
+		),
+		-1, nullptr);
+	// ---------------------------------------------------------- end keyboard mode section
+
+	// *************************************************************** lfo section
+	for (int lfo = 1; lfo < 3; ++lfo) {
+		auto center_x = lfo == 1 ? lfo_col_1_x : lfo_col_2_x;
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				lfo == 1 ? ID::ep_38_lfo_1_speed : ID::ep_47_lfo_2_speed, lfo == 1 ? 80 : 90,
+				"LFO " + (String)lfo + " Speed", Ctrl_Type::slider, lfo == 1 ? 27 : 34,
+				Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64,
+				lfo == 1 ? 40 : 30, center_x, ctrl_row_01_y, lfo_col_w, Describe::lfo_speed(lfo),
+				Build_Tree::choice_names_unsigned_int(64, curt),
+				Build_Tree::choice_names_unsigned_int(64)
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				lfo == 1 ? ID::ep_39_lfo_1_wave_type : ID::ep_48_lfo_2_wave_type, lfo == 1 ? 82 : 92,
+				"LFO " + (String)lfo + " Wave Type", Ctrl_Type::cbox, lfo == 1 ? 30 : 37,
+				Range_Type::unsigned_int, Slider_Display_Type::none, 7, 0,
+				center_x, ctrl_row_02_y, lfo_col_w, Describe::lfo_wave_type(lfo),
+				Build_Tree::choice_names_lfo_wave_type(curt), Build_Tree::choice_names_lfo_wave_type()
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				lfo == 1 ? ID::ep_40_lfo_1_samp_source : ID::ep_49_lfo_2_Samp_source, lfo == 1 ? 88 : 98,
+				"LFO " + (String)lfo + " Sample Source", Ctrl_Type::cbox, lfo == 1 ? 32 : 39,
+				Range_Type::unsigned_int, Slider_Display_Type::none, 21, 9,
+				center_x, ctrl_row_03_y, lfo_col_w, Describe::lfo_sample_source(lfo),
+				Build_Tree::choice_names_input_source(Input_Choice_Type::lfo, curt),
+				Build_Tree::choice_names_input_source(Input_Choice_Type::lfo)
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				lfo == 1 ? ID::ep_41_lfo_1_amp : ID::ep_50_lfo_2_amp, lfo == 1 ? 84 : 94,
+				"LFO " + (String)lfo + " Amplitude", Ctrl_Type::slider, lfo == 1 ? 33 : 40,
+				Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, 0,
+				center_x, ctrl_row_04_y, lfo_col_w, Describe::lfo_amp(lfo),
+				Build_Tree::choice_names_unsigned_int(64, curt),
+				Build_Tree::choice_names_unsigned_int(64)
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				lfo == 1 ? ID::ep_42_lfo_1_press_amt : ID::ep_51_lfo_2_key_track_amt, lfo == 1 ? 81 : 91,
+				lfo == 1 ? "LFO 1 Pressure Amount" : "LFO 2 Key Tracking Amount", Ctrl_Type::slider,
+				lfo == 1 ? 94 : 95, Range_Type::signed_7_bit, Slider_Display_Type::signed_7_bit,
+				127, 63, center_x, ctrl_row_05_y, osc_ctrl_w,
+				lfo == 1 ? Describe::lfo_1_pressure_amt() : Describe::lfo_2_key_track_amt(),
+				Build_Tree::choice_names_signed_7_bit_int(curt),
+				Build_Tree::choice_names_signed_7_bit_int()
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				lfo == 1 ? ID::ep_43_lfo_1_ramp_1_amt : ID::ep_52_lfo_2_ramp_1_amt, lfo == 1 ? 85 : 95,
+				"LFO " + (String)lfo + " Ramp " + (String)lfo + " Amount", Ctrl_Type::slider,
+				lfo == 1 ? 89 : 90, Range_Type::signed_7_bit, Slider_Display_Type::signed_7_bit,
+				127, 63, center_x, ctrl_row_06_y, osc_ctrl_w, Describe::lfo_ramp_amt(lfo),
+				Build_Tree::choice_names_signed_7_bit_int(curt),
+				Build_Tree::choice_names_signed_7_bit_int()
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				lfo == 1 ? ID::ep_44_lfo_1_trig_mode : ID::ep_53_lfo_2_trig_mode, lfo == 1 ? 86 : 96,
+				"LFO " + (String)lfo + " Trigger Mode", Ctrl_Type::cbox, lfo == 1 ? 28 : 35,
+				Range_Type::unsigned_int, Slider_Display_Type::none, 4, 0,
+				center_x, ctrl_row_07_y, lfo_col_w, Describe::lfo_trig_mode(lfo),
+				Build_Tree::choice_names_lfo_trig_mode(curt),
+				Build_Tree::choice_names_lfo_trig_mode()
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				lfo == 1 ? ID::ep_45_lfo_1_retrig_point : ID::ep_54_lfo_2_retrig_point, lfo == 1 ? 83 : 93,
+				"LFO " + (String)lfo + " Retrigger Point", Ctrl_Type::slider, lfo == 1 ? 31 : 38,
+				Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, 0,
+				center_x, ctrl_row_08_y, lfo_col_w, Describe::lfo_retrig_point(lfo),
+				Build_Tree::choice_names_unsigned_int(64, curt),
+				Build_Tree::choice_names_unsigned_int(64)
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				lfo == 1 ? ID::ep_45_lfo_1_retrig_point : ID::ep_55_lfo_2_lag, lfo == 1 ? 87 : 97,
+				"LFO " + (String)lfo + " Lag Processing Off / On", Ctrl_Type::cbox, lfo == 1 ? 29 : 36,
+				Range_Type::unsigned_int, Slider_Display_Type::none, 2, 0,
+				center_x, ctrl_row_09_y, lfo_col_w, Describe::lfo_lag(lfo),
+				Build_Tree::choice_names_off_on_matrix(curt),
+				Build_Tree::choice_names_off_on_matrix()
+			),
+			-1, nullptr);
+	} // ---------------------------------------------------------- end lfo section
+
+	// *************************************************************** ramp section
+	for (int ramp = 1; ramp < 3; ++ramp) {
+		auto center_x = ramp == 1 ? ramp_col_1_x : ramp_col_2_x;
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				ramp == 1 ? ID::ep_56_ramp_1_rate : ID::ep_58_ramp_2_rate, ramp == 1 ? 40 : 42,
+				"Ramp " + (String)ramp + " Rate", Ctrl_Type::slider, ramp == 1 ? 74 : 76,
+				Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, 0,
+				center_x, ctrl_row_01_y, ramp_col_w, Describe::ramp_rate(ramp),
+				Build_Tree::choice_names_unsigned_int(64, curt),
+				Build_Tree::choice_names_unsigned_int(64)
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				ramp == 1 ? ID::ep_57_ramp_1_trig : ID::ep_59_ramp_2_trig, ramp == 1 ? 41 : 43,
+				"Ramp " + (String)ramp + " Trigger", Ctrl_Type::cbox, ramp == 1 ? 75 : 77,
+				Range_Type::unsigned_int, Slider_Display_Type::none, 4, 0,
+				center_x, ctrl_row_02_y, ramp_col_w, Describe::ramp_trig(ramp),
+				Build_Tree::choice_names_ramp_trig(curt),
+				Build_Tree::choice_names_ramp_trig()
+			),
+			-1, nullptr);
+	} // ---------------------------------------------------------- end ramp section
+
+	// *************************************************************** tracking section
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_60_track_input, 33, "Tracking Generator Input", Ctrl_Type::cbox, 68,
+			Range_Type::unsigned_int, Slider_Display_Type::none, 21, 9,
+			track_input_x, track_input_y, track_input_w, Describe::track_input(),
+			Build_Tree::choice_names_input_source(Input_Choice_Type::tracking, curt),
+			Build_Tree::choice_names_input_source(Input_Choice_Type::tracking)
+		),
+		-1, nullptr);
+	for (int pt = 1; pt < 6; ++pt) {
+		auto init_choice{ 0 };
+		if (pt == 2)
+			init_choice = 15;
+		if (pt > 2)
+			init_choice = 15 + (pt - 2) * 16;
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_6" + (String)pt + "_track_point_" + (String)pt, 33 + pt, "Tracking Point " + (String)pt,
+				Ctrl_Type::slider, 68 + pt, Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64,
+				init_choice, track_pt_1_x + (pt - 1) * track_pt_spacing, track_pt_y, track_pt_w,
+				Describe::track_point(pt, init_choice), Build_Tree::choice_names_unsigned_int(64, curt),
+				Build_Tree::choice_names_unsigned_int(64)
+			),
+			-1, nullptr);
+	}
+	// ---------------------------------------------------------- end tracking section
 }
 
 const uint8 Exposed_Parameter_Info::number_for(uint8 i) const {

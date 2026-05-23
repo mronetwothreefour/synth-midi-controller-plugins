@@ -203,7 +203,7 @@ String Describe_Exp_Param::vcf_fm_osc_1_amt() {
     return from_string_literal(SL::vcf_fm_osc_1_amt_description);
 }
 
-String Describe_Exp_Param::vcf_fm_pressure_amt() {
+String Describe_Exp_Param::vcf_fm_press_amt() {
     return from_string_literal(SL::vcf_fm_pressure_amt_description);
 }
 
