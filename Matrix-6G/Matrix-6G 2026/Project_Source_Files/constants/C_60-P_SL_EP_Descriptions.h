@@ -9,79 +9,79 @@ the degree to which the envelope modulates its destination(s).
 Range: 0 (no modulation) to 63 (maximum modulation).)";
 
     constexpr auto env_attack_description = u8R"(
-Sets the length of envelope _â€™s attack
+Sets the length of envelope _’s attack
 stage (the amount of time it takes to
 rise from minimum to maximum level).
 Range: 0 (instantaneous) to 63 (longest).)";
 
     constexpr auto env_decay_description = u8R"(
-Sets the length of envelope _â€™s decay stage
+Sets the length of envelope _’s decay stage
 (the amount of time it takes to drop from the
 maximum level to the sustain level).
 Range: 0 (instantaneous) to 63 (longest).)";
 
     constexpr auto env_delay_description = u8R"(
-Sets the length of envelope _â€™s delay stage
+Sets the length of envelope _’s delay stage
 (the amount of time, after the envelope is
 triggered, before the attack stage begins).
 Range: 0 (instantaneous) to 63 (longest).)";
 
     constexpr auto env_lfo_1_trig_description = u8R"(
-Selects whether and how envelope _â€™s cycle is triggered by LFO 1.
-â€¢ NORMAL: The envelopeâ€™s cycle is not triggered by LFO 1.
-â€¢ G-LFO1 (gated LFO 1 trigger): one or more notes must be gated
-on before LFO 1 will periodically trigger the envelopeâ€™s cycle.
-â€¢ LFO 1: The envelopeâ€™s cycle is periodically triggered by LFO 1.
+Selects whether and how envelope _’s cycle is triggered by LFO 1.
+• NORMAL: The envelope’s cycle is not triggered by LFO 1.
+• G-LFO1 (gated LFO 1 trigger): one or more notes must be gated
+on before LFO 1 will periodically trigger the envelope’s cycle.
+• LFO 1: The envelope’s cycle is periodically triggered by LFO 1.
 Note: The LFO 1 retrigger point parameter sets the exact point
-in LFO 1â€™s cycle where the envelopeâ€™s cycle gets triggered.)";
+in LFO 1’s cycle where the envelope’s cycle gets triggered.)";
 
     constexpr auto env_mode_description = u8R"(
 Selects how envelope _ will proceed through its cycle when triggered.
-â€¢ NORMAL: When a note is gated on and the envelope is triggered, the cycle will
+• NORMAL: When a note is gated on and the envelope is triggered, the cycle will
 run through the delay, attack, and decay stages, then hold at the sustain level.
 Gating off the note will immediately trigger the release stage, even if the 
 sustain stage has not yet been reached.
-â€¢ DADR (delay | attack | decay | release): The release stage begins immediately
+• DADR (delay | attack | decay | release): The release stage begins immediately
 after the decay stage, whether or not the voice is still gated on. Gating off
 the voice before the other stages complete will also start the release stage.
-â€¢ FREE (free run): The envelope will completely run through the delay, attack,
+• FREE (free run): The envelope will completely run through the delay, attack,
 decay, and release stages, whether or not the note is kept gated on. Keeping
 the note gated on will hold the sustain level normally.
-â€¢ BOTH (DADR plus free run): Like free run mode, except the release stage 
+• BOTH (DADR plus free run): Like free run mode, except the release stage 
 begins immediately after the decay stage, even if the note is still gated on.)";
 
     constexpr auto env_release_description = u8R"(
-Sets the length of envelope _â€™s release
+Sets the length of envelope _’s release
 stage (the amount of time it takes to drop
 from the sustain level to the minimum level).
 Range: 0 (instantaneous) to 63 (longest).)";
 
     constexpr auto env_sustain_description = u8R"(
-Sets envelope _â€™s sustain level. After the
+Sets envelope _’s sustain level. After the
 decay stage completes, output will remain
 at this level until the voice is gated off. 
 Range: 0 (minimum) to 63 (maximum).)";
 
     constexpr auto env_trig_mode_description = u8R"(
-Selects how envelope _â€™s cycle gets triggered and how it proceeds.
-â€¢ STRIG (single trigger) (unison mode only): The cycle will start for a
+Selects how envelope _’s cycle gets triggered and how it proceeds.
+• STRIG (single trigger) (unison mode only): The cycle will start for a
 voice only if it is not already playing. Legato playing will not re-trigger
 the cycle. If the envelope is re-triggered before its cycle completes, it
 will continue from the point it was previously at in its cycle.
-â€¢ SRESET (single trigger reset): Like single trigger mode except that, if
+• SRESET (single trigger reset): Like single trigger mode except that, if
 the envelope is re-triggered before its cycle completes, the cycle restarts.
-â€¢ MTRIG (multiple trigger): New notes will always re-trigger the envelope,
+• MTRIG (multiple trigger): New notes will always re-trigger the envelope,
 and it will continue from the point it was previously at in its cycle.
-â€¢ MRESET: (multiple trigger reset): New notes will always re-trigger
+• MRESET: (multiple trigger reset): New notes will always re-trigger
 the envelope and restart it from the beginning of its cycle.
-The â€˜Xâ€™ modes behave like their counterparts above, but the cycle trigger is
+The ‘X’ modes behave like their counterparts above, but the cycle trigger is
 an external DC pulse (typically from a footswitch) sent into the PEDAL 2 jack:
-â€¢ XTRIG (external single trigger) | â€¢ XRESET (external single trigger reset)
-â€¢ XMTRIG (external multiple trigger) | â€¢ XMRST (external multiple trigger reset))";
+• XTRIG (external single trigger) | • XRESET (external single trigger reset)
+• XMTRIG (external multiple trigger) | • XMRST (external multiple trigger reset))";
 
     constexpr auto env_velo_amt_description = u8R"(
 Sets whether and to what degree note
-velocity modulates envelope _â€™s amplitude.
+velocity modulates envelope _’s amplitude.
 Range: -63 to +63. 0 is no modulation.
 Negative values invert the velocity response.
 Note: Negative values cannot be transmitted to
@@ -89,17 +89,17 @@ individual parameters via quick patch edit. Send
 the entire patch using the PUSH button instead.)";
 
     constexpr auto keyboard_mode_description = u8R"(
-Selects how notes get assigned to the deviceâ€™s six available voices.
-â€¢ REASGN (reassign): Once a note is assigned to a specific voice,
+Selects how notes get assigned to the device’s six available voices.
+• REASGN (reassign): Once a note is assigned to a specific voice,
 it will be reassigned to that same voice every time it is played.
-â€¢ ROTATE (rotate): The device cycles through the six voices,
+• ROTATE (rotate): The device cycles through the six voices,
 assigning each newly played note to the next available voice.
-â€¢ UNISON (monophonic unison): Each note triggers all six voices and
+• UNISON (monophonic unison): Each note triggers all six voices and
 only one note can be played at a time. If multiple notes are played
 together, only the lowest note will be heard.
-â€¢ REAROB (reassign rob): Like reassign mode, but if all six
+• REAROB (reassign rob): Like reassign mode, but if all six
 voices are sounding and a new note is played, the new note will
-â€˜robâ€™ a voice from one of the notes that are already playing.)";
+‘rob’ a voice from one of the notes that are already playing.)";
 
     constexpr auto lfo_1_pressure_amt_description = u8R"(
 Sets whether and to what degree keyboard
@@ -125,12 +125,12 @@ Range: 0 (no modulation) to 63 (maximum modulation).)";
 
     constexpr auto lfo_lag_description = u8R"(
 The lag processor, which smooths pitch transitions for portamento,
-can also be used to smooth the transitions in LFO _â€™s wave cycle.
+can also be used to smooth the transitions in LFO _’s wave cycle.
 The effect will be most apparent on a square wave cycle.)";
 
     constexpr auto lfo_ramp_amt_description = u8R"(
 Sets whether and to what degree
-ramp _ modulates LFO _â€™s amplitude.
+ramp _ modulates LFO _’s amplitude.
 Range: -63 to +63. 0 is no modulation.
 Negative values invert the ramp.
 Note: Negative values cannot be
@@ -140,8 +140,8 @@ patch using the PUSH button instead.)";
 
     constexpr auto lfo_retrig_point_description = u8R"(
 When LFO _ is set (above) to be triggered by the keyboard or by an
-external source, this moves the starting point in the LFOâ€™s cycle.
-Range: 0 (beginning of the cycle) to 63 (the cycleâ€™s half-way point).)";
+external source, this moves the starting point in the LFO’s cycle.
+Range: 0 (beginning of the cycle) to 63 (the cycle’s half-way point).)";
 
     constexpr auto lfo_sample_source_description = u8R"(
 Selects the modulation source that LFO _ will
@@ -153,35 +153,35 @@ Sets the cycle rate of low-frequency oscillator _.
 Range: 0 (slowest) to 63 (fastest).)";
 
     constexpr auto lfo_trig_mode_description = u8R"(
-Selects the type of trigger that will start LFO _â€™s wave cycle.
-â€¢ OFF: The LFO is not triggered and cycles freely.
-â€¢ STRIG (single): A new note triggers the LFO only when no other
+Selects the type of trigger that will start LFO _’s wave cycle.
+• OFF: The LFO is not triggered and cycles freely.
+• STRIG (single): A new note triggers the LFO only when no other
 notes are currently held down (only active in unison mode).
-â€¢ MTRIG (multiple): The LFO is triggered with every new note played.
-â€¢ XTRIG (external): An external signal (e.g. a footswitch) triggers the LFO.)";
+• MTRIG (multiple): The LFO is triggered with every new note played.
+• XTRIG (external): An external signal (e.g. a footswitch) triggers the LFO.)";
 
     constexpr auto lfo_wave_type_description = u8R"(
 Selects the type of modulation signal that LFO _ generates.
-â€¢ TRI (triangle): A periodic wave that steadily rises and falls
+• TRI (triangle): A periodic wave that steadily rises and falls
 between its minimum and maximum values.
-â€¢ UPSAW (up or rising sawtooth): A periodic wave that rises steadily
+• UPSAW (up or rising sawtooth): A periodic wave that rises steadily
 to the maximum value then abruptly returns to the minimum value.
-â€¢ DNSAW (down or falling sawtooth): A periodic wave that falls steadily
+• DNSAW (down or falling sawtooth): A periodic wave that falls steadily
 to the minimum value then abruptly returns to the maximum value.
-â€¢ SQUAR (square): A periodic wave that switches abruptly between
+• SQUAR (square): A periodic wave that switches abruptly between
 the minimum and maximum values.
-â€¢ RANDM (random): An aperiodic wave that outputs a series of random values.
-â€¢ NOISE (noise): A much faster version of the random waveform.
-â€¢ SAMPL (sampled): The LFOâ€™s waveform is created by periodically sampling
+• RANDM (random): An aperiodic wave that outputs a series of random values.
+• NOISE (noise): A much faster version of the random waveform.
+• SAMPL (sampled): The LFO’s waveform is created by periodically sampling
 the value of another modulation source. Select the sample source below.
-The sampling rate is determined by the LFOâ€™s speed setting (above).)";
+The sampling rate is determined by the LFO’s speed setting (above).)";
 
     constexpr auto osc_1_sync_description = u8R"(
-Selects whether and to what degree oscillator 1â€™s
-waveform is synchronized with oscillator 2â€™s.)";
+Selects whether and to what degree oscillator 1’s
+waveform is synchronized with oscillator 2’s.)";
 
     constexpr auto osc_2_detune_description = u8R"(
-Slightly lowers or raises oscillator 2â€™s pitch.
+Slightly lowers or raises oscillator 2’s pitch.
 Range -31 to +31 (-/+ ~25 cents). 0 is no detune.
 Note: Negative values cannot be transmitted to
 individual parameters via quick patch edit. Send
@@ -199,25 +199,25 @@ the start of the sound.)";
     constexpr auto osc_1_key_track_description = u8R"(
 Selects how oscillator 1 responds to incoming pitch change
 messages (such as notes played on a keyboard controller).
-â€¢ KEYBD: Oscillater 1â€™s pitch tracks note key changes normally.
-â€¢ PORTA: Tracking is active, but transitions between pitches are
+• KEYBD: Oscillater 1’s pitch tracks note key changes normally.
+• PORTA: Tracking is active, but transitions between pitches are
 smoothed according to the settings in the Portamento section.)";
 
     constexpr auto osc_2_key_track_description = u8R"(
 Selects how oscillator 2 responds to incoming pitch change
 messages (such as notes played on a keyboard controller).
-â€¢ OFF: Oscillater 2â€™s pitch will not change as notes are played.
-â€¢ PORTA: Tracking is active, but transitions between pitches are
+• OFF: Oscillater 2’s pitch will not change as notes are played.
+• PORTA: Tracking is active, but transitions between pitches are
 smoothed according to the settings in the Portamento section.
-â€¢ KEYBD: Oscillator 2â€™s pitch tracks note key changes normally.)";
+• KEYBD: Oscillator 2’s pitch tracks note key changes normally.)";
 
     constexpr auto osc_lever_control_description = u8R"(
-Selects which of the performance â€˜leversâ€™
+Selects which of the performance ‘levers’
 (wheel-type controllers) modulate oscillator _.
-â€¢ OFF: Oscillator _ is not modulated by either lever.
-â€¢ BEND: Pitch bend is modulated by lever 1 (pitch wheel).
-â€¢ VIB: Vibrato amount is modulated by lever 2 (mod wheel).
-â€¢ BOTH: Oscillator _ is modulated by both levers.)";
+• OFF: Oscillator _ is not modulated by either lever.
+• BEND: Pitch bend is modulated by lever 1 (pitch wheel).
+• VIB: Vibrato amount is modulated by lever 2 (mod wheel).
+• BOTH: Oscillator _ is modulated by both levers.)";
 
     constexpr auto osc_lfo_1_fm_description = u8R"(
 Sets whether and to what degree LFO 1
@@ -240,13 +240,13 @@ via quick patch edit. Send the entire
 patch using the PUSH button instead.)";
 
     constexpr auto osc_pitch_description = u8R"(
-Sets oscillator _â€™s base pitch in semitone steps.
+Sets oscillator _’s base pitch in semitone steps.
 Range: 0 (C 0) to 63 (D# 5). Hold down the
 SHIFT key when using the mouse wheel to incre-
 ment the pitch by one octave (12 semitones).)";
 
     constexpr auto osc_pulse_w_description = u8R"(
-Sets the width of oscillator _â€™s
+Sets the width of oscillator _’s
 wave when its type is set to pulse.
 Range: 0 (very wide) to 63 (very narrow).
 A value of 31 produces a square wave.)";
@@ -259,12 +259,12 @@ Intermediate values produce
 blends of these two shapes.)";
 
     constexpr auto osc_type_description = u8R"(
-Selects oscillator _â€™s wave type.
-â€¢ OFF: The oscillator produces no sound.
-â€¢ PULSE: Set the width of the pulse below.
-â€¢ WAVE: Set the shape of the wave below.
-â€¢ BOTH: A blend of pulse and wave.
-â€¢ NOISE: White noise (oscillator 2 only).)";
+Selects oscillator _’s wave type.
+• OFF: The oscillator produces no sound.
+• PULSE: Set the width of the pulse below.
+• WAVE: Set the shape of the wave below.
+• BOTH: A blend of pulse and wave.
+• NOISE: White noise (oscillator 2 only).)";
 
     constexpr auto porta_legato_description = u8R"(
 When legato is on, portamento will only be active
@@ -274,11 +274,11 @@ the keyboard mode is set to unison.)";
 
     constexpr auto porta_mode_description = u8R"(
 Selects how the portamento transition rate is calculated.
-â€¢ LINEAR: The time it takes to transition between two pitches
+• LINEAR: The time it takes to transition between two pitches
 is proportional to the distance between them.
-â€¢ CONSTANT: The time it takes to transition between two pitches
+• CONSTANT: The time it takes to transition between two pitches
 is the same regardless of the distance between them.
-â€¢ EXPO (exponential): The transition between pitches starts out
+• EXPO (exponential): The transition between pitches starts out
 fast, then slows down as it approaches the destination pitch.)";
 
     constexpr auto porta_rate_description = u8R"(
@@ -301,12 +301,12 @@ ramp _ to complete its control cycle.
 Range: 0 (instantaneous) to 63 (longest).)";
 
     constexpr auto ramp_trig_description = u8R"(
-Selects the type of trigger that will start ramp _â€™s control cycle.
-â€¢ STRIG (single): A new note triggers the ramp only when no other
+Selects the type of trigger that will start ramp _’s control cycle.
+• STRIG (single): A new note triggers the ramp only when no other
 notes are currently held down (only active in unison mode).
-â€¢ MTRIG (multiple): The ramp is triggered with every new note played.
-â€¢ XTRIG (external): An external signal (e.g. a footswitch) triggers the ramp.
-â€¢ GATEX (gated external): An external signal triggers the ramp only when
+• MTRIG (multiple): The ramp is triggered with every new note played.
+• XTRIG (external): An external signal (e.g. a footswitch) triggers the ramp.
+• GATEX (gated external): An external signal triggers the ramp only when
 there are one or more notes being played.)";
 
     constexpr auto track_input_description = u8R"(
@@ -345,7 +345,7 @@ patch using the PUSH button instead.)";
 
     constexpr auto vcf_env_1_amt_description = u8R"(
 Sets whether and to what degree envelope 1
-modulates the VCFâ€™s cutoff frequency.
+modulates the VCF’s cutoff frequency.
 Range: -63 to +63. 0 is no modulation.
 Negative values invert the envelope.
 Note: Negative values cannot be
@@ -366,7 +366,7 @@ patch using the PUSH button instead.)";
 
     constexpr auto vcf_fm_osc_1_amt_description = u8R"(
 Sets whether and to what degree oscillator 1
-modulates the VCFâ€™s cutoff frequency.
+modulates the VCF’s cutoff frequency.
 Range: 0 (no modulation) to 63 (maximum).)";
 
     constexpr auto vcf_fm_pressure_amt_description = u8R"(
@@ -386,25 +386,25 @@ of the voltage-controlled filter.
 Range: 0 to 127.)";
 
     constexpr auto vcf_key_track_description = u8R"(
-Selects how the VCFâ€™s cutoff frequency responds to incoming pitch
+Selects how the VCF’s cutoff frequency responds to incoming pitch
 change messages (such as notes played on a keyboard controller).
-â€¢ OFF: Note key changes have no effect on the VCFâ€™s cutoff frequency.
-â€¢ PORTA: Tracking is active, but transitions between cutoff frequencies
+• OFF: Note key changes have no effect on the VCF’s cutoff frequency.
+• PORTA: Tracking is active, but transitions between cutoff frequencies
 are smoothed according to the settings in the portamento section.
-â€¢ KEYBD: The VCFâ€™s cutoff frequency tracks note key changes, rising as
+• KEYBD: The VCF’s cutoff frequency tracks note key changes, rising as
 higher notes are played and dropping as lower notes are played.)";
 
     constexpr auto vcf_lever_ctrl_description = u8R"(
-Selects which of the performance â€˜leversâ€™
+Selects which of the performance ‘levers’
 (wheel-type controllers) modulate the VCF frequency.
-â€¢ OFF: VCF frequency is not modulated by either lever.
-â€¢ BEND: VCF frequency is modulated by lever 1 (pitch wheel).
-â€¢ VIB: VCF frequency is modulated by lever 2 (mod wheel).
-â€¢ BOTH: VCF frequency is modulated by both levers.)";
+• OFF: VCF frequency is not modulated by either lever.
+• BEND: VCF frequency is modulated by lever 1 (pitch wheel).
+• VIB: VCF frequency is modulated by lever 2 (mod wheel).
+• BOTH: VCF frequency is modulated by both levers.)";
 
     constexpr auto vcf_pressure_amt_description = u8R"(
 Sets whether and to what degree keyboard pressure 
-(aftertouch) modulates the VCFâ€™s cutoff frequency.
+(aftertouch) modulates the VCF’s cutoff frequency.
 Range: -63 to +63. 0 is no modulation.
 Negative values invert the pressure response.
 Note: Negative values cannot be transmitted

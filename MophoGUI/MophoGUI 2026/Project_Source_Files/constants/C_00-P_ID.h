@@ -33,7 +33,7 @@ namespace ID
 	static const Identifier ep_023_lpf_fm_amt      { "ep_023_lpf_fm_amt" };
 	static const Identifier ep_024_lpf_type        { "ep_024_lpf_type" };
 	static const Identifier ep_025_lpf_env_amt     { "ep_025_lpf_env_amt" };
-	static const Identifier ep_026_lpf_vel_amt     { "ep_026_lpf_vel_amt" };
+	static const Identifier ep_026_lpf_velo_amt     { "ep_026_lpf_velo_amt" };
 	static const Identifier ep_027_lpf_delay       { "ep_027_lpf_delay" };
 	static const Identifier ep_028_lpf_attack      { "ep_028_lpf_attack" };
 	static const Identifier ep_029_lpf_decay       { "ep_029_lpf_decay" };

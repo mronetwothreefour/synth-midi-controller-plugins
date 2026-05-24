@@ -56,8 +56,8 @@ String Describe_Exp_Param::env_sustain(const String env) {
     return from_string_literal(SL::env_sustain_description).replace("_envelope name_", env);
 }
 
-String Describe_Exp_Param::env_vel_amt(const String env) {
-    return from_string_literal(SL::env_vel_amt_description).replace("_envelope name_", env);
+String Describe_Exp_Param::env_velo_amt(const String env) {
+    return from_string_literal(SL::env_velo_amt_description).replace("_envelope name_", env);
 }
 
 String Describe_Exp_Param::ext_in_level() {

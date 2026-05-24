@@ -12,7 +12,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 
 	// *************************************************************** osc section
 	for (auto osc = 1; osc < 3; ++osc) {
-		auto center_y = osc == 1 ? osc_row_1_center_y : osc_row_2_center_y;
+		auto center_y = osc == 1 ? osc_row_1_y : osc_row_2_y;
 		tree.addChild(
 			Build_Tree::exposed_parameter(
 				osc == 1 ? ID::ep_000_osc_1_pitch : ID::ep_006_osc_2_pitch,
@@ -104,7 +104,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 	tree.addChild(
 		Build_Tree::exposed_parameter(
 			ID::ep_014_osc_slop, "Oscillator Slop", Ctrl_Type::knob,
-			Knob_Display_Type::osc_slop, 12, 6, 2, ctrl_col_7_x, osc_row_1_center_y, 
+			Knob_Display_Type::osc_slop, 12, 6, 2, ctrl_col_7_x, osc_row_1_y, 
 			knob_diameter, knob_diameter, Describe_Exp_Param::osc_slop(),
 			Build_Tree::choice_names_unsigned_int(6, curt), Build_Tree::choice_names_unsigned_int(6)
 		),
@@ -113,7 +113,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 	tree.addChild(
 		Build_Tree::exposed_parameter(
 			ID::ep_015_bend_range, "Pitch Bend Range", Ctrl_Type::knob,
-			Knob_Display_Type::pitch_bend, 93, choice_count_bend_range, 4, ctrl_col_9_x, osc_row_1_center_y,
+			Knob_Display_Type::pitch_bend, 93, choice_count_bend_range, 4, ctrl_col_9_x, osc_row_1_y,
 			knob_diameter, knob_diameter, Describe_Exp_Param::bend_range(),
 			Build_Tree::choice_names_bend_range(curt), Build_Tree::choice_names_bend_range()
 		),
@@ -131,7 +131,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 	tree.addChild(
 		Build_Tree::exposed_parameter(
 			ID::ep_017_osc_mix, "Oscillator 1 & 2 Mix", Ctrl_Type::knob,
-			Knob_Display_Type::unsigned_7_bit, 13, 128, 64, ctrl_col_8_x, osc_row_1_center_y,
+			Knob_Display_Type::unsigned_7_bit, 13, 128, 64, ctrl_col_8_x, osc_row_1_y,
 			knob_diameter, knob_diameter, Describe_Exp_Param::osc_mix(),
 			Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
 		),
@@ -140,7 +140,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 	tree.addChild(
 		Build_Tree::exposed_parameter(
 			ID::ep_018_noise_level, "Noise Level", Ctrl_Type::knob,
-			Knob_Display_Type::unsigned_7_bit, 14, 128, 0, ctrl_col_7_x, osc_row_2_center_y,
+			Knob_Display_Type::unsigned_7_bit, 14, 128, 0, ctrl_col_7_x, osc_row_2_y,
 			knob_diameter, knob_diameter, Describe_Exp_Param::noise_level(),
 			Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
 		),
@@ -149,12 +149,123 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 	tree.addChild(
 		Build_Tree::exposed_parameter(
 			ID::ep_019_ext_in_level, "External Audio Input Level", Ctrl_Type::knob,
-			Knob_Display_Type::unsigned_7_bit, 116, 128, 0, ctrl_col_8_x, osc_row_2_center_y,
+			Knob_Display_Type::unsigned_7_bit, 116, 128, 0, ctrl_col_8_x, osc_row_2_y,
 			knob_diameter, knob_diameter, Describe_Exp_Param::ext_in_level(),
 			Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
 		),
 		-1, nullptr);
 	// ---------------------------------------------------------- end osc section
+
+	// *************************************************************** lpf section
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_020_lpf_freq, "LPF Cutoff Frequency", Ctrl_Type::knob_pitch, Knob_Display_Type::lpf_freq,
+			15, choice_count_lpf_freq, 148, ctrl_col_1_x, lpf_row_2_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::lpf_freq(), Build_Tree::choice_names_lpf_freq(curt),
+			Build_Tree::choice_names_lpf_freq()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_021_lpf_reso, "LPF Resonance", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			16, 128, 0, ctrl_col_2_x, lpf_row_2_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::lpf_reso(), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_022_lpf_key_amt, "LPF Keyboard Amount", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			17, 128, 0, ctrl_col_3_x, lpf_row_2_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::lpf_key_amt(), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_023_lpf_fm_amt, "LPF FM (By Oscillator 1)", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			18, 128, 0, ctrl_col_3_x, lpf_row_3_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::lpf_fm_amt(), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_024_lpf_type, "LPF Type", Ctrl_Type::toggle, Knob_Display_Type::none,
+			19, 2, 1, ctrl_col_2_x, lpf_row_1_y, 34, 26, Describe_Exp_Param::lpf_type(),
+			Build_Tree::choice_names_lpf_type(curt), Build_Tree::choice_names_lpf_type()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_025_lpf_env_amt, "Envelope Amount", Ctrl_Type::knob, Knob_Display_Type::signed_8_bit,
+			20, 255, 127, ctrl_col_1_x, lpf_row_3_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::lpf_env_amt(), Build_Tree::choice_names_signed_8_bit_int(curt),
+			Build_Tree::choice_names_signed_8_bit_int()
+		),
+		-1, nullptr);
+
+	String env_name{ "the LPF envelope" };
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_026_lpf_velo_amt, "LPF Envelope Velocity Amount", Ctrl_Type::knob,
+			Knob_Display_Type::unsigned_7_bit, 21, 128, 0, ctrl_col_2_x, lpf_row_3_y,
+			knob_diameter, knob_diameter, Describe_Exp_Param::env_velo_amt(env_name),
+			Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_027_lpf_delay, "LPF Envelope Delay", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			22, 128, 0, ctrl_col_4_x, lpf_row_3_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::env_delay(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_028_lpf_attack, "LPF Envelope Attack", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			23, 128, 0, ctrl_col_5_x, lpf_row_3_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::env_attack(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_029_lpf_decay, "LPF Envelope Decay", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			24, 128, 0, ctrl_col_6_x, lpf_row_3_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::env_decay(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_030_lpf_sustain, "LPF Envelope Sustain", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			25, 128, 0, ctrl_col_7_x, lpf_row_3_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::env_sustain(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_031_lpf_release, "LPF Envelope Release", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			26, 128, 0, ctrl_col_8_x, lpf_row_3_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::env_release(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+	// ---------------------------------------------------------- end lpf section
 }
 
 const Identifier Exposed_Parameter_Info::id_for(Track track, Step step) const {

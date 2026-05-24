@@ -13,8 +13,8 @@ struct Build_Tree :
 	public Base_Build_Tree
 {
 	static ValueTree exposed_parameter(Identifier id, String name, Ctrl_Type ctrl,
-									   Knob_Display_Type display, uint8 nrpn, uint8 choice_count, 
-									   uint8 init_choice, int ctrl_center_x, int ctrl_center_y,
+									   Knob_Display_Type display, int nrpn, int choice_count,
+									   int init_choice, int ctrl_center_x, int ctrl_center_y,
 									   int ctrl_w, int ctrl_h, String description, 
 									   ValueTree curt_choice_names, ValueTree choice_names);
 
@@ -49,6 +49,8 @@ struct Build_Tree :
 	static ValueTree choice_names_seq_track_step(const bool curt = false);
 	static ValueTree choice_names_seq_tracks_2_and_4_dest(const bool track_2, const bool curt = false);
 	static ValueTree choice_names_seq_trig_mode(const bool curt = false);
+
+	static ValueTree choice_names_signed_8_bit_int(const bool curt = false);
 
 	static ValueTree choice_names_voice_name_char(const bool curt = false);
 };

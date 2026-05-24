@@ -3,8 +3,8 @@
 #include "H_99-B_Misc.h"
 
 ValueTree Build_Tree::exposed_parameter(Identifier id, String name, Ctrl_Type ctrl, 
-										Knob_Display_Type display, uint8 nrpn, 
-										uint8 choice_count, uint8 init_choice,
+										Knob_Display_Type display, int nrpn,
+										int choice_count, int init_choice,
 										int ctrl_center_x, int ctrl_center_y, int ctrl_w, 
 										int ctrl_h, String description, 
 										ValueTree curt_choice_names, ValueTree choice_names)
@@ -451,6 +451,15 @@ ValueTree Build_Tree::choice_names_seq_trig_mode(const bool curt) {
 	tree.setProperty("choice_3", "no gate, no reset", nullptr);
 	tree.setProperty("choice_4", "key step", nullptr);
 	tree.setProperty("choice_5", "audio input", nullptr);
+	return tree;
+}
+
+ValueTree Build_Tree::choice_names_signed_8_bit_int(const bool curt) {
+	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	for (int choice = 0; choice < 255; ++choice) {
+		auto name{ (choice > 127 ? "+" : "") + String{ choice - 127 } };
+		tree.setProperty("choice_" + (String)choice, name, nullptr);
+	}
 	return tree;
 }
 

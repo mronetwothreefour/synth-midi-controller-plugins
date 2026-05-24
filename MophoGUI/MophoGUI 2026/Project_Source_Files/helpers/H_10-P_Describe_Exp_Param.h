@@ -21,7 +21,7 @@ struct Describe_Exp_Param
 	static String env_delay(const String env_name);
 	static String env_release(const String env_name);
 	static String env_sustain(const String env_name);
-	static String env_vel_amt(const String env_name);
+	static String env_velo_amt(const String env_name);
 	static String ext_in_level();
 
 	static String glide_mode();
