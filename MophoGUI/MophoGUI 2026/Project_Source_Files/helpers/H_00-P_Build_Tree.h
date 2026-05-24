@@ -16,7 +16,8 @@ struct Build_Tree :
 									   Knob_Display_Type display, int nrpn, int choice_count,
 									   int init_choice, int ctrl_center_x, int ctrl_center_y,
 									   int ctrl_w, int ctrl_h, String description, 
-									   ValueTree curt_choice_names, ValueTree choice_names);
+									   ValueTree curt_choice_names, ValueTree choice_names,
+									   int red_toggle_center_x = 0, int red_toggle_center_y = 0);
 
 	static String convert_int_to_seq_step_pitch_name(const int i);
 

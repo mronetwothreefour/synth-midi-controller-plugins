@@ -64,10 +64,9 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			Build_Tree::exposed_parameter(
 				osc == 1 ? ID::ep_004_osc_1_key_track : ID::ep_010_osc_2_key_track,
 				"Oscillator " + (String)osc + " Keyboard Track On/Off", Ctrl_Type::toggle,
-				Knob_Display_Type::none, osc == 1 ? 4 : 9, 2, 1, ctrl_col_6_x, 
-				center_y + toggle_center_offset, toggle_diameter, toggle_diameter,
+				Knob_Display_Type::none, osc == 1 ? 4 : 9, 2, 1, ctrl_col_6_x, center_y + 11, 32, 36,
 				Describe_Exp_Param::osc_key_track(osc), Build_Tree::choice_names_off_on(curt),
-				Build_Tree::choice_names_off_on()
+				Build_Tree::choice_names_off_on(), ctrl_col_6_x, center_y
 			),
 			-1, nullptr);
 
@@ -86,9 +85,9 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 	tree.addChild(
 		Build_Tree::exposed_parameter(
 			ID::ep_012_osc_sync, "Hard Oscillator Sync On / Off", Ctrl_Type::toggle,
-			Knob_Display_Type::none, 10, 2, 0, 242, 22, toggle_diameter, toggle_diameter,
+			Knob_Display_Type::none, 10, 2, 0, 242, 22, 76, toggle_diameter,
 			Describe_Exp_Param::osc_sync(), Build_Tree::choice_names_off_on(curt),
-			Build_Tree::choice_names_off_on()
+			Build_Tree::choice_names_off_on(), 273, 22
 		),
 		-1, nullptr);
 
@@ -197,13 +196,14 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::ep_024_lpf_type, "LPF Type", Ctrl_Type::toggle, Knob_Display_Type::none,
 			19, 2, 1, ctrl_col_2_x, lpf_row_1_y, 34, 26, Describe_Exp_Param::lpf_type(),
-			Build_Tree::choice_names_lpf_type(curt), Build_Tree::choice_names_lpf_type()
+			Build_Tree::choice_names_lpf_type(curt), Build_Tree::choice_names_lpf_type(),
+			ctrl_col_2_x, 161
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Build_Tree::exposed_parameter(
-			ID::ep_025_lpf_env_amt, "Envelope Amount", Ctrl_Type::knob, Knob_Display_Type::signed_8_bit,
+			ID::ep_025_lpf_env_amt, "LPF Envelope Amount", Ctrl_Type::knob, Knob_Display_Type::signed_8_bit,
 			20, 255, 127, ctrl_col_1_x, lpf_row_3_y, knob_diameter, knob_diameter,
 			Describe_Exp_Param::lpf_env_amt(), Build_Tree::choice_names_signed_8_bit_int(curt),
 			Build_Tree::choice_names_signed_8_bit_int()
@@ -266,6 +266,234 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		),
 		-1, nullptr);
 	// ---------------------------------------------------------- end lpf section
+
+	// *************************************************************** vca section
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_032_vca_level, "VCA Baseline Level", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			27, 128, 0, ctrl_col_1_x, vca_row_1_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::vca_level(), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_033_vca_env_amt, "VCA Envelope Amount", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			30, 255, 127, ctrl_col_2_x, vca_row_1_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::vca_env_amt(), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	env_name = "the VCA envelope";
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_034_vca_vel_amt, "VCA Envelope Velocity Amount", Ctrl_Type::knob,
+			Knob_Display_Type::unsigned_7_bit, 31, 128, 0, ctrl_col_3_x, vca_row_1_y,
+			knob_diameter, knob_diameter, Describe_Exp_Param::env_velo_amt(env_name),
+			Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_035_vca_delay, "VCA Envelope Delay", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			32, 128, 0, ctrl_col_4_x, vca_row_2_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::env_delay(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_036_vca_attack, "VCA Envelope Attack", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			33, 128, 0, ctrl_col_5_x, vca_row_2_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::env_attack(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_037_vca_decay, "VCA Envelope Decay", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			34, 128, 0, ctrl_col_6_x, vca_row_2_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::env_decay(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_038_vca_sustain, "VCA Envelope Sustain", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			35, 128, 64, ctrl_col_7_x, vca_row_2_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::env_sustain(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_039_vca_release, "VCA Envelope Release", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			36, 128, 64, ctrl_col_8_x, vca_row_2_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::env_release(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_040_voice_volume, "Program Volume", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			29, 128, 120, ctrl_col_2_x, vca_row_2_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::voice_volume(), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+	// ---------------------------------------------------------- end vca section
+
+	// *************************************************************** lfo section
+		auto mod_dest_param_description{ "Selects the target parameter for modulation" };
+
+	for (int lfo = 0; lfo < 4; ++lfo) {
+		int param_offset{ lfo * 5 };
+		String lfo_num{ lfo + 1 };
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_0" + String{ 41 + param_offset } + "_lfo_" + lfo_num + "_freq",
+				"LFO " + lfo_num + " Frequency", Ctrl_Type::knob, Knob_Display_Type::lfo_freq,
+				37 + param_offset, 167, 80, 416 + lfo * lfo_block_spacing, lfo_row_1_y,
+				knob_diameter, knob_diameter, Describe_Exp_Param::lfo_freq(lfo + 1),
+				Build_Tree::choice_names_lfo_freq(curt), Build_Tree::choice_names_lfo_freq()
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_0" + String{ 42 + param_offset } + "_lfo_" + lfo_num + "_shape",
+				"LFO " + lfo_num + " Wave Shape", Ctrl_Type::cbox, Knob_Display_Type::none,
+				38 + param_offset, 5, 1, lfo_1_cbox_x + lfo * lfo_block_spacing, lfo_row_2_y,
+				lfo_cbox_w, cbox_h, Describe_Exp_Param::lfo_shape(lfo + 1),
+				Build_Tree::choice_names_lfo_shape(curt), Build_Tree::choice_names_lfo_shape()
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_0" + String{ 43 + param_offset } + "_lfo_" + lfo_num + "_amt",
+				"LFO " + lfo_num + " Amount", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+				39 + param_offset, 128, 0, 461 + lfo * lfo_block_spacing, lfo_row_1_y,
+				knob_diameter, knob_diameter, Describe_Exp_Param::lfo_amt(lfo + 1),
+				Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_0" + String{ 44 + param_offset } + "_lfo_" + lfo_num + "_dest",
+				"LFO " + lfo_num + " Modulation Destination", Ctrl_Type::cbox, Knob_Display_Type::none,
+				40 + param_offset, EP::choice_count_mod_dest, 0, lfo_1_cbox_x + lfo * lfo_block_spacing, lfo_row_3_y,
+				lfo_cbox_w, cbox_h, mod_dest_param_description + String{ " by LFO " } + lfo_num + ".",
+				Build_Tree::choice_names_mod_dest(curt), Build_Tree::choice_names_mod_dest()
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_0" + String{ 45 + param_offset } + "_lfo_" + lfo_num + "_key_sync",
+				"LFO " + lfo_num + " Key Sync On/Off", Ctrl_Type::toggle, Knob_Display_Type::none,
+				41 + param_offset, 2, 0, 507 + lfo * lfo_block_spacing, 526,
+				26, 36, mod_dest_param_description + String{ " by LFO " } + lfo_num + ".",
+				Build_Tree::choice_names_mod_dest(curt), Build_Tree::choice_names_mod_dest(),
+				507 + lfo * lfo_block_spacing, lfo_row_1_y
+			),
+			-1, nullptr);
+	} // ---------------------------------------------------------- end lfo section
+
+	// *************************************************************** env 3 section
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_061_env_3_dest, "Envelope 3 Modulation Destination", Ctrl_Type::cbox,
+			Knob_Display_Type::none, 57, EP::choice_count_mod_dest, 0, ctrl_col_2_x, env_3_row_2_y,
+			126, cbox_h, mod_dest_param_description + String{ " by envelope 3." },
+			Build_Tree::choice_names_mod_dest(curt), Build_Tree::choice_names_mod_dest()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_062_env_3_amount, "Envelope 3 Amount", Ctrl_Type::knob, Knob_Display_Type::signed_8_bit,
+			58, 255, 127, ctrl_col_2_x, env_3_row_1_y, knob_diameter, knob_diameter, 
+			Describe_Exp_Param::env_3_amt(), Build_Tree::choice_names_signed_8_bit_int(curt),
+			Build_Tree::choice_names_signed_8_bit_int()
+		),
+		-1, nullptr);
+
+	env_name = "envelope 3";
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_063_env_3_velo_amt, "Envelope 3 Velocity Amount", Ctrl_Type::knob,
+			Knob_Display_Type::unsigned_7_bit, 59, 128, 0, ctrl_col_3_x, env_3_row_1_y,
+			knob_diameter, knob_diameter, Describe_Exp_Param::env_velo_amt(env_name),
+			Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_064_env_3_delay, "Envelope 3 Delay", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			60, 128, 0, ctrl_col_4_x, env_3_row_2_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::env_delay(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_065_env_3_attack, "Envelope 3 Attack", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			61, 128, 0, ctrl_col_5_x, env_3_row_2_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::env_attack(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_066_env_3_decay, "Envelope 3 Decay", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			62, 128, 0, ctrl_col_6_x, env_3_row_2_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::env_decay(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_067_env_3_sustain, "Envelope 3 Sustain", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			63, 128, 0, ctrl_col_7_x, env_3_row_2_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::env_sustain(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_068_env_3_release, "Envelope 3 Release", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+			64, 128, 0, ctrl_col_8_x, env_3_row_2_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::env_release(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_069_env_3_repeat, "Envelope 3 Repeat", Ctrl_Type::toggle, Knob_Display_Type::none,
+			98, 2, 0, ctrl_col_1_x, 537, 34, 26, Describe_Exp_Param::env_3_repeat(),
+			Build_Tree::choice_names_off_on(curt), Build_Tree::choice_names_off_on(),
+			ctrl_col_1_x, env_3_row_1_y
+		),
+		-1, nullptr);
+	// ---------------------------------------------------------- end lfo section
 }
 
 const Identifier Exposed_Parameter_Info::id_for(Track track, Step step) const {

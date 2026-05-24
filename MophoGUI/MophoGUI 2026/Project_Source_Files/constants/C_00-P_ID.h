@@ -50,7 +50,7 @@ namespace ID
 	static const Identifier ep_040_voice_volume    { "ep_040_voice_volume" };
 	static const Identifier ep_061_env_3_dest      { "ep_061_env_3_dest" };
 	static const Identifier ep_062_env_3_amount    { "ep_062_env_3_amount" };
-	static const Identifier ep_063_env_3_vel_amt   { "ep_063_env_3_vel_amt" };
+	static const Identifier ep_063_env_3_velo_amt   { "ep_063_env_3_velo_amt" };
 	static const Identifier ep_064_env_3_delay     { "ep_064_env_3_delay" };
 	static const Identifier ep_065_env_3_attack    { "ep_065_env_3_attack" };
 	static const Identifier ep_066_env_3_decay     { "ep_066_env_3_decay" };

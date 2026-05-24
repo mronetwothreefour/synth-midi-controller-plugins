@@ -7,7 +7,8 @@ ValueTree Build_Tree::exposed_parameter(Identifier id, String name, Ctrl_Type ct
 										int choice_count, int init_choice,
 										int ctrl_center_x, int ctrl_center_y, int ctrl_w, 
 										int ctrl_h, String description, 
-										ValueTree curt_choice_names, ValueTree choice_names)
+										ValueTree curt_choice_names, ValueTree choice_names,
+										int red_toggle_center_x, int red_toggle_center_y)
 {
 	ValueTree tree_ep{ id,
 		{
@@ -22,6 +23,8 @@ ValueTree Build_Tree::exposed_parameter(Identifier id, String name, Ctrl_Type ct
 			{ ID::ep_p_ctrl_width, ctrl_w },
 			{ ID::ep_p_ctrl_height, ctrl_h },
 			{ ID::ep_p_description, description },
+			{ ID::ep_p_red_toggle_center_x, red_toggle_center_x },
+			{ ID::ep_p_red_toggle_center_y, red_toggle_center_y }
 		},
 		{ curt_choice_names, choice_names }
 	};

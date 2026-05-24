@@ -9,6 +9,7 @@ namespace EP
 	constexpr uint8 choice_count_clock_tempo{ 221 };
 	constexpr uint8 choice_count_lfo_freq{ 167 };
 	constexpr uint8 choice_count_lpf_freq{ 165 };
+	constexpr uint8 choice_count_mod_dest{ 47 };
 	constexpr uint8 choice_count_osc_pitch{ 121 };
 	constexpr uint8 choice_count_osc_fine{ 101 };
 	constexpr uint8 choice_count_osc_shape{ 104 };
