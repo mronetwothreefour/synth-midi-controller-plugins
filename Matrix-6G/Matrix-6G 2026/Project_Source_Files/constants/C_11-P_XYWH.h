@@ -29,24 +29,38 @@ namespace XYWH
 	constexpr int ctrl_row_11_y{ ctrl_row_10_y + ctrl_row_h };
 	constexpr int ctrl_row_12_y{ ctrl_row_11_y + ctrl_row_h };
 
+	constexpr int env_block_spacing{ 410 };
+	constexpr int env_dadsr_spacing{ 50 };
+	constexpr int env_col_1_x{ 134 };
+	constexpr int env_1_delay_x{ 198 };
+	constexpr int env_1_attack_x{ env_1_delay_x + env_dadsr_spacing };
+	constexpr int env_1_decay_x{ env_1_attack_x + env_dadsr_spacing };
+	constexpr int env_1_sustain_x{ env_1_decay_x + env_dadsr_spacing };
+	constexpr int env_1_release_x{ env_1_sustain_x + env_dadsr_spacing };
+	constexpr int env_ctrl_row_1_y{ 450 };
+	constexpr int env_ctrl_row_2_y{ env_ctrl_row_1_y + ctrl_row_h };
+	constexpr int env_ctrl_row_3_y{ env_ctrl_row_2_y + ctrl_row_h };
+	constexpr int env_ctrl_row_4_y{ env_ctrl_row_3_y + ctrl_row_h };
+	constexpr int env_ctrl_row_5_y{ env_ctrl_row_4_y + ctrl_row_h };
+	constexpr int env_ctrl_w{ 72 };
+	constexpr int env_dadsr_ctrl_w{ 28 };
+
 	constexpr int gui_init_w{ 1252 }, gui_init_h{ 596 };
 
 	constexpr int osc_col_1_x{ 130 };
 	constexpr int osc_col_2_x{ 196 };
 	constexpr int osc_ctrl_w{ 60 };
-	constexpr int osc_col_1_choice_menu_x{ 166 };
-	constexpr int osc_col_2_choice_menu_x{ 232 };
 
 	constexpr auto lfo_col_1_x{ 726 };
 	constexpr auto lfo_col_2_x{ 792 };
-	constexpr auto lfo_col_w{ 60 };
+	constexpr auto lfo_ctrl_w{ 60 };
 
 	constexpr auto porta_key_mode_col_x{ 544 };
 	constexpr auto porta_key_mode_col_w{ 72 };
 
 	constexpr auto ramp_col_1_x{ 894 };
 	constexpr auto ramp_col_2_x{ 960 };
-	constexpr auto ramp_col_w{ 60 };
+	constexpr auto ramp_ctrl_w{ 60 };
 
 	constexpr auto track_input_x{ 943 };
 	constexpr auto track_input_y{ 165 };
@@ -57,9 +71,9 @@ namespace XYWH
 	constexpr auto track_pt_y{ 279 };
 
 	constexpr auto vcf_fm_col_x{ 550 };
-	constexpr auto vcf_fm_col_w{ 60 };
+	constexpr auto vcf_fm_ctrl_w{ 60 };
 
 	constexpr int vcf_vca_col_x{ 382 };
-	constexpr int vcf_vca_col_w{ 60 };
+	constexpr int vcf_vca_ctrl_w{ 60 };
 
 }

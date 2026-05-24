@@ -147,7 +147,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::ep_21_vcf_freq, 21, "VCF Cutoff Frequency", Ctrl_Type::slider, 18,
 			Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 128, 55,
-			vcf_vca_col_x, ctrl_row_01_y, vcf_vca_col_w, Describe::vcf_freq(),
+			vcf_vca_col_x, ctrl_row_01_y, vcf_vca_ctrl_w, Describe::vcf_freq(),
 			Build_Tree::choice_names_unsigned_int(128, curt),
 			Build_Tree::choice_names_unsigned_int(128)
 		),
@@ -157,7 +157,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::ep_22_vcf_reso, 24, "VCF Resonance", Ctrl_Type::slider, 19,
 			Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, 0,
-			vcf_vca_col_x, ctrl_row_02_y, vcf_vca_col_w, Describe::vcf_reso(),
+			vcf_vca_col_x, ctrl_row_02_y, vcf_vca_ctrl_w, Describe::vcf_reso(),
 			Build_Tree::choice_names_unsigned_int(64, curt),
 			Build_Tree::choice_names_unsigned_int(64)
 		),
@@ -167,7 +167,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::ep_23_vcf_env_1_amt, 22, "VCF Envelope 1 Amount", Ctrl_Type::slider,
 			82, Range_Type::signed_7_bit, Slider_Display_Type::signed_7_bit, 127, 105,
-			vcf_vca_col_x, ctrl_row_03_y, vcf_vca_col_w, Describe::vcf_env_1_amt(),
+			vcf_vca_col_x, ctrl_row_03_y, vcf_vca_ctrl_w, Describe::vcf_env_1_amt(),
 			Build_Tree::choice_names_signed_7_bit_int(curt),
 			Build_Tree::choice_names_signed_7_bit_int()
 		),
@@ -177,7 +177,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::ep_24_vcf_press_amt, 23, "VCF Pressure Amount", Ctrl_Type::slider,
 			83, Range_Type::signed_7_bit, Slider_Display_Type::signed_7_bit, 127, 63,
-			vcf_vca_col_x, ctrl_row_04_y, vcf_vca_col_w, Describe::vcf_pressure_amt(),
+			vcf_vca_col_x, ctrl_row_04_y, vcf_vca_ctrl_w, Describe::vcf_pressure_amt(),
 			Build_Tree::choice_names_signed_7_bit_int(curt),
 			Build_Tree::choice_names_signed_7_bit_int()
 		),
@@ -187,7 +187,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::ep_25_vcf_lever_ctrl, 25, "VCF Lever Control", Ctrl_Type::cbox,
 			20, Range_Type::unsigned_int, Slider_Display_Type::none, 4, 0,
-			vcf_vca_col_x, ctrl_row_05_y, vcf_vca_col_w, Describe::vcf_lever_ctrl(),
+			vcf_vca_col_x, ctrl_row_05_y, vcf_vca_ctrl_w, Describe::vcf_lever_ctrl(),
 			Build_Tree::choice_names_lever_ctrl(curt),
 			Build_Tree::choice_names_lever_ctrl()
 		),
@@ -197,7 +197,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::ep_26_vcf_key_track, 26, "VCF Key Tracking", Ctrl_Type::cbox,
 			21, Range_Type::unsigned_int, Slider_Display_Type::none, 3, 2,
-			vcf_vca_col_x, ctrl_row_06_y, vcf_vca_col_w, Describe::vcf_key_track(),
+			vcf_vca_col_x, ctrl_row_06_y, vcf_vca_ctrl_w, Describe::vcf_key_track(),
 			Build_Tree::choice_names_osc_2_and_vcf_key_track(curt),
 			Build_Tree::choice_names_osc_2_and_vcf_key_track()
 		),
@@ -209,7 +209,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::ep_27_vca_1_volume, 27, "VCA 1 Volume", Ctrl_Type::slider,
 			23, Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, 63,
-			vcf_vca_col_x, ctrl_row_09_y, vcf_vca_col_w, Describe::vca_1_volume(),
+			vcf_vca_col_x, ctrl_row_09_y, vcf_vca_ctrl_w, Describe::vca_1_volume(),
 			Build_Tree::choice_names_unsigned_int(64, curt),
 			Build_Tree::choice_names_unsigned_int(64)
 		),
@@ -219,7 +219,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::ep_28_vca_1_velo_amt, 28, "VCA 1 Velocity Amount", Ctrl_Type::slider,
 			84, Range_Type::signed_7_bit, Slider_Display_Type::signed_7_bit, 127, 63,
-			vcf_vca_col_x, ctrl_row_10_y, vcf_vca_col_w, Describe::vca_1_velo_amt(),
+			vcf_vca_col_x, ctrl_row_10_y, vcf_vca_ctrl_w, Describe::vca_1_velo_amt(),
 			Build_Tree::choice_names_signed_7_bit_int(curt),
 			Build_Tree::choice_names_signed_7_bit_int()
 		),
@@ -229,7 +229,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::ep_29_vca_2_env_2_amt, 29, "VCA 2 Envelope 2 Amount", Ctrl_Type::slider,
 			85, Range_Type::signed_7_bit, Slider_Display_Type::signed_7_bit, 127, 126,
-			vcf_vca_col_x, ctrl_row_11_y, vcf_vca_col_w, Describe::vca_2_env_2_amt(),
+			vcf_vca_col_x, ctrl_row_11_y, vcf_vca_ctrl_w, Describe::vca_2_env_2_amt(),
 			Build_Tree::choice_names_signed_7_bit_int(curt),
 			Build_Tree::choice_names_signed_7_bit_int()
 		),
@@ -241,7 +241,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::ep_30_vcf_fm_osc_1_amt, 30, "VCF FM By Oscillator 1 Amount", Ctrl_Type::slider,
 			22, Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, 0,
-			vcf_fm_col_x, ctrl_row_01_y, vcf_fm_col_w, Describe::vcf_fm_osc_1_amt(),
+			vcf_fm_col_x, ctrl_row_01_y, vcf_fm_ctrl_w, Describe::vcf_fm_osc_1_amt(),
 			Build_Tree::choice_names_unsigned_int(64, curt),
 			Build_Tree::choice_names_unsigned_int(64)
 		),
@@ -251,7 +251,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::ep_31_vcf_fm_env_3_amt, 31, "VCF FM Envelope 3 Amount", Ctrl_Type::slider,
 			92, Range_Type::signed_7_bit, Slider_Display_Type::signed_7_bit, 127, 63,
-			vcf_fm_col_x, ctrl_row_02_y, vcf_fm_col_w, Describe::vcf_fm_env_3_amt(),
+			vcf_fm_col_x, ctrl_row_02_y, vcf_fm_ctrl_w, Describe::vcf_fm_env_3_amt(),
 			Build_Tree::choice_names_signed_7_bit_int(curt),
 			Build_Tree::choice_names_signed_7_bit_int()
 		),
@@ -261,7 +261,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::ep_32_vcf_fm_press_amt, 32, "VCF FM Pressure Amount", Ctrl_Type::slider,
 			93, Range_Type::signed_7_bit, Slider_Display_Type::signed_7_bit, 127, 63,
-			vcf_fm_col_x, ctrl_row_03_y, vcf_fm_col_w, Describe::vcf_fm_press_amt(),
+			vcf_fm_col_x, ctrl_row_03_y, vcf_fm_ctrl_w, Describe::vcf_fm_press_amt(),
 			Build_Tree::choice_names_signed_7_bit_int(curt),
 			Build_Tree::choice_names_signed_7_bit_int()
 		),
@@ -330,7 +330,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				lfo == 1 ? ID::ep_38_lfo_1_speed : ID::ep_47_lfo_2_speed, lfo == 1 ? 80 : 90,
 				"LFO " + (String)lfo + " Speed", Ctrl_Type::slider, lfo == 1 ? 27 : 34,
 				Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64,
-				lfo == 1 ? 40 : 30, center_x, ctrl_row_01_y, lfo_col_w, Describe::lfo_speed(lfo),
+				lfo == 1 ? 40 : 30, center_x, ctrl_row_01_y, lfo_ctrl_w, Describe::lfo_speed(lfo),
 				Build_Tree::choice_names_unsigned_int(64, curt),
 				Build_Tree::choice_names_unsigned_int(64)
 			),
@@ -341,7 +341,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				lfo == 1 ? ID::ep_39_lfo_1_wave_type : ID::ep_48_lfo_2_wave_type, lfo == 1 ? 82 : 92,
 				"LFO " + (String)lfo + " Wave Type", Ctrl_Type::cbox, lfo == 1 ? 30 : 37,
 				Range_Type::unsigned_int, Slider_Display_Type::none, 7, 0,
-				center_x, ctrl_row_02_y, lfo_col_w, Describe::lfo_wave_type(lfo),
+				center_x, ctrl_row_02_y, lfo_ctrl_w, Describe::lfo_wave_type(lfo),
 				Build_Tree::choice_names_lfo_wave_type(curt), Build_Tree::choice_names_lfo_wave_type()
 			),
 			-1, nullptr);
@@ -351,7 +351,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				lfo == 1 ? ID::ep_40_lfo_1_samp_source : ID::ep_49_lfo_2_Samp_source, lfo == 1 ? 88 : 98,
 				"LFO " + (String)lfo + " Sample Source", Ctrl_Type::cbox, lfo == 1 ? 32 : 39,
 				Range_Type::unsigned_int, Slider_Display_Type::none, 21, 9,
-				center_x, ctrl_row_03_y, lfo_col_w, Describe::lfo_sample_source(lfo),
+				center_x, ctrl_row_03_y, lfo_ctrl_w, Describe::lfo_sample_source(lfo),
 				Build_Tree::choice_names_input_source(Input_Choice_Type::lfo, curt),
 				Build_Tree::choice_names_input_source(Input_Choice_Type::lfo)
 			),
@@ -362,7 +362,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				lfo == 1 ? ID::ep_41_lfo_1_amp : ID::ep_50_lfo_2_amp, lfo == 1 ? 84 : 94,
 				"LFO " + (String)lfo + " Amplitude", Ctrl_Type::slider, lfo == 1 ? 33 : 40,
 				Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, 0,
-				center_x, ctrl_row_04_y, lfo_col_w, Describe::lfo_amp(lfo),
+				center_x, ctrl_row_04_y, lfo_ctrl_w, Describe::lfo_amp(lfo),
 				Build_Tree::choice_names_unsigned_int(64, curt),
 				Build_Tree::choice_names_unsigned_int(64)
 			),
@@ -396,7 +396,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				lfo == 1 ? ID::ep_44_lfo_1_trig_mode : ID::ep_53_lfo_2_trig_mode, lfo == 1 ? 86 : 96,
 				"LFO " + (String)lfo + " Trigger Mode", Ctrl_Type::cbox, lfo == 1 ? 28 : 35,
 				Range_Type::unsigned_int, Slider_Display_Type::none, 4, 0,
-				center_x, ctrl_row_07_y, lfo_col_w, Describe::lfo_trig_mode(lfo),
+				center_x, ctrl_row_07_y, lfo_ctrl_w, Describe::lfo_trig_mode(lfo),
 				Build_Tree::choice_names_lfo_trig_mode(curt),
 				Build_Tree::choice_names_lfo_trig_mode()
 			),
@@ -407,7 +407,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				lfo == 1 ? ID::ep_45_lfo_1_retrig_point : ID::ep_54_lfo_2_retrig_point, lfo == 1 ? 83 : 93,
 				"LFO " + (String)lfo + " Retrigger Point", Ctrl_Type::slider, lfo == 1 ? 31 : 38,
 				Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, 0,
-				center_x, ctrl_row_08_y, lfo_col_w, Describe::lfo_retrig_point(lfo),
+				center_x, ctrl_row_08_y, lfo_ctrl_w, Describe::lfo_retrig_point(lfo),
 				Build_Tree::choice_names_unsigned_int(64, curt),
 				Build_Tree::choice_names_unsigned_int(64)
 			),
@@ -418,7 +418,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				lfo == 1 ? ID::ep_45_lfo_1_retrig_point : ID::ep_55_lfo_2_lag, lfo == 1 ? 87 : 97,
 				"LFO " + (String)lfo + " Lag Processing Off / On", Ctrl_Type::cbox, lfo == 1 ? 29 : 36,
 				Range_Type::unsigned_int, Slider_Display_Type::none, 2, 0,
-				center_x, ctrl_row_09_y, lfo_col_w, Describe::lfo_lag(lfo),
+				center_x, ctrl_row_09_y, lfo_ctrl_w, Describe::lfo_lag(lfo),
 				Build_Tree::choice_names_off_on_matrix(curt),
 				Build_Tree::choice_names_off_on_matrix()
 			),
@@ -433,7 +433,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				ramp == 1 ? ID::ep_56_ramp_1_rate : ID::ep_58_ramp_2_rate, ramp == 1 ? 40 : 42,
 				"Ramp " + (String)ramp + " Rate", Ctrl_Type::slider, ramp == 1 ? 74 : 76,
 				Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, 0,
-				center_x, ctrl_row_01_y, ramp_col_w, Describe::ramp_rate(ramp),
+				center_x, ctrl_row_01_y, ramp_ctrl_w, Describe::ramp_rate(ramp),
 				Build_Tree::choice_names_unsigned_int(64, curt),
 				Build_Tree::choice_names_unsigned_int(64)
 			),
@@ -444,7 +444,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				ramp == 1 ? ID::ep_57_ramp_1_trig : ID::ep_59_ramp_2_trig, ramp == 1 ? 41 : 43,
 				"Ramp " + (String)ramp + " Trigger", Ctrl_Type::cbox, ramp == 1 ? 75 : 77,
 				Range_Type::unsigned_int, Slider_Display_Type::none, 4, 0,
-				center_x, ctrl_row_02_y, ramp_col_w, Describe::ramp_trig(ramp),
+				center_x, ctrl_row_02_y, ramp_ctrl_w, Describe::ramp_trig(ramp),
 				Build_Tree::choice_names_ramp_trig(curt),
 				Build_Tree::choice_names_ramp_trig()
 			),
@@ -478,6 +478,114 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			-1, nullptr);
 	}
 	// ---------------------------------------------------------- end tracking section
+
+	// *************************************************************** envelope section
+	for (int env = 0; env < 3; ++env) {
+		String env_num{ env + 1 };
+		int param_offset{ env * 10 };
+		int byte_offset{ env * 9 };
+		int block_offset{ env * env_block_spacing };
+		int center_x{ env_col_1_x + block_offset };
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_" + String{ 66 + param_offset } + "_env_" + env_num + "_amp", 55 + param_offset,
+				"Envelope " + env_num + " Amplitude", Ctrl_Type::slider, 47 + byte_offset,
+				Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, 40,
+				center_x, env_ctrl_row_1_y, env_ctrl_w, Describe::env_amp(env_num),
+				Build_Tree::choice_names_unsigned_int(64, curt), Build_Tree::choice_names_unsigned_int(64)
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_" + String{ 67 + param_offset } + "_env_" + env_num + "_velo_amt", 56 + param_offset,
+				"Envelope " + env_num + " Velocity Amount", Ctrl_Type::slider, 86 + env,
+				Range_Type::signed_7_bit, Slider_Display_Type::signed_7_bit, 127, 126,
+				center_x, env_ctrl_row_1_y, env_ctrl_w, Describe::env_velo_amt(env_num),
+				Build_Tree::choice_names_signed_7_bit_int(curt), Build_Tree::choice_names_signed_7_bit_int()
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_" + String{ 68 + param_offset } + "_env_" + env_num + "_trig_mode", 57 + param_offset,
+				"Envelope " + env_num + " Trigger Mode", Ctrl_Type::cbox, 41 + byte_offset,
+				Range_Type::unsigned_int, Slider_Display_Type::none, 8, 0,
+				center_x, env_ctrl_row_3_y, env_ctrl_w, Describe::env_trig_mode(env_num),
+				Build_Tree::choice_names_env_trig_mode(curt), Build_Tree::choice_names_env_trig_mode()
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_" + String{ 69 + param_offset } + "_env_" + env_num + "_mode", 58 + param_offset,
+				"Envelope " + env_num + " Mode", Ctrl_Type::cbox, 49 + byte_offset,
+				Range_Type::unsigned_int, Slider_Display_Type::none, 4, 0,
+				center_x, env_ctrl_row_4_y, env_ctrl_w, Describe::env_mode(env_num),
+				Build_Tree::choice_names_env_mode(curt), Build_Tree::choice_names_env_mode()
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_" + String{ 70 + param_offset } + "_env_" + env_num + "_lfo_1_trig", 59 + param_offset,
+				"Envelope " + env_num + " LFO 1 Trigger", Ctrl_Type::cbox, 48 + byte_offset,
+				Range_Type::unsigned_int, Slider_Display_Type::none, 3, 0,
+				center_x, env_ctrl_row_5_y, env_ctrl_w, Describe::env_lfo_1_trig(env_num),
+				Build_Tree::choice_names_env_lfo_1_trig(curt), Build_Tree::choice_names_env_lfo_1_trig()
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_" + String{ 71 + param_offset } + "_env_" + env_num + "_delay", 50 + param_offset,
+				"Envelope " + env_num + " Delay Time", Ctrl_Type::slider, 42 + byte_offset,
+				Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, 0,
+				env_1_delay_x + block_offset, env_ctrl_row_4_y, env_dadsr_ctrl_w, Describe::env_delay(env_num),
+				Build_Tree::choice_names_unsigned_int(64, curt), Build_Tree::choice_names_unsigned_int(64)
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_" + String{ 72 + param_offset } + "_env_" + env_num + "_attack", 51 + param_offset,
+				"Envelope " + env_num + " Attack Time", Ctrl_Type::slider, 43 + byte_offset,
+				Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, 0,
+				env_1_attack_x + block_offset, env_ctrl_row_4_y, env_dadsr_ctrl_w, Describe::env_attack(env_num),
+				Build_Tree::choice_names_unsigned_int(64, curt), Build_Tree::choice_names_unsigned_int(64)
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_" + String{ 73 + param_offset } + "_env_" + env_num + "_decay", 52 + param_offset,
+				"Envelope " + env_num + " Decay Time", Ctrl_Type::slider, 44 + byte_offset,
+				Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, env == 2 ? 20 : 10,
+				env_1_decay_x + block_offset, env_ctrl_row_4_y, env_dadsr_ctrl_w, Describe::env_decay(env_num),
+				Build_Tree::choice_names_unsigned_int(64, curt), Build_Tree::choice_names_unsigned_int(64)
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_" + String{ 74 + param_offset } + "_env_" + env_num + "_sustain", 53 + param_offset,
+				"Envelope " + env_num + " Sustain Level", Ctrl_Type::slider, 45 + byte_offset,
+				Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, env == 2 ? 0 : 50,
+				env_1_sustain_x + block_offset, env_ctrl_row_4_y, env_dadsr_ctrl_w, Describe::env_sustain(env_num),
+				Build_Tree::choice_names_unsigned_int(64, curt), Build_Tree::choice_names_unsigned_int(64)
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_" + String{ 75 + param_offset } + "_env_" + env_num + "_release", 54 + param_offset,
+				"Envelope " + env_num + " Release Time", Ctrl_Type::slider, 46 + byte_offset,
+				Range_Type::unsigned_int, Slider_Display_Type::unsigned_int, 64, env == 2 ? 20 : 10,
+				env_1_release_x + block_offset, env_ctrl_row_4_y, env_dadsr_ctrl_w, Describe::env_release(env_num),
+				Build_Tree::choice_names_unsigned_int(64, curt), Build_Tree::choice_names_unsigned_int(64)
+			),
+			-1, nullptr);
+	} // ---------------------------------------------------------- end envelope section
 }
 
 const uint8 Exposed_Parameter_Info::number_for(uint8 i) const {

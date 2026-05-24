@@ -2,10 +2,10 @@
 
 using ICT = Input_Choice_Type;
 
-ValueTree Build_Tree::exposed_parameter(Identifier id, uint8 number, String name, 
-										Ctrl_Type ctrl, uint8 byte_index, Range_Type range, 
-										Slider_Display_Type display, uint8 choice_count, 
-										uint8 init_choice, int ctrl_center_x, 
+ValueTree Build_Tree::exposed_parameter(Identifier id, int number, String name,
+										Ctrl_Type ctrl, int byte_index, Range_Type range,
+										Slider_Display_Type display, int choice_count,
+										int init_choice, int ctrl_center_x, 
 										int ctrl_center_y, int ctrl_w, String description, 
 										ValueTree curt_choice_names, ValueTree choice_names)
 {
