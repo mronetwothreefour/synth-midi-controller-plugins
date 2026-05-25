@@ -21,7 +21,7 @@ struct Build_Tree :
 
 	static String convert_int_to_seq_step_pitch_name(const int i);
 
-	static ValueTree choice_names_arpeg_mode(const bool curt = false);
+	static ValueTree choice_names_arp_mode(const bool curt = false);
 
 	static ValueTree choice_names_bend_range(const bool curt = false);
 
@@ -48,7 +48,7 @@ struct Build_Tree :
 	static ValueTree choice_names_push_it_mode(const bool curt = false);
 
 	static ValueTree choice_names_seq_track_step(const bool curt = false);
-	static ValueTree choice_names_seq_tracks_2_and_4_dest(const bool track_2, const bool curt = false);
+	static ValueTree choice_names_seq_track_2_4_dest(const bool track_2, const bool curt = false);
 	static ValueTree choice_names_seq_trig_mode(const bool curt = false);
 
 	static ValueTree choice_names_signed_8_bit_int(const bool curt = false);

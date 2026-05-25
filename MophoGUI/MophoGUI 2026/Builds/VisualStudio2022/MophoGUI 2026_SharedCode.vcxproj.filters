@@ -3801,6 +3801,9 @@
     <ClInclude Include="..\..\Project_Source_Files\constants\C_50-P_EP.h">
       <Filter>MophoGUI 2026\Project_Source_Files\constants</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\constants\C_51-P_VOICE.h">
+      <Filter>MophoGUI 2026\Project_Source_Files\constants</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\constants\C_60-P_SL_EP_Descriptions.h">
       <Filter>MophoGUI 2026\Project_Source_Files\constants</Filter>
     </ClInclude>

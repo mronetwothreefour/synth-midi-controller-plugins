@@ -64,7 +64,7 @@ String Build_Tree::convert_int_to_seq_step_pitch_name(const int i) {
 	}
 }
 
-ValueTree Build_Tree::choice_names_arpeg_mode(const bool curt) {
+ValueTree Build_Tree::choice_names_arp_mode(const bool curt) {
 	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
 	tree.setProperty("choice_0", "1 octave up", nullptr);
 	tree.setProperty("choice_1", "1 octave down", nullptr);
@@ -287,9 +287,11 @@ ValueTree Build_Tree::choice_names_lpf_freq(const bool curt) {
 	return tree;
 }
 
-ValueTree Build_Tree::choice_names_lpf_type(const bool curt)
-{
-	return ValueTree();
+ValueTree Build_Tree::choice_names_lpf_type(const bool curt) {
+	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	tree.setProperty("choice_0", "2-Pole", nullptr);
+	tree.setProperty("choice_1", "4-Pole", nullptr);
+	return tree;
 }
 
 ValueTree Build_Tree::choice_names_mod_dest(const bool curt) {
@@ -438,7 +440,7 @@ ValueTree Build_Tree::choice_names_seq_track_step(const bool curt) {
 	return tree;
 }
 
-ValueTree Build_Tree::choice_names_seq_tracks_2_and_4_dest(const bool track_2, const bool curt) {
+ValueTree Build_Tree::choice_names_seq_track_2_4_dest(const bool track_2, const bool curt) {
 	auto tree{ choice_names_mod_dest(curt) };
 	String name{ curt ? "seq." : "sequencer" };
 	name += " track " + String{ track_2 ? 1 : 3 } + " slew";

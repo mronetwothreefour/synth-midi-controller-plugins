@@ -6,8 +6,8 @@ struct Describe_Exp_Param
 {
 	static String from_string_literal(const char8_t* sl);
 
-	static String arpeg_mode();
-	static String arpeg_on_off();
+	static String arp_mode();
+	static String arp_on_off();
 
 	static String bend_range();
 
@@ -26,7 +26,7 @@ struct Describe_Exp_Param
 
 	static String glide_mode();
 
-	static String knob_assign(const int knob_num);
+	static String knob_assign(const String knob_num);
 
 	static String lfo_amt(const int lfo_num);
 	static String lfo_freq(const int lfo_num);
@@ -64,12 +64,12 @@ struct Describe_Exp_Param
 	static String push_it_velocity();
 
 	static String seq_on_off();
-	static String seq_track_dest(const int track_num);
-	static String seq_track_step(const int track_num, int step_num);
+	static String seq_track_dest(const String track_num);
+	static String seq_track_step(const String track_num, String step_num);
 	static String seq_trig_mode();
 
 	static String vca_env_amt();
 	static String vca_level();
-	static String voice_name_char(const int char_num);
+	static String voice_name_char(const String char_num);
 	static String voice_volume();
 };

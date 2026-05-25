@@ -1,6 +1,7 @@
 #include "E_00-P_Exp_Param_Info.h"
 
 #include "H_10-P_Describe_Exp_Param.h"
+#include "C_51-P_VOICE.h"
 
 using namespace EP;
 using namespace XYWH;
@@ -13,10 +14,11 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 	// *************************************************************** osc section
 	for (auto osc = 1; osc < 3; ++osc) {
 		auto center_y = osc == 1 ? osc_row_1_y : osc_row_2_y;
+		String n{ osc };
 		tree.addChild(
 			Build_Tree::exposed_parameter(
 				osc == 1 ? ID::ep_000_osc_1_pitch : ID::ep_006_osc_2_pitch,
-				"Oscillator " + (String)osc + " Pitch", Ctrl_Type::knob_pitch,
+				"Oscillator " + n + " Pitch", Ctrl_Type::knob_pitch,
 				Knob_Display_Type::osc_pitch, osc == 1 ? 0 : 5,
 				choice_count_osc_pitch, 24, ctrl_col_1_x, center_y, knob_diameter, knob_diameter,
 				Describe_Exp_Param::osc_pitch(osc),
@@ -28,7 +30,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		tree.addChild(
 			Build_Tree::exposed_parameter(
 				osc == 1 ? ID::ep_001_osc_1_fine_tune : ID::ep_007_osc_2_fine_tune,
-				"Oscillator " + (String)osc + " Fine Tune", Ctrl_Type::knob,
+				"Oscillator " + n + " Fine Tune", Ctrl_Type::knob,
 				Knob_Display_Type::osc_fine, osc == 1 ? 1 : 6,
 				choice_count_osc_fine, osc == 1 ? 49 : 51, ctrl_col_2_x, center_y, 
 				knob_diameter, knob_diameter, Describe_Exp_Param::osc_fine(osc),
@@ -39,7 +41,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		tree.addChild(
 			Build_Tree::exposed_parameter(
 				osc == 1 ? ID::ep_002_osc_1_shape : ID::ep_008_osc_2_shape,
-				"Oscillator " + (String)osc + " Wave Shape", Ctrl_Type::knob_osc_shape,
+				"Oscillator " + n + " Wave Shape", Ctrl_Type::knob_osc_shape,
 				Knob_Display_Type::osc_shape, osc == 1 ? 2 : 7,
 				choice_count_osc_shape, 1, ctrl_col_3_x, center_y, knob_diameter, knob_diameter,
 				Describe_Exp_Param::osc_shape(osc),
@@ -51,7 +53,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		tree.addChild(
 			Build_Tree::exposed_parameter(
 				osc == 1 ? ID::ep_003_osc_1_glide : ID::ep_009_osc_2_glide,
-				"Oscillator " + (String)osc + " Glide Rate", Ctrl_Type::knob,
+				"Oscillator " + n + " Glide Rate", Ctrl_Type::knob,
 				Knob_Display_Type::unsigned_7_bit, osc == 1 ? 3 : 8,
 				128, 0, ctrl_col_4_x, center_y, knob_diameter, knob_diameter,
 				Describe_Exp_Param::osc_fine(osc),
@@ -63,7 +65,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		tree.addChild(
 			Build_Tree::exposed_parameter(
 				osc == 1 ? ID::ep_004_osc_1_key_track : ID::ep_010_osc_2_key_track,
-				"Oscillator " + (String)osc + " Keyboard Track On/Off", Ctrl_Type::toggle,
+				"Oscillator " + n + " Keyboard Track On/Off", Ctrl_Type::toggle,
 				Knob_Display_Type::none, osc == 1 ? 4 : 9, 2, 1, ctrl_col_6_x, center_y + 11, 32, 36,
 				Describe_Exp_Param::osc_key_track(osc), Build_Tree::choice_names_off_on(curt),
 				Build_Tree::choice_names_off_on(), ctrl_col_6_x, center_y
@@ -73,7 +75,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		tree.addChild(
 			Build_Tree::exposed_parameter(
 				osc == 1 ? ID::ep_005_osc_1_sub_level : ID::ep_011_osc_2_sub_level,
-				"Sub-Oscillator " + (String)osc + " Level", Ctrl_Type::knob,
+				"Sub-Oscillator " + n + " Level", Ctrl_Type::knob,
 				Knob_Display_Type::unsigned_7_bit, osc == 1 ? 114 : 115, 128, 0, ctrl_col_5_x,
 				center_y, knob_diameter, knob_diameter, Describe_Exp_Param::osc_sub_level(osc), 
 				Build_Tree::choice_names_unsigned_int(128, curt), 
@@ -357,11 +359,11 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 
 	for (int lfo = 0; lfo < 4; ++lfo) {
 		int param_offset{ lfo * 5 };
-		String lfo_num{ lfo + 1 };
+		String n{ lfo + 1 };
 		tree.addChild(
 			Build_Tree::exposed_parameter(
-				"ep_0" + String{ 41 + param_offset } + "_lfo_" + lfo_num + "_freq",
-				"LFO " + lfo_num + " Frequency", Ctrl_Type::knob, Knob_Display_Type::lfo_freq,
+				"ep_0" + String{ 41 + param_offset } + "_lfo_" + n + "_freq",
+				"LFO " + n + " Frequency", Ctrl_Type::knob, Knob_Display_Type::lfo_freq,
 				37 + param_offset, 167, 80, 416 + lfo * lfo_block_spacing, lfo_row_1_y,
 				knob_diameter, knob_diameter, Describe_Exp_Param::lfo_freq(lfo + 1),
 				Build_Tree::choice_names_lfo_freq(curt), Build_Tree::choice_names_lfo_freq()
@@ -370,8 +372,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 
 		tree.addChild(
 			Build_Tree::exposed_parameter(
-				"ep_0" + String{ 42 + param_offset } + "_lfo_" + lfo_num + "_shape",
-				"LFO " + lfo_num + " Wave Shape", Ctrl_Type::cbox, Knob_Display_Type::none,
+				"ep_0" + String{ 42 + param_offset } + "_lfo_" + n + "_shape",
+				"LFO " + n + " Wave Shape", Ctrl_Type::cbox, Knob_Display_Type::none,
 				38 + param_offset, 5, 1, lfo_1_cbox_x + lfo * lfo_block_spacing, lfo_row_2_y,
 				lfo_cbox_w, cbox_h, Describe_Exp_Param::lfo_shape(lfo + 1),
 				Build_Tree::choice_names_lfo_shape(curt), Build_Tree::choice_names_lfo_shape()
@@ -380,8 +382,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 
 		tree.addChild(
 			Build_Tree::exposed_parameter(
-				"ep_0" + String{ 43 + param_offset } + "_lfo_" + lfo_num + "_amt",
-				"LFO " + lfo_num + " Amount", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
+				"ep_0" + String{ 43 + param_offset } + "_lfo_" + n + "_amt",
+				"LFO " + n + " Amount", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 				39 + param_offset, 128, 0, 461 + lfo * lfo_block_spacing, lfo_row_1_y,
 				knob_diameter, knob_diameter, Describe_Exp_Param::lfo_amt(lfo + 1),
 				Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
@@ -390,20 +392,20 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 
 		tree.addChild(
 			Build_Tree::exposed_parameter(
-				"ep_0" + String{ 44 + param_offset } + "_lfo_" + lfo_num + "_dest",
-				"LFO " + lfo_num + " Modulation Destination", Ctrl_Type::cbox, Knob_Display_Type::none,
+				"ep_0" + String{ 44 + param_offset } + "_lfo_" + n + "_dest",
+				"LFO " + n + " Modulation Destination", Ctrl_Type::cbox, Knob_Display_Type::none,
 				40 + param_offset, EP::choice_count_mod_dest, 0, lfo_1_cbox_x + lfo * lfo_block_spacing, lfo_row_3_y,
-				lfo_cbox_w, cbox_h, mod_dest_param_description + String{ " by LFO " } + lfo_num + ".",
+				lfo_cbox_w, cbox_h, mod_dest_param_description + String{ " by LFO " } + n + ".",
 				Build_Tree::choice_names_mod_dest(curt), Build_Tree::choice_names_mod_dest()
 			),
 			-1, nullptr);
 
 		tree.addChild(
 			Build_Tree::exposed_parameter(
-				"ep_0" + String{ 45 + param_offset } + "_lfo_" + lfo_num + "_key_sync",
-				"LFO " + lfo_num + " Key Sync On/Off", Ctrl_Type::toggle, Knob_Display_Type::none,
+				"ep_0" + String{ 45 + param_offset } + "_lfo_" + n + "_key_sync",
+				"LFO " + n + " Key Sync On / Off", Ctrl_Type::toggle, Knob_Display_Type::none,
 				41 + param_offset, 2, 0, 507 + lfo * lfo_block_spacing, 526,
-				26, 36, mod_dest_param_description + String{ " by LFO " } + lfo_num + ".",
+				26, 36, mod_dest_param_description + String{ " by LFO " } + n + ".",
 				Build_Tree::choice_names_mod_dest(curt), Build_Tree::choice_names_mod_dest(),
 				507 + lfo * lfo_block_spacing, lfo_row_1_y
 			),
@@ -493,7 +495,289 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			ctrl_col_1_x, env_3_row_1_y
 		),
 		-1, nullptr);
-	// ---------------------------------------------------------- end lfo section
+	// ---------------------------------------------------------- end env 3 section
+	
+	// *************************************************************** mod section
+	for (int mod = 0; mod < 4; ++mod) {
+		String n{ mod + 1 };
+		int offset{ mod * 3 };
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_0" + String{ 70 + offset } + "_mod_" + n + "_src", "Modulator " + n + " Source",
+				Ctrl_Type::cbox, Knob_Display_Type::none, 65 + offset, EP::choice_count_mod_src, 0,
+				mod_col_1_x, 184 + mod * mod_block_spacing, mod_cbox_w, cbox_h, 
+				"Selects the modulation source.", Build_Tree::choice_names_mod_src(curt),
+				Build_Tree::choice_names_mod_src()
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_0" + String{ 71 + offset } + "_mod_" + n + "_amt", "Modulator " + n + " Amount",
+				Ctrl_Type::knob, Knob_Display_Type::signed_8_bit, 66 + offset, 255, 127,
+				mod_col_2_x, 201 + mod * mod_block_spacing, knob_diameter, knob_diameter,
+				Describe_Exp_Param::mod_amt(), Build_Tree::choice_names_signed_8_bit_int(curt),
+				Build_Tree::choice_names_signed_8_bit_int()
+			),
+			-1, nullptr);
+
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_0" + String{ 72 + offset } + "_mod_" + n + "_dest", "Modulator " + n + " Destination",
+				Ctrl_Type::cbox, Knob_Display_Type::none, 67 + offset, EP::choice_count_mod_dest, 0,
+				mod_col_1_x, 218 + mod * mod_block_spacing, mod_cbox_w, cbox_h,
+				"Selects the target parameter for modulation.", Build_Tree::choice_names_mod_dest(curt),
+				Build_Tree::choice_names_mod_dest()
+			),
+			-1, nullptr);
+	}
+	// ---------------------------------------------------------- end mod section
+
+	// *************************************************************** midi cc section
+	auto cc_dest_description = mod_dest_param_description + String{ "." };
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_082_mod_wheel_amt, "Modulation Wheel Amount", Ctrl_Type::knob,
+			Knob_Display_Type::signed_8_bit, 81, 255, 127, cc_col_2_x, cc_row_1_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::midi_mod_wheel_amt(), Build_Tree::choice_names_signed_8_bit_int(curt),
+			Build_Tree::choice_names_signed_8_bit_int()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_083_mod_wheel_dest, "Modulation Wheel Destination", Ctrl_Type::cbox, 
+			Knob_Display_Type::none, 82, EP::choice_count_mod_dest, 0, cc_col_1_x, cc_row_1_y,
+			cc_cbox_w, cbox_h, cc_dest_description, Build_Tree::choice_names_mod_dest(curt),
+			Build_Tree::choice_names_mod_dest()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_084_press_amt, "Pressure (Aftertouch) Amount", Ctrl_Type::knob,
+			Knob_Display_Type::signed_8_bit, 83, 255, 127, cc_col_2_x, cc_row_2_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::midi_mod_wheel_amt(), Build_Tree::choice_names_signed_8_bit_int(curt),
+			Build_Tree::choice_names_signed_8_bit_int()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_085_press_dest, "Pressure (Aftertouch) Destination", Ctrl_Type::cbox, 
+			Knob_Display_Type::none, 84, EP::choice_count_mod_dest, 0, cc_col_1_x, cc_row_2_y,
+			cc_cbox_w, cbox_h, cc_dest_description, Build_Tree::choice_names_mod_dest(curt),
+			Build_Tree::choice_names_mod_dest()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_086_breath_amt, "Breath Amount", Ctrl_Type::knob, Knob_Display_Type::signed_8_bit,
+			85, 255, 127, cc_col_2_x, cc_row_3_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::midi_breath_amt(), Build_Tree::choice_names_signed_8_bit_int(curt),
+			Build_Tree::choice_names_signed_8_bit_int()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_087_breath_dest, "Breath Destination", Ctrl_Type::cbox, Knob_Display_Type::none,
+			86, EP::choice_count_mod_dest, 0, cc_col_1_x, cc_row_3_y,
+			cc_cbox_w, cbox_h, cc_dest_description, Build_Tree::choice_names_mod_dest(curt),
+			Build_Tree::choice_names_mod_dest()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_088_velocity_amt, "Note Velocity Amount", Ctrl_Type::knob, Knob_Display_Type::signed_8_bit,
+			87, 255, 127, cc_col_2_x, cc_row_4_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::midi_velocity_amt(), Build_Tree::choice_names_signed_8_bit_int(curt),
+			Build_Tree::choice_names_signed_8_bit_int()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_089_velocity_dest, "Note Velocity Destination", Ctrl_Type::cbox, Knob_Display_Type::none,
+			88, EP::choice_count_mod_dest, 0, cc_col_1_x, cc_row_4_y,
+			cc_cbox_w, cbox_h, cc_dest_description, Build_Tree::choice_names_mod_dest(curt),
+			Build_Tree::choice_names_mod_dest()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_090_pedal_amt, "Foot Pedal Amount", Ctrl_Type::knob, Knob_Display_Type::signed_8_bit,
+			89, 255, 127, cc_col_2_x, cc_row_5_y, knob_diameter, knob_diameter,
+			Describe_Exp_Param::midi_pedal_amt(), Build_Tree::choice_names_signed_8_bit_int(curt),
+			Build_Tree::choice_names_signed_8_bit_int()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_091_pedal_dest, "Foot Pedal Destination", Ctrl_Type::cbox, Knob_Display_Type::none,
+			90, EP::choice_count_mod_dest, 0, cc_col_1_x, cc_row_5_y,
+			cc_cbox_w, cbox_h, cc_dest_description, Build_Tree::choice_names_mod_dest(curt),
+			Build_Tree::choice_names_mod_dest()
+		),
+		-1, nullptr);
+	// ---------------------------------------------------------- end midi ctrl section
+
+	// *************************************************************** push it section
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_092_push_it_pitch, "Push It! Switch Pitch", Ctrl_Type::knob_pitch,
+			Knob_Display_Type::osc_pitch, 111, choice_count_osc_pitch, 60, 1191, push_it_knob_row_y,
+			knob_diameter, knob_diameter, Describe_Exp_Param::push_it_pitch(),
+			Build_Tree::choice_names_osc_pitch(EP::choice_count_osc_pitch, curt),
+			Build_Tree::choice_names_osc_pitch(EP::choice_count_osc_pitch)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_093_push_it_velo, "Push It! Switch Velocity", Ctrl_Type::knob,
+			Knob_Display_Type::unsigned_7_bit, 112, 128, 0, 1239, push_it_knob_row_y,
+			knob_diameter, knob_diameter, Describe_Exp_Param::push_it_velocity(),
+			Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_094_push_it_mode, "Push It! Switch Mode", Ctrl_Type::cbox, Knob_Display_Type::none,
+			113, 3, 0, 1215, 577, 88, cbox_h, Describe_Exp_Param::push_it_mode(),
+			Build_Tree::choice_names_push_it_mode(curt), Build_Tree::choice_names_push_it_mode()
+		),
+		-1, nullptr);
+	// ---------------------------------------------------------- end push it section
+
+	// *************************************************************** clock & arp section
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_095_clock_tempo, "Clock Tempo", Ctrl_Type::knob, Knob_Display_Type::tempo,
+			91, choice_count_clock_tempo, 90, 1236, clock_and_seq_row_y,
+			knob_diameter, knob_diameter, Describe_Exp_Param::clock_tempo(),
+			Build_Tree::choice_names_clock_tempo(curt), Build_Tree::choice_names_clock_tempo()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_096_clock_div, "Clock Division", Ctrl_Type::cbox, Knob_Display_Type::none,
+			92, 13, 2, 1139, clock_and_seq_row_y, 126, cbox_h, Describe_Exp_Param::clock_division(),
+			Build_Tree::choice_names_clock_div(curt), Build_Tree::choice_names_clock_div()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_097_arp_mode, "Arpeggiator Mode", Ctrl_Type::cbox, Knob_Display_Type::none,
+			97, 15, 0, ctrl_col_10_x, 118, 124, cbox_h, Describe_Exp_Param::arp_mode(),
+			Build_Tree::choice_names_arp_mode(curt), Build_Tree::choice_names_arp_mode()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_098_arpeg_on_off, "Arpeggiator On / Off", Ctrl_Type::toggle, Knob_Display_Type::none,
+			100, 2, 0, ctrl_col_9_x, 116, 20, 26, Describe_Exp_Param::arp_on_off(),
+			Build_Tree::choice_names_off_on(curt), Build_Tree::choice_names_off_on(),
+			ctrl_col_9_x, osc_row_2_y
+		),
+		-1, nullptr);
+	// ---------------------------------------------------------- end clock & arp section
+
+	// *************************************************************** seq section
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_099_seq_trig_mode, "Sequencer Trigger Mode", Ctrl_Type::cbox, Knob_Display_Type::none,
+			94, 6, 0, 998, clock_and_seq_row_y, 114, cbox_h, Describe_Exp_Param::seq_trig_mode(),
+			Build_Tree::choice_names_seq_trig_mode(curt), Build_Tree::choice_names_seq_trig_mode()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_100_seq_on_off, "Sequencer On / Off", Ctrl_Type::toggle, Knob_Display_Type::none,
+			101, 2, 0, 863, clock_and_seq_row_y, 102, toggle_diameter, Describe_Exp_Param::seq_on_off(),
+			Build_Tree::choice_names_off_on(curt), Build_Tree::choice_names_off_on(),
+			819, clock_and_seq_row_y
+		),
+		-1, nullptr);
+
+	for (int track = 1; track < 5; ++track) {
+		String n{ track };
+		auto even_track = track % 2 == 0;
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_10" + n + "_seq_track_" + n + "_dest", "Sequencer Track " + n + " Destination",
+				Ctrl_Type::cbox, Knob_Display_Type::none, 76 + track, 
+				EP::choice_count_mod_dest + even_track ? 1 : 0, track < 3 ? track : track == 3 ? 9 : 0,
+				seq_track_dest_cbox_x, 169 + ((track - 1) * seq_track_block_spacing),
+				seq_track_dest_cbox_w, cbox_h, Describe_Exp_Param::seq_track_dest(n),
+				even_track ? Build_Tree::choice_names_seq_track_2_4_dest(track == 2, curt) : 
+							 Build_Tree::choice_names_mod_dest(curt),
+				even_track ? Build_Tree::choice_names_seq_track_2_4_dest(track == 2) : 
+							 Build_Tree::choice_names_mod_dest()
+			),
+			-1, nullptr);
+	}
+	// ---------------------------------------------------------- end seq section
+
+	// *************************************************************** knob assign section
+	for (int knob = 1; knob < 5; ++knob) {
+		String n{ knob };
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				"ep_10" + String{ 4 + knob } + "_assign_knob_" + n, "Parameter Assigned To Knob " + n,
+				Ctrl_Type::cbox, Knob_Display_Type::none, 104 + knob, 169,
+				knob == 1 ? 5 : knob == 2 ? 11 : knob == 3 ? 43 : 23, knob_assign_cbox_x,
+				521 + ((knob - 1) * knob_assign_spacing), knob_assign_cbox_w, cbox_h,
+				Describe_Exp_Param::knob_assign(n), Build_Tree::choice_names_knob_assign(curt),
+				Build_Tree::choice_names_knob_assign()
+			),
+			-1, nullptr);
+	} // ---------------------------------------------------------- end knob assign section
+
+	// *************************************************************** seq step section
+	for (int track = 0; track < 4; ++track) {
+		String t{ track + 1 };
+		for (int step = 0; step < 16; ++step) {
+			String s{ step + 1 };
+			String id{ "ep_" + String{ EP::first_seq_step_param_index + track * 16 + step } };
+			id += "_seq_track_" + t + "_step_" + s;
+			tree.addChild(
+				Build_Tree::exposed_parameter(
+					id, "Sequencer Track " + t + " Step " + s, Ctrl_Type::seq_step,
+					Knob_Display_Type::none, 120 + track * 16 + step, track == 0 ? 128 : 127, 0,
+					825 + step * (seq_step_w + step_and_char_gap), 196 + track * seq_track_block_spacing,
+					seq_step_w, seq_step_h, Describe_Exp_Param::seq_track_step(t, s),
+					Build_Tree::choice_names_seq_track_step(curt), Build_Tree::choice_names_seq_track_step()
+				),
+				-1, nullptr);
+		}
+	} // ---------------------------------------------------------- end seq step section
+
+	// *************************************************************** voice name char section
+	String init_voice_name{ "Basic Program   " };
+	for (int character = 0; character < VOICE::name_char_count; ++character) {
+		String c{ character + 1 };
+		String id{ "ep_" + String{ EP::first_voice_name_char_param_index + character } };
+		id += "_voice_name_char_" + c;
+		tree.addChild(
+			Build_Tree::exposed_parameter(
+				id, "Program Name Character " + c, Ctrl_Type::voice_name_char, Knob_Display_Type::none,
+				184 + character, choice_count_voice_name_char, (int)init_voice_name[character],
+				596 + character * (voice_name_char_w + step_and_char_gap), voice_name_char_y,
+				voice_name_char_w, voice_name_char_h, Describe_Exp_Param::voice_name_char(c),
+				Build_Tree::choice_names_voice_name_char(curt), Build_Tree::choice_names_voice_name_char()
+			),
+			-1, nullptr);
+	} // ---------------------------------------------------------- end voice name char section
 }
 
 const Identifier Exposed_Parameter_Info::id_for(Track track, Step step) const {

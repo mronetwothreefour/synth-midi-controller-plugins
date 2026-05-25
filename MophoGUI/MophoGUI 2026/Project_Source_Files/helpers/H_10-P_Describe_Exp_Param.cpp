@@ -8,12 +8,12 @@ String Describe_Exp_Param::from_string_literal(const char8_t* sl) {
     return s;
 }
 
-String Describe_Exp_Param::arpeg_mode() {
-    return from_string_literal(SL::arpeg_mode_description);
+String Describe_Exp_Param::arp_mode() {
+    return from_string_literal(SL::arp_mode_description);
 }
 
-String Describe_Exp_Param::arpeg_on_off() {
-    return from_string_literal(SL::arpeg_on_off_description);
+String Describe_Exp_Param::arp_on_off() {
+    return from_string_literal(SL::arp_on_off_description);
 }
 
 String Describe_Exp_Param::bend_range() {
@@ -68,8 +68,8 @@ String Describe_Exp_Param::glide_mode() {
     return from_string_literal(SL::glide_mode_description);
 }
 
-String Describe_Exp_Param::knob_assign(const int knob) {
-    return from_string_literal(SL::knob_assign_description).replace("_", (String)knob);
+String Describe_Exp_Param::knob_assign(const String knob) {
+    return from_string_literal(SL::knob_assign_description).replace("_", knob);
 }
 
 String Describe_Exp_Param::lfo_amt(const int lfo) {
@@ -196,15 +196,15 @@ String Describe_Exp_Param::seq_on_off() {
     return from_string_literal(SL::seq_on_off_description);
 }
 
-String Describe_Exp_Param::seq_track_dest(const int track) {
-    return from_string_literal(SL::seq_track_dest_description).replace("_", String{ track + 1 });
+String Describe_Exp_Param::seq_track_dest(const String track_num) {
+    return from_string_literal(SL::seq_track_dest_description).replace("_", track_num);
 }
 
-String Describe_Exp_Param::seq_track_step(const int track, int step) {
+String Describe_Exp_Param::seq_track_step(const String track, String step) {
     String s{ from_string_literal(SL::seq_track_step_description_1) };
-    s = s.replace("_", String{ track + 1 });
-    s = s.replace("%", String{ step + 1 });
-    if (track == 0)
+    s = s.replace("_", track);
+    s = s.replace("%", step);
+    if (track == "1")
         s += from_string_literal(SL::seq_track_step_description_2);
     s += from_string_literal(SL::seq_track_step_description_3);
     return s;
@@ -222,8 +222,8 @@ String Describe_Exp_Param::vca_level() {
     return from_string_literal(SL::vca_level_description);
 }
 
-String Describe_Exp_Param::voice_name_char(const int c) {
-    return from_string_literal(SL::voice_name_char_description).replace("_", String{ c + 1 });
+String Describe_Exp_Param::voice_name_char(const String c) {
+    return from_string_literal(SL::voice_name_char_description).replace("_", c);
 }
 
 String Describe_Exp_Param::voice_volume() {

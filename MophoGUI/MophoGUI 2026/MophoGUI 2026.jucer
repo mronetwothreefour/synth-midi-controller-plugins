@@ -51,6 +51,7 @@
         <FILE id="LGnb41" name="C_20-P_PATH_Editor_Bkgrnd.h" compile="0" resource="0"
               file="Project_Source_Files/constants/C_20-P_PATH_Editor_Bkgrnd.h"/>
         <FILE id="ol9C77" name="C_50-P_EP.h" compile="0" resource="0" file="Project_Source_Files/constants/C_50-P_EP.h"/>
+        <FILE id="k0NQlS" name="C_51-P_VOICE.h" compile="0" resource="0" file="Project_Source_Files/constants/C_51-P_VOICE.h"/>
         <FILE id="vwAZlu" name="C_60-P_SL_EP_Descriptions.h" compile="0" resource="0"
               file="Project_Source_Files/constants/C_60-P_SL_EP_Descriptions.h"/>
       </GROUP>

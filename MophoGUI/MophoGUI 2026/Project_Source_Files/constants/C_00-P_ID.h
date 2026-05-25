@@ -72,7 +72,7 @@ namespace ID
 	static const Identifier ep_094_push_it_mode    { "ep_094_push_it_mode" };
 	static const Identifier ep_095_clock_tempo     { "ep_095_clock_tempo" };
 	static const Identifier ep_096_clock_div       { "ep_096_clock_div" };
-	static const Identifier ep_097_arpeg_mode      { "ep_097_arpeg_mode" };
+	static const Identifier ep_097_arp_mode      { "ep_097_arp_mode" };
 	static const Identifier ep_098_arpeg_on_off    { "ep_098_arpeg_on_off" };
 	static const Identifier ep_099_seq_trig_mode   { "ep_099_seq_trig_mode" };
 	static const Identifier ep_100_seq_on_off      { "ep_100_seq_on_off" };
