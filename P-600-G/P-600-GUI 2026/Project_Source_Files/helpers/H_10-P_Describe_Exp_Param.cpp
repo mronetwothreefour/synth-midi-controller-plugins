@@ -72,12 +72,12 @@ String Describe_Exp_Param::mixer() {
     return from_string_literal(SL::mixer_description);
 }
 
-String Describe_Exp_Param::osc_pitch(const int o) {
-    return from_string_literal(SL::osc_pitch_description).replace("_", o == 1 ? "A" : "B");
+String Describe_Exp_Param::osc_pitch(const String o) {
+    return from_string_literal(SL::osc_pitch_description).replace("_", o);
 }
 
-String Describe_Exp_Param::osc_pulse_w(const int o) {
-    return from_string_literal(SL::osc_pulse_w_description).replace("_", o == 1 ? "A" : "B");
+String Describe_Exp_Param::osc_pulse_w(const String o) {
+    return from_string_literal(SL::osc_pulse_w_description).replace("_", o);
 }
 
 String Describe_Exp_Param::osc_a_sync() {

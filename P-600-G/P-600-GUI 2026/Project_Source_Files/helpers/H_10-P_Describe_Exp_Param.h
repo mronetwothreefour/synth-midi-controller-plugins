@@ -27,8 +27,8 @@ struct Describe_Exp_Param
 
 	static String mixer();
 
-	static String osc_pitch(const int osc_num);
-	static String osc_pulse_w(const int osc_num);
+	static String osc_pitch(const String osc_letter);
+	static String osc_pulse_w(const String osc_letter);
 	static String osc_a_sync();
 	static String osc_b_fine();
 
