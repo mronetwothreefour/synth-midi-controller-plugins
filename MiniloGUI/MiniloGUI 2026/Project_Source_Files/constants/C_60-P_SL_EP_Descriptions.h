@@ -53,18 +53,6 @@ decay stage completes, the envelope holds
 at this level until it is gated off).
 Transmits on CC #%%. Range: 0 to 1023.)";
 
-    constexpr auto key_track_description = u8R"(
-Key tracking allows the pitch of the notes played on the
-keyboard to change the LPF cutoff frequency. As you go
-up the keyboard, the cutoff frequency is raised, more
-upper harmonics are let through, and the notes sound
-brighter. Transmits on CC #83. Choices: 0%, 50%, 100%.
-• 0%: the cutoff frequency does not change.
-• 50%: the cutoff frequency changes by 1/2 semitone
-for every semitone step on the keyboard.
-• 100%: the cutoff frequency changes by one semitone
-for every semitone step on the keyboard.)";
-
     constexpr auto level_knob_description = u8R"(
 Sets the output level of _target_name.
 Transmits on CC #%%. Range: 0 to 1023.)";
@@ -117,12 +105,16 @@ the cutoff point will be attenuated.
 Transmits on CC #43. Range: 0 to 1023.)";
 
     constexpr auto lpf_key_track_description = u8R"(
-Selects the degree to which the pitch of
-notes played on the keyboard shifts the
-filter’s cutoff frequency (i.e. the higher
-the pitch, the more the cutoff frequency is
-raised and the ‘brighter’ the note sounds).
-Choices: 0%, 50%, 100%. Transmits on CC #82.)";
+Key tracking allows the pitch of the notes played on the
+keyboard to change the LPF cutoff frequency. As you go
+up the keyboard, the cutoff frequency is raised, more
+upper harmonics are let through, and the notes sound
+brighter. Transmits on CC #83. Choices: 0%, 50%, 100%.
+• 0%: the cutoff frequency does not change.
+• 50%: the cutoff frequency changes by 1/2 semitone
+for every semitone step on the keyboard.
+• 100%: the cutoff frequency changes by one semitone
+for every semitone step on the keyboard.)";
 
     constexpr auto lpf_reso_description = u8R"(
 Sets the resonance level for the low-pass filter.
@@ -135,7 +127,7 @@ Switches the low-pass filter type between 2-Pole and 4-Pole.
 When set to 4-pole, the filter has a steeper cutoff frequency
 slope and more pronounced resonance. Transmits on CC #84.)";
 
-    constexpr auto lpf_vel_amt_description = u8R"(
+    constexpr auto lpf_velo_amt_description = u8R"(
 Selects the degree to which the velocity
 of notes played on the keyboard shifts the
 filter’s cutoff frequency (i.e. the harder a key

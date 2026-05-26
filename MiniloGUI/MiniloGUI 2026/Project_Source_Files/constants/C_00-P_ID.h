@@ -18,7 +18,7 @@ namespace ID
 	static const Identifier ep_08_osc_2_xmod_depth   { "ep_08_osc_2_xmod_depth" };
 	static const Identifier ep_09_osc_2_pitch_eg_int { "ep_09_osc_2_pitch_eg_int" };
 	static const Identifier ep_10_osc_2_sync         { "ep_10_osc_2_sync" };
-	static const Identifier ep_11_osc_2_ringMod      { "ep_11_osc_2_ringMod" };
+	static const Identifier ep_11_osc_2_ring_mod      { "ep_11_osc_2_ring_mod" };
 	static const Identifier ep_12_osc_1_level        { "ep_12_osc_1_level" };
 	static const Identifier ep_13_osc_2_level        { "ep_13_osc_2_level" };
 	static const Identifier ep_14_noise_level        { "ep_14_noise_level" };

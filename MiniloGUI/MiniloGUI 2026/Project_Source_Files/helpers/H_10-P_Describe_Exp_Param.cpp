@@ -52,8 +52,8 @@ String Describe_Exp_Param::env_sustain(bool vca) {
     return s;
 }
 
-String Describe_Exp_Param::key_track() {
-    return from_string_literal(SL::key_track_description);
+String Describe_Exp_Param::lpf_key_track() {
+    return from_string_literal(SL::lpf_key_track_description);
 }
 
 String Describe_Exp_Param::level_knob(const int k) {
@@ -99,8 +99,8 @@ String Describe_Exp_Param::lpf_type() {
     return from_string_literal(SL::lpf_type_description);
 }
 
-String Describe_Exp_Param::lpf_vel_amt() {
-    return from_string_literal(SL::lpf_vel_amt_description);
+String Describe_Exp_Param::lpf_velo_amt() {
+    return from_string_literal(SL::lpf_velo_amt_description);
 }
 
 String Describe_Exp_Param::osc_2_pitch_eg_int() {
@@ -119,31 +119,31 @@ String Describe_Exp_Param::osc_2_x_mod_depth() {
     return from_string_literal(SL::osc_2_x_mod_depth_description);
 }
 
-String Describe_Exp_Param::osc_octave(const int o) {
+String Describe_Exp_Param::osc_octave(const String o) {
     String s{ from_string_literal(SL::osc_octave_description) };
-    s = s.replace("_", (String)o);
-    s = s.replace("%%", o == 1 ? "48" : "49");
+    s = s.replace("_", o);
+    s = s.replace("%%", o == "1" ? "48" : "49");
     return s;
 }
 
-String Describe_Exp_Param::osc_pitch_fine(const int o) {
+String Describe_Exp_Param::osc_pitch_fine(const String o) {
     String s{ from_string_literal(SL::osc_pitch_fine_description) };
-    s = s.replace("_", (String)o);
-    s = s.replace("%%", o == 1 ? "34" : "35");
+    s = s.replace("_", o);
+    s = s.replace("%%", o == "1" ? "34" : "35");
     return s;
 }
 
-String Describe_Exp_Param::osc_shape(const int o) {
+String Describe_Exp_Param::osc_shape(const String o) {
     String s{ from_string_literal(SL::osc_shape_description) };
-    s = s.replace("_", (String)o);
-    s = s.replace("%%", o == 1 ? "36" : "37");
+    s = s.replace("_", o);
+    s = s.replace("%%", o == "1" ? "36" : "37");
     return s;
 }
 
-String Describe_Exp_Param::osc_wave(const int o) {
+String Describe_Exp_Param::osc_wave(const String o) {
     String s{ from_string_literal(SL::osc_wave_description) };
-    s = s.replace("_", (String)o);
-    s = s.replace("%%", o == 1 ? "50" : "51");
+    s = s.replace("_", o);
+    s = s.replace("%%", o == "1" ? "50" : "51");
     return s;
 }
 
