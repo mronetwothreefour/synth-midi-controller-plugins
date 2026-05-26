@@ -14,12 +14,20 @@ namespace XYWH
 	constexpr int knob_row_2_y{ 170 };
 	constexpr int knob_row_3_y{ 308 };
 
-	constexpr int osc_col_1_x{ 523 };
-	constexpr int osc_col_2_x{ 609 };
-	constexpr int osc_col_3_x{ 683 };
-	constexpr int osc_col_4_x{ 743 };
-	constexpr int osc_col_5_x{ 803 };
-	constexpr int osc_col_6_x{ 877 };
+	const auto filter_amp_col_spacing{ 75 };
+	const auto filter_amp_col_1_x{ 1057 };
+	const auto filter_amp_col_2_x{ filter_amp_col_1_x + filter_amp_col_spacing };
+	const auto filter_amp_col_3_x{ filter_amp_col_2_x + filter_amp_col_spacing };
+	const auto filter_amp_col_4_x{ filter_amp_col_3_x + filter_amp_col_spacing };
+
+	constexpr int mixer_glide_col_x{ 939 };
+
+	constexpr int osc_col_1_x{ 493 };
+	constexpr int osc_col_2_x{ 569 };
+	constexpr int osc_col_3_x{ 628 };
+	constexpr int osc_col_4_x{ 688 };
+	constexpr int osc_col_5_x{ 748 };
+	constexpr int osc_col_6_x{ 817 };
 
 	constexpr int switch_2_pole_h{ 32 };
 	constexpr int switch_3_pole_h{ 48 };

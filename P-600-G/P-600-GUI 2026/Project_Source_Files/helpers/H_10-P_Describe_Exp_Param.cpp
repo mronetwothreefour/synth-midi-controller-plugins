@@ -52,8 +52,8 @@ String Describe_Exp_Param::lfo_dest_osc_pitch() {
     return from_string_literal(SL::lfo_dest_osc_pitch_description);
 }
 
-String Describe_Exp_Param::lfo_dest_osc_pulse_w() {
-    return from_string_literal(SL::lfo_dest_osc_pulse_w_description);
+String Describe_Exp_Param::lfo_dest_osc_pw() {
+    return from_string_literal(SL::lfo_dest_osc_pw_description);
 }
 
 String Describe_Exp_Param::lfo_freq() {

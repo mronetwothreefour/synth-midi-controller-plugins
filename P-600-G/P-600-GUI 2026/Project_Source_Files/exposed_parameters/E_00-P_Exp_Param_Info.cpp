@@ -82,6 +82,225 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			),
 			-1, nullptr);
 	} // ---------------------------------------------------------- end osc section
+
+	// *************************************************************** mixer / glide section
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_12_mixer, "Mixer", Ctrl_Type::knob, 11, 2, 6, 64, 32,
+			mixer_glide_col_x, knob_row_2_y, knob_diameter, knob_diameter, Describe::mixer(),
+			Build_Tree::choice_names_unsigned_int(64, curt), Build_Tree::choice_names_unsigned_int(64)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_13_glide, "Glide", Ctrl_Type::knob, 25, 1, 4, 16, 0,
+			mixer_glide_col_x, knob_row_3_y, knob_diameter, knob_diameter, Describe::glide(),
+			Build_Tree::choice_names_unsigned_int(16, curt), Build_Tree::choice_names_unsigned_int(16)
+		),
+		-1, nullptr);
+	// ---------------------------------------------------------- end mixer / glide section
+
+	// *************************************************************** filter section
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_14_filter_cutoff, "Filter Cutoff Frequency", Ctrl_Type::knob, 13, 0, 7, 128, 64,
+			filter_amp_col_1_x, knob_row_1_y, knob_diameter, knob_diameter, Describe::filter_cutoff(),
+			Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_15_filter_reso, "Filter Resonance", Ctrl_Type::knob, 14, 3, 6, 64, 32,
+			filter_amp_col_2_x, knob_row_1_y, knob_diameter, knob_diameter, Describe::filter_reso(),
+			Build_Tree::choice_names_unsigned_int(64, curt), Build_Tree::choice_names_unsigned_int(64)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_16_filter_env_amt, "Filter Envelope Amount", Ctrl_Type::knob, 16, 1, 4, 16, 0,
+			filter_amp_col_3_x, knob_row_1_y, knob_diameter, knob_diameter, Describe::filter_env_amt(),
+			Build_Tree::choice_names_unsigned_int(16, curt), Build_Tree::choice_names_unsigned_int(16)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_17_filter_key_track, "Filter Keyboard Tracking", Ctrl_Type::switch_3_pole,
+			28, 2, 2, 3, 2, 1278, 72, switch_w, switch_3_pole_h, Describe::filter_key_track(),
+			Build_Tree::choice_names_filter_key_track(curt), Build_Tree::choice_names_filter_key_track()
+		),
+		-1, nullptr);
+
+	auto filter = true;
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_18_filter_env_attack, "Filter Envelope Attack", Ctrl_Type::knob, 20, 1, 4, 16, 0,
+			filter_amp_col_1_x, knob_row_2_y, knob_diameter, knob_diameter, Describe::env_attack(filter),
+			Build_Tree::choice_names_unsigned_int(16, curt), Build_Tree::choice_names_unsigned_int(16)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_19_filter_env_decay, "Filter Envelope Decay", Ctrl_Type::knob, 19, 1, 4, 16, 0,
+			filter_amp_col_2_x, knob_row_2_y, knob_diameter, knob_diameter, Describe::env_decay(filter),
+			Build_Tree::choice_names_unsigned_int(16, curt), Build_Tree::choice_names_unsigned_int(16)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_20_filter_env_sustain, "Filter Envelope Sustain", Ctrl_Type::knob, 18, 1, 4, 16, 0,
+			filter_amp_col_3_x, knob_row_2_y, knob_diameter, knob_diameter, Describe::env_sustain(filter),
+			Build_Tree::choice_names_unsigned_int(16, curt), Build_Tree::choice_names_unsigned_int(16)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_21_filter_env_release, "Filter Envelope Release", Ctrl_Type::knob, 17, 1, 4, 16, 0,
+			filter_amp_col_3_x, knob_row_2_y, knob_diameter, knob_diameter, Describe::env_sustain(filter),
+			Build_Tree::choice_names_unsigned_int(16, curt), Build_Tree::choice_names_unsigned_int(16)
+		),
+		-1, nullptr);
+	// ---------------------------------------------------------- end filter section
+
+	// *************************************************************** amp section
+	auto amp = false;
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_22_amp_env_attack, "Amplifier Envelope Attack", Ctrl_Type::knob, 24, 1, 4, 16, 0,
+			filter_amp_col_1_x, knob_row_3_y, knob_diameter, knob_diameter, Describe::env_attack(amp),
+			Build_Tree::choice_names_unsigned_int(16, curt), Build_Tree::choice_names_unsigned_int(16)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_23_amp_env_decay, "Amplifier Envelope Decay", Ctrl_Type::knob, 23, 1, 4, 16, 0,
+			filter_amp_col_2_x, knob_row_3_y, knob_diameter, knob_diameter, Describe::env_decay(amp),
+			Build_Tree::choice_names_unsigned_int(16, curt), Build_Tree::choice_names_unsigned_int(16)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_24_amp_env_sustain, "Amplifier Envelope Sustain", Ctrl_Type::knob, 22, 1, 4, 16, 15,
+			filter_amp_col_3_x, knob_row_3_y, knob_diameter, knob_diameter, Describe::env_sustain(amp),
+			Build_Tree::choice_names_unsigned_int(16, curt), Build_Tree::choice_names_unsigned_int(16)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_25_amp_env_release, "Amplifier Envelope Release", Ctrl_Type::knob, 21, 1, 4, 16, 0,
+			filter_amp_col_3_x, knob_row_3_y, knob_diameter, knob_diameter, Describe::env_sustain(amp),
+			Build_Tree::choice_names_unsigned_int(16, curt), Build_Tree::choice_names_unsigned_int(16)
+		),
+		-1, nullptr);
+	// ---------------------------------------------------------- end amp section
+
+	// *************************************************************** poly-mod section
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_26_p_mod_amt_filter_env, "Poly-Mod Source: Filter Envelope Amount",
+			Ctrl_Type::knob, 1, 3, 4, 16, 0, 60, knob_row_2_y, knob_diameter, knob_diameter,
+			Describe::poly_mod_src_filter_env_amt(), Build_Tree::choice_names_unsigned_int(16, curt),
+			Build_Tree::choice_names_unsigned_int(16)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_27_p_mod_amt_osc_b, "Poly-Mod Source: Oscillator B Amount",
+			Ctrl_Type::knob, 3, 3, 7, 128, 0, 184, knob_row_2_y, knob_diameter, knob_diameter,
+			Describe::poly_mod_src_osc_b_amt(), Build_Tree::choice_names_unsigned_int(128, curt),
+			Build_Tree::choice_names_unsigned_int(128)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_28_p_mod_dest_osc_a_freq, "Poly-Mod Destination: Oscillator A Frequency",
+			Ctrl_Type::switch_2_pole, 31, 1, 1, 2, 0, 287, switch_row_1_y,
+			switch_w, switch_2_pole_h, Describe::poly_mod_dest_osc_a_pitch(),
+			Build_Tree::choice_names_off_on(curt), Build_Tree::choice_names_off_on()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_29_p_mod_dest_filter, "Poly-Mod Destination: Filter Cutoff Frequency",
+			Ctrl_Type::switch_2_pole, 31, 2, 1, 2, 0, 347, switch_row_1_y,
+			switch_w, switch_2_pole_h, Describe::poly_mod_dest_filter_freq(),
+			Build_Tree::choice_names_off_on(curt), Build_Tree::choice_names_off_on()
+		),
+		-1, nullptr);
+	// ---------------------------------------------------------- end poly-mod section
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_30_unison_track, "Unison Tracking",
+			Ctrl_Type::switch_2_pole, 31, 3, 1, 2, 0, 416, switch_row_1_y,
+			switch_w, switch_2_pole_h, Describe::unison_track(),
+			Build_Tree::choice_names_off_on(curt), Build_Tree::choice_names_off_on()
+		),
+		-1, nullptr);
+
+	// *************************************************************** lfo section
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_31_lfo_freq, "LFO Frequency", Ctrl_Type::knob, 2, 3, 4, 16, 0,
+			60, knob_row_3_y, knob_diameter, knob_diameter, Describe::lfo_freq(),
+			Build_Tree::choice_names_unsigned_int(16, curt), Build_Tree::choice_names_unsigned_int(16)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_32_lfo_shape, "LFO Wave Shape", Ctrl_Type::switch_2_pole, 29, 0, 1, 2, 1,
+			126, switch_row_2_y, switch_w, switch_2_pole_h, Describe::lfo_shape(),
+			Build_Tree::choice_names_lfo_shape(curt), Build_Tree::choice_names_lfo_shape()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_33_lfo_init_amt, "LFO Initial Amount", Ctrl_Type::knob, 5, 2, 5, 32, 0,
+			207, knob_row_3_y, knob_diameter, knob_diameter, Describe::lfo_init_amt(),
+			Build_Tree::choice_names_unsigned_int(32, curt), Build_Tree::choice_names_unsigned_int(32)
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_34_lfo_dest_osc_pitch, "LFO Destination: Oscillator Frequency", Ctrl_Type::switch_2_pole,
+			29, 1, 1, 2, 0, 282, switch_row_2_y, switch_w, switch_2_pole_h, Describe::lfo_dest_osc_pitch(),
+			Build_Tree::choice_names_off_on(curt), Build_Tree::choice_names_off_on()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_35_lfo_dest_osc_pw, "LFO Destination: Oscillator Pulse Width", Ctrl_Type::switch_2_pole,
+			29, 2, 1, 2, 0, 342, switch_row_2_y, switch_w, switch_2_pole_h, Describe::lfo_dest_osc_pw(),
+			Build_Tree::choice_names_off_on(curt), Build_Tree::choice_names_off_on()
+		),
+		-1, nullptr);
+
+	tree.addChild(
+		Build_Tree::exposed_parameter(
+			ID::ep_36_lfo_dest_filter, "LFO Destination: Filter Cutoff", Ctrl_Type::switch_2_pole,
+			29, 3, 1, 2, 0, 402, switch_row_2_y, switch_w, switch_2_pole_h, Describe::lfo_dest_filter(),
+			Build_Tree::choice_names_off_on(curt), Build_Tree::choice_names_off_on()
+		),
+		-1, nullptr);
+	// ---------------------------------------------------------- end poly-mod section
 }
 
 const Ctrl_Type Exposed_Parameter_Info::ctrl_type_for(const uint8 i) const {

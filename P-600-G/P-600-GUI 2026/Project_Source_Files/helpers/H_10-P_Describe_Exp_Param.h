@@ -20,7 +20,7 @@ struct Describe_Exp_Param
 
 	static String lfo_dest_filter();
 	static String lfo_dest_osc_pitch();
-	static String lfo_dest_osc_pulse_w();
+	static String lfo_dest_osc_pw();
 	static String lfo_freq();
 	static String lfo_init_amt();
 	static String lfo_shape();

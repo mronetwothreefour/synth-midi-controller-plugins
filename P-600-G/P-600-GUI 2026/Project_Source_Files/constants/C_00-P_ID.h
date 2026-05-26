@@ -41,8 +41,8 @@ namespace ID
 	static const Identifier ep_31_lfo_freq              { "ep_31_lfo_freq" };
 	static const Identifier ep_32_lfo_shape             { "ep_32_lfo_shape" };
 	static const Identifier ep_33_lfo_init_amt          { "ep_33_lfo_init_amt" };
-	static const Identifier ep_34_lfo_dest_freq         { "ep_34_lfo_dest_freq" };
-	static const Identifier ep_35_lfo_dest_pw           { "ep_35_lfo_dest_pw" };
+	static const Identifier ep_34_lfo_dest_osc_pitch    { "ep_34_lfo_dest_osc_pitch" };
+	static const Identifier ep_35_lfo_dest_osc_pw       { "ep_35_lfo_dest_osc_pw" };
 	static const Identifier ep_36_lfo_dest_filter       { "ep_36_lfo_dest_filter" };
 
 	// exposed parameter properties

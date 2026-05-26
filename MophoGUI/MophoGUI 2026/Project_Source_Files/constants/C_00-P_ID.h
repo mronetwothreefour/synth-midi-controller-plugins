@@ -14,7 +14,7 @@ namespace ID
 	static const Identifier ep_004_osc_1_key_track { "ep_004_osc_1_key_track" };
 	static const Identifier ep_005_osc_1_sub_level { "ep_005_osc_1_sub_level" };
 	static const Identifier ep_006_osc_2_pitch     { "ep_006_osc_2_pitch" };
-	static const Identifier ep_007_osc_2_fine_tune  { "ep_007_osc_2_fine_tune" };
+	static const Identifier ep_007_osc_2_fine_tune { "ep_007_osc_2_fine_tune" };
 	static const Identifier ep_008_osc_2_shape     { "ep_008_osc_2_shape" };
 	static const Identifier ep_009_osc_2_glide     { "ep_009_osc_2_glide" };
 	static const Identifier ep_010_osc_2_key_track { "ep_010_osc_2_key_track" };
@@ -33,7 +33,7 @@ namespace ID
 	static const Identifier ep_023_lpf_fm_amt      { "ep_023_lpf_fm_amt" };
 	static const Identifier ep_024_lpf_type        { "ep_024_lpf_type" };
 	static const Identifier ep_025_lpf_env_amt     { "ep_025_lpf_env_amt" };
-	static const Identifier ep_026_lpf_velo_amt     { "ep_026_lpf_velo_amt" };
+	static const Identifier ep_026_lpf_velo_amt    { "ep_026_lpf_velo_amt" };
 	static const Identifier ep_027_lpf_delay       { "ep_027_lpf_delay" };
 	static const Identifier ep_028_lpf_attack      { "ep_028_lpf_attack" };
 	static const Identifier ep_029_lpf_decay       { "ep_029_lpf_decay" };
@@ -50,7 +50,7 @@ namespace ID
 	static const Identifier ep_040_voice_volume    { "ep_040_voice_volume" };
 	static const Identifier ep_061_env_3_dest      { "ep_061_env_3_dest" };
 	static const Identifier ep_062_env_3_amount    { "ep_062_env_3_amount" };
-	static const Identifier ep_063_env_3_velo_amt   { "ep_063_env_3_velo_amt" };
+	static const Identifier ep_063_env_3_velo_amt  { "ep_063_env_3_velo_amt" };
 	static const Identifier ep_064_env_3_delay     { "ep_064_env_3_delay" };
 	static const Identifier ep_065_env_3_attack    { "ep_065_env_3_attack" };
 	static const Identifier ep_066_env_3_decay     { "ep_066_env_3_decay" };
@@ -72,7 +72,7 @@ namespace ID
 	static const Identifier ep_094_push_it_mode    { "ep_094_push_it_mode" };
 	static const Identifier ep_095_clock_tempo     { "ep_095_clock_tempo" };
 	static const Identifier ep_096_clock_div       { "ep_096_clock_div" };
-	static const Identifier ep_097_arp_mode      { "ep_097_arp_mode" };
+	static const Identifier ep_097_arp_mode        { "ep_097_arp_mode" };
 	static const Identifier ep_098_arpeg_on_off    { "ep_098_arpeg_on_off" };
 	static const Identifier ep_099_seq_trig_mode   { "ep_099_seq_trig_mode" };
 	static const Identifier ep_100_seq_on_off      { "ep_100_seq_on_off" };

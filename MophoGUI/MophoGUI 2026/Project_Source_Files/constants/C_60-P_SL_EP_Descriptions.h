@@ -5,10 +5,10 @@ namespace SL
 
     constexpr auto arp_mode_description = u8R"(
 Sets the order in which the arpeggiator plays notes.
-â€˜Assignâ€™ modes play notes in the order they were struck.)";
+‘Assign’ modes play notes in the order they were struck.)";
 
     constexpr auto arp_on_off_description = u8R"(
-Turns the Mophoâ€™s arpeggiator on and off.
+Turns the Mopho’s arpeggiator on and off.
 Turning it on will turn off the sequencer.)";
 
     constexpr auto bend_range_description = u8R"(
@@ -37,31 +37,31 @@ its delay, attack, decay, and sustain stages
 for as long as the envelope is gated on.)";
 
     constexpr auto env_attack_description = u8R"(
-Sets the length of _envelope name_â€™s attack stage
-(the amount of time it takes for the envelopeâ€™s
+Sets the length of _envelope name_’s attack stage
+(the amount of time it takes for the envelope’s
 level to rise from minimum to maximum).
 Range: 0 (instantaneous) to 127 (longest time).)";
 
     constexpr auto env_decay_description = u8R"(
-Sets the length of _envelope name_â€™s decay stage
-(the amount of time it takes for the envelopeâ€™s
+Sets the length of _envelope name_’s decay stage
+(the amount of time it takes for the envelope’s
 level to fall from maximum to the sustain level).
 Range: 0 (instantaneous) to 127 (longest time).)";
 
     constexpr auto env_delay_description = u8R"(
-Sets the length of _envelope name_â€™s delay stage
+Sets the length of _envelope name_’s delay stage
 (the amount of time that passes after the envelope
 is triggered before its attack stage begins).
 Range: 0 (instantaneous) to 127 (longest time).)";
 
     constexpr auto env_release_description = u8R"(
-Sets the length of _envelope name_â€™s release stage
+Sets the length of _envelope name_’s release stage
 (the amount of time it takes to fall from the sustain level
 down to minimum once the envelope is gated off).
 Range: 0 (instantaneous) to 127 (longest time).)";
 
     constexpr auto env_sustain_description = u8R"(
-Sets _envelope name_â€™s sustain level
+Sets _envelope name_’s sustain level
 (after the decay stage completes, the envelope
 holds at this level until it is gated off).
 Range: 0 (minimum) to 127 (maximum).)";
@@ -82,7 +82,7 @@ Range: 0 to 127.)";
     constexpr auto glide_mode_description = u8R"(
 Fixed Rate: The actual glide time depends on the size of the note interval.
 Fixed Time: The glide time is constant, regardless of the interval size.
-The â€˜Autoâ€™ modes only apply glide when a note is played legato
+The ‘Auto’ modes only apply glide when a note is played legato
 (i.e. a new note is triggered before the previous note is released).)";
 
     constexpr auto knob_assign_description = u8R"(
@@ -95,7 +95,7 @@ modulates the destination parameter.
 Range: 0 to 127.)";
 
     constexpr auto lfo_freq_description = u8R"(
-Sets LFO _â€™s cycling speed. Range: 0 to 166.
+Sets LFO _’s cycling speed. Range: 0 to 166.
 At 0, 1 cycle lasts 30 seconds. At 89, the frequency is 8 Hz.
 From 90 to 150, LFO _ has a pitched frequency, increasing
 in semitone steps from C 0 (8.2 Hz) up to C 5 (261.6 Hz).
@@ -103,21 +103,21 @@ Above 150, LFO _ is synced with the step sequencer,
 displayed as [number of LFO cycles] : [length in steps].)";
 
     constexpr auto lfo_key_sync_description = u8R"(
-When on, LFO _â€™s cycle will reset
+When on, LFO _’s cycle will reset
 each time a new note is played.)";
 
     constexpr auto lfo_shape_description = u8R"(
-Selects LFO _â€™s wave shape.)";
+Selects LFO _’s wave shape.)";
 
     constexpr auto lpf_env_amt_description = u8R"(
 Sets the degree to which the LPF envelope
-modulates the filterâ€™s cutoff frequency.
+modulates the filter’s cutoff frequency.
 Negative values invert the envelope.
 Range: -127 to +127.)";
 
     constexpr auto lpf_fm_amt_description = u8R"(
 Sets the degree to which oscillator 1 modulates
-the low-pass filterâ€™s cutoff frequency. This is
+the low-pass filter’s cutoff frequency. This is
 useful for generating bell-like sounds.
 Range: 0 to 127.)";
 
@@ -129,7 +129,7 @@ increment the frequency by one octave (12 semitones).)";
 
     constexpr auto lpf_key_amt_description = u8R"(
 Sets the amount by which keyboard (MIDI) notes
-will shift the low-pass filterâ€™s cutoff frequency.
+will shift the low-pass filter’s cutoff frequency.
 Range: 0 to 127. At 64, cutoff is shifted by one
 semitone for each note. At 32, cutoff is shifted
 by one half-semitone for each note.)";
@@ -193,12 +193,12 @@ re-triggered when a note is played legato (before
 the previous note has been released).)";
 
     constexpr auto osc_fine_description = u8R"(
-Fine tunes oscillator _â€™s base pitch.
+Fine tunes oscillator _’s base pitch.
 Range: -50 cents to +50 cents.
 0 = no detuning (centered).)";
 
     constexpr auto osc_glide_description = u8R"(
-Sets oscillator _â€™s glide (portamento) rate.
+Sets oscillator _’s glide (portamento) rate.
 Range: 0 (instantaneous) to 127 (very slow)";
 
     constexpr auto osc_key_track_description = u8R"(
@@ -214,13 +214,13 @@ At 127, only oscillator 2 is heard. At 64, an equal
 mix of the two oscillators is heard.)";
 
     constexpr auto osc_pitch_description = u8R"(
-Sets oscillator _â€™s base pitch in semitone steps.
+Sets oscillator _’s base pitch in semitone steps.
 Range: C 0 (8 Hz) to C 10 (8.2 KHz). Middle C is C 5.
 Hold down the SHIFT key when using the mouse wheel to
 increment the pitch by one octave (12 semitones).)";
 
     constexpr auto osc_shape_description = u8R"(
-Selects oscillator _â€™s wave shape.
+Selects oscillator _’s wave shape.
 Hold down a number on the keyboard and
 click the knob to jump directly to a wave shape:
 0 = Off;  1 = Sawtooth;  2 = Triangle;
@@ -229,7 +229,7 @@ click the knob to jump directly to a wave shape:
 
     constexpr auto osc_slop_description = u8R"(
 Introduces a subtle amount of random oscillator
-pitch drift for a â€˜vintage analogâ€™ sound.
+pitch drift for a ‘vintage analog’ sound.
 Range: 0 to 5.)";
 
     constexpr auto osc_sub_level_description = u8R"(
@@ -244,7 +244,7 @@ turned on, every time oscillator 2 resets
 it forces oscillator 1 to reset as well.)";
 
     constexpr auto push_it_mode_description = u8R"(
-Sets the operating mode for the Mophoâ€™s Push It! switch.
+Sets the operating mode for the Mopho’s Push It! switch.
 Normal: The selected note is gated on when the switch is
 pressed and gated off when the switch is released.
 Toggle: The selected note is gated on when the switch is
@@ -264,7 +264,7 @@ when the Push It! switch is pressed.
 Range: 0 to 127.)";
 
     constexpr auto seq_on_off_description = u8R"(
-Turns the Mophoâ€™s internal sequencer on and off.
+Turns the Mopho’s internal sequencer on and off.
 Turning this on will turn off the arpeggiator.)";
 
     constexpr auto seq_track_dest_description = u8R"(
@@ -272,9 +272,9 @@ Selects the target parameter for
 modulation by sequencer track _.)";
 
     constexpr auto seq_track_step_description_1 = u8R"(
-Sets the value that sequencer track _â€™s destination parameter has at step %,
+Sets the value that sequencer track _’s destination parameter has at step %,
 Range: 0 to 125. If the target is an oscillator pitch, the range is C0 to D5+.
-A â€˜+â€™ indicates that the pitch is a quarter-tone higher than the displayed note.
+A ‘+’ indicates that the pitch is a quarter-tone higher than the displayed note.
 Reset (126): Resets the sequence back to step 1. CTRL-click a step to set it to reset.
 )";
 
@@ -285,8 +285,8 @@ Rests are only available for the steps in sequencer track 1.
 
     constexpr auto seq_track_step_description_3 = u8R"(
 When the track destination is an oscillator pitch, holding down the
-SHIFT key while turning the mouse wheel will increment a stepâ€™s value 
-by 24 (equivalent to one octave including the â€˜bentâ€™ pitches).
+SHIFT key while turning the mouse wheel will increment a step’s value 
+by 24 (equivalent to one octave including the ‘bent’ pitches).
 Otherwise, the value will increment by 10.)";
 
     constexpr auto seq_trig_mode_description = u8R"(
@@ -304,17 +304,17 @@ external audio input level surpasses a certain threshold.)";
 
     constexpr auto vca_env_amt_description = u8R"(
 Sets the degree to which the VCA envelope
-modulates the voltage-controlled ampifierâ€™s level.
+modulates the voltage-controlled ampifier’s level.
 Range: 0 to 127.)";
 
     constexpr auto vca_level_description = u8R"(
-Sets the voltage-controlled amplifierâ€™s baseline level. Turn this
+Sets the voltage-controlled amplifier’s baseline level. Turn this
 up for droning sounds or when processing external audio input.
 When this level is set to 127, the VCA envelope has no effect.
 Range: 0 to 127.)";
 
     constexpr auto voice_name_char_description = u8R"(
-To change character _ of the programâ€™s name,
+To change character _ of the program’s name,
 click-and-drag the character or hover over
 it and turn the mouse wheel. Click the edit
 button above to type in the entire name.)";
