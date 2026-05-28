@@ -1,21 +1,23 @@
 Matrix-6G 2026
 
-C COLOR
-C ENUM
-C EXP
-C FONT
-C GLOB
-C HEX Factory Voice Banks
-C ID
-C MMOD
-C PATH Editor Bkgrnd
-C PATH Envelope/Graph
-C PATH LED text
-C SL Button Tips
-C SL Exposed Param Tips
-C SL Global Param Tips
-C SL Matrix Mod Param Tips
-C SL Split Param Tips
+C COLOR B
+C COLOR P
+C ENUM P
+C EXP P
+C FONT P
+C GLOBAL P
+C HEX Factory Voice Banks P
+C ID B
+C ID P
+C MMOD P
+C PATH Editor Bkgrnd P
+C PATH Envelope/Graph P
+C PATH LED text P
+C SL Button Tips P
+C SL Exposed Param Tips P
+C SL Global Param Tips P
+C SL Matrix Mod Param Tips P
+C SL Split Param Tips P
 C SPLIT
 C VOICE
 C VMAP
@@ -41,7 +43,8 @@ D TREE plugin - scale factor, tip time
 D TREE splits
 D TREE voice map
 D TREE voices - voice transmit, voice bank
-DXG Processor
+DXG Processor B
+DXG Processor P
 DXG Editor
 G HUB Exp Param Controls
 G LAF Look_And_Feel
