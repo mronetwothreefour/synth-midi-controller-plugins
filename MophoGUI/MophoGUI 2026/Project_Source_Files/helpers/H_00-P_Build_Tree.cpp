@@ -6,25 +6,25 @@ ValueTree Build_Tree::exposed_parameter(Identifier id, String name, Ctrl_Type ct
 										Knob_Display_Type display, int nrpn,
 										int choice_count, int init_choice,
 										int ctrl_center_x, int ctrl_center_y, int ctrl_w, 
-										int ctrl_h, String description, 
+										int ctrl_h, String tip, 
 										ValueTree curt_choice_names, ValueTree choice_names,
 										int red_toggle_center_x, int red_toggle_center_y)
 {
 	ValueTree tree_ep{ id,
 		{
-			{ ID::ep_p_name, name },
-			{ ID::ep_p_ctrl_type, (int)ctrl },
-			{ ID::ep_p_knob_display_type, (int)display },
-			{ ID::ep_p_nrpn, nrpn },
-			{ ID::ep_p_choice_count, choice_count },
-			{ ID::ep_p_init_choice, init_choice },
-			{ ID::ep_p_ctrl_center_x, ctrl_center_x },
-			{ ID::ep_p_ctrl_center_y, ctrl_center_y },
-			{ ID::ep_p_ctrl_width, ctrl_w },
-			{ ID::ep_p_ctrl_height, ctrl_h },
-			{ ID::ep_p_description, description },
-			{ ID::ep_p_red_toggle_center_x, red_toggle_center_x },
-			{ ID::ep_p_red_toggle_center_y, red_toggle_center_y }
+			{ ID::exp_p_name, name },
+			{ ID::exp_p_ctrl_type, (int)ctrl },
+			{ ID::exp_p_knob_display_type, (int)display },
+			{ ID::exp_p_nrpn, nrpn },
+			{ ID::exp_p_choice_count, choice_count },
+			{ ID::exp_p_init_choice, init_choice },
+			{ ID::exp_p_ctrl_center_x, ctrl_center_x },
+			{ ID::exp_p_ctrl_center_y, ctrl_center_y },
+			{ ID::exp_p_ctrl_width, ctrl_w },
+			{ ID::exp_p_ctrl_height, ctrl_h },
+			{ ID::exp_p_tip, tip },
+			{ ID::exp_p_red_toggle_center_x, red_toggle_center_x },
+			{ ID::exp_p_red_toggle_center_y, red_toggle_center_y }
 		},
 		{ curt_choice_names, choice_names }
 	};
@@ -122,8 +122,8 @@ ValueTree Build_Tree::choice_names_clock_div(const bool curt) {
 
 ValueTree Build_Tree::choice_names_clock_tempo(const bool curt) {
 	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
-	for (auto choice = 0; choice < EP::choice_count_clock_tempo; ++choice) {
-		auto name{ String(choice + EP::clock_tempo_offset) };
+	for (auto choice = 0; choice < EXP::choice_count_clock_tempo; ++choice) {
+		auto name{ String(choice + EXP::clock_tempo_offset) };
 		name += curt ? "" : " BPM";
 		tree.setProperty("choice_" + (String)choice, name, nullptr);
 	}
@@ -240,10 +240,10 @@ ValueTree Build_Tree::choice_names_knob_assign(const bool curt) {
 
 ValueTree Build_Tree::choice_names_lfo_freq(const bool curt) {
 	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
-	for (int n = 0; n < EP::first_lfo_pitched_freq_choice; ++n)
+	for (int n = 0; n < EXP::first_lfo_pitched_freq_choice; ++n)
 		tree.setProperty("choice_" + (String)n, curt ? (String)n : "un-synced " + (String)n, nullptr);
-	for (auto n = EP::first_lfo_pitched_freq_choice; n < EP::first_lfo_synced_freq_choice; ++n) {
-		auto pitch{ Int_To_Pitch_Name::convert(n - EP::first_lfo_pitched_freq_choice) };
+	for (auto n = EXP::first_lfo_pitched_freq_choice; n < EXP::first_lfo_synced_freq_choice; ++n) {
+		auto pitch{ Int_To_Pitch_Name::convert(n - EXP::first_lfo_pitched_freq_choice) };
 		auto name{ curt ? pitch : (String)n + " (pitch freq. " + pitch + ")" };
 		tree.setProperty("choice_" + (String)n, name, nullptr);
 	}
@@ -278,7 +278,7 @@ ValueTree Build_Tree::choice_names_lfo_shape(const bool curt) {
 
 ValueTree Build_Tree::choice_names_lpf_freq(const bool curt) {
 	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
-	for (uint8 num = 0; num < EP::choice_count_lpf_freq; ++num) {
+	for (uint8 num = 0; num < EXP::choice_count_lpf_freq; ++num) {
 		String n{ num };
 		auto pitch{ Int_To_Pitch_Name::convert(num) };
 		auto name{ curt ? pitch : n + " (pitch freq. " + pitch + ")" };
@@ -380,7 +380,7 @@ ValueTree Build_Tree::choice_names_osc_fine(const bool curt) {
 	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
 	for (auto choice = 0; choice < 101; ++choice) {
 		if (curt) {
-			auto name = (choice > EP::choice_count_osc_fine ? "+" : "") + String{ choice - 50 };
+			auto name = (choice > EXP::choice_count_osc_fine ? "+" : "") + String{ choice - 50 };
 			tree.setProperty("choice_" + (String)choice, name, nullptr);
 		}
 		else {
@@ -407,7 +407,7 @@ ValueTree Build_Tree::choice_names_osc_shape(const bool curt) {
 	tree.setProperty("choice_1", curt ? "SAW" : "sawtooth", nullptr);
 	tree.setProperty("choice_2", curt ? "TRI" : "triangle", nullptr);
 	tree.setProperty("choice_3", curt ? "S/T" : "sawtooth / triangle mix", nullptr);
-	for (int choice = 4; choice < EP::choice_count_osc_shape; ++choice) {
+	for (int choice = 4; choice < EXP::choice_count_osc_shape; ++choice) {
 		if (choice == 54)
 			tree.setProperty("choice_54", curt ? "SQR" : "square (pulse: width 50)", nullptr);
 		else {
@@ -473,7 +473,7 @@ ValueTree Build_Tree::choice_names_voice_name_char(const bool curt) {
 	for (int n = 0; n < 32; ++n)
 		tree.setProperty("choice_" + (String)n, "ASCII control character " + (String)n, nullptr);
 	tree.setProperty("choice_32", curt ? " " : "space", nullptr);
-	for (int n = 33; n < EP::choice_count_voice_name_char; ++n) {
+	for (int n = 33; n < EXP::choice_count_voice_name_char; ++n) {
 		String name{ std::string(1, (char)n) };
 		if (n == 92)
 			name = curt ? (String)u8R"(¥)" : "yen symbol";

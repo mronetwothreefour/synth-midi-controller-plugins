@@ -3,22 +3,19 @@
 <JUCERPROJECT id="f0Ch32" name="P-600-GUI 2026" projectType="audioplug" jucerFormatVersion="1"
               version="2.0.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com"
               companyEmail="programming@mr1234.com" useAppConfig="1" addUsingNamespaceToJuceHeader="1"
-              pluginFormats="buildVST3" pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
+              pluginFormats="buildStandalone,buildVST3" pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginDesc="Sound editor/librarian for use with the SCI Prophet-600 synthesizer"
               pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20"
-              headerPath="..\..\..\..\_Base_Source_Files\audio&#10;..\..\..\..\_Base_Source_Files\constants&#10;..\..\..\..\_Base_Source_Files\exposed_parameters&#10;..\..\..\..\_Base_Source_Files\helpers&#10;..\..\Project_Source_Files\audio&#10;..\..\Project_Source_Files\constants&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
+              headerPath="..\..\..\..\_Base_Source_Files\audio&#10;..\..\..\..\_Base_Source_Files&#10;..\..\..\..\_Base_Source_Files\exposed_parameters&#10;..\..\..\..\_Base_Source_Files\helpers&#10;..\..\Project_Source_Files\audio&#10;..\..\Project_Source_Files&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
   <MAINGROUP id="sSCaXP" name="P-600-GUI 2026">
     <GROUP id="{E250642F-4444-B780-0392-6400C2CA6C29}" name="_Base_Source_Files">
+      <FILE id="QiBoca" name="c_COLOR_b.h" compile="0" resource="0" file="../../_Base_Source_Files/c_COLOR_b.h"/>
+      <FILE id="Id1KXD" name="c_ID_b.h" compile="0" resource="0" file="../../_Base_Source_Files/c_ID_b.h"/>
       <GROUP id="{3BDF9967-A820-40DA-7D0A-36EA6C3C8630}" name="audio">
         <FILE id="EG8V2A" name="A_00-B_Processor.cpp" compile="1" resource="0"
               file="../../_Base_Source_Files/audio/A_00-B_Processor.cpp"/>
         <FILE id="QTDzl7" name="A_00-B_Processor.h" compile="0" resource="0"
               file="../../_Base_Source_Files/audio/A_00-B_Processor.h"/>
-      </GROUP>
-      <GROUP id="{26AFA828-8571-45CE-F092-77B24B62C3CF}" name="constants">
-        <FILE id="ISpyhZ" name="C_00-B_ID.h" compile="0" resource="0" file="../../_Base_Source_Files/constants/C_00-B_ID.h"/>
-        <FILE id="bnrck1" name="C_10-B_COLOR.h" compile="0" resource="0" file="../../_Base_Source_Files/constants/C_10-B_COLOR.h"/>
-        <FILE id="JDxaFr" name="C_12-B_FONT.h" compile="0" resource="0" file="../../_Base_Source_Files/constants/C_12-B_FONT.h"/>
       </GROUP>
       <GROUP id="{CD315361-50D8-65AA-D089-3489243AD394}" name="exposed_parameters">
         <FILE id="foa4Md" name="E_00-B_Exp_Param_Info.cpp" compile="1" resource="0"
@@ -45,17 +42,15 @@
       <GROUP id="{16C95D19-7475-5417-F8AF-AC05E9B5689B}" name="binaries">
         <FILE id="qVHTXX" name="texture.jpg" compile="0" resource="1" file="Project_Source_Files/binaries/texture.jpg"/>
       </GROUP>
-      <GROUP id="{FD34FCA0-4457-0CE7-265C-B464E68C8154}" name="constants">
-        <FILE id="rYrnaP" name="C_00-P_ID.h" compile="0" resource="0" file="Project_Source_Files/constants/C_00-P_ID.h"/>
-        <FILE id="bGzJIa" name="C_01-P_ENUM.h" compile="0" resource="0" file="Project_Source_Files/constants/C_01-P_ENUM.h"/>
-        <FILE id="w6d6Cl" name="C_10-P_COLOR.h" compile="0" resource="0" file="Project_Source_Files/constants/C_10-P_COLOR.h"/>
-        <FILE id="YFEGny" name="C_11-P_XYWH.h" compile="0" resource="0" file="Project_Source_Files/constants/C_11-P_XYWH.h"/>
-        <FILE id="ROjRVw" name="C_20-P_PATH_Editor_Bkgrnd.h" compile="0" resource="0"
-              file="Project_Source_Files/constants/C_20-P_PATH_Editor_Bkgrnd.h"/>
-        <FILE id="y6bH42" name="C_50-P_EP.h" compile="0" resource="0" file="Project_Source_Files/constants/C_50-P_EP.h"/>
-        <FILE id="BU8g4W" name="C_60-P_SL_EP_Descriptions.h" compile="0" resource="0"
-              file="Project_Source_Files/constants/C_60-P_SL_EP_Descriptions.h"/>
-      </GROUP>
+      <FILE id="wl8qDi" name="c_COLOR_p.h" compile="0" resource="0" file="Project_Source_Files/c_COLOR_p.h"/>
+      <FILE id="NWkHKj" name="c_ENUM_p.h" compile="0" resource="0" file="Project_Source_Files/c_ENUM_p.h"/>
+      <FILE id="RuGIkw" name="c_EXP_p.h" compile="0" resource="0" file="Project_Source_Files/c_EXP_p.h"/>
+      <FILE id="UxiGno" name="c_ID_p.h" compile="0" resource="0" file="Project_Source_Files/c_ID_p.h"/>
+      <FILE id="MDIiA7" name="c_PATH__Editor_Bkgrnd_p.h" compile="0" resource="0"
+            file="Project_Source_Files/c_PATH__Editor_Bkgrnd_p.h"/>
+      <FILE id="ZPGWRN" name="c_SL__Tip_Exposed_p.h" compile="0" resource="0"
+            file="Project_Source_Files/c_SL__Tip_Exposed_p.h"/>
+      <FILE id="ho1bDz" name="c_XYWH_p.h" compile="0" resource="0" file="Project_Source_Files/c_XYWH_p.h"/>
       <GROUP id="{F607CFF9-148C-815F-9CC8-086295A17406}" name="exposed_parameters">
         <FILE id="hK0NJP" name="E_00-P_Exp_Param_Info.cpp" compile="1" resource="0"
               file="Project_Source_Files/exposed_parameters/E_00-P_Exp_Param_Info.cpp"/>

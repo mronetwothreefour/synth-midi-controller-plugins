@@ -5,9 +5,6 @@
     <Filter Include="MophoGUI 2026\_Base_Source_Files\audio">
       <UniqueIdentifier>{A42F61C9-2052-B605-F7DD-4A2BC56AE497}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MophoGUI 2026\_Base_Source_Files\constants">
-      <UniqueIdentifier>{215BF37C-BA61-96F9-B689-A550F712ABAB}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MophoGUI 2026\_Base_Source_Files\exposed_parameters">
       <UniqueIdentifier>{36AB1948-3502-D6D4-9513-1580BDD8CAF8}</UniqueIdentifier>
     </Filter>
@@ -19,9 +16,6 @@
     </Filter>
     <Filter Include="MophoGUI 2026\Project_Source_Files\audio">
       <UniqueIdentifier>{43456C3C-7A45-8D55-A170-1D3DAB458A6F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MophoGUI 2026\Project_Source_Files\constants">
-      <UniqueIdentifier>{5E49CDCC-AA86-3505-08BC-1FA5D3C2CBD2}</UniqueIdentifier>
     </Filter>
     <Filter Include="MophoGUI 2026\Project_Source_Files\exposed_parameters">
       <UniqueIdentifier>{8A03905B-A9DB-8C66-E3DF-8A2DF4F1DDA1}</UniqueIdentifier>
@@ -3759,17 +3753,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\c_COLOR_b.h">
+      <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\c_ID_b.h">
+      <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\audio\A_00-B_Processor.h">
       <Filter>MophoGUI 2026\_Base_Source_Files\audio</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_00-B_ID.h">
-      <Filter>MophoGUI 2026\_Base_Source_Files\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_10-B_COLOR.h">
-      <Filter>MophoGUI 2026\_Base_Source_Files\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_12-B_FONT.h">
-      <Filter>MophoGUI 2026\_Base_Source_Files\constants</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.h">
       <Filter>MophoGUI 2026\_Base_Source_Files\exposed_parameters</Filter>
@@ -3780,32 +3771,32 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\helpers\H_99-B_Misc.h">
       <Filter>MophoGUI 2026\_Base_Source_Files\helpers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\c_COLOR_p.h">
+      <Filter>MophoGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\c_ENUM_p.h">
+      <Filter>MophoGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\c_EXP_p.h">
+      <Filter>MophoGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\c_ID_p.h">
+      <Filter>MophoGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\c_PATH__Editor_Bkgrnd_p.h">
+      <Filter>MophoGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\c_SL__Tip_Exposed_p.h">
+      <Filter>MophoGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\c_VOICE_p.h">
+      <Filter>MophoGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\c_XYWH_p.h">
+      <Filter>MophoGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\audio\A_00-P_Processor.h">
       <Filter>MophoGUI 2026\Project_Source_Files\audio</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_00-P_ID.h">
-      <Filter>MophoGUI 2026\Project_Source_Files\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_01-P_ENUM.h">
-      <Filter>MophoGUI 2026\Project_Source_Files\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_10-P_COLOR.h">
-      <Filter>MophoGUI 2026\Project_Source_Files\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_11-P_XYWH.h">
-      <Filter>MophoGUI 2026\Project_Source_Files\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_20-P_PATH_Editor_Bkgrnd.h">
-      <Filter>MophoGUI 2026\Project_Source_Files\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_50-P_EP.h">
-      <Filter>MophoGUI 2026\Project_Source_Files\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_51-P_VOICE.h">
-      <Filter>MophoGUI 2026\Project_Source_Files\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_60-P_SL_EP_Descriptions.h">
-      <Filter>MophoGUI 2026\Project_Source_Files\constants</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\exposed_parameters\E_00-P_Exp_Param_Info.h">
       <Filter>MophoGUI 2026\Project_Source_Files\exposed_parameters</Filter>

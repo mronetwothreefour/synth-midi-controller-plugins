@@ -17,26 +17,26 @@ const Identifier Base_Exposed_Parameter_Info::id_for(uint8 i) const {
 
 const String Base_Exposed_Parameter_Info::name_for(uint8 i) const {
 	if (i < exp_param_count)
-		return param(i)[ID::ep_p_name].toString();
+		return param(i)[ID::exp_p_name].toString();
 	return {};
 }
 
 const uint8 Base_Exposed_Parameter_Info::choice_count_for(uint8 i) const {
 	if (i < exp_param_count)
-		return (uint8)(int)param(i)[ID::ep_p_choice_count];
+		return (uint8)(int)param(i)[ID::exp_p_choice_count];
 	return (uint8)255;
 }
 
 const uint8 Base_Exposed_Parameter_Info::init_choice_for(uint8 i) const {
 	if (i < exp_param_count)
-		return (uint8)(int)param(i)[ID::ep_p_init_choice];
+		return (uint8)(int)param(i)[ID::exp_p_init_choice];
 	return (uint8)255;
 }
 
 Point<int> Base_Exposed_Parameter_Info::ctrl_center_for(uint8 i) const {
 	if (i < exp_param_count) {
-		auto x = (int)param(i)[ID::ep_p_ctrl_center_x];
-		auto y = (int)param(i)[ID::ep_p_ctrl_center_y];
+		auto x = (int)param(i)[ID::exp_p_ctrl_center_x];
+		auto y = (int)param(i)[ID::exp_p_ctrl_center_y];
 		return Point<int>{ x, y };
 	}
 	return {};
@@ -44,19 +44,19 @@ Point<int> Base_Exposed_Parameter_Info::ctrl_center_for(uint8 i) const {
 
 int Base_Exposed_Parameter_Info::ctrl_width_for(uint8 i) const {
 	if (i < exp_param_count)
-		return (int)param(i)[ID::ep_p_ctrl_width];
+		return (int)param(i)[ID::exp_p_ctrl_width];
 	return 0;
 }
 
 int Base_Exposed_Parameter_Info::ctrl_height_for(uint8 i) const {
 	if (i < exp_param_count)
-		return (int)param(i)[ID::ep_p_ctrl_height];
+		return (int)param(i)[ID::exp_p_ctrl_height];
 	return 0;
 }
 
-const String Base_Exposed_Parameter_Info::description_for(uint8 i) const {
+const String Base_Exposed_Parameter_Info::tip_for(uint8 i) const {
 	if (i < exp_param_count)
-		return param(i)[ID::ep_p_description].toString();
+		return param(i)[ID::exp_p_tip].toString();
 	return {};
 }
 

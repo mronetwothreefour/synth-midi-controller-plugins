@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 #include "E_00-B_Exp_Param_Info.h"
-#include "C_11-P_XYWH.h"
+#include "c_XYWH_p.h"
 #include "H_00-P_Build_Tree.h"
 
 class Exposed_Parameter_Info :

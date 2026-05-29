@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-namespace EP
+namespace EXP
 {
 
 	constexpr uint16 choice_count_osc_pitch_fine{ 2401 };

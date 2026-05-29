@@ -1,231 +1,231 @@
 #include "H_10-P_Describe_Exp_Param.h"
 
-#include "C_60-P_SL_EP_Descriptions.h"
+#include "c_SL__Tip_Exposed_p.h"
 
-String Describe_Exp_Param::from_string_literal(const char8_t* sl) {
+String Tip_Exposed::from_string_literal(const char8_t* sl) {
     String s{ sl };
     s = s.trimCharactersAtStart("\n");
     return s;
 }
 
-String Describe_Exp_Param::arp_mode() {
-    return from_string_literal(SL::arp_mode_description);
+String Tip_Exposed::arp_mode() {
+    return from_string_literal(SL::arp_mode_tip);
 }
 
-String Describe_Exp_Param::arp_on_off() {
-    return from_string_literal(SL::arp_on_off_description);
+String Tip_Exposed::arp_on_off() {
+    return from_string_literal(SL::arp_on_off_tip);
 }
 
-String Describe_Exp_Param::bend_range() {
-    return from_string_literal(SL::bend_range_description);
+String Tip_Exposed::bend_range() {
+    return from_string_literal(SL::bend_range_tip);
 }
 
-String Describe_Exp_Param::clock_division() {
-    return from_string_literal(SL::clock_division_description);
+String Tip_Exposed::clock_division() {
+    return from_string_literal(SL::clock_division_tip);
 }
 
-String Describe_Exp_Param::clock_tempo() {
-    return from_string_literal(SL::clock_tempo_description);
+String Tip_Exposed::clock_tempo() {
+    return from_string_literal(SL::clock_tempo_tip);
 }
 
-String Describe_Exp_Param::env_3_amt() {
-    return from_string_literal(SL::env_3_amt_description);
+String Tip_Exposed::env_3_amt() {
+    return from_string_literal(SL::env_3_amt_tip);
 }
 
-String Describe_Exp_Param::env_3_repeat() {
-    return from_string_literal(SL::env_3_repeat_description);
+String Tip_Exposed::env_3_repeat() {
+    return from_string_literal(SL::env_3_repeat_tip);
 }
 
-String Describe_Exp_Param::env_attack(const String env) {
-    return from_string_literal(SL::env_attack_description).replace("_envelope name_", env);
+String Tip_Exposed::env_attack(const String env) {
+    return from_string_literal(SL::env_attack_tip).replace("_envelope name_", env);
 }
 
-String Describe_Exp_Param::env_decay(const String env) {
-    return from_string_literal(SL::env_decay_description).replace("_envelope name_", env);
+String Tip_Exposed::env_decay(const String env) {
+    return from_string_literal(SL::env_decay_tip).replace("_envelope name_", env);
 }
 
-String Describe_Exp_Param::env_delay(const String env) {
-    return from_string_literal(SL::env_delay_description).replace("_envelope name_", env);
+String Tip_Exposed::env_delay(const String env) {
+    return from_string_literal(SL::env_delay_tip).replace("_envelope name_", env);
 }
 
-String Describe_Exp_Param::env_release(const String env) {
-    return from_string_literal(SL::env_release_description).replace("_envelope name_", env);
+String Tip_Exposed::env_release(const String env) {
+    return from_string_literal(SL::env_release_tip).replace("_envelope name_", env);
 }
 
-String Describe_Exp_Param::env_sustain(const String env) {
-    return from_string_literal(SL::env_sustain_description).replace("_envelope name_", env);
+String Tip_Exposed::env_sustain(const String env) {
+    return from_string_literal(SL::env_sustain_tip).replace("_envelope name_", env);
 }
 
-String Describe_Exp_Param::env_velo_amt(const String env) {
-    return from_string_literal(SL::env_velo_amt_description).replace("_envelope name_", env);
+String Tip_Exposed::env_velo_amt(const String env) {
+    return from_string_literal(SL::env_velo_amt_tip).replace("_envelope name_", env);
 }
 
-String Describe_Exp_Param::ext_in_level() {
-    return from_string_literal(SL::ext_in_level_description);
+String Tip_Exposed::ext_in_level() {
+    return from_string_literal(SL::ext_in_level_tip);
 }
 
-String Describe_Exp_Param::glide_mode() {
-    return from_string_literal(SL::glide_mode_description);
+String Tip_Exposed::glide_mode() {
+    return from_string_literal(SL::glide_mode_tip);
 }
 
-String Describe_Exp_Param::knob_assign(const String knob) {
-    return from_string_literal(SL::knob_assign_description).replace("_", knob);
+String Tip_Exposed::knob_assign(const String knob) {
+    return from_string_literal(SL::knob_assign_tip).replace("_", knob);
 }
 
-String Describe_Exp_Param::lfo_amt(const int lfo) {
-    return from_string_literal(SL::lfo_amt_description).replace("_", (String)lfo);
+String Tip_Exposed::lfo_amt(const int lfo) {
+    return from_string_literal(SL::lfo_amt_tip).replace("_", (String)lfo);
 }
 
-String Describe_Exp_Param::lfo_freq(const int lfo) {
-    return from_string_literal(SL::lfo_freq_description).replace("_", (String)lfo);
+String Tip_Exposed::lfo_freq(const int lfo) {
+    return from_string_literal(SL::lfo_freq_tip).replace("_", (String)lfo);
 }
 
-String Describe_Exp_Param::lfo_key_sync(const int lfo) {
-    return from_string_literal(SL::lfo_key_sync_description).replace("_", (String)lfo);
+String Tip_Exposed::lfo_key_sync(const int lfo) {
+    return from_string_literal(SL::lfo_key_sync_tip).replace("_", (String)lfo);
 }
 
-String Describe_Exp_Param::lfo_shape(const int lfo) {
-    return from_string_literal(SL::lfo_shape_description).replace("_", (String)lfo);
+String Tip_Exposed::lfo_shape(const int lfo) {
+    return from_string_literal(SL::lfo_shape_tip).replace("_", (String)lfo);
 }
 
-String Describe_Exp_Param::lpf_env_amt() {
-    return from_string_literal(SL::lpf_env_amt_description);
+String Tip_Exposed::lpf_env_amt() {
+    return from_string_literal(SL::lpf_env_amt_tip);
 }
 
-String Describe_Exp_Param::lpf_fm_amt() {
-    return from_string_literal(SL::lpf_fm_amt_description);
+String Tip_Exposed::lpf_fm_amt() {
+    return from_string_literal(SL::lpf_fm_amt_tip);
 }
 
-String Describe_Exp_Param::lpf_freq() {
-    return from_string_literal(SL::lpf_freq_description);
+String Tip_Exposed::lpf_freq() {
+    return from_string_literal(SL::lpf_freq_tip);
 }
 
-String Describe_Exp_Param::lpf_key_amt() {
-    return from_string_literal(SL::lpf_key_amt_description);
+String Tip_Exposed::lpf_key_amt() {
+    return from_string_literal(SL::lpf_key_amt_tip);
 }
 
-String Describe_Exp_Param::lpf_reso() {
-    return from_string_literal(SL::lpf_reso_description);
+String Tip_Exposed::lpf_reso() {
+    return from_string_literal(SL::lpf_reso_tip);
 }
 
-String Describe_Exp_Param::lpf_type() {
-    return from_string_literal(SL::lpf_type_description);
+String Tip_Exposed::lpf_type() {
+    return from_string_literal(SL::lpf_type_tip);
 }
 
-String Describe_Exp_Param::midi_breath_amt() {
-    return from_string_literal(SL::midi_breath_amt_description);
+String Tip_Exposed::midi_breath_amt() {
+    return from_string_literal(SL::midi_breath_amt_tip);
 }
 
-String Describe_Exp_Param::midi_mod_wheel_amt() {
-    return from_string_literal(SL::midi_mod_wheel_amt_description);
+String Tip_Exposed::midi_mod_wheel_amt() {
+    return from_string_literal(SL::midi_mod_wheel_amt_tip);
 }
 
-String Describe_Exp_Param::midi_pedal_amt() {
-    return from_string_literal(SL::midi_pedal_amt_description);
+String Tip_Exposed::midi_pedal_amt() {
+    return from_string_literal(SL::midi_pedal_amt_tip);
 }
 
-String Describe_Exp_Param::midi_pressure_amt() {
-    return from_string_literal(SL::midi_pressure_amt_description);
+String Tip_Exposed::midi_pressure_amt() {
+    return from_string_literal(SL::midi_pressure_amt_tip);
 }
 
-String Describe_Exp_Param::midi_velocity_amt() {
-    return from_string_literal(SL::midi_velocity_amt_description);
+String Tip_Exposed::midi_velocity_amt() {
+    return from_string_literal(SL::midi_velocity_amt_tip);
 }
 
-String Describe_Exp_Param::mod_amt() {
-    return from_string_literal(SL::mod_amt_description);
+String Tip_Exposed::mod_amt() {
+    return from_string_literal(SL::mod_amt_tip);
 }
 
-String Describe_Exp_Param::noise_level() {
-    return from_string_literal(SL::noise_level_description);
+String Tip_Exposed::noise_level() {
+    return from_string_literal(SL::noise_level_tip);
 }
 
-String Describe_Exp_Param::note_priority() {
-    return from_string_literal(SL::note_priority_description);
+String Tip_Exposed::note_priority() {
+    return from_string_literal(SL::note_priority_tip);
 }
 
-String Describe_Exp_Param::osc_fine(const int o) {
-    return from_string_literal(SL::osc_fine_description).replace("_", (String)o);
+String Tip_Exposed::osc_fine(const int o) {
+    return from_string_literal(SL::osc_fine_tip).replace("_", (String)o);
 }
 
-String Describe_Exp_Param::osc_glide(const int o) {
-    return from_string_literal(SL::osc_glide_description).replace("_", (String)o);
+String Tip_Exposed::osc_glide(const int o) {
+    return from_string_literal(SL::osc_glide_tip).replace("_", (String)o);
 }
 
-String Describe_Exp_Param::osc_key_track(const int o) {
-    return from_string_literal(SL::osc_key_track_description).replace("_", (String)o);
+String Tip_Exposed::osc_key_track(const int o) {
+    return from_string_literal(SL::osc_key_track_tip).replace("_", (String)o);
 }
 
-String Describe_Exp_Param::osc_mix() {
-    return from_string_literal(SL::osc_mix_description);
+String Tip_Exposed::osc_mix() {
+    return from_string_literal(SL::osc_mix_tip);
 }
 
-String Describe_Exp_Param::osc_pitch(const int o) {
-    return from_string_literal(SL::osc_pitch_description).replace("_", (String)o);
+String Tip_Exposed::osc_pitch(const int o) {
+    return from_string_literal(SL::osc_pitch_tip).replace("_", (String)o);
 }
 
-String Describe_Exp_Param::osc_shape(const int o) {
-    return from_string_literal(SL::osc_shape_description).replace("_", (String)o);
+String Tip_Exposed::osc_shape(const int o) {
+    return from_string_literal(SL::osc_shape_tip).replace("_", (String)o);
 }
 
-String Describe_Exp_Param::osc_slop() {
-    return from_string_literal(SL::osc_slop_description);
+String Tip_Exposed::osc_slop() {
+    return from_string_literal(SL::osc_slop_tip);
 }
 
-String Describe_Exp_Param::osc_sub_level(const int o) {
-    return from_string_literal(SL::osc_sub_level_description).replace("_", (String)o);
+String Tip_Exposed::osc_sub_level(const int o) {
+    return from_string_literal(SL::osc_sub_level_tip).replace("_", (String)o);
 }
 
-String Describe_Exp_Param::osc_sync() {
-    return from_string_literal(SL::osc_sync_description);
+String Tip_Exposed::osc_sync() {
+    return from_string_literal(SL::osc_sync_tip);
 }
 
-String Describe_Exp_Param::push_it_mode() {
-    return from_string_literal(SL::push_it_mode_description);
+String Tip_Exposed::push_it_mode() {
+    return from_string_literal(SL::push_it_mode_tip);
 }
 
-String Describe_Exp_Param::push_it_pitch() {
-    return from_string_literal(SL::push_it_pitch_description);
+String Tip_Exposed::push_it_pitch() {
+    return from_string_literal(SL::push_it_pitch_tip);
 }
 
-String Describe_Exp_Param::push_it_velocity() {
-    return from_string_literal(SL::push_it_velocity_description);
+String Tip_Exposed::push_it_velocity() {
+    return from_string_literal(SL::push_it_velocity_tip);
 }
 
-String Describe_Exp_Param::seq_on_off() {
-    return from_string_literal(SL::seq_on_off_description);
+String Tip_Exposed::seq_on_off() {
+    return from_string_literal(SL::seq_on_off_tip);
 }
 
-String Describe_Exp_Param::seq_track_dest(const String track_num) {
-    return from_string_literal(SL::seq_track_dest_description).replace("_", track_num);
+String Tip_Exposed::seq_track_dest(const String track_num) {
+    return from_string_literal(SL::seq_track_dest_tip).replace("_", track_num);
 }
 
-String Describe_Exp_Param::seq_track_step(const String track, String step) {
-    String s{ from_string_literal(SL::seq_track_step_description_1) };
+String Tip_Exposed::seq_track_step(const String track, String step) {
+    String s{ from_string_literal(SL::seq_track_step_tip_1) };
     s = s.replace("_", track);
     s = s.replace("%", step);
     if (track == "1")
-        s += from_string_literal(SL::seq_track_step_description_2);
-    s += from_string_literal(SL::seq_track_step_description_3);
+        s += from_string_literal(SL::seq_track_step_tip_2);
+    s += from_string_literal(SL::seq_track_step_tip_3);
     return s;
 }
 
-String Describe_Exp_Param::seq_trig_mode() {
-    return from_string_literal(SL::seq_trig_mode_description);
+String Tip_Exposed::seq_trig_mode() {
+    return from_string_literal(SL::seq_trig_mode_tip);
 }
 
-String Describe_Exp_Param::vca_env_amt() {
-    return from_string_literal(SL::vca_env_amt_description);
+String Tip_Exposed::vca_env_amt() {
+    return from_string_literal(SL::vca_env_amt_tip);
 }
 
-String Describe_Exp_Param::vca_level() {
-    return from_string_literal(SL::vca_level_description);
+String Tip_Exposed::vca_level() {
+    return from_string_literal(SL::vca_level_tip);
 }
 
-String Describe_Exp_Param::voice_name_char(const String c) {
-    return from_string_literal(SL::voice_name_char_description).replace("_", c);
+String Tip_Exposed::voice_name_char(const String c) {
+    return from_string_literal(SL::voice_name_char_tip).replace("_", c);
 }
 
-String Describe_Exp_Param::voice_volume() {
-    return from_string_literal(SL::voice_volume_description);
+String Tip_Exposed::voice_volume() {
+    return from_string_literal(SL::voice_volume_tip);
 }

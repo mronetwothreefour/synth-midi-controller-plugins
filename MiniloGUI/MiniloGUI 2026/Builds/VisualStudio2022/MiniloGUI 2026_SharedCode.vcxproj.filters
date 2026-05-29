@@ -5,9 +5,6 @@
     <Filter Include="MiniloGUI 2026\_Base_Source_Files\audio">
       <UniqueIdentifier>{3B8A161D-99C8-FD78-CCC7-FA375548CEFE}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MiniloGUI 2026\_Base_Source_Files\constants">
-      <UniqueIdentifier>{ABDEC7FC-4099-5534-1A5E-A22D49FC1593}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MiniloGUI 2026\_Base_Source_Files\exposed_parameters">
       <UniqueIdentifier>{AAA7097C-4DE6-6F96-6105-54C528FA6543}</UniqueIdentifier>
     </Filter>
@@ -19,9 +16,6 @@
     </Filter>
     <Filter Include="MiniloGUI 2026\Project_Source_Files\audio">
       <UniqueIdentifier>{392CB339-0B73-FA46-7052-5ACD84049440}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MiniloGUI 2026\Project_Source_Files\constants">
-      <UniqueIdentifier>{1B05951D-8A2D-138F-8CFE-D86651236076}</UniqueIdentifier>
     </Filter>
     <Filter Include="MiniloGUI 2026\Project_Source_Files\exposed_parameters">
       <UniqueIdentifier>{9EA3B73A-ED51-B84D-9271-4EE2D63DAB19}</UniqueIdentifier>
@@ -3759,17 +3753,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\c_COLOR_b.h">
+      <Filter>MiniloGUI 2026\_Base_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\c_ID_b.h">
+      <Filter>MiniloGUI 2026\_Base_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\audio\A_00-B_Processor.h">
       <Filter>MiniloGUI 2026\_Base_Source_Files\audio</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_00-B_ID.h">
-      <Filter>MiniloGUI 2026\_Base_Source_Files\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_10-B_COLOR.h">
-      <Filter>MiniloGUI 2026\_Base_Source_Files\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_12-B_FONT.h">
-      <Filter>MiniloGUI 2026\_Base_Source_Files\constants</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.h">
       <Filter>MiniloGUI 2026\_Base_Source_Files\exposed_parameters</Filter>
@@ -3780,29 +3771,29 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\helpers\H_99-B_Misc.h">
       <Filter>MiniloGUI 2026\_Base_Source_Files\helpers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\c_COLOR_p.h">
+      <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\c_ENUM_p.h">
+      <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\c_EXP_p.h">
+      <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\c_ID_p.h">
+      <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\c_PATH__Editor_Bkgrnd_p.h">
+      <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\c_SL__Tip_Exposed_p.h">
+      <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\c_XYWH_p.h">
+      <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\audio\A_00-P_Processor.h">
       <Filter>MiniloGUI 2026\Project_Source_Files\audio</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_00-P_ID.h">
-      <Filter>MiniloGUI 2026\Project_Source_Files\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_01-P_ENUM.h">
-      <Filter>MiniloGUI 2026\Project_Source_Files\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_10-P_COLOR.h">
-      <Filter>MiniloGUI 2026\Project_Source_Files\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_11-P_XYWH.h">
-      <Filter>MiniloGUI 2026\Project_Source_Files\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_20-P_PATH_Editor_Bkgrnd.h">
-      <Filter>MiniloGUI 2026\Project_Source_Files\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_50-P_EP.h">
-      <Filter>MiniloGUI 2026\Project_Source_Files\constants</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_60-P_SL_EP_Descriptions.h">
-      <Filter>MiniloGUI 2026\Project_Source_Files\constants</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\exposed_parameters\E_00-P_Exp_Param_Info.h">
       <Filter>MiniloGUI 2026\Project_Source_Files\exposed_parameters</Filter>

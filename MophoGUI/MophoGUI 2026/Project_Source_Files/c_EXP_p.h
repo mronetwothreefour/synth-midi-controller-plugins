@@ -1,6 +1,8 @@
 #pragma once
 
-namespace EP
+#include <JuceHeader.h>
+
+namespace EXP
 {
 
 	constexpr uint8 choice_count_bend_range{ 13 };

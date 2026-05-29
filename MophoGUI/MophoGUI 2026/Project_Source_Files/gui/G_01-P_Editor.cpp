@@ -1,6 +1,6 @@
 #include "G_01-P_Editor.h"
 
-#include "C_11-P_XYWH.h"
+#include "c_XYWH_p.h"
 #include "G_05-P_Paint_Paths.h"
 
 Editor::Editor(Processor& processor) :

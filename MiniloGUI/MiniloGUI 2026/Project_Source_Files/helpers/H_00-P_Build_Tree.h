@@ -2,9 +2,9 @@
 
 #include <JuceHeader.h>
 
-#include "C_00-P_ID.h"
-#include "C_01-P_ENUM.h"
-#include "C_50-P_EP.h"
+#include "c_ID_p.h"
+#include "c_ENUM_p.h"
+#include "c_EXP_p.h"
 #include "H_00-B_Build_Tree.h"
 
 using namespace ENUM;
@@ -16,7 +16,7 @@ public: static ValueTree exposed_parameter(Identifier id, String name, Ctrl_Type
 									   Knob_Display_Type display, int cc_num,
 									   int choice_count, int init_choice, 
 									   int ctrl_center_x,int ctrl_center_y, int ctrl_w, 
-									   int ctrl_h,String description, ValueTree bit_locations,
+									   int ctrl_h,String tip, ValueTree bit_locations,
 									   ValueTree curt_choice_names, ValueTree choice_names);
 
 public: static ValueTree bit_locations_delay_feedback();

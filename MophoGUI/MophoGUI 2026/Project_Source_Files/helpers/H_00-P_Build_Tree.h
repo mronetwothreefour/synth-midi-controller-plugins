@@ -2,9 +2,9 @@
 
 #include <JuceHeader.h>
 
-#include "C_00-P_ID.h"
-#include "C_01-P_ENUM.h"
-#include "C_50-P_EP.h"
+#include "c_ID_p.h"
+#include "c_ENUM_p.h"
+#include "c_EXP_p.h"
 #include "H_00-B_Build_Tree.h"
 
 using namespace ENUM;
@@ -15,7 +15,7 @@ struct Build_Tree :
 	static ValueTree exposed_parameter(Identifier id, String name, Ctrl_Type ctrl,
 									   Knob_Display_Type display, int nrpn, int choice_count,
 									   int init_choice, int ctrl_center_x, int ctrl_center_y,
-									   int ctrl_w, int ctrl_h, String description, 
+									   int ctrl_w, int ctrl_h, String tip, 
 									   ValueTree curt_choice_names, ValueTree choice_names,
 									   int red_toggle_center_x = 0, int red_toggle_center_y = 0);
 

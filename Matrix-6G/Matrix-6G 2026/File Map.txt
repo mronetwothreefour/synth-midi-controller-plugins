@@ -1,89 +1,94 @@
 Matrix-6G 2026
 
-C_COLOR_B
-C_COLOR_P
-C_ENUM_P
-C_EXP_P
-C_FONT_P
-C_GLOBAL_P
-C_HEX_Factory_Voices_P
-C_ID_B
-C_ID_P
-C_MMOD_P
-C_PATH_Editor_Background_P
-C_PATH_Envelope_Graph_P
-C_PATH_LED_Text_P
-C_SL_Tip_Button_P
-C_SL_Tip_Exposed_Param_P
-C_SL_Tip_Global_Param_P
-C_SL_Tip_Matrix_Mod_Param_P
-C_SL_Tip_Split_Param_P
-C_SPLIT_P
-C_VOICE_P
-C_VMAP_P
-C_XYWH_P
-D HUB
-D TOOL Build Layout - exposed parameter
-D TOOL Build Tip - Button
-D TOOL Build Tip - Global Param
-D TOOL Build Tip - Exposed Param
-D TOOL Build Tip - Split Param
-D TOOL Build Tree - Exp Param (EP info; choice names)
-D TOOL Build Tree - Other Param (choice names - ep, global, matrix mod, split, voice)
-D TOOL Handle - Incoming sysex
-D TOOL Handle - Exp Param Change
-D TOOL MIDI - outgoing buffers
-D TOOL MIDI - raw data
-D TOOL MIDI - sysex
-D TOOL Misc (int to pitch; voice file filters)
-D TREE Exposed Parameter Info
-D TREE current voice
-D TREE matrix mod
-D TREE plugin - scale factor, tip time
-D TREE splits
-D TREE voice map
-D TREE voices - voice transmit, voice bank
-DXG Processor B
-DXG Processor P
-DXG Editor
-G HUB Exp Param Controls
-G LAF Look_And_Feel
-G LAYER comm error
-G LAYER editor buttons
-G LAYER editor current voice
-G LAYER editor exposed params
-G LAYER global params
-G LAYER Splits
-G LAYER Splits - bank tx
-G LAYER Splits - buttons
-G LAYER Matrix Mod
-G LAYER voice map
-G LAYER voices
-G LAYER voices transmit
-G TABLE splits cell
-G TABLE splits
-G TABLE voice map cell
-G TABLE voice map
-G TABLE voices cell
-G TABLE voices
-G TOOL Exp Param tip updater
-G WIDG button - quick edit
-G WIDG button - hide layer
-G WIDG Exp Param - Slider Display (Can use AudioProcessorParameter::Listener with RangedAudioParameter)
-G WIDG Exp Param - base
-G WIDG Exp Param - cbox
-G WIDG Exp Param - slider
-G WIDG Exp Param - slider - osc balance
-G WIDG Global Param - cbox
-G WIDG Global Param - Slider Display
-G WIDG Global Param - slider
-G WIDG Matrix Mod - cbox
-G WIDG Matrix Mod - Slider Display
-G WIDG Matrix Mod - slider
-G WIDG Splits - cbox
-G WIDG Splits - Slider Display
-G WIDG Splits - slider
-G WIDG Voice Map - Slider Display
-G WIDG Voices - Table
-G WIDG Voices - Table Cell 
-G WIDG sliders with mouse mods
+c_COLOR_b
+c_COLOR_p
+c_ENUM_p
+c_EXP_p
+c_FONT_p
+c_GLOBAL_p
+c_HEX_Factory_Voices_p
+c_ID_b
+c_ID_p
+c_MMOD_p
+c_PATH__Editor_Bkgrnd_p *
+c_PATH__Envelope_And_Graph_p *
+c_PATH__LED_Text_p *
+c_SL__Tip_Button_p
+c_SL__Tip_Exposed_p
+c_SL__Tip_Global_p
+c_SL__Tip_Matrix_Mod_p
+c_SL__Tip_Split_p
+c_SL__Tip_Voice_p
+c_SPLIT_p
+c_VOICE_p
+c_VMAP_p
+c_XYWH_p
+d_Build_Layout_Exposed
+d_Build_Tip_Button
+d_Build_Tip_Exposed
+d_Build_Tip_Global
+d_Build_Tip_Splits
+d_Build_Tree_Exposed
+d_Build_Choices_Exposed
+d_Build_Choices_Global
+d_Build_Choices_Matrix_Mod
+d_Build_Choices_Splits
+d_Build_Choices_Voices
+d_Convert_Int_To_Pitch_b
+d_Filter_Voice_File
+d_Handle_Incoming_Sysex
+d_Handle_Exposed_Change
+d_MIDI_Outgoing_Buffers
+d_MIDI_Raw_Data
+d_MIDI_Sysex
+d_Tree_Exposed_Info
+d_Tree_Current_Voice
+d_Tree_Matrix_Mod
+d_Tree_Plugin - scale factor, tip time
+d_Tree_Splits
+d_Tree_Voice_Map
+d_Tree_Voices - voice transmit, voice bank
+dXg_Data_Hub
+dXg_Processor_b
+dXg_Processor
+dXg_Editor
+g_Look_And_Feel
+g_Layer__Comm_Error
+g_Layer__Editor_Buttons
+g_Layer__Editor_Current_Voice
+g_Layer__Editor_Exposed
+g_Layer__Global
+g_Layer__Splits
+g_Layer__Splits_Bank_Tx
+g_Layer__Splits_Buttons
+g_Layer__Matrix_Mod
+g_Layer__Voice_Map
+g_Layer__Voices
+g_Layer__Voices_Tx
+g_Table__Splits
+g_Table__Splits_Cell
+g_Table__Voice_Map
+g_Table__Voice_Map_Cell
+g_Table__Voices
+g_Table__Voices_Cell
+g_Tip_Updater__Exposed
+g_Widget__Btn_Quick_Edit
+g_Widget__Btn_Hide_Layer
+g_Widget__Cbox_Exposed
+g_Widget__Cbox_Global
+g_Widget__Cbox_Matrix_Mod
+g_Widget__Cbox_Splits
+g_Widget__Display_Exposed (Can use AudioProcessorParameter::Listener with RangedAudioParameter)
+g_Widget__Display_Global
+g_Widget__Display_Matrix_Mod
+g_Widget__Display_Splits
+g_Widget__Display_Voice_Map
+g_Widget__Exposed_Control_b
+g_Widget__Exposed_Control_Hub
+g_Widget__Slider_Exposed
+g_Widget__Slider_Global
+g_Widget__Slider_Matrix_Mod
+g_Widget__Slider_Osc_Balance
+g_Widget__Slider_Mouse_Mods
+g_Widget__Slider_Splits
+g_Widget__Slider_Voice_Map

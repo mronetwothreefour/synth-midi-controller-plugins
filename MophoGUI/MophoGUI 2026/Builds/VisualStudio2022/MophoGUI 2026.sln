@@ -2,6 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio Version 17
 
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MophoGUI 2026 - Standalone Plugin", "MophoGUI 2026_StandalonePlugin.vcxproj", "{F7812DC9-6EB0-BD92-7B54-9AF7DBAB9539}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6D59A86C-8F64-59B0-7B37-C402BEDC4005} = {6D59A86C-8F64-59B0-7B37-C402BEDC4005}
+	EndProjectSection
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MophoGUI 2026 - VST3", "MophoGUI 2026_VST3.vcxproj", "{438787E7-FB18-E475-BF05-9C1D2220C968}"
 	ProjectSection(ProjectDependencies) = postProject
 		{6D59A86C-8F64-59B0-7B37-C402BEDC4005} = {6D59A86C-8F64-59B0-7B37-C402BEDC4005}
@@ -22,6 +27,10 @@ Global
 		{438787E7-FB18-E475-BF05-9C1D2220C968}.Debug|x64.Build.0 = Debug|x64
 		{438787E7-FB18-E475-BF05-9C1D2220C968}.Release|x64.ActiveCfg = Release|x64
 		{438787E7-FB18-E475-BF05-9C1D2220C968}.Release|x64.Build.0 = Release|x64
+		{F7812DC9-6EB0-BD92-7B54-9AF7DBAB9539}.Debug|x64.ActiveCfg = Debug|x64
+		{F7812DC9-6EB0-BD92-7B54-9AF7DBAB9539}.Debug|x64.Build.0 = Debug|x64
+		{F7812DC9-6EB0-BD92-7B54-9AF7DBAB9539}.Release|x64.ActiveCfg = Release|x64
+		{F7812DC9-6EB0-BD92-7B54-9AF7DBAB9539}.Release|x64.Build.0 = Release|x64
 		{6D59A86C-8F64-59B0-7B37-C402BEDC4005}.Debug|x64.ActiveCfg = Debug|x64
 		{6D59A86C-8F64-59B0-7B37-C402BEDC4005}.Debug|x64.Build.0 = Debug|x64
 		{6D59A86C-8F64-59B0-7B37-C402BEDC4005}.Release|x64.ActiveCfg = Release|x64

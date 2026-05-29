@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-struct Describe_Exp_Param
+struct Tip_Exposed
 {
 	static String from_string_literal(const char8_t* sl);
 

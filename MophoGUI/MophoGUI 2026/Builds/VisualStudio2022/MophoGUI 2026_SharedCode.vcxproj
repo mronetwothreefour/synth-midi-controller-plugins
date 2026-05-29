@@ -68,8 +68,8 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\..\..\_Base_Source_Files\audio;..\..\..\..\_Base_Source_Files\constants;..\..\..\..\_Base_Source_Files\exposed_parameters;..\..\..\..\_Base_Source_Files\helpers;..\..\Project_Source_Files\audio;..\..\Project_Source_Files\constants;..\..\Project_Source_Files\exposed_parameters;..\..\Project_Source_Files\gui;..\..\Project_Source_Files\helpers;..\..\Project_Source_Files\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\..\..\_Base_Source_Files\audio;..\..\..\..\_Base_Source_Files;..\..\..\..\_Base_Source_Files\exposed_parameters;..\..\..\..\_Base_Source_Files\helpers;..\..\Project_Source_Files\audio;..\..\Project_Source_Files;..\..\Project_Source_Files\exposed_parameters;..\..\Project_Source_Files\gui;..\..\Project_Source_Files\helpers;..\..\Project_Source_Files\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -82,8 +82,8 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\..\..\_Base_Source_Files\audio;..\..\..\..\_Base_Source_Files\constants;..\..\..\..\_Base_Source_Files\exposed_parameters;..\..\..\..\_Base_Source_Files\helpers;..\..\Project_Source_Files\audio;..\..\Project_Source_Files\constants;..\..\Project_Source_Files\exposed_parameters;..\..\Project_Source_Files\gui;..\..\Project_Source_Files\helpers;..\..\Project_Source_Files\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\..\..\_Base_Source_Files\audio;..\..\..\..\_Base_Source_Files;..\..\..\..\_Base_Source_Files\exposed_parameters;..\..\..\..\_Base_Source_Files\helpers;..\..\Project_Source_Files\audio;..\..\Project_Source_Files;..\..\Project_Source_Files\exposed_parameters;..\..\Project_Source_Files\gui;..\..\Project_Source_Files\helpers;..\..\Project_Source_Files\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
       <OutputFile>$(OutDir)\MophoGUI 2026 (Debug).lib</OutputFile>
@@ -110,8 +110,8 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\..\..\_Base_Source_Files\audio;..\..\..\..\_Base_Source_Files\constants;..\..\..\..\_Base_Source_Files\exposed_parameters;..\..\..\..\_Base_Source_Files\helpers;..\..\Project_Source_Files\audio;..\..\Project_Source_Files\constants;..\..\Project_Source_Files\exposed_parameters;..\..\Project_Source_Files\gui;..\..\Project_Source_Files\helpers;..\..\Project_Source_Files\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\..\..\_Base_Source_Files\audio;..\..\..\..\_Base_Source_Files;..\..\..\..\_Base_Source_Files\exposed_parameters;..\..\..\..\_Base_Source_Files\helpers;..\..\Project_Source_Files\audio;..\..\Project_Source_Files;..\..\Project_Source_Files\exposed_parameters;..\..\Project_Source_Files\gui;..\..\Project_Source_Files\helpers;..\..\Project_Source_Files\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -124,8 +124,8 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\..\..\_Base_Source_Files\audio;..\..\..\..\_Base_Source_Files\constants;..\..\..\..\_Base_Source_Files\exposed_parameters;..\..\..\..\_Base_Source_Files\helpers;..\..\Project_Source_Files\audio;..\..\Project_Source_Files\constants;..\..\Project_Source_Files\exposed_parameters;..\..\Project_Source_Files\gui;..\..\Project_Source_Files\helpers;..\..\Project_Source_Files\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\..\..\_Base_Source_Files\audio;..\..\..\..\_Base_Source_Files;..\..\..\..\_Base_Source_Files\exposed_parameters;..\..\..\..\_Base_Source_Files\helpers;..\..\Project_Source_Files\audio;..\..\Project_Source_Files;..\..\Project_Source_Files\exposed_parameters;..\..\Project_Source_Files\gui;..\..\Project_Source_Files\helpers;..\..\Project_Source_Files\midi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
       <OutputFile>$(OutDir)\MophoGUI 2026.lib</OutputFile>
@@ -2980,22 +2980,21 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_midi_ci.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\c_COLOR_b.h"/>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\c_ID_b.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\audio\A_00-B_Processor.h"/>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_00-B_ID.h"/>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_10-B_COLOR.h"/>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\constants\C_12-B_FONT.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\helpers\H_00-B_Build_Tree.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\helpers\H_99-B_Misc.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\c_COLOR_p.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\c_ENUM_p.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\c_EXP_p.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\c_ID_p.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\c_PATH__Editor_Bkgrnd_p.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\c_SL__Tip_Exposed_p.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\c_VOICE_p.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\c_XYWH_p.h"/>
     <ClInclude Include="..\..\Project_Source_Files\audio\A_00-P_Processor.h"/>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_00-P_ID.h"/>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_01-P_ENUM.h"/>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_10-P_COLOR.h"/>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_11-P_XYWH.h"/>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_20-P_PATH_Editor_Bkgrnd.h"/>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_50-P_EP.h"/>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_51-P_VOICE.h"/>
-    <ClInclude Include="..\..\Project_Source_Files\constants\C_60-P_SL_EP_Descriptions.h"/>
     <ClInclude Include="..\..\Project_Source_Files\exposed_parameters\E_00-P_Exp_Param_Info.h"/>
     <ClInclude Include="..\..\Project_Source_Files\gui\G_01-P_Editor.h"/>
     <ClInclude Include="..\..\Project_Source_Files\gui\G_05-P_Paint_Paths.h"/>

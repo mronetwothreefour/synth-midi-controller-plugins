@@ -4,22 +4,22 @@ ValueTree Build_Tree::exposed_parameter(Identifier id, String name, Ctrl_Type ct
 										Knob_Display_Type display, int cc_num, 
 										int choice_count, int init_choice,
 										int ctrl_center_x, int ctrl_center_y, int ctrl_w,
-										int ctrl_h, String description, ValueTree bit_locations,
+										int ctrl_h, String tip, ValueTree bit_locations,
 										ValueTree curt_choice_names, ValueTree choice_names)
 {
 	ValueTree tree_ep{ id,
 		{
-			{ ID::ep_p_name, name },
-			{ ID::ep_p_ctrl_type, (int)ctrl },
-			{ ID::ep_p_knob_display_type, (int)display },
-			{ ID::ep_p_cc_num, cc_num },
-			{ ID::ep_p_choice_count, choice_count },
-			{ ID::ep_p_init_choice, init_choice },
-			{ ID::ep_p_ctrl_center_x, ctrl_center_x },
-			{ ID::ep_p_ctrl_center_y, ctrl_center_y },
-			{ ID::ep_p_ctrl_width, ctrl_w },
-			{ ID::ep_p_ctrl_height, ctrl_h },
-			{ ID::ep_p_description, description },
+			{ ID::exp_p_name, name },
+			{ ID::exp_p_ctrl_type, (int)ctrl },
+			{ ID::exp_p_knob_display_type, (int)display },
+			{ ID::exp_p_cc_num, cc_num },
+			{ ID::exp_p_choice_count, choice_count },
+			{ ID::exp_p_init_choice, init_choice },
+			{ ID::exp_p_ctrl_center_x, ctrl_center_x },
+			{ ID::exp_p_ctrl_center_y, ctrl_center_y },
+			{ ID::exp_p_ctrl_width, ctrl_w },
+			{ ID::exp_p_ctrl_height, ctrl_h },
+			{ ID::exp_p_tip, tip },
 		},
 		{ bit_locations, curt_choice_names, choice_names }
 	};
@@ -698,7 +698,7 @@ ValueTree Build_Tree::choice_names_osc_pitch_fine(const bool curt) {
 
 ValueTree Build_Tree::choice_names_voice_mode_depth(const bool curt) {
     ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
-    for (uint16 n = 0; n < EP::choice_count_unsigned_10_bit; ++n) {
+    for (uint16 n = 0; n < EXP::choice_count_unsigned_10_bit; ++n) {
         auto choiceName{ choice_name_voice_mode_1_poly(n, curt) };
         choiceName += choice_name_voice_mode_2_duo_3_unison(n, curt);
         choiceName += choice_name_voice_mode_4_mono(n, curt);

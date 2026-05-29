@@ -1,8 +1,8 @@
 #include "G_05-P_Paint_Paths.h"
 
-#include "C_10-P_COLOR.h"
-#include "C_11-P_XYWH.h"
-#include "C_20-P_PATH_Editor_Bkgrnd.h"
+#include "c_COLOR_p.h"
+#include "c_XYWH_p.h"
+#include "c_PATH__Editor_Bkgrnd_p.h"
 
 Path Paint_Paths::load_path(const void* data, size_t data_size) {
 	Path path;
