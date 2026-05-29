@@ -1,27 +1,27 @@
 Matrix-6G 2026
 
-C COLOR B
-C COLOR P
-C ENUM P
-C EXP P
-C FONT P
-C GLOBAL P
-C HEX Factory Voice Banks P
-C ID B
-C ID P
-C MMOD P
-C PATH Editor Bkgrnd P
-C PATH Envelope/Graph P
-C PATH LED text P
-C SL Button Tips P
-C SL Exposed Param Tips P
-C SL Global Param Tips P
-C SL Matrix Mod Param Tips P
-C SL Split Param Tips P
-C SPLIT
-C VOICE
-C VMAP
-C XYWH
+C_COLOR_B
+C_COLOR_P
+C_ENUM_P
+C_EXP_P
+C_FONT_P
+C_GLOBAL_P
+C_HEX_Factory_Voices_P
+C_ID_B
+C_ID_P
+C_MMOD_P
+C_PATH_Editor_Background_P
+C_PATH_Envelope_Graph_P
+C_PATH_LED_Text_P
+C_SL_Tip_Button_P
+C_SL_Tip_Exposed_Param_P
+C_SL_Tip_Global_Param_P
+C_SL_Tip_Matrix_Mod_Param_P
+C_SL_Tip_Split_Param_P
+C_SPLIT_P
+C_VOICE_P
+C_VMAP_P
+C_XYWH_P
 D HUB
 D TOOL Build Layout - exposed parameter
 D TOOL Build Tip - Button
