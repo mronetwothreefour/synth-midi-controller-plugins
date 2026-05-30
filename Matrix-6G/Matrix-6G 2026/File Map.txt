@@ -49,9 +49,9 @@ d_Tree_Splits
 d_Tree_Voice_Map
 d_Tree_Voices - voice transmit, voice bank
 dXg_Data_Hub
-dXg_Processor_b
-dXg_Processor
-dXg_Editor
+dXg_Audio_Processor_b
+dXg_Audio_Processor_p
+dXg_Editor_p
 g_Look_And_Feel
 g_Layer__Comm_Error
 g_Layer__Editor_Buttons

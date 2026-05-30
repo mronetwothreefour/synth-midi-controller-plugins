@@ -2,11 +2,11 @@
 
 #include <JuceHeader.h>
 
-class Base_Processor :
+class Base_Audio_Processor :
     public AudioProcessor
 {
 //==============================================================================
-public: Base_Processor();
+public: Base_Audio_Processor();
 
 public: const String getName() const override;
 
@@ -36,8 +36,8 @@ public: void getStateInformation(MemoryBlock& target_mem_block) override;
 public: virtual void restore_parameters(const void* stored_param_data, int data_size)=0;
 public: void setStateInformation(const void* stored_param_data, int data_size) override;
 
-public: ~Base_Processor() override;
+public: ~Base_Audio_Processor() override;
 
 //==============================================================================
-private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Base_Processor)
+private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Base_Audio_Processor)
 };

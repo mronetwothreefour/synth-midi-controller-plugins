@@ -2,9 +2,6 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="P-600-GUI 2026\_Base_Source_Files\audio">
-      <UniqueIdentifier>{F5F85502-F021-F2AA-2B19-8F06268BD8AB}</UniqueIdentifier>
-    </Filter>
     <Filter Include="P-600-GUI 2026\_Base_Source_Files\exposed_parameters">
       <UniqueIdentifier>{00DF5AEA-48B1-BC4D-32BF-EEB6CEDD4EDB}</UniqueIdentifier>
     </Filter>
@@ -13,9 +10,6 @@
     </Filter>
     <Filter Include="P-600-GUI 2026\_Base_Source_Files">
       <UniqueIdentifier>{3B6AA870-FC6E-EC47-4FFB-20FDB649DB5A}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="P-600-GUI 2026\Project_Source_Files\audio">
-      <UniqueIdentifier>{0BD0A77A-26CF-0B2B-5E6D-CBC8F3AAE293}</UniqueIdentifier>
     </Filter>
     <Filter Include="P-600-GUI 2026\Project_Source_Files\binaries">
       <UniqueIdentifier>{EA944BBE-6A04-A0EC-7517-DDDFBC8C03C6}</UniqueIdentifier>
@@ -715,8 +709,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\_Base_Source_Files\audio\A_00-B_Processor.cpp">
-      <Filter>P-600-GUI 2026\_Base_Source_Files\audio</Filter>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\dXg_Audio_Processor_b.cpp">
+      <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.cpp">
       <Filter>P-600-GUI 2026\_Base_Source_Files\exposed_parameters</Filter>
@@ -727,14 +721,14 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\helpers\H_99-B_Misc.cpp">
       <Filter>P-600-GUI 2026\_Base_Source_Files\helpers</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Project_Source_Files\audio\A_00-P_Processor.cpp">
-      <Filter>P-600-GUI 2026\Project_Source_Files\audio</Filter>
+    <ClCompile Include="..\..\Project_Source_Files\dXg_Audio_Processor_p.cpp">
+      <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\dXg_Editor_p.cpp">
+      <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\exposed_parameters\E_00-P_Exp_Param_Info.cpp">
       <Filter>P-600-GUI 2026\Project_Source_Files\exposed_parameters</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source_Files\gui\G_01-P_Editor.cpp">
-      <Filter>P-600-GUI 2026\Project_Source_Files\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\gui\G_05-P_Paint_Paths.cpp">
       <Filter>P-600-GUI 2026\Project_Source_Files\gui</Filter>
@@ -3765,8 +3759,8 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\c_ID_b.h">
       <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\audio\A_00-B_Processor.h">
-      <Filter>P-600-GUI 2026\_Base_Source_Files\audio</Filter>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\dXg_Audio_Processor_b.h">
+      <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.h">
       <Filter>P-600-GUI 2026\_Base_Source_Files\exposed_parameters</Filter>
@@ -3776,9 +3770,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\helpers\H_99-B_Misc.h">
       <Filter>P-600-GUI 2026\_Base_Source_Files\helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\audio\A_00-P_Processor.h">
-      <Filter>P-600-GUI 2026\Project_Source_Files\audio</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\c_COLOR_p.h">
       <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
@@ -3801,11 +3792,14 @@
     <ClInclude Include="..\..\Project_Source_Files\c_XYWH_p.h">
       <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\dXg_Audio_Processor_p.h">
+      <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\dXg_Editor_p.h">
+      <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\exposed_parameters\E_00-P_Exp_Param_Info.h">
       <Filter>P-600-GUI 2026\Project_Source_Files\exposed_parameters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\gui\G_01-P_Editor.h">
-      <Filter>P-600-GUI 2026\Project_Source_Files\gui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\gui\G_05-P_Paint_Paths.h">
       <Filter>P-600-GUI 2026\Project_Source_Files\gui</Filter>

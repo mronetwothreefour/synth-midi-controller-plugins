@@ -1,18 +1,13 @@
-#include "G_01-P_Editor.h"
+#include "dXg_Editor_p.h"
 
 #include "c_XYWH_p.h"
 #include "G_05-P_Paint_Paths.h"
+#include "H_10-P_Describe_Exp_Param.h"
 
-using namespace BinaryData;
-
-Editor::Editor(Processor& processor) :
+Editor::Editor(Audio_Processor& processor) :
     AudioProcessorEditor{ &processor },
     processor{ processor }
 {
-    MemoryInputStream texture_stream{ texture_jpg, texture_jpgSize, false };
-    JPEGImageFormat img_format;
-    background_texture = img_format.decodeImage(texture_stream);
-
     setWantsKeyboardFocus(true);
     setResizable(true, true);
     setSize(XYWH::gui_init_w, XYWH::gui_init_h);
@@ -20,10 +15,9 @@ Editor::Editor(Processor& processor) :
     Timer::callAfterDelay(50, [this] { grabKeyboardFocus(); });
 }
 
-void Editor::paint(Graphics& g) {
+void Editor::paint (Graphics& g) {
     auto scale_factor{ (float)getWidth() / XYWH::gui_init_w };
     g.addTransform(AffineTransform::scale(scale_factor));
-    g.drawImageAt(background_texture, 0, 0);
     Paint_Paths::editor_background(g);
 }
 

@@ -1,9 +1,9 @@
-#include "G_01-P_Editor.h"
+#include "dXg_Editor_p.h"
 
 #include "c_XYWH_p.h"
 #include "G_05-P_Paint_Paths.h"
 
-Editor::Editor(Processor& processor) :
+Editor::Editor(Audio_Processor& processor) :
     AudioProcessorEditor{ &processor },
     processor{ processor }
 {

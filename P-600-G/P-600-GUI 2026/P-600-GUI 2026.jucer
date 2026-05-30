@@ -6,17 +6,15 @@
               pluginFormats="buildStandalone,buildVST3" pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginDesc="Sound editor/librarian for use with the SCI Prophet-600 synthesizer"
               pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20"
-              headerPath="..\..\..\..\_Base_Source_Files\audio&#10;..\..\..\..\_Base_Source_Files&#10;..\..\..\..\_Base_Source_Files\exposed_parameters&#10;..\..\..\..\_Base_Source_Files\helpers&#10;..\..\Project_Source_Files\audio&#10;..\..\Project_Source_Files&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
+              headerPath="..\..\..\..\_Base_Source_Files&#10;..\..\..\..\_Base_Source_Files\exposed_parameters&#10;..\..\..\..\_Base_Source_Files\helpers&#10;..\..\Project_Source_Files&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
   <MAINGROUP id="sSCaXP" name="P-600-GUI 2026">
     <GROUP id="{E250642F-4444-B780-0392-6400C2CA6C29}" name="_Base_Source_Files">
       <FILE id="QiBoca" name="c_COLOR_b.h" compile="0" resource="0" file="../../_Base_Source_Files/c_COLOR_b.h"/>
       <FILE id="Id1KXD" name="c_ID_b.h" compile="0" resource="0" file="../../_Base_Source_Files/c_ID_b.h"/>
-      <GROUP id="{3BDF9967-A820-40DA-7D0A-36EA6C3C8630}" name="audio">
-        <FILE id="EG8V2A" name="A_00-B_Processor.cpp" compile="1" resource="0"
-              file="../../_Base_Source_Files/audio/A_00-B_Processor.cpp"/>
-        <FILE id="QTDzl7" name="A_00-B_Processor.h" compile="0" resource="0"
-              file="../../_Base_Source_Files/audio/A_00-B_Processor.h"/>
-      </GROUP>
+      <FILE id="Nt30TD" name="dXg_Audio_Processor_b.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/dXg_Audio_Processor_b.cpp"/>
+      <FILE id="aiLqMf" name="dXg_Audio_Processor_b.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/dXg_Audio_Processor_b.h"/>
       <GROUP id="{CD315361-50D8-65AA-D089-3489243AD394}" name="exposed_parameters">
         <FILE id="foa4Md" name="E_00-B_Exp_Param_Info.cpp" compile="1" resource="0"
               file="../../_Base_Source_Files/exposed_parameters/E_00-B_Exp_Param_Info.cpp"/>
@@ -33,12 +31,6 @@
       </GROUP>
     </GROUP>
     <GROUP id="{BA905641-A131-634A-864A-8FA5B8689C94}" name="Project_Source_Files">
-      <GROUP id="{4A8290AC-1620-158A-3B89-25F388FE03D7}" name="audio">
-        <FILE id="ndTAne" name="A_00-P_Processor.cpp" compile="1" resource="0"
-              file="Project_Source_Files/audio/A_00-P_Processor.cpp"/>
-        <FILE id="EeSeFN" name="A_00-P_Processor.h" compile="0" resource="0"
-              file="Project_Source_Files/audio/A_00-P_Processor.h"/>
-      </GROUP>
       <GROUP id="{16C95D19-7475-5417-F8AF-AC05E9B5689B}" name="binaries">
         <FILE id="qVHTXX" name="texture.jpg" compile="0" resource="1" file="Project_Source_Files/binaries/texture.jpg"/>
       </GROUP>
@@ -51,6 +43,13 @@
       <FILE id="ZPGWRN" name="c_SL__Tip_Exposed_p.h" compile="0" resource="0"
             file="Project_Source_Files/c_SL__Tip_Exposed_p.h"/>
       <FILE id="ho1bDz" name="c_XYWH_p.h" compile="0" resource="0" file="Project_Source_Files/c_XYWH_p.h"/>
+      <FILE id="ELQgjj" name="dXg_Audio_Processor_p.cpp" compile="1" resource="0"
+            file="Project_Source_Files/dXg_Audio_Processor_p.cpp"/>
+      <FILE id="gZyHqJ" name="dXg_Audio_Processor_p.h" compile="0" resource="0"
+            file="Project_Source_Files/dXg_Audio_Processor_p.h"/>
+      <FILE id="kKosFe" name="dXg_Editor_p.cpp" compile="1" resource="0"
+            file="Project_Source_Files/dXg_Editor_p.cpp"/>
+      <FILE id="N41Qft" name="dXg_Editor_p.h" compile="0" resource="0" file="Project_Source_Files/dXg_Editor_p.h"/>
       <GROUP id="{F607CFF9-148C-815F-9CC8-086295A17406}" name="exposed_parameters">
         <FILE id="hK0NJP" name="E_00-P_Exp_Param_Info.cpp" compile="1" resource="0"
               file="Project_Source_Files/exposed_parameters/E_00-P_Exp_Param_Info.cpp"/>
@@ -58,9 +57,6 @@
               file="Project_Source_Files/exposed_parameters/E_00-P_Exp_Param_Info.h"/>
       </GROUP>
       <GROUP id="{EB53D7E1-18EB-7767-EBBC-0EA52436DB98}" name="gui">
-        <FILE id="E39kFv" name="G_01-P_Editor.cpp" compile="1" resource="0"
-              file="Project_Source_Files/gui/G_01-P_Editor.cpp"/>
-        <FILE id="xFoMcq" name="G_01-P_Editor.h" compile="0" resource="0" file="Project_Source_Files/gui/G_01-P_Editor.h"/>
         <FILE id="lRWPNu" name="G_05-P_Paint_Paths.cpp" compile="1" resource="0"
               file="Project_Source_Files/gui/G_05-P_Paint_Paths.cpp"/>
         <FILE id="Ax1FEk" name="G_05-P_Paint_Paths.h" compile="0" resource="0"

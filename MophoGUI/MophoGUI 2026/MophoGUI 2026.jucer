@@ -7,17 +7,15 @@
               pluginCharacteristicsValue="pluginEditorRequiresKeys,pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginDesc="Sound editor/librarian for use with the DSI Mopho synthesizer"
               pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20"
-              headerPath="..\..\..\..\_Base_Source_Files\audio&#10;..\..\..\..\_Base_Source_Files&#10;..\..\..\..\_Base_Source_Files\exposed_parameters&#10;..\..\..\..\_Base_Source_Files\helpers&#10;..\..\Project_Source_Files\audio&#10;..\..\Project_Source_Files&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
+              headerPath="..\..\..\..\_Base_Source_Files&#10;..\..\..\..\_Base_Source_Files\exposed_parameters&#10;..\..\..\..\_Base_Source_Files\helpers&#10;..\..\Project_Source_Files&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
   <MAINGROUP id="dJIzaK" name="MophoGUI 2026">
     <GROUP id="{B8F9FC92-404F-36C4-DF45-FBA4F345394D}" name="_Base_Source_Files">
       <FILE id="gU1Llk" name="c_COLOR_b.h" compile="0" resource="0" file="../../_Base_Source_Files/c_COLOR_b.h"/>
       <FILE id="Gt8IkL" name="c_ID_b.h" compile="0" resource="0" file="../../_Base_Source_Files/c_ID_b.h"/>
-      <GROUP id="{76D43FB1-8B75-2410-04D7-94B063AD22BE}" name="audio">
-        <FILE id="HOI0lS" name="A_00-B_Processor.cpp" compile="1" resource="0"
-              file="../../_Base_Source_Files/audio/A_00-B_Processor.cpp"/>
-        <FILE id="hHxSis" name="A_00-B_Processor.h" compile="0" resource="0"
-              file="../../_Base_Source_Files/audio/A_00-B_Processor.h"/>
-      </GROUP>
+      <FILE id="D7ZRWN" name="dXg_Audio_Processor_b.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/dXg_Audio_Processor_b.cpp"/>
+      <FILE id="ncadt7" name="dXg_Audio_Processor_b.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/dXg_Audio_Processor_b.h"/>
       <GROUP id="{5CD95D89-ECFF-E352-C359-FBD59A8AD1FF}" name="exposed_parameters">
         <FILE id="lBV8wO" name="E_00-B_Exp_Param_Info.cpp" compile="1" resource="0"
               file="../../_Base_Source_Files/exposed_parameters/E_00-B_Exp_Param_Info.cpp"/>
@@ -44,12 +42,13 @@
             file="Project_Source_Files/c_SL__Tip_Exposed_p.h"/>
       <FILE id="vOiFZl" name="c_VOICE_p.h" compile="0" resource="0" file="Project_Source_Files/c_VOICE_p.h"/>
       <FILE id="Z5fpy6" name="c_XYWH_p.h" compile="0" resource="0" file="Project_Source_Files/c_XYWH_p.h"/>
-      <GROUP id="{7140E7D4-C2D9-B082-FEC7-8B81B925255B}" name="audio">
-        <FILE id="jsT27I" name="A_00-P_Processor.cpp" compile="1" resource="0"
-              file="Project_Source_Files/audio/A_00-P_Processor.cpp"/>
-        <FILE id="GF4VZd" name="A_00-P_Processor.h" compile="0" resource="0"
-              file="Project_Source_Files/audio/A_00-P_Processor.h"/>
-      </GROUP>
+      <FILE id="tEO2RQ" name="dXg_Audio_Processor_p.cpp" compile="1" resource="0"
+            file="Project_Source_Files/dXg_Audio_Processor_p.cpp"/>
+      <FILE id="L0SilM" name="dXg_Audio_Processor_p.h" compile="0" resource="0"
+            file="Project_Source_Files/dXg_Audio_Processor_p.h"/>
+      <FILE id="DMHoCQ" name="dXg_Editor_p.cpp" compile="1" resource="0"
+            file="Project_Source_Files/dXg_Editor_p.cpp"/>
+      <FILE id="ZcUb5h" name="dXg_Editor_p.h" compile="0" resource="0" file="Project_Source_Files/dXg_Editor_p.h"/>
       <GROUP id="{6AE090E5-1717-50ED-08A1-A04ADF21229D}" name="exposed_parameters">
         <FILE id="f3CHf8" name="E_00-P_Exp_Param_Info.cpp" compile="1" resource="0"
               file="Project_Source_Files/exposed_parameters/E_00-P_Exp_Param_Info.cpp"/>
@@ -57,9 +56,6 @@
               file="Project_Source_Files/exposed_parameters/E_00-P_Exp_Param_Info.h"/>
       </GROUP>
       <GROUP id="{603CE7AE-372C-D847-E165-FCDD818EF3E0}" name="gui">
-        <FILE id="B12hrP" name="G_01-P_Editor.cpp" compile="1" resource="0"
-              file="Project_Source_Files/gui/G_01-P_Editor.cpp"/>
-        <FILE id="kBUrMw" name="G_01-P_Editor.h" compile="0" resource="0" file="Project_Source_Files/gui/G_01-P_Editor.h"/>
         <FILE id="FM7pnL" name="G_05-P_Paint_Paths.cpp" compile="1" resource="0"
               file="Project_Source_Files/gui/G_05-P_Paint_Paths.cpp"/>
         <FILE id="CcCPB2" name="G_05-P_Paint_Paths.h" compile="0" resource="0"

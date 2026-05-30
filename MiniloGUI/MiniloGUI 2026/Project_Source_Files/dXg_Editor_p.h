@@ -2,15 +2,15 @@
 
 #include <JuceHeader.h>
 
-#include "A_00-P_Processor.h"
+#include "dXg_Audio_Processor_p.h"
 
 class Editor :
     public AudioProcessorEditor
 {
-private: Processor& processor;
+private: Audio_Processor& processor;
 
 //==============================================================================
-public: Editor(Processor& processor);
+public: Editor(Audio_Processor& processor);
 
 public: void paint(Graphics& g) override;
 public: void resized() override;

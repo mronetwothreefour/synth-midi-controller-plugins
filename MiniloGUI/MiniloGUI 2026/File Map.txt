@@ -1,8 +1,5 @@
 MiniloGUI 2026
 
-A_00-B_Processor    Base_Processor
-A_00-P_Processor    Processor
-
 c_COLOR_b
 c_COLOR_p
 c_ENUM_p
@@ -13,12 +10,13 @@ c_ID_p
 c_PATH__Editor_Bkgrnd_p
 c_SL__Tip_Exposed_p
 c_XYWH_p
-
+dXg_Audio_Processor_b
+dXg_Audio_Processor_p
+dXg_Editor_p
 E_00-B_Exp_Param_Info
 E_00-P_Exp_Param_Info
 
 G_00-P_Look_And_Feel
-G_01-P_Editor
 G_05-P_Paint_Paths
 
 H_00-B_Build_Tree

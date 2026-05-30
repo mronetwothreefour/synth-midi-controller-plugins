@@ -6,17 +6,15 @@
               version="2.1.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com"
               companyEmail="programming@mr1234.com" pluginDesc="Sound editor/librarian for use with the Oberheim Matrix-6R synthesizer"
               pluginManufacturerCode="TimD" pluginAUMainType="'aumi'" pluginVST3Category="Tools"
-              cppLanguageStandard="20" headerPath="..\..\..\..\_Base_Source_Files\audio&#10;..\..\..\..\_Base_Source_Files&#10;..\..\..\..\_Base_Source_Files\exposed_parameters&#10;..\..\..\..\_Base_Source_Files\helpers&#10;..\..\Project_Source_Files\audio&#10;..\..\Project_Source_Files&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
+              cppLanguageStandard="20" headerPath="..\..\..\..\_Base_Source_Files&#10;..\..\..\..\_Base_Source_Files\exposed_parameters&#10;..\..\..\..\_Base_Source_Files\helpers&#10;..\..\Project_Source_Files&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
   <MAINGROUP id="F43Kyc" name="Matrix-6G 2026">
     <GROUP id="{602BA233-B181-6E09-6E24-6847DA41A16A}" name="_Base_Source_Files">
       <FILE id="PaExEX" name="c_ID_b.h" compile="0" resource="0" file="../../_Base_Source_Files/c_ID_b.h"/>
       <FILE id="DEa7fL" name="c_COLOR_b.h" compile="0" resource="0" file="../../_Base_Source_Files/c_COLOR_b.h"/>
-      <GROUP id="{E5073477-AFDF-16B8-CD4A-74E39E2E3A18}" name="audio">
-        <FILE id="rwFGba" name="A_00-B_Processor.cpp" compile="1" resource="0"
-              file="../../_Base_Source_Files/audio/A_00-B_Processor.cpp"/>
-        <FILE id="y4wZTA" name="A_00-B_Processor.h" compile="0" resource="0"
-              file="../../_Base_Source_Files/audio/A_00-B_Processor.h"/>
-      </GROUP>
+      <FILE id="BrNBwC" name="dXg_Audio_Processor_b.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/dXg_Audio_Processor_b.cpp"/>
+      <FILE id="EM9Ec6" name="dXg_Audio_Processor_b.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/dXg_Audio_Processor_b.h"/>
       <GROUP id="{B6A0BB0A-171F-3053-B649-B2C400DFC8AC}" name="exposed_parameters">
         <FILE id="zJQR05" name="E_00-B_Exp_Param_Info.cpp" compile="1" resource="0"
               file="../../_Base_Source_Files/exposed_parameters/E_00-B_Exp_Param_Info.cpp"/>
@@ -42,12 +40,13 @@
       <FILE id="OVHtAg" name="c_SL__Tip_Exposed_p.h" compile="0" resource="0"
             file="Project_Source_Files/c_SL__Tip_Exposed_p.h"/>
       <FILE id="VRm3z6" name="c_XYWH_p.h" compile="0" resource="0" file="Project_Source_Files/c_XYWH_p.h"/>
-      <GROUP id="{7B57155B-E016-DA63-4C69-EC1BE2B0A21B}" name="audio">
-        <FILE id="RqmkBE" name="A_00-P_Processor.cpp" compile="1" resource="0"
-              file="Project_Source_Files/audio/A_00-P_Processor.cpp"/>
-        <FILE id="xmn4Ta" name="A_00-P_Processor.h" compile="0" resource="0"
-              file="Project_Source_Files/audio/A_00-P_Processor.h"/>
-      </GROUP>
+      <FILE id="JThaP0" name="dXg_Audio_Processor_p.cpp" compile="1" resource="0"
+            file="Project_Source_Files/dXg_Audio_Processor_p.cpp"/>
+      <FILE id="PaCHRO" name="dXg_Audio_Processor_p.h" compile="0" resource="0"
+            file="Project_Source_Files/dXg_Audio_Processor_p.h"/>
+      <FILE id="bPU5kF" name="dXg_Editor_p.cpp" compile="1" resource="0"
+            file="Project_Source_Files/dXg_Editor_p.cpp"/>
+      <FILE id="iXvEW5" name="dXg_Editor_p.h" compile="0" resource="0" file="Project_Source_Files/dXg_Editor_p.h"/>
       <GROUP id="{E405D4B1-9FE2-A563-0967-6F4A38F32DB1}" name="exposed_parameters">
         <FILE id="xfrn2w" name="E_00-P_Exp_Param_Info.cpp" compile="1" resource="0"
               file="Project_Source_Files/exposed_parameters/E_00-P_Exp_Param_Info.cpp"/>
@@ -55,9 +54,6 @@
               file="Project_Source_Files/exposed_parameters/E_00-P_Exp_Param_Info.h"/>
       </GROUP>
       <GROUP id="{6C9D8C95-FEB6-D2FE-B988-29C6B3E22A4B}" name="gui">
-        <FILE id="KLgQrY" name="G_01-P_Editor.cpp" compile="1" resource="0"
-              file="Project_Source_Files/gui/G_01-P_Editor.cpp"/>
-        <FILE id="PXKGzA" name="G_01-P_Editor.h" compile="0" resource="0" file="Project_Source_Files/gui/G_01-P_Editor.h"/>
         <FILE id="XXsQpf" name="G_05-P_Paint_Paths.cpp" compile="1" resource="0"
               file="Project_Source_Files/gui/G_05-P_Paint_Paths.cpp"/>
         <FILE id="K66Ton" name="G_05-P_Paint_Paths.h" compile="0" resource="0"
