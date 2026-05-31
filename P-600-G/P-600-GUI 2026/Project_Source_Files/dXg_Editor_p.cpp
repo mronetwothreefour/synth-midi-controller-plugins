@@ -1,7 +1,7 @@
 #include "dXg_Editor_p.h"
 
 #include "c_XYWH_p.h"
-#include "G_05-P_Paint_Paths.h"
+#include "g_Draw_Paths__Editor_p.h"
 
 using namespace BinaryData;
 

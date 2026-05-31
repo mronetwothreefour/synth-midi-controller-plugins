@@ -1,8 +1,7 @@
 #include "dXg_Editor_p.h"
 
 #include "c_XYWH_p.h"
-#include "G_05-P_Paint_Paths.h"
-#include "H_10-P_Describe_Exp_Param.h"
+#include "g_Draw_Paths__Editor_p.h"
 
 Editor::Editor(Audio_Processor& processor) :
     AudioProcessorEditor{ &processor },

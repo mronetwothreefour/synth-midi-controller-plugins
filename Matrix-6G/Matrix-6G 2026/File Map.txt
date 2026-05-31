@@ -10,15 +10,15 @@ c_HEX_Factory_Voices_p
 c_ID_b
 c_ID_p
 c_MMOD_p
-c_PATH__Editor_Bkgrnd_p *
-c_PATH__Envelope_And_Graph_p *
-c_PATH__LED_Text_p *
-c_SL__Tip_Button_p
-c_SL__Tip_Exposed_p
-c_SL__Tip_Global_p
-c_SL__Tip_Matrix_Mod_p
-c_SL__Tip_Split_p
-c_SL__Tip_Voice_p
+c_PATH__Editor_Bkgrnd_p
+c_PATH__Envelope_And_Graph_p
+c_PATH__LED_Text_p
+c_SL__Tip__Button_p
+c_SL__Tip__Exposed_p
+c_SL__Tip__Global_p
+c_SL__Tip__Matrix_Mod_p
+c_SL__Tip__Split_p
+c_SL__Tip__Voice_p
 c_SPLIT_p
 c_VOICE_p
 c_VMAP_p
@@ -38,10 +38,10 @@ d_Sub_Tree_Choices__M_Mod_p
 d_Sub_Tree_Choices__Splits_p
 d_Sub_Tree_Choices__Voices_p
 d_Sub_Tree_Exposed_p
-d_Tips__Button_p
-d_Tips__Exposed_p
-d_Tips__Global_p
-d_Tips__Splits_p
+d_Tip__Button_p
+d_Tip__Exposed_p
+d_Tip__Global_p
+d_Tip__Splits_p
 d_Tree__Exposed_Info_b
 d_Tree__Exposed_Info_p
 d_Tree__Current_Voice
@@ -55,7 +55,10 @@ dXg_Audio_Processor_p
 dXg_Data_Hub
 dXg_Data_User
 dXg_Editor_p
-g_Look_And_Feel
+g_Draw_Paths_b
+g_Draw_Paths__Editor_p
+g_Draw_Paths__LED_Text_p
+g_Look_And_Feel_p
 g_Layer__Comm_Error
 g_Layer__Editor_Buttons
 g_Layer__Editor_Current_Voice

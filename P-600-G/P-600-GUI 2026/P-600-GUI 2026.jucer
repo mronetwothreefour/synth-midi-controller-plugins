@@ -6,13 +6,17 @@
               pluginFormats="buildStandalone,buildVST3" pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginDesc="Sound editor/librarian for use with the SCI Prophet-600 synthesizer"
               pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20"
-              headerPath="..\..\..\..\_Base_Source_Files&#10;..\..\..\..\_Base_Source_Files\helpers&#10;..\..\Project_Source_Files&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
+              headerPath="..\..\..\..\_Base_Source_Files&#10;..\..\Project_Source_Files">
   <MAINGROUP id="sSCaXP" name="P-600-GUI 2026">
     <GROUP id="{E250642F-4444-B780-0392-6400C2CA6C29}" name="_Base_Source_Files">
       <FILE id="QiBoca" name="c_COLOR_b.h" compile="0" resource="0" file="../../_Base_Source_Files/c_COLOR_b.h"/>
       <FILE id="Id1KXD" name="c_ID_b.h" compile="0" resource="0" file="../../_Base_Source_Files/c_ID_b.h"/>
       <FILE id="stIWZ9" name="d_Convert__Int_To_Pitch_b.h" compile="0" resource="0"
             file="../../_Base_Source_Files/d_Convert__Int_To_Pitch_b.h"/>
+      <FILE id="rNcRjj" name="d_Sub_Tree_Choices_b.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/d_Sub_Tree_Choices_b.cpp"/>
+      <FILE id="IszdYd" name="d_Sub_Tree_Choices_b.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/d_Sub_Tree_Choices_b.h"/>
       <FILE id="a0WtkU" name="d_Tree__Exposed_Info_b.cpp" compile="1" resource="0"
             file="../../_Base_Source_Files/d_Tree__Exposed_Info_b.cpp"/>
       <FILE id="Fj9ekp" name="d_Tree__Exposed_Info_b.h" compile="0" resource="0"
@@ -21,12 +25,6 @@
             file="../../_Base_Source_Files/dXg_Audio_Processor_b.cpp"/>
       <FILE id="aiLqMf" name="dXg_Audio_Processor_b.h" compile="0" resource="0"
             file="../../_Base_Source_Files/dXg_Audio_Processor_b.h"/>
-      <GROUP id="{DAFBF823-EE76-227F-FCFE-A19561FBB91E}" name="helpers">
-        <FILE id="AjMleP" name="H_00-B_Build_Tree.cpp" compile="1" resource="0"
-              file="../../_Base_Source_Files/helpers/H_00-B_Build_Tree.cpp"/>
-        <FILE id="vu6ZGR" name="H_00-B_Build_Tree.h" compile="0" resource="0"
-              file="../../_Base_Source_Files/helpers/H_00-B_Build_Tree.h"/>
-      </GROUP>
     </GROUP>
     <GROUP id="{BA905641-A131-634A-864A-8FA5B8689C94}" name="Project_Source_Files">
       <GROUP id="{16C95D19-7475-5417-F8AF-AC05E9B5689B}" name="binaries">
@@ -38,9 +36,21 @@
       <FILE id="UxiGno" name="c_ID_p.h" compile="0" resource="0" file="Project_Source_Files/c_ID_p.h"/>
       <FILE id="MDIiA7" name="c_PATH__Editor_Bkgrnd_p.h" compile="0" resource="0"
             file="Project_Source_Files/c_PATH__Editor_Bkgrnd_p.h"/>
-      <FILE id="ZPGWRN" name="c_SL__Tip_Exposed_p.h" compile="0" resource="0"
-            file="Project_Source_Files/c_SL__Tip_Exposed_p.h"/>
+      <FILE id="dMrKmc" name="c_SL__Tip__Exposed_p.h" compile="0" resource="0"
+            file="Project_Source_Files/c_SL__Tip__Exposed_p.h"/>
       <FILE id="ho1bDz" name="c_XYWH_p.h" compile="0" resource="0" file="Project_Source_Files/c_XYWH_p.h"/>
+      <FILE id="RwrPwk" name="d_Sub_Tree_Choices__Exp_p.cpp" compile="1"
+            resource="0" file="Project_Source_Files/d_Sub_Tree_Choices__Exp_p.cpp"/>
+      <FILE id="HdXX0s" name="d_Sub_Tree_Choices__Exp_p.h" compile="0" resource="0"
+            file="Project_Source_Files/d_Sub_Tree_Choices__Exp_p.h"/>
+      <FILE id="lbjAmB" name="d_Tip__Exposed_p.cpp" compile="1" resource="0"
+            file="Project_Source_Files/d_Tip__Exposed_p.cpp"/>
+      <FILE id="kH8tZz" name="d_Tip__Exposed_p.h" compile="0" resource="0"
+            file="Project_Source_Files/d_Tip__Exposed_p.h"/>
+      <FILE id="lVNux5" name="d_Tree__Exposed_Info_p.cpp" compile="1" resource="0"
+            file="Project_Source_Files/d_Tree__Exposed_Info_p.cpp"/>
+      <FILE id="br5vq2" name="d_Tree__Exposed_Info_p.h" compile="0" resource="0"
+            file="Project_Source_Files/d_Tree__Exposed_Info_p.h"/>
       <FILE id="ELQgjj" name="dXg_Audio_Processor_p.cpp" compile="1" resource="0"
             file="Project_Source_Files/dXg_Audio_Processor_p.cpp"/>
       <FILE id="gZyHqJ" name="dXg_Audio_Processor_p.h" compile="0" resource="0"
@@ -48,29 +58,10 @@
       <FILE id="kKosFe" name="dXg_Editor_p.cpp" compile="1" resource="0"
             file="Project_Source_Files/dXg_Editor_p.cpp"/>
       <FILE id="N41Qft" name="dXg_Editor_p.h" compile="0" resource="0" file="Project_Source_Files/dXg_Editor_p.h"/>
-      <GROUP id="{F607CFF9-148C-815F-9CC8-086295A17406}" name="exposed_parameters">
-        <FILE id="hK0NJP" name="E_00-P_Exp_Param_Info.cpp" compile="1" resource="0"
-              file="Project_Source_Files/exposed_parameters/E_00-P_Exp_Param_Info.cpp"/>
-        <FILE id="ZHnJ9l" name="E_00-P_Exp_Param_Info.h" compile="0" resource="0"
-              file="Project_Source_Files/exposed_parameters/E_00-P_Exp_Param_Info.h"/>
-      </GROUP>
-      <GROUP id="{EB53D7E1-18EB-7767-EBBC-0EA52436DB98}" name="gui">
-        <FILE id="lRWPNu" name="G_05-P_Paint_Paths.cpp" compile="1" resource="0"
-              file="Project_Source_Files/gui/G_05-P_Paint_Paths.cpp"/>
-        <FILE id="Ax1FEk" name="G_05-P_Paint_Paths.h" compile="0" resource="0"
-              file="Project_Source_Files/gui/G_05-P_Paint_Paths.h"/>
-      </GROUP>
-      <GROUP id="{8134257B-9166-AF40-CE75-ECF54E599699}" name="helpers">
-        <FILE id="tUUtVO" name="H_00-P_Build_Tree.cpp" compile="1" resource="0"
-              file="Project_Source_Files/helpers/H_00-P_Build_Tree.cpp"/>
-        <FILE id="rBBEy6" name="H_00-P_Build_Tree.h" compile="0" resource="0"
-              file="Project_Source_Files/helpers/H_00-P_Build_Tree.h"/>
-        <FILE id="NPzNKK" name="H_10-P_Describe_Exp_Param.cpp" compile="1"
-              resource="0" file="Project_Source_Files/helpers/H_10-P_Describe_Exp_Param.cpp"/>
-        <FILE id="Ob908q" name="H_10-P_Describe_Exp_Param.h" compile="0" resource="0"
-              file="Project_Source_Files/helpers/H_10-P_Describe_Exp_Param.h"/>
-      </GROUP>
-      <GROUP id="{88C334BA-22FC-3291-CCEB-16BC6D86ED0C}" name="midi"/>
+      <FILE id="W7n9J6" name="g_Draw_Paths__Editor_p.cpp" compile="1" resource="0"
+            file="Project_Source_Files/g_Draw_Paths__Editor_p.cpp"/>
+      <FILE id="nGlsrT" name="g_Draw_Paths__Editor_p.h" compile="0" resource="0"
+            file="Project_Source_Files/g_Draw_Paths__Editor_p.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
