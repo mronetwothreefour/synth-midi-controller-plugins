@@ -7,7 +7,7 @@ using namespace EXP;
 using namespace XYWH;
 
 Exposed_Parameter_Info::Exposed_Parameter_Info() :
-	Base_Exposed_Parameter_Info{ EXP::exp_param_count }
+	Tree_Exposed_Info_Base{ EXP::exp_param_count }
 {
 	const bool curt{ true };
 
@@ -22,8 +22,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				Knob_Display_Type::osc_pitch, osc == 1 ? 0 : 5,
 				choice_count_osc_pitch, 24, ctrl_col_1_x, center_y, knob_diameter, knob_diameter,
 				Tip_Exposed::osc_pitch(osc),
-				Build_Tree::choice_names_osc_pitch(EXP::choice_count_osc_pitch, curt),
-				Build_Tree::choice_names_osc_pitch(EXP::choice_count_osc_pitch)
+				Build_Tree::osc_pitch(EXP::choice_count_osc_pitch, curt),
+				Build_Tree::osc_pitch(EXP::choice_count_osc_pitch)
 			),
 			-1, nullptr);
 
@@ -57,8 +57,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				Knob_Display_Type::unsigned_7_bit, osc == 1 ? 3 : 8,
 				128, 0, ctrl_col_4_x, center_y, knob_diameter, knob_diameter,
 				Tip_Exposed::osc_fine(osc),
-				Build_Tree::choice_names_unsigned_int(128, curt),
-				Build_Tree::choice_names_unsigned_int(128)
+				Build_Tree::unsigned_int(128, curt),
+				Build_Tree::unsigned_int(128)
 			),
 			-1, nullptr);
 
@@ -67,8 +67,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				osc == 1 ? ID::exp_004_osc_1_key_track : ID::exp_010_osc_2_key_track,
 				"Oscillator " + n + " Keyboard Track On/Off", Ctrl_Type::toggle,
 				Knob_Display_Type::none, osc == 1 ? 4 : 9, 2, 1, ctrl_col_6_x, center_y + 11, 32, 36,
-				Tip_Exposed::osc_key_track(osc), Build_Tree::choice_names_off_on(curt),
-				Build_Tree::choice_names_off_on(), ctrl_col_6_x, center_y
+				Tip_Exposed::osc_key_track(osc), Build_Tree::off_on(curt),
+				Build_Tree::off_on(), ctrl_col_6_x, center_y
 			),
 			-1, nullptr);
 
@@ -78,8 +78,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				"Sub-Oscillator " + n + " Level", Ctrl_Type::knob,
 				Knob_Display_Type::unsigned_7_bit, osc == 1 ? 114 : 115, 128, 0, ctrl_col_5_x,
 				center_y, knob_diameter, knob_diameter, Tip_Exposed::osc_sub_level(osc), 
-				Build_Tree::choice_names_unsigned_int(128, curt), 
-				Build_Tree::choice_names_unsigned_int(128)
+				Build_Tree::unsigned_int(128, curt), 
+				Build_Tree::unsigned_int(128)
 			),
 			-1, nullptr);
 	} 
@@ -88,8 +88,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_012_osc_sync, "Hard Oscillator Sync On / Off", Ctrl_Type::toggle,
 			Knob_Display_Type::none, 10, 2, 0, 242, 22, 76, toggle_diameter,
-			Tip_Exposed::osc_sync(), Build_Tree::choice_names_off_on(curt),
-			Build_Tree::choice_names_off_on(), 273, 22
+			Tip_Exposed::osc_sync(), Build_Tree::off_on(curt),
+			Build_Tree::off_on(), 273, 22
 		),
 		-1, nullptr);
 
@@ -107,7 +107,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			ID::exp_014_osc_slop, "Oscillator Slop", Ctrl_Type::knob,
 			Knob_Display_Type::osc_slop, 12, 6, 2, ctrl_col_7_x, osc_row_1_y, 
 			knob_diameter, knob_diameter, Tip_Exposed::osc_slop(),
-			Build_Tree::choice_names_unsigned_int(6, curt), Build_Tree::choice_names_unsigned_int(6)
+			Build_Tree::unsigned_int(6, curt), Build_Tree::unsigned_int(6)
 		),
 		-1, nullptr);
 
@@ -134,7 +134,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			ID::exp_017_osc_mix, "Oscillator 1 & 2 Mix", Ctrl_Type::knob,
 			Knob_Display_Type::unsigned_7_bit, 13, 128, 64, ctrl_col_8_x, osc_row_1_y,
 			knob_diameter, knob_diameter, Tip_Exposed::osc_mix(),
-			Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
+			Build_Tree::unsigned_int(128, curt), Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -143,7 +143,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			ID::exp_018_noise_level, "Noise Level", Ctrl_Type::knob,
 			Knob_Display_Type::unsigned_7_bit, 14, 128, 0, ctrl_col_7_x, osc_row_2_y,
 			knob_diameter, knob_diameter, Tip_Exposed::noise_level(),
-			Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
+			Build_Tree::unsigned_int(128, curt), Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -152,7 +152,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			ID::exp_019_ext_in_level, "External Audio Input Level", Ctrl_Type::knob,
 			Knob_Display_Type::unsigned_7_bit, 116, 128, 0, ctrl_col_8_x, osc_row_2_y,
 			knob_diameter, knob_diameter, Tip_Exposed::ext_in_level(),
-			Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
+			Build_Tree::unsigned_int(128, curt), Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 	// ---------------------------------------------------------- end osc section
@@ -171,8 +171,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_021_lpf_reso, "LPF Resonance", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			16, 128, 0, ctrl_col_2_x, lpf_row_2_y, knob_diameter, knob_diameter,
-			Tip_Exposed::lpf_reso(), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::lpf_reso(), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -180,8 +180,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_022_lpf_key_amt, "LPF Keyboard Amount", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			17, 128, 0, ctrl_col_3_x, lpf_row_2_y, knob_diameter, knob_diameter,
-			Tip_Exposed::lpf_key_amt(), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::lpf_key_amt(), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -189,8 +189,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_023_lpf_fm_amt, "LPF FM (By Oscillator 1)", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			18, 128, 0, ctrl_col_3_x, lpf_row_3_y, knob_diameter, knob_diameter,
-			Tip_Exposed::lpf_fm_amt(), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::lpf_fm_amt(), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -219,7 +219,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			ID::exp_026_lpf_velo_amt, "LPF Envelope Velocity Amount", Ctrl_Type::knob,
 			Knob_Display_Type::unsigned_7_bit, 21, 128, 0, ctrl_col_2_x, lpf_row_3_y,
 			knob_diameter, knob_diameter, Tip_Exposed::env_velo_amt(env_name),
-			Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
+			Build_Tree::unsigned_int(128, curt), Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -227,8 +227,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_027_lpf_delay, "LPF Envelope Delay", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			22, 128, 0, ctrl_col_4_x, lpf_row_3_y, knob_diameter, knob_diameter,
-			Tip_Exposed::env_delay(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::env_delay(env_name), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -236,8 +236,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_028_lpf_attack, "LPF Envelope Attack", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			23, 128, 0, ctrl_col_5_x, lpf_row_3_y, knob_diameter, knob_diameter,
-			Tip_Exposed::env_attack(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::env_attack(env_name), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -245,8 +245,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_029_lpf_decay, "LPF Envelope Decay", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			24, 128, 0, ctrl_col_6_x, lpf_row_3_y, knob_diameter, knob_diameter,
-			Tip_Exposed::env_decay(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::env_decay(env_name), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -254,8 +254,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_030_lpf_sustain, "LPF Envelope Sustain", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			25, 128, 0, ctrl_col_7_x, lpf_row_3_y, knob_diameter, knob_diameter,
-			Tip_Exposed::env_sustain(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::env_sustain(env_name), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -263,8 +263,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_031_lpf_release, "LPF Envelope Release", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			26, 128, 0, ctrl_col_8_x, lpf_row_3_y, knob_diameter, knob_diameter,
-			Tip_Exposed::env_release(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::env_release(env_name), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 	// ---------------------------------------------------------- end lpf section
@@ -274,8 +274,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_032_vca_level, "VCA Baseline Level", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			27, 128, 0, ctrl_col_1_x, vca_row_1_y, knob_diameter, knob_diameter,
-			Tip_Exposed::vca_level(), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::vca_level(), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -283,8 +283,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_033_vca_env_amt, "VCA Envelope Amount", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			30, 255, 127, ctrl_col_2_x, vca_row_1_y, knob_diameter, knob_diameter,
-			Tip_Exposed::vca_env_amt(), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::vca_env_amt(), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -295,7 +295,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			ID::exp_034_vca_vel_amt, "VCA Envelope Velocity Amount", Ctrl_Type::knob,
 			Knob_Display_Type::unsigned_7_bit, 31, 128, 0, ctrl_col_3_x, vca_row_1_y,
 			knob_diameter, knob_diameter, Tip_Exposed::env_velo_amt(env_name),
-			Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
+			Build_Tree::unsigned_int(128, curt), Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -303,8 +303,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_035_vca_delay, "VCA Envelope Delay", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			32, 128, 0, ctrl_col_4_x, vca_row_2_y, knob_diameter, knob_diameter,
-			Tip_Exposed::env_delay(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::env_delay(env_name), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -312,8 +312,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_036_vca_attack, "VCA Envelope Attack", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			33, 128, 0, ctrl_col_5_x, vca_row_2_y, knob_diameter, knob_diameter,
-			Tip_Exposed::env_attack(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::env_attack(env_name), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -321,8 +321,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_037_vca_decay, "VCA Envelope Decay", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			34, 128, 0, ctrl_col_6_x, vca_row_2_y, knob_diameter, knob_diameter,
-			Tip_Exposed::env_decay(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::env_decay(env_name), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -330,8 +330,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_038_vca_sustain, "VCA Envelope Sustain", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			35, 128, 64, ctrl_col_7_x, vca_row_2_y, knob_diameter, knob_diameter,
-			Tip_Exposed::env_sustain(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::env_sustain(env_name), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -339,8 +339,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_039_vca_release, "VCA Envelope Release", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			36, 128, 64, ctrl_col_8_x, vca_row_2_y, knob_diameter, knob_diameter,
-			Tip_Exposed::env_release(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::env_release(env_name), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -348,8 +348,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_040_voice_volume, "Program Volume", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			29, 128, 120, ctrl_col_2_x, vca_row_2_y, knob_diameter, knob_diameter,
-			Tip_Exposed::voice_volume(), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::voice_volume(), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 	// ---------------------------------------------------------- end vca section
@@ -386,7 +386,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				"LFO " + n + " Amount", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 				39 + param_offset, 128, 0, 461 + lfo * lfo_block_spacing, lfo_row_1_y,
 				knob_diameter, knob_diameter, Tip_Exposed::lfo_amt(lfo + 1),
-				Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
+				Build_Tree::unsigned_int(128, curt), Build_Tree::unsigned_int(128)
 			),
 			-1, nullptr);
 
@@ -438,7 +438,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			ID::exp_063_env_3_velo_amt, "Envelope 3 Velocity Amount", Ctrl_Type::knob,
 			Knob_Display_Type::unsigned_7_bit, 59, 128, 0, ctrl_col_3_x, env_3_row_1_y,
 			knob_diameter, knob_diameter, Tip_Exposed::env_velo_amt(env_name),
-			Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
+			Build_Tree::unsigned_int(128, curt), Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -446,8 +446,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_064_env_3_delay, "Envelope 3 Delay", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			60, 128, 0, ctrl_col_4_x, env_3_row_2_y, knob_diameter, knob_diameter,
-			Tip_Exposed::env_delay(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::env_delay(env_name), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -455,8 +455,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_065_env_3_attack, "Envelope 3 Attack", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			61, 128, 0, ctrl_col_5_x, env_3_row_2_y, knob_diameter, knob_diameter,
-			Tip_Exposed::env_attack(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::env_attack(env_name), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -464,8 +464,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_066_env_3_decay, "Envelope 3 Decay", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			62, 128, 0, ctrl_col_6_x, env_3_row_2_y, knob_diameter, knob_diameter,
-			Tip_Exposed::env_decay(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::env_decay(env_name), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -473,8 +473,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_067_env_3_sustain, "Envelope 3 Sustain", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			63, 128, 0, ctrl_col_7_x, env_3_row_2_y, knob_diameter, knob_diameter,
-			Tip_Exposed::env_sustain(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::env_sustain(env_name), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -482,8 +482,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_068_env_3_release, "Envelope 3 Release", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
 			64, 128, 0, ctrl_col_8_x, env_3_row_2_y, knob_diameter, knob_diameter,
-			Tip_Exposed::env_release(env_name), Build_Tree::choice_names_unsigned_int(128, curt),
-			Build_Tree::choice_names_unsigned_int(128)
+			Tip_Exposed::env_release(env_name), Build_Tree::unsigned_int(128, curt),
+			Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -491,7 +491,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_069_env_3_repeat, "Envelope 3 Repeat", Ctrl_Type::toggle, Knob_Display_Type::none,
 			98, 2, 0, ctrl_col_1_x, 537, 34, 26, Tip_Exposed::env_3_repeat(),
-			Build_Tree::choice_names_off_on(curt), Build_Tree::choice_names_off_on(),
+			Build_Tree::off_on(curt), Build_Tree::off_on(),
 			ctrl_col_1_x, env_3_row_1_y
 		),
 		-1, nullptr);
@@ -632,8 +632,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			ID::exp_092_push_it_pitch, "Push It! Switch Pitch", Ctrl_Type::knob_pitch,
 			Knob_Display_Type::osc_pitch, 111, choice_count_osc_pitch, 60, 1191, push_it_knob_row_y,
 			knob_diameter, knob_diameter, Tip_Exposed::push_it_pitch(),
-			Build_Tree::choice_names_osc_pitch(EXP::choice_count_osc_pitch, curt),
-			Build_Tree::choice_names_osc_pitch(EXP::choice_count_osc_pitch)
+			Build_Tree::osc_pitch(EXP::choice_count_osc_pitch, curt),
+			Build_Tree::osc_pitch(EXP::choice_count_osc_pitch)
 		),
 		-1, nullptr);
 
@@ -642,7 +642,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			ID::exp_093_push_it_velo, "Push It! Switch Velocity", Ctrl_Type::knob,
 			Knob_Display_Type::unsigned_7_bit, 112, 128, 0, 1239, push_it_knob_row_y,
 			knob_diameter, knob_diameter, Tip_Exposed::push_it_velocity(),
-			Build_Tree::choice_names_unsigned_int(128, curt), Build_Tree::choice_names_unsigned_int(128)
+			Build_Tree::unsigned_int(128, curt), Build_Tree::unsigned_int(128)
 		),
 		-1, nullptr);
 
@@ -685,7 +685,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_098_arpeg_on_off, "Arpeggiator On / Off", Ctrl_Type::toggle, Knob_Display_Type::none,
 			100, 2, 0, ctrl_col_9_x, 116, 20, 26, Tip_Exposed::arp_on_off(),
-			Build_Tree::choice_names_off_on(curt), Build_Tree::choice_names_off_on(),
+			Build_Tree::off_on(curt), Build_Tree::off_on(),
 			ctrl_col_9_x, osc_row_2_y
 		),
 		-1, nullptr);
@@ -704,7 +704,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 		Build_Tree::exposed_parameter(
 			ID::exp_100_seq_on_off, "Sequencer On / Off", Ctrl_Type::toggle, Knob_Display_Type::none,
 			101, 2, 0, 863, clock_and_seq_row_y, 102, toggle_diameter, Tip_Exposed::seq_on_off(),
-			Build_Tree::choice_names_off_on(curt), Build_Tree::choice_names_off_on(),
+			Build_Tree::off_on(curt), Build_Tree::off_on(),
 			819, clock_and_seq_row_y
 		),
 		-1, nullptr);

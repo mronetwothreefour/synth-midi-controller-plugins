@@ -5,7 +5,7 @@
 #include "dXg_Audio_Processor_b.h"
 
 class Audio_Processor :
-    public Base_Audio_Processor
+    public Audio_Processor_Base
 {
 
 //==============================================================================

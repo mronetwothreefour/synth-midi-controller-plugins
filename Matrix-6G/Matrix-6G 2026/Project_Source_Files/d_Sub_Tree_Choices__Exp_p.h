@@ -10,7 +10,7 @@
 using namespace ENUM;
 
 struct Build_Tree :
-	public Base_Build_Tree
+	public Sub_Tree_Choices_Base
 {
 	static ValueTree exposed_parameter(Identifier id, int number, String name, 
 									   Ctrl_Type ctrl, int byte_index, Range_Type range,
@@ -31,7 +31,7 @@ struct Build_Tree :
 
 	static ValueTree choice_names_input_source(Input_Choice_Type type, const bool curt = false);
 
-	static ValueTree choice_names_off_on_matrix(const bool curt = false);
+	static ValueTree off_on_matrix(const bool curt = false);
 	static ValueTree choice_names_osc_1_key_track(const bool curt = false);
 	static ValueTree choice_names_osc_2_and_vcf_key_track(const bool curt = false);
 	static ValueTree choice_names_osc_lever_control(const bool curt = false);

@@ -29,7 +29,7 @@ ValueTree Build_Tree::exposed_parameter(Identifier id, String name, Ctrl_Type ct
 }
 
 ValueTree Build_Tree::choice_names_filter_key_track(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", "off", nullptr);
 	tree.setProperty("choice_1", "1/2", nullptr);
 	tree.setProperty("choice_2", "full", nullptr);
@@ -37,7 +37,7 @@ ValueTree Build_Tree::choice_names_filter_key_track(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_lfo_shape(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", "square", nullptr);
 	tree.setProperty("choice_1", "triangle", nullptr);
 	return tree;

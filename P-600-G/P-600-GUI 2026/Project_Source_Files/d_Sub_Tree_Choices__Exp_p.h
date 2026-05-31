@@ -10,7 +10,7 @@
 using namespace ENUM;
 
 struct Build_Tree :
-	public Base_Build_Tree
+	public Sub_Tree_Choices_Base
 {
 	static ValueTree exposed_parameter(Identifier id, String name, Ctrl_Type ctrl, 
 									   int first_nybble_index, int first_bit_index,

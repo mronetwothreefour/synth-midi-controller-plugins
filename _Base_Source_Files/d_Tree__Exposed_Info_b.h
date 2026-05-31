@@ -4,13 +4,13 @@
 
 #include "c_ID_b.h"
 
-class Base_Exposed_Parameter_Info
+class Tree_Exposed_Info_Base
 {
 protected: ValueTree tree;
 protected: const uint8 exp_param_count;
 
 //==============================================================================
-public: explicit Base_Exposed_Parameter_Info(const uint8 exp_param_count);
+public: explicit Tree_Exposed_Info_Base(const uint8 exp_param_count);
 
 protected: const ValueTree param(uint8 param_index) const;
 public: const Identifier id_for(uint8 param_index) const;
@@ -26,5 +26,5 @@ public: const StringArray choice_name_list_for(uint8 param_index, bool curt = fa
 public: virtual const int drag_sensitivity_for(uint8 param_index, float scale_factor) const;
 
 //==============================================================================
-private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Base_Exposed_Parameter_Info)
+private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Tree_Exposed_Info_Base)
 };

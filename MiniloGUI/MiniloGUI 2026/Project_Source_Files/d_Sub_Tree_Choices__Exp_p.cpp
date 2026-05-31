@@ -391,7 +391,7 @@ ValueTree Build_Tree::bit_locations_voice_mode_depth() {
 }
 
 ValueTree Build_Tree::choice_names_0_50_100(const bool curt) {
-    ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+    ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
     tree.setProperty("choice_0","0%", nullptr);
     tree.setProperty("choice_1","50%", nullptr);
     tree.setProperty("choice_2","100%", nullptr);
@@ -399,7 +399,7 @@ ValueTree Build_Tree::choice_names_0_50_100(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_delay_routing(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "byp" : "bypass", nullptr);
 	tree.setProperty("choice_1", curt ? "pre" : "pre-filter", nullptr);
 	tree.setProperty("choice_2", curt ? "post" : "post-filter", nullptr);
@@ -407,7 +407,7 @@ ValueTree Build_Tree::choice_names_delay_routing(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_lfo_eg_mod(const bool curt) {
-    ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+    ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
     tree.setProperty("choice_0", "Off", nullptr);
     tree.setProperty("choice_1", "Rate", nullptr);
     tree.setProperty("choice_2", "Intensity", nullptr);
@@ -415,7 +415,7 @@ ValueTree Build_Tree::choice_names_lfo_eg_mod(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_lfo_rate(const bool curt) {
-    ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+    ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
     String name{ "" };
     for (int n = 0; n < 64; ++n) {
         name = curt ? (String)n + "|4(0)" : "unsynced: " + (String)n + " | synced: 4 beats";
@@ -485,7 +485,7 @@ ValueTree Build_Tree::choice_names_lfo_rate(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_lfo_target(const bool curt) {
-    ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+    ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
     tree.setProperty("choice_0", curt ? "LPF cutoff frequency" : "cut", nullptr);
     tree.setProperty("choice_1", curt ? "VCO 1 & 2 shape" : "shape", nullptr);
     tree.setProperty("choice_2", curt ? "VCO 1 & 2 pitch" : "pitch", nullptr);
@@ -493,7 +493,7 @@ ValueTree Build_Tree::choice_names_lfo_target(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_lpf_eg_int(const bool curt) {
-    ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+    ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
     String name{ "" };
     name = "-100%";
     for (int n = 0; n < 12; ++n)
@@ -518,14 +518,14 @@ ValueTree Build_Tree::choice_names_lpf_eg_int(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_lpf_type(const bool curt) {
-    ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+    ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
     tree.setProperty("choice_0", "2-pole" + curt ? "" : " (12 dB / octave)", nullptr);
     tree.setProperty("choice_1", "4-pole" + curt ? "" : " (24 dB / octave)", nullptr);
     return tree;
 }
 
 ValueTree Build_Tree::choice_names_osc_2_pitch_eg_int(const bool curt) {
-    ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+    ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
     String postfix{ curt ? "" : " cents" };
 
     auto val{ -4800 };
@@ -599,7 +599,7 @@ ValueTree Build_Tree::choice_names_osc_2_pitch_eg_int(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_osc_and_lfo_wave(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "sqr" : "square", nullptr);
 	tree.setProperty("choice_1", curt ? "tri" : "triangle", nullptr);
 	tree.setProperty("choice_2", curt ? "saw" : "sawtooth", nullptr);
@@ -607,7 +607,7 @@ ValueTree Build_Tree::choice_names_osc_and_lfo_wave(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_osc_octave(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", "16'", nullptr);
 	tree.setProperty("choice_1", "8'", nullptr);
 	tree.setProperty("choice_2", "4'", nullptr);
@@ -616,7 +616,7 @@ ValueTree Build_Tree::choice_names_osc_octave(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_osc_pitch_fine(const bool curt) {
-    ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+    ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
     String postfix{ curt ? "" : " cents" };
 
     auto val{ -1200 };
@@ -697,7 +697,7 @@ ValueTree Build_Tree::choice_names_osc_pitch_fine(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_voice_mode_depth(const bool curt) {
-    ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+    ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
     for (uint16 n = 0; n < EXP::choice_count_unsigned_10_bit; ++n) {
         auto choiceName{ choice_name_voice_mode_1_poly(n, curt) };
         choiceName += choice_name_voice_mode_2_duo_3_unison(n, curt);

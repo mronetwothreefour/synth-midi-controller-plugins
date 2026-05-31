@@ -6,7 +6,7 @@ using namespace EXP;
 using namespace XYWH;
 
 Exposed_Parameter_Info::Exposed_Parameter_Info() :
-	Base_Exposed_Parameter_Info{ EXP::exp_param_count }
+	Tree_Exposed_Info_Base{ EXP::exp_param_count }
 {
 	const bool curt{ true };
 
@@ -51,8 +51,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				osc == 1 ? 36 : 37, EXP::choice_count_unsigned_10_bit, 0, 244,
 				osc == 1 ? ctrl_row_1_y : ctrl_row_2_y, knob_diameter, knob_diameter,
 				Tip_Exposed::osc_shape(o), Build_Tree::bit_locations_osc_shape(osc),
-				Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-				Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit)
+				Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
+				Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit)
 			),
 			-1, nullptr);
 	} // ---------------------------------------------------------- end osc section
@@ -64,8 +64,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			Knob_Display_Type::osc_2_pitch_eg_int, 41, EXP::choice_count_unsigned_10_bit, 0,
 			64, ctrl_row_3_y, knob_diameter, knob_diameter,
 			Tip_Exposed::osc_2_x_mod_depth(), Build_Tree::bit_locations_osc_2_x_mod_depth(),
-			Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-			Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit)
+			Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
+			Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit)
 		),
 		-1, nullptr);
 
@@ -85,7 +85,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			ID::exp_10_osc_2_sync, "Oscillator 2 Sync", Ctrl_Type::switch_2_pole, Knob_Display_Type::none,
 			80, 2, 0, 184, ctrl_row_3_y, switch_w, switch_h,
 			Tip_Exposed::osc_2_sync(), Build_Tree::bit_locations_osc_2_sync(),
-			Build_Tree::choice_names_off_on(curt), Build_Tree::choice_names_off_on()
+			Build_Tree::off_on(curt), Build_Tree::off_on()
 		),
 		-1, nullptr);
 
@@ -94,7 +94,7 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			ID::exp_11_osc_2_ring_mod, "Oscillator 2 Ring Modulation", Ctrl_Type::switch_2_pole,
 			Knob_Display_Type::none, 81, 2, 0, 244, ctrl_row_3_y, switch_w, switch_h,
 			Tip_Exposed::osc_2_ring_mod(), Build_Tree::bit_locations_osc_2_ring_mod(),
-			Build_Tree::choice_names_off_on(curt), Build_Tree::choice_names_off_on()
+			Build_Tree::off_on(curt), Build_Tree::off_on()
 		),
 		-1, nullptr);
 	// ---------------------------------------------------------- end osc 2 x-mod section
@@ -110,8 +110,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				knob == 1 ? ctrl_row_1_y : knob == 2 ? ctrl_row_2_y : ctrl_row_3_y,
 				knob_diameter, knob_diameter,
 				Tip_Exposed::level_knob(knob), Build_Tree::bit_locations_level_knob(knob),
-				Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-				Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit)
+				Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
+				Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit)
 			),
 			-1, nullptr);
 	} // ---------------------------------------------------------- end mixer section
@@ -123,8 +123,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			Knob_Display_Type::unsigned_10_bit, 43, EXP::choice_count_unsigned_10_bit, 1023,
 			433, 111, knob_lpf_freq_diameter, knob_lpf_freq_diameter,
 			Tip_Exposed::lpf_freq(), Build_Tree::bit_locations_lpf_freq(),
-			Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-			Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit)
+			Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
+			Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit)
 		),
 		-1, nullptr);
 
@@ -133,8 +133,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			ID::exp_16_lpf_reso, "LPF Resonance", Ctrl_Type::knob, Knob_Display_Type::unsigned_10_bit,
 			44, EXP::choice_count_unsigned_10_bit, 0, 397, ctrl_row_2_y, knob_diameter, knob_diameter,
 			Tip_Exposed::lpf_reso(), Build_Tree::bit_locations_lpf_reso(),
-			Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-			Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit)
+			Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
+			Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit)
 		),
 		-1, nullptr);
 
@@ -143,8 +143,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			ID::exp_17_lpf_eg_int, "LPF EG Intensity", Ctrl_Type::knob, Knob_Display_Type::unsigned_10_bit,
 			45, EXP::choice_count_unsigned_10_bit, 512, 469, ctrl_row_2_y, knob_diameter, knob_diameter,
 			Tip_Exposed::lpf_eg_int(), Build_Tree::bit_locations_lpf_eg_int(),
-			Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-			Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit)
+			Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
+			Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit)
 		),
 		-1, nullptr);
 
@@ -187,8 +187,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				vca ? 16 : 20, EXP::choice_count_unsigned_10_bit, 0,
 				env_knob_a_x,  vca ? ctrl_row_1_y : ctrl_row_2_y, knob_diameter, knob_diameter,
 				Tip_Exposed::env_attack(vca), Build_Tree::bit_locations_env_attack(vca),
-				Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-				Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit)
+				Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
+				Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit)
 			),
 			-1, nullptr);
 
@@ -199,8 +199,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				vca ? 17 : 21, EXP::choice_count_unsigned_10_bit, 512,
 				env_knob_d_x,  vca ? ctrl_row_1_y : ctrl_row_2_y, knob_diameter, knob_diameter,
 				Tip_Exposed::env_decay(vca), Build_Tree::bit_locations_env_decay(vca),
-				Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-				Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit)
+				Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
+				Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit)
 			),
 			-1, nullptr);
 
@@ -211,8 +211,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				vca ? 18 : 22, EXP::choice_count_unsigned_10_bit, vca ? 1023 : 0,
 				env_knob_s_x,  vca ? ctrl_row_1_y : ctrl_row_2_y, knob_diameter, knob_diameter,
 				Tip_Exposed::env_sustain(vca), Build_Tree::bit_locations_env_sustain(vca),
-				Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-				Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit)
+				Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
+				Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit)
 			),
 			-1, nullptr);
 
@@ -223,8 +223,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 				vca ? 19 : 23, EXP::choice_count_unsigned_10_bit, 0,
 				env_knob_r_x,  vca ? ctrl_row_1_y : ctrl_row_2_y, knob_diameter, knob_diameter,
 				Tip_Exposed::env_release(vca), Build_Tree::bit_locations_env_release(vca),
-				Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-				Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit)
+				Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
+				Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit)
 			),
 			-1, nullptr);
 	} // ---------------------------------------------------------- end env section
@@ -262,8 +262,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			ID::exp_32_lfo_int, "LFO Intensity", Ctrl_Type::knob, Knob_Display_Type::unsigned_10_bit,
 			26, EXP::choice_count_unsigned_10_bit, 0, 695, ctrl_row_3_y, knob_diameter, knob_diameter,
 			Tip_Exposed::lfo_int(), Build_Tree::bit_locations_lfo_int(),
-			Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-			Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit)
+			Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
+			Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit)
 		),
 		-1, nullptr);
 
@@ -284,8 +284,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			Knob_Display_Type::unsigned_10_bit, 29, EXP::choice_count_unsigned_10_bit, 256,
 			848, ctrl_row_1_y, knob_diameter, knob_diameter,
 			Tip_Exposed::delay_hpf_freq(), Build_Tree::bit_locations_delay_hpf_freq(),
-			Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-			Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit)
+			Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
+			Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit)
 		),
 		-1, nullptr);
 
@@ -294,8 +294,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			ID::exp_35_delay_time, "Delay Time", Ctrl_Type::knob, Knob_Display_Type::unsigned_10_bit,
 			30, EXP::choice_count_unsigned_10_bit, 1023, 908, ctrl_row_1_y, knob_diameter, knob_diameter,
 			Tip_Exposed::delay_time(), Build_Tree::bit_locations_delay_time(),
-			Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-			Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit)
+			Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
+			Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit)
 		),
 		-1, nullptr);
 
@@ -304,8 +304,8 @@ Exposed_Parameter_Info::Exposed_Parameter_Info() :
 			ID::exp_36_delay_feedback, "Delay Feedback", Ctrl_Type::knob, Knob_Display_Type::unsigned_10_bit,
 			31, EXP::choice_count_unsigned_10_bit, 512, 968, ctrl_row_1_y, knob_diameter, knob_diameter,
 			Tip_Exposed::delay_feedback(), Build_Tree::bit_locations_delay_feedback(),
-			Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-			Build_Tree::choice_names_unsigned_int(EXP::choice_count_unsigned_10_bit)
+			Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
+			Build_Tree::unsigned_int(EXP::choice_count_unsigned_10_bit)
 		),
 		-1, nullptr);
 

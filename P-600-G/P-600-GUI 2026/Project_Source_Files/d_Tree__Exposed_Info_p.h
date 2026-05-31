@@ -7,7 +7,7 @@
 #include "d_Sub_Tree_Choices__Exp_p.h"
 
 class Exposed_Parameter_Info :
-	public Base_Exposed_Parameter_Info
+	public Tree_Exposed_Info_Base
 {
 //==============================================================================
 public: Exposed_Parameter_Info();

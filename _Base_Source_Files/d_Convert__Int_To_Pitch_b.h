@@ -2,26 +2,26 @@
 
 #include <JuceHeader.h>
 
-struct Int_To_Pitch_Name
+struct Int_To_Pitch
 {
     static String convert(const int i) {
         auto note{ i % 12 };
-        String pitch_name;
+        String pitch;
         switch (note) {
-        case 0:  pitch_name = "C "; break;
-        case 1:  pitch_name = "C# "; break;
-        case 2:  pitch_name = "D "; break;
-        case 3:  pitch_name = "D# "; break;
-        case 4:  pitch_name = "E "; break;
-        case 5:  pitch_name = "F "; break;
-        case 6:  pitch_name = "F# "; break;
-        case 7:  pitch_name = "G "; break;
-        case 8:  pitch_name = "G# "; break;
-        case 9:  pitch_name = "A "; break;
-        case 10: pitch_name = "A# "; break;
-        case 11: pitch_name = "B "; break;
+        case 0:  pitch = "C "; break;
+        case 1:  pitch = "C# "; break;
+        case 2:  pitch = "D "; break;
+        case 3:  pitch = "D# "; break;
+        case 4:  pitch = "E "; break;
+        case 5:  pitch = "F "; break;
+        case 6:  pitch = "F# "; break;
+        case 7:  pitch = "G "; break;
+        case 8:  pitch = "G# "; break;
+        case 9:  pitch = "A "; break;
+        case 10: pitch = "A# "; break;
+        case 11: pitch = "B "; break;
         default: break;
         }
-        return pitch_name + String{ i / 12 };
+        return pitch + String{ i / 12 };
     }
 };

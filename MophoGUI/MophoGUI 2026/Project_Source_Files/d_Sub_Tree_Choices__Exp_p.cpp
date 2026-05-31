@@ -65,7 +65,7 @@ String Build_Tree::convert_int_to_seq_step_pitch_name(const int i) {
 }
 
 ValueTree Build_Tree::choice_names_arp_mode(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", "1 octave up", nullptr);
 	tree.setProperty("choice_1", "1 octave down", nullptr);
 	tree.setProperty("choice_2", "1 octave up & down", nullptr);
@@ -85,7 +85,7 @@ ValueTree Build_Tree::choice_names_arp_mode(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_bend_range(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0",  curt ? "0" : "no bend", nullptr);;
 	tree.setProperty("choice_1",  "+/-1"  + curt ? "" : " semitone", nullptr);
 	tree.setProperty("choice_2",  "+/-2"  + curt ? "" : " semitones", nullptr);
@@ -103,7 +103,7 @@ ValueTree Build_Tree::choice_names_bend_range(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_clock_div(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0",  curt ? "half note" : "half note (BPM / 2)", nullptr);
 	tree.setProperty("choice_1",  curt ? "quarter note" : "quarter note (BPM x 1)", nullptr);
 	tree.setProperty("choice_2",  curt ? "8th note" : "8th note (BPM x 2)", nullptr);
@@ -121,7 +121,7 @@ ValueTree Build_Tree::choice_names_clock_div(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_clock_tempo(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	for (auto choice = 0; choice < EXP::choice_count_clock_tempo; ++choice) {
 		auto name{ String(choice + EXP::clock_tempo_offset) };
 		name += curt ? "" : " BPM";
@@ -131,7 +131,7 @@ ValueTree Build_Tree::choice_names_clock_tempo(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_glide_mode(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", "Fixed Rate", nullptr);;
 	tree.setProperty("choice_1", "Fixed Rate Auto", nullptr);
 	tree.setProperty("choice_2", "Fixed Time", nullptr);
@@ -140,7 +140,7 @@ ValueTree Build_Tree::choice_names_glide_mode(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_knob_assign(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	String choice_{ "choice_" };
 	for (int osc = 1; osc < 3; ++osc) {
 		String o{ osc };
@@ -239,11 +239,11 @@ ValueTree Build_Tree::choice_names_knob_assign(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_lfo_freq(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	for (int n = 0; n < EXP::first_lfo_pitched_freq_choice; ++n)
 		tree.setProperty("choice_" + (String)n, curt ? (String)n : "un-synced " + (String)n, nullptr);
 	for (auto n = EXP::first_lfo_pitched_freq_choice; n < EXP::first_lfo_synced_freq_choice; ++n) {
-		auto pitch{ Int_To_Pitch_Name::convert(n - EXP::first_lfo_pitched_freq_choice) };
+		auto pitch{ Int_To_Pitch::convert(n - EXP::first_lfo_pitched_freq_choice) };
 		auto name{ curt ? pitch : (String)n + " (pitch freq. " + pitch + ")" };
 		tree.setProperty("choice_" + (String)n, name, nullptr);
 	}
@@ -267,7 +267,7 @@ ValueTree Build_Tree::choice_names_lfo_freq(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_lfo_shape(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", "triangle", nullptr);
 	tree.setProperty("choice_1", "reverse sawtooth", nullptr);
 	tree.setProperty("choice_2", "sawtooth", nullptr);
@@ -277,10 +277,10 @@ ValueTree Build_Tree::choice_names_lfo_shape(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_lpf_freq(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	for (uint8 num = 0; num < EXP::choice_count_lpf_freq; ++num) {
 		String n{ num };
-		auto pitch{ Int_To_Pitch_Name::convert(num) };
+		auto pitch{ Int_To_Pitch::convert(num) };
 		auto name{ curt ? pitch : n + " (pitch freq. " + pitch + ")" };
 		tree.setProperty("choice_" + n, name, nullptr);
 	}
@@ -288,14 +288,14 @@ ValueTree Build_Tree::choice_names_lpf_freq(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_lpf_type(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", "2-Pole", nullptr);
 	tree.setProperty("choice_1", "4-Pole", nullptr);
 	return tree;
 }
 
 ValueTree Build_Tree::choice_names_mod_dest(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	String choice_{ "choice_" };
 	tree.setProperty(choice_ + "0", "off", nullptr);
 	tree.setProperty(choice_ + "1", "oscillator 1 pitch", nullptr);
@@ -342,7 +342,7 @@ ValueTree Build_Tree::choice_names_mod_dest(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_mod_src(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", "Off", nullptr);
 	for (auto n = 1; n < 5; ++n)
 		tree.setProperty("choice_" + (String)n, "sequencer track " + (String)n, nullptr);
@@ -366,7 +366,7 @@ ValueTree Build_Tree::choice_names_mod_src(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_note_priority(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "low note" : "low note has priority", nullptr);
 	tree.setProperty("choice_1", curt ? "low note (re-trigger)" : "low note has priority (re-trigger)", nullptr);
 	tree.setProperty("choice_2", curt ? "high note" : "high note has priority", nullptr);
@@ -377,7 +377,7 @@ ValueTree Build_Tree::choice_names_note_priority(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_osc_fine(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	for (auto choice = 0; choice < 101; ++choice) {
 		if (curt) {
 			auto name = (choice > EXP::choice_count_osc_fine ? "+" : "") + String{ choice - 50 };
@@ -402,7 +402,7 @@ ValueTree Build_Tree::choice_names_osc_fine(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_osc_shape(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "OFF" : "oscillator off", nullptr);
 	tree.setProperty("choice_1", curt ? "SAW" : "sawtooth", nullptr);
 	tree.setProperty("choice_2", curt ? "TRI" : "triangle", nullptr);
@@ -420,7 +420,7 @@ ValueTree Build_Tree::choice_names_osc_shape(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_push_it_mode(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", "normal", nullptr);
 	tree.setProperty("choice_1", "toggle", nullptr);
 	tree.setProperty("choice_2", "audio in", nullptr);
@@ -428,7 +428,7 @@ ValueTree Build_Tree::choice_names_push_it_mode(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_seq_track_step(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	for (int n = 0; n < 126; ++n)
 		tree.setProperty(
 			"choice_" + (String)n,
@@ -449,7 +449,7 @@ ValueTree Build_Tree::choice_names_seq_track_2_4_dest(const bool track_2, const 
 }
 
 ValueTree Build_Tree::choice_names_seq_trig_mode(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", "normal", nullptr);
 	tree.setProperty("choice_1", "normal, no reset", nullptr);
 	tree.setProperty("choice_2", "no gate", nullptr);
@@ -460,7 +460,7 @@ ValueTree Build_Tree::choice_names_seq_trig_mode(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_signed_8_bit_int(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	for (int choice = 0; choice < 255; ++choice) {
 		auto name{ (choice > 127 ? "+" : "") + String{ choice - 127 } };
 		tree.setProperty("choice_" + (String)choice, name, nullptr);
@@ -469,7 +469,7 @@ ValueTree Build_Tree::choice_names_signed_8_bit_int(const bool curt) {
 }
 
 ValueTree Build_Tree::choice_names_voice_name_char(const bool curt) {
-	ValueTree tree{ curt ? ID::tree_param_choice_names_curt : ID::tree_param_choice_names };
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	for (int n = 0; n < 32; ++n)
 		tree.setProperty("choice_" + (String)n, "ASCII control character " + (String)n, nullptr);
 	tree.setProperty("choice_32", curt ? " " : "space", nullptr);
