@@ -2,9 +2,6 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="MophoGUI 2026\_Base_Source_Files\exposed_parameters">
-      <UniqueIdentifier>{36AB1948-3502-D6D4-9513-1580BDD8CAF8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MophoGUI 2026\_Base_Source_Files\helpers">
       <UniqueIdentifier>{9DB4732F-9691-FC04-09E8-A8BD7D36A6B5}</UniqueIdentifier>
     </Filter>
@@ -706,16 +703,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\d_Tree__Exposed_Info_b.cpp">
+      <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\dXg_Audio_Processor_b.cpp">
       <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.cpp">
-      <Filter>MophoGUI 2026\_Base_Source_Files\exposed_parameters</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\helpers\H_00-B_Build_Tree.cpp">
-      <Filter>MophoGUI 2026\_Base_Source_Files\helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Base_Source_Files\helpers\H_99-B_Misc.cpp">
       <Filter>MophoGUI 2026\_Base_Source_Files\helpers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\dXg_Audio_Processor_p.cpp">
@@ -3753,16 +3747,16 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\c_ID_b.h">
       <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\d_Convert__Int_To_Pitch_b.h">
+      <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\d_Tree__Exposed_Info_b.h">
+      <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\dXg_Audio_Processor_b.h">
       <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.h">
-      <Filter>MophoGUI 2026\_Base_Source_Files\exposed_parameters</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\helpers\H_00-B_Build_Tree.h">
-      <Filter>MophoGUI 2026\_Base_Source_Files\helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\helpers\H_99-B_Misc.h">
       <Filter>MophoGUI 2026\_Base_Source_Files\helpers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\c_COLOR_p.h">

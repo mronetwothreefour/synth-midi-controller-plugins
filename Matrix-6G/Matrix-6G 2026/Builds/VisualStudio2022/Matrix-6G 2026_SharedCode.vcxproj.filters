@@ -2,9 +2,6 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Matrix-6G 2026\_Base_Source_Files\exposed_parameters">
-      <UniqueIdentifier>{27E08E7B-2452-0EAA-6264-D6ADAF283F00}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Matrix-6G 2026\_Base_Source_Files\helpers">
       <UniqueIdentifier>{DDD22576-B619-92FB-5E71-C2167FF9D082}</UniqueIdentifier>
     </Filter>
@@ -706,16 +703,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\d_Tree__Exposed_Info_b.cpp">
+      <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\dXg_Audio_Processor_b.cpp">
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.cpp">
-      <Filter>Matrix-6G 2026\_Base_Source_Files\exposed_parameters</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\helpers\H_00-B_Build_Tree.cpp">
-      <Filter>Matrix-6G 2026\_Base_Source_Files\helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Base_Source_Files\helpers\H_99-B_Misc.cpp">
       <Filter>Matrix-6G 2026\_Base_Source_Files\helpers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\dXg_Audio_Processor_p.cpp">
@@ -3753,16 +3747,16 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\c_COLOR_b.h">
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\d_Convert__Int_To_Pitch_b.h">
+      <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\d_Tree__Exposed_Info_b.h">
+      <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\dXg_Audio_Processor_b.h">
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\exposed_parameters\E_00-B_Exp_Param_Info.h">
-      <Filter>Matrix-6G 2026\_Base_Source_Files\exposed_parameters</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\helpers\H_00-B_Build_Tree.h">
-      <Filter>Matrix-6G 2026\_Base_Source_Files\helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\helpers\H_99-B_Misc.h">
       <Filter>Matrix-6G 2026\_Base_Source_Files\helpers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\c_COLOR_p.h">

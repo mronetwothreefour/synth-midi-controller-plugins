@@ -6,28 +6,26 @@
               pluginFormats="buildStandalone,buildVST3" pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginDesc="Sound editor/librarian for use with the Korg Minilogue synthesizer"
               pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20"
-              headerPath="..\..\..\..\_Base_Source_Files&#10;..\..\..\..\_Base_Source_Files\exposed_parameters&#10;..\..\..\..\_Base_Source_Files\helpers&#10;..\..\Project_Source_Files&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
+              headerPath="..\..\..\..\_Base_Source_Files&#10;..\..\..\..\_Base_Source_Files\helpers&#10;..\..\Project_Source_Files&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
   <MAINGROUP id="oq9Z4P" name="MiniloGUI 2026">
     <GROUP id="{620B6CD8-E1FA-5E00-1406-15C6F0CEEF01}" name="_Base_Source_Files">
       <FILE id="VwwV8O" name="c_COLOR_b.h" compile="0" resource="0" file="../../_Base_Source_Files/c_COLOR_b.h"/>
       <FILE id="Yt09HD" name="c_ID_b.h" compile="0" resource="0" file="../../_Base_Source_Files/c_ID_b.h"/>
+      <FILE id="rT9eUM" name="d_Convert__Int_To_Pitch_b.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/d_Convert__Int_To_Pitch_b.h"/>
+      <FILE id="zTAtMb" name="d_Tree__Exposed_Info_b.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/d_Tree__Exposed_Info_b.cpp"/>
+      <FILE id="HURRMu" name="d_Tree__Exposed_Info_b.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/d_Tree__Exposed_Info_b.h"/>
       <FILE id="M3gAL1" name="dXg_Audio_Processor_b.cpp" compile="1" resource="0"
             file="../../_Base_Source_Files/dXg_Audio_Processor_b.cpp"/>
       <FILE id="jjuqoO" name="dXg_Audio_Processor_b.h" compile="0" resource="0"
             file="../../_Base_Source_Files/dXg_Audio_Processor_b.h"/>
-      <GROUP id="{383A3656-2684-A021-1888-4E7BAB7D5D98}" name="exposed_parameters">
-        <FILE id="jIgHWb" name="E_00-B_Exp_Param_Info.cpp" compile="1" resource="0"
-              file="../../_Base_Source_Files/exposed_parameters/E_00-B_Exp_Param_Info.cpp"/>
-        <FILE id="nkG04Y" name="E_00-B_Exp_Param_Info.h" compile="0" resource="0"
-              file="../../_Base_Source_Files/exposed_parameters/E_00-B_Exp_Param_Info.h"/>
-      </GROUP>
       <GROUP id="{0D6CD9B0-DFA2-EE7C-EF43-15127EBD3AFC}" name="helpers">
         <FILE id="ErpOCv" name="H_00-B_Build_Tree.cpp" compile="1" resource="0"
               file="../../_Base_Source_Files/helpers/H_00-B_Build_Tree.cpp"/>
         <FILE id="ruifl6" name="H_00-B_Build_Tree.h" compile="0" resource="0"
               file="../../_Base_Source_Files/helpers/H_00-B_Build_Tree.h"/>
-        <FILE id="OKcSk9" name="H_99-B_Misc.cpp" compile="1" resource="0" file="../../_Base_Source_Files/helpers/H_99-B_Misc.cpp"/>
-        <FILE id="Hfo5aE" name="H_99-B_Misc.h" compile="0" resource="0" file="../../_Base_Source_Files/helpers/H_99-B_Misc.h"/>
       </GROUP>
     </GROUP>
     <GROUP id="{4AFA3653-267B-D8E8-BD50-2C57B2AC0144}" name="Project_Source_Files">

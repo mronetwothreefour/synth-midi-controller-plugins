@@ -6,28 +6,26 @@
               version="2.1.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com"
               companyEmail="programming@mr1234.com" pluginDesc="Sound editor/librarian for use with the Oberheim Matrix-6R synthesizer"
               pluginManufacturerCode="TimD" pluginAUMainType="'aumi'" pluginVST3Category="Tools"
-              cppLanguageStandard="20" headerPath="..\..\..\..\_Base_Source_Files&#10;..\..\..\..\_Base_Source_Files\exposed_parameters&#10;..\..\..\..\_Base_Source_Files\helpers&#10;..\..\Project_Source_Files&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
+              cppLanguageStandard="20" headerPath="..\..\..\..\_Base_Source_Files&#10;..\..\..\..\_Base_Source_Files\helpers&#10;..\..\Project_Source_Files&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
   <MAINGROUP id="F43Kyc" name="Matrix-6G 2026">
     <GROUP id="{602BA233-B181-6E09-6E24-6847DA41A16A}" name="_Base_Source_Files">
       <FILE id="PaExEX" name="c_ID_b.h" compile="0" resource="0" file="../../_Base_Source_Files/c_ID_b.h"/>
       <FILE id="DEa7fL" name="c_COLOR_b.h" compile="0" resource="0" file="../../_Base_Source_Files/c_COLOR_b.h"/>
+      <FILE id="bHalcF" name="d_Convert__Int_To_Pitch_b.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/d_Convert__Int_To_Pitch_b.h"/>
+      <FILE id="zj2DJv" name="d_Tree__Exposed_Info_b.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/d_Tree__Exposed_Info_b.cpp"/>
+      <FILE id="R3uWD7" name="d_Tree__Exposed_Info_b.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/d_Tree__Exposed_Info_b.h"/>
       <FILE id="BrNBwC" name="dXg_Audio_Processor_b.cpp" compile="1" resource="0"
             file="../../_Base_Source_Files/dXg_Audio_Processor_b.cpp"/>
       <FILE id="EM9Ec6" name="dXg_Audio_Processor_b.h" compile="0" resource="0"
             file="../../_Base_Source_Files/dXg_Audio_Processor_b.h"/>
-      <GROUP id="{B6A0BB0A-171F-3053-B649-B2C400DFC8AC}" name="exposed_parameters">
-        <FILE id="zJQR05" name="E_00-B_Exp_Param_Info.cpp" compile="1" resource="0"
-              file="../../_Base_Source_Files/exposed_parameters/E_00-B_Exp_Param_Info.cpp"/>
-        <FILE id="fKr3n0" name="E_00-B_Exp_Param_Info.h" compile="0" resource="0"
-              file="../../_Base_Source_Files/exposed_parameters/E_00-B_Exp_Param_Info.h"/>
-      </GROUP>
       <GROUP id="{B098C86A-39B6-47FA-5A4F-2D5B6D43DD83}" name="helpers">
         <FILE id="buBZuJ" name="H_00-B_Build_Tree.cpp" compile="1" resource="0"
               file="../../_Base_Source_Files/helpers/H_00-B_Build_Tree.cpp"/>
         <FILE id="WZHWTG" name="H_00-B_Build_Tree.h" compile="0" resource="0"
               file="../../_Base_Source_Files/helpers/H_00-B_Build_Tree.h"/>
-        <FILE id="wOsK34" name="H_99-B_Misc.cpp" compile="1" resource="0" file="../../_Base_Source_Files/helpers/H_99-B_Misc.cpp"/>
-        <FILE id="rxiKon" name="H_99-B_Misc.h" compile="0" resource="0" file="../../_Base_Source_Files/helpers/H_99-B_Misc.h"/>
       </GROUP>
     </GROUP>
     <GROUP id="{B2F6A865-4EED-AC49-FF3C-B4C5A690524D}" name="Project_Source_Files">

@@ -1,4 +1,4 @@
-#include "E_00-B_Exp_Param_Info.h"
+#include "d_Tree__Exposed_Info_b.h"
 
 Base_Exposed_Parameter_Info::Base_Exposed_Parameter_Info(const uint8 exp_param_count) :
 	tree{ ID::tree_exp_param_info },

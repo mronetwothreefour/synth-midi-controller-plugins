@@ -6,28 +6,26 @@
               pluginFormats="buildStandalone,buildVST3" pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginDesc="Sound editor/librarian for use with the SCI Prophet-600 synthesizer"
               pluginManufacturerCode="TimD" pluginVST3Category="Tools" cppLanguageStandard="20"
-              headerPath="..\..\..\..\_Base_Source_Files&#10;..\..\..\..\_Base_Source_Files\exposed_parameters&#10;..\..\..\..\_Base_Source_Files\helpers&#10;..\..\Project_Source_Files&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
+              headerPath="..\..\..\..\_Base_Source_Files&#10;..\..\..\..\_Base_Source_Files\helpers&#10;..\..\Project_Source_Files&#10;..\..\Project_Source_Files\exposed_parameters&#10;..\..\Project_Source_Files\gui&#10;..\..\Project_Source_Files\helpers&#10;..\..\Project_Source_Files\midi">
   <MAINGROUP id="sSCaXP" name="P-600-GUI 2026">
     <GROUP id="{E250642F-4444-B780-0392-6400C2CA6C29}" name="_Base_Source_Files">
       <FILE id="QiBoca" name="c_COLOR_b.h" compile="0" resource="0" file="../../_Base_Source_Files/c_COLOR_b.h"/>
       <FILE id="Id1KXD" name="c_ID_b.h" compile="0" resource="0" file="../../_Base_Source_Files/c_ID_b.h"/>
+      <FILE id="stIWZ9" name="d_Convert__Int_To_Pitch_b.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/d_Convert__Int_To_Pitch_b.h"/>
+      <FILE id="a0WtkU" name="d_Tree__Exposed_Info_b.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/d_Tree__Exposed_Info_b.cpp"/>
+      <FILE id="Fj9ekp" name="d_Tree__Exposed_Info_b.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/d_Tree__Exposed_Info_b.h"/>
       <FILE id="Nt30TD" name="dXg_Audio_Processor_b.cpp" compile="1" resource="0"
             file="../../_Base_Source_Files/dXg_Audio_Processor_b.cpp"/>
       <FILE id="aiLqMf" name="dXg_Audio_Processor_b.h" compile="0" resource="0"
             file="../../_Base_Source_Files/dXg_Audio_Processor_b.h"/>
-      <GROUP id="{CD315361-50D8-65AA-D089-3489243AD394}" name="exposed_parameters">
-        <FILE id="foa4Md" name="E_00-B_Exp_Param_Info.cpp" compile="1" resource="0"
-              file="../../_Base_Source_Files/exposed_parameters/E_00-B_Exp_Param_Info.cpp"/>
-        <FILE id="bxkPfj" name="E_00-B_Exp_Param_Info.h" compile="0" resource="0"
-              file="../../_Base_Source_Files/exposed_parameters/E_00-B_Exp_Param_Info.h"/>
-      </GROUP>
       <GROUP id="{DAFBF823-EE76-227F-FCFE-A19561FBB91E}" name="helpers">
         <FILE id="AjMleP" name="H_00-B_Build_Tree.cpp" compile="1" resource="0"
               file="../../_Base_Source_Files/helpers/H_00-B_Build_Tree.cpp"/>
         <FILE id="vu6ZGR" name="H_00-B_Build_Tree.h" compile="0" resource="0"
               file="../../_Base_Source_Files/helpers/H_00-B_Build_Tree.h"/>
-        <FILE id="vONjhP" name="H_99-B_Misc.cpp" compile="1" resource="0" file="../../_Base_Source_Files/helpers/H_99-B_Misc.cpp"/>
-        <FILE id="ATKS8i" name="H_99-B_Misc.h" compile="0" resource="0" file="../../_Base_Source_Files/helpers/H_99-B_Misc.h"/>
       </GROUP>
     </GROUP>
     <GROUP id="{BA905641-A131-634A-864A-8FA5B8689C94}" name="Project_Source_Files">
