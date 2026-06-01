@@ -2985,6 +2985,7 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\d_Sub_Tree_Choices_b.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\d_Tree__Exposed_Info_b.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\dXg_Audio_Processor_b.h"/>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\g_Draw_Paths_b.h"/>
     <ClInclude Include="..\..\Project_Source_Files\c_COLOR_p.h"/>
     <ClInclude Include="..\..\Project_Source_Files\c_ENUM_p.h"/>
     <ClInclude Include="..\..\Project_Source_Files\c_EXP_p.h"/>
@@ -2993,6 +2994,7 @@
     <ClInclude Include="..\..\Project_Source_Files\c_SL__Tip__Exposed_p.h"/>
     <ClInclude Include="..\..\Project_Source_Files\c_XYWH_p.h"/>
     <ClInclude Include="..\..\Project_Source_Files\d_Sub_Tree_Choices__Exp_p.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\d_Sub_Tree_Exposed_p.h"/>
     <ClInclude Include="..\..\Project_Source_Files\d_Tip__Exposed_p.h"/>
     <ClInclude Include="..\..\Project_Source_Files\d_Tree__Exposed_Info_p.h"/>
     <ClInclude Include="..\..\Project_Source_Files\dXg_Audio_Processor_p.h"/>

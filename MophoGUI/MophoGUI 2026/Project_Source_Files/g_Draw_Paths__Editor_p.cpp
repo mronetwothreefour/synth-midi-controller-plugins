@@ -3,13 +3,7 @@
 #include "c_COLOR_p.h"
 #include "c_PATH__Editor_Bkgrnd_p.h"
 
-Path Paint_Paths::load_path(const void* data, size_t data_size) {
-	Path path;
-	path.loadPathFromData(data, data_size);
-	return path;
-}
-
-void Paint_Paths::editor_background(Graphics& g) {
+void Draw_Paths_Editor::background(Graphics& g) {
 	g.fillAll(COLOR::background);
 	g.setColour(COLOR::yellow);
 	g.fillPath(load_path(PATH::editor_bullseye, sizeof(PATH::editor_bullseye)));

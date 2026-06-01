@@ -2,34 +2,7 @@
 
 using ICT = Input_Choice_Type;
 
-ValueTree Build_Tree::exposed_parameter(Identifier id, int number, String name,
-										Ctrl_Type ctrl, int byte_index, Range_Type range,
-										Slider_Display_Type display, int choice_count,
-										int init_choice, int ctrl_center_x, 
-										int ctrl_center_y, int ctrl_w, String tip, 
-										ValueTree curt_choice_names, ValueTree choice_names)
-{
-	ValueTree tree_ep{ id, 
-		{
-			{ ID::exp_p_number, number },
-			{ ID::exp_p_name, name },
-			{ ID::exp_p_ctrl_type, (int)ctrl },
-			{ ID::exp_p_byte_index, byte_index },
-			{ ID::exp_p_range_type, (int)range },
-			{ ID::exp_p_slider_display_type, (int)display },
-			{ ID::exp_p_choice_count, choice_count },
-			{ ID::exp_p_init_choice, init_choice },
-			{ ID::exp_p_ctrl_center_x, ctrl_center_x },
-			{ ID::exp_p_ctrl_center_y, ctrl_center_y },
-			{ ID::exp_p_ctrl_width, ctrl_w },
-			{ ID::exp_p_tip, tip },
-		}, 
-		{ curt_choice_names, choice_names } 
-	};
-	return tree_ep;
-}
-
-ValueTree Build_Tree::choice_names_env_mode(const bool curt) {
+ValueTree Sub_Tree_Choices_Exposed::env_mode(const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "NORMAL" : "normal", nullptr);
 	tree.setProperty("choice_1", curt ? "DADR" : "delay | attack | decay | release", nullptr);
@@ -38,7 +11,7 @@ ValueTree Build_Tree::choice_names_env_mode(const bool curt) {
 	return tree;
 }
 
-ValueTree Build_Tree::choice_names_env_trig_mode(const bool curt) {
+ValueTree Sub_Tree_Choices_Exposed::env_trig_mode(const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "STRIG" : "single trigger", nullptr);
 	tree.setProperty("choice_1", curt ? "SRESET" : "single trigger reset", nullptr);
@@ -51,7 +24,7 @@ ValueTree Build_Tree::choice_names_env_trig_mode(const bool curt) {
 	return tree;
 }
 
-ValueTree Build_Tree::choice_names_env_lfo_1_trig(const bool curt) {
+ValueTree Sub_Tree_Choices_Exposed::env_lfo_1_trig(const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "NORMAL" : "normal (no LFO 1 trigger)", nullptr);
 	tree.setProperty("choice_1", curt ? "G-LFO1" : "gated LFO 1 trigger", nullptr);
@@ -59,7 +32,7 @@ ValueTree Build_Tree::choice_names_env_lfo_1_trig(const bool curt) {
 	return tree;
 }
 
-ValueTree Build_Tree::choice_names_keyboard_mode(const bool curt) {
+ValueTree Sub_Tree_Choices_Exposed::keyboard_mode(const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "REASGN" : "reassign", nullptr);
 	tree.setProperty("choice_1", curt ? "ROTATE" : "rotate", nullptr);
@@ -68,7 +41,7 @@ ValueTree Build_Tree::choice_names_keyboard_mode(const bool curt) {
 	return tree;
 }
 
-ValueTree Build_Tree::choice_names_lever_ctrl(const bool curt) {
+ValueTree Sub_Tree_Choices_Exposed::lever_ctrl(const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "OFF" : "off", nullptr);
 	tree.setProperty("choice_1", curt ? "BEND" : "pitch bend by lever 1", nullptr);
@@ -77,7 +50,7 @@ ValueTree Build_Tree::choice_names_lever_ctrl(const bool curt) {
 	return tree;
 }
 
-ValueTree Build_Tree::choice_names_lfo_trig_mode(const bool curt) {
+ValueTree Sub_Tree_Choices_Exposed::lfo_trig_mode(const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "OFF" : "off (free running)", nullptr);
 	tree.setProperty("choice_1", curt ? "STRIG" : "single trigger", nullptr);
@@ -86,7 +59,7 @@ ValueTree Build_Tree::choice_names_lfo_trig_mode(const bool curt) {
 	return tree;
 }
 
-ValueTree Build_Tree::choice_names_lfo_wave_type(const bool curt) {
+ValueTree Sub_Tree_Choices_Exposed::lfo_wave_type(const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "TRI" : "triangle", nullptr);
 	tree.setProperty("choice_1", curt ? "UPSAW" : "up (rising) sawtooth", nullptr);
@@ -98,7 +71,7 @@ ValueTree Build_Tree::choice_names_lfo_wave_type(const bool curt) {
 	return tree;
 }
 
-ValueTree Build_Tree::choice_names_input_source(Input_Choice_Type t, const bool curt) {
+ValueTree Sub_Tree_Choices_Exposed::input_source(Input_Choice_Type t, const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "NONE" : "none", nullptr);
 	tree.setProperty("choice_1", curt ? t == ICT::lfo ? "ENV1" : "ENV 1" : "envelope 1", nullptr);
@@ -124,21 +97,21 @@ ValueTree Build_Tree::choice_names_input_source(Input_Choice_Type t, const bool 
 	return tree;
 }
 
-ValueTree Build_Tree::off_on_matrix(const bool curt) {
+ValueTree Sub_Tree_Choices_Exposed::off_on_matrix(const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "OFF" : "off", nullptr);
 	tree.setProperty("choice_1", curt ? "ON" : "on", nullptr);
 	return tree;
 }
 
-ValueTree Build_Tree::choice_names_osc_1_key_track(const bool curt) {
+ValueTree Sub_Tree_Choices_Exposed::osc_1_key_track(const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "KEYBD" : "normal key tracking", nullptr);
 	tree.setProperty("choice_1", curt ? "PORTA" : "key tracking with portamento", nullptr);
 	return tree;
 }
 
-ValueTree Build_Tree::choice_names_osc_2_and_vcf_key_track(const bool curt) {
+ValueTree Sub_Tree_Choices_Exposed::osc_2_and_vcf_key_track(const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "OFF" : "key tracking is off", nullptr);
 	tree.setProperty("choice_1", curt ? "PORTA" : "key tracking with portamento", nullptr);
@@ -146,7 +119,7 @@ ValueTree Build_Tree::choice_names_osc_2_and_vcf_key_track(const bool curt) {
 	return tree;
 }
 
-ValueTree Build_Tree::choice_names_osc_lever_control(const bool curt) {
+ValueTree Sub_Tree_Choices_Exposed::osc_lever_control(const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "OFF" : "off", nullptr);
 	tree.setProperty("choice_1", curt ? "BEND" : "pitch bend by lever 1", nullptr);
@@ -155,7 +128,7 @@ ValueTree Build_Tree::choice_names_osc_lever_control(const bool curt) {
 	return tree;
 }
 
-ValueTree Build_Tree::choice_names_osc_type(const int o, const bool curt) {
+ValueTree Sub_Tree_Choices_Exposed::osc_type(const int o, const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "OFF" : "off", nullptr);
 	tree.setProperty("choice_1", curt ? "PULSE" : "pulse", nullptr);
@@ -166,7 +139,7 @@ ValueTree Build_Tree::choice_names_osc_type(const int o, const bool curt) {
 	return tree;
 }
 
-ValueTree Build_Tree::choice_names_porta_mode(const bool curt) {
+ValueTree Sub_Tree_Choices_Exposed::porta_mode(const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "LINEAR" : "linear", nullptr);
 	tree.setProperty("choice_1", curt ? "CONST" : "constant time", nullptr);
@@ -174,7 +147,7 @@ ValueTree Build_Tree::choice_names_porta_mode(const bool curt) {
 	return tree;
 }
 
-ValueTree Build_Tree::choice_names_ramp_trig(const bool curt) {
+ValueTree Sub_Tree_Choices_Exposed::ramp_trig(const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "STRIG" : "single trigger", nullptr);
 	tree.setProperty("choice_1", curt ? "MTRIG" : "multiple trigger", nullptr);
@@ -183,7 +156,7 @@ ValueTree Build_Tree::choice_names_ramp_trig(const bool curt) {
 	return tree;
 }
 
-ValueTree Build_Tree::choice_names_signed_6_bit_int(const bool curt) {
+ValueTree Sub_Tree_Choices_Exposed::signed_6_bit_int(const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	for (auto choice = 0; choice < 64; ++choice) {
 		auto name{ (choice > 31 ? "+" : "") + String{ choice - 31 } };

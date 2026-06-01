@@ -2,9 +2,9 @@
 
 #include <JuceHeader.h>
 
-#include "d_Tree__Exposed_Info_b.h"
 #include "c_XYWH_p.h"
 #include "d_Sub_Tree_Choices__Exp_p.h"
+#include "d_Tree__Exposed_Info_b.h"
 
 using namespace ENUM;
 

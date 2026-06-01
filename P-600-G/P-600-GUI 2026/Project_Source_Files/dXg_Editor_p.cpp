@@ -24,7 +24,7 @@ void Editor::paint(Graphics& g) {
     auto scale_factor{ (float)getWidth() / XYWH::gui_init_w };
     g.addTransform(AffineTransform::scale(scale_factor));
     g.drawImageAt(background_texture, 0, 0);
-    Paint_Paths::editor_background(g);
+    Draw_Paths_Editor::background(g);
 }
 
 void Editor::resized() {

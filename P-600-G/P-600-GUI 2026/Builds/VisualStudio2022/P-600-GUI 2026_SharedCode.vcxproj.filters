@@ -3753,6 +3753,9 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\dXg_Audio_Processor_b.h">
       <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\g_Draw_Paths_b.h">
+      <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\c_COLOR_p.h">
       <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
     </ClInclude>
@@ -3775,6 +3778,9 @@
       <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\d_Sub_Tree_Choices__Exp_p.h">
+      <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\d_Sub_Tree_Exposed_p.h">
       <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\d_Tip__Exposed_p.h">

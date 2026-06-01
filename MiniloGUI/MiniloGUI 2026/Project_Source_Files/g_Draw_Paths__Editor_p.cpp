@@ -4,13 +4,7 @@
 #include "c_XYWH_p.h"
 #include "c_PATH__Editor_Bkgrnd_p.h"
 
-Path Paint_Paths::load_path(const void* data, size_t data_size) {
-	Path path;
-	path.loadPathFromData(data, data_size);
-	return path;
-}
-
-ColourGradient Paint_Paths::gradient_fill_silver(float w, float h) {
+ColourGradient Draw_Paths_Editor::gradient_fill_silver(float w, float h) {
 	ColourGradient gradient{ COLOR::silver_1, 0.0f, h, COLOR::silver_1, w, 0.0f, false };
 	gradient.addColour(0.22, COLOR::silver_2);
 	gradient.addColour(0.5, COLOR::silver_1);
@@ -18,7 +12,7 @@ ColourGradient Paint_Paths::gradient_fill_silver(float w, float h) {
 	return gradient;
 }
 
-void Paint_Paths::editor_background(Graphics& g) {
+void Draw_Paths_Editor::background(Graphics& g) {
 	g.setGradientFill(gradient_fill_silver((float)XYWH::gui_init_w, (float)XYWH::gui_init_h));
 	g.fillAll();
 	Path screws_path{ load_path(PATH::editor_screws, sizeof(PATH::editor_screws)) };

@@ -26,6 +26,8 @@
             file="../../_Base_Source_Files/dXg_Audio_Processor_b.cpp"/>
       <FILE id="ncadt7" name="dXg_Audio_Processor_b.h" compile="0" resource="0"
             file="../../_Base_Source_Files/dXg_Audio_Processor_b.h"/>
+      <FILE id="HnhCkA" name="g_Draw_Paths_b.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/g_Draw_Paths_b.h"/>
     </GROUP>
     <GROUP id="{C02A1A4E-C369-BB7A-1A3F-4F81F5D39CBF}" name="Project_Source_Files">
       <FILE id="bLzfvR" name="c_COLOR_p.h" compile="0" resource="0" file="Project_Source_Files/c_COLOR_p.h"/>
@@ -42,6 +44,8 @@
             resource="0" file="Project_Source_Files/d_Sub_Tree_Choices__Exp_p.cpp"/>
       <FILE id="gUCQd4" name="d_Sub_Tree_Choices__Exp_p.h" compile="0" resource="0"
             file="Project_Source_Files/d_Sub_Tree_Choices__Exp_p.h"/>
+      <FILE id="EyhpvU" name="d_Sub_Tree_Exposed_p.h" compile="0" resource="0"
+            file="Project_Source_Files/d_Sub_Tree_Exposed_p.h"/>
       <FILE id="dpY3jv" name="d_Tip__Exposed_p.cpp" compile="1" resource="0"
             file="Project_Source_Files/d_Tip__Exposed_p.cpp"/>
       <FILE id="SKEcKS" name="d_Tip__Exposed_p.h" compile="0" resource="0"

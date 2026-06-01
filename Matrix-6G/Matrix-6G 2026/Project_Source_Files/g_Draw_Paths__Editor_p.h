@@ -2,8 +2,10 @@
 
 #include <JuceHeader.h>
 
-struct Paint_Paths
+#include "g_Draw_Paths_b.h"
+
+struct Draw_Paths_Editor :
+	public Draw_Paths_Base
 {
-private: static Path load_path(const void* data, size_t data_size);
-public: static void editor_background(Graphics& g);
+public: static void background(Graphics& g);
 };

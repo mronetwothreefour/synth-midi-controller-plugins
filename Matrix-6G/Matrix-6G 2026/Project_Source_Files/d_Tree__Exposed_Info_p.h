@@ -1,8 +1,10 @@
 #pragma once
 
-#include "d_Tree__Exposed_Info_b.h"
+#include "c_EXP_p.h"
 #include "c_XYWH_p.h"
 #include "d_Sub_Tree_Choices__Exp_p.h"
+#include "d_Sub_Tree_Exposed_p.h"
+#include "d_Tree__Exposed_Info_b.h"
 
 class Exposed_Parameter_Info :
 	public Tree_Exposed_Info_Base
