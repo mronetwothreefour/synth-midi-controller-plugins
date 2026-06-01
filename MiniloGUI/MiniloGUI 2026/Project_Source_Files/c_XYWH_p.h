@@ -26,4 +26,5 @@ namespace XYWH
 	constexpr int switch_h{ 52 };
 	constexpr int switch_lpf_type_h{ 84 };
 	constexpr int switch_w{ 34 };
+
 }

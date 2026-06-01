@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-struct Draw_Paths_Base
+struct Draw_Paths_B
 {
 protected: static Path load_path(const void* data, size_t data_size) {
 	Path path;

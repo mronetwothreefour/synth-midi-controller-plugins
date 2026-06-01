@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "c_COLOR_b.h"
+#include "C_COLOR_B.h"
 
 namespace COLOR
 {

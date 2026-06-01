@@ -9,60 +9,66 @@
               headerPath="..\..\..\..\_Base_Source_Files&#10;..\..\Project_Source_Files">
   <MAINGROUP id="oq9Z4P" name="MiniloGUI 2026">
     <GROUP id="{620B6CD8-E1FA-5E00-1406-15C6F0CEEF01}" name="_Base_Source_Files">
-      <FILE id="VwwV8O" name="c_COLOR_b.h" compile="0" resource="0" file="../../_Base_Source_Files/c_COLOR_b.h"/>
-      <FILE id="Yt09HD" name="c_ID_b.h" compile="0" resource="0" file="../../_Base_Source_Files/c_ID_b.h"/>
-      <FILE id="rT9eUM" name="d_Convert__Int_To_Pitch_b.h" compile="0" resource="0"
-            file="../../_Base_Source_Files/d_Convert__Int_To_Pitch_b.h"/>
-      <FILE id="Olw9MM" name="d_Sub_Tree_Choices_b.cpp" compile="1" resource="0"
-            file="../../_Base_Source_Files/d_Sub_Tree_Choices_b.cpp"/>
-      <FILE id="IoeISb" name="d_Sub_Tree_Choices_b.h" compile="0" resource="0"
-            file="../../_Base_Source_Files/d_Sub_Tree_Choices_b.h"/>
-      <FILE id="zTAtMb" name="d_Tree__Exposed_Info_b.cpp" compile="1" resource="0"
-            file="../../_Base_Source_Files/d_Tree__Exposed_Info_b.cpp"/>
-      <FILE id="HURRMu" name="d_Tree__Exposed_Info_b.h" compile="0" resource="0"
-            file="../../_Base_Source_Files/d_Tree__Exposed_Info_b.h"/>
-      <FILE id="M3gAL1" name="dXg_Audio_Processor_b.cpp" compile="1" resource="0"
-            file="../../_Base_Source_Files/dXg_Audio_Processor_b.cpp"/>
-      <FILE id="jjuqoO" name="dXg_Audio_Processor_b.h" compile="0" resource="0"
-            file="../../_Base_Source_Files/dXg_Audio_Processor_b.h"/>
-      <FILE id="lpxeBt" name="g_Draw_Paths_b.h" compile="0" resource="0"
-            file="../../_Base_Source_Files/g_Draw_Paths_b.h"/>
+      <FILE id="tR4LD5" name="C_COLOR_B.h" compile="0" resource="0" file="../../_Base_Source_Files/C_COLOR_B.h"/>
+      <FILE id="L8UBsz" name="C_ID_B.h" compile="0" resource="0" file="../../_Base_Source_Files/C_ID_B.h"/>
+      <FILE id="RLCFag" name="D_CONVERT_Int_To_Pitch_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/D_CONVERT_Int_To_Pitch_B.h"/>
+      <FILE id="zxG2qs" name="D_SUBTREE_Choices_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/D_SUBTREE_Choices_B.cpp"/>
+      <FILE id="GNfIkN" name="D_SUBTREE_Choices_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/D_SUBTREE_Choices_B.h"/>
+      <FILE id="MBDTei" name="D_TIP_B.h" compile="0" resource="0" file="../../_Base_Source_Files/D_TIP_B.h"/>
+      <FILE id="bzHrs1" name="D_TREE_Exposed_Info_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/D_TREE_Exposed_Info_B.cpp"/>
+      <FILE id="MClqvu" name="D_TREE_Exposed_Info_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/D_TREE_Exposed_Info_B.h"/>
+      <FILE id="V3idG2" name="D_X_G_Audio_Processor_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/D_X_G_Audio_Processor_B.cpp"/>
+      <FILE id="EDGNx3" name="D_X_G_Audio_Processor_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/D_X_G_Audio_Processor_B.h"/>
+      <FILE id="FaOiTs" name="G_DRAW_Paths_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_DRAW_Paths_B.h"/>
     </GROUP>
     <GROUP id="{4AFA3653-267B-D8E8-BD50-2C57B2AC0144}" name="Project_Source_Files">
-      <FILE id="uTeyBM" name="c_COLOR_p.h" compile="0" resource="0" file="Project_Source_Files/c_COLOR_p.h"/>
-      <FILE id="Xryv67" name="c_ENUM_p.h" compile="0" resource="0" file="Project_Source_Files/c_ENUM_p.h"/>
-      <FILE id="nqaJkU" name="c_EXP_p.h" compile="0" resource="0" file="Project_Source_Files/c_EXP_p.h"/>
-      <FILE id="gHjULB" name="c_ID_p.h" compile="0" resource="0" file="Project_Source_Files/c_ID_p.h"/>
-      <FILE id="HHCrNp" name="c_PATH__Editor_Bkgrnd_p.h" compile="0" resource="0"
-            file="Project_Source_Files/c_PATH__Editor_Bkgrnd_p.h"/>
-      <FILE id="LZ1D7l" name="c_SL__Tip__Exposed_p.h" compile="0" resource="0"
-            file="Project_Source_Files/c_SL__Tip__Exposed_p.h"/>
-      <FILE id="c3fqH2" name="c_XYWH_p.h" compile="0" resource="0" file="Project_Source_Files/c_XYWH_p.h"/>
-      <FILE id="Bv4Bg2" name="d_Sub_Tree_Choices__Exp_p.cpp" compile="1"
-            resource="0" file="Project_Source_Files/d_Sub_Tree_Choices__Exp_p.cpp"/>
-      <FILE id="KJtWFT" name="d_Sub_Tree_Choices__Exp_p.h" compile="0" resource="0"
-            file="Project_Source_Files/d_Sub_Tree_Choices__Exp_p.h"/>
-      <FILE id="FI8LLK" name="d_Sub_Tree_Exposed_p.h" compile="0" resource="0"
-            file="Project_Source_Files/d_Sub_Tree_Exposed_p.h"/>
-      <FILE id="A1gIM2" name="d_Tip__Exposed_p.cpp" compile="1" resource="0"
-            file="Project_Source_Files/d_Tip__Exposed_p.cpp"/>
-      <FILE id="LIrtvk" name="d_Tip__Exposed_p.h" compile="0" resource="0"
-            file="Project_Source_Files/d_Tip__Exposed_p.h"/>
-      <FILE id="igc53i" name="d_Tree__Exposed_Info_p.cpp" compile="1" resource="0"
-            file="Project_Source_Files/d_Tree__Exposed_Info_p.cpp"/>
-      <FILE id="v5DKDc" name="d_Tree__Exposed_Info_p.h" compile="0" resource="0"
-            file="Project_Source_Files/d_Tree__Exposed_Info_p.h"/>
-      <FILE id="hbfKlN" name="dXg_Audio_Processor_p.cpp" compile="1" resource="0"
-            file="Project_Source_Files/dXg_Audio_Processor_p.cpp"/>
-      <FILE id="JcBXki" name="dXg_Audio_Processor_p.h" compile="0" resource="0"
-            file="Project_Source_Files/dXg_Audio_Processor_p.h"/>
-      <FILE id="HWk01E" name="dXg_Editor_p.cpp" compile="1" resource="0"
-            file="Project_Source_Files/dXg_Editor_p.cpp"/>
-      <FILE id="bUChLb" name="dXg_Editor_p.h" compile="0" resource="0" file="Project_Source_Files/dXg_Editor_p.h"/>
-      <FILE id="MajoOq" name="g_Draw_Paths__Editor_p.cpp" compile="1" resource="0"
-            file="Project_Source_Files/g_Draw_Paths__Editor_p.cpp"/>
-      <FILE id="sltYGt" name="g_Draw_Paths__Editor_p.h" compile="0" resource="0"
-            file="Project_Source_Files/g_Draw_Paths__Editor_p.h"/>
+      <FILE id="uTeyBM" name="C_COLOR_P.h" compile="0" resource="0" file="Project_Source_Files/C_COLOR_P.h"/>
+      <FILE id="Xryv67" name="C_ENUM_P.h" compile="0" resource="0" file="Project_Source_Files/C_ENUM_P.h"/>
+      <FILE id="nqaJkU" name="C_EXP_P.h" compile="0" resource="0" file="Project_Source_Files/C_EXP_P.h"/>
+      <FILE id="gHjULB" name="C_ID_P.h" compile="0" resource="0" file="Project_Source_Files/C_ID_P.h"/>
+      <FILE id="HHCrNp" name="C_PATH_Editor_Background_P.h" compile="0" resource="0"
+            file="Project_Source_Files/C_PATH_Editor_Background_P.h"/>
+      <FILE id="LZ1D7l" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
+            file="Project_Source_Files/C_SL_Tip_Exposed_P.h"/>
+      <FILE id="c3fqH2" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source_Files/C_XYWH_P.h"/>
+      <FILE id="pCt9rp" name="D_SUBTREE_Bit_Loc_Exp_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/D_SUBTREE_Bit_Loc_Exp_P.cpp"/>
+      <FILE id="XCshUP" name="D_SUBTREE_Bit_Loc_Exp_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_SUBTREE_Bit_Loc_Exp_P.h"/>
+      <FILE id="Bv4Bg2" name="D_SUBTREE_Choices_Exp_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/D_SUBTREE_Choices_Exp_P.cpp"/>
+      <FILE id="KJtWFT" name="D_SUBTREE_Choices_Exp_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_SUBTREE_Choices_Exp_P.h"/>
+      <FILE id="FI8LLK" name="D_SUBTREE_Exposed_Info_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_SUBTREE_Exposed_Info_P.h"/>
+      <FILE id="A1gIM2" name="D_TIP_Exposed_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/D_TIP_Exposed_P.cpp"/>
+      <FILE id="LIrtvk" name="D_TIP_Exposed_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_TIP_Exposed_P.h"/>
+      <FILE id="igc53i" name="D_TREE_Exposed_Info_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/D_TREE_Exposed_Info_P.cpp"/>
+      <FILE id="v5DKDc" name="D_TREE_Exposed_Info_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_TREE_Exposed_Info_P.h"/>
+      <FILE id="hbfKlN" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/D_X_G_Audio_Processor_P.cpp"/>
+      <FILE id="JcBXki" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_X_G_Audio_Processor_P.h"/>
+      <FILE id="HWk01E" name="D_X_G_Editor_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/D_X_G_Editor_P.cpp"/>
+      <FILE id="bUChLb" name="D_X_G_Editor_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_X_G_Editor_P.h"/>
+      <FILE id="MajoOq" name="G_DRAW_Paths_Editor_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/G_DRAW_Paths_Editor_P.cpp"/>
+      <FILE id="sltYGt" name="G_DRAW_Paths_Editor_P.h" compile="0" resource="0"
+            file="Project_Source_Files/G_DRAW_Paths_Editor_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

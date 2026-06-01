@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "c_ID_b.h"
+#include "C_ID_B.h"
 
 namespace ID
 {

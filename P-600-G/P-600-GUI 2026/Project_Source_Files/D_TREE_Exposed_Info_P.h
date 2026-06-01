@@ -1,0 +1,24 @@
+#pragma once
+
+#include <JuceHeader.h>
+
+#include "C_EXP_P.h"
+#include "C_XYWH_P.h"
+#include "D_SUBTREE_Choices_Exp_P.h"
+#include "D_SUBTREE_Exposed_Info_P.h"
+#include "D_TREE_Exposed_Info_B.h"
+
+class Tree_Exposed_Info_P :
+	public Tree_Exposed_Info_B
+{
+//==============================================================================
+public: Tree_Exposed_Info_P();
+
+public: const Ctrl_Type ctrl_type_for(const uint8 param_index) const;
+public: const uint8 first_nybble_index_for(const uint8 param_index) const;
+public: const uint8 first_bit_index_for(const uint8 paramIndex) const;
+public: const uint8 bit_count_for(const uint8 paramIndex) const;
+
+//==============================================================================
+private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Tree_Exposed_Info_P)
+};
