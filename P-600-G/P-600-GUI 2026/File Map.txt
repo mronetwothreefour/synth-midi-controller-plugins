@@ -10,6 +10,7 @@ C_ID_P
 C_PATH_Editor_Background_P
 C_SL_Tip_Exposed_P
 C_XYWH_P
+D_LAYOUT_Exposed_B
 D_SUBTREE_Choices_B
 D_SUBTREE_Choices_Exp_P
 D_SUBTREE_Exposed_Info_P

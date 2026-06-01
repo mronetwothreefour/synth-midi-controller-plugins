@@ -27,7 +27,7 @@ D_CONVERT_Int_To_Pitch_B
 D_FILTER_Voice_File
 D_HANDLE_Incoming_Sysex
 D_HANDLE_Exposed_Change
-D_LAYOUT_Exposed
+D_LAYOUT_Exposed_B
 D_MIDI_Outgoing_Buffers
 D_MIDI_Raw_Data
 D_MIDI_Sysex

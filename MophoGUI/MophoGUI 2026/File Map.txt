@@ -12,6 +12,7 @@ C_SL_Tip_Exposed_P
 C_VOICE_P
 C_XYWH_P
 D_CONVERT_Int_To_Pitch_B
+D_LAYOUT_Exposed_B
 D_SUBTREE_Choices_B
 D_SUBTREE_Choices_Exp_P
 D_SUBTREE_Exposed_Info_P

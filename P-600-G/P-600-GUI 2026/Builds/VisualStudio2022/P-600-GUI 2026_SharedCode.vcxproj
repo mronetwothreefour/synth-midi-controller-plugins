@@ -2983,6 +2983,7 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\C_COLOR_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\C_ID_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_CONVERT_Int_To_Pitch_B.h"/>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\D_LAYOUT_Exposed_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_SUBTREE_Choices_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_TIP_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_TREE_Exposed_Info_B.h"/>

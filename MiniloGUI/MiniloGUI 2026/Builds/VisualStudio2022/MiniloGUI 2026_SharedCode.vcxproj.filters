@@ -3741,6 +3741,9 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_CONVERT_Int_To_Pitch_B.h">
       <Filter>MiniloGUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\D_LAYOUT_Exposed_B.h">
+      <Filter>MiniloGUI 2026\_Base_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_SUBTREE_Choices_B.h">
       <Filter>MiniloGUI 2026\_Base_Source_Files</Filter>
     </ClInclude>

@@ -60,7 +60,7 @@ const String Tree_Exposed_Info_B::tip_for(uint8 i) const {
 	return {};
 }
 
-const String Tree_Exposed_Info_B::choice_name_for(
+const String Tree_Exposed_Info_B::choice_for(
 						uint8 i, const uint8 num, bool curt) const 
 {
 	if (i < exp_param_count && num < choice_count_for(i)) {
@@ -71,7 +71,7 @@ const String Tree_Exposed_Info_B::choice_name_for(
 	return {};
 }
 
-const StringArray Tree_Exposed_Info_B::choice_name_list_for(
+const StringArray Tree_Exposed_Info_B::choices_list_for(
 						uint8 i, bool curt) const 
 {
 	StringArray list{};

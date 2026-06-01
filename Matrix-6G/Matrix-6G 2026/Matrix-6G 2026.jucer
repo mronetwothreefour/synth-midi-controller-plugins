@@ -13,6 +13,8 @@
       <FILE id="PaExEX" name="C_ID_B.h" compile="0" resource="0" file="../../_Base_Source_Files/C_ID_B.h"/>
       <FILE id="bHalcF" name="D_CONVERT_Int_To_Pitch_B.h" compile="0" resource="0"
             file="../../_Base_Source_Files/D_CONVERT_Int_To_Pitch_B.h"/>
+      <FILE id="AajzYI" name="D_LAYOUT_Exposed_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/D_LAYOUT_Exposed_B.h"/>
       <FILE id="dLQBRK" name="D_SUBTREE_Choices_B.cpp" compile="1" resource="0"
             file="../../_Base_Source_Files/D_SUBTREE_Choices_B.cpp"/>
       <FILE id="resSyC" name="D_SUBTREE_Choices_B.h" compile="0" resource="0"
