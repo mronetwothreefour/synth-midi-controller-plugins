@@ -700,6 +700,9 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Audio_Processor_B.cpp">
       <Filter>MiniloGUI 2026\_Base_Source_Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_Hub_B.cpp">
+      <Filter>MiniloGUI 2026\_Base_Source_Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\D_SUBTREE_Bit_Loc_Exp_P.cpp">
       <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
     </ClCompile>
@@ -713,6 +716,9 @@
       <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\D_X_G_Audio_Processor_P.cpp">
+      <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\D_X_G_Data_Hub_P.cpp">
       <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\D_X_G_Editor_P.cpp">
@@ -3756,6 +3762,9 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Audio_Processor_B.h">
       <Filter>MiniloGUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_Hub_B.h">
+      <Filter>MiniloGUI 2026\_Base_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_DRAW_Paths_B.h">
       <Filter>MiniloGUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
@@ -3796,6 +3805,9 @@
       <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\D_X_G_Audio_Processor_P.h">
+      <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\D_X_G_Data_Hub_P.h">
       <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\D_X_G_Editor_P.h">

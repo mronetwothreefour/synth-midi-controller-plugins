@@ -23,6 +23,8 @@ D_TREE_Exposed_Info_B
 D_TREE_Exposed_Info_P
 D_X_G_Audio_Processor_B
 D_X_G_Audio_Processor_P
+D_X_G_Data_Hub_B
+D_X_G_Data_Hub_P
 D_X_G_Editor_P
 G_DRAW_Paths_B
 G_DRAW_Paths_Editor_P

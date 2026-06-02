@@ -2,9 +2,13 @@
 
 #include <JuceHeader.h>
 
+#include "D_X_G_Data_Hub_P.h"
+
 class Audio_Processor_B :
     public AudioProcessor
 {
+private: std::unique_ptr<Data_Hub_P> hub;
+
 //==============================================================================
 public: Audio_Processor_B();
 
@@ -31,10 +35,10 @@ public: bool hasEditor() const override;
 public: virtual AudioProcessorEditor* create_editor()=0;
 public: AudioProcessorEditor* createEditor() override;
 
-public: virtual void store_parameters_in_memory(MemoryBlock& target_mem_block)=0;
 public: void getStateInformation(MemoryBlock& target_mem_block) override;
-public: virtual void restore_parameters(const void* stored_param_data, int data_size)=0;
+public: virtual void add_plugin_specific_param_state_to_xml(XmlElement& plugin_state_xml)=0;
 public: void setStateInformation(const void* stored_param_data, int data_size) override;
+public: virtual void restore_plugin_specific_param_state(XmlElement* plugin_state_xml)=0;
 
 public: ~Audio_Processor_B() override;
 

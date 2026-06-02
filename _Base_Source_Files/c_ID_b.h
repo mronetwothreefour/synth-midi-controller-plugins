@@ -16,7 +16,10 @@ namespace ID
 	static const Identifier exp_p_name{ "exp_p_name" };
 
 	static const Identifier tree_exp_param_info{ "tree_exp_param_info" };
+	static const Identifier tree_exp_param_state{ "tree_exp_param_state" };
 	static const Identifier sub_tree_choices{ "sub_tree_choices" };
 	static const Identifier sub_tree_choices_curt{ "sub_tree_choices_curt" };
+	static const Identifier xml_exposed_state{ "xml_exposed_state" };
+	static const Identifier xml_plugin_state{ "xml_plugin_state" };
 
 }

@@ -1,7 +1,8 @@
 #include "D_X_G_Audio_Processor_B.h"
 
 Audio_Processor_B::Audio_Processor_B() :
-    AudioProcessor{ BusesProperties{} }
+    AudioProcessor{ BusesProperties{} },
+    hub{ new Data_Hub_P{ this } }
 {}
 
 const String Audio_Processor_B::getName() const { return JucePlugin_Name; }
@@ -41,11 +42,30 @@ AudioProcessorEditor* Audio_Processor_B::createEditor() {
 }
 
 void Audio_Processor_B::getStateInformation(MemoryBlock& target_mem_block) {
-    store_parameters_in_memory(target_mem_block);
+    XmlElement plugin_state_xml{ ID::xml_plugin_state };
+    auto exposed_state_tree{ hub->get_exposed_state()->copyState() };
+    auto exposed_state_xml{ exposed_state_tree.createXml() };
+    exposed_state_xml->setTagName(ID::xml_exposed_state.toString());
+    if (exposed_state_xml)
+        plugin_state_xml.addChildElement(exposed_state_xml.release());
+    add_plugin_specific_param_state_to_xml(plugin_state_xml);
+    copyXmlToBinary(plugin_state_xml, target_mem_block);
 }
 
 void Audio_Processor_B::setStateInformation(const void* stored_param_data, int data_size) {
-    restore_parameters(stored_param_data, data_size);
+    auto plugin_state_xml{ getXmlFromBinary(stored_param_data, data_size) };
+    if (plugin_state_xml) {
+        auto exposed_state_xml{ plugin_state_xml->getChildByName(ID::xml_exposed_state.toString()) };
+        if (exposed_state_xml) {
+            //transmitOptions->setParamChangesShouldBeTransmitted(false);
+            auto exposed_state_tree{ ValueTree::fromXml(*exposed_state_xml) };
+            hub->get_exposed_state()->replaceState(exposed_state_tree);
+            //transmitOptions->setParamChangesShouldBeTransmitted(true);
+        }
+        restore_plugin_specific_param_state(plugin_state_xml.get());
+    }
 }
 
-Audio_Processor_B::~Audio_Processor_B() {}
+Audio_Processor_B::~Audio_Processor_B() {
+    hub = nullptr;
+}

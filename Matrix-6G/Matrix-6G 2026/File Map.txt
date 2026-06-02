@@ -53,7 +53,8 @@ D_TREE_Voice_Map
 D_TREE_Voices - voice transmit, voice bank
 D_X_G_Audio_Processor_B
 D_X_G_Audio_Processor_P
-D_X_G_Data_Hub
+D_X_G_Data_Hub_B
+D_X_G_Data_Hub_P
 D_X_G_Data_User
 D_X_G_Editor_P
 G_DRAW_Paths_B

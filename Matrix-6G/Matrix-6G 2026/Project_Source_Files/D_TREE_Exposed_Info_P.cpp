@@ -125,16 +125,17 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 				Choices_Exp::osc_lever_control()
 			), 
 			-1, nullptr);
+	}
 
-		tree.addChild(
-			Subtree_Exposed_Info_P::build(
-				ID::exp_20_osc_balance, 20, "Oscillator Balance", Ctrl_Type::slider_osc_balance,
-				12, Range_Type::unsigned_int, Slider_Display_Type::unsigned_int,
-				64, 31, 163, ctrl_row_11_y, 126, Tip_Exp::osc_balance(),
-				Choices_Exp::unsigned_int(64, curt), Choices_Exp::unsigned_int(64)
-			), 
-			-1, nullptr);
-	} // ---------------------------------------------------------- end osc section
+	tree.addChild(
+		Subtree_Exposed_Info_P::build(
+			ID::exp_20_osc_balance, 20, "Oscillator Balance", Ctrl_Type::slider_osc_balance,
+			12, Range_Type::unsigned_int, Slider_Display_Type::unsigned_int,
+			64, 31, 163, ctrl_row_11_y, 126, Tip_Exp::osc_balance(),
+			Choices_Exp::unsigned_int(64, curt), Choices_Exp::unsigned_int(64)
+		), 
+		-1, nullptr);
+	// ---------------------------------------------------------- end osc section
 
 	// *************************************************************** vcf section
 	tree.addChild(
@@ -386,7 +387,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 
 		tree.addChild(
 			Subtree_Exposed_Info_P::build(
-				lfo == 1 ? ID::exp_45_lfo_1_retrig_point : ID::exp_55_lfo_2_lag, lfo == 1 ? 87 : 97,
+				lfo == 1 ? ID::exp_46_lfo_1_lag : ID::exp_55_lfo_2_lag, lfo == 1 ? 87 : 97,
 				"LFO " + (String)lfo + " Lag Processing Off / On", Ctrl_Type::cbox, lfo == 1 ? 29 : 36,
 				Range_Type::unsigned_int, Slider_Display_Type::none, 2, 0,
 				center_x, ctrl_row_09_y, lfo_ctrl_w, Tip_Exp::lfo_lag(lfo),

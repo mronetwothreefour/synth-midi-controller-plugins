@@ -9,7 +9,7 @@ using Bit_Loc_Exp = Subtree_Bit_Loc_Exp;
 using Choices_Exp = Subtree_Choices_Exp_P;
 using Tip_Exp = Tip_Exposed_P;
 
-Tree_Param_Info_Exposed::Tree_Param_Info_Exposed() :
+Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 	Tree_Exposed_Info_B{ EXP::exp_param_count }
 {
 	const bool curt{ true };
@@ -329,25 +329,25 @@ Tree_Param_Info_Exposed::Tree_Param_Info_Exposed() :
 		-1, nullptr);
 }
 
-const Ctrl_Type Tree_Param_Info_Exposed::ctrl_type_for(const uint8 i) const {
+const Ctrl_Type Tree_Exposed_Info_P::ctrl_type_for(const uint8 i) const {
 	if (i < exp_param_count)
 		return Ctrl_Type{ (int)param(i)[ID::exp_p_ctrl_type] };
 	return Ctrl_Type::error;
 }
 
-const Knob_Display_Type Tree_Param_Info_Exposed::knob_display_type_for(const uint8 i) const {
+const Knob_Display_Type Tree_Exposed_Info_P::knob_display_type_for(const uint8 i) const {
 	if (i < exp_param_count)
 		return Knob_Display_Type{ (int)param(i)[ID::exp_p_knob_display_type] };
 	return Knob_Display_Type::error;
 }
 
-const uint8 Tree_Param_Info_Exposed::cc_num_for(const uint8 i) const {
+const uint8 Tree_Exposed_Info_P::cc_num_for(const uint8 i) const {
 	if (i < exp_param_count)
 		return (uint8)(int)param(i)[ID::exp_p_cc_num];
 	return (uint8)255;
 }
 
-const uint8 Tree_Param_Info_Exposed::bit_count_for(const uint8 i) const {
+const uint8 Tree_Exposed_Info_P::bit_count_for(const uint8 i) const {
 	if (i < exp_param_count) {
 		auto bit_locations = param(i).getChildWithName(ID::tree_bit_locations);
 		return (uint8)bit_locations.getNumProperties();
@@ -355,7 +355,7 @@ const uint8 Tree_Param_Info_Exposed::bit_count_for(const uint8 i) const {
 	return (uint8)255;
 }
 
-const uint8 Tree_Param_Info_Exposed::byte_index_for_param_bit(const uint8 i, const uint8 b) const {
+const uint8 Tree_Exposed_Info_P::byte_index_for_param_bit(const uint8 i, const uint8 b) const {
 	if (i < exp_param_count) {
 		auto bit_locations = param(i).getChildWithName(ID::tree_bit_locations);
 		if (b < bit_locations.getNumProperties()) {
@@ -369,7 +369,7 @@ const uint8 Tree_Param_Info_Exposed::byte_index_for_param_bit(const uint8 i, con
 	return (uint8)255;
 }
 
-const uint8 Tree_Param_Info_Exposed::bit_index_for_param_bit(const uint8 i, const uint8 b) const {
+const uint8 Tree_Exposed_Info_P::bit_index_for_param_bit(const uint8 i, const uint8 b) const {
 	if (i < exp_param_count) {
 		auto bit_locations = param(i).getChildWithName(ID::tree_bit_locations);
 		if (b < bit_locations.getNumProperties()) {

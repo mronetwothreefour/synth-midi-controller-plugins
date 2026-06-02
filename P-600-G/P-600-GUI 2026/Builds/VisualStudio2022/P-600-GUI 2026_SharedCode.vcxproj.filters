@@ -703,6 +703,9 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Audio_Processor_B.cpp">
       <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_Hub_B.cpp">
+      <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\D_SUBTREE_Choices_Exp_P.cpp">
       <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
     </ClCompile>
@@ -713,6 +716,9 @@
       <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\D_X_G_Audio_Processor_P.cpp">
+      <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\D_X_G_Data_Hub_P.cpp">
       <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\D_X_G_Editor_P.cpp">
@@ -3759,6 +3765,9 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Audio_Processor_B.h">
       <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_Hub_B.h">
+      <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_DRAW_Paths_B.h">
       <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
@@ -3796,6 +3805,9 @@
       <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\D_X_G_Audio_Processor_P.h">
+      <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\D_X_G_Data_Hub_P.h">
       <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\D_X_G_Editor_P.h">

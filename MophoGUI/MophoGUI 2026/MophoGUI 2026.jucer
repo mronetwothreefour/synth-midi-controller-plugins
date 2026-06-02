@@ -29,6 +29,10 @@
             file="../../_Base_Source_Files/D_X_G_Audio_Processor_B.cpp"/>
       <FILE id="He9I0x" name="D_X_G_Audio_Processor_B.h" compile="0" resource="0"
             file="../../_Base_Source_Files/D_X_G_Audio_Processor_B.h"/>
+      <FILE id="ganAu8" name="D_X_G_Data_Hub_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/D_X_G_Data_Hub_B.cpp"/>
+      <FILE id="BBtFGp" name="D_X_G_Data_Hub_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/D_X_G_Data_Hub_B.h"/>
       <FILE id="YXJzex" name="G_DRAW_Paths_B.h" compile="0" resource="0"
             file="../../_Base_Source_Files/G_DRAW_Paths_B.h"/>
     </GROUP>
@@ -61,6 +65,10 @@
             file="Project_Source_Files/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="L0SilM" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"
             file="Project_Source_Files/D_X_G_Audio_Processor_P.h"/>
+      <FILE id="hhUwCX" name="D_X_G_Data_Hub_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/D_X_G_Data_Hub_P.cpp"/>
+      <FILE id="OKQZYl" name="D_X_G_Data_Hub_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_X_G_Data_Hub_P.h"/>
       <FILE id="DMHoCQ" name="D_X_G_Editor_P.cpp" compile="1" resource="0"
             file="Project_Source_Files/D_X_G_Editor_P.cpp"/>
       <FILE id="ZcUb5h" name="D_X_G_Editor_P.h" compile="0" resource="0"
