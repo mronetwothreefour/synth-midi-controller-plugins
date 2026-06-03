@@ -7,7 +7,7 @@ using namespace XYWH;
 using Tip_Exp = Tip_Exposed_P;
 
 Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
-	Tree_Exposed_Info_B{ exp_param_count }
+	Tree_Exposed_Info_B{ EXP::exp_param_count }
 {
 	const bool curt{ true };
 
@@ -31,14 +31,14 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 		tree.addChild(
 			Sub_Tree_Exposed::build(
 				osc == 1 ? ID::exp_01_osc_a_sync : ID::exp_07_osc_b_fine,
-				"Oscillator " + o + (osc == 0 ? " Sync" : " Fine Tune"),
-				osc == 0 ? Ctrl_Type::switch_2_pole : Ctrl_Type::knob, osc == 0 ? 30 : 9,
-				osc == 0 ? 2 : 3, osc == 0 ? 1 : 7, osc == 0 ? 2 : 128, 0, osc_col_2_x,
-				osc == 0 ? switch_row_1_y : knob_row_3_y, osc == 0 ? switch_w : knob_diameter,
-				osc == 0 ? switch_2_pole_h : knob_diameter,
-				osc == 0 ? Tip_Exp::osc_a_sync() : Tip_Exp::osc_b_fine(),
-				osc == 0 ? Choices_Exp::off_on(curt) : Choices_Exp::unsigned_int(128, curt),
-				osc == 0 ? Choices_Exp::off_on() : Choices_Exp::unsigned_int(128)
+				"Oscillator " + o + (osc == 1 ? " Sync" : " Fine Tune"),
+				osc == 1 ? Ctrl_Type::switch_2_pole : Ctrl_Type::knob, osc == 1 ? 30 : 9,
+				osc == 1 ? 2 : 3, osc == 1 ? 1 : 7, osc == 1 ? 2 : 128, 0, osc_col_2_x,
+				osc == 1 ? switch_row_1_y : knob_row_3_y, osc == 1 ? switch_w : knob_diameter,
+				osc == 1 ? switch_2_pole_h : knob_diameter,
+				osc == 1 ? Tip_Exp::osc_a_sync() : Tip_Exp::osc_b_fine(),
+				osc == 1 ? Choices_Exp::off_on(curt) : Choices_Exp::unsigned_int(128, curt),
+				osc == 1 ? Choices_Exp::off_on() : Choices_Exp::unsigned_int(128)
 			),
 			-1, nullptr);
 
@@ -46,7 +46,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 			Sub_Tree_Exposed::build(
 				osc == 1 ? ID::exp_02_osc_a_saw : ID::exp_08_osc_b_saw,
 				"Oscillator " + o + " Shape: Sawtooth", Ctrl_Type::switch_2_pole, 30,
-				osc == 0 ? 0 : 3, 1, 2, 0, osc_col_3_x, osc == 0 ? switch_row_1_y : switch_row_2_y,
+				osc == 1 ? 0 : 3, 1, 2, 0, osc_col_3_x, osc == 1 ? switch_row_1_y : switch_row_2_y,
 				switch_w, switch_2_pole_h, "When on, oscillator " + o + " outputs a sawtooth wave.",
 				Choices_Exp::off_on(curt), Choices_Exp::off_on()
 			),
@@ -55,8 +55,8 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 		tree.addChild(
 			Sub_Tree_Exposed::build(
 				osc == 1 ? ID::exp_03_osc_a_tri : ID::exp_09_osc_b_tri,
-				"Oscillator " + o + " Shape: Triangle", Ctrl_Type::switch_2_pole, osc == 0 ? 30 : 31,
-				osc == 0 ? 1 : 0, 1, 2, 1, osc_col_4_x, osc == 0 ? switch_row_1_y : switch_row_2_y,
+				"Oscillator " + o + " Shape: Triangle", Ctrl_Type::switch_2_pole, osc == 1 ? 30 : 31,
+				osc == 1 ? 1 : 0, 1, 2, 1, osc_col_4_x, osc == 1 ? switch_row_1_y : switch_row_2_y,
 				switch_w, switch_2_pole_h, "When on, oscillator " + o + " outputs a triangle wave.",
 				Choices_Exp::off_on(curt), Choices_Exp::off_on()
 			),
@@ -66,7 +66,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 			Sub_Tree_Exposed::build(
 				osc == 1 ? ID::exp_04_osc_a_pulse : ID::exp_10_osc_b_pulse,
 				"Oscillator " + o + " Shape: Pulse", Ctrl_Type::switch_2_pole, 28,
-				osc == 0 ? 0 : 1, 1, 2, 0, osc_col_5_x, osc == 0 ? switch_row_1_y : switch_row_2_y,
+				osc == 1 ? 0 : 1, 1, 2, 0, osc_col_5_x, osc == 1 ? switch_row_1_y : switch_row_2_y,
 				switch_w, switch_2_pole_h, "When on, oscillator " + o + " outputs a pulse wave.",
 				Choices_Exp::off_on(curt), Choices_Exp::off_on()
 			),
@@ -303,27 +303,27 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 	// ---------------------------------------------------------- end poly-mod section
 }
 
-const Ctrl_Type Tree_Exposed_Info_P::ctrl_type_for(const uint8 i) const {
+const Ctrl_Type Tree_Exposed_Info_P::ctrl_type_for(const int i) const {
 	if (i < exp_param_count)
 		return Ctrl_Type{ (int)param(i)[ID::exp_p_ctrl_type] };
 	return Ctrl_Type::error;
 }
 
-const uint8 Tree_Exposed_Info_P::first_nybble_index_for(const uint8 i) const {
+const int Tree_Exposed_Info_P::first_nybble_index_for(const int i) const {
 	if (i < exp_param_count)
-		return (uint8)(int)param(i)[ID::exp_p_first_nybble_index];
-	return (uint8)255;
+		return (int)param(i)[ID::exp_p_first_nybble_index];
+	return -1;
 }
 
-const uint8 Tree_Exposed_Info_P::first_bit_index_for(const uint8 i) const {
+const int Tree_Exposed_Info_P::first_bit_index_for(const int i) const {
 	if (i < exp_param_count)
-		return (uint8)(int)param(i)[ID::exp_p_first_bit_index];
-	return (uint8)255;
+		return (int)param(i)[ID::exp_p_first_bit_index];
+	return -1;
 }
 
-const uint8 Tree_Exposed_Info_P::bit_count_for(const uint8 i) const {
+const int Tree_Exposed_Info_P::bit_count_for(const int i) const {
 	if (i < exp_param_count)
-		return (uint8)(int)param(i)[ID::exp_p_bit_count];
-	return (uint8)255;
+		return (int)param(i)[ID::exp_p_bit_count];
+	return -1;
 }
 

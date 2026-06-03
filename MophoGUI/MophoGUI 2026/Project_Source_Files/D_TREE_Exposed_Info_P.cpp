@@ -265,7 +265,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
 			ID::exp_033_vca_env_amt, "VCA Envelope Amount", Ctrl_Type::knob, Knob_Display_Type::unsigned_7_bit,
-			30, 255, 127, ctrl_col_2_x, vca_row_1_y, knob_diameter, knob_diameter,
+			30, 128, 127, ctrl_col_2_x, vca_row_1_y, knob_diameter, knob_diameter,
 			Tip_Exp::vca_env_amt(), Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
 		),
 		-1, nullptr);
@@ -599,7 +599,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
 			ID::exp_093_push_it_velo, "Push It! Switch Velocity", Ctrl_Type::knob,
-			Knob_Display_Type::unsigned_7_bit, 112, 128, 0, 1239, push_it_knob_row_y,
+			Knob_Display_Type::unsigned_7_bit, 112, 128, 100, 1239, push_it_knob_row_y,
 			knob_diameter, knob_diameter, Tip_Exp::push_it_velocity(),
 			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
 		),
@@ -747,33 +747,33 @@ const Identifier Tree_Exposed_Info_P::id_for(Track track, Step step) const {
 	return {};
 }
 
-const Ctrl_Type Tree_Exposed_Info_P::ctrl_type_for(const uint8 i) const {
+const Ctrl_Type Tree_Exposed_Info_P::ctrl_type_for(const int i) const {
 	if (i < exp_param_count)
 		return Ctrl_Type{ (int)param(i)[ID::exp_p_ctrl_type] };
 	return Ctrl_Type::error;
 }
 
-const Knob_Display_Type Tree_Exposed_Info_P::knob_display_type_for(const uint8 i) const {
+const Knob_Display_Type Tree_Exposed_Info_P::knob_display_type_for(const int i) const {
 	if (i < exp_param_count)
 		return Knob_Display_Type{ (int)param(i)[ID::exp_p_knob_display_type] };
 	return Knob_Display_Type::error;
 }
 
-const uint8 Tree_Exposed_Info_P::nrpn_for(const uint8 i) const {
+const int Tree_Exposed_Info_P::nrpn_for(const int i) const {
 	if (i < exp_param_count)
-		return (uint8)(int)param(i)[ID::exp_p_nrpn];
-	return (uint8)255;
+		return (int)param(i)[ID::exp_p_nrpn];
+	return -1;
 }
 
-const uint8 Tree_Exposed_Info_P::param_index_for(const uint8 nrpn) const {
-	for (uint8 i = 0; i < exp_param_count; ++i) {
+const int Tree_Exposed_Info_P::param_index_for(const int nrpn) const {
+	for (int i = 0; i < exp_param_count; ++i) {
 		if (nrpn_for(i) == nrpn)
 			return i;
 	}
-	return (uint8)255;
+	return -1;
 }
 
-Point<int> Tree_Exposed_Info_P::red_toggle_center_for(uint8 i) const {
+Point<int> Tree_Exposed_Info_P::red_toggle_center_for(int i) const {
 	if (i < exp_param_count && ctrl_type_for(i) == Ctrl_Type::toggle) {
 		auto x = (int)param(i)[ID::exp_p_red_toggle_center_x];
 		auto y = (int)param(i)[ID::exp_p_red_toggle_center_y];
@@ -782,25 +782,25 @@ Point<int> Tree_Exposed_Info_P::red_toggle_center_for(uint8 i) const {
 	return {};
 }
 
-const uint16 Tree_Exposed_Info_P::packed_bits_byte_index_for(const uint8 i) const {
+const int Tree_Exposed_Info_P::packed_bits_byte_index_for(const int i) const {
 	if (i < exp_param_count)
-		return (uint16)(int)param(i)[ID::exp_p_packed_bits_byte_index];
-	return (uint16)65535;
+		return (int)param(i)[ID::exp_p_packed_bits_byte_index];
+	return -1;
 }
 
-const uint8 Tree_Exposed_Info_P::packed_bits_mask_for(const uint8 i) const {
+const int Tree_Exposed_Info_P::packed_bits_mask_for(const int i) const {
 	if (i < exp_param_count)
-		return (uint8)(int)param(i)[ID::exp_p_packed_bits_mask];
-	return (uint8)255;
+		return (int)param(i)[ID::exp_p_packed_bits_mask];
+	return -1;
 }
 
-const uint16 Tree_Exposed_Info_P::byte_index_for(const uint8 i) const {
+const int Tree_Exposed_Info_P::byte_index_for(const int i) const {
 	if (i < exp_param_count)
-		return (uint16)(int)param(i)[ID::exp_p_byte_index];
-	return (uint16)65535;
+		return (int)param(i)[ID::exp_p_byte_index];
+	return -1;
 }
 
-const Track Tree_Exposed_Info_P::seq_track_for(const uint8 i) const {
+const Track Tree_Exposed_Info_P::seq_track_for(const int i) const {
 	if (i < exp_param_count) {
 		auto first_track_index = EXP::param_index_seq_track_1_step_1;
 		if (i >= first_track_index)
@@ -810,7 +810,7 @@ const Track Tree_Exposed_Info_P::seq_track_for(const uint8 i) const {
 	return Track::error;
 }
 
-const Step Tree_Exposed_Info_P::seq_track_step_for(const uint8 i) const {
+const Step Tree_Exposed_Info_P::seq_track_step_for(const int i) const {
 	if (i < exp_param_count) {
 		auto first_track_index = EXP::param_index_seq_track_1_step_1;
 		if (i >= first_track_index)

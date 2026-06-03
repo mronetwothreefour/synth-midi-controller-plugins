@@ -215,7 +215,7 @@ ValueTree Subtree_Choices_Exp_P::osc_octave(const bool curt) {
 	tree.setProperty("choice_0", "16'", nullptr);
 	tree.setProperty("choice_1", "8'", nullptr);
 	tree.setProperty("choice_2", "4'", nullptr);
-	tree.setProperty("choice_4", "2'", nullptr);
+	tree.setProperty("choice_3", "2'", nullptr);
     return tree;
 }
 

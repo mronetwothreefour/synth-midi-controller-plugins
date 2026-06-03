@@ -25,6 +25,7 @@ struct Subtree_Choices_Exp_P :
 
 	static ValueTree off_on_matrix(const bool curt = false);
 	static ValueTree osc_1_key_track(const bool curt = false);
+	static ValueTree osc_1_sync(const bool curt = false);
 	static ValueTree osc_2_and_vcf_key_track(const bool curt = false);
 	static ValueTree osc_lever_control(const bool curt = false);
 	static ValueTree osc_type(const int osc_num, const bool curt = false);

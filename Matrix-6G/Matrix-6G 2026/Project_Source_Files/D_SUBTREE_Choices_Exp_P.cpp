@@ -111,6 +111,15 @@ ValueTree Subtree_Choices_Exp_P::osc_1_key_track(const bool curt) {
 	return tree;
 }
 
+ValueTree Subtree_Choices_Exp_P::osc_1_sync(const bool curt) {
+	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
+	tree.setProperty("choice_0", curt ? "OFF" : "off (0)", nullptr);
+	tree.setProperty("choice_1", curt ? "SOFT" : "soft sync (1)", nullptr);
+	tree.setProperty("choice_2", curt ? "MED" : "medium sync (2)", nullptr);
+	tree.setProperty("choice_3", curt ? "HARD" : "hard sync (3)", nullptr);
+	return tree;
+}
+
 ValueTree Subtree_Choices_Exp_P::osc_2_and_vcf_key_track(const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0", curt ? "OFF" : "key tracking is off", nullptr);

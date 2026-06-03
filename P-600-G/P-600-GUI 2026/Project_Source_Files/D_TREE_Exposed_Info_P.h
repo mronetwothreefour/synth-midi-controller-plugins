@@ -14,10 +14,10 @@ class Tree_Exposed_Info_P :
 //==============================================================================
 public: Tree_Exposed_Info_P();
 
-public: const Ctrl_Type ctrl_type_for(const uint8 param_index) const;
-public: const uint8 first_nybble_index_for(const uint8 param_index) const;
-public: const uint8 first_bit_index_for(const uint8 paramIndex) const;
-public: const uint8 bit_count_for(const uint8 paramIndex) const;
+public: const Ctrl_Type ctrl_type_for(const int param_index) const;
+public: const int first_nybble_index_for(const int param_index) const;
+public: const int first_bit_index_for(const int paramIndex) const;
+public: const int bit_count_for(const int paramIndex) const;
 
 //==============================================================================
 private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Tree_Exposed_Info_P)

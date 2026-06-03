@@ -9,9 +9,9 @@ ValueTree Subtree_Choices_B::off_on(const bool curt) {
 	return tree;
 }
 
-ValueTree Subtree_Choices_B::osc_pitch(uint8 choice_count, const bool curt) {
+ValueTree Subtree_Choices_B::osc_pitch(int choice_count, const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
-	for (uint8 choice = 0; choice < choice_count; ++choice) {
+	for (int choice = 0; choice < choice_count; ++choice) {
 		String name{ Int_To_Pitch::convert(choice) };
 		if (!curt)
 			name << " (MIDI note " + (String)choice + ")";
@@ -29,9 +29,9 @@ ValueTree Subtree_Choices_B::signed_7_bit_int(const bool curt) {
 	return tree;
 }
 
-ValueTree Subtree_Choices_B::unsigned_int(uint16 count, const bool curt) {
+ValueTree Subtree_Choices_B::unsigned_int(int count, const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
-	for (uint16 choice = 0; choice < count; ++choice) {
+	for (int choice = 0; choice < count; ++choice) {
 		auto name{ (String)choice };
 		tree.setProperty("choice_" + name, name, nullptr);
 	}

@@ -21,7 +21,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 				osc == 1 ? ID::exp_00_osc_1_pitch : ID::exp_10_osc_2_pitch, osc == 1 ? 0 : 10,
 				"Oscillator " + (String)osc + " Pitch", Ctrl_Type::slider_osc_pitch,
 				osc == 1 ? 1 : 6, Range_Type::unsigned_int, Slider_Display_Type::osc_pitch,
-				choice_count_osc_pitch, (uint8)0, center_x, ctrl_row_01_y, osc_ctrl_w,
+				choice_count_osc_pitch, 0, center_x, ctrl_row_01_y, osc_ctrl_w,
 				Tip_Exp::osc_pitch(osc), Choices_Exp::osc_pitch(EXP::choice_count_osc_pitch, curt),
 				Choices_Exp::osc_pitch(EXP::choice_count_osc_pitch)
 			), 
@@ -64,10 +64,10 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 				osc == 1 ? Ctrl_Type::cbox : Ctrl_Type::slider, osc == 1 ? 17 : 11,
 				osc == 1 ? Range_Type::unsigned_int : Range_Type::signed_6_bit, 
 				osc == 1 ? Slider_Display_Type::none : Slider_Display_Type::signed_6_bit_int,
-				osc == 1 ? 4 : 63, osc == 1 ? 0 : 33, center_x,
-				ctrl_row_05_y, osc_ctrl_w, 
+				osc == 1 ? 4 : 63, osc == 1 ? 0 : 33, center_x, ctrl_row_05_y, osc_ctrl_w,
 				osc == 1 ? Tip_Exp::osc_1_sync() : Tip_Exp::osc_2_detune(),
-				Choices_Exp::unsigned_int(64, curt), Choices_Exp::unsigned_int(64)
+				osc == 1 ? Choices_Exp::osc_1_sync(curt) : Choices_Exp::unsigned_int(64, curt),
+				osc == 1 ? Choices_Exp::osc_1_sync() : Choices_Exp::unsigned_int(64)
 			), 
 			-1, nullptr);
 
@@ -557,31 +557,31 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 	} // ---------------------------------------------------------- end envelope section
 }
 
-const uint8 Tree_Exposed_Info_P::number_for(uint8 i) const {
+const int Tree_Exposed_Info_P::number_for(int i) const {
 	if (i < exp_param_count)
-		return (uint8)(int)param(i)[ID::exp_p_number];
-	return (uint8)255;
+		return (int)param(i)[ID::exp_p_number];
+	return -1;
 }
 
-const uint8 Tree_Exposed_Info_P::byte_index_for(uint8 i) const {
+const int Tree_Exposed_Info_P::byte_index_for(int i) const {
 	if (i < exp_param_count)
-		return (uint8)(int)param(i)[ID::exp_p_byte_index];
-	return (uint8)255;
+		return (int)param(i)[ID::exp_p_byte_index];
+	return -1;
 }
 
-const Ctrl_Type Tree_Exposed_Info_P::ctrl_type_for(const uint8 i) const {
+const Ctrl_Type Tree_Exposed_Info_P::ctrl_type_for(const int i) const {
 	if (i < exp_param_count)
 		return Ctrl_Type{ (int)param(i)[ID::exp_p_ctrl_type] };
 	return Ctrl_Type::error;
 }
 
-const Range_Type Tree_Exposed_Info_P::range_type_for(const uint8 i) const {
+const Range_Type Tree_Exposed_Info_P::range_type_for(const int i) const {
 	if (i < exp_param_count)
 		return Range_Type{ (int)param(i)[ID::exp_p_range_type] };
 	return Range_Type::error;
 }
 
-const Slider_Display_Type Tree_Exposed_Info_P::slider_display_type_for(const uint8 i) const {
+const Slider_Display_Type Tree_Exposed_Info_P::slider_display_type_for(const int i) const {
 	if (i < exp_param_count)
 		return Slider_Display_Type{ (int)param(i)[ID::exp_p_slider_display_type] };
 	return Slider_Display_Type::error;

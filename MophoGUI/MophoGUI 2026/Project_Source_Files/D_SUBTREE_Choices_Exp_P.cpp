@@ -58,18 +58,20 @@ ValueTree Subtree_Choices_Exp_P::arp_mode(const bool curt) {
 ValueTree Subtree_Choices_Exp_P::bend_range(const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
 	tree.setProperty("choice_0",  curt ? "0" : "no bend", nullptr);;
-	tree.setProperty("choice_1",  "+/-1"  + curt ? "" : " semitone", nullptr);
-	tree.setProperty("choice_2",  "+/-2"  + curt ? "" : " semitones", nullptr);
-	tree.setProperty("choice_3",  "+/-3"  + curt ? "" : " semitones", nullptr);
-	tree.setProperty("choice_4",  "+/-4"  + curt ? "" : " semitones", nullptr);
-	tree.setProperty("choice_5",  "+/-5"  + curt ? "" : " semitones", nullptr);
-	tree.setProperty("choice_6",  "+/-6"  + curt ? "" : " semitones", nullptr);
-	tree.setProperty("choice_7",  "+/-7"  + curt ? "" : " semitones", nullptr);
-	tree.setProperty("choice_8",  "+/-8"  + curt ? "" : " semitones", nullptr);
-	tree.setProperty("choice_9",  "+/-9"  + curt ? "" : " semitones", nullptr);
-	tree.setProperty("choice_10", "+/-10" + curt ? "" : " semitones", nullptr);
-	tree.setProperty("choice_11", "+/-11" + curt ? "" : " semitones", nullptr);
-	tree.setProperty("choice_12", "+/-12" + curt ? "" : " semitones", nullptr);
+	String suffix{ curt ? "" : " semitone" };
+	tree.setProperty("choice_1",  "+/-1"  + suffix, nullptr);
+	suffix += curt ? "" : "s";
+	tree.setProperty("choice_2",  "+/-2"  + suffix, nullptr);
+	tree.setProperty("choice_3",  "+/-3"  + suffix, nullptr);
+	tree.setProperty("choice_4",  "+/-4"  + suffix, nullptr);
+	tree.setProperty("choice_5",  "+/-5"  + suffix, nullptr);
+	tree.setProperty("choice_6",  "+/-6"  + suffix, nullptr);
+	tree.setProperty("choice_7",  "+/-7"  + suffix, nullptr);
+	tree.setProperty("choice_8",  "+/-8"  + suffix, nullptr);
+	tree.setProperty("choice_9",  "+/-9"  + suffix, nullptr);
+	tree.setProperty("choice_10", "+/-10" + suffix, nullptr);
+	tree.setProperty("choice_11", "+/-11" + suffix, nullptr);
+	tree.setProperty("choice_12", "+/-12" + suffix, nullptr);
 	return tree;
 }
 
@@ -115,12 +117,12 @@ ValueTree Subtree_Choices_Exp_P::knob_assign(const bool curt) {
 	String choice_{ "choice_" };
 	for (int osc = 1; osc < 3; ++osc) {
 		String o{ osc };
-		tree.setProperty(choice_ + (osc == 1 ? "0" : "_6"),  "oscillator " + o + " pitch", nullptr);
-		tree.setProperty(choice_ + (osc == 1 ? "1" : "_7"),  "oscillator " + o + " fine tune", nullptr);
-		tree.setProperty(choice_ + (osc == 1 ? "2" : "_8"),  "oscillator " + o + " wave shape", nullptr);
-		tree.setProperty(choice_ + (osc == 1 ? "3" : "_9"),  "oscillator " + o + " glide rate", nullptr);
-		tree.setProperty(choice_ + (osc == 1 ? "4" : "_10"), "oscillator " + o + " key track", nullptr);
-		tree.setProperty(choice_ + (osc == 1 ? "5" : "_11"), "sub-oscillator " + o + " level", nullptr);
+		tree.setProperty(choice_ + (osc == 1 ? "0" : "6"),  "oscillator " + o + " pitch", nullptr);
+		tree.setProperty(choice_ + (osc == 1 ? "1" : "7"),  "oscillator " + o + " fine tune", nullptr);
+		tree.setProperty(choice_ + (osc == 1 ? "2" : "8"),  "oscillator " + o + " wave shape", nullptr);
+		tree.setProperty(choice_ + (osc == 1 ? "3" : "9"),  "oscillator " + o + " glide rate", nullptr);
+		tree.setProperty(choice_ + (osc == 1 ? "4" : "10"), "oscillator " + o + " key track", nullptr);
+		tree.setProperty(choice_ + (osc == 1 ? "5" : "11"), "sub-oscillator " + o + " level", nullptr);
 	}
 	tree.setProperty(choice_ + "12", "hard sync oscillators", nullptr);
 	tree.setProperty(choice_ + "13", "glide mode", nullptr);
@@ -249,7 +251,7 @@ ValueTree Subtree_Choices_Exp_P::lfo_shape(const bool curt) {
 
 ValueTree Subtree_Choices_Exp_P::lpf_freq(const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
-	for (uint8 num = 0; num < EXP::choice_count_lpf_freq; ++num) {
+	for (int num = 0; num < EXP::choice_count_lpf_freq; ++num) {
 		String n{ num };
 		auto pitch{ Int_To_Pitch::convert(num) };
 		auto name{ curt ? pitch : n + " (pitch freq. " + pitch + ")" };
@@ -314,7 +316,7 @@ ValueTree Subtree_Choices_Exp_P::mod_dest(const bool curt) {
 
 ValueTree Subtree_Choices_Exp_P::mod_src(const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
-	tree.setProperty("choice_0", "Off", nullptr);
+	tree.setProperty("choice_0", "off", nullptr);
 	for (auto n = 1; n < 5; ++n)
 		tree.setProperty("choice_" + (String)n, "sequencer track " + (String)n, nullptr);
 	for (auto n = 5; n < 9; ++n)

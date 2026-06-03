@@ -5,7 +5,7 @@
 namespace EXP
 {
 
-	constexpr uint16 choice_count_unsigned_10_bit{ 1024 };
-	constexpr uint8 exp_param_count{ 39 };
+	constexpr int choice_count_unsigned_10_bit{ 1024 };
+	constexpr int exp_param_count{ 39 };
 
 }
