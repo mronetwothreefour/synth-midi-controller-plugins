@@ -416,7 +416,7 @@ ValueTree Subtree_Choices_Exp_P::seq_track_2_4_dest(const bool track_2, const bo
 	String name{ curt ? "seq." : "sequencer" };
 	name += " track " + String{ track_2 ? 1 : 3 } + " slew";
 	tree.setProperty("choice_47", name, nullptr);
-	return ValueTree();
+	return tree;
 }
 
 ValueTree Subtree_Choices_Exp_P::seq_trig_mode(const bool curt) {
