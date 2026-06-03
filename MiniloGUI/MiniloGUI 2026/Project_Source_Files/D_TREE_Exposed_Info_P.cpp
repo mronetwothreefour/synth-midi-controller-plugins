@@ -41,8 +41,8 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 			Subtree_Exposed_Info_P::build(
 				osc == 1 ? ID::exp_02_osc_1_pitch_fine : ID::exp_06_osc_2_pitch_fine,
 				"Oscillator " + o + " Pitch Fine Tune",  Ctrl_Type::knob_osc_pitch_fine,
-				Knob_Display_Type::osc_pitch_fine, osc == 1 ? 34 : 35, EXP::choice_count_osc_pitch_fine,
-				1200, 184, osc == 1 ? ctrl_row_1_y : ctrl_row_2_y, knob_diameter, knob_diameter,
+				Knob_Display_Type::osc_pitch_fine, osc == 1 ? 34 : 35, EXP::choice_count_unsigned_10_bit,
+				512, 184, osc == 1 ? ctrl_row_1_y : ctrl_row_2_y, knob_diameter, knob_diameter,
 				Tip_Exp::osc_pitch_fine(o), Bit_Loc_Exp::osc_pitch_fine(osc),
 				Choices_Exp::osc_pitch_fine(curt), Choices_Exp::osc_pitch_fine()
 			),

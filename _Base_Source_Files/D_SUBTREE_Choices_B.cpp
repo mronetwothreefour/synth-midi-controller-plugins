@@ -31,7 +31,7 @@ ValueTree Subtree_Choices_B::signed_7_bit_int(const bool curt) {
 
 ValueTree Subtree_Choices_B::unsigned_int(uint16 count, const bool curt) {
 	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
-	for (int choice = 0; choice < count; ++choice) {
+	for (uint16 choice = 0; choice < count; ++choice) {
 		auto name{ (String)choice };
 		tree.setProperty("choice_" + name, name, nullptr);
 	}

@@ -121,81 +121,83 @@ ValueTree Subtree_Choices_Exp_P::lpf_eg_int(const bool curt) {
 
 ValueTree Subtree_Choices_Exp_P::lpf_type(const bool curt) {
     ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
-    tree.setProperty("choice_0", "2-pole" + curt ? "" : " (12 dB / octave)", nullptr);
-    tree.setProperty("choice_1", "4-pole" + curt ? "" : " (24 dB / octave)", nullptr);
+    String suffix{ curt ? "" : " (12 dB / octave)" };
+    tree.setProperty("choice_0", "2-pole" + suffix, nullptr);
+    suffix = curt ? "" : " (24 dB / octave)";
+    tree.setProperty("choice_1", "4-pole" + suffix, nullptr);
     return tree;
 }
 
 ValueTree Subtree_Choices_Exp_P::osc_2_pitch_eg_int(const bool curt) {
     ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
-    String postfix{ curt ? "" : " cents" };
+    String suffix{ curt ? "" : " cents" };
 
-    auto val{ -4800 };
+    auto cents{ -4800 };
     for (int n = 0; n < 5; ++n)
-        tree.setProperty("choice_" + (String)val , (String)val + postfix, nullptr);
+        tree.setProperty("choice_" + (String)n , (String)cents + suffix, nullptr);
 
     for (int n = 5; n < 357; ++n) {
-        val += (n % 2 == 1 ? 13 : 12);
-        tree.setProperty("choice_" + (String)n, (String)val + postfix, nullptr);
+        cents += (n % 2 == 1 ? 13 : 12);
+        tree.setProperty("choice_" + (String)n, (String)cents + suffix, nullptr);
     }
 
     for (int n = 357; n < 477; ++n) {
-        val += (n % 8 == 5 ? 4 : 3);
-        tree.setProperty("choice_" + (String)n, (String)val + postfix, nullptr);
+        cents += (n % 8 == 5 ? 4 : 3);
+        tree.setProperty("choice_" + (String)n, (String)cents + suffix, nullptr);
     }
 
-    tree.setProperty("choice_477", "-23" + postfix, nullptr);
-    tree.setProperty("choice_478", "-21" + postfix, nullptr);
-    tree.setProperty("choice_479", "-20" + postfix, nullptr);
-    tree.setProperty("choice_480", "-18" + postfix, nullptr);
-    tree.setProperty("choice_481", "-17" + postfix, nullptr);
-    tree.setProperty("choice_482", "-15" + postfix, nullptr);
-    tree.setProperty("choice_483", "-14" + postfix, nullptr);
-    tree.setProperty("choice_484", "-12" + postfix, nullptr);
-    tree.setProperty("choice_485", "-10" + postfix, nullptr);
-    tree.setProperty("choice_486", "-9" + postfix, nullptr);
-    tree.setProperty("choice_487", "-7" + postfix, nullptr);
-    tree.setProperty("choice_488", "-5" + postfix, nullptr);
-    tree.setProperty("choice_489", "-4" + postfix, nullptr);
-    tree.setProperty("choice_490", "-3" + postfix, nullptr);
-    tree.setProperty("choice_491", "-1" + postfix, nullptr);
+    tree.setProperty("choice_477", "-23" + suffix, nullptr);
+    tree.setProperty("choice_478", "-21" + suffix, nullptr);
+    tree.setProperty("choice_479", "-20" + suffix, nullptr);
+    tree.setProperty("choice_480", "-18" + suffix, nullptr);
+    tree.setProperty("choice_481", "-17" + suffix, nullptr);
+    tree.setProperty("choice_482", "-15" + suffix, nullptr);
+    tree.setProperty("choice_483", "-14" + suffix, nullptr);
+    tree.setProperty("choice_484", "-12" + suffix, nullptr);
+    tree.setProperty("choice_485", "-10" + suffix, nullptr);
+    tree.setProperty("choice_486", "-9" + suffix, nullptr);
+    tree.setProperty("choice_487", "-7" + suffix, nullptr);
+    tree.setProperty("choice_488", "-5" + suffix, nullptr);
+    tree.setProperty("choice_489", "-4" + suffix, nullptr);
+    tree.setProperty("choice_490", "-3" + suffix, nullptr);
+    tree.setProperty("choice_491", "-1" + suffix, nullptr);
 
     for (int n = 492; n < 531; ++n)
-        tree.setProperty("choice_" + (String)n, "0" + postfix, nullptr);
+        tree.setProperty("choice_" + (String)n, "0" + suffix, nullptr);
 
-    tree.setProperty("choice_531", "+1" + postfix, nullptr);
-    tree.setProperty("choice_532", "+2" + postfix, nullptr);
-    tree.setProperty("choice_533", "+3" + postfix, nullptr);
-    tree.setProperty("choice_534", "+4" + postfix, nullptr);
-    tree.setProperty("choice_535", "+5" + postfix, nullptr);
-    tree.setProperty("choice_536", "+7" + postfix, nullptr);
-    tree.setProperty("choice_537", "+8" + postfix, nullptr);
-    tree.setProperty("choice_538", "+10" + postfix, nullptr);
-    tree.setProperty("choice_539", "+11" + postfix, nullptr);
-    tree.setProperty("choice_540", "+13" + postfix, nullptr);
-    tree.setProperty("choice_541", "+15" + postfix, nullptr);
-    tree.setProperty("choice_542", "+16" + postfix, nullptr);
-    tree.setProperty("choice_543", "+18" + postfix, nullptr);
-    tree.setProperty("choice_544", "+19" + postfix, nullptr);
-    tree.setProperty("choice_545", "+21" + postfix, nullptr);
-    tree.setProperty("choice_546", "+22" + postfix, nullptr);
-    tree.setProperty("choice_547", "+24" + postfix, nullptr);
-    tree.setProperty("choice_548", "+25" + postfix, nullptr);
+    tree.setProperty("choice_531", "+1" + suffix, nullptr);
+    tree.setProperty("choice_532", "+2" + suffix, nullptr);
+    tree.setProperty("choice_533", "+3" + suffix, nullptr);
+    tree.setProperty("choice_534", "+4" + suffix, nullptr);
+    tree.setProperty("choice_535", "+5" + suffix, nullptr);
+    tree.setProperty("choice_536", "+7" + suffix, nullptr);
+    tree.setProperty("choice_537", "+8" + suffix, nullptr);
+    tree.setProperty("choice_538", "+10" + suffix, nullptr);
+    tree.setProperty("choice_539", "+11" + suffix, nullptr);
+    tree.setProperty("choice_540", "+13" + suffix, nullptr);
+    tree.setProperty("choice_541", "+15" + suffix, nullptr);
+    tree.setProperty("choice_542", "+16" + suffix, nullptr);
+    tree.setProperty("choice_543", "+18" + suffix, nullptr);
+    tree.setProperty("choice_544", "+19" + suffix, nullptr);
+    tree.setProperty("choice_545", "+21" + suffix, nullptr);
+    tree.setProperty("choice_546", "+22" + suffix, nullptr);
+    tree.setProperty("choice_547", "+24" + suffix, nullptr);
+    tree.setProperty("choice_548", "+25" + suffix, nullptr);
 
-    val = 25;
+    cents = 25;
 
     for (int n = 549; n < 669; ++n) {
-        val += (n % 8 == 5 ? 4 : 3);
-        tree.setProperty("choice_" + (String)n, "+" + (String)val + postfix, nullptr);
+        cents += (n % 8 == 5 ? 4 : 3);
+        tree.setProperty("choice_" + (String)n, "+" + (String)cents + suffix, nullptr);
     }
 
     for (int n = 669; n < 1020; ++n) {
-        val += (n % 2 == 1 ? 13 : 12);
-        tree.setProperty("choice_" + (String)n, "+" + (String)val + postfix, nullptr);
+        cents += (n % 2 == 1 ? 13 : 12);
+        tree.setProperty("choice_" + (String)n, "+" + (String)cents + suffix, nullptr);
     }
 
     for (int n = 1020; n < 1024; ++n)
-        tree.setProperty("choice_" + (String)n, "+4800" + postfix, nullptr);
+        tree.setProperty("choice_" + (String)n, "+4800" + suffix, nullptr);
 
     return tree;
 }
@@ -221,22 +223,22 @@ ValueTree Subtree_Choices_Exp_P::osc_pitch_fine(const bool curt) {
     ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
     String postfix{ curt ? "" : " cents" };
 
-    auto val{ -1200 };
+    auto cents{ -1200 };
     for (int n = 0; n < 5; ++n)
-        tree.setProperty("choice_" + (String)val, (String)val + postfix, nullptr);
+        tree.setProperty("choice_" + (String)n, (String)cents + postfix, nullptr);
 
     for (int n = 5; n < 357; ++n) {
-        val += (n % 8 == 5 ? 4 : 3);
-        tree.setProperty("choice_" + (String)n, (String)val + postfix, nullptr);
+        cents += (n % 8 == 5 ? 4 : 3);
+        tree.setProperty("choice_" + (String)n, (String)cents + postfix, nullptr);
     }
 
     for (int n = 357; n < 477; ++n) {
         if (n % 32 != 0 && n % 32 != 4 && n % 32 != 9 && n % 32 != 14 &&
             n % 32 != 18 && n % 32 != 23 && n % 32 != 27)
         {
-            ++val;
+            ++cents;
         }
-        tree.setProperty("choice_" + (String)n, (String)val + postfix, nullptr);
+        tree.setProperty("choice_" + (String)n, (String)cents + postfix, nullptr);
     }
 
     tree.setProperty("choice_477", "-5" + postfix, nullptr);
@@ -276,20 +278,20 @@ ValueTree Subtree_Choices_Exp_P::osc_pitch_fine(const bool curt) {
     tree.setProperty("choice_550", "+8" + postfix, nullptr);
     tree.setProperty("choice_551", "+9" + postfix, nullptr);
 
-    val = 10;
+    cents = 10;
 
     for (int n = 552; n < 669; ++n) {
         if (n % 32 != 1 && n % 32 != 5 && n % 32 != 10 && n % 32 != 15 &&
             n % 32 != 19 && n % 32 != 24 && n % 32 != 28)
         {
-            ++val;
+            ++cents;
         }
-        tree.setProperty("choice_" + (String)n, (String)val + postfix, nullptr);
+        tree.setProperty("choice_" + (String)n, (String)cents + postfix, nullptr);
     }
 
     for (int n = 669; n < 1020; ++n) {
-        val += (n % 8 == 5 ? 4 : 3);
-        tree.setProperty("choice_" + (String)n, "+" + (String)val + postfix, nullptr);
+        cents += (n % 8 == 5 ? 4 : 3);
+        tree.setProperty("choice_" + (String)n, "+" + (String)cents + postfix, nullptr);
     }
 
     for (int n = 1020; n < 1024; ++n)

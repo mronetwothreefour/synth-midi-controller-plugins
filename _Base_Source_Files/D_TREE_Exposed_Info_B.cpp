@@ -21,16 +21,16 @@ const String Tree_Exposed_Info_B::name_for(uint8 i) const {
 	return {};
 }
 
-const uint8 Tree_Exposed_Info_B::choice_count_for(uint8 i) const {
+const int Tree_Exposed_Info_B::choice_count_for(uint8 i) const {
 	if (i < exp_param_count)
-		return (uint8)(int)param(i)[ID::exp_p_choice_count];
-	return (uint8)255;
+		return (int)param(i)[ID::exp_p_choice_count];
+	return -1;
 }
 
-const uint8 Tree_Exposed_Info_B::init_choice_for(uint8 i) const {
+const int Tree_Exposed_Info_B::init_choice_for(uint8 i) const {
 	if (i < exp_param_count)
-		return (uint8)(int)param(i)[ID::exp_p_init_choice];
-	return (uint8)255;
+		return (int)param(i)[ID::exp_p_init_choice];
+	return -1;
 }
 
 Point<int> Tree_Exposed_Info_B::ctrl_center_for(uint8 i) const {
@@ -61,7 +61,7 @@ const String Tree_Exposed_Info_B::tip_for(uint8 i) const {
 }
 
 const String Tree_Exposed_Info_B::choice_for(
-						uint8 i, const uint8 num, bool curt) const 
+						uint8 i, const int num, bool curt) const
 {
 	if (i < exp_param_count && num < choice_count_for(i)) {
 		auto& tree_id = curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices;
