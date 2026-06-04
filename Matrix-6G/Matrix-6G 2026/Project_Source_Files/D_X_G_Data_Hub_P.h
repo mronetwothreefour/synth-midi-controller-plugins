@@ -13,5 +13,4 @@ public: explicit Data_Hub_P(AudioProcessor* processor);
 
 //==============================================================================
 private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Data_Hub_P)
-
 };

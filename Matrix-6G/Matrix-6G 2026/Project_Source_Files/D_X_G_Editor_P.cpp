@@ -3,9 +3,10 @@
 #include "C_XYWH_P.h"
 #include "G_DRAW_Paths_Editor_P.h"
 
-Editor_P::Editor_P(Audio_Processor_P& processor) :
+Editor_P::Editor_P(Audio_Processor_P& processor, Data_Hub_P* hub) :
     AudioProcessorEditor{ &processor },
-    processor{ processor }
+    processor{ processor },
+    Data_User_P{ hub }
 {
     setWantsKeyboardFocus(true);
     setResizable(true, true);
@@ -15,12 +16,12 @@ Editor_P::Editor_P(Audio_Processor_P& processor) :
 }
 
 void Editor_P::paint(Graphics& g) {
-    auto scale_factor{ (float)getWidth() / XYWH::gui_init_w };
     g.addTransform(AffineTransform::scale(scale_factor));
     Draw_Paths_Editor_P::background(g);
 }
 
 void Editor_P::resized() {
+    scale_factor = (float)getWidth() / XYWH::gui_init_w;
 }
 
 void Editor_P::modifierKeysChanged(const ModifierKeys& /*mods*/) {

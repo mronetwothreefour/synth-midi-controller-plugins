@@ -33,6 +33,8 @@
             file="../../_Base_Source_Files/D_X_G_Data_Hub_B.cpp"/>
       <FILE id="BBtFGp" name="D_X_G_Data_Hub_B.h" compile="0" resource="0"
             file="../../_Base_Source_Files/D_X_G_Data_Hub_B.h"/>
+      <FILE id="TgbfuW" name="D_X_G_Data_User_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/D_X_G_Data_User_B.h"/>
       <FILE id="YXJzex" name="G_DRAW_Paths_B.h" compile="0" resource="0"
             file="../../_Base_Source_Files/G_DRAW_Paths_B.h"/>
     </GROUP>

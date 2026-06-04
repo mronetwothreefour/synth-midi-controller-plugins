@@ -3768,6 +3768,9 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_Hub_B.h">
       <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_User_B.h">
+      <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_DRAW_Paths_B.h">
       <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
     </ClInclude>

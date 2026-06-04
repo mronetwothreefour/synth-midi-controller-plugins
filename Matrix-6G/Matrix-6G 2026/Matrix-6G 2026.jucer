@@ -32,6 +32,8 @@
             file="../../_Base_Source_Files/D_X_G_Data_Hub_B.cpp"/>
       <FILE id="wuWfbk" name="D_X_G_Data_Hub_B.h" compile="0" resource="0"
             file="../../_Base_Source_Files/D_X_G_Data_Hub_B.h"/>
+      <FILE id="cyeehM" name="D_X_G_Data_User_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/D_X_G_Data_User_B.h"/>
       <FILE id="pOkc4v" name="G_DRAW_Paths_B.h" compile="0" resource="0"
             file="../../_Base_Source_Files/G_DRAW_Paths_B.h"/>
     </GROUP>
@@ -67,6 +69,8 @@
             file="Project_Source_Files/D_X_G_Data_Hub_P.cpp"/>
       <FILE id="fXgTe9" name="D_X_G_Data_Hub_P.h" compile="0" resource="0"
             file="Project_Source_Files/D_X_G_Data_Hub_P.h"/>
+      <FILE id="ybkI3N" name="D_X_G_Data_User_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_X_G_Data_User_P.h"/>
       <FILE id="bPU5kF" name="D_X_G_Editor_P.cpp" compile="1" resource="0"
             file="Project_Source_Files/D_X_G_Editor_P.cpp"/>
       <FILE id="iXvEW5" name="D_X_G_Editor_P.h" compile="0" resource="0"

@@ -7,7 +7,8 @@
 Data_Hub_B::Data_Hub_B(AudioProcessor* processor) :
 	undo_mngr{ new UndoManager{} },
 	exposed_state{ new State{ *processor, undo_mngr.get(), ID::tree_exp_param_state,
-				   Layout_Exposed_B::build(exposed_info) } }
+				   Layout_Exposed_B::build(exposed_info) } },
+	scale_factor{ 1.0f }
 {
 }
 
@@ -21,6 +22,10 @@ UndoManager* Data_Hub_B::get_undo_mngr() {
 
 State* Data_Hub_B::get_exposed_state() {
 	return exposed_state.get();
+}
+
+float& Data_Hub_B::get_scale_factor() {
+	return scale_factor;
 }
 
 Data_Hub_B::~Data_Hub_B() {

@@ -11,6 +11,7 @@ class Data_Hub_B
 protected: const Tree_Exposed_Info_P exposed_info;
 protected: std::unique_ptr<UndoManager> undo_mngr;
 protected: std::unique_ptr<State> exposed_state;
+protected: float scale_factor;
 
 //==============================================================================
 public: explicit Data_Hub_B(AudioProcessor* processor);
@@ -18,6 +19,7 @@ public: explicit Data_Hub_B(AudioProcessor* processor);
 public: const Tree_Exposed_Info_P& get_exposed_info();
 public: UndoManager* get_undo_mngr();
 public: State* get_exposed_state();
+public: float& get_scale_factor();
 public: ~Data_Hub_B();
 
 //==============================================================================

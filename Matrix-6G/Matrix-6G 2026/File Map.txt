@@ -39,10 +39,6 @@ D_SUBTREE_Choices_Splits_P
 D_SUBTREE_Choices_Voices_P
 D_SUBTREE_Current_Voice_P
 D_SUBTREE_Exposed_Info_P
-D_SUBTREE_Matrix_Mod_P
-D_SUBTREE_Splits_P
-D_SUBTREE_Voice_Map_P
-D_SUBTREE_Voices_P - voice transmit, voice bank
 D_TIP_B
 D_TIP_Button_P
 D_TIP_Exposed_P
@@ -50,13 +46,17 @@ D_TIP_Global_P
 D_TIP_Splits_P
 D_TREE_Exposed_Info_B
 D_TREE_Exposed_Info_P
-D_TREE_Plugin_Specific_B - scale factor, tip time
-D_TREE_Plugin_Specific_P
+D_TREE_Matrix_Mod_P
+D_TREE_Plugin_Common_P tip time, voice libraries
+D_TREE_Splits_P
+D_TREE_Voice_Map_P
+D_TREE_Voices_P - voice transmit, voice bank
 D_X_G_Audio_Processor_B
 D_X_G_Audio_Processor_P
 D_X_G_Data_Hub_B
 D_X_G_Data_Hub_P
-D_X_G_Data_User
+D_X_G_Data_User_B
+D_X_G_Data_User_P
 D_X_G_Editor_P
 G_DRAW_Paths_B
 G_DRAW_Paths_Editor_P

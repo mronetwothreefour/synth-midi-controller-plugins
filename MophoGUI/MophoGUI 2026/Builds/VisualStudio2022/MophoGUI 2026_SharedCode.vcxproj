@@ -2990,6 +2990,7 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_TREE_Exposed_Info_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Audio_Processor_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_Hub_B.h"/>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_User_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_DRAW_Paths_B.h"/>
     <ClInclude Include="..\..\Project_Source_Files\C_COLOR_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\C_ENUM_P.h"/>
