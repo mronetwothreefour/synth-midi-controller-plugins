@@ -19,7 +19,10 @@ namespace ID
 	static const Identifier tree_exp_param_state{ "tree_exp_param_state" };
 	static const Identifier sub_tree_choices{ "sub_tree_choices" };
 	static const Identifier sub_tree_choices_curt{ "sub_tree_choices_curt" };
-	static const Identifier xml_exposed_state{ "xml_exposed_state" };
-	static const Identifier xml_plugin_state{ "xml_plugin_state" };
+
+	static const Identifier xml_att_scale_factor{ "xml_att_scale_factor" };
+	static const Identifier xml_state_exposed{ "xml_state_exposed" };
+	static const Identifier xml_state_plugin{ "xml_state_plugin" };
+	static const Identifier xml_state_plugin_specific{ "xml_state_plugin_specific" };
 
 }

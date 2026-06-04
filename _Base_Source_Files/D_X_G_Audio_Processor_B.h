@@ -36,9 +36,9 @@ public: virtual AudioProcessorEditor* create_editor()=0;
 public: AudioProcessorEditor* createEditor() override;
 
 public: void getStateInformation(MemoryBlock& target_mem_block) override;
-public: virtual void add_plugin_specific_param_state_to_xml(XmlElement& plugin_state_xml)=0;
+public: virtual void store_plugin_specific_param_state(XmlElement& plugin_state)=0;
 public: void setStateInformation(const void* stored_param_data, int data_size) override;
-public: virtual void restore_plugin_specific_param_state(XmlElement* plugin_state_xml)=0;
+public: virtual void restore_plugin_specific_param_state(XmlElement* plugin_state)=0;
 
 public: ~Audio_Processor_B() override;
 

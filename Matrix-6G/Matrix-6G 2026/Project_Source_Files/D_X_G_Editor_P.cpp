@@ -10,7 +10,7 @@ Editor_P::Editor_P(Audio_Processor_P& processor, Data_Hub_P* hub) :
 {
     setWantsKeyboardFocus(true);
     setResizable(true, true);
-    setSize(XYWH::gui_init_w, XYWH::gui_init_h);
+    setSize(roundToInt(XYWH::gui_init_w * scale_factor), roundToInt(XYWH::gui_init_h * scale_factor));
     getConstrainer()->setFixedAspectRatio(XYWH::gui_aspect_ratio);
     Timer::callAfterDelay(50, [this] { grabKeyboardFocus(); });
 }

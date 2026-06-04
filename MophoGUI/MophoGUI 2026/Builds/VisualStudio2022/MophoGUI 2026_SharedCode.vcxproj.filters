@@ -3810,6 +3810,9 @@
     <ClInclude Include="..\..\Project_Source_Files\D_X_G_Data_Hub_P.h">
       <Filter>MophoGUI 2026\Project_Source_Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\D_X_G_Data_User_P.h">
+      <Filter>MophoGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\D_X_G_Editor_P.h">
       <Filter>MophoGUI 2026\Project_Source_Files</Filter>
     </ClInclude>

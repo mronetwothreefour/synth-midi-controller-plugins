@@ -42,27 +42,28 @@ AudioProcessorEditor* Audio_Processor_B::createEditor() {
 }
 
 void Audio_Processor_B::getStateInformation(MemoryBlock& target_mem_block) {
-    XmlElement plugin_state_xml{ ID::xml_plugin_state };
-    auto exposed_state_tree{ hub->get_exposed_state()->copyState() };
-    auto exposed_state_xml{ exposed_state_tree.createXml() };
-    exposed_state_xml->setTagName(ID::xml_exposed_state.toString());
-    if (exposed_state_xml)
-        plugin_state_xml.addChildElement(exposed_state_xml.release());
-    add_plugin_specific_param_state_to_xml(plugin_state_xml);
-    copyXmlToBinary(plugin_state_xml, target_mem_block);
+    XmlElement plugin_state{ ID::xml_state_plugin };
+    auto exposed_state{ hub->get_exposed_state()->copyState().createXml() };
+    exposed_state->setTagName(ID::xml_state_exposed.toString());
+    if (exposed_state)
+        plugin_state.addChildElement(exposed_state.release());
+    plugin_state.setAttribute(ID::xml_att_scale_factor, hub->get_scale_factor());
+    store_plugin_specific_param_state(plugin_state);
+    copyXmlToBinary(plugin_state, target_mem_block);
 }
 
 void Audio_Processor_B::setStateInformation(const void* stored_param_data, int data_size) {
-    auto plugin_state_xml{ getXmlFromBinary(stored_param_data, data_size) };
-    if (plugin_state_xml) {
-        auto exposed_state_xml{ plugin_state_xml->getChildByName(ID::xml_exposed_state.toString()) };
-        if (exposed_state_xml) {
+    auto plugin_state{ getXmlFromBinary(stored_param_data, data_size) };
+    if (plugin_state) {
+        auto exposed_state{ plugin_state->getChildByName(ID::xml_state_exposed.toString()) };
+        if (exposed_state) {
             //transmitOptions->setParamChangesShouldBeTransmitted(false);
-            auto exposed_state_tree{ ValueTree::fromXml(*exposed_state_xml) };
-            hub->get_exposed_state()->replaceState(exposed_state_tree);
+            hub->get_exposed_state()->replaceState(ValueTree::fromXml(*exposed_state));
             //transmitOptions->setParamChangesShouldBeTransmitted(true);
         }
-        restore_plugin_specific_param_state(plugin_state_xml.get());
+        auto& scale_factor = hub->get_scale_factor();
+        scale_factor = (float)plugin_state->getDoubleAttribute(ID::xml_att_scale_factor.toString(), 1.0);
+        restore_plugin_specific_param_state(plugin_state.get());
     }
 }
 

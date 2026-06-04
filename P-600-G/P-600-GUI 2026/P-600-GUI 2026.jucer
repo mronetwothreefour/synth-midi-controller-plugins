@@ -72,6 +72,8 @@
             file="Project_Source_Files/D_X_G_Data_Hub_P.cpp"/>
       <FILE id="StJra6" name="D_X_G_Data_Hub_P.h" compile="0" resource="0"
             file="Project_Source_Files/D_X_G_Data_Hub_P.h"/>
+      <FILE id="E6zz6c" name="D_X_G_Data_User_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_X_G_Data_User_P.h"/>
       <FILE id="kKosFe" name="D_X_G_Editor_P.cpp" compile="1" resource="0"
             file="Project_Source_Files/D_X_G_Editor_P.cpp"/>
       <FILE id="N41Qft" name="D_X_G_Editor_P.h" compile="0" resource="0"

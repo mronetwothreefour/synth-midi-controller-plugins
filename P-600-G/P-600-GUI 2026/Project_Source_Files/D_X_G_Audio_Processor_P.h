@@ -13,8 +13,8 @@ public: Audio_Processor_P();
 
 public: void process_block(AudioBuffer<float>& audio, MidiBuffer& midi) override;
 public: AudioProcessorEditor* create_editor() override;
-public: void add_plugin_specific_param_state_to_xml(XmlElement& plugin_state_xml) override;
-public: void restore_plugin_specific_param_state(XmlElement* plugin_state_xml) override;
+public: void store_plugin_specific_param_state(XmlElement& plugin_state) override;
+public: void restore_plugin_specific_param_state(XmlElement* plugin_state) override;
 
 public: ~Audio_Processor_P() override;
 

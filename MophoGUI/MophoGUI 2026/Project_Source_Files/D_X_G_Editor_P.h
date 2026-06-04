@@ -3,14 +3,16 @@
 #include <JuceHeader.h>
 
 #include "D_X_G_Audio_Processor_P.h"
+#include "D_X_G_Data_User_P.h"
 
 class Editor_P :
-    public AudioProcessorEditor
+    public AudioProcessorEditor,
+    public Data_User_P
 {
 private: Audio_Processor_P& processor;
 
 //==============================================================================
-public: Editor_P(Audio_Processor_P& processor);
+public: Editor_P(Audio_Processor_P& processor, Data_Hub_P* hub);
 
 public: void paint(Graphics& g) override;
 public: void resized() override;
