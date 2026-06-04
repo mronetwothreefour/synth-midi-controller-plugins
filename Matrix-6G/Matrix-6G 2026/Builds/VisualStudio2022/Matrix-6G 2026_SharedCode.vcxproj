@@ -2997,6 +2997,7 @@
     <ClInclude Include="..\..\Project_Source_Files\C_EXP_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\C_ID_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\C_PATH_Editor_Background_P.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\C_PATH_LED_Text_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\C_SL_Tip_Exposed_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\C_XYWH_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\D_SUBTREE_Choices_Exp_P.h"/>
