@@ -16,7 +16,7 @@ struct Subtree_Exposed_Info_P
 						   ValueTree choices_curt, ValueTree choices,
 						   int red_toggle_center_x = 0, int red_toggle_center_y = 0)
 	{
-		ValueTree tree_ep{ id,
+		ValueTree tree{ id,
 			{
 				{ ID::exp_p_name, name },
 				{ ID::exp_p_ctrl_type, (int)ctrl },
@@ -34,6 +34,17 @@ struct Subtree_Exposed_Info_P
 			},
 			{ choices_curt, choices }
 		};
-		return tree_ep;
+		auto param_num{ id.toString().fromFirstOccurrenceOf("exp_", false, true)
+									 .upToFirstOccurrenceOf("_", false, true)
+									 .getIntValue() };
+		if (param_num >= EXP::first_unassigned_param_num)
+			param_num += EXP::unassigned_param_count;
+		auto packed_bits_byte_index{ (param_num / 7) * 8 };
+		tree.setProperty(ID::exp_p_packed_bits_byte_index, packed_bits_byte_index, nullptr);
+		auto packed_bits_mask{ roundToInt(pow(2, param_num % 7)) };
+		tree.setProperty(ID::exp_p_packed_bits_mask, packed_bits_mask, nullptr);
+		auto byte_index{ packed_bits_byte_index + param_num % 7 + 1 };
+		tree.setProperty(ID::exp_p_byte_index, byte_index, nullptr);
+		return tree;
 	}
 };
