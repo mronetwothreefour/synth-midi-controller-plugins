@@ -79,8 +79,7 @@ namespace ID
 
 	// exposed parameter properties
 	static const Identifier exp_p_byte_index{ "exp_p_byte_index" };
-	static const Identifier exp_p_choice_menu_type{ "exp_p_choice_menu_type" };
-	static const Identifier exp_p_knob_display_type{ "exp_p_knob_display_type" };
+	static const Identifier exp_p_knob_editor_type{ "exp_p_knob_editor_type" };
 	static const Identifier exp_p_nrpn{ "exp_p_nrpn" };
 	static const Identifier exp_p_packed_bits_byte_index{ "exp_p_packed_bits_byte_index" };
 	static const Identifier exp_p_packed_bits_mask{ "exp_p_packed_bits_mask" };

@@ -16,7 +16,7 @@ namespace ENUM
 		switch_osc_octave
 	};
 
-	constexpr enum class Knob_Display_Type {
+	constexpr enum class Knob_Editor_Type {
 		error = -1,
 		none,
 		osc_pitch_fine,
