@@ -703,6 +703,9 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_Hub_B.cpp">
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Wheel_Mod_B.cpp">
+      <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\D_SUBTREE_Choices_Exp_P.cpp">
       <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
     </ClCompile>
@@ -3768,6 +3771,9 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_DRAW_Paths_B.h">
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Wheel_Mod_B.h">
+      <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\C_COLOR_P.h">
       <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
     </ClInclude>
@@ -3817,6 +3823,9 @@
       <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_Editor_P.h">
+      <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Slider_Wheel_Mod_P.h">
       <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

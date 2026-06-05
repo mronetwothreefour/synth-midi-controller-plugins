@@ -37,6 +37,10 @@
             file="../../_Base_Source_Files/D_X_G_Data_User_B.h"/>
       <FILE id="YXJzex" name="G_DRAW_Paths_B.h" compile="0" resource="0"
             file="../../_Base_Source_Files/G_DRAW_Paths_B.h"/>
+      <FILE id="y7bdHJ" name="G_WIDG_Slider_Wheel_Mod_B.cpp" compile="1"
+            resource="0" file="../../_Base_Source_Files/G_WIDG_Slider_Wheel_Mod_B.cpp"/>
+      <FILE id="UljWDI" name="G_WIDG_Slider_Wheel_Mod_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Slider_Wheel_Mod_B.h"/>
     </GROUP>
     <GROUP id="{C02A1A4E-C369-BB7A-1A3F-4F81F5D39CBF}" name="Project_Source_Files">
       <FILE id="bLzfvR" name="C_COLOR_P.h" compile="0" resource="0" file="Project_Source_Files/C_COLOR_P.h"/>
@@ -81,6 +85,8 @@
             file="Project_Source_Files/G_DRAW_Paths_Editor_P.cpp"/>
       <FILE id="SDqFPr" name="G_DRAW_Paths_Editor_P.h" compile="0" resource="0"
             file="Project_Source_Files/G_DRAW_Paths_Editor_P.h"/>
+      <FILE id="PawCR1" name="G_WIDG_Slider_Wheel_Mod_P.h" compile="0" resource="0"
+            file="Project_Source_Files/G_WIDG_Slider_Wheel_Mod_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

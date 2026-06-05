@@ -149,6 +149,7 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\D_TREE_Exposed_Info_B.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Audio_Processor_B.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_Hub_B.cpp"/>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Wheel_Mod_B.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\D_SUBTREE_Bit_Loc_Exp_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\D_SUBTREE_Choices_Exp_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\D_TIP_Exposed_P.cpp"/>
@@ -157,6 +158,7 @@
     <ClCompile Include="..\..\Project_Source_Files\D_X_G_Data_Hub_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\D_X_G_Editor_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\G_DRAW_Paths_Editor_P.cpp"/>
+    <ClCompile Include="..\..\Project_Source_Files\G_WIDG_Slider_Wheel_Mod_P.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2993,6 +2995,7 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_Hub_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_User_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_DRAW_Paths_B.h"/>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Wheel_Mod_B.h"/>
     <ClInclude Include="..\..\Project_Source_Files\C_COLOR_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\C_ENUM_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\C_EXP_P.h"/>
@@ -3010,6 +3013,7 @@
     <ClInclude Include="..\..\Project_Source_Files\D_X_G_Data_User_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\D_X_G_Editor_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_Editor_P.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Slider_Wheel_Mod_P.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

@@ -25,3 +25,5 @@ D_X_G_Data_Hub_P
 D_X_G_Editor_P
 G_DRAW_Paths_B
 G_DRAW_Paths_Editor_P
+G_WIDG_Slider_Wheel_Mod_B
+G_WIDG_Slider_Wheel_Mod_P
