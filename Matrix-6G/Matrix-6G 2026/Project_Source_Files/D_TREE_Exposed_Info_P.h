@@ -16,7 +16,7 @@ public: const int number_for(int param_index) const;
 public: const int byte_index_for(int param_index) const;
 public: const Ctrl_Type ctrl_type_for(const int param_index) const;
 public: const Range_Type range_type_for(const int param_index) const;
-public: const Slider_Editor_Type slider_editor_type_for(const int param_index) const;
+public: const Slider_Display_Type slider_display_type_for(const int param_index) const;
 
 //==============================================================================
 private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Tree_Exposed_Info_P)

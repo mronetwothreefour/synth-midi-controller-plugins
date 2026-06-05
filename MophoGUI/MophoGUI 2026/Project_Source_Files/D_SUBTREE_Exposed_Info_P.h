@@ -10,7 +10,7 @@ using namespace ENUM;
 struct Subtree_Exposed_Info_P
 {
 	static ValueTree build(Identifier id, String name, Ctrl_Type ctrl,
-						   Knob_Editor_Type editor, int nrpn, int choice_count,
+						   Knob_Display_Type display, int nrpn, int choice_count,
 						   int init_choice, int ctrl_center_x, int ctrl_center_y,
 						   int ctrl_w, int ctrl_h, String tip,
 						   ValueTree choices_curt, ValueTree choices,
@@ -20,7 +20,7 @@ struct Subtree_Exposed_Info_P
 			{
 				{ ID::exp_p_name, name },
 				{ ID::exp_p_ctrl_type, (int)ctrl },
-				{ ID::exp_p_knob_editor_type, (int)editor },
+				{ ID::exp_p_knob_display_type, (int)display },
 				{ ID::exp_p_nrpn, nrpn },
 				{ ID::exp_p_choice_count, choice_count },
 				{ ID::exp_p_init_choice, init_choice },

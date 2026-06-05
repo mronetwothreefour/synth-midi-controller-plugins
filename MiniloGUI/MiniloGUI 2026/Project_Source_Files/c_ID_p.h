@@ -50,7 +50,7 @@ namespace ID
 	// exposed parameter properties
 	static const Identifier exp_p_bit_count{ "exp_p_bit_count" };
 	static const Identifier exp_p_cc_num{ "exp_p_cc_num" };
-	static const Identifier exp_p_knob_editor_type{ "exp_p_knob_editor_type" };
+	static const Identifier exp_p_knob_display_type{ "exp_p_knob_display_type" };
 
 	static const Identifier tree_bit_locations{ "tree_bit_locations" };
 }
