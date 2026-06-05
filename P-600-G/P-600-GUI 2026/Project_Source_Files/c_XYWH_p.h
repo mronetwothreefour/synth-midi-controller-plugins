@@ -7,6 +7,9 @@ namespace XYWH
 
 	constexpr double gui_aspect_ratio{ 3.42347 };
 
+	constexpr float rotary_slider_end_angle{ degreesToRadians(30.0f) };
+	constexpr float rotary_slider_start_angle{ degreesToRadians(330.0f) };
+
 	constexpr int gui_init_w{ 1342 }, gui_init_h{ 392 };
 
 	constexpr int knob_diameter{ 34 };

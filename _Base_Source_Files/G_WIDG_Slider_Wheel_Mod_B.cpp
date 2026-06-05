@@ -3,7 +3,11 @@
 Slider_Wheel_Mod_B::Slider_Wheel_Mod_B(Data_Hub_P* hub) :
 	Data_User_P{ hub },
 	modifying_pitch{ false }
-{}
+{
+	setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
+	setRotaryParameters(XYWH::rotary_slider_start_angle, XYWH::rotary_slider_end_angle, true);
+	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
+}
 
 void Slider_Wheel_Mod_B::mouseWheelMove(const MouseEvent& e, const MouseWheelDetails& wheel) {
 	if (isEnabled()) {
