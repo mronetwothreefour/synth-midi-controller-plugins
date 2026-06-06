@@ -7,6 +7,7 @@ namespace XYWH
 
 	constexpr double gui_aspect_ratio{ 2.10067  };
 
+	constexpr float led_display_y{ 3 };
 	constexpr float rotary_slider_end_angle{ degreesToRadians(495.0f) };
 	constexpr float rotary_slider_start_angle{ degreesToRadians(225.0f) };
 
@@ -57,6 +58,10 @@ namespace XYWH
 	constexpr int lfo_col_1_x{ 726 };
 	constexpr int lfo_col_2_x{ 792 };
 	constexpr int lfo_ctrl_w{ 60 };
+
+	constexpr int led_display_left_inset{ 3 };
+	constexpr int led_display_right_inset{ 1 };
+	constexpr int led_display_char_w{ 11 };
 
 	constexpr int porta_key_mode_col_x{ 544 };
 	constexpr int porta_key_mode_col_w{ 72 };

@@ -85,6 +85,10 @@
             file="Project_Source_Files/G_DRAW_Paths_Editor_P.cpp"/>
       <FILE id="yYLd5Q" name="G_DRAW_Paths_Editor_P.h" compile="0" resource="0"
             file="Project_Source_Files/G_DRAW_Paths_Editor_P.h"/>
+      <FILE id="gkqj3U" name="G_DRAW_Paths_LED_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/G_DRAW_Paths_LED_P.cpp"/>
+      <FILE id="cFYY6i" name="G_DRAW_Paths_LED_P.h" compile="0" resource="0"
+            file="Project_Source_Files/G_DRAW_Paths_LED_P.h"/>
       <FILE id="HFrRZ2" name="G_WIDG_Slider_Wheel_Mod_P.h" compile="0" resource="0"
             file="Project_Source_Files/G_WIDG_Slider_Wheel_Mod_P.h"/>
     </GROUP>
