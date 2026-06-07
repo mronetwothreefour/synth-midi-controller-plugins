@@ -5,6 +5,9 @@
     <Filter Include="Matrix-6G 2026\_Base_Source_Files">
       <UniqueIdentifier>{D07546E5-03E5-FA00-1E40-29284C87C73E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matrix-6G 2026\Project_Source_Files\binaries">
+      <UniqueIdentifier>{760AB05D-0A9C-21C0-63B4-D869092ADA4C}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Matrix-6G 2026\Project_Source_Files">
       <UniqueIdentifier>{1387CCDE-7DEF-6203-10B4-C8A92700FFD3}</UniqueIdentifier>
     </Filter>
@@ -703,6 +706,9 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_Hub_B.cpp">
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.cpp">
+      <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Wheel_Mod_B.cpp">
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClCompile>
@@ -728,6 +734,9 @@
       <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\G_DRAW_Paths_LED_P.cpp">
+      <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.cpp">
       <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -3670,6 +3679,9 @@
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_midi_ci\juce_midi_ci.cpp">
       <Filter>JUCE Modules\juce_midi_ci</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
@@ -3774,6 +3786,9 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_DRAW_Paths_B.h">
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.h">
+      <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Wheel_Mod_B.h">
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClInclude>
@@ -3784,6 +3799,9 @@
       <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\C_EXP_P.h">
+      <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\C_FONT_P.h">
       <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\C_ID_P.h">
@@ -3829,6 +3847,9 @@
       <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_LED_P.h">
+      <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.h">
       <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Slider_Wheel_Mod_P.h">
@@ -7968,6 +7989,9 @@
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h">
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h">
+      <Filter>JUCE Library Code</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h">
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
@@ -7976,6 +8000,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\..\..\..\SOCL0\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\SWISSB.TTF">
+      <Filter>Matrix-6G 2026\Project_Source_Files\binaries</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\..\SOCL0\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\SWISSCL.TTF">
+      <Filter>Matrix-6G 2026\Project_Source_Files\binaries</Filter>
+    </None>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt">
       <Filter>JUCE Modules\juce_audio_devices\native\asio</Filter>
     </None>

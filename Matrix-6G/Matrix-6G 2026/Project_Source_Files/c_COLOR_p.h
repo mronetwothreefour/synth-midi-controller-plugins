@@ -14,5 +14,6 @@ namespace COLOR
 	const Colour light_grey{ 0xff656565 };
 	const Colour off_white{ 0xffe1e1e1 };
 	const Colour orange{ 0xffb53100 };
+	const Colour txt_highlight{ 0xaa00bed6 };
 
 }

@@ -14,5 +14,6 @@ namespace COLOR
 	const Colour screw_hole{ 0xff707070 };
 	const Colour silver_1{ 0xffdfdfdf };
 	const Colour silver_2{ 0xffc4c4c4 };
+	const Colour txt_highlight{ 0x28ffffff };
 
 }

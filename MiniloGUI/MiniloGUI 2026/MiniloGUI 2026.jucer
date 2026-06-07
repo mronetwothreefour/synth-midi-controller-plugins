@@ -36,15 +36,24 @@
             file="../../_Base_Source_Files/D_X_G_Data_User_B.h"/>
       <FILE id="FaOiTs" name="G_DRAW_Paths_B.h" compile="0" resource="0"
             file="../../_Base_Source_Files/G_DRAW_Paths_B.h"/>
+      <FILE id="xA6Eh6" name="G_LOOK_AND_FEEL_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/G_LOOK_AND_FEEL_B.cpp"/>
+      <FILE id="hMgsaF" name="G_LOOK_AND_FEEL_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_LOOK_AND_FEEL_B.h"/>
       <FILE id="m55ngl" name="G_WIDG_Slider_Wheel_Mod_B.cpp" compile="1"
             resource="0" file="../../_Base_Source_Files/G_WIDG_Slider_Wheel_Mod_B.cpp"/>
       <FILE id="AAWiSl" name="G_WIDG_Slider_Wheel_Mod_B.h" compile="0" resource="0"
             file="../../_Base_Source_Files/G_WIDG_Slider_Wheel_Mod_B.h"/>
     </GROUP>
     <GROUP id="{4AFA3653-267B-D8E8-BD50-2C57B2AC0144}" name="Project_Source_Files">
+      <GROUP id="{A308D14D-2A57-B09B-F55D-56497ED3DA7B}" name="binaries">
+        <FILE id="xtng3D" name="OVERPASS-BOLD.TTF" compile="0" resource="1"
+              file="../../../../../SOCL0/APPDATA/LOCAL/MICROSOFT/WINDOWS/FONTS/OVERPASS-BOLD.TTF"/>
+      </GROUP>
       <FILE id="uTeyBM" name="C_COLOR_P.h" compile="0" resource="0" file="Project_Source_Files/C_COLOR_P.h"/>
       <FILE id="Xryv67" name="C_ENUM_P.h" compile="0" resource="0" file="Project_Source_Files/C_ENUM_P.h"/>
       <FILE id="nqaJkU" name="C_EXP_P.h" compile="0" resource="0" file="Project_Source_Files/C_EXP_P.h"/>
+      <FILE id="FDSPsI" name="C_FONT_P.h" compile="0" resource="0" file="Project_Source_Files/C_FONT_P.h"/>
       <FILE id="gHjULB" name="C_ID_P.h" compile="0" resource="0" file="Project_Source_Files/C_ID_P.h"/>
       <FILE id="HHCrNp" name="C_PATH_Editor_Background_P.h" compile="0" resource="0"
             file="Project_Source_Files/C_PATH_Editor_Background_P.h"/>
@@ -87,6 +96,10 @@
             file="Project_Source_Files/G_DRAW_Paths_Editor_P.cpp"/>
       <FILE id="sltYGt" name="G_DRAW_Paths_Editor_P.h" compile="0" resource="0"
             file="Project_Source_Files/G_DRAW_Paths_Editor_P.h"/>
+      <FILE id="CSkZF0" name="G_LOOK_AND_FEEL_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/G_LOOK_AND_FEEL_P.cpp"/>
+      <FILE id="ERl643" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"
+            file="Project_Source_Files/G_LOOK_AND_FEEL_P.h"/>
       <FILE id="Ot13cc" name="G_WIDG_Slider_Wheel_Mod_P.cpp" compile="1"
             resource="0" file="Project_Source_Files/G_WIDG_Slider_Wheel_Mod_P.cpp"/>
       <FILE id="KnLKAV" name="G_WIDG_Slider_Wheel_Mod_P.h" compile="0" resource="0"

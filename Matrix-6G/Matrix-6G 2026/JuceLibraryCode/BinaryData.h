@@ -8,20 +8,14 @@
 
 namespace BinaryData
 {
-    extern const char*   texture_jpg;
-    const int            texture_jpgSize = 113941;
-
     extern const char*   SWISSB_TTF;
     const int            SWISSB_TTFSize = 36852;
-
-    extern const char*   SWISSCK_TTF;
-    const int            SWISSCK_TTFSize = 38696;
 
     extern const char*   SWISSCL_TTF;
     const int            SWISSCL_TTFSize = 35064;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 4;
+    const int namedResourceListSize = 2;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
