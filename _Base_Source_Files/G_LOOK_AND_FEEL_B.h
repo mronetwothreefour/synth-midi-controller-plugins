@@ -3,6 +3,8 @@
 #include <JuceHeader.h>
 
 #include "C_COLOR_P.h"
+#include "C_FONT_P.h"
+#include "C_ID_P.h"
 
 class Look_And_Feel_B :
 	public LookAndFeel_V4

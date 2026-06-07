@@ -4,6 +4,10 @@
 
 namespace ID
 {
+	static const Identifier cmp_display_editor{ "cmp_display_editor" };
+	static const Identifier cmp_file_browser{ "cmp_file_browser" };
+	static const Identifier cmp_voice_name_editor{ "cmp_voice_name_editor" };
+
 	// exposed parameter properties
 	static const Identifier exp_p_choice_count{ "exp_p_choice_count" };
 	static const Identifier exp_p_ctrl_center_x{ "exp_p_ctrl_center_x" };

@@ -10,6 +10,8 @@ class Look_And_Feel_P :
 //==============================================================================
 public: Look_And_Feel_P() = default;
 
+public: void drawLabel(Graphics& g, Label& lbl) override;
+
 //==============================================================================
 private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Look_And_Feel_P)
 };
