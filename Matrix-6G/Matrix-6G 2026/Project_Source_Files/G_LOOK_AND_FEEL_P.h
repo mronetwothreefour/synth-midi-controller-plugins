@@ -8,7 +8,7 @@ class Look_And_Feel_P :
 	public Look_And_Feel_B
 {
 //==============================================================================
-public: Look_And_Feel_P() = default;
+public: explicit Look_And_Feel_P(float& scale_factor);
 
 public: void drawLabel(Graphics& g, Label& lbl) override;
 

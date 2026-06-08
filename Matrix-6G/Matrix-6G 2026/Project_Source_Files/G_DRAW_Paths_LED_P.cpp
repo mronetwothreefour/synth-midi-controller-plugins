@@ -548,24 +548,35 @@ Path Draw_Paths_LED_P::build_char_path(const uint8 char_num) {
 	}
 }
 
-void Draw_Paths_LED_P::display_text(Graphics& g, const String txt, const int display_w, bool right_justified) {
+void Draw_Paths_LED_P::display_text(Graphics& g, const String txt, const int display_w, 
+									float& scale_factor, bool right_justified)
+{
+	auto char_w = led_display_char_w * scale_factor;
+	auto display_y = led_display_y * scale_factor;
 	Path path;
 	auto char_count{ txt.length() };
 	if (right_justified) {
-		auto last_char_x = display_w - led_display_right_inset - led_display_char_w;
+		auto inset = led_display_right_inset * scale_factor;
+		auto last_char_x = (float)display_w - char_w - inset;
 		auto last_char_index = char_count - 1;
 		for (int i = last_char_index; i > -1; --i) {
 			auto char_num{ (uint8)txt[i] };
-			auto char_x{ last_char_x - (led_display_char_w * (last_char_index - i)) };
+			auto char_x{ last_char_x - (char_w * (last_char_index - i)) };
 			auto char_path{ build_char_path(char_num) };
-			path.addPath(char_path, AffineTransform::translation((float)char_x, led_display_y));
+			auto char_transform{ AffineTransform::scale(scale_factor) };
+			char_transform = char_transform.translated(char_x, display_y);
+			path.addPath(char_path, char_transform);
 		}
 	}
 	else {
 		for (int i = 0; i < char_count; ++i) {
+			auto inset = led_display_left_inset * scale_factor;
 			auto char_num{ (uint8)txt[i] };
-			auto char_x{ led_display_left_inset + (led_display_char_w * i) };
-			path.addPath(build_char_path(char_num), AffineTransform::translation((float)char_x, led_display_y));
+			auto char_x{ inset + (char_w * i) };
+			auto char_path{ build_char_path(char_num) };
+			auto char_transform{ AffineTransform::scale(scale_factor) };
+			char_transform = char_transform.translated(char_x, display_y);
+			path.addPath(char_path, char_transform);
 		}
 	}
 	g.setColour(COLOR::light_blue);

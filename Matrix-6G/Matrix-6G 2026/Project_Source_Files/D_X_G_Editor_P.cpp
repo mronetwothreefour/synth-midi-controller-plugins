@@ -9,11 +9,10 @@ Editor_P::Editor_P(Audio_Processor_P& processor, Data_Hub_P* hub) :
     AudioProcessorEditor{ &processor },
     processor{ processor },
     Data_User_P{ hub },
-    test_label{ "test", "0*EQ" }
+    l_a_f{ scale_factor },
+    test_label{ "test", "TEST" }
 {
     LookAndFeel::setDefaultLookAndFeel(&l_a_f);
-    test_label.setSize(60, 20);
-    test_label.setCentrePosition(130, 69);
     test_label.setEditable(false, true, true);
     addAndMakeVisible(test_label);
     setWantsKeyboardFocus(true);
@@ -30,6 +29,7 @@ void Editor_P::paint(Graphics& g) {
 
 void Editor_P::resized() {
     scale_factor = (float)getWidth() / XYWH::gui_init_w;
+    test_label.setBounds(roundToInt(100 * scale_factor), roundToInt(59 * scale_factor), roundToInt(60 * scale_factor), roundToInt(20 * scale_factor));
 }
 
 void Editor_P::modifierKeysChanged(const ModifierKeys& /*mods*/) {
@@ -37,5 +37,5 @@ void Editor_P::modifierKeysChanged(const ModifierKeys& /*mods*/) {
 }
 
 Editor_P::~Editor_P() {
-    //LookAndFeel::setDefaultLookAndFeel(nullptr);
+    LookAndFeel::setDefaultLookAndFeel(nullptr);
 }

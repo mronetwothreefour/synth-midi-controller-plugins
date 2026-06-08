@@ -2,6 +2,11 @@
 
 #include "G_DRAW_Paths_LED_P.h"
 
+Look_And_Feel_P::Look_And_Feel_P(float& scale_factor) :
+	Look_And_Feel_B{ scale_factor }
+{
+}
+
 void Look_And_Feel_P::drawLabel(Graphics& g, Label& lbl) {
 	auto parent_id{ lbl.getParentComponent()->getComponentID() };
 	auto grandparent_id{ lbl.getParentComponent()->getParentComponent()->getComponentID() };
@@ -20,6 +25,6 @@ void Look_And_Feel_P::drawLabel(Graphics& g, Label& lbl) {
 		auto right_justified{ lbl.getComponentID() != ID::cmp_voice_name_editor.toString() };
 		g.setColour(COLOR::light_blue);
 		auto txt{ lbl.getText() };
-		Draw_Paths_LED_P::display_text(g, txt, lbl.getWidth(), right_justified);
+		Draw_Paths_LED_P::display_text(g, txt, lbl.getWidth(), scale_factor, right_justified);
 	}
 }

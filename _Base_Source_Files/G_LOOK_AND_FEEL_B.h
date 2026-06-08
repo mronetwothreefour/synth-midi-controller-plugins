@@ -9,12 +9,15 @@
 class Look_And_Feel_B :
 	public LookAndFeel_V4
 {
+protected: float& scale_factor;
+
 //==============================================================================
-public: Look_And_Feel_B();
+public: explicit Look_And_Feel_B(float& scale_factor);
 
 public: void drawComboBox(Graphics& /*g*/, int /*w*/, int /*h*/, bool /*down*/, int /*x*/, int /*y*/,
 						  int /*w*/, int /*h*/, ComboBox& /*cbox*/) override {}
 
+public: void fillTextEditorBackground(Graphics& g, int w, int h, TextEditor& editor) override;
 public: void drawTextEditorOutline(Graphics& /*g*/, int /*w*/, int /*h*/, TextEditor& /*editor*/) override {}
 
 //==============================================================================
