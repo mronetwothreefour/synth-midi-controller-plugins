@@ -4,12 +4,15 @@
 
 #include "D_X_G_Audio_Processor_P.h"
 #include "D_X_G_Data_User_P.h"
+#include "G_LOOK_AND_FEEL_P.h"
 
 class Editor_P :
     public AudioProcessorEditor,
     public Data_User_P
 {
 private: Audio_Processor_P& processor;
+private: Look_And_Feel_P l_a_f;
+private: Label test_label;
 
 //==============================================================================
 public: Editor_P(Audio_Processor_P& processor, Data_Hub_P* hub);

@@ -1,13 +1,21 @@
 #include "D_X_G_Editor_P.h"
 
+#include "C_PATH_LED_Text_P.h"
 #include "C_XYWH_P.h"
 #include "G_DRAW_Paths_Editor_P.h"
+#include "G_DRAW_Paths_LED_P.h"
 
 Editor_P::Editor_P(Audio_Processor_P& processor, Data_Hub_P* hub) :
     AudioProcessorEditor{ &processor },
     processor{ processor },
-    Data_User_P{ hub }
+    Data_User_P{ hub },
+    test_label{ "test", "0*EQ" }
 {
+    LookAndFeel::setDefaultLookAndFeel(&l_a_f);
+    test_label.setSize(60, 20);
+    test_label.setCentrePosition(130, 69);
+    test_label.setEditable(false, true, true);
+    addAndMakeVisible(test_label);
     setWantsKeyboardFocus(true);
     setResizable(true, true);
     setSize(roundToInt(XYWH::gui_init_w * scale_factor), roundToInt(XYWH::gui_init_h * scale_factor));
@@ -29,4 +37,5 @@ void Editor_P::modifierKeysChanged(const ModifierKeys& /*mods*/) {
 }
 
 Editor_P::~Editor_P() {
+    //LookAndFeel::setDefaultLookAndFeel(nullptr);
 }

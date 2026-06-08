@@ -10,7 +10,7 @@ using namespace XYWH;
 Path Draw_Paths_LED_P::build_char_path(const uint8 char_num) {
 	auto char_num_space{ (uint8)32 };
 	if (char_num <= char_num_space)
-		return;
+		return {};
 	if (char_num > 95) {
 		Path path_bar;
 		path_bar.addPath(load_path(led_segment_b, sizeof(led_segment_b)));
@@ -150,7 +150,7 @@ Path Draw_Paths_LED_P::build_char_path(const uint8 char_num) {
 		path_0.addPath(load_path(PATH::led_segment_e, sizeof(PATH::led_segment_e)));
 		path_0.addPath(load_path(PATH::led_segment_f, sizeof(PATH::led_segment_f)));
 		path_0.addPath(load_path(PATH::led_segment_i, sizeof(PATH::led_segment_i)));
-		path_0.addPath(load_path(PATH::led_segment_n, sizeof(PATH::led_segment_n)));
+		path_0.addPath(load_path(PATH::led_segment_m, sizeof(PATH::led_segment_m)));
 		return path_0;
 	}
 	case 49: {
@@ -544,20 +544,21 @@ Path Draw_Paths_LED_P::build_char_path(const uint8 char_num) {
 		return path_underscore;
 	}
 	default:
-		return;
+		return {};
 	}
 }
 
-void Draw_Paths_LED_P::display_text(Graphics& g, const String txt, const int w, bool right_justified) {
+void Draw_Paths_LED_P::display_text(Graphics& g, const String txt, const int display_w, bool right_justified) {
 	Path path;
 	auto char_count{ txt.length() };
 	if (right_justified) {
-		auto last_char_x = w - led_display_right_inset - led_display_char_w;
+		auto last_char_x = display_w - led_display_right_inset - led_display_char_w;
 		auto last_char_index = char_count - 1;
 		for (int i = last_char_index; i > -1; --i) {
 			auto char_num{ (uint8)txt[i] };
 			auto char_x{ last_char_x - (led_display_char_w * (last_char_index - i)) };
-			path.addPath(build_char_path(char_num), AffineTransform::translation((float)char_x, led_display_y));
+			auto char_path{ build_char_path(char_num) };
+			path.addPath(char_path, AffineTransform::translation((float)char_x, led_display_y));
 		}
 	}
 	else {
