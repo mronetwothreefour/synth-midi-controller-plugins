@@ -2,9 +2,17 @@
 
 #include <JuceHeader.h>
 
-namespace FONT
+struct FONT
 {
-	const FontOptions bold{ Typeface::createSystemTypefaceFor(BinaryData::OVERPASSBOLD_TTF, BinaryData::OVERPASSBOLD_TTFSize) };
+	static const FontOptions bold() {
+		return FontOptions{ Typeface::createSystemTypefaceFor(BinaryData::OVERPASSBOLD_TTF, BinaryData::OVERPASSBOLD_TTFSize) };
+	}
 
-	const Font display_editor{ bold.withPointHeight(13.0f) };
-}
+	static const Font file_browser(const float scale_factor) {
+		return Font{ bold() }.withPointHeight(14.0f * scale_factor);
+	}
+
+	static const Font disp_editor(const float scale_factor) {
+		return Font{ bold() }.withPointHeight(13.0f * scale_factor);
+	}
+};

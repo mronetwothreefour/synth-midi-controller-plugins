@@ -2,11 +2,21 @@
 
 #include <JuceHeader.h>
 
-namespace FONT
+struct FONT
 {
-	const FontOptions bold{ Typeface::createSystemTypefaceFor(BinaryData::SWISSB_TTF, BinaryData::SWISSB_TTFSize) };
-	const FontOptions cond_light{ Typeface::createSystemTypefaceFor(BinaryData::SWISSCL_TTF, BinaryData::SWISSCL_TTFSize) };
+	static const FontOptions bold() { 
+		return FontOptions{ Typeface::createSystemTypefaceFor(BinaryData::SWISSB_TTF, BinaryData::SWISSB_TTFSize) };
+	}
 
-	const Font file_browser{ bold.withPointHeight(16.0f) };
-	const Font display_editor{ bold.withPointHeight(16.0f) };
-}
+	static const FontOptions cond_light() {
+		return FontOptions{ Typeface::createSystemTypefaceFor(BinaryData::SWISSCL_TTF, BinaryData::SWISSCL_TTFSize) };
+	}
+
+	static const Font file_browser(const float scale_factor) {
+		return Font{ bold() }.withPointHeight(14.0f * scale_factor);
+	}
+
+	static const Font disp_editor(const float scale_factor) {
+		return Font{ bold() }.withPointHeight(14.0f * scale_factor);
+	}
+};

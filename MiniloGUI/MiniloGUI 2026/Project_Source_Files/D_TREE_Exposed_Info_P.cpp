@@ -122,7 +122,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 		Subtree_Exposed_Info_P::build(
 			ID::exp_15_lpf_freq, "LPF Cutoff Frequency", Ctrl_Type::knob,
 			Knob_Display_Type::unsigned_10_bit, 43, EXP::choice_count_unsigned_10_bit, 1023,
-			433, 111, knob_lpf_freq_diameter, knob_lpf_freq_diameter,
+			433, 111, knob_diameter_lpf_freq, knob_diameter_lpf_freq,
 			Tip_Exp::lpf_freq(), Bit_Loc_Exp::lpf_freq(),
 			Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
 			Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit)

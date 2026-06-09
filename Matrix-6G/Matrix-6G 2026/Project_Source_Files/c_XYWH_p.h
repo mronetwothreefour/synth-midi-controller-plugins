@@ -59,6 +59,8 @@ namespace XYWH
 	constexpr int lfo_col_2_x{ 792 };
 	constexpr int lfo_ctrl_w{ 60 };
 
+	constexpr int knob_disp_inset{ 0 };
+
 	constexpr int led_display_left_inset{ 3 };
 	constexpr int led_display_right_inset{ 1 };
 	constexpr int led_display_char_w{ 11 };

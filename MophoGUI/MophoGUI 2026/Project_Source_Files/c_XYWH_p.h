@@ -14,6 +14,7 @@ namespace XYWH
 
 	constexpr int cbox_h{ 16 };
 	constexpr int knob_diameter{ 40 };
+	constexpr int knob_disp_inset{ 5 };
 	constexpr int toggle_center_offset{ 1 };
 	constexpr int toggle_diameter{ 14 };
 

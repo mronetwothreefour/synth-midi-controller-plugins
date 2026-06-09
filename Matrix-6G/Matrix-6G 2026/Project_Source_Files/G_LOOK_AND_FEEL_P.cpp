@@ -17,7 +17,7 @@ void Look_And_Feel_P::drawLabel(Graphics& g, Label& lbl) {
 		auto textArea{ lbl.getLocalBounds() };
 		textArea.removeFromLeft(5);
 		g.setColour(COLOR::text);
-		g.setFont(FONT::file_browser);
+		g.setFont(FONT::file_browser(scale_factor));
 		g.drawFittedText(lbl.getText(), textArea, Justification::centredLeft, 1, 1.0f);
 		return;
 	}
@@ -27,4 +27,8 @@ void Look_And_Feel_P::drawLabel(Graphics& g, Label& lbl) {
 		auto txt{ lbl.getText() };
 		Draw_Paths_LED_P::display_text(g, txt, lbl.getWidth(), scale_factor, right_justified);
 	}
+}
+
+void Look_And_Feel_P::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h*/, TextEditor& /*editor*/) {
+	g.fillAll(COLOR::txt_edit_bkgrnd);
 }

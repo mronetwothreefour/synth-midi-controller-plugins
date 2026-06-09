@@ -11,6 +11,7 @@ class Look_And_Feel_P :
 public: explicit Look_And_Feel_P(float& scale_factor);
 
 public: void drawLabel(Graphics& g, Label& lbl) override;
+public: void fillTextEditorBackground(Graphics& g, int w, int h, TextEditor& editor) override;
 
 //==============================================================================
 private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Look_And_Feel_P)
