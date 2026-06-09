@@ -4,6 +4,10 @@
 #include "C_PATH_Editor_Background_P.h"
 
 void Draw_Paths_Editor_P::background(Graphics& g) {
+	MemoryInputStream texture_stream{ BinaryData::texture_jpg, BinaryData::texture_jpgSize, false };
+	JPEGImageFormat img_format;
+	auto background_texture = img_format.decodeImage(texture_stream);
+	g.drawImageAt(background_texture, 0, 0);
 	g.setColour(COLOR::black);
 	g.fillPath(load_path(PATH::editor_black, sizeof(PATH::editor_black)));
 	g.setColour(COLOR::translucent_white);

@@ -149,6 +149,7 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\D_TREE_Exposed_Info_B.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Audio_Processor_B.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_Hub_B.cpp"/>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Editor_B.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Wheel_Mod_B.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\D_SUBTREE_Bit_Loc_Exp_P.cpp"/>
@@ -2997,6 +2998,7 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Audio_Processor_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_Hub_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_User_B.h"/>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Editor_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_DRAW_Paths_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Wheel_Mod_B.h"/>

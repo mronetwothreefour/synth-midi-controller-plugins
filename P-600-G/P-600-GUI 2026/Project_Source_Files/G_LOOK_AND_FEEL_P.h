@@ -8,7 +8,7 @@ class Look_And_Feel_P :
 	public Look_And_Feel_B
 {
 //==============================================================================
-public: Look_And_Feel_P() = default;
+public: Look_And_Feel_P(float& scale_factor);
 
 //==============================================================================
 private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Look_And_Feel_P)

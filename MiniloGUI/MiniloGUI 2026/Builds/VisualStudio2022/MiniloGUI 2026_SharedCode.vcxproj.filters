@@ -706,6 +706,9 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_Hub_B.cpp">
       <Filter>MiniloGUI 2026\_Base_Source_Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Editor_B.cpp">
+      <Filter>MiniloGUI 2026\_Base_Source_Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.cpp">
       <Filter>MiniloGUI 2026\_Base_Source_Files</Filter>
     </ClCompile>
@@ -3784,6 +3787,9 @@
       <Filter>MiniloGUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_User_B.h">
+      <Filter>MiniloGUI 2026\_Base_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Editor_B.h">
       <Filter>MiniloGUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_DRAW_Paths_B.h">

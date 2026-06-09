@@ -34,6 +34,10 @@
             file="../../_Base_Source_Files/D_X_G_Data_Hub_B.h"/>
       <FILE id="HtmNeC" name="D_X_G_Data_User_B.h" compile="0" resource="0"
             file="../../_Base_Source_Files/D_X_G_Data_User_B.h"/>
+      <FILE id="HIEuYt" name="D_X_G_Editor_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/D_X_G_Editor_B.cpp"/>
+      <FILE id="maT2KV" name="D_X_G_Editor_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/D_X_G_Editor_B.h"/>
       <FILE id="FaOiTs" name="G_DRAW_Paths_B.h" compile="0" resource="0"
             file="../../_Base_Source_Files/G_DRAW_Paths_B.h"/>
       <FILE id="xA6Eh6" name="G_LOOK_AND_FEEL_B.cpp" compile="1" resource="0"
