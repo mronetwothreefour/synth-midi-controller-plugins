@@ -4,3 +4,6 @@ Look_And_Feel_P::Look_And_Feel_P(float& scale_factor) :
 	Look_And_Feel_B{ scale_factor }
 {
 }
+
+void Look_And_Feel_P::draw_label_p(Graphics& /*g*/, Label& /*lbl*/, String& /*lbl_id*/) {
+}

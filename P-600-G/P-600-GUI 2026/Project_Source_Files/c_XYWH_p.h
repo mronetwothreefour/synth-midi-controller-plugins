@@ -13,7 +13,6 @@ namespace XYWH
 	constexpr int gui_init_w{ 1342 }, gui_init_h{ 392 };
 
 	constexpr int knob_diameter{ 34 };
-	constexpr int knob_disp_inset{ 4 };
 	constexpr int knob_row_1_y{ 67 };
 	constexpr int knob_row_2_y{ 170 };
 	constexpr int knob_row_3_y{ 308 };
@@ -38,5 +37,7 @@ namespace XYWH
 	constexpr int switch_row_1_y{ 177 };
 	constexpr int switch_row_2_y{ 315 };
 	constexpr int switch_w{ 20 };
+
+	constexpr int txt_edit_circ_fill_inset{ 4 };
 
 }

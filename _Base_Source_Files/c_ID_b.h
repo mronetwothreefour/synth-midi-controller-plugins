@@ -4,9 +4,6 @@
 
 namespace ID
 {
-	static const Identifier cmp_display_editor{ "cmp_display_editor" };
-	static const Identifier cmp_file_browser{ "cmp_file_browser" };
-	static const Identifier cmp_voice_name_editor{ "cmp_voice_name_editor" };
 
 	// exposed parameter properties
 	static const Identifier exp_p_choice_count{ "exp_p_choice_count" };
@@ -19,14 +16,21 @@ namespace ID
 	static const Identifier exp_p_init_choice{ "exp_p_init_choice" };
 	static const Identifier exp_p_name{ "exp_p_name" };
 
-	static const Identifier tree_exp_param_info{ "tree_exp_param_info" };
-	static const Identifier tree_exp_param_state{ "tree_exp_param_state" };
+	static const Identifier label_cbox{ "label_cbox" };
+	static const Identifier label_file_browser{ "label_file_browser" };
+	static const Identifier label_knob{ "label_knob" };
+
 	static const Identifier sub_tree_choices{ "sub_tree_choices" };
 	static const Identifier sub_tree_choices_curt{ "sub_tree_choices_curt" };
+
+	static const Identifier tree_exp_param_info{ "tree_exp_param_info" };
+	static const Identifier tree_exp_param_state{ "tree_exp_param_state" };
 
 	static const Identifier xml_att_scale_factor{ "xml_att_scale_factor" };
 	static const Identifier xml_state_exposed{ "xml_state_exposed" };
 	static const Identifier xml_state_plugin{ "xml_state_plugin" };
 	static const Identifier xml_state_plugin_specific{ "xml_state_plugin_specific" };
+
+	static const Identifier txt_edit_circ_fill{ "txt_edit_circ_fill" };
 
 }

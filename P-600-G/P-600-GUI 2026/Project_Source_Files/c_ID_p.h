@@ -49,4 +49,6 @@ namespace ID
 	static const Identifier exp_p_bit_count{ "exp_p_bit_count" };
 	static const Identifier exp_p_first_bit_index{ "exp_p_first_bit_index" };
 	static const Identifier exp_p_first_nybble_index{ "exp_p_first_nybble_index" };
+
+	static const Identifier label_led{ "label_led" };
 }

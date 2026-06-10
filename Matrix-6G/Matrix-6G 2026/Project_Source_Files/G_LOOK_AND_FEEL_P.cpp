@@ -7,28 +7,10 @@ Look_And_Feel_P::Look_And_Feel_P(float& scale_factor) :
 {
 }
 
-void Look_And_Feel_P::drawLabel(Graphics& g, Label& lbl) {
-	auto parent_id{ lbl.getParentComponent()->getComponentID() };
-	auto grandparent_id{ lbl.getParentComponent()->getParentComponent()->getComponentID() };
-	auto in_file_browser{ parent_id == ID::cmp_file_browser.toString() ||
-						  grandparent_id == ID::cmp_file_browser.toString()
-	};
-	if (in_file_browser) {
-		auto textArea{ lbl.getLocalBounds() };
-		textArea.removeFromLeft(5);
-		g.setColour(COLOR::text);
-		g.setFont(FONT::file_browser(scale_factor));
-		g.drawFittedText(lbl.getText(), textArea, Justification::centredLeft, 1, 1.0f);
-		return;
-	}
-	if (lbl.getComponentID() != ID::cmp_display_editor.toString()) {
-		auto right_justified{ lbl.getComponentID() != ID::cmp_voice_name_editor.toString() };
+void Look_And_Feel_P::draw_label_p(Graphics& g, Label& lbl, String& id) {
+	if (id == ID::label_led.toString()) {
 		g.setColour(COLOR::light_blue);
 		auto txt{ lbl.getText() };
-		Draw_Paths_LED_P::display_text(g, txt, lbl.getWidth(), scale_factor, right_justified);
+		Draw_Paths_LED_P::display_text(g, txt, lbl.getWidth(), scale_factor, lbl.getJustificationType());
 	}
-}
-
-void Look_And_Feel_P::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h*/, TextEditor& /*editor*/) {
-	g.fillAll(COLOR::txt_edit_bkgrnd);
 }

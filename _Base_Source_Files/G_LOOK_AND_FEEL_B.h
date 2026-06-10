@@ -18,6 +18,8 @@ public: explicit Look_And_Feel_B(float& scale_factor);
 public: void drawComboBox(Graphics& /*g*/, int /*w*/, int /*h*/, bool /*down*/, int /*x*/, int /*y*/,
 						  int /*w*/, int /*h*/, ComboBox& /*cbox*/) override {}
 
+public: void drawLabel(Graphics& g, Label& lbl) override;
+public: virtual void draw_label_p(Graphics& g, Label& lbl, String& id)=0;
 public: virtual void fillTextEditorBackground(Graphics& g, int w, int h, TextEditor& editor) override;
 public: void drawTextEditorOutline(Graphics& /*g*/, int /*w*/, int /*h*/, TextEditor& /*editor*/) override {}
 

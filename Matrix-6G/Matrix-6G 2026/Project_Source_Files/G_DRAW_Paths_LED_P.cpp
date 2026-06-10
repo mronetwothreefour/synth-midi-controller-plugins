@@ -549,13 +549,13 @@ Path Draw_Paths_LED_P::build_char_path(const uint8 char_num) {
 }
 
 void Draw_Paths_LED_P::display_text(Graphics& g, const String txt, const int display_w, 
-									float& scale_factor, bool right_justified)
+									float& scale_factor, Justification j)
 {
 	auto char_w = led_display_char_w * scale_factor;
 	auto display_y = led_display_y * scale_factor;
 	Path path;
 	auto char_count{ txt.length() };
-	if (right_justified) {
+	if (j == Justification::right) {
 		auto inset = led_display_right_inset * scale_factor;
 		auto last_char_x = (float)display_w - char_w - inset;
 		auto last_char_index = char_count - 1;

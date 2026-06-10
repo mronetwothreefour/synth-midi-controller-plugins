@@ -18,20 +18,20 @@ namespace ENUM
 		tracking
 	};
 
-	constexpr enum class Range_Type {
-		error = -1,
-		unsigned_int,
-		signed_6_bit,
-		signed_7_bit
-	};
-
-	constexpr enum class Slider_Display_Type {
+	constexpr enum class Knob_Display_Type {
 		error = -1,
 		none,
 		osc_pitch,
 		signed_6_bit_int,
 		signed_7_bit,
 		unsigned_int
+	};
+
+	constexpr enum class Range_Type {
+		error = -1,
+		unsigned_int,
+		signed_6_bit,
+		signed_7_bit
 	};
 
 }

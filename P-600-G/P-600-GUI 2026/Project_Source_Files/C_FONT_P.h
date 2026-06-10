@@ -20,11 +20,11 @@ struct FONT
 		return Font{ bold() }.withPointHeight(14.0f * scale_factor);
 	}
 
-	static const Font disp_editor(const float scale_factor) {
+	static const Font knob(const float scale_factor) {
 		return Font{ cond_black() }.withPointHeight(12.0f * scale_factor);
 	}
 
-	static const Font disp_editor_led(const float scale_factor) {
+	static const Font txt_edit_led(const float scale_factor) {
 		return Font{ bold() }.withPointHeight(34.0f * scale_factor);
 	}
 };

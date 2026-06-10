@@ -14,7 +14,6 @@ namespace XYWH
 
 	constexpr int cbox_h{ 16 };
 	constexpr int knob_diameter{ 40 };
-	constexpr int knob_disp_inset{ 5 };
 	constexpr int toggle_center_offset{ 1 };
 	constexpr int toggle_diameter{ 14 };
 
@@ -78,6 +77,8 @@ namespace XYWH
 	constexpr int seq_track_dest_cbox_w{ 126 };
 	constexpr int seq_track_dest_cbox_x{ 1065 };
 	constexpr int step_and_char_gap{ 2 };
+
+	constexpr int txt_edit_circ_fill_inset{ 5 };
 
 	constexpr int vca_row_1_y{ 373 };
 	constexpr int vca_row_2_y{ 425 };
