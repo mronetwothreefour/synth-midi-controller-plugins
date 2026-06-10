@@ -161,6 +161,7 @@
     <ClCompile Include="..\..\Project_Source_Files\G_DRAW_Paths_Editor_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\G_DRAW_Paths_LED_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.cpp"/>
+    <ClCompile Include="..\..\Project_Source_Files\G_WIDG_Knob_Display_Exposed_P.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -3021,6 +3022,7 @@
     <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_Editor_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_LED_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Knob_Display_Exposed_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Slider_Wheel_Mod_P.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>

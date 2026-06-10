@@ -89,11 +89,11 @@ G_WIDG_Cbox_Exposed
 G_WIDG_Cbox_Global
 G_WIDG_Cbox_Matrix_Mod
 G_WIDG_Cbox_Splits
-G_WIDG_Display_Exposed (Can use AudioProcessorParameter::Listener with RangedAudioParameter)
-G_WIDG_Display_Global
-G_WIDG_Display_Matrix_Mod
-G_WIDG_Display_Splits
-G_WIDG_Display_Voice_Map
+G_WIDG_Knob_Display_Exposed_P (Can use AudioProcessorParameter::Listener with RangedAudioParameter)
+G_WIDG_Knob_Display_Global
+G_WIDG_Knob_Display_Matrix_Mod
+G_WIDG_Knob_Display_Splits
+G_WIDG_Knob_Display_Voice_Map
 G_WIDG_Exposed_Control_B
 G_WIDG_Exposed_Control_Hub
 G_WIDG_Slider_Exposed

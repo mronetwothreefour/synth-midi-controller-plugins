@@ -106,6 +106,10 @@
             file="Project_Source_Files/G_LOOK_AND_FEEL_P.cpp"/>
       <FILE id="Fz0RPp" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"
             file="Project_Source_Files/G_LOOK_AND_FEEL_P.h"/>
+      <FILE id="CCox9Z" name="G_WIDG_Knob_Display_Exposed_P.cpp" compile="1"
+            resource="0" file="Project_Source_Files/G_WIDG_Knob_Display_Exposed_P.cpp"/>
+      <FILE id="bMWLgd" name="G_WIDG_Knob_Display_Exposed_P.h" compile="0"
+            resource="0" file="Project_Source_Files/G_WIDG_Knob_Display_Exposed_P.h"/>
       <FILE id="HFrRZ2" name="G_WIDG_Slider_Wheel_Mod_P.h" compile="0" resource="0"
             file="Project_Source_Files/G_WIDG_Slider_Wheel_Mod_P.h"/>
     </GROUP>
