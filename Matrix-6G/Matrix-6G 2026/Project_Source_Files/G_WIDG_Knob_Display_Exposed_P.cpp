@@ -1,20 +1,9 @@
 #include "G_WIDG_Knob_Display_Exposed_P.h"
 
-#include "D_TIP_Widget_P.h"
-
-using Tip_W = Tip_Widget_P;
-
 Knob_Display_Exposed_P::Knob_Display_Exposed_P(const int param_index, Data_Hub_P* hub) :
-	Data_User_P{ hub },
-	param_index{ param_index },
-	param{ exp_state->getParameter(exp_info.id_for(param_index).toString()) },
-	display_type{ exp_info.knob_display_type_for(param_index) }
+	Knob_Display_Exposed_B{ param_index, hub}
 {
-	param->addListener(this);
-	setInterceptsMouseClicks(false, true);
 	setComponentID(ID::label_led.toString());
-	onEditorShow = [this] { on_editor_show(); };
-	onTextChange = [this] { on_text_change(); };
 }
 
 void Knob_Display_Exposed_P::on_editor_show() {
@@ -78,16 +67,4 @@ void Knob_Display_Exposed_P::on_text_change() {
 		}
 	}
 	set_text_to_stored_choice();
-}
-
-void Knob_Display_Exposed_P::handleAsyncUpdate() {
-	set_text_to_stored_choice();
-}
-
-void Knob_Display_Exposed_P::parameterValueChanged(int /*param_index*/, float /*new_value*/) {
-	triggerAsyncUpdate();
-}
-
-Knob_Display_Exposed_P::~Knob_Display_Exposed_P() {
-	param->removeListener(this);
 }
