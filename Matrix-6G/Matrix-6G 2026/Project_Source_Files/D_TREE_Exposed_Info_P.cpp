@@ -63,7 +63,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 				"Oscillator " + (String)osc + (osc == 1 ? " Sync" : " Detune"), 
 				osc == 1 ? Ctrl_Type::cbox : Ctrl_Type::slider, osc == 1 ? 17 : 11,
 				osc == 1 ? Range_Type::unsigned_int : Range_Type::signed_6_bit, 
-				osc == 1 ? Knob_Display_Type::none : Knob_Display_Type::signed_6_bit_int,
+				osc == 1 ? Knob_Display_Type::none : Knob_Display_Type::signed_6_bit,
 				osc == 1 ? 4 : 63, osc == 1 ? 0 : 33, center_x, ctrl_row_05_y, osc_ctrl_w,
 				osc == 1 ? Tip_Exp::osc_1_sync() : Tip_Exp::osc_2_detune(),
 				osc == 1 ? Choices_Exp::osc_1_sync(curt) : Choices_Exp::unsigned_int(64, curt),

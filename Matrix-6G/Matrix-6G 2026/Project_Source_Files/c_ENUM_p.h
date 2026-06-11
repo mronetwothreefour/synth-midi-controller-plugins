@@ -22,7 +22,7 @@ namespace ENUM
 		error = -1,
 		none,
 		osc_pitch,
-		signed_6_bit_int,
+		signed_6_bit,
 		signed_7_bit,
 		unsigned_int
 	};

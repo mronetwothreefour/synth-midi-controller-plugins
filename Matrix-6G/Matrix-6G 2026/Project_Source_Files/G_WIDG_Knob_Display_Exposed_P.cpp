@@ -1,5 +1,9 @@
 #include "G_WIDG_Knob_Display_Exposed_P.h"
 
+#include "D_TIP_Widget_P.h"
+
+using Tip_W = Tip_Widget_P;
+
 Knob_Display_Exposed_P::Knob_Display_Exposed_P(const int param_index, Data_Hub_P* hub) :
 	Data_User_P{ hub },
 	param_index{ param_index },
@@ -10,31 +14,32 @@ Knob_Display_Exposed_P::Knob_Display_Exposed_P(const int param_index, Data_Hub_P
 	setInterceptsMouseClicks(false, true);
 	setComponentID(ID::label_led.toString());
 	onEditorShow = [this] { on_editor_show(); };
+	onTextChange = [this] { on_text_change(); };
 }
 
-void Knob_Display_Exposed_P::on_editor_show()
-{
-	auto editor = getCurrentTextEditor();
-	editor->setFont(FONT::knob_txt_edit(scale_factor));
-	editor->setJustification(Justification::centredRight);
+void Knob_Display_Exposed_P::on_editor_show() {
+	auto edit = getCurrentTextEditor();
+	edit->setFont(FONT::knob_txt_edit(scale_factor));
+	edit->setJustification(Justification::centredRight);
 	switch (display_type)
 	{
-	case ENUM::Knob_Display_Type::osc_pitch:
-		editor->setInputRestrictions(4, "abcdefgABCDEFG0123456789#");
+	case Knob_Display_Type::osc_pitch:
+		edit->setInputRestrictions(4, "abcdefgABCDEFG0123456789#");
 		break;
-	case ENUM::Knob_Display_Type::signed_6_bit_int:
-		editor->setInputRestrictions(3, "-0123456789");
+	case Knob_Display_Type::signed_6_bit:
+		edit->setInputRestrictions(3, "-0123456789");
 		break;
-	case ENUM::Knob_Display_Type::signed_7_bit:
-		editor->setInputRestrictions(3, "-0123456789");
+	case Knob_Display_Type::signed_7_bit:
+		edit->setInputRestrictions(3, "-0123456789");
 		break;
-	case ENUM::Knob_Display_Type::unsigned_int:
-		editor->setInputRestrictions(3, "0123456789");
+	case Knob_Display_Type::unsigned_int:
+		edit->setInputRestrictions(3, "0123456789");
 		break;
 	default:
 		break;
 	}
-	editor->selectAll();
+	edit->setTooltip(Tip_W::knob_text_editor(display_type, display_type == Knob_Display_Type::signed_7_bit));
+	edit->selectAll();
 }
 
 void Knob_Display_Exposed_P::set_text_to_stored_choice() {
@@ -43,16 +48,44 @@ void Knob_Display_Exposed_P::set_text_to_stored_choice() {
 	setText(choice_name, dontSendNotification);
 }
 
-void Knob_Display_Exposed_P::on_text_change_pitch()
-{
+void Knob_Display_Exposed_P::on_text_change() {
+	auto new_text{ getText().toUpperCase() };
+	auto new_val{ -1.0f };
+	if (new_text.isNotEmpty()) {
+		if (display_type == Knob_Display_Type::osc_pitch) {
+			if (new_text.containsAnyOf("abcdefgABCDEFG#")) {
+				auto choice_count{ EXP::choice_count_osc_pitch };
+				for (int choice_num = 0; choice_num < choice_count; ++choice_num) {
+					if (exp_info.choice_for(param_index, choice_num, true).removeCharacters(" ") == new_text) {
+						new_val = (float)choice_num;
+						break;
+					}
+				}
+			}
+			else
+				new_val = new_text.getFloatValue();
+		}
+		else {
+			new_val = new_text.getFloatValue();
+			if (display_type == Knob_Display_Type::signed_6_bit)
+				new_val += 31.0f;
+			if (display_type == Knob_Display_Type::signed_7_bit)
+				new_val += 63.0f;
+		}
+		if (new_val > -1.0f) {
+			param->setValueNotifyingHost(param->convertTo0to1(new_val));
+			return;
+		}
+	}
+	set_text_to_stored_choice();
 }
 
-void Knob_Display_Exposed_P::on_text_change_int()
-{
+void Knob_Display_Exposed_P::handleAsyncUpdate() {
+	set_text_to_stored_choice();
 }
 
-void Knob_Display_Exposed_P::parameterValueChanged(int param_index, float new_value)
-{
+void Knob_Display_Exposed_P::parameterValueChanged(int /*param_index*/, float /*new_value*/) {
+	triggerAsyncUpdate();
 }
 
 Knob_Display_Exposed_P::~Knob_Display_Exposed_P() {

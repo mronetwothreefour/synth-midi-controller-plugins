@@ -65,6 +65,8 @@
             file="Project_Source_Files/C_PATH_LED_Text_P.h"/>
       <FILE id="OVHtAg" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
             file="Project_Source_Files/C_SL_Tip_Exposed_P.h"/>
+      <FILE id="sYJtQy" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
+            file="Project_Source_Files/C_SL_Tip_Widget_P.h"/>
       <FILE id="VRm3z6" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source_Files/C_XYWH_P.h"/>
       <FILE id="FL19Wq" name="D_SUBTREE_Choices_Exp_P.cpp" compile="1" resource="0"
             file="Project_Source_Files/D_SUBTREE_Choices_Exp_P.cpp"/>
@@ -76,6 +78,10 @@
             file="Project_Source_Files/D_TIP_Exposed_P.cpp"/>
       <FILE id="KFOUT1" name="D_TIP_Exposed_P.h" compile="0" resource="0"
             file="Project_Source_Files/D_TIP_Exposed_P.h"/>
+      <FILE id="jbc7GI" name="D_TIP_Widget_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/D_TIP_Widget_P.cpp"/>
+      <FILE id="inHDsR" name="D_TIP_Widget_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_TIP_Widget_P.h"/>
       <FILE id="kPPgQM" name="D_TREE_Exposed_Info_P.cpp" compile="1" resource="0"
             file="Project_Source_Files/D_TREE_Exposed_Info_P.cpp"/>
       <FILE id="LbmVHv" name="D_TREE_Exposed_Info_P.h" compile="0" resource="0"
