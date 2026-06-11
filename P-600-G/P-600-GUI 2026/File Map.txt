@@ -9,6 +9,7 @@ C_ID_B
 C_ID_P
 C_PATH_Editor_Background_P
 C_SL_Tip_Exposed_P
+C_SL_Tip_Widget_P
 C_XYWH_P
 D_LAYOUT_Exposed_B
 D_SUBTREE_Choices_B
@@ -16,6 +17,7 @@ D_SUBTREE_Choices_Exp_P
 D_SUBTREE_Exposed_Info_P
 D_TIP_B
 D_TIP_Exposed_P
+D_TIP_Widget_P
 D_TREE_Exposed_Info_B
 D_TREE_Exposed_Info_P
 D_X_G_Audio_Processor_B
@@ -28,6 +30,7 @@ G_DRAW_Paths_B
 G_DRAW_Paths_Editor_P
 G_LOOK_AND_FEEL_B
 G_LOOK_AND_FEEL_P
+G_WIDG_Knob_Display_Exposed_B
 G_WIDG_Knob_Display_Exposed_P
 G_WIDG_Slider_Wheel_Mod_B
 G_WIDG_Slider_Wheel_Mod_P

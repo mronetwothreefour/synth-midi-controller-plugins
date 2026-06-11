@@ -109,7 +109,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
 			ID::exp_015_bend_range, "Pitch Bend Range", Ctrl_Type::knob,
-			Knob_Display_Type::pitch_bend, 93, choice_count_bend_range, 4, ctrl_col_9_x, osc_row_1_y,
+			Knob_Display_Type::bend_range, 93, choice_count_bend_range, 4, ctrl_col_9_x, osc_row_1_y,
 			knob_diameter, knob_diameter, Tip_Exp::bend_range(),
 			Choices_Exp::bend_range(curt), Choices_Exp::bend_range()
 		),
@@ -617,7 +617,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 	// *************************************************************** clock & arp section
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			ID::exp_095_clock_tempo, "Clock Tempo", Ctrl_Type::knob, Knob_Display_Type::tempo,
+			ID::exp_095_clock_tempo, "Clock Tempo", Ctrl_Type::knob, Knob_Display_Type::clock_tempo,
 			91, choice_count_clock_tempo, 90, 1236, clock_and_seq_row_y,
 			knob_diameter, knob_diameter, Tip_Exp::clock_tempo(),
 			Choices_Exp::clock_tempo(curt), Choices_Exp::clock_tempo()
@@ -732,19 +732,6 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P() :
 			),
 			-1, nullptr);
 	} // ---------------------------------------------------------- end voice name char section
-}
-
-const Identifier Tree_Exposed_Info_P::id_for(Track track, Step step) const {
-	if (step != Step::all) {
-		auto param_num{ 
-			EXP::param_index_seq_track_1_step_1 + ((int)track - 1) * 16 + ((int)step - 1) 
-		};
-		auto exp_param_id{ "ep_" + String{ param_num } };
-		exp_param_id << "_Seq_Track_" << String{ (int)track };
-		exp_param_id << "_Step_" << String{ (int)step };
-		return exp_param_id;
-	}
-	return {};
 }
 
 const Ctrl_Type Tree_Exposed_Info_P::ctrl_type_for(const int i) const {

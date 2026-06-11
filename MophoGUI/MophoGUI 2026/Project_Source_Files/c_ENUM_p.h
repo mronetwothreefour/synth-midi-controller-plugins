@@ -18,14 +18,14 @@ namespace ENUM
 	constexpr enum class Knob_Display_Type {
 		error = -1,
 		none,
-		tempo,
+		bend_range,
+		clock_tempo,
 		lfo_freq,
 		lpf_freq,
 		osc_fine,
 		osc_pitch,
 		osc_shape,
 		osc_slop,
-		pitch_bend,
 		signed_8_bit,
 		unsigned_7_bit
 	};

@@ -16,7 +16,6 @@ class Tree_Exposed_Info_P :
 //==============================================================================
 public: Tree_Exposed_Info_P();
 
-public: const Identifier id_for(Track track, Step step) const;
 public: const Ctrl_Type ctrl_type_for(const int param_index) const;
 public: const Knob_Display_Type knob_display_type_for(const int param_index) const;
 public: const int nrpn_for(const int param_index) const;

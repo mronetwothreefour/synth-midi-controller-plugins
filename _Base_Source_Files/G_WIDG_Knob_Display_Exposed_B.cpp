@@ -11,6 +11,7 @@ Knob_Display_Exposed_B::Knob_Display_Exposed_B(const int param_index, Data_Hub_P
 	setComponentID(ID::label_knob.toString());
 	onEditorShow = [this] { on_editor_show(); };
 	onTextChange = [this] { on_text_change(); };
+	set_text_to_stored_choice();
 }
 
 void Knob_Display_Exposed_B::handleAsyncUpdate() {
