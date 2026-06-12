@@ -14,6 +14,7 @@ namespace ID
 	static const Identifier exp_p_ctrl_width{ "exp_p_ctrl_width" };
 	static const Identifier exp_p_tip{ "exp_p_tip" };
 	static const Identifier exp_p_init_choice{ "exp_p_init_choice" };
+	static const Identifier exp_p_knob_display_type{ "exp_p_knob_display_type" };
 	static const Identifier exp_p_name{ "exp_p_name" };
 
 	static const Identifier label_cbox{ "label_cbox" };

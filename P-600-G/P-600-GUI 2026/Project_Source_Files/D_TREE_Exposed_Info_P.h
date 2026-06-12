@@ -2,7 +2,6 @@
 
 #include <JuceHeader.h>
 
-#include "C_EXP_P.h"
 #include "C_XYWH_P.h"
 #include "D_SUBTREE_Choices_Exp_P.h"
 #include "D_SUBTREE_Exposed_Info_P.h"
@@ -14,7 +13,6 @@ class Tree_Exposed_Info_P :
 //==============================================================================
 public: Tree_Exposed_Info_P();
 
-public: const Ctrl_Type ctrl_type_for(const int param_index) const;
 public: const int first_nybble_index_for(const int param_index) const;
 public: const int first_bit_index_for(const int paramIndex) const;
 public: const int bit_count_for(const int paramIndex) const;

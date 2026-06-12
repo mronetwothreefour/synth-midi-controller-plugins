@@ -44,6 +44,10 @@
             file="../../_Base_Source_Files/G_LOOK_AND_FEEL_B.cpp"/>
       <FILE id="heDmZZ" name="G_LOOK_AND_FEEL_B.h" compile="0" resource="0"
             file="../../_Base_Source_Files/G_LOOK_AND_FEEL_B.h"/>
+      <FILE id="iKbuj3" name="G_WIDG_Knob_Display_Exposed_B.cpp" compile="1"
+            resource="0" file="../../_Base_Source_Files/G_WIDG_Knob_Display_Exposed_B.cpp"/>
+      <FILE id="OGAXqs" name="G_WIDG_Knob_Display_Exposed_B.h" compile="0"
+            resource="0" file="../../_Base_Source_Files/G_WIDG_Knob_Display_Exposed_B.h"/>
       <FILE id="L7scRM" name="G_WIDG_Slider_Wheel_Mod_B.cpp" compile="1"
             resource="0" file="../../_Base_Source_Files/G_WIDG_Slider_Wheel_Mod_B.cpp"/>
       <FILE id="s7pvqR" name="G_WIDG_Slider_Wheel_Mod_B.h" compile="0" resource="0"
@@ -65,6 +69,8 @@
             file="Project_Source_Files/C_PATH_Editor_Background_P.h"/>
       <FILE id="dMrKmc" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
             file="Project_Source_Files/C_SL_Tip_Exposed_P.h"/>
+      <FILE id="MUDpqF" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
+            file="Project_Source_Files/C_SL_Tip_Widget_P.h"/>
       <FILE id="ho1bDz" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source_Files/C_XYWH_P.h"/>
       <FILE id="RwrPwk" name="D_SUBTREE_Choices_Exp_P.cpp" compile="1" resource="0"
             file="Project_Source_Files/D_SUBTREE_Choices_Exp_P.cpp"/>
@@ -76,6 +82,10 @@
             file="Project_Source_Files/D_TIP_Exposed_P.cpp"/>
       <FILE id="kH8tZz" name="D_TIP_Exposed_P.h" compile="0" resource="0"
             file="Project_Source_Files/D_TIP_Exposed_P.h"/>
+      <FILE id="hJfy9x" name="D_TIP_Widget_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/D_TIP_Widget_P.cpp"/>
+      <FILE id="c0vqYB" name="D_TIP_Widget_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_TIP_Widget_P.h"/>
       <FILE id="lVNux5" name="D_TREE_Exposed_Info_P.cpp" compile="1" resource="0"
             file="Project_Source_Files/D_TREE_Exposed_Info_P.cpp"/>
       <FILE id="br5vq2" name="D_TREE_Exposed_Info_P.h" compile="0" resource="0"
@@ -102,6 +112,10 @@
             file="Project_Source_Files/G_LOOK_AND_FEEL_P.cpp"/>
       <FILE id="RzWhmb" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"
             file="Project_Source_Files/G_LOOK_AND_FEEL_P.h"/>
+      <FILE id="G5Z5mo" name="G_WIDG_Knob_Display_Exposed_P.cpp" compile="1"
+            resource="0" file="Project_Source_Files/G_WIDG_Knob_Display_Exposed_P.cpp"/>
+      <FILE id="PmrZXB" name="G_WIDG_Knob_Display_Exposed_P.h" compile="0"
+            resource="0" file="Project_Source_Files/G_WIDG_Knob_Display_Exposed_P.h"/>
       <FILE id="G8ZL05" name="G_WIDG_Slider_Wheel_Mod_P.h" compile="0" resource="0"
             file="Project_Source_Files/G_WIDG_Slider_Wheel_Mod_P.h"/>
     </GROUP>

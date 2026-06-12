@@ -2,19 +2,24 @@
 
 #include <JuceHeader.h>
 
-#include "C_ID_B.h"
+#include "C_ENUM_P.h"
+#include "C_EXP_P.h"
+#include "C_ID_P.h"
+
+using namespace ENUM;
 
 class Tree_Exposed_Info_B
 {
 protected: ValueTree tree;
-protected: const int exp_param_count;
 
 //==============================================================================
-public: explicit Tree_Exposed_Info_B(const int exp_param_count);
+public: Tree_Exposed_Info_B();
 
 protected: const ValueTree param(int param_index) const;
 public: const Identifier id_for(int param_index) const;
 public: const String name_for(int param_index) const;
+public: const Ctrl_Type ctrl_type_for(const int param_index) const;
+public: const Knob_Display_Type knob_display_type_for(const int param_index) const;
 public: const int choice_count_for(int param_index) const;
 public: const int init_choice_for(int param_index) const;
 public: Point<int> ctrl_center_for(int param_index) const;

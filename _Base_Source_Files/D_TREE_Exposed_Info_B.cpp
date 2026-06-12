@@ -1,8 +1,8 @@
 #include "D_TREE_Exposed_Info_B.h"
 
-Tree_Exposed_Info_B::Tree_Exposed_Info_B(const int exp_param_count) :
-	tree{ ID::tree_exp_param_info },
-	exp_param_count{ exp_param_count }
+using namespace EXP;
+Tree_Exposed_Info_B::Tree_Exposed_Info_B() :
+	tree{ ID::tree_exp_param_info }
 {}
 
 const ValueTree Tree_Exposed_Info_B::param(int i) const {
@@ -19,6 +19,18 @@ const String Tree_Exposed_Info_B::name_for(int i) const {
 	if (i < exp_param_count)
 		return param(i)[ID::exp_p_name].toString();
 	return {};
+}
+
+const Ctrl_Type Tree_Exposed_Info_B::ctrl_type_for(const int i) const {
+	if (i < exp_param_count)
+		return Ctrl_Type{ (int)param(i)[ID::exp_p_ctrl_type] };
+	return Ctrl_Type::error;
+}
+
+const Knob_Display_Type Tree_Exposed_Info_B::knob_display_type_for(const int i) const {
+	if (i < exp_param_count)
+		return Knob_Display_Type{ (int)param(i)[ID::exp_p_knob_display_type] };
+	return Knob_Display_Type::error;
 }
 
 const int Tree_Exposed_Info_B::choice_count_for(int i) const {

@@ -12,4 +12,14 @@ namespace ENUM
 		switch_3_pole
 	};
 
+	constexpr enum class Knob_Display_Type {
+		error = -1,
+		none,
+		int_4_bit,
+		int_5_bit,
+		int_6_bit,
+		int_7_bit,
+		osc_pitch
+	};
+
 }

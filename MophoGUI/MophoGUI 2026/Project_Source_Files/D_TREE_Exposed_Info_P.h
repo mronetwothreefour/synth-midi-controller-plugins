@@ -16,8 +16,6 @@ class Tree_Exposed_Info_P :
 //==============================================================================
 public: Tree_Exposed_Info_P();
 
-public: const Ctrl_Type ctrl_type_for(const int param_index) const;
-public: const Knob_Display_Type knob_display_type_for(const int param_index) const;
 public: const int nrpn_for(const int param_index) const;
 public: const int param_index_for(const int nrpn) const;
 public: Point<int> red_toggle_center_for(int param_index) const;

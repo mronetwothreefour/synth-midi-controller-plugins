@@ -93,7 +93,6 @@ namespace ID
 	static const Identifier exp_p_byte_index{ "exp_p_byte_index" };
 	static const Identifier exp_p_number{ "exp_p_number" };
 	static const Identifier exp_p_range_type{ "exp_p_range_type" };
-	static const Identifier exp_p_knob_display_type{ "exp_p_knob_display_type" };
 
 	static const Identifier label_led{ "label_led" };
 }
