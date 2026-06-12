@@ -44,6 +44,10 @@
             file="../../_Base_Source_Files/G_LOOK_AND_FEEL_B.cpp"/>
       <FILE id="hMgsaF" name="G_LOOK_AND_FEEL_B.h" compile="0" resource="0"
             file="../../_Base_Source_Files/G_LOOK_AND_FEEL_B.h"/>
+      <FILE id="DwlywF" name="G_WIDG_Knob_Display_Exposed_B.cpp" compile="1"
+            resource="0" file="../../_Base_Source_Files/G_WIDG_Knob_Display_Exposed_B.cpp"/>
+      <FILE id="MIVO9d" name="G_WIDG_Knob_Display_Exposed_B.h" compile="0"
+            resource="0" file="../../_Base_Source_Files/G_WIDG_Knob_Display_Exposed_B.h"/>
       <FILE id="m55ngl" name="G_WIDG_Slider_Wheel_Mod_B.cpp" compile="1"
             resource="0" file="../../_Base_Source_Files/G_WIDG_Slider_Wheel_Mod_B.cpp"/>
       <FILE id="AAWiSl" name="G_WIDG_Slider_Wheel_Mod_B.h" compile="0" resource="0"
@@ -63,6 +67,9 @@
             file="Project_Source_Files/C_PATH_Editor_Background_P.h"/>
       <FILE id="LZ1D7l" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
             file="Project_Source_Files/C_SL_Tip_Exposed_P.h"/>
+      <FILE id="ox30lQ" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
+            file="Project_Source_Files/C_SL_Tip_Widget_P.h"/>
+      <FILE id="SdXqI8" name="C_VOICE_P.h" compile="0" resource="0" file="Project_Source_Files/C_VOICE_P.h"/>
       <FILE id="c3fqH2" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source_Files/C_XYWH_P.h"/>
       <FILE id="pCt9rp" name="D_SUBTREE_Bit_Loc_Exp_P.cpp" compile="1" resource="0"
             file="Project_Source_Files/D_SUBTREE_Bit_Loc_Exp_P.cpp"/>
@@ -78,6 +85,10 @@
             file="Project_Source_Files/D_TIP_Exposed_P.cpp"/>
       <FILE id="LIrtvk" name="D_TIP_Exposed_P.h" compile="0" resource="0"
             file="Project_Source_Files/D_TIP_Exposed_P.h"/>
+      <FILE id="tr3KZq" name="D_TREE_Additional_Voice_P.cpp" compile="1"
+            resource="0" file="Project_Source_Files/D_TREE_Additional_Voice_P.cpp"/>
+      <FILE id="wxng1L" name="D_TREE_Additional_Voice_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_TREE_Additional_Voice_P.h"/>
       <FILE id="igc53i" name="D_TREE_Exposed_Info_P.cpp" compile="1" resource="0"
             file="Project_Source_Files/D_TREE_Exposed_Info_P.cpp"/>
       <FILE id="v5DKDc" name="D_TREE_Exposed_Info_P.h" compile="0" resource="0"

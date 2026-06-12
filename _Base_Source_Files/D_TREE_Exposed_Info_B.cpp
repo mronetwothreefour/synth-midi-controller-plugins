@@ -75,7 +75,7 @@ const String Tree_Exposed_Info_B::tip_for(int i) const {
 const String Tree_Exposed_Info_B::choice_for(int i, const int num, bool curt) const
 {
 	if (i < exp_param_count && num < choice_count_for(i)) {
-		auto& tree_id = curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices;
+		auto& tree_id = curt ? ID::subtree_choices_curt : ID::subtree_choices;
 		auto choices = param(i).getChildWithName(tree_id);
 		return choices["choice_" + (String)num].toString();
 	}
@@ -87,7 +87,7 @@ const StringArray Tree_Exposed_Info_B::choices_list_for(int i, bool curt) const
 	StringArray list{};
 	if (i < exp_param_count) {
 		auto count = choice_count_for(i);
-		auto& tree_id = curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices;
+		auto& tree_id = curt ? ID::subtree_choices_curt : ID::subtree_choices;
 		auto choices = param(i).getChildWithName(tree_id);
 		for (int num = 0; num < count; ++num)
 			list.add(choices["choice_" + (String)num].toString());

@@ -7,6 +7,26 @@
 namespace ID
 {
 
+	static const Identifier avp_00_voice_mode{ "avp_00_voice_mode" };
+	static const Identifier avp_01_keyboard_octave{ "avp_01_keyboard_octave" };
+	static const Identifier avp_02_slider_target{ "avp_02_slider_target" };
+	static const Identifier avp_03_slider_range{ "avp_03_slider_range" };
+	static const Identifier avp_04_slider_range_pitch_bend_pos{ "avp_04_slider_range_pitch_bend_pos" };
+	static const Identifier avp_05_slider_range_pitch_bend_neg{ "avp_05_slider_range_pitch_bend_neg" };
+	static const Identifier avp_06_lfo_sync_bpm_on{ "avp_06_lfo_sync_bpm_on" };
+	static const Identifier avp_07_lfo_sync_key_on{ "avp_07_lfo_sync_key_on" };
+	static const Identifier avp_08_lfo_sync_voice_on{ "avp_08_lfo_sync_voice_on" };
+	static const Identifier avp_09_porta_time{ "avp_09_porta_time" };
+	static const Identifier avp_10_porta_mode_on{ "avp_10_porta_mode_on" };
+	static const Identifier avp_11_porta_sync_bpm_on{ "avp_11_porta_sync_bpm_on" };
+	static const Identifier avp_12_amp_mod_by_velo_amt{ "avp_12_amp_mod_by_velo_amt" };
+	static const Identifier avp_13_pgm_level{ "avp_13_pgm_level" };
+	static const Identifier avp_14_microtune_scale{ "avp_14_microtune_scale" };
+	static const Identifier avp_15_scale_key{ "avp_15_scale_key" };
+	static const Identifier avp_16_pgm_fine_tune{ "avp_16_pgm_fine_tune" };
+	static const Identifier avp_17_pgm_transpose{ "avp_17_pgm_transpose" };
+	static const Identifier avp_current_voice_name{ "avp_current_voice_name" };
+
 	static const Identifier exp_00_osc_1_octave       { "exp_00_osc_1_octave" };
 	static const Identifier exp_01_osc_1_wave         { "exp_01_osc_1_wave" };
 	static const Identifier exp_02_osc_1_pitch_fine   { "exp_02_osc_1_pitch_fine" };
@@ -51,5 +71,9 @@ namespace ID
 	static const Identifier exp_p_bit_count{ "exp_p_bit_count" };
 	static const Identifier exp_p_cc_num{ "exp_p_cc_num" };
 
-	static const Identifier tree_bit_locations{ "tree_bit_locations" };
+	static const Identifier subtree_bit_locations{ "subtree_bit_locations" };
+
+	static const Identifier tree_additional_voice{ "tree_additional_voice" };
+
+	static const Identifier xml_state_additional_voice{ "xml_state_additional_voice" };
 }

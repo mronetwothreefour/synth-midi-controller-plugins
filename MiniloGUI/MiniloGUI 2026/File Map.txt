@@ -10,6 +10,7 @@ C_ID_P
 C_PATH_Editor_Background_P
 C_SL_Tip_Exposed_P
 C_SL_Tip_Widget_P
+C_VOICE_P
 C_XYWH_P
 D_LAYOUT_Exposed_B
 D_SUBTREE_Bit_Loc_AVP_P
@@ -21,6 +22,7 @@ D_SUBTREE_Exposed_Info_P
 D_TIP_B
 D_TIP_Exposed_P
 D_TIP_Widget_P
+D_TREE_Additional_Voice_P
 D_TREE_Exposed_Info_B
 D_TREE_Exposed_Info_P
 D_X_G_Audio_Processor_B

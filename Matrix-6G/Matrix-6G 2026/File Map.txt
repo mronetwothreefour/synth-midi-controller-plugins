@@ -50,7 +50,7 @@ D_TREE_Exposed_Info_B
 D_TREE_Exposed_Info_P
 D_TREE_Matrix_Mod_P
 D_TREE_Plugin_Common_P tip time, voice libraries
-D_TREE_Splits_P
+D_TREE_Split_P
 D_TREE_Voice_Map_P
 D_TREE_Voices_P - voice transmit, voice bank
 D_X_G_Audio_Processor_B
@@ -69,9 +69,9 @@ G_LAYER_Editor_Buttons
 G_LAYER_Editor_Current_Voice
 G_LAYER_Editor_Exposed
 G_LAYER_Global
-G_LAYER_Splits
-G_LAYER_Splits_Bank_Tx
-G_LAYER_Splits_Buttons
+G_LAYER_Split
+G_LAYER_Split_Bank_Tx
+G_LAYER_Split_Buttons
 G_LAYER_Matrix_Mod
 G_LAYER_Voice_Map
 G_LAYER_Voices

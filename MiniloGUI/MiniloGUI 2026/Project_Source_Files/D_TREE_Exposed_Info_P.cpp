@@ -337,7 +337,7 @@ const int Tree_Exposed_Info_P::cc_num_for(const int i) const {
 
 const int Tree_Exposed_Info_P::bit_count_for(const int i) const {
 	if (i < exp_param_count) {
-		auto bit_locations = param(i).getChildWithName(ID::tree_bit_locations);
+		auto bit_locations = param(i).getChildWithName(ID::subtree_bit_locations);
 		return bit_locations.getNumProperties();
 	}
 	return -1;
@@ -345,7 +345,7 @@ const int Tree_Exposed_Info_P::bit_count_for(const int i) const {
 
 const int Tree_Exposed_Info_P::byte_index_for_param_bit(const int i, const int b) const {
 	if (i < exp_param_count) {
-		auto bit_locations = param(i).getChildWithName(ID::tree_bit_locations);
+		auto bit_locations = param(i).getChildWithName(ID::subtree_bit_locations);
 		if (b < bit_locations.getNumProperties()) {
 			Identifier bit_id{ "bit_" + (String)b };
 			auto byte_index{ bit_locations[bit_id].toString() };
@@ -359,7 +359,7 @@ const int Tree_Exposed_Info_P::byte_index_for_param_bit(const int i, const int b
 
 const int Tree_Exposed_Info_P::bit_index_for_param_bit(const int i, const int b) const {
 	if (i < exp_param_count) {
-		auto bit_locations = param(i).getChildWithName(ID::tree_bit_locations);
+		auto bit_locations = param(i).getChildWithName(ID::subtree_bit_locations);
 		if (b < bit_locations.getNumProperties()) {
 			Identifier bit_id{ "bit_" + (String)b };
 			auto bit_index{ bit_locations[bit_id].toString() };

@@ -21,17 +21,17 @@ namespace ID
 	static const Identifier label_file_browser{ "label_file_browser" };
 	static const Identifier label_knob{ "label_knob" };
 
-	static const Identifier sub_tree_choices{ "sub_tree_choices" };
-	static const Identifier sub_tree_choices_curt{ "sub_tree_choices_curt" };
+	static const Identifier subtree_choices{ "subtree_choices" };
+	static const Identifier subtree_choices_curt{ "subtree_choices_curt" };
 
 	static const Identifier tree_exp_param_info{ "tree_exp_param_info" };
 	static const Identifier tree_exp_param_state{ "tree_exp_param_state" };
+
+	static const Identifier txt_edit_circ_fill{ "txt_edit_circ_fill" };
 
 	static const Identifier xml_att_scale_factor{ "xml_att_scale_factor" };
 	static const Identifier xml_state_exposed{ "xml_state_exposed" };
 	static const Identifier xml_state_plugin{ "xml_state_plugin" };
 	static const Identifier xml_state_plugin_specific{ "xml_state_plugin_specific" };
-
-	static const Identifier txt_edit_circ_fill{ "txt_edit_circ_fill" };
 
 }

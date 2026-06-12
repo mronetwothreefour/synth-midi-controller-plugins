@@ -1,7 +1,7 @@
 #include "D_SUBTREE_Choices_Exp_P.h"
 
 ValueTree Subtree_Choices_Exp_P::delay_routing(const bool curt) {
-	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
+	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
 	tree.setProperty("choice_0", curt ? "byp" : "bypass", nullptr);
 	tree.setProperty("choice_1", curt ? "pre" : "pre-filter", nullptr);
 	tree.setProperty("choice_2", curt ? "post" : "post-filter", nullptr);
@@ -9,7 +9,7 @@ ValueTree Subtree_Choices_Exp_P::delay_routing(const bool curt) {
 }
 
 ValueTree Subtree_Choices_Exp_P::lfo_eg_mod(const bool curt) {
-    ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
+    ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
     tree.setProperty("choice_0", "Off", nullptr);
     tree.setProperty("choice_1", "Rate", nullptr);
     tree.setProperty("choice_2", "Intensity", nullptr);
@@ -17,7 +17,7 @@ ValueTree Subtree_Choices_Exp_P::lfo_eg_mod(const bool curt) {
 }
 
 ValueTree Subtree_Choices_Exp_P::lfo_rate(const bool curt) {
-    ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
+    ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
     String name{ "" };
     for (int n = 0; n < 64; ++n) {
         name = curt ? (String)n + "|4(0)" : "unsynced: " + (String)n + " | synced: 4 beats";
@@ -87,7 +87,7 @@ ValueTree Subtree_Choices_Exp_P::lfo_rate(const bool curt) {
 }
 
 ValueTree Subtree_Choices_Exp_P::lfo_target(const bool curt) {
-    ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
+    ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
     tree.setProperty("choice_0", curt ? "LPF cutoff frequency" : "cut", nullptr);
     tree.setProperty("choice_1", curt ? "VCO 1 & 2 shape" : "shape", nullptr);
     tree.setProperty("choice_2", curt ? "VCO 1 & 2 pitch" : "pitch", nullptr);
@@ -95,7 +95,7 @@ ValueTree Subtree_Choices_Exp_P::lfo_target(const bool curt) {
 }
 
 ValueTree Subtree_Choices_Exp_P::lpf_eg_int(const bool curt) {
-    ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
+    ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
     String name{ "" };
     name = "-100%";
     for (int n = 0; n < 12; ++n)
@@ -120,7 +120,7 @@ ValueTree Subtree_Choices_Exp_P::lpf_eg_int(const bool curt) {
 }
 
 ValueTree Subtree_Choices_Exp_P::lpf_type(const bool curt) {
-    ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
+    ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
     String suffix{ curt ? "" : " (12 dB / octave)" };
     tree.setProperty("choice_0", "2-pole" + suffix, nullptr);
     suffix = curt ? "" : " (24 dB / octave)";
@@ -129,7 +129,7 @@ ValueTree Subtree_Choices_Exp_P::lpf_type(const bool curt) {
 }
 
 ValueTree Subtree_Choices_Exp_P::osc_2_pitch_eg_int(const bool curt) {
-    ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
+    ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
     String suffix{ curt ? "" : " cents" };
 
     auto cents{ -4800 };
@@ -203,7 +203,7 @@ ValueTree Subtree_Choices_Exp_P::osc_2_pitch_eg_int(const bool curt) {
 }
 
 ValueTree Subtree_Choices_Exp_P::osc_and_lfo_wave(const bool curt) {
-	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
+	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
 	tree.setProperty("choice_0", curt ? "sqr" : "square", nullptr);
 	tree.setProperty("choice_1", curt ? "tri" : "triangle", nullptr);
 	tree.setProperty("choice_2", curt ? "saw" : "sawtooth", nullptr);
@@ -211,7 +211,7 @@ ValueTree Subtree_Choices_Exp_P::osc_and_lfo_wave(const bool curt) {
 }
 
 ValueTree Subtree_Choices_Exp_P::osc_octave(const bool curt) {
-	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
+	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
 	tree.setProperty("choice_0", "16'", nullptr);
 	tree.setProperty("choice_1", "8'", nullptr);
 	tree.setProperty("choice_2", "4'", nullptr);
@@ -220,7 +220,7 @@ ValueTree Subtree_Choices_Exp_P::osc_octave(const bool curt) {
 }
 
 ValueTree Subtree_Choices_Exp_P::osc_pitch_fine(const bool curt) {
-    ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
+    ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
     String postfix{ curt ? "" : " cents" };
 
     auto cents{ -1200 };
@@ -301,7 +301,7 @@ ValueTree Subtree_Choices_Exp_P::osc_pitch_fine(const bool curt) {
 }
 
 ValueTree Subtree_Choices_Exp_P::voice_mode_depth(const bool curt) {
-    ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
+    ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
     for (uint16 n = 0; n < EXP::choice_count_unsigned_10_bit; ++n) {
         auto choiceName{ choice_voice_mode_1_poly(n, curt) };
         choiceName += choice_voice_mode_2_duo_3_unison(n, curt);
@@ -316,7 +316,7 @@ ValueTree Subtree_Choices_Exp_P::voice_mode_depth(const bool curt) {
 }
 
 ValueTree Subtree_Choices_Exp_P::zero_50_100(const bool curt) {
-    ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
+    ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
     tree.setProperty("choice_0", "0%", nullptr);
     tree.setProperty("choice_1", "50%", nullptr);
     tree.setProperty("choice_2", "100%", nullptr);

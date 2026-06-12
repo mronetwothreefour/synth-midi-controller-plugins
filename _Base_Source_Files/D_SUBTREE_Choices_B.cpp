@@ -3,14 +3,14 @@
 #include "D_CONVERT_Int_To_Pitch_B.h"
 
 ValueTree Subtree_Choices_B::off_on(const bool curt) {
-	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
+	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
 	tree.setProperty("choice_0", "off", nullptr);
 	tree.setProperty("choice_1", "on", nullptr);
 	return tree;
 }
 
 ValueTree Subtree_Choices_B::osc_pitch(int choice_count, const bool curt) {
-	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
+	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
 	for (int choice = 0; choice < choice_count; ++choice) {
 		String name{ Int_To_Pitch::convert(choice) };
 		if (!curt)
@@ -21,7 +21,7 @@ ValueTree Subtree_Choices_B::osc_pitch(int choice_count, const bool curt) {
 }
 
 ValueTree Subtree_Choices_B::signed_7_bit_int(const bool curt) {
-	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
+	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
 	for (int choice = 0; choice < 128; ++choice) {
 		auto name{ (choice > 63 ? "+" : "") + String{ choice - 63 } };
 		tree.setProperty("choice_" + (String)choice, name, nullptr);
@@ -30,7 +30,7 @@ ValueTree Subtree_Choices_B::signed_7_bit_int(const bool curt) {
 }
 
 ValueTree Subtree_Choices_B::unsigned_int(int count, const bool curt) {
-	ValueTree tree{ curt ? ID::sub_tree_choices_curt : ID::sub_tree_choices };
+	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
 	for (int choice = 0; choice < count; ++choice) {
 		auto name{ (String)choice };
 		tree.setProperty("choice_" + name, name, nullptr);
