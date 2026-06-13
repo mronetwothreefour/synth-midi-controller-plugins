@@ -1,6 +1,6 @@
 #include "D_SUBTREE_Bit_Loc_Exp_P.h"
 
-ValueTree Subtree_Bit_Loc_Exp::delay_feedback() {
+ValueTree Subtree_Bit_Loc_Exp_P::delay_feedback() {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", "byte_70__bit_6" },
@@ -16,7 +16,7 @@ ValueTree Subtree_Bit_Loc_Exp::delay_feedback() {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::delay_hpf_freq() {
+ValueTree Subtree_Bit_Loc_Exp_P::delay_hpf_freq() {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", "byte_70__bit_2" },
@@ -32,7 +32,7 @@ ValueTree Subtree_Bit_Loc_Exp::delay_hpf_freq() {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::delay_routing() {
+ValueTree Subtree_Bit_Loc_Exp_P::delay_routing() {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", "byte_68__bit_6" },
@@ -40,7 +40,7 @@ ValueTree Subtree_Bit_Loc_Exp::delay_routing() {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::delay_time() {
+ValueTree Subtree_Bit_Loc_Exp_P::delay_time() {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", "byte_70__bit_4" },
@@ -56,7 +56,7 @@ ValueTree Subtree_Bit_Loc_Exp::delay_time() {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::env_attack(const bool vca) {
+ValueTree Subtree_Bit_Loc_Exp_P::env_attack(const bool vca) {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", vca ? "byte_65__bit_0" : "byte_66__bit_0" },
@@ -72,7 +72,7 @@ ValueTree Subtree_Bit_Loc_Exp::env_attack(const bool vca) {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::env_decay(const bool vca) {
+ValueTree Subtree_Bit_Loc_Exp_P::env_decay(const bool vca) {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", vca ? "byte_65__bit_2" : "byte_66__bit_2" },
@@ -88,7 +88,7 @@ ValueTree Subtree_Bit_Loc_Exp::env_decay(const bool vca) {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::env_release(const bool vca) {
+ValueTree Subtree_Bit_Loc_Exp_P::env_release(const bool vca) {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", vca ? "byte_65__bit_6" : "byte_66__bit_6" },
@@ -104,7 +104,7 @@ ValueTree Subtree_Bit_Loc_Exp::env_release(const bool vca) {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::env_sustain(const bool vca) {
+ValueTree Subtree_Bit_Loc_Exp_P::env_sustain(const bool vca) {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", vca ? "byte_65__bit_4" : "byte_66__bit_4" },
@@ -120,7 +120,7 @@ ValueTree Subtree_Bit_Loc_Exp::env_sustain(const bool vca) {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::level_knob(const int k) {
+ValueTree Subtree_Bit_Loc_Exp_P::level_knob(const int k) {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", k == 1 ? "byte_61__bit_4" : k == 2 ? "byte_61__bit_6" : "byte_62__bit_2" },
@@ -136,7 +136,7 @@ ValueTree Subtree_Bit_Loc_Exp::level_knob(const int k) {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::lfo_eg_mod() {
+ValueTree Subtree_Bit_Loc_Exp_P::lfo_eg_mod() {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", "byte_67__bit_6" },
@@ -144,7 +144,7 @@ ValueTree Subtree_Bit_Loc_Exp::lfo_eg_mod() {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::lfo_int() {
+ValueTree Subtree_Bit_Loc_Exp_P::lfo_int() {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", "byte_67__bit_2" },
@@ -160,7 +160,7 @@ ValueTree Subtree_Bit_Loc_Exp::lfo_int() {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::lfo_rate() {
+ValueTree Subtree_Bit_Loc_Exp_P::lfo_rate() {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", "byte_67__bit_0" },
@@ -176,7 +176,7 @@ ValueTree Subtree_Bit_Loc_Exp::lfo_rate() {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::lfo_target() {
+ValueTree Subtree_Bit_Loc_Exp_P::lfo_target() {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", "byte_67__bit_4" },
@@ -184,7 +184,7 @@ ValueTree Subtree_Bit_Loc_Exp::lfo_target() {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::lfo_wave() {
+ValueTree Subtree_Bit_Loc_Exp_P::lfo_wave() {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", "byte_68__bit_0" },
@@ -192,7 +192,7 @@ ValueTree Subtree_Bit_Loc_Exp::lfo_wave() {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::lpf_eg_int() {
+ValueTree Subtree_Bit_Loc_Exp_P::lpf_eg_int() {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", "byte_64__bit_0" },
@@ -208,7 +208,7 @@ ValueTree Subtree_Bit_Loc_Exp::lpf_eg_int() {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::lpf_freq() {
+ValueTree Subtree_Bit_Loc_Exp_P::lpf_freq() {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", "byte_62__bit_4" },
@@ -224,7 +224,7 @@ ValueTree Subtree_Bit_Loc_Exp::lpf_freq() {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::lpf_key_track() {
+ValueTree Subtree_Bit_Loc_Exp_P::lpf_key_track() {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", "byte_64__bit_4" },
@@ -232,7 +232,7 @@ ValueTree Subtree_Bit_Loc_Exp::lpf_key_track() {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::lpf_reso() {
+ValueTree Subtree_Bit_Loc_Exp_P::lpf_reso() {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", "byte_62__bit_6" },
@@ -248,11 +248,11 @@ ValueTree Subtree_Bit_Loc_Exp::lpf_reso() {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::lpf_type() {
+ValueTree Subtree_Bit_Loc_Exp_P::lpf_type() {
     return { ID::subtree_bit_locations, { { "bit_0", "byte_64__bit_6" } } };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::lpf_velo_amt() {
+ValueTree Subtree_Bit_Loc_Exp_P::lpf_velo_amt() {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", "byte_64__bit_2" },
@@ -260,7 +260,7 @@ ValueTree Subtree_Bit_Loc_Exp::lpf_velo_amt() {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::osc_2_pitch_eg_int() {
+ValueTree Subtree_Bit_Loc_Exp_P::osc_2_pitch_eg_int() {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", "byte_61__bit_2" },
@@ -276,15 +276,15 @@ ValueTree Subtree_Bit_Loc_Exp::osc_2_pitch_eg_int() {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::osc_2_ring_mod() {
+ValueTree Subtree_Bit_Loc_Exp_P::osc_2_ring_mod() {
     return { ID::subtree_bit_locations, { { "bit_0", "byte_62__bit_1" } } };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::osc_2_sync() {
+ValueTree Subtree_Bit_Loc_Exp_P::osc_2_sync() {
     return { ID::subtree_bit_locations, { { "bit_0", "byte_62__bit_0" } } };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::osc_2_x_mod_depth() {
+ValueTree Subtree_Bit_Loc_Exp_P::osc_2_x_mod_depth() {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", "byte_61__bit_0" },
@@ -300,7 +300,7 @@ ValueTree Subtree_Bit_Loc_Exp::osc_2_x_mod_depth() {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::osc_octave(const int o) {
+ValueTree Subtree_Bit_Loc_Exp_P::osc_octave(const int o) {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", o == 1 ? "byte_59__bit_4" : "byte_60__bit_4" },
@@ -308,7 +308,7 @@ ValueTree Subtree_Bit_Loc_Exp::osc_octave(const int o) {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::osc_pitch_fine(const int o) {
+ValueTree Subtree_Bit_Loc_Exp_P::osc_pitch_fine(const int o) {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", o == 1 ? "byte_59__bit_0" : "byte_60__bit_0" },
@@ -324,7 +324,7 @@ ValueTree Subtree_Bit_Loc_Exp::osc_pitch_fine(const int o) {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::osc_shape(const int o) {
+ValueTree Subtree_Bit_Loc_Exp_P::osc_shape(const int o) {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", o == 1 ? "byte_59__bit_2" : "byte_60__bit_2" },
@@ -340,7 +340,7 @@ ValueTree Subtree_Bit_Loc_Exp::osc_shape(const int o) {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::osc_wave(const int o) {
+ValueTree Subtree_Bit_Loc_Exp_P::osc_wave(const int o) {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", o == 1 ? "byte_59__bit_6" : "byte_60__bit_6" },
@@ -348,7 +348,7 @@ ValueTree Subtree_Bit_Loc_Exp::osc_wave(const int o) {
     };
 }
 
-ValueTree Subtree_Bit_Loc_Exp::voice_mode_depth() {
+ValueTree Subtree_Bit_Loc_Exp_P::voice_mode_depth() {
     return {
         ID::subtree_bit_locations, {
         { "bit_0", "byte_73__bit_4" },

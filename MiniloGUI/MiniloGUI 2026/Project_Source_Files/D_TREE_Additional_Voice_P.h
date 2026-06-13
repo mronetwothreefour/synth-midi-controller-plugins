@@ -10,6 +10,7 @@ using namespace::ENUM;
 class Tree_Additional_Voice_P
 {
 private: ValueTree tree;
+private: ValueTree tree_bit_loc;
 private: UndoManager* u_m;
 
 //==============================================================================

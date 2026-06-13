@@ -71,6 +71,10 @@
             file="Project_Source_Files/C_SL_Tip_Widget_P.h"/>
       <FILE id="SdXqI8" name="C_VOICE_P.h" compile="0" resource="0" file="Project_Source_Files/C_VOICE_P.h"/>
       <FILE id="c3fqH2" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source_Files/C_XYWH_P.h"/>
+      <FILE id="U3V0KE" name="D_SUBTREE_Bit_Loc_AV_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/D_SUBTREE_Bit_Loc_AV_P.cpp"/>
+      <FILE id="mZ8Aat" name="D_SUBTREE_Bit_Loc_AV_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_SUBTREE_Bit_Loc_AV_P.h"/>
       <FILE id="pCt9rp" name="D_SUBTREE_Bit_Loc_Exp_P.cpp" compile="1" resource="0"
             file="Project_Source_Files/D_SUBTREE_Bit_Loc_Exp_P.cpp"/>
       <FILE id="XCshUP" name="D_SUBTREE_Bit_Loc_Exp_P.h" compile="0" resource="0"

@@ -4,7 +4,7 @@
 
 #include "C_ID_P.h"
 
-struct Subtree_Bit_Loc_Exp
+struct Subtree_Bit_Loc_Exp_P
 {
 public: static ValueTree delay_feedback();
 public: static ValueTree delay_hpf_freq();

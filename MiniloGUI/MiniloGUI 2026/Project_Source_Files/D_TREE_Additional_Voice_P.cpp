@@ -1,9 +1,11 @@
 #include "D_TREE_Additional_Voice_P.h"
 
 #include "C_ID_P.h"
+#include "D_SUBTREE_Bit_Loc_AV_P.h"
 
 Tree_Additional_Voice_P::Tree_Additional_Voice_P(UndoManager* u_m) :
 	tree{ ID::tree_additional_voice },
+	tree_bit_loc{ Subtree_Bit_Loc_AV_P::build() },
 	u_m{ u_m }
 {
 	set_voice_mode(Voice_Mode::poly);
@@ -224,14 +226,27 @@ Value Tree_Additional_Voice_P::get_param_as_value(const Identifier param_id) {
 	return tree.getPropertyAsValue(param_id, u_m);
 }
 
-const int Tree_Additional_Voice_P::byte_index_for_param_bit(const Identifier param_id, const int bit_index) const
-{
-	return 0;
+const int Tree_Additional_Voice_P::byte_index_for_param_bit(const Identifier id, const int b) const {
+	auto bit_locations = tree_bit_loc.getChildWithName(id);
+	if (b < bit_locations.getNumProperties()) {
+		Identifier bit_id{ "bit_" + (String)b };
+		auto byte_index{ bit_locations[bit_id].toString() };
+		byte_index = byte_index.fromFirstOccurrenceOf("byte_", false, false);
+		byte_index = byte_index.upToFirstOccurrenceOf("__", false, false);
+		return byte_index.getIntValue();
+	}
+	return -1;
 }
 
-const int Tree_Additional_Voice_P::bit_index_for_param_bit(const Identifier param_id, const int bit_index) const
-{
-	return 0;
+const int Tree_Additional_Voice_P::bit_index_for_param_bit(const Identifier id, const int b) const {
+	auto bit_locations = tree_bit_loc.getChildWithName(id);
+	if (b < bit_locations.getNumProperties()) {
+		Identifier bit_id{ "bit_" + (String)b };
+		auto bit_index{ bit_locations[bit_id].toString() };
+		bit_index = bit_index.fromFirstOccurrenceOf("bit_", false, false);
+		return bit_index.getIntValue();
+	}
+	return -1;
 }
 
 std::unique_ptr<XmlElement> Tree_Additional_Voice_P::get_state() {
