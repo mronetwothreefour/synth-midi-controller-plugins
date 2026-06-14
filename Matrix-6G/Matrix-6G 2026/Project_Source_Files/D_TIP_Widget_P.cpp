@@ -14,6 +14,6 @@ String Tip_Widget_P::knob_text_editor(const Knob_Display_Type display_type, bool
 	case ENUM::Knob_Display_Type::unsigned_int:
 		return from_string_literal(SL::knob_txt_edit_signed_int_tip).replace("_", u7_bit ? "127" : "63");
 	default:
-		return "ERR";
+		return "error";
 	}
 }

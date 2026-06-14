@@ -352,17 +352,17 @@ String Subtree_Choices_Exp_P::choice_voice_mode_5_chord(const uint16 n, const bo
     case 0: { name += curt ? "5th(0)" : "5th interval"; break; }
     case 1: { name += curt ? "sus2(1)" : "suspended 2nd chord"; break; }
     case 2: { name += curt ? "m(2)" : "minor chord"; break; }
-    case 3: { name += curt ? "maj(3)" : "major chord"; break; }
+    case 3: { name += curt ? "Maj(3)" : "major chord"; break; }
     case 4: { name += curt ? "sus4(4)" : "suspended 4th chord"; break; }
     case 5: { name += curt ? "m7(5)" : "minor 7th chord"; break; }
     case 6: { name += curt ? "7th(6)" : "7th chord"; break; }
     case 7: { name += curt ? "7sus4(7)" : "7th/sus. 4th chord"; break; }
-    case 8: { name += curt ? "maj7(8)" : "major 7th chord"; break; }
+    case 8: { name += curt ? "Maj7(8)" : "major 7th chord"; break; }
     case 9: { name += curt ? "aug(9)" : "augmented chord"; break; }
     case 10: { name += curt ? "dim(10)" : "diminished chord"; break; }
     case 11: { name += curt ? "m7b5(11)" : "minor 7th/flat 5th chord"; break; }
-    case 12: { name += curt ? "mMaj7(12)" : "minor/major 7th chord"; break; }
-    case 13: { name += curt ? "maj7b5(13)" : "major 7th/flat 5th chord"; break; }
+    case 12: { name += curt ? "mM7(12)" : "minor/major 7th chord"; break; }
+    case 13: { name += curt ? "M7b5(13)" : "major 7th/flat 5th chord"; break; }
     default: break;
     }
     return name;
@@ -370,7 +370,7 @@ String Subtree_Choices_Exp_P::choice_voice_mode_5_chord(const uint16 n, const bo
 
 String Subtree_Choices_Exp_P::choice_voice_mode_6_delay(const uint16 n, const bool curt) {
     String name{ "|6:" };
-    if (n < 86) name += curt ? "1/192 beat delay" : "1/192(0)";
+    if (n < 86) name += curt ? "1/192(0)" : "1/192 beat delay";
     if (n >= 86 && n < 171) name += curt ? "1/128(1)" : "1/128 beat delay";
     if (n >= 171 && n < 256) name += curt ? "1/64(2)" : "1/64 beat delay";
     if (n >= 256 && n < 342) name += curt ? "1/48(3)" : "1/48 beat delay";
@@ -393,8 +393,8 @@ String Subtree_Choices_Exp_P::choice_voice_mode_7_arp(const uint16 n, const bool
     if (n >= 237 && n < 316) name += curt ? "rise2(3)" : "arpeggio: rise 2";
     if (n >= 316 && n < 394) name += curt ? "fall 1(4)" : "arpeggio: fall 1";
     if (n >= 394 && n < 473) name += curt ? "fall 2(5)" : "arpeggio: fall 2";
-    if (n >= 473 && n < 552) name += curt ? "R/F 1(6)" : "arpeggio: rise/fall 1";
-    if (n >= 552 && n < 631) name += curt ? "R/F 2(7)" : "arpeggio: rise/fall 2";
+    if (n >= 473 && n < 552) name += curt ? "r/f 1(6)" : "arpeggio: rise/fall 1";
+    if (n >= 552 && n < 631) name += curt ? "r/f 2(7)" : "arpeggio: rise/fall 2";
     if (n >= 631 && n < 709) name += curt ? "poly1(8)" : "arpeggio: poly 1";
     if (n >= 709 && n < 788) name += curt ? "poly2(9)" : "arpeggio: poly 2";
     if (n >= 788 && n < 867) name += curt ? "rnd 1(10)" : "arpeggio: random 1";

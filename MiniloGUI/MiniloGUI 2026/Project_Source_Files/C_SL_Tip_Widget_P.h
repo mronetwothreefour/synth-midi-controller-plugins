@@ -57,7 +57,7 @@ Select a new arpeggio type.
 (5) fall 2,  (6) rise/fall 1,  (7) rise/fall 2,  (8) poly 1,  (9) poly 2,  
 (10) random 1,  (11) random 2,  (12) random 3.)";
 
-	constexpr auto knob_txt_edit_voice_mode_3_tip = u8R"(
+	constexpr auto knob_txt_edit_voice_mode_7_tip = u8R"(
 Type in a new sidechain setting.
 Range: 0 to 1023.)";
 

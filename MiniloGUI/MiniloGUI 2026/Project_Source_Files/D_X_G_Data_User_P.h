@@ -7,10 +7,12 @@
 class Data_User_P :
 	public Data_User_B
 {
-	
+protected: Tree_Additional_Voice_P& avp;
+
 //==============================================================================
 public: explicit Data_User_P(Data_Hub_P* hub) :
-	Data_User_B{ hub }
+	Data_User_B{ hub },
+	avp{ hub->get_additional_voice_params() }
 {}
 
 //==============================================================================

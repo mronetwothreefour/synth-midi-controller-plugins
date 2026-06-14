@@ -14,6 +14,10 @@ Knob_Display_Exposed_B::Knob_Display_Exposed_B(const int param_index, Data_Hub_P
 	set_text_to_stored_choice();
 }
 
+void Knob_Display_Exposed_B::resized() {
+	setFont(FONT::knob(scale_factor));
+}
+
 void Knob_Display_Exposed_B::handleAsyncUpdate() {
 	set_text_to_stored_choice();
 }

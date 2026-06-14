@@ -20,6 +20,7 @@ protected: const Knob_Display_Type display_type;
 //==============================================================================
 public: Knob_Display_Exposed_B(const int param_index, Data_Hub_P* hub);
 
+public: void resized() override;
 private: virtual void on_editor_show()=0;
 private: virtual void set_text_to_stored_choice()=0;
 private: virtual void on_text_change()=0;

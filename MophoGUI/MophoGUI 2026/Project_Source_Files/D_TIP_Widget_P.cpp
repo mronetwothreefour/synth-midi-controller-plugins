@@ -26,6 +26,6 @@ String Tip_Widget_P::knob_text_editor(const Knob_Display_Type display_type) {
 	case ENUM::Knob_Display_Type::unsigned_7_bit:
 		return from_string_literal(SL::knob_txt_edit_unsigned_7_bit_tip);
 	default:
-		return "ERR";
+		return "error";
 	}
 }

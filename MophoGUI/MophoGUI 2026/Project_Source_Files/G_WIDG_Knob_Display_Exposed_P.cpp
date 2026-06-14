@@ -2,10 +2,7 @@
 
 Knob_Display_Exposed_P::Knob_Display_Exposed_P(const int param_index, Data_Hub_P* hub) :
 	Knob_Display_Exposed_B{ param_index, hub }
-{
-	setFont(FONT::knob(scale_factor));
-	setJustificationType(Justification::centred);
-}
+{}
 
 void Knob_Display_Exposed_P::on_editor_show() {
 	auto edit = getCurrentTextEditor();
