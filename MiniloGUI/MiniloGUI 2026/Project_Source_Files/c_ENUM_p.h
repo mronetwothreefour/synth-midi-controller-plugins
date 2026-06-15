@@ -20,6 +20,7 @@ namespace ENUM
 		error = -1,
 		none,
 		lfo_rate,
+		lpf_eg_int,
 		osc_2_pitch_eg_int,
 		osc_pitch_fine,
 		unsigned_10_bit,

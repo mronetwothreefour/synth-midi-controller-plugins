@@ -12,6 +12,9 @@ void Knob_Display_Exposed_P::on_editor_show() {
 	case Knob_Display_Type::lfo_rate:
 		edit->setInputRestrictions(avp.lfo_sync_bpm_on() ? 2 : 4, "0123456789");
 		break;
+	case Knob_Display_Type::lpf_eg_int:
+		edit->setInputRestrictions(4, "-0123456789");
+		break;
 	case Knob_Display_Type::osc_2_pitch_eg_int:
 		edit->setInputRestrictions(5, "-0123456789");
 		break;
@@ -109,6 +112,9 @@ void Knob_Display_Exposed_P::on_text_change() {
 	case ENUM::Knob_Display_Type::lfo_rate:
 		on_text_change_lfo_rate();
 		break;
+	case ENUM::Knob_Display_Type::lpf_eg_int:
+		on_text_change_lpf_eg_int();
+		break;
 	case ENUM::Knob_Display_Type::osc_2_pitch_eg_int:
 		on_text_change_osc_2_pitch_eg_int();
 		break;
@@ -135,6 +141,33 @@ void Knob_Display_Exposed_P::on_text_change_lfo_rate() {
 			param->setValueNotifyingHost(param->convertTo0to1((new_val) * 64.0f));
 		else
 			param->setValueNotifyingHost(param->convertTo0to1(new_val));
+	}
+	else
+		set_text_to_stored_choice();
+}
+
+void Knob_Display_Exposed_P::on_text_change_lpf_eg_int() {
+	auto new_text{ getText() };
+	if (new_text.isNotEmpty()) {
+		auto input_val{ new_text.getIntValue() };
+		auto new_val{ 0.0f };
+		if (input_val == 0)
+			new_val = 512.0f;
+		if (input_val == 100)
+			new_val = 1023.0f;
+		if (input_val > -100 && input_val < 0) {
+			for (int n = 12; n < 492; ++n) {
+				if (exp_info.choice_for(param_index, n) == String{ input_val } + "%")
+					new_val = (float)n;
+			}
+		}
+		if (input_val > 0 && input_val < 100) {
+			for (int n = 533; n < 1013; ++n) {
+				if (exp_info.choice_for(param_index, n) == "+" + String{ input_val } + "%")
+					new_val = (float)n;
+			}
+		}
+		param->setValueNotifyingHost(param->convertTo0to1(new_val));
 	}
 	else
 		set_text_to_stored_choice();
@@ -236,6 +269,23 @@ void Knob_Display_Exposed_P::on_text_change_unsigned_10_bit() {
 		set_text_to_stored_choice();
 }
 
-void Knob_Display_Exposed_P::on_text_change_voice_mode_depth()
-{
+void Knob_Display_Exposed_P::on_text_change_voice_mode_depth() {
+	auto new_text{ getText() };
+	auto new_val{ new_text.getFloatValue() };
+	if (new_text.isNotEmpty()) {
+		switch (avp.voice_mode())
+		{
+		case Voice_Mode::poly: param->setValueNotifyingHost(param->convertTo0to1(new_val * 114.0f)); break;
+		case Voice_Mode::duo: param->setValueNotifyingHost(param->convertTo0to1(new_val * 20.0f)); break;
+		case Voice_Mode::unison: param->setValueNotifyingHost(param->convertTo0to1(new_val * 20.0f)); break;
+		case Voice_Mode::mono: param->setValueNotifyingHost(param->convertTo0to1(new_val)); break;
+		case Voice_Mode::chord: param->setValueNotifyingHost(param->convertTo0to1(new_val * 74.0f)); break;
+		case Voice_Mode::delay: param->setValueNotifyingHost(param->convertTo0to1(new_val * 86.0f)); break;
+		case Voice_Mode::arp: param->setValueNotifyingHost(param->convertTo0to1(new_val * 79.0f)); break;
+		case Voice_Mode::sidechain: param->setValueNotifyingHost(param->convertTo0to1(new_val)); break;
+		default: set_text_to_stored_choice(); break;
+		}
+	}
+	else
+		set_text_to_stored_choice();
 }

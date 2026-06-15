@@ -8,6 +8,8 @@ String Tip_Widget_P::knob_text_editor(const Knob_Display_Type display, Tree_Addi
 	case Knob_Display_Type::lfo_rate:
 		auto synced = avp.lfo_sync_bpm_on();
 		return from_string_literal(synced ? SL::knob_txt_edit_lfo_synced_tip : SL::knob_txt_edit_lfo_unsynced_tip);
+	case Knob_Display_Type::lpf_eg_int:
+		return from_string_literal(SL::knob_txt_lpf_eg_int_tip);
 	case Knob_Display_Type::osc_2_pitch_eg_int:
 		return from_string_literal(SL::knob_txt_edit_osc_2_pitch_eg_int_tip);
 	case Knob_Display_Type::osc_pitch_fine:

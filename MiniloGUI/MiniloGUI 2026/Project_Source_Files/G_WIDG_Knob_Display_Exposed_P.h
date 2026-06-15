@@ -14,6 +14,7 @@ private: void on_editor_show() override;
 private: void set_text_to_stored_choice() override;
 private: void on_text_change() override;
 private: void on_text_change_lfo_rate();
+private: void on_text_change_lpf_eg_int();
 private: void on_text_change_osc_2_pitch_eg_int();
 private: void on_text_change_osc_pitch_fine();
 private: void on_text_change_unsigned_10_bit();

@@ -12,8 +12,13 @@ Options: (0) 4,  (1) 2,  (2) 1,  (3) 3/4,
 (12) 1/16,  (13) 1/24,  (14) 1/32,  (15) 1/64.)";
 
 	constexpr auto knob_txt_edit_lfo_unsynced_tip = u8R"(
-Type in a new LFO rate.
+Type in a new
+unsynced LFO rate.
 Range: 0 to 1023.)";
+
+	constexpr auto knob_txt_lpf_eg_int_tip = u8R"(
+Type in a new intensity.
+Range: -100 to 100.)";
 
 	constexpr auto knob_txt_edit_osc_2_pitch_eg_int_tip = u8R"(
 Type in a new setting.
