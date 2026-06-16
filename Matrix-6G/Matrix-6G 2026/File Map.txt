@@ -107,3 +107,4 @@ G_WIDG_Slider_Wheel_Mod_B
 G_WIDG_Slider_Wheel_Mod_P
 G_WIDG_Slider_Splits
 G_WIDG_Slider_Voice_Map
+G_WIDG_Tooltip_Updater_B

@@ -76,7 +76,7 @@ namespace XYWH
 
 	constexpr int mmod_col_1_x{ 1016 };
 	constexpr int mmod_col_2_x{ 1104 };
-	constexpr int mmod_col_2_x{ 1150 };
+	constexpr int mmod_col_3_x{ 1150 };
 	constexpr int mmod_ctrl_amt_w{ 40 };
 	constexpr int mmod_ctrl_src_dest_w{ 82 };
 

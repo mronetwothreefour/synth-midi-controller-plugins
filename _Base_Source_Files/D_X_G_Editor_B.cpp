@@ -10,6 +10,8 @@ Editor_B::Editor_B(Audio_Processor_P& processor, Data_Hub_P* hub) :
     l_a_f{ scale_factor }
 {
     LookAndFeel::setDefaultLookAndFeel(&l_a_f);
+    tip_win.setMillisecondsBeforeTipAppears(50);
+    tip_win.setComponentEffect(nullptr);
     setWantsKeyboardFocus(true);
     setResizable(true, true);
     setSize(roundToInt(XYWH::gui_init_w * scale_factor), roundToInt(XYWH::gui_init_h * scale_factor));

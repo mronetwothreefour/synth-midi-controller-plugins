@@ -12,6 +12,7 @@ class Editor_B :
 {
 protected: Audio_Processor_P& processor;
 protected: Look_And_Feel_P l_a_f;
+protected: TooltipWindow tip_win;
 
 //==============================================================================
 public: Editor_B(Audio_Processor_P& processor, Data_Hub_P* hub);

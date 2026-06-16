@@ -53,6 +53,8 @@
             resource="0" file="../../_Base_Source_Files/G_WIDG_Slider_Wheel_Mod_B.cpp"/>
       <FILE id="UljWDI" name="G_WIDG_Slider_Wheel_Mod_B.h" compile="0" resource="0"
             file="../../_Base_Source_Files/G_WIDG_Slider_Wheel_Mod_B.h"/>
+      <FILE id="sdpMtY" name="G_WIDG_Tooltip_Updater_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Tooltip_Updater_B.h"/>
     </GROUP>
     <GROUP id="{C02A1A4E-C369-BB7A-1A3F-4F81F5D39CBF}" name="Project_Source_Files">
       <GROUP id="{6230C6BB-ECE5-023C-F6D5-D0D9733356FE}" name="binaries">
