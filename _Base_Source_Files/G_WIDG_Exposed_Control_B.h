@@ -18,7 +18,7 @@ public: const Ctrl_Type ctrl_type;
 protected: Tooltip_Updater_B tip_update;
 
 //==============================================================================
-public: Exposed_Control_B();
+private: Exposed_Control_B();
 public: Exposed_Control_B(const int param_index, Data_Hub_P* hub);
 
 public: virtual void attach_to_param()=0;

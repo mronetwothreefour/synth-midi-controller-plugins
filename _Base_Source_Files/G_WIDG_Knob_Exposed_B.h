@@ -12,12 +12,14 @@ class Knob_Exposed_B :
 {
 protected: const int param_index;
 protected: Knob_Display_Exposed_P display;
-protected: SliderParameterAttachment attachment;
+protected: std::unique_ptr<SliderParameterAttachment> attachment;
 
 //==============================================================================
 public: Knob_Exposed_B(const int param_index, Data_Hub_P* hub);
 
+public: void resized() override;
+public: void set_modifying_pitch(bool is_true);
 public: void attach_to_param() override;
 public: void remove_attachment() override;
-public: void mouseDoubleClick(const MouseEvent& e) override;
+protected: void mouseDoubleClick(const MouseEvent& e) override;
 };

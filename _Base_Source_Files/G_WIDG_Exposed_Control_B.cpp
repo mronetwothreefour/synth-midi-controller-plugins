@@ -28,7 +28,7 @@ void Exposed_Control_B::handleAsyncUpdate() {
 	update_value_tip();
 }
 
-void Exposed_Control_B::parameterValueChanged(int param_index, float new_value) {
+void Exposed_Control_B::parameterValueChanged(int /*param_index*/, float /*new_value*/) {
 	handleAsyncUpdate();
 }
 

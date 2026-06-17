@@ -9,8 +9,14 @@ Look_And_Feel_P::Look_And_Feel_P(float& scale_factor) :
 
 void Look_And_Feel_P::draw_label_p(Graphics& g, Label& lbl, String& id) {
 	if (id == ID::label_led.toString()) {
-		g.setColour(COLOR::light_blue);
 		auto txt{ lbl.getText() };
 		Draw_Paths_LED_P::display_text(g, txt, lbl.getWidth(), scale_factor, lbl.getJustificationType());
 	}
+}
+
+void Look_And_Feel_P::drawLinearSlider(Graphics& g, int /*x*/, int /*y*/, int /*w*/, int /*h*/,
+									   float pos, float /*min_pos*/, float /*max_pos*/,
+									   const Slider::SliderStyle /*style*/, Slider& /*s*/)
+{
+	Draw_Paths_LED_P::slider_tab(g, pos);
 }

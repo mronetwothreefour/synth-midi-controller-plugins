@@ -4,6 +4,8 @@ Knob_Display_Exposed_P::Knob_Display_Exposed_P(const int param_index, Data_Hub_P
 	Knob_Display_Exposed_B{ param_index, hub}
 {
 	setComponentID(ID::label_led.toString());
+	setJustificationType(Justification::right);
+	set_text_to_stored_choice();
 }
 
 void Knob_Display_Exposed_P::on_editor_show() {
@@ -33,7 +35,7 @@ void Knob_Display_Exposed_P::on_editor_show() {
 
 void Knob_Display_Exposed_P::set_text_to_stored_choice() {
 	auto choice_num{ roundToInt(param->convertFrom0to1(param->getValue())) };
-	auto choice_name{ exp_info.choice_for(choice_num, param_index, true).removeCharacters(" +") };
+	auto choice_name{ exp_info.choice_for(param_index, choice_num, true).removeCharacters(" +") };
 	setText(choice_name, dontSendNotification);
 }
 

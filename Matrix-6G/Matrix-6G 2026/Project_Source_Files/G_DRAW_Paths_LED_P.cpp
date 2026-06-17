@@ -583,11 +583,11 @@ void Draw_Paths_LED_P::display_text(Graphics& g, const String txt, const int dis
 	g.fillPath(path);
 }
 
-void Draw_Paths_LED_P::slider_tab(Graphics& g) {
+void Draw_Paths_LED_P::slider_tab(Graphics& g, float pos) {
 	auto path_vert_bar = load_path(led_vert_bar, sizeof(led_vert_bar));
 	Path path_tab;
 	for (int i = 0; i < 6; ++i)
 		path_tab.addPath(path_vert_bar, AffineTransform::translation(i * 3.0f, 0.0f));
 	g.setColour(COLOR::light_blue);
-	g.fillPath(path_tab);
+	g.fillPath(path_tab, AffineTransform::translation(pos - 8.0f, 0.0f));
 }
