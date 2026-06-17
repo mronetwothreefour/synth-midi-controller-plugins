@@ -162,6 +162,7 @@
     <ClCompile Include="..\..\Project_Source_Files\D_X_G_Editor_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\G_DRAW_Paths_Editor_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.cpp"/>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exposed_Control_B.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\G_WIDG_Knob_Display_Exposed_P.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
@@ -3026,6 +3027,7 @@
     <ClInclude Include="..\..\Project_Source_Files\D_X_G_Editor_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_Editor_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.h"/>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exposed_Control_B.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Knob_Display_Exposed_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Slider_Wheel_Mod_P.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>

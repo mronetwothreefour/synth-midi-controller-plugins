@@ -114,6 +114,10 @@
             file="Project_Source_Files/G_LOOK_AND_FEEL_P.cpp"/>
       <FILE id="dT7mDI" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"
             file="Project_Source_Files/G_LOOK_AND_FEEL_P.h"/>
+      <FILE id="qw5Oa6" name="G_WIDG_Exposed_Control_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Exposed_Control_B.cpp"/>
+      <FILE id="HwHBAW" name="G_WIDG_Exposed_Control_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Exposed_Control_B.h"/>
       <FILE id="vgbuiF" name="G_WIDG_Knob_Display_Exposed_P.cpp" compile="1"
             resource="0" file="Project_Source_Files/G_WIDG_Knob_Display_Exposed_P.cpp"/>
       <FILE id="hv94vL" name="G_WIDG_Knob_Display_Exposed_P.h" compile="0"

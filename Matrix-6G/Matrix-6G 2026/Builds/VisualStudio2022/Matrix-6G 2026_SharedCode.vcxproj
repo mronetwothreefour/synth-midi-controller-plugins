@@ -151,7 +151,9 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_Hub_B.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Editor_B.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.cpp"/>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exposed_Control_B.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Knob_Display_Exposed_B.cpp"/>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Knob_Exposed_B.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Wheel_Mod_B.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\D_SUBTREE_Choices_Exp_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\D_TIP_Exposed_P.cpp"/>
@@ -3003,7 +3005,9 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Editor_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_DRAW_Paths_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.h"/>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exposed_Control_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Knob_Display_Exposed_B.h"/>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Knob_Exposed_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Wheel_Mod_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Tooltip_Updater_B.h"/>
     <ClInclude Include="..\..\Project_Source_Files\C_COLOR_P.h"/>

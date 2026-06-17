@@ -712,6 +712,9 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.cpp">
       <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exposed_Control_B.cpp">
+      <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Knob_Display_Exposed_B.cpp">
       <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
     </ClCompile>
@@ -3799,6 +3802,9 @@
       <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.h">
+      <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exposed_Control_B.h">
       <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Knob_Display_Exposed_B.h">
