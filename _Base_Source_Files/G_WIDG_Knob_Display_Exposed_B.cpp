@@ -9,6 +9,7 @@ Knob_Display_Exposed_B::Knob_Display_Exposed_B(const int param_index, Data_Hub_P
 	param->addListener(this);
 	setInterceptsMouseClicks(false, true);
 	setComponentID(ID::label_knob.toString());
+	tip_update.tip_info = exp_info.tip_for(param_index);
 	onEditorShow = [this] { on_editor_show(); };
 	onTextChange = [this] { on_text_change(); };
 }

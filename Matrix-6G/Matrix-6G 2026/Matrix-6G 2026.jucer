@@ -66,7 +66,6 @@
     <GROUP id="{B2F6A865-4EED-AC49-FF3C-B4C5A690524D}" name="Project_Source_Files">
       <GROUP id="{C3C07938-B8AF-29A0-55C7-2E817B31A3D6}" name="binaries">
         <FILE id="q2G8rN" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../SOCL0/APPDATA/LOCAL/MICROSOFT/WINDOWS/FONTS/SWISSB.TTF"/>
-        <FILE id="Qu4Oex" name="SWISSCL.TTF" compile="0" resource="1" file="../../../../../SOCL0/APPDATA/LOCAL/MICROSOFT/WINDOWS/FONTS/SWISSCL.TTF"/>
       </GROUP>
       <FILE id="MxpVOZ" name="C_COLOR_P.h" compile="0" resource="0" file="Project_Source_Files/C_COLOR_P.h"/>
       <FILE id="iTk4YJ" name="C_ENUM_P.h" compile="0" resource="0" file="Project_Source_Files/C_ENUM_P.h"/>

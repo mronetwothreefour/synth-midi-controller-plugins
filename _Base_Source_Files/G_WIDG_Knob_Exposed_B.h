@@ -22,4 +22,5 @@ public: void set_modifying_pitch(bool is_true);
 public: void attach_to_param() override;
 public: void remove_attachment() override;
 protected: void mouseDoubleClick(const MouseEvent& e) override;
+public: void modifierKeysChanged(const ModifierKeys& mods) override;
 };

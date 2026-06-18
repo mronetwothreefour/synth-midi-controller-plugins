@@ -23,6 +23,10 @@ public: virtual void draw_label_p(Graphics& g, Label& lbl, String& id)=0;
 public: virtual void fillTextEditorBackground(Graphics& g, int w, int h, TextEditor& editor) override;
 public: void drawTextEditorOutline(Graphics& /*g*/, int /*w*/, int /*h*/, TextEditor& /*editor*/) override {}
 
+public: void drawTooltip(Graphics& g, const String& txt, int w, int h) override;
+public: Rectangle<int> getTooltipBounds(const String& tip_txt, Point<int> position, Rectangle<int> parent_area) override;
+public: TextLayout layout_tip_text(const String& txt) noexcept;
+
 //==============================================================================
 private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Look_And_Feel_B)
 };

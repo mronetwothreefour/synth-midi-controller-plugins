@@ -10,8 +10,8 @@ Knob_Display_Exposed_P::Knob_Display_Exposed_P(const int param_index, Data_Hub_P
 
 void Knob_Display_Exposed_P::on_editor_show() {
 	auto edit = getCurrentTextEditor();
-	edit->setFont(FONT::knob_txt_edit(scale_factor));
 	edit->setJustification(Justification::centredRight);
+	edit->setBounds(getLocalBounds());
 	switch (display_type)
 	{
 	case Knob_Display_Type::osc_pitch:
@@ -30,12 +30,13 @@ void Knob_Display_Exposed_P::on_editor_show() {
 		break;
 	}
 	edit->setTooltip(Tip_W::knob_text_editor(display_type, display_type == Knob_Display_Type::signed_7_bit));
+	edit->setText(getText().removeCharacters(" +"));
 	edit->selectAll();
 }
 
 void Knob_Display_Exposed_P::set_text_to_stored_choice() {
 	auto choice_num{ roundToInt(param->convertFrom0to1(param->getValue())) };
-	auto choice_name{ exp_info.choice_for(param_index, choice_num, true).removeCharacters(" +") };
+	auto choice_name{ exp_info.choice_for(param_index, choice_num, true) };
 	setText(choice_name, dontSendNotification);
 }
 

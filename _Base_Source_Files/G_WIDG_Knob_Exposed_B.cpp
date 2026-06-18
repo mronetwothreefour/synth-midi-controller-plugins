@@ -32,3 +32,7 @@ void Knob_Exposed_B::remove_attachment() {
 void Knob_Exposed_B::mouseDoubleClick(const MouseEvent& /*e*/) {
 	display.showEditor();
 }
+
+void Knob_Exposed_B::modifierKeysChanged(const ModifierKeys& mods) {
+	tip_update.on_mod_keys_changed(mods, this, this);
+}

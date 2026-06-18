@@ -4,7 +4,6 @@ Look_And_Feel_B::Look_And_Feel_B(float& scale_factor) :
 	scale_factor{ scale_factor }
 {
 	setColour(PopupMenu::backgroundColourId, COLOR::popup_bkgrnd);
-	setColour(TextEditor::backgroundColourId, COLOR::txt_edit_fill);
 	setColour(TextEditor::textColourId, COLOR::text);
 	setColour(TextEditor::highlightColourId, COLOR::txt_highlight);
 }
@@ -28,7 +27,8 @@ void Look_And_Feel_B::drawLabel(Graphics& g, Label& lbl) {
 }
 
 void Look_And_Feel_B::fillTextEditorBackground(Graphics& g, int w, int /*h*/, TextEditor& editor) {
-	auto fill_color = editor.findColour(TextEditor::backgroundColourId);
+	editor.applyFontToAllText(FONT::knob_txt_edit(scale_factor));
+	auto fill_color = COLOR::txt_edit_fill;
 	if (editor.getComponentID() == ID::txt_edit_circ_fill.toString()) {
 		g.setColour(fill_color);
 		auto fill_diameter = 1.0f * w;
@@ -38,5 +38,33 @@ void Look_And_Feel_B::fillTextEditorBackground(Graphics& g, int w, int /*h*/, Te
 	}
 	else
 		g.fillAll(fill_color);
+}
+
+void Look_And_Feel_B::drawTooltip(Graphics& g, const String& txt, int w, int h) {
+	Rectangle<int> tip_box(w, h);
+	g.setColour(COLOR::popup_bkgrnd);
+	g.fillRect(tip_box);
+	g.setColour(COLOR::tip_border);
+	g.drawRect(tip_box, 1);
+	layout_tip_text(txt).draw(g, { (float)w, (float)h });
+}
+
+Rectangle<int> Look_And_Feel_B::getTooltipBounds(const String& txt, Point<int> pos, Rectangle<int> parent_area) {
+	auto layout(layout_tip_text(txt));
+	auto w = roundToInt(layout.getWidth() + 16.0f);
+	auto h = roundToInt(layout.getHeight() + 14.0f);
+	return Rectangle<int>(
+		pos.x > parent_area.getCentreX() ? pos.x - (w + 12) : pos.x + 24,
+		pos.y > parent_area.getCentreY() ? pos.y - (h + 6) : pos.y + 6, w, h).constrainedWithin(parent_area);
+}
+
+TextLayout Look_And_Feel_B::layout_tip_text(const String& txt) noexcept {
+	AttributedString attrib_txt;
+	attrib_txt.setJustification(Justification::centred);
+	attrib_txt.append(txt, FONT::tip(), COLOR::text);
+	TextLayout layout;
+	auto tooltipMaxWidth = 400.0f;
+	layout.createLayout(attrib_txt, tooltipMaxWidth);
+	return layout;
 }
 

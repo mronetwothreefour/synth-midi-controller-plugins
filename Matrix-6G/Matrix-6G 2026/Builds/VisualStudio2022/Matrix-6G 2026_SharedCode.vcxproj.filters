@@ -8045,9 +8045,6 @@
     <None Include="..\..\..\..\..\..\..\SOCL0\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\SWISSB.TTF">
       <Filter>Matrix-6G 2026\Project_Source_Files\binaries</Filter>
     </None>
-    <None Include="..\..\..\..\..\..\..\SOCL0\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\SWISSCL.TTF">
-      <Filter>Matrix-6G 2026\Project_Source_Files\binaries</Filter>
-    </None>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt">
       <Filter>JUCE Modules\juce_audio_devices\native\asio</Filter>
     </None>
