@@ -14,8 +14,8 @@ namespace COLOR
 	const Colour light_grey{ 0xff656565 };
 	const Colour off_white{ 0xffe1e1e1 };
 	const Colour orange{ 0xffb53100 };
-	const Colour tip_border{ COLOR::light_blue };
-	const Colour txt_edit_fill{ COLOR::black };
-	const Colour txt_highlight{ 0xaa00bed6 };
+	const Colour tip_border{ light_blue };
+	const Colour txt_caret{ light_blue.withAlpha(0.9f) };
+	const Colour txt_highlight{ light_blue.withAlpha(0.67f) };
 
 }

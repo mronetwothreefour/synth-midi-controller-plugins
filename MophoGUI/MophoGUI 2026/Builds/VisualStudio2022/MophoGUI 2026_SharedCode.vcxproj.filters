@@ -712,7 +712,13 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.cpp">
       <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exposed_Control_B.cpp">
+      <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Knob_Display_Exposed_B.cpp">
+      <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Knob_Exposed_B.cpp">
       <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Wheel_Mod_B.cpp">
@@ -743,9 +749,6 @@
       <Filter>MophoGUI 2026\Project_Source_Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source_Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exposed_Control_B.cpp">
       <Filter>MophoGUI 2026\Project_Source_Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\G_WIDG_Knob_Display_Exposed_P.cpp">
@@ -3804,7 +3807,13 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.h">
       <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exposed_Control_B.h">
+      <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Knob_Display_Exposed_B.h">
+      <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Knob_Exposed_B.h">
       <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Wheel_Mod_B.h">
@@ -3874,9 +3883,6 @@
       <Filter>MophoGUI 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.h">
-      <Filter>MophoGUI 2026\Project_Source_Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exposed_Control_B.h">
       <Filter>MophoGUI 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Knob_Display_Exposed_P.h">

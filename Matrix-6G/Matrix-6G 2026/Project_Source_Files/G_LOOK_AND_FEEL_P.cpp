@@ -10,7 +10,8 @@ Look_And_Feel_P::Look_And_Feel_P(float& scale_factor) :
 void Look_And_Feel_P::draw_label_p(Graphics& g, Label& lbl, String& id) {
 	if (id == ID::label_led.toString()) {
 		auto txt{ lbl.getText() };
-		Draw_Paths_LED_P::display_text(g, txt, lbl.getWidth(), scale_factor, lbl.getJustificationType());
+		auto alpha = lbl.isBeingEdited() ? 0.0f : 1.0f;
+		Draw_Paths_LED_P::display_text(g, txt, lbl.getWidth(), scale_factor, lbl.getJustificationType(), alpha);
 	}
 }
 

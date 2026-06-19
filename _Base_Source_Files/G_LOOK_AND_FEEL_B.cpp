@@ -5,6 +5,7 @@ Look_And_Feel_B::Look_And_Feel_B(float& scale_factor) :
 {
 	setColour(PopupMenu::backgroundColourId, COLOR::popup_bkgrnd);
 	setColour(TextEditor::textColourId, COLOR::text);
+	setColour(CaretComponent::caretColourId, COLOR::txt_caret);
 	setColour(TextEditor::highlightColourId, COLOR::txt_highlight);
 }
 
@@ -18,26 +19,16 @@ void Look_And_Feel_B::drawLabel(Graphics& g, Label& lbl) {
 		return;
 	}
 	if (id == ID::label_knob.toString() || id == ID::label_cbox.toString()) {
-		g.setColour(COLOR::text);
+		g.setColour(lbl.isBeingEdited() ? COLOR::text.withAlpha(0.0f) : COLOR::text);
 		g.setFont(lbl.getFont());
-		g.drawFittedText(lbl.getText(), lbl.getLocalBounds(), Justification::centred, 1, 1.0f);
+		g.drawFittedText(lbl.getText(), lbl.getLocalBounds().translated(0, 1), Justification::centred, 1, 1.0f);
 		return;
 	}
 	draw_label_p(g, lbl, id);
 }
 
-void Look_And_Feel_B::fillTextEditorBackground(Graphics& g, int w, int /*h*/, TextEditor& editor) {
+void Look_And_Feel_B::fillTextEditorBackground(Graphics& /*g*/, int /*w*/, int /*h*/, TextEditor& editor) {
 	editor.applyFontToAllText(FONT::knob_txt_edit(scale_factor));
-	auto fill_color = COLOR::txt_edit_fill;
-	if (editor.getComponentID() == ID::txt_edit_circ_fill.toString()) {
-		g.setColour(fill_color);
-		auto fill_diameter = 1.0f * w;
-		auto inset = XYWH::txt_edit_circ_fill_inset * scale_factor;
-		fill_diameter -= 2.0f * inset;
-		g.fillEllipse(inset, inset, fill_diameter, fill_diameter);
-	}
-	else
-		g.fillAll(fill_color);
 }
 
 void Look_And_Feel_B::drawTooltip(Graphics& g, const String& txt, int w, int h) {

@@ -30,6 +30,4 @@ namespace XYWH
 	constexpr int switch_lpf_type_h{ 84 };
 	constexpr int switch_w{ 34 };
 
-	constexpr int txt_edit_circ_fill_inset{ 3 };
-
 }

@@ -549,7 +549,7 @@ Path Draw_Paths_LED_P::build_char_path(const uint8 char_num) {
 }
 
 void Draw_Paths_LED_P::display_text(Graphics& g, const String txt, const int display_w, 
-									float& scale_factor, Justification j)
+									float& scale_factor, Justification j, float alpha)
 {
 	auto char_w = led_display_char_w * scale_factor;
 	auto display_y = led_display_y * scale_factor;
@@ -579,7 +579,7 @@ void Draw_Paths_LED_P::display_text(Graphics& g, const String txt, const int dis
 			path.addPath(char_path, char_transform);
 		}
 	}
-	g.setColour(COLOR::light_blue);
+	g.setColour(COLOR::light_blue.withAlpha(alpha));
 	g.fillPath(path);
 }
 

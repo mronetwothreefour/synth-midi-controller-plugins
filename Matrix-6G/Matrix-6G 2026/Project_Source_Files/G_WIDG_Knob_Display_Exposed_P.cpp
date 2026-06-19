@@ -11,7 +11,7 @@ Knob_Display_Exposed_P::Knob_Display_Exposed_P(const int param_index, Data_Hub_P
 void Knob_Display_Exposed_P::on_editor_show() {
 	auto edit = getCurrentTextEditor();
 	edit->setJustification(Justification::centredRight);
-	edit->setBounds(getLocalBounds());
+	edit->setBounds(getLocalBounds().translated(0, -1));
 	switch (display_type)
 	{
 	case Knob_Display_Type::osc_pitch:

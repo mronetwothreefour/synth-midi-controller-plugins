@@ -38,6 +38,4 @@ namespace XYWH
 	constexpr int switch_row_2_y{ 315 };
 	constexpr int switch_w{ 20 };
 
-	constexpr int txt_edit_circ_fill_inset{ 4 };
-
 }

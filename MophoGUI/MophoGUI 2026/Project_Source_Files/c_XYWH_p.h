@@ -7,13 +7,13 @@ namespace XYWH
 
 	constexpr double gui_aspect_ratio{ 2.03354 };
 
-	constexpr float rotary_slider_end_angle{ degreesToRadians(495.0f) };
-	constexpr float rotary_slider_start_angle{ degreesToRadians(225.0f) };
+	constexpr float rotary_slider_end_angle{ degreesToRadians(315.0f) };
+	constexpr float rotary_slider_start_angle{ degreesToRadians(45.0f) };
 
 	constexpr int gui_init_w{ 1273 }, gui_init_h{ 626 };
 
 	constexpr int cbox_h{ 16 };
-	constexpr int knob_diameter{ 40 };
+	constexpr int knob_diameter{ 38 };
 	constexpr int toggle_center_offset{ 1 };
 	constexpr int toggle_diameter{ 14 };
 
@@ -77,8 +77,6 @@ namespace XYWH
 	constexpr int seq_track_dest_cbox_w{ 126 };
 	constexpr int seq_track_dest_cbox_x{ 1065 };
 	constexpr int step_and_char_gap{ 2 };
-
-	constexpr int txt_edit_circ_fill_inset{ 5 };
 
 	constexpr int vca_row_1_y{ 373 };
 	constexpr int vca_row_2_y{ 425 };

@@ -8,7 +8,7 @@ struct Draw_Paths_LED_P :
 	public Draw_Paths_B
 {
 	static Path build_char_path(const uint8 char_num);
-	static void display_text(Graphics& g, const String text, const int ctrl_w,
-							 float& scale_factor, Justification justification);
+	static void display_text(Graphics& g, const String text, const int ctrl_w, float& scale_factor,
+							 Justification justification, float alpha);
 	static void slider_tab(Graphics& g, float slider_position);
 };
