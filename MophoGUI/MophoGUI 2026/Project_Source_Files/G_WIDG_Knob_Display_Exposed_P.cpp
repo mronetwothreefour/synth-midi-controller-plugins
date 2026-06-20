@@ -10,7 +10,6 @@ Knob_Display_Exposed_P::Knob_Display_Exposed_P(const int param_index, Data_Hub_P
 
 void Knob_Display_Exposed_P::on_editor_show() {
 	auto edit = getCurrentTextEditor();
-	edit->setComponentID(ID::txt_edit_circ_fill.toString());
 	edit->setJustification(Justification::centred);
 	edit->setBounds(getLocalBounds().translated(0, -1));
 	switch (display_type)

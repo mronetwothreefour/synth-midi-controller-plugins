@@ -21,7 +21,7 @@ void Slider_Wheel_Mod_B::mouseWheelMove(const MouseEvent& e, const MouseWheelDet
 			case ModifierKeys::altModifier: alt_increment_value(increment, new_value); break;
 			case ModifierKeys::ctrlModifier: ctrl_increment_value(increment, new_value); break;
 			case ModifierKeys::shiftModifier: shift_increment_value(increment, new_value); break;
-			default: default_increment_value(increment, new_value); break;
+			default: increment_value(increment, new_value); break;
 			}
 			setValue(new_value);
 		}
@@ -30,14 +30,14 @@ void Slider_Wheel_Mod_B::mouseWheelMove(const MouseEvent& e, const MouseWheelDet
 }
 
 void Slider_Wheel_Mod_B::alt_increment_value(double increment, double& value) {
-	default_increment_value(increment, value);
+	increment_value(increment, value);
 }
 
 void Slider_Wheel_Mod_B::ctrl_increment_value(double increment, double& value) {
-	default_increment_value(increment, value);
+	increment_value(increment, value);
 }
 
-void Slider_Wheel_Mod_B::default_increment_value(double increment, double& value) {
+void Slider_Wheel_Mod_B::increment_value(double increment, double& value) {
 	value += increment;
 }
 

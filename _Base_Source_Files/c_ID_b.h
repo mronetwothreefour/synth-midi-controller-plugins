@@ -27,8 +27,6 @@ namespace ID
 	static const Identifier tree_exp_param_info{ "tree_exp_param_info" };
 	static const Identifier tree_exp_param_state{ "tree_exp_param_state" };
 
-	static const Identifier txt_edit_circ_fill{ "txt_edit_circ_fill" };
-
 	static const Identifier xml_att_scale_factor{ "xml_att_scale_factor" };
 	static const Identifier xml_state_exposed{ "xml_state_exposed" };
 	static const Identifier xml_state_plugin{ "xml_state_plugin" };

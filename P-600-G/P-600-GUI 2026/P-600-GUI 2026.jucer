@@ -52,6 +52,10 @@
             resource="0" file="../../_Base_Source_Files/G_WIDG_Knob_Display_Exposed_B.cpp"/>
       <FILE id="OGAXqs" name="G_WIDG_Knob_Display_Exposed_B.h" compile="0"
             resource="0" file="../../_Base_Source_Files/G_WIDG_Knob_Display_Exposed_B.h"/>
+      <FILE id="RtIL5E" name="G_WIDG_Knob_Exposed_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Knob_Exposed_B.cpp"/>
+      <FILE id="NVIfMe" name="G_WIDG_Knob_Exposed_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Knob_Exposed_B.h"/>
       <FILE id="L7scRM" name="G_WIDG_Slider_Wheel_Mod_B.cpp" compile="1"
             resource="0" file="../../_Base_Source_Files/G_WIDG_Slider_Wheel_Mod_B.cpp"/>
       <FILE id="s7pvqR" name="G_WIDG_Slider_Wheel_Mod_B.h" compile="0" resource="0"
@@ -64,7 +68,6 @@
         <FILE id="qVHTXX" name="texture.jpg" compile="0" resource="1" file="Project_Source_Files/binaries/texture.jpg"/>
         <FILE id="RcXY7x" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../SOCL0/APPDATA/LOCAL/MICROSOFT/WINDOWS/FONTS/SWISSB.TTF"/>
         <FILE id="b4I1nF" name="SWISSCK.TTF" compile="0" resource="1" file="../../../../../SOCL0/APPDATA/LOCAL/MICROSOFT/WINDOWS/FONTS/SWISSCK.TTF"/>
-        <FILE id="DUnRhR" name="SWISSCL.TTF" compile="0" resource="1" file="../../../../../SOCL0/APPDATA/LOCAL/MICROSOFT/WINDOWS/FONTS/SWISSCL.TTF"/>
       </GROUP>
       <FILE id="wl8qDi" name="C_COLOR_P.h" compile="0" resource="0" file="Project_Source_Files/C_COLOR_P.h"/>
       <FILE id="NWkHKj" name="C_ENUM_P.h" compile="0" resource="0" file="Project_Source_Files/C_ENUM_P.h"/>

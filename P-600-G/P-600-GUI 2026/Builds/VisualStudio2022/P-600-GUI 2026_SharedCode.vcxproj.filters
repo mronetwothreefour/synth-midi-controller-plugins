@@ -718,6 +718,9 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Knob_Display_Exposed_B.cpp">
       <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Knob_Exposed_B.cpp">
+      <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Wheel_Mod_B.cpp">
       <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
     </ClCompile>
@@ -3808,6 +3811,9 @@
       <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Knob_Display_Exposed_B.h">
+      <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Knob_Exposed_B.h">
       <Filter>P-600-GUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Wheel_Mod_B.h">
@@ -8034,9 +8040,6 @@
       <Filter>P-600-GUI 2026\Project_Source_Files\binaries</Filter>
     </None>
     <None Include="..\..\..\..\..\..\..\SOCL0\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\SWISSCK.TTF">
-      <Filter>P-600-GUI 2026\Project_Source_Files\binaries</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\..\SOCL0\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\SWISSCL.TTF">
       <Filter>P-600-GUI 2026\Project_Source_Files\binaries</Filter>
     </None>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt">

@@ -12,10 +12,6 @@ struct FONT
 		return FontOptions{ Typeface::createSystemTypefaceFor(BinaryData::SWISSCK_TTF, BinaryData::SWISSCK_TTFSize) };
 	}
 
-	static const FontOptions cond_light() {
-		return FontOptions{ Typeface::createSystemTypefaceFor(BinaryData::SWISSCL_TTF, BinaryData::SWISSCL_TTFSize) };
-	}
-
 	static const Font file_browser(const float scale_factor) {
 		return Font{ bold() }.withPointHeight(14.0f * scale_factor);
 	}
@@ -24,7 +20,15 @@ struct FONT
 		return Font{ cond_black() }.withPointHeight(12.0f * scale_factor);
 	}
 
+	static const Font knob_txt_edit(const float scale_factor) {
+		return Font{ cond_black() }.withPointHeight(12.0f * scale_factor);
+	}
+
 	static const Font txt_edit_led(const float scale_factor) {
 		return Font{ bold() }.withPointHeight(34.0f * scale_factor);
+	}
+
+	static const Font tip() {
+		return Font{ bold() }.withPointHeight(12.0f);
 	}
 };

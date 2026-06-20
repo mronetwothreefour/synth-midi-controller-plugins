@@ -7,7 +7,7 @@
 namespace ID
 {
 
-	static const Identifier cmp_display_editor_seq_step{ "cmp_display_editor_seq_step" };
+	static const Identifier display_editor_seq_step{ "display_editor_seq_step" };
 
 	static const Identifier exp_000_osc_1_pitch     { "exp_000_osc_1_pitch" };
 	static const Identifier exp_001_osc_1_fine_tune { "exp_001_osc_1_fine_tune" };

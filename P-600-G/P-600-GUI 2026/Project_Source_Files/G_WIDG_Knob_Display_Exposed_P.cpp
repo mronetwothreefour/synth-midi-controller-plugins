@@ -2,11 +2,16 @@
 
 Knob_Display_Exposed_P::Knob_Display_Exposed_P(const int param_index, Data_Hub_P* hub) :
 	Knob_Display_Exposed_B{ param_index, hub }
-{}
+{
+	setComponentID(ID::label_knob.toString());
+	setJustificationType(Justification::centred);
+	set_text_to_stored_choice();
+}
 
 void Knob_Display_Exposed_P::on_editor_show() {
 	auto edit = getCurrentTextEditor();
-	edit->setJustification(Justification::centredRight);
+	edit->setJustification(Justification::centred);
+	edit->setBounds(getLocalBounds().translated(0, -1));
 	switch (display_type)
 	{
 	case Knob_Display_Type::int_4_bit:
@@ -28,12 +33,13 @@ void Knob_Display_Exposed_P::on_editor_show() {
 		break;
 	}
 	edit->setTooltip(Tip_W::knob_text_editor(display_type));
+	edit->setText(getText().removeCharacters(" "));
 	edit->selectAll();
 }
 
 void Knob_Display_Exposed_P::set_text_to_stored_choice() {
 	auto choice_num{ roundToInt(param->convertFrom0to1(param->getValue())) };
-	auto choice_name{ exp_info.choice_for(choice_num, param_index, true).removeCharacters(" ") };
+	auto choice_name{ exp_info.choice_for(param_index, choice_num, true) };
 	setText(choice_name, dontSendNotification);
 }
 

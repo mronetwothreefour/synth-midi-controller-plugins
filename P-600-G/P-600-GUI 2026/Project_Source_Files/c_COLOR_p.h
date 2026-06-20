@@ -15,7 +15,8 @@ namespace COLOR
 	const Colour red_led_2{ 0xff460000 };
 	const Colour red_led_3{ 0xffed1c24 };
 	const Colour translucent_white{ 0xa6ffffff };
-	const Colour txt_edit_fill{ grey_dark };
-	const Colour txt_highlight{ 0x30ed1c24 };
+	const Colour tip_border{ COLOR::white };
+	const Colour txt_caret{ red_led_3.withAlpha(0.75f) };
+	const Colour txt_highlight{ red_led_3.withAlpha(0.4f) };
 
 }

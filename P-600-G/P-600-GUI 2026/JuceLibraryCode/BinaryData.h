@@ -17,11 +17,8 @@ namespace BinaryData
     extern const char*   SWISSCK_TTF;
     const int            SWISSCK_TTFSize = 38696;
 
-    extern const char*   SWISSCL_TTF;
-    const int            SWISSCL_TTFSize = 35064;
-
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 4;
+    const int namedResourceListSize = 3;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
