@@ -7,6 +7,8 @@
 class Knob_Display_Exposed_P :
 	public Knob_Display_Exposed_B
 {
+private: const bool for_osc_balance;
+
 //==============================================================================
 public: Knob_Display_Exposed_P(const int param_index, Data_Hub_P* hub);
 

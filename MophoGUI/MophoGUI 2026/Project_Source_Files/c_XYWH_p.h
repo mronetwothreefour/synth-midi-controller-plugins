@@ -17,7 +17,7 @@ namespace XYWH
 	constexpr int toggle_center_offset{ 1 };
 	constexpr int toggle_diameter{ 14 };
 
-	constexpr int ctrl_col_w{ knob_diameter + 5 };
+	constexpr int ctrl_col_w{ knob_diameter + 7 };
 	constexpr int ctrl_col_1_x{ 48 };
 	constexpr int ctrl_col_2_x{ ctrl_col_1_x + ctrl_col_w };
 	constexpr int ctrl_col_3_x{ ctrl_col_2_x + ctrl_col_w };

@@ -27,7 +27,9 @@ void Look_And_Feel_B::drawLabel(Graphics& g, Label& lbl) {
 	draw_label_p(g, lbl, id);
 }
 
-void Look_And_Feel_B::fillTextEditorBackground(Graphics& /*g*/, int /*w*/, int /*h*/, TextEditor& editor) {
+void Look_And_Feel_B::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h*/, TextEditor& editor) {
+	if (editor.getComponentID() == ID::txt_editor_filled.toString())
+		g.fillAll(findColour(TextEditor::backgroundColourId));
 	editor.applyFontToAllText(FONT::knob_txt_edit(scale_factor));
 }
 

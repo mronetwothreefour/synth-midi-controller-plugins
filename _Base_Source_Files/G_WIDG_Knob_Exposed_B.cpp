@@ -2,19 +2,19 @@
 
 Knob_Exposed_B::Knob_Exposed_B(const int param_index, Data_Hub_P* hub) :
 	Exposed_Control_B{ param_index, hub },
-	Slider_Wheel_Mod_P{ hub },
-	param_index{ param_index },
-	display{ param_index, hub }
+	Slider_Wheel_Mod_P{ hub, Exposed_Control_B::exp_info.ctrl_type_for(param_index) },
+	display{ param_index, hub },
+	param_index{ param_index }
 {
 	setDoubleClickReturnValue(false, 0.0, ModifierKeys::noModifiers);
 	addAndMakeVisible(display);
-	resized();
 }
 
 void Knob_Exposed_B::resized() {
 	auto scale_f = Exposed_Control_B::scale_factor;
 	setMouseDragSensitivity(Exposed_Control_B::exp_info.drag_sensitivity_for(param_index, scale_f));
 	display.setBounds(getLocalBounds());
+	Slider::resized();
 }
 
 void Knob_Exposed_B::set_modifying_pitch(bool is_true) {

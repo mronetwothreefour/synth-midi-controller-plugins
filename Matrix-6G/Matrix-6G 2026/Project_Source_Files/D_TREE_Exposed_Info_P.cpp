@@ -66,8 +66,8 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 				osc == 1 ? Display::none : Display::signed_6_bit,
 				osc == 1 ? 4 : 63, osc == 1 ? 0 : 33, center_x, ctrl_row_05_y, osc_ctrl_w,
 				osc == 1 ? Tip_Exp::osc_1_sync() : Tip_Exp::osc_2_detune(),
-				osc == 1 ? Choices_Exp::osc_1_sync(curt) : Choices_Exp::unsigned_int(64, curt),
-				osc == 1 ? Choices_Exp::osc_1_sync() : Choices_Exp::unsigned_int(64)
+				osc == 1 ? Choices_Exp::osc_1_sync(curt) : Choices_Exp::signed_6_bit_int(curt),
+				osc == 1 ? Choices_Exp::osc_1_sync() : Choices_Exp::signed_6_bit_int()
 			), 
 			-1, nullptr);
 
@@ -76,8 +76,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 				osc == 1 ? ID::exp_05_osc_1_lfo_1_fm : ID::exp_15_osc_2_lfo_1_fm, osc == 1 ? 1 : 11,
 				"Oscillator " + (String)osc + " Frequency Mod. by LFO 1", Ctrl_Type::slider, 
 				osc == 1 ? 78 : 80, Range_Type::signed_7_bit, Display::signed_7_bit,
-				127, 63, center_x, ctrl_row_06_y, osc_ctrl_w, 
-				osc == 1 ? Tip_Exp::osc_1_sync() : Tip_Exp::osc_lfo_1_fm(osc),
+				127, 63, center_x, ctrl_row_06_y, osc_ctrl_w, Tip_Exp::osc_lfo_1_fm(osc),
 				Choices_Exp::signed_7_bit_int(curt), Choices_Exp::signed_7_bit_int()
 			), 
 			-1, nullptr);

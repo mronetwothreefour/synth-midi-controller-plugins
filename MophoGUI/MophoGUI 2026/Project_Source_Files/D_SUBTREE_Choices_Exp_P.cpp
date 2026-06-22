@@ -353,7 +353,7 @@ ValueTree Subtree_Choices_Exp_P::osc_fine(const bool curt) {
 	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
 	for (auto choice = 0; choice < 101; ++choice) {
 		if (curt) {
-			auto name = (choice > EXP::choice_count_osc_fine ? "+" : "") + String{ choice - 50 };
+			auto name = (choice > 50 ? "+" : "") + String{ choice - 50 };
 			tree.setProperty("choice_" + (String)choice, name, nullptr);
 		}
 		else {

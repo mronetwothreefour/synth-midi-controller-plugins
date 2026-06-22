@@ -54,7 +54,7 @@ void Knob_Display_Exposed_P::on_editor_show() {
 
 void Knob_Display_Exposed_P::set_text_to_stored_choice() {
 	auto choice_num{ roundToInt(param->convertFrom0to1(param->getValue())) };
-	auto choice_name{ exp_info.choice_for(param_index, choice_num, true).removeCharacters(" ") };
+	auto choice_name{ exp_info.choice_for(param_index, choice_num, true) };
 	if (display_type == Knob_Display_Type::bend_range)
 		choice_name = "+/-" + choice_name;
 	setText(choice_name, dontSendNotification);
@@ -62,7 +62,7 @@ void Knob_Display_Exposed_P::set_text_to_stored_choice() {
 
 void Knob_Display_Exposed_P::on_text_change() {
 	auto new_text{ getText().toUpperCase() };
-	auto new_val{ -1.0f };
+	auto new_val{ -128.0f };
 	if (new_text.isNotEmpty()) {
 		if (display_type == Knob_Display_Type::lfo_freq ||
 			display_type == Knob_Display_Type::lpf_freq || 
@@ -113,10 +113,8 @@ void Knob_Display_Exposed_P::on_text_change() {
 					new_val += 127.0f;
 			}
 		}
-		if (new_val > -1.0f) {
-			param->setValueNotifyingHost(param->convertTo0to1(new_val));
-			return;
-		}
+		param->setValueNotifyingHost(param->convertTo0to1(new_val));
+		return;
 	}
 	set_text_to_stored_choice();
 }
