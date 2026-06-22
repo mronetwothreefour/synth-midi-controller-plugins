@@ -12,7 +12,7 @@ public: bool modifying_osc_2_pitch_eg_int;
 public: bool modifying_tempo;
 
 //==============================================================================
-public: explicit Slider_Wheel_Mod_P(Data_Hub_P* hub);
+public: explicit Slider_Wheel_Mod_P(Data_Hub_P* hub, Ctrl_Type ctrl_type);
 
 private: void alt_increment_value(double increment, double& value) override;
 private: void ctrl_increment_value(double increment, double& value) override;

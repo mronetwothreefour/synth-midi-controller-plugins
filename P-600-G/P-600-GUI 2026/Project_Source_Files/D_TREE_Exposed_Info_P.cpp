@@ -12,7 +12,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 
 	using Choices_Exp = Subtree_Choices_Exp_P;
 	using Tip_Exp = Tip_Exposed_P;
-	using Display = Knob_Display_Type;
+	using Display = Slider_Display_Type;
 
 	// *************************************************************** osc section
 	for (auto osc = 1; osc < 3; ++osc) {

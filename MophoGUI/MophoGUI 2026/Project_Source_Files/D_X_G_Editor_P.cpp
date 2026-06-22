@@ -6,7 +6,7 @@ using namespace XYWH;
 
 Editor_P::Editor_P(Audio_Processor_P& processor, Data_Hub_P* hub) :
     Editor_B{ processor, hub },
-    knob{ new Knob_Exposed_B{ 1, hub } }
+    knob{ new Slider_Exposed_B{ 1, hub } }
 {
     knob->attach_to_param();
     knob->set_modifying_pitch(true);

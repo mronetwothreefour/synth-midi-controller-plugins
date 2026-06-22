@@ -2,13 +2,13 @@
 
 #include <JuceHeader.h>
 
-#include "G_WIDG_Knob_Display_Exposed_B.h"
+#include "G_WIDG_Slider_Display_Exposed_B.h"
 
-class Knob_Display_Exposed_P :
-	public Knob_Display_Exposed_B
+class Slider_Display_Exposed_P :
+	public Slider_Display_Exposed_B
 {
 //==============================================================================
-public: Knob_Display_Exposed_P(const int param_index, Data_Hub_P* hub);
+public: Slider_Display_Exposed_P(const int param_index, Data_Hub_P* hub);
 
 private: void on_editor_show() override;
 private: void set_text_to_stored_choice() override;
@@ -21,5 +21,5 @@ private: void on_text_change_unsigned_10_bit();
 private: void on_text_change_voice_mode_depth();
 
 //==============================================================================
-private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Knob_Display_Exposed_P)
+private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Slider_Display_Exposed_P)
 };

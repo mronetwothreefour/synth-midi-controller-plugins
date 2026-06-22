@@ -5,7 +5,7 @@
 using namespace EXP;
 using namespace XYWH;
 
-using Display = Knob_Display_Type;
+using Display = Slider_Display_Type;
 using Bit_Loc_Exp = Subtree_Bit_Loc_Exp_P;
 using Choices_Exp = Subtree_Choices_Exp_P;
 using Tip_Exp = Tip_Exposed_P;

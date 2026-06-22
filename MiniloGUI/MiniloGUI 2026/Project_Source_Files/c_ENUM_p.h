@@ -16,7 +16,7 @@ namespace ENUM
 		switch_osc_octave
 	};
 
-	constexpr enum class Knob_Display_Type {
+	constexpr enum class Slider_Display_Type {
 		error = -1,
 		none,
 		lfo_rate,

@@ -8,7 +8,7 @@ class Slider_Wheel_Mod_P :
 	public Slider_Wheel_Mod_B
 {
 //==============================================================================
-public: explicit Slider_Wheel_Mod_P(Data_Hub_P* hub) :
+public: explicit Slider_Wheel_Mod_P(Data_Hub_P* hub, Ctrl_Type /*ctrl_type*/) :
 					 Slider_Wheel_Mod_B{ hub }
 				 {}
 };

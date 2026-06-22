@@ -1,6 +1,6 @@
 #include "G_WIDG_Slider_Wheel_Mod_P.h"
 
-Slider_Wheel_Mod_P::Slider_Wheel_Mod_P(Data_Hub_P* hub) :
+Slider_Wheel_Mod_P::Slider_Wheel_Mod_P(Data_Hub_P* hub, Ctrl_Type /*ctrl_type*/) :
 	Slider_Wheel_Mod_B{ hub },
 	modifying_osc_pitch_fine{ false },
 	modifying_osc_2_pitch_eg_int{ false },
@@ -17,7 +17,7 @@ void Slider_Wheel_Mod_P::alt_increment_value(double increment, double& value) {
 		value += increment * 100.0;
 		return;
 	}
-	default_increment_value(increment, value);
+	increment_value(increment, value);
 }
 
 void Slider_Wheel_Mod_P::ctrl_increment_value(double increment, double& value) {
@@ -25,6 +25,6 @@ void Slider_Wheel_Mod_P::ctrl_increment_value(double increment, double& value) {
 		value += increment * 100.0;
 		return;
 	}
-	default_increment_value(increment, value);
+	increment_value(increment, value);
 }
 

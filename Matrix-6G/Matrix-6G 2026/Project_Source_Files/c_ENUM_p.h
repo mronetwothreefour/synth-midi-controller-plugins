@@ -18,7 +18,7 @@ namespace ENUM
 		tracking
 	};
 
-	constexpr enum class Knob_Display_Type {
+	constexpr enum class Slider_Display_Type {
 		error = -1,
 		none,
 		osc_pitch,

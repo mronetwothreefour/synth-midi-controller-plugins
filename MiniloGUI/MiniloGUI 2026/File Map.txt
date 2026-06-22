@@ -35,9 +35,9 @@ G_DRAW_Paths_Editor_P
 G_LOOK_AND_FEEL_B
 G_LOOK_AND_FEEL_P
 G_WIDG_Exposed_Control_B
-G_WIDG_Knob_Display_Exposed_B
-G_WIDG_Knob_Display_Exposed_P
-G_WIDG_Knob_Exposed_B
+G_WIDG_Slider_Display_Exposed_B
+G_WIDG_Slider_Display_Exposed_P
+G_WIDG_Slider_Exposed_B
 G_WIDG_Slider_Wheel_Mod_B
 G_WIDG_Slider_Wheel_Mod_P
 G_WIDG_Tooltip_Updater_B

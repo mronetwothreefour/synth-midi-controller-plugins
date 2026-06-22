@@ -10,5 +10,5 @@ using namespace ENUM;
 struct Tip_Widget_P :
 	public Tip_B
 {
-	static String knob_text_editor(const Knob_Display_Type display_type, bool unsigned_7_bit);
+	static String knob_text_editor(const Slider_Display_Type display_type, bool unsigned_7_bit);
 };

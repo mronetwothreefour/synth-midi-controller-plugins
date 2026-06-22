@@ -27,10 +27,10 @@ const Ctrl_Type Tree_Exposed_Info_B::ctrl_type_for(const int i) const {
 	return Ctrl_Type::error;
 }
 
-const Knob_Display_Type Tree_Exposed_Info_B::knob_display_type_for(const int i) const {
+const Slider_Display_Type Tree_Exposed_Info_B::display_type_for(const int i) const {
 	if (i < exp_param_count)
-		return Knob_Display_Type{ (int)param(i)[ID::exp_p_knob_display_type] };
-	return Knob_Display_Type::error;
+		return Slider_Display_Type{ (int)param(i)[ID::exp_p_slider_display_type] };
+	return Slider_Display_Type::error;
 }
 
 const int Tree_Exposed_Info_B::choice_count_for(int i) const {

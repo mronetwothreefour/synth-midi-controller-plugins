@@ -19,7 +19,7 @@ protected: const ValueTree param(int param_index) const;
 public: const Identifier id_for(int param_index) const;
 public: const String name_for(int param_index) const;
 public: const Ctrl_Type ctrl_type_for(const int param_index) const;
-public: const Knob_Display_Type knob_display_type_for(const int param_index) const;
+public: const Slider_Display_Type display_type_for(const int param_index) const;
 public: const int choice_count_for(int param_index) const;
 public: const int init_choice_for(int param_index) const;
 public: Point<int> ctrl_center_for(int param_index) const;

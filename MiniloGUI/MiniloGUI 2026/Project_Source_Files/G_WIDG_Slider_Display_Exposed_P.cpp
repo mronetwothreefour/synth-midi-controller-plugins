@@ -1,30 +1,30 @@
-#include "G_WIDG_Knob_Display_Exposed_P.h"
+#include "G_WIDG_Slider_Display_Exposed_P.h"
 
-Knob_Display_Exposed_P::Knob_Display_Exposed_P(const int param_index, Data_Hub_P* hub) :
-	Knob_Display_Exposed_B{ param_index, hub }
+Slider_Display_Exposed_P::Slider_Display_Exposed_P(const int param_index, Data_Hub_P* hub) :
+	Slider_Display_Exposed_B{ param_index, hub }
 {}
 
-void Knob_Display_Exposed_P::on_editor_show() {
+void Slider_Display_Exposed_P::on_editor_show() {
 	auto edit = getCurrentTextEditor();
 	edit->setJustification(Justification::centred);
 	switch (display_type)
 	{
-	case Knob_Display_Type::lfo_rate:
+	case Slider_Display_Type::lfo_rate:
 		edit->setInputRestrictions(avp.lfo_sync_bpm_on() ? 2 : 4, "0123456789");
 		break;
-	case Knob_Display_Type::lpf_eg_int:
+	case Slider_Display_Type::lpf_eg_int:
 		edit->setInputRestrictions(4, "-0123456789");
 		break;
-	case Knob_Display_Type::osc_2_pitch_eg_int:
+	case Slider_Display_Type::osc_2_pitch_eg_int:
 		edit->setInputRestrictions(5, "-0123456789");
 		break;
-	case Knob_Display_Type::osc_pitch_fine:
+	case Slider_Display_Type::osc_pitch_fine:
 		edit->setInputRestrictions(5, "-0123456789");
 		break;
-	case Knob_Display_Type::unsigned_10_bit:
+	case Slider_Display_Type::unsigned_10_bit:
 		edit->setInputRestrictions(4, "0123456789");
 		break;
-	case Knob_Display_Type::voice_mode_depth:
+	case Slider_Display_Type::voice_mode_depth:
 		switch (avp.voice_mode())
 		{
 		case Voice_Mode::poly:
@@ -62,7 +62,7 @@ void Knob_Display_Exposed_P::on_editor_show() {
 	edit->selectAll();
 }
 
-void Knob_Display_Exposed_P::set_text_to_stored_choice() {
+void Slider_Display_Exposed_P::set_text_to_stored_choice() {
 	auto choice_num{ roundToInt(param->convertFrom0to1(param->getValue())) };
 	auto name = exp_info.choice_for(choice_num, param_index, true);
 	auto ctrl_type = exp_info.ctrl_type_for(param_index);
@@ -106,25 +106,25 @@ void Knob_Display_Exposed_P::set_text_to_stored_choice() {
 	setText(name, dontSendNotification);
 }
 
-void Knob_Display_Exposed_P::on_text_change() {
+void Slider_Display_Exposed_P::on_text_change() {
 	switch (display_type)
 	{
-	case ENUM::Knob_Display_Type::lfo_rate:
+	case ENUM::Slider_Display_Type::lfo_rate:
 		on_text_change_lfo_rate();
 		break;
-	case ENUM::Knob_Display_Type::lpf_eg_int:
+	case ENUM::Slider_Display_Type::lpf_eg_int:
 		on_text_change_lpf_eg_int();
 		break;
-	case ENUM::Knob_Display_Type::osc_2_pitch_eg_int:
+	case ENUM::Slider_Display_Type::osc_2_pitch_eg_int:
 		on_text_change_osc_2_pitch_eg_int();
 		break;
-	case ENUM::Knob_Display_Type::osc_pitch_fine:
+	case ENUM::Slider_Display_Type::osc_pitch_fine:
 		on_text_change_osc_pitch_fine();
 		break;
-	case ENUM::Knob_Display_Type::unsigned_10_bit:
+	case ENUM::Slider_Display_Type::unsigned_10_bit:
 		on_text_change_unsigned_10_bit();
 		break;
-	case ENUM::Knob_Display_Type::voice_mode_depth:
+	case ENUM::Slider_Display_Type::voice_mode_depth:
 		on_text_change_voice_mode_depth();
 		break;
 	default:
@@ -133,7 +133,7 @@ void Knob_Display_Exposed_P::on_text_change() {
 	}
 }
 
-void Knob_Display_Exposed_P::on_text_change_lfo_rate() {
+void Slider_Display_Exposed_P::on_text_change_lfo_rate() {
 	auto new_text{ getText() };
 	if (new_text.isNotEmpty()) {
 		auto new_val{ new_text.getFloatValue() };
@@ -146,7 +146,7 @@ void Knob_Display_Exposed_P::on_text_change_lfo_rate() {
 		set_text_to_stored_choice();
 }
 
-void Knob_Display_Exposed_P::on_text_change_lpf_eg_int() {
+void Slider_Display_Exposed_P::on_text_change_lpf_eg_int() {
 	auto new_text{ getText() };
 	if (new_text.isNotEmpty()) {
 		auto input_val{ new_text.getIntValue() };
@@ -173,7 +173,7 @@ void Knob_Display_Exposed_P::on_text_change_lpf_eg_int() {
 		set_text_to_stored_choice();
 }
 
-void Knob_Display_Exposed_P::on_text_change_osc_2_pitch_eg_int() {
+void Slider_Display_Exposed_P::on_text_change_osc_2_pitch_eg_int() {
 	auto new_text{ getText() };
 	if (new_text.isNotEmpty()) {
 		auto input_val{ new_text.getIntValue() };
@@ -256,7 +256,7 @@ void Knob_Display_Exposed_P::on_text_change_osc_2_pitch_eg_int() {
 		set_text_to_stored_choice();
 }
 
-void Knob_Display_Exposed_P::on_text_change_osc_pitch_fine() {
+void Slider_Display_Exposed_P::on_text_change_osc_pitch_fine() {
 	auto new_text{ getText() };
 	if (new_text.isNotEmpty()) {
 		auto input_val{ new_text.getIntValue() };
@@ -332,7 +332,7 @@ void Knob_Display_Exposed_P::on_text_change_osc_pitch_fine() {
 		set_text_to_stored_choice();
 }
 
-void Knob_Display_Exposed_P::on_text_change_unsigned_10_bit() {
+void Slider_Display_Exposed_P::on_text_change_unsigned_10_bit() {
 	auto new_text{ getText() };
 	if (new_text.isNotEmpty()) {
 		auto new_val{ new_text.getFloatValue() };
@@ -341,7 +341,7 @@ void Knob_Display_Exposed_P::on_text_change_unsigned_10_bit() {
 		set_text_to_stored_choice();
 }
 
-void Knob_Display_Exposed_P::on_text_change_voice_mode_depth() {
+void Slider_Display_Exposed_P::on_text_change_voice_mode_depth() {
 	auto new_text{ getText() };
 	auto new_val{ new_text.getFloatValue() };
 	if (new_text.isNotEmpty()) {

@@ -97,5 +97,4 @@ namespace ID
 	static const Identifier label_led{ "label_led" };
 	static const Identifier label_linear{ "label_linear" };
 
-	static const Identifier txt_editor_filled{ "txt_editor_filled" };
 }

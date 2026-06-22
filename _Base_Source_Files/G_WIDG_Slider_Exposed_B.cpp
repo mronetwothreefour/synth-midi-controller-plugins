@@ -1,6 +1,6 @@
-#include "G_WIDG_Knob_Exposed_B.h"
+#include "G_WIDG_Slider_Exposed_B.h"
 
-Knob_Exposed_B::Knob_Exposed_B(const int param_index, Data_Hub_P* hub) :
+Slider_Exposed_B::Slider_Exposed_B(const int param_index, Data_Hub_P* hub) :
 	Exposed_Control_B{ param_index, hub },
 	Slider_Wheel_Mod_P{ hub, Exposed_Control_B::exp_info.ctrl_type_for(param_index) },
 	display{ param_index, hub },
@@ -10,29 +10,29 @@ Knob_Exposed_B::Knob_Exposed_B(const int param_index, Data_Hub_P* hub) :
 	addAndMakeVisible(display);
 }
 
-void Knob_Exposed_B::resized() {
+void Slider_Exposed_B::resized() {
 	auto scale_f = Exposed_Control_B::scale_factor;
 	setMouseDragSensitivity(Exposed_Control_B::exp_info.drag_sensitivity_for(param_index, scale_f));
 	display.setBounds(getLocalBounds());
 	Slider::resized();
 }
 
-void Knob_Exposed_B::set_modifying_pitch(bool is_true) {
+void Slider_Exposed_B::set_modifying_pitch(bool is_true) {
 	modifying_pitch = is_true;
 }
 
-void Knob_Exposed_B::attach_to_param() {
+void Slider_Exposed_B::attach_to_param() {
 	attachment.reset(new SliderParameterAttachment{ *param,  *this, Exposed_Control_B::u_m });
 }
 
-void Knob_Exposed_B::remove_attachment() {
+void Slider_Exposed_B::remove_attachment() {
 	attachment = nullptr;
 }
 
-void Knob_Exposed_B::mouseDoubleClick(const MouseEvent& /*e*/) {
+void Slider_Exposed_B::mouseDoubleClick(const MouseEvent& /*e*/) {
 	display.showEditor();
 }
 
-void Knob_Exposed_B::modifierKeysChanged(const ModifierKeys& mods) {
+void Slider_Exposed_B::modifierKeysChanged(const ModifierKeys& mods) {
 	tip_update.on_mod_keys_changed(mods, this, this);
 }

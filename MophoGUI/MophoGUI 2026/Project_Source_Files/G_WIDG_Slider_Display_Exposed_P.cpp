@@ -1,47 +1,47 @@
-#include "G_WIDG_Knob_Display_Exposed_P.h"
+#include "G_WIDG_Slider_Display_Exposed_P.h"
 
-Knob_Display_Exposed_P::Knob_Display_Exposed_P(const int param_index, Data_Hub_P* hub) :
-	Knob_Display_Exposed_B{ param_index, hub }
+Slider_Display_Exposed_P::Slider_Display_Exposed_P(const int param_index, Data_Hub_P* hub) :
+	Slider_Display_Exposed_B{ param_index, hub }
 {
 	setComponentID(ID::label_knob.toString());
 	setJustificationType(Justification::centred);
 	set_text_to_stored_choice();
 }
 
-void Knob_Display_Exposed_P::on_editor_show() {
+void Slider_Display_Exposed_P::on_editor_show() {
 	auto edit = getCurrentTextEditor();
 	edit->setJustification(Justification::centred);
 	edit->setBounds(getLocalBounds().translated(0, -1));
 	switch (display_type)
 	{
-	case ENUM::Knob_Display_Type::bend_range:
+	case ENUM::Slider_Display_Type::bend_range:
 		edit->setInputRestrictions(2, "0123456789");
 		break;
-	case ENUM::Knob_Display_Type::clock_tempo:
+	case ENUM::Slider_Display_Type::clock_tempo:
 		edit->setInputRestrictions(3, "0123456789");
 		break;
-	case ENUM::Knob_Display_Type::lfo_freq:
+	case ENUM::Slider_Display_Type::lfo_freq:
 		edit->setInputRestrictions(5, "abcdefgABCDEFG0123456789#:.");
 		break;
-	case ENUM::Knob_Display_Type::lpf_freq:
+	case ENUM::Slider_Display_Type::lpf_freq:
 		edit->setInputRestrictions(4, "abcdefgABCDEFG0123456789#");
 		break;
-	case ENUM::Knob_Display_Type::osc_fine:
+	case ENUM::Slider_Display_Type::osc_fine:
 		edit->setInputRestrictions(3, "-0123456789");
 		break;
-	case ENUM::Knob_Display_Type::osc_pitch:
+	case ENUM::Slider_Display_Type::osc_pitch:
 		edit->setInputRestrictions(4, "abcdefgABCDEFG0123456789#");
 		break;
-	case ENUM::Knob_Display_Type::osc_shape:
+	case ENUM::Slider_Display_Type::osc_shape:
 		edit->setInputRestrictions(4, "afiopqrstwAFIOPQRSTW0123456789/");
 		break;
-	case ENUM::Knob_Display_Type::osc_slop:
+	case ENUM::Slider_Display_Type::osc_slop:
 		edit->setInputRestrictions(1, "012345");
 		break;
-	case ENUM::Knob_Display_Type::signed_8_bit:
+	case ENUM::Slider_Display_Type::signed_8_bit:
 		edit->setInputRestrictions(4, "-0123456789");
 		break;
-	case ENUM::Knob_Display_Type::unsigned_7_bit:
+	case ENUM::Slider_Display_Type::unsigned_7_bit:
 		edit->setInputRestrictions(3, "0123456789");
 		break;
 	default:
@@ -52,27 +52,27 @@ void Knob_Display_Exposed_P::on_editor_show() {
 	edit->selectAll();
 }
 
-void Knob_Display_Exposed_P::set_text_to_stored_choice() {
+void Slider_Display_Exposed_P::set_text_to_stored_choice() {
 	auto choice_num{ roundToInt(param->convertFrom0to1(param->getValue())) };
 	auto choice_name{ exp_info.choice_for(param_index, choice_num, true) };
-	if (display_type == Knob_Display_Type::bend_range)
+	if (display_type == Slider_Display_Type::bend_range)
 		choice_name = "+/-" + choice_name;
 	setText(choice_name, dontSendNotification);
 }
 
-void Knob_Display_Exposed_P::on_text_change() {
+void Slider_Display_Exposed_P::on_text_change() {
 	auto new_text{ getText().toUpperCase() };
 	auto new_val{ -128.0f };
 	if (new_text.isNotEmpty()) {
-		if (display_type == Knob_Display_Type::lfo_freq ||
-			display_type == Knob_Display_Type::lpf_freq || 
-			display_type == Knob_Display_Type::osc_pitch)
+		if (display_type == Slider_Display_Type::lfo_freq ||
+			display_type == Slider_Display_Type::lpf_freq || 
+			display_type == Slider_Display_Type::osc_pitch)
 		{
 			if (new_text.containsAnyOf("abcdefgABCDEFG#")) {
 				auto choice_count{ EXP::choice_count_osc_pitch };
-				if (display_type == Knob_Display_Type::lfo_freq)
+				if (display_type == Slider_Display_Type::lfo_freq)
 					choice_count = EXP::choice_count_lfo_freq;
-				if (display_type == Knob_Display_Type::lpf_freq)
+				if (display_type == Slider_Display_Type::lpf_freq)
 					choice_count = EXP::choice_count_lpf_freq;
 				for (int choice_num = 0; choice_num < choice_count; ++choice_num) {
 					if (exp_info.choice_for(param_index, choice_num, true).removeCharacters(" ") == new_text) {
@@ -85,7 +85,7 @@ void Knob_Display_Exposed_P::on_text_change() {
 				new_val = new_text.getFloatValue();
 		}
 		else {
-			if (display_type == Knob_Display_Type::osc_shape) {
+			if (display_type == Slider_Display_Type::osc_shape) {
 				if (new_text.containsAnyOf("AFIOPQRSTW/")) {
 					if (new_text == "OFF")
 						new_val = 0.0f;
@@ -105,11 +105,11 @@ void Knob_Display_Exposed_P::on_text_change() {
 			}
 			else {
 				new_val = new_text.getFloatValue();
-				if (display_type == Knob_Display_Type::clock_tempo)
+				if (display_type == Slider_Display_Type::clock_tempo)
 					new_val += 30.0f;
-				if (display_type == Knob_Display_Type::osc_fine)
+				if (display_type == Slider_Display_Type::osc_fine)
 					new_val += 50.0f;
-				if (display_type == Knob_Display_Type::signed_8_bit)
+				if (display_type == Slider_Display_Type::signed_8_bit)
 					new_val += 127.0f;
 			}
 		}

@@ -6,7 +6,7 @@
 using namespace EXP;
 using namespace XYWH;
 
-using Display = Knob_Display_Type;
+using Display = Slider_Display_Type;
 using Choices_Exp = Subtree_Choices_Exp_P;
 using Tip_Exp = Tip_Exposed_P;
 

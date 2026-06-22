@@ -715,10 +715,10 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exposed_Control_B.cpp">
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Knob_Display_Exposed_B.cpp">
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Display_Exposed_B.cpp">
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Knob_Exposed_B.cpp">
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Exposed_B.cpp">
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Wheel_Mod_B.cpp">
@@ -754,7 +754,7 @@
     <ClCompile Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.cpp">
       <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Project_Source_Files\G_WIDG_Knob_Display_Exposed_P.cpp">
+    <ClCompile Include="..\..\Project_Source_Files\G_WIDG_Slider_Display_Exposed_P.cpp">
       <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -3813,10 +3813,10 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exposed_Control_B.h">
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Knob_Display_Exposed_B.h">
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Display_Exposed_B.h">
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Knob_Exposed_B.h">
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Exposed_B.h">
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Wheel_Mod_B.h">
@@ -3891,7 +3891,7 @@
     <ClInclude Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.h">
       <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Knob_Display_Exposed_P.h">
+    <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Slider_Display_Exposed_P.h">
       <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Slider_Wheel_Mod_P.h">

@@ -15,7 +15,7 @@ namespace ENUM
 		voice_name_char
 	};
 
-	constexpr enum class Knob_Display_Type {
+	constexpr enum class Slider_Display_Type {
 		error = -1,
 		none,
 		bend_range,
