@@ -221,8 +221,8 @@ increment the pitch by one octave (12 semitones).)";
 
     constexpr auto osc_shape_tip = u8R"(
 Selects oscillator _’s wave shape.
-Hold down a number on the keyboard and
-click the knob to jump directly to a wave shape:
+Hold down CTRL + a number and click the
+knob to jump directly to a wave shape:
 0 = Off;  1 = Sawtooth;  2 = Triangle;
 3 = Sawtooth / Triangle Mixture;
 4 = Square (a Pulse with width 50).)";

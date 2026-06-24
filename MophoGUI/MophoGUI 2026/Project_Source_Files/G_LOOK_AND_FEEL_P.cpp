@@ -1,8 +1,42 @@
 #include "G_LOOK_AND_FEEL_P.h"
 
+#include "G_DRAW_Paths_Osc_Shape_P.h"
+
+using Draw_Shape = Draw_Paths_Osc_Shape_P;
+
 Look_And_Feel_P::Look_And_Feel_P(float& scale_factor) :
 	Look_And_Feel_B{ scale_factor }
-{
+{}
+
+void Look_And_Feel_P::draw_label_p(Graphics& g, Label& lbl, String& id) {
+	if (id == ID::label_osc_shape.toString()) {
+		auto txt = lbl.getText();
+		g.setColour(COLOR::text.withAlpha(lbl.isBeingEdited() ? 0.0f : 1.0f));
+		if (txt == "SAW") {
+			Draw_Shape::sawtooth(g, scale_factor);
+			return;
+		}
+		if (txt == "TRI") {
+			Draw_Shape::triangle(g, scale_factor);
+			return;
+		}
+		if (txt == "S/T") {
+			Draw_Shape::saw_tri(g, scale_factor);
+			return;
+		}
+		if (txt == "SQR" || txt.startsWith("PW ")) {
+			auto w = 50;
+			if (txt.startsWith("PW "))
+				w = txt.fromFirstOccurrenceOf("PW ", false, false).getIntValue();
+			Draw_Shape::pulse(g, w, scale_factor);
+			g.setFont(FONT::pulse_w_txt(scale_factor));
+			auto txt_area = Rectangle<int>{ 10, 23, 18, 11 }.transformedBy(AffineTransform::scale(scale_factor));
+			g.drawText((String)(w), txt_area, Justification::centred);
+			return;
+		}
+		g.setFont(lbl.getFont());
+		g.drawFittedText(txt == "OFF" ? txt : "ERR", lbl.getLocalBounds().translated(0, 1), Justification::centred, 1, 1.0f);
+	}
 }
 
 void Look_And_Feel_P::drawRotarySlider(Graphics& g, int /*x*/, int /*y*/, int /*w*/, int /*h*/, float pos,

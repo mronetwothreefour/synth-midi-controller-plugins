@@ -87,4 +87,8 @@ namespace ID
 	static const Identifier exp_p_packed_bits_mask{ "exp_p_packed_bits_mask" };
 	static const Identifier exp_p_red_toggle_center_x{ "exp_p_red_toggle_center_x" };
 	static const Identifier exp_p_red_toggle_center_y{ "exp_p_red_toggle_center_y" };
+
+	static const Identifier knob_osc_shape{ "knob_osc_shape" };
+
+	static const Identifier label_osc_shape{ "label_osc_shape" };
 }

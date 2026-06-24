@@ -13,11 +13,15 @@ struct FONT
 	}
 
 	static const Font knob(const float scale_factor) {
-		return Font{ bold() }.withPointHeight(12.0f * scale_factor);
+		return Font{ bold() }.withPointHeight(11.0f * scale_factor);
 	}
 
 	static const Font knob_txt_edit(const float scale_factor) {
-		return Font{ bold() }.withPointHeight(12.0f * scale_factor);
+		return Font{ bold() }.withPointHeight(11.0f * scale_factor);
+	}
+
+	static const Font pulse_w_txt(const float scale_factor) {
+		return Font{ bold() }.withPointHeight(9.0f * scale_factor);
 	}
 
 	static const Font tip() {

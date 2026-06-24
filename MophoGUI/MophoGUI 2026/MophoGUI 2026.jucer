@@ -118,6 +118,10 @@
             file="Project_Source_Files/G_DRAW_Paths_Editor_P.cpp"/>
       <FILE id="SDqFPr" name="G_DRAW_Paths_Editor_P.h" compile="0" resource="0"
             file="Project_Source_Files/G_DRAW_Paths_Editor_P.h"/>
+      <FILE id="eIPM7E" name="G_DRAW_Paths_Osc_Shape_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/G_DRAW_Paths_Osc_Shape_P.cpp"/>
+      <FILE id="FYNAB4" name="G_DRAW_Paths_Osc_Shape_P.h" compile="0" resource="0"
+            file="Project_Source_Files/G_DRAW_Paths_Osc_Shape_P.h"/>
       <FILE id="CEjbzq" name="G_LOOK_AND_FEEL_P.cpp" compile="1" resource="0"
             file="Project_Source_Files/G_LOOK_AND_FEEL_P.cpp"/>
       <FILE id="dT7mDI" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"
@@ -126,6 +130,8 @@
             resource="0" file="Project_Source_Files/G_WIDG_Slider_Display_Exposed_P.cpp"/>
       <FILE id="hv94vL" name="G_WIDG_Slider_Display_Exposed_P.h" compile="0"
             resource="0" file="Project_Source_Files/G_WIDG_Slider_Display_Exposed_P.h"/>
+      <FILE id="o3slHh" name="G_WIDG_Slider_Wheel_Mod_P.cpp" compile="1"
+            resource="0" file="Project_Source_Files/G_WIDG_Slider_Wheel_Mod_P.cpp"/>
       <FILE id="PawCR1" name="G_WIDG_Slider_Wheel_Mod_P.h" compile="0" resource="0"
             file="Project_Source_Files/G_WIDG_Slider_Wheel_Mod_P.h"/>
     </GROUP>

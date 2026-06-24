@@ -3,7 +3,9 @@
 Slider_Display_Exposed_P::Slider_Display_Exposed_P(const int param_index, Data_Hub_P* hub) :
 	Slider_Display_Exposed_B{ param_index, hub }
 {
-	setComponentID(ID::label_knob.toString());
+	auto ctrl_type = exp_info.ctrl_type_for(param_index);
+	auto& id = ctrl_type == Ctrl_Type::knob_osc_shape ? ID::label_osc_shape : ID::label_slider;
+	setComponentID(id.toString());
 	setJustificationType(Justification::centred);
 	set_text_to_stored_choice();
 }

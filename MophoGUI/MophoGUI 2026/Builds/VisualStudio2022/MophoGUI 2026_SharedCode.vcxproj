@@ -163,8 +163,10 @@
     <ClCompile Include="..\..\Project_Source_Files\D_X_G_Data_Hub_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\D_X_G_Editor_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\G_DRAW_Paths_Editor_P.cpp"/>
+    <ClCompile Include="..\..\Project_Source_Files\G_DRAW_Paths_Osc_Shape_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\G_WIDG_Slider_Display_Exposed_P.cpp"/>
+    <ClCompile Include="..\..\Project_Source_Files\G_WIDG_Slider_Wheel_Mod_P.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -3029,6 +3031,7 @@
     <ClInclude Include="..\..\Project_Source_Files\D_X_G_Data_User_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\D_X_G_Editor_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_Editor_P.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_Osc_Shape_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Slider_Display_Exposed_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Slider_Wheel_Mod_P.h"/>
