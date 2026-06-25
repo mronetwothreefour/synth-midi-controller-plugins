@@ -706,8 +706,10 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 			id += "_seq_track_" + t + "_step_" + s;
 			tree.addChild(
 				Subtree_Exposed_Info_P::build(
-					id, "Sequencer Track " + t + " Step " + s, Ctrl_Type::seq_step,
-					Display::none, 120 + track * 16 + step, track == 0 ? 128 : 127, 0,
+					id, "Sequencer Track " + t + " Step " + s, 
+					t == "1" ? Ctrl_Type::seq_step_track_1 : Ctrl_Type::seq_step,
+					t == "1" ? Display::seq_step_track_1 : Display::seq_step,
+					120 + track * 16 + step, t == "1" ? 128 : 127, 0,
 					825 + step * (seq_step_w + step_and_char_gap), 196 + track * seq_track_block_spacing,
 					seq_step_w, seq_step_h, Tip_Exp::seq_track_step(t, s),
 					Choices_Exp::seq_track_step(curt), Choices_Exp::seq_track_step()

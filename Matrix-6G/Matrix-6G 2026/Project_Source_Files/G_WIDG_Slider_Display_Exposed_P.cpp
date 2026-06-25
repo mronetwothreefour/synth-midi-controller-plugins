@@ -15,6 +15,7 @@ void Slider_Display_Exposed_P::on_editor_show() {
 		edit->setComponentID(ID::txt_editor_filled.toString());
 	edit->setJustification(for_osc_balance ? Justification::centred : Justification::centredRight);
 	edit->setBounds(getLocalBounds().translated(0, -1));
+	edit->applyFontToAllText(FONT::knob_txt_edit(scale_factor));
 	switch (display_type)
 	{
 	case Slider_Display_Type::osc_pitch:

@@ -12,6 +12,7 @@ namespace ENUM
 		toggle,
 		cbox,
 		seq_step,
+		seq_step_track_1,
 		voice_name_char
 	};
 
@@ -26,6 +27,8 @@ namespace ENUM
 		osc_pitch,
 		osc_shape,
 		osc_slop,
+		seq_step,
+		seq_step_track_1,
 		signed_8_bit,
 		unsigned_7_bit
 	};

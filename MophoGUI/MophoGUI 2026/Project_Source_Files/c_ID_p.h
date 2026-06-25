@@ -7,8 +7,6 @@
 namespace ID
 {
 
-	static const Identifier display_editor_seq_step{ "display_editor_seq_step" };
-
 	static const Identifier exp_000_osc_1_pitch     { "exp_000_osc_1_pitch" };
 	static const Identifier exp_001_osc_1_fine_tune { "exp_001_osc_1_fine_tune" };
 	static const Identifier exp_002_osc_1_shape     { "exp_002_osc_1_shape" };
@@ -89,6 +87,9 @@ namespace ID
 	static const Identifier exp_p_red_toggle_center_y{ "exp_p_red_toggle_center_y" };
 
 	static const Identifier knob_osc_shape{ "knob_osc_shape" };
+	static const Identifier knob_seq_step{ "knob_seq_step" };
+	static const Identifier knob_seq_step_track_1{ "knob_seq_step_track_1" };
 
 	static const Identifier label_osc_shape{ "label_osc_shape" };
+	static const Identifier label_seq_step{ "label_seq_step" };
 }

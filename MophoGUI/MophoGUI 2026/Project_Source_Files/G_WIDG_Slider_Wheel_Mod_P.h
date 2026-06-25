@@ -7,7 +7,9 @@
 class Slider_Wheel_Mod_P :
 	public Slider_Wheel_Mod_B
 {
+public: bool modifying_osc_shape;
 public: bool modifying_seq_step;
+public: bool modifying_seq_track_1;
 
 //==============================================================================
 public: explicit Slider_Wheel_Mod_P(Data_Hub_P* hub, Ctrl_Type ctrl_type);

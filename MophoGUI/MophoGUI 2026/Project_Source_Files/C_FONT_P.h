@@ -24,6 +24,10 @@ struct FONT
 		return Font{ bold() }.withPointHeight(9.0f * scale_factor);
 	}
 
+	static const Font seq_step(const float scale_factor) {
+		return Font{ bold() }.withPointHeight(9.5f * scale_factor);
+	}
+
 	static const Font tip() {
 		return Font{ bold() }.withPointHeight(12.0f);
 	}

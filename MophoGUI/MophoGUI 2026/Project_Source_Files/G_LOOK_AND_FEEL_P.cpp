@@ -9,9 +9,9 @@ Look_And_Feel_P::Look_And_Feel_P(float& scale_factor) :
 {}
 
 void Look_And_Feel_P::draw_label_p(Graphics& g, Label& lbl, String& id) {
+	auto txt = lbl.getText();
+	g.setColour(COLOR::text.withAlpha(lbl.isBeingEdited() ? 0.0f : 1.0f));
 	if (id == ID::label_osc_shape.toString()) {
-		auto txt = lbl.getText();
-		g.setColour(COLOR::text.withAlpha(lbl.isBeingEdited() ? 0.0f : 1.0f));
 		if (txt == "SAW") {
 			Draw_Shape::sawtooth(g, scale_factor);
 			return;
@@ -34,14 +34,32 @@ void Look_And_Feel_P::draw_label_p(Graphics& g, Label& lbl, String& id) {
 			g.drawText((String)(w), txt_area, Justification::centred);
 			return;
 		}
-		g.setFont(lbl.getFont());
+		g.setFont(FONT::knob(scale_factor));
 		g.drawFittedText(txt == "OFF" ? txt : "ERR", lbl.getLocalBounds().translated(0, 1), Justification::centred, 1, 1.0f);
+	}
+	if (id == ID::label_seq_step.toString()) {
+		auto sf = scale_factor;
+		if (txt == "<") {
+			Line<float> l{ 20.0f, 13.0f, 5.0f, 13.0f };
+			l.applyTransform(AffineTransform::scale(sf));
+			g.drawArrow(l, 5.0f * sf, 10.0f * sf, 8.0f * sf);
+			return;
+		}
+		if (txt == ".") {
+			g.fillEllipse(10.0f * sf, 10.0f * sf, 6.0f * sf, 6.0f * sf);
+			return;
+		}
+		g.setFont(FONT::seq_step(scale_factor));
+		g.drawFittedText(txt, lbl.getLocalBounds().translated(0, 1), Justification::centred, 1, 1.0f);
 	}
 }
 
 void Look_And_Feel_P::drawRotarySlider(Graphics& g, int /*x*/, int /*y*/, int /*w*/, int /*h*/, float pos,
 									   const float min_angle, const float max_angle, Slider& s)
 {
+	if (s.getComponentID() == ID::knob_seq_step.toString() ||
+		s.getComponentID() == ID::knob_seq_step_track_1.toString())
+		return;
 	auto diam{ (float)s.getWidth() };
 	Point<float> center{ diam / 2.0f, diam / 2.0f };
 	Line<float> line;

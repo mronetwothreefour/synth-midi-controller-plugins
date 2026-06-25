@@ -8,7 +8,7 @@ class Slider_Wheel_Mod_B :
 	public Slider,
 	public Data_User_P
 {
-public: bool modifying_pitch;
+protected: bool modifying_pitch;
 
 //==============================================================================
 public: explicit Slider_Wheel_Mod_B(Data_Hub_P* hub);	

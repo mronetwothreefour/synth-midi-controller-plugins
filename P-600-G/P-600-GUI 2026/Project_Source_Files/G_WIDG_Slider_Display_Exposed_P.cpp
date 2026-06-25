@@ -3,7 +3,7 @@
 Slider_Display_Exposed_P::Slider_Display_Exposed_P(const int param_index, Data_Hub_P* hub) :
 	Slider_Display_Exposed_B{ param_index, hub }
 {
-	setComponentID(ID::label_knob.toString());
+	setComponentID(ID::label_slider.toString());
 	setJustificationType(Justification::centred);
 	set_text_to_stored_choice();
 }
@@ -12,6 +12,7 @@ void Slider_Display_Exposed_P::on_editor_show() {
 	auto edit = getCurrentTextEditor();
 	edit->setJustification(Justification::centred);
 	edit->setBounds(getLocalBounds().translated(0, -1));
+	edit->applyFontToAllText(FONT::knob_txt_edit(scale_factor));
 	switch (display_type)
 	{
 	case Slider_Display_Type::int_4_bit:

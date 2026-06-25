@@ -30,7 +30,6 @@ void Look_And_Feel_B::drawLabel(Graphics& g, Label& lbl) {
 void Look_And_Feel_B::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h*/, TextEditor& editor) {
 	if (editor.getComponentID() == ID::txt_editor_filled.toString())
 		g.fillAll(findColour(TextEditor::backgroundColourId));
-	editor.applyFontToAllText(FONT::knob_txt_edit(scale_factor));
 }
 
 void Look_And_Feel_B::drawTooltip(Graphics& g, const String& txt, int w, int h) {
@@ -56,7 +55,7 @@ TextLayout Look_And_Feel_B::layout_tip_text(const String& txt) noexcept {
 	attrib_txt.setJustification(Justification::centred);
 	attrib_txt.append(txt, FONT::tip(), COLOR::text);
 	TextLayout layout;
-	auto tooltipMaxWidth = 400.0f;
+	auto tooltipMaxWidth = 500.0f;
 	layout.createLayout(attrib_txt, tooltipMaxWidth);
 	return layout;
 }
