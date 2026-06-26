@@ -9,7 +9,7 @@ Editor_P::Editor_P(Audio_Processor_P& processor, Data_Hub_P* hub) :
     knob{ new Slider_Exposed_B{ 0, hub } }
 {
     knob->attach_to_param();
-    knob->set_modifying_pitch(true);
+    knob->modifying_pitch = true;
     addAndMakeVisible(knob.get());
     resized();
 }

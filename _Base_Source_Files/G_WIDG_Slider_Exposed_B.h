@@ -18,9 +18,8 @@ protected: std::unique_ptr<SliderParameterAttachment> attachment;
 public: Slider_Exposed_B(const int param_index, Data_Hub_P* hub);
 
 public: void resized() override;
-public: void set_modifying_pitch(bool is_true);
 public: void attach_to_param() override;
 public: void remove_attachment() override;
 protected: void mouseDoubleClick(const MouseEvent& e) override;
-public: void modifierKeysChanged(const ModifierKeys& mods) override;
+public: void modifierKeysChanged(const Mods& mods) override;
 };

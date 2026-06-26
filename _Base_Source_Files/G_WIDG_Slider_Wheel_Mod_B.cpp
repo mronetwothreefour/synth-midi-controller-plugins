@@ -1,7 +1,9 @@
 #include "G_WIDG_Slider_Wheel_Mod_B.h"
 
-Slider_Wheel_Mod_B::Slider_Wheel_Mod_B(Data_Hub_P* hub) :
-	Data_User_P{ hub },
+#include "C_XYWH_P.h"
+
+Slider_Wheel_Mod_B::Slider_Wheel_Mod_B(UndoManager* u_m) :
+	u_m{ u_m },
 	modifying_pitch{ false }
 {
 	setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
@@ -16,25 +18,15 @@ void Slider_Wheel_Mod_B::mouseWheelMove(const MouseEvent& e, const MouseWheelDet
 		auto new_value{ getValue() };
 		auto increment{ getInterval() * (delta < 0.0 ? -1.0 : 1.0) };
 		if (delta != 0.0f) {
-			auto mods = e.mods.getRawFlags();
-			switch (mods) {
-			case ModifierKeys::altModifier: alt_increment_value(increment, new_value); break;
-			case ModifierKeys::ctrlModifier: ctrl_increment_value(increment, new_value); break;
-			case ModifierKeys::shiftModifier: shift_increment_value(increment, new_value); break;
-			default: increment_value(increment, new_value); break;
-			}
+			auto mods = e.mods.withoutMouseButtons();
+			if (mods == Mods::noModifiers) increment_value(increment, new_value);
+			if (mods == Mods::altModifier) alt_increment_value(increment, new_value);
+			if (mods == Mods::ctrlModifier) ctrl_increment_value(increment, new_value);
+			if (mods == Mods::shiftModifier) shift_increment_value(increment, new_value);
 			setValue(new_value);
 		}
 		u_m->beginNewTransaction();
 	}
-}
-
-void Slider_Wheel_Mod_B::alt_increment_value(double increment, double& value) {
-	increment_value(increment, value);
-}
-
-void Slider_Wheel_Mod_B::ctrl_increment_value(double increment, double& value) {
-	increment_value(increment, value);
 }
 
 void Slider_Wheel_Mod_B::increment_value(double increment, double& value) {

@@ -10,8 +10,8 @@ class Slider_Wheel_Mod_P :
 private: const bool inverted_range;
 
 //==============================================================================
-public: Slider_Wheel_Mod_P(Data_Hub_P* hub, Ctrl_Type ctrl_type) :
-			Slider_Wheel_Mod_B{ hub },
+public: Slider_Wheel_Mod_P(UndoManager* u_m, Ctrl_Type ctrl_type) :
+			Slider_Wheel_Mod_B{ u_m },
 			inverted_range{ ctrl_type == Ctrl_Type::slider_osc_balance }
 		{
 			if (ctrl_type == Ctrl_Type::slider_osc_balance) {

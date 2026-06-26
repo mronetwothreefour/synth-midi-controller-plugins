@@ -77,6 +77,9 @@ void Slider_Display_Exposed_P::set_text_to_stored_choice() {
 	auto choice_name{ exp_info.choice_for(param_index, choice_num, true) };
 	if (display_type == Display::bend_range)
 		choice_name = "+/-" + choice_name;
+	if (display_type == Display::seq_step || display_type == Display::seq_step_track_1) {
+		// TODO: setting text to pitch or int depending on modifying_pitch setting
+	}
 	setText(choice_name, dontSendNotification);
 }
 
