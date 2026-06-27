@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 #include "D_X_G_Editor_B.h"
-#include "G_WIDG_Slider_Exposed_B.h"
+#include "G_WIDG_Slider_Exp_B.h"
 
 class Editor_P :
     public Editor_B

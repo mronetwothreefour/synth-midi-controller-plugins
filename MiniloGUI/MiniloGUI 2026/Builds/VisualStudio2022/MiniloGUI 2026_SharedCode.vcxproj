@@ -151,10 +151,10 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_Hub_B.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Editor_B.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.cpp"/>
-    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exposed_Control_B.cpp"/>
-    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Display_Exposed_B.cpp"/>
-    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Exposed_B.cpp"/>
-    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Wheel_Mod_B.cpp"/>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exp_Ctrl_B.cpp"/>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Sli_Display_Exp_B.cpp"/>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Sli_Wheel_Mod_B.cpp"/>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Exp_B.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\D_SUBTREE_Bit_Loc_AV_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\D_SUBTREE_Bit_Loc_Exp_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\D_SUBTREE_Choices_Exp_P.cpp"/>
@@ -167,8 +167,8 @@
     <ClCompile Include="..\..\Project_Source_Files\D_X_G_Editor_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\G_DRAW_Paths_Editor_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source_Files\G_WIDG_Slider_Display_Exposed_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source_Files\G_WIDG_Slider_Wheel_Mod_P.cpp"/>
+    <ClCompile Include="..\..\Project_Source_Files\G_WIDG_Sli_Display_Exp_P.cpp"/>
+    <ClCompile Include="..\..\Project_Source_Files\G_WIDG_Sli_Wheel_Mod_P.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -3008,11 +3008,11 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Editor_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_DRAW_Paths_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.h"/>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exposed_Control_B.h"/>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Display_Exposed_B.h"/>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Exposed_B.h"/>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Wheel_Mod_B.h"/>
-    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Tooltip_Updater_B.h"/>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exp_Ctrl_B.h"/>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Sli_Display_Exp_B.h"/>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Sli_Wheel_Mod_B.h"/>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Slider_Exp_B.h"/>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Tip_Updater_B.h"/>
     <ClInclude Include="..\..\Project_Source_Files\C_COLOR_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\C_ENUM_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\C_EXP_P.h"/>
@@ -3037,8 +3037,8 @@
     <ClInclude Include="..\..\Project_Source_Files\D_X_G_Editor_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_Editor_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.h"/>
-    <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Slider_Display_Exposed_P.h"/>
-    <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Slider_Wheel_Mod_P.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Sli_Display_Exp_P.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Sli_Wheel_Mod_P.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

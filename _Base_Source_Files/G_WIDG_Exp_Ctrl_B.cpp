@@ -1,4 +1,4 @@
-#include "G_WIDG_Exposed_Control_B.h"
+#include "G_WIDG_Exp_Ctrl_B.h"
 
 Exposed_Control_B::Exposed_Control_B() :
 	Data_User_P{ nullptr },

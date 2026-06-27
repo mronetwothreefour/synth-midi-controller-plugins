@@ -1,4 +1,4 @@
-#include "G_WIDG_Slider_Wheel_Mod_B.h"
+#include "G_WIDG_Sli_Wheel_Mod_B.h"
 
 #include "C_XYWH_P.h"
 

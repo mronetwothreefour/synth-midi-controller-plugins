@@ -44,24 +44,24 @@
             file="../../_Base_Source_Files/G_LOOK_AND_FEEL_B.cpp"/>
       <FILE id="hMgsaF" name="G_LOOK_AND_FEEL_B.h" compile="0" resource="0"
             file="../../_Base_Source_Files/G_LOOK_AND_FEEL_B.h"/>
-      <FILE id="jGBL4F" name="G_WIDG_Exposed_Control_B.cpp" compile="1" resource="0"
-            file="../../_Base_Source_Files/G_WIDG_Exposed_Control_B.cpp"/>
-      <FILE id="jRLnlM" name="G_WIDG_Exposed_Control_B.h" compile="0" resource="0"
-            file="../../_Base_Source_Files/G_WIDG_Exposed_Control_B.h"/>
-      <FILE id="M8YVWc" name="G_WIDG_Slider_Display_Exposed_B.cpp" compile="1"
-            resource="0" file="../../_Base_Source_Files/G_WIDG_Slider_Display_Exposed_B.cpp"/>
-      <FILE id="r0z9OP" name="G_WIDG_Slider_Display_Exposed_B.h" compile="0"
-            resource="0" file="../../_Base_Source_Files/G_WIDG_Slider_Display_Exposed_B.h"/>
-      <FILE id="wVJ0lw" name="G_WIDG_Slider_Exposed_B.cpp" compile="1" resource="0"
-            file="../../_Base_Source_Files/G_WIDG_Slider_Exposed_B.cpp"/>
-      <FILE id="HhRDjW" name="G_WIDG_Slider_Exposed_B.h" compile="0" resource="0"
-            file="../../_Base_Source_Files/G_WIDG_Slider_Exposed_B.h"/>
-      <FILE id="m55ngl" name="G_WIDG_Slider_Wheel_Mod_B.cpp" compile="1"
-            resource="0" file="../../_Base_Source_Files/G_WIDG_Slider_Wheel_Mod_B.cpp"/>
-      <FILE id="AAWiSl" name="G_WIDG_Slider_Wheel_Mod_B.h" compile="0" resource="0"
-            file="../../_Base_Source_Files/G_WIDG_Slider_Wheel_Mod_B.h"/>
-      <FILE id="J9f51e" name="G_WIDG_Tooltip_Updater_B.h" compile="0" resource="0"
-            file="../../_Base_Source_Files/G_WIDG_Tooltip_Updater_B.h"/>
+      <FILE id="P8Udxz" name="G_WIDG_Exp_Ctrl_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Exp_Ctrl_B.h"/>
+      <FILE id="XICVFb" name="G_WIDG_Exp_Ctrl_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Exp_Ctrl_B.cpp"/>
+      <FILE id="GuEkT2" name="G_WIDG_Sli_Display_Exp_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Sli_Display_Exp_B.cpp"/>
+      <FILE id="S9XQsm" name="G_WIDG_Sli_Display_Exp_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Sli_Display_Exp_B.h"/>
+      <FILE id="W93jAt" name="G_WIDG_Sli_Wheel_Mod_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Sli_Wheel_Mod_B.cpp"/>
+      <FILE id="LHUGyf" name="G_WIDG_Sli_Wheel_Mod_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Sli_Wheel_Mod_B.h"/>
+      <FILE id="yQxWQY" name="G_WIDG_Slider_Exp_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Slider_Exp_B.h"/>
+      <FILE id="TnNQqT" name="G_WIDG_Slider_Exp_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Slider_Exp_B.cpp"/>
+      <FILE id="crXKVj" name="G_WIDG_Tip_Updater_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Tip_Updater_B.h"/>
     </GROUP>
     <GROUP id="{4AFA3653-267B-D8E8-BD50-2C57B2AC0144}" name="Project_Source_Files">
       <GROUP id="{A308D14D-2A57-B09B-F55D-56497ED3DA7B}" name="binaries">
@@ -133,14 +133,14 @@
             file="Project_Source_Files/G_LOOK_AND_FEEL_P.cpp"/>
       <FILE id="ERl643" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"
             file="Project_Source_Files/G_LOOK_AND_FEEL_P.h"/>
-      <FILE id="JC4ReG" name="G_WIDG_Slider_Display_Exposed_P.cpp" compile="1"
-            resource="0" file="Project_Source_Files/G_WIDG_Slider_Display_Exposed_P.cpp"/>
-      <FILE id="gfkB9D" name="G_WIDG_Slider_Display_Exposed_P.h" compile="0"
-            resource="0" file="Project_Source_Files/G_WIDG_Slider_Display_Exposed_P.h"/>
-      <FILE id="Ot13cc" name="G_WIDG_Slider_Wheel_Mod_P.cpp" compile="1"
-            resource="0" file="Project_Source_Files/G_WIDG_Slider_Wheel_Mod_P.cpp"/>
-      <FILE id="KnLKAV" name="G_WIDG_Slider_Wheel_Mod_P.h" compile="0" resource="0"
-            file="Project_Source_Files/G_WIDG_Slider_Wheel_Mod_P.h"/>
+      <FILE id="JC4ReG" name="G_WIDG_Sli_Display_Exp_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/G_WIDG_Sli_Display_Exp_P.cpp"/>
+      <FILE id="gfkB9D" name="G_WIDG_Sli_Display_Exp_P.h" compile="0" resource="0"
+            file="Project_Source_Files/G_WIDG_Sli_Display_Exp_P.h"/>
+      <FILE id="Ot13cc" name="G_WIDG_Sli_Wheel_Mod_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/G_WIDG_Sli_Wheel_Mod_P.cpp"/>
+      <FILE id="KnLKAV" name="G_WIDG_Sli_Wheel_Mod_P.h" compile="0" resource="0"
+            file="Project_Source_Files/G_WIDG_Sli_Wheel_Mod_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

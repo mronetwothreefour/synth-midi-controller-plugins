@@ -3,7 +3,7 @@
 #include <JuceHeader.h>
 
 #include "D_X_G_Data_User_P.h"
-#include "G_WIDG_Tooltip_Updater_B.h"
+#include "G_WIDG_Tip_Updater_B.h"
 
 using namespace ENUM;
 
@@ -15,7 +15,7 @@ class Exposed_Control_B:
 protected: const int param_index;
 protected: RangedAudioParameter* param;
 public: const Ctrl_Type ctrl_type;
-protected: Tooltip_Updater_B tip_update;
+protected: Tip_Updater_B tip_update;
 
 //==============================================================================
 private: Exposed_Control_B();

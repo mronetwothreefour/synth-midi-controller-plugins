@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "G_WIDG_Slider_Display_Exposed_B.h"
+#include "G_WIDG_Sli_Display_Exp_B.h"
 
 class Slider_Display_Exposed_P :
 	public Slider_Display_Exposed_B

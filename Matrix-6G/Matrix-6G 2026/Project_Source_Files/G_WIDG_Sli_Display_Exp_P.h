@@ -2,11 +2,13 @@
 
 #include <JuceHeader.h>
 
-#include "G_WIDG_Slider_Display_Exposed_B.h"
+#include "G_WIDG_Sli_Display_Exp_B.h"
 
 class Slider_Display_Exposed_P :
 	public Slider_Display_Exposed_B
 {
+private: const bool for_osc_balance;
+
 //==============================================================================
 public: Slider_Display_Exposed_P(const int param_index, Data_Hub_P* hub);
 

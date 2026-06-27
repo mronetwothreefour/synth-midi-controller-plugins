@@ -1,4 +1,4 @@
-#include "G_WIDG_Slider_Wheel_Mod_P.h"
+#include "G_WIDG_Sli_Wheel_Mod_P.h"
 
 Slider_Wheel_Mod_P::Slider_Wheel_Mod_P(UndoManager* u_m, Ctrl_Type /*ctrl_type*/) :
 	Slider_Wheel_Mod_B{ u_m },

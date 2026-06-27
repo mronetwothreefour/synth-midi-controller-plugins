@@ -2,9 +2,9 @@
 
 #include <JuceHeader.h>
 
-#include "G_WIDG_Exposed_Control_B.h"
-#include "G_WIDG_Slider_Display_Exposed_P.h"
-#include "G_WIDG_Slider_Wheel_Mod_P.h"
+#include "G_WIDG_Exp_Ctrl_B.h"
+#include "G_WIDG_Sli_Display_Exp_P.h"
+#include "G_WIDG_Sli_Wheel_Mod_P.h"
 
 class Slider_Exposed_B :
 	public Exposed_Control_B,

@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "G_WIDG_Slider_Wheel_Mod_B.h"
+#include "G_WIDG_Sli_Wheel_Mod_B.h"
 
 class Slider_Wheel_Mod_P :
 	public Slider_Wheel_Mod_B

@@ -1,4 +1,4 @@
-#include "G_WIDG_Slider_Display_Exposed_P.h"
+#include "G_WIDG_Sli_Display_Exp_P.h"
 
 using Display = Slider_Display_Type;
 

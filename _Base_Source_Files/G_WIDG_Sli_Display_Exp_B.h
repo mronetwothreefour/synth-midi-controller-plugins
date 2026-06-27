@@ -4,7 +4,7 @@
 
 #include "D_X_G_Data_User_P.h"
 #include "D_TIP_Widget_P.h"
-#include "G_WIDG_Tooltip_Updater_B.h"
+#include "G_WIDG_Tip_Updater_B.h"
 
 using Tip_W = Tip_Widget_P;
 
@@ -17,7 +17,7 @@ class Slider_Display_Exposed_B :
 protected: const int param_index;
 protected: RangedAudioParameter* param;
 protected: const Slider_Display_Type display_type;
-protected: Tooltip_Updater_B tip_update;
+protected: Tip_Updater_B tip_update;
 
 //==============================================================================
 public: Slider_Display_Exposed_B(const int param_index, Data_Hub_P* hub);

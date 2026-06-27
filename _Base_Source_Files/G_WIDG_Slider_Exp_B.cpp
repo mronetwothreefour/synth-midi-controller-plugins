@@ -1,4 +1,4 @@
-#include "G_WIDG_Slider_Exposed_B.h"
+#include "G_WIDG_Slider_Exp_B.h"
 
 Slider_Exposed_B::Slider_Exposed_B(const int param_index, Data_Hub_P* hub) :
 	Exposed_Control_B{ param_index, hub },
@@ -30,5 +30,5 @@ void Slider_Exposed_B::mouseDoubleClick(const MouseEvent& /*e*/) {
 }
 
 void Slider_Exposed_B::modifierKeysChanged(const Mods& mods) {
-	tip_update.on_mod_keys_changed(mods, this, this);
+	tip_update.on_mod_keys_changed(mods, this);
 }

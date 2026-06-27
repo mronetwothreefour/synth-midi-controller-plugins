@@ -1,4 +1,4 @@
-#include "G_WIDG_Slider_Display_Exposed_P.h"
+#include "G_WIDG_Sli_Display_Exp_P.h"
 
 Slider_Display_Exposed_P::Slider_Display_Exposed_P(const int param_index, Data_Hub_P* hub) :
 	Slider_Display_Exposed_B{ param_index, hub }
