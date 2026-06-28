@@ -20,6 +20,7 @@ namespace EXP
 	constexpr int first_lfo_pitched_freq_choice{ 90 };
 	constexpr int first_lfo_synced_freq_choice{ 151 };
 	constexpr int first_seq_step_param_index{ 109 };
+	constexpr int first_seq_track_dest_param_index{ 101 };
 	constexpr int first_unassigned_param_num{ 109 };
 	constexpr int first_voice_name_char_param_index{ 173 };
 	constexpr int param_index_seq_track_1_step_1{ 109 };

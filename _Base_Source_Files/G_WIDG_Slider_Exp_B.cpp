@@ -3,7 +3,7 @@
 Slider_Exposed_B::Slider_Exposed_B(const int param_index, Data_Hub_P* hub) :
 	Exposed_Control_B{ param_index, hub },
 	Slider_Wheel_Mod_P{ hub->get_undo_mngr(), exp_info.ctrl_type_for(param_index)},
-	display{ param_index, hub },
+	display{ param_index, hub, this },
 	param_index{ param_index }
 {
 	addAndMakeVisible(display);

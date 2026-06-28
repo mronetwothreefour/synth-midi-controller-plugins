@@ -24,3 +24,4 @@ G_DRAW_Paths_Osc_Shape_P
 G_LOOK_AND_FEEL_P
 G_WIDG_Sli_Display_Exp_P
 G_WIDG_Sli_Wheel_Mod_P
+G_WIDG_Slider_Exp_P

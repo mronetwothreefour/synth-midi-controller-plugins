@@ -10,16 +10,15 @@ Look_And_Feel_B::Look_And_Feel_B(float& scale_factor) :
 }
 
 void Look_And_Feel_B::drawLabel(Graphics& g, Label& lbl) {
+	g.setColour(lbl.isBeingEdited() ? COLOR::text.withAlpha(0.0f) : COLOR::text);
 	auto id = lbl.getComponentID();
 	if (id == ID::label_file_browser.toString()) {
 		auto txt_area{ lbl.getLocalBounds().removeFromLeft(5) };
-		g.setColour(COLOR::text);
 		g.setFont(FONT::file_browser(scale_factor));
 		g.drawFittedText(lbl.getText(), txt_area, Justification::centredLeft, 1, 1.0f);
 		return;
 	}
 	if (id == ID::label_slider.toString() || id == ID::label_cbox.toString()) {
-		g.setColour(lbl.isBeingEdited() ? COLOR::text.withAlpha(0.0f) : COLOR::text);
 		g.setFont(lbl.getFont());
 		g.drawFittedText(lbl.getText(), lbl.getLocalBounds().translated(0, 1), Justification::centred, 1, 1.0f);
 		return;

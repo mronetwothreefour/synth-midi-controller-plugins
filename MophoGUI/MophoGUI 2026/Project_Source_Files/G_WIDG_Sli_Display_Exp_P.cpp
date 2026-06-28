@@ -2,8 +2,9 @@
 
 using Display = Slider_Display_Type;
 
-Slider_Display_Exposed_P::Slider_Display_Exposed_P(const int param_index, Data_Hub_P* hub) :
-	Slider_Display_Exposed_B{ param_index, hub }
+Slider_Display_Exposed_P::Slider_Display_Exposed_P(const int param_index, Data_Hub_P* hub,
+												   Slider_Wheel_Mod_P* parent_slider) :
+	Slider_Display_Exposed_B{ param_index, hub, parent_slider }
 {
 	auto ctrl_type = exp_info.ctrl_type_for(param_index);
 	Identifier id = ID::label_slider;
@@ -13,7 +14,6 @@ Slider_Display_Exposed_P::Slider_Display_Exposed_P(const int param_index, Data_H
 		id = ID::label_seq_step;
 	setComponentID(id.toString());
 	setJustificationType(Justification::centred);
-	set_text_to_stored_choice();
 }
 
 void Slider_Display_Exposed_P::on_editor_show() {
@@ -78,7 +78,8 @@ void Slider_Display_Exposed_P::set_text_to_stored_choice() {
 	if (display_type == Display::bend_range)
 		choice_name = "+/-" + choice_name;
 	if (display_type == Display::seq_step || display_type == Display::seq_step_track_1) {
-		// TODO: setting text to pitch or int depending on modifying_pitch setting
+		if (!parent_slider->modifying_pitch)
+			choice_name = String{ choice_num };
 	}
 	setText(choice_name, dontSendNotification);
 }

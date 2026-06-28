@@ -84,6 +84,7 @@ G_WIDG_Sli_Display_MMod
 G_WIDG_Sli_Display_Splits
 G_WIDG_Sli_Display_V_Map
 G_WIDG_Sli_Wheel_Mod_P
+G_WIDG_Slider_Exp_P
 G_WIDG_Slider_Global
 G_WIDG_Slider_MMod
 G_WIDG_Slider_Splits

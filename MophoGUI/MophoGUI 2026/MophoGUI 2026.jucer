@@ -134,6 +134,10 @@
             file="Project_Source_Files/G_WIDG_Sli_Wheel_Mod_P.cpp"/>
       <FILE id="PawCR1" name="G_WIDG_Sli_Wheel_Mod_P.h" compile="0" resource="0"
             file="Project_Source_Files/G_WIDG_Sli_Wheel_Mod_P.h"/>
+      <FILE id="Icc4gb" name="G_WIDG_Slider_Exp_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/G_WIDG_Slider_Exp_P.cpp"/>
+      <FILE id="kdUkWz" name="G_WIDG_Slider_Exp_P.h" compile="0" resource="0"
+            file="Project_Source_Files/G_WIDG_Slider_Exp_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

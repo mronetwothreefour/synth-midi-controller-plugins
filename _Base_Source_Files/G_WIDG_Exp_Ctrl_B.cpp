@@ -20,7 +20,7 @@ Exposed_Control_B::Exposed_Control_B(const int param_index, Data_Hub_P* hub) :
 }
 
 void Exposed_Control_B::update_value_tip() {
-	auto choice_num{ roundToInt(param->convertFrom0to1(param->getValue())) };
+	auto choice_num = roundToInt(param->convertFrom0to1(param->getValue()));
 	tip_update.tip_value = exp_info.choice_for(param_index, choice_num);
 }
 
