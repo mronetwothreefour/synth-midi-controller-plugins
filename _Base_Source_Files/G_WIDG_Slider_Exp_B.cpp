@@ -3,21 +3,20 @@
 Slider_Exposed_B::Slider_Exposed_B(const int param_index, Data_Hub_P* hub) :
 	Exposed_Control_B{ param_index, hub },
 	Slider_Wheel_Mod_P{ hub->get_undo_mngr(), exp_info.ctrl_type_for(param_index)},
-	display{ param_index, hub, this },
-	param_index{ param_index }
+	display{ param_index, hub, this }
 {
 	addAndMakeVisible(display);
 }
 
 void Slider_Exposed_B::resized() {
 	auto scale_f = Exposed_Control_B::scale_factor;
-	setMouseDragSensitivity(Exposed_Control_B::exp_info.drag_sensitivity_for(param_index, scale_f));
+	setMouseDragSensitivity(Exposed_Control_B::exp_info.drag_sensitivity_for(exp_param_index, scale_f));
 	display.setBounds(getLocalBounds());
 	Slider::resized();
 }
 
 void Slider_Exposed_B::attach_to_param() {
-	attachment.reset(new SliderParameterAttachment{ *param, *this, Exposed_Control_B::u_m });
+	attachment.reset(new SliderParameterAttachment{ *exp_param, *this, Exposed_Control_B::u_m });
 	setDoubleClickReturnValue(false, 0.0, Mods::noModifiers);
 }
 

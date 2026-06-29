@@ -11,15 +11,13 @@ using Tip_W = Tip_Widget_P;
 
 class Slider_Display_Exposed_B :
 	public Label,
-	public AudioProcessorParameter::Listener,
-	public AsyncUpdater,
+	public Slider::Listener,
 	public Data_User_P
 {
 protected: const int param_index;
-protected: RangedAudioParameter* param;
 protected: const Slider_Display_Type display_type;
-protected: Tip_Updater_B tip_update;
 protected: Slider_Wheel_Mod_P* parent_slider;
+protected: Tip_Updater_B tip_update;
 
 //==============================================================================
 public: Slider_Display_Exposed_B(const int param_index, Data_Hub_P* hub,
@@ -29,9 +27,7 @@ public: void resized() override;
 private: virtual void on_editor_show()=0;
 public: virtual void set_text_to_stored_choice()=0;
 private: virtual void on_text_change()=0;
-public: void handleAsyncUpdate() override;
-public: void parameterValueChanged(int param_index, float new_value) override;
-public: void parameterGestureChanged(int /*param_index*/, bool /*starting*/) override {}
+public: void sliderValueChanged(Slider* slider) override;
 public: ~Slider_Display_Exposed_B();
 
 //==============================================================================

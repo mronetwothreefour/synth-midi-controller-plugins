@@ -10,7 +10,6 @@ class Slider_Exposed_B :
 	public Exposed_Control_B,
 	public Slider_Wheel_Mod_P
 {
-protected: const int param_index;
 protected: Slider_Display_Exposed_P display;
 protected: std::unique_ptr<SliderParameterAttachment> attachment;
 

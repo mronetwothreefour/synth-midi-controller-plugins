@@ -9,24 +9,26 @@ using namespace ENUM;
 
 class Exposed_Control_B:
 	public Data_User_P,
-	public AudioProcessorParameter::Listener,
-	public AsyncUpdater
+	public Value::Listener
 {
-protected: const int param_index;
-protected: RangedAudioParameter* param;
+protected: const int exp_param_index;
+protected: RangedAudioParameter* exp_param;
+protected: Value val_exp_param;
+protected: int mod_param_index;
+protected: RangedAudioParameter* mod_param;
+protected: Value val_mod_param;
 public: const Ctrl_Type ctrl_type;
 protected: Tip_Updater_B tip_update;
 
 //==============================================================================
 private: Exposed_Control_B();
-public: Exposed_Control_B(const int param_index, Data_Hub_P* hub);
+public: Exposed_Control_B(const int exp_param_index, Data_Hub_P* hub);
 
 public: virtual void attach_to_param()=0;
 public: virtual void remove_attachment()=0;
 public: virtual void update_value_tip();
-public: void handleAsyncUpdate() override;
-public: void parameterValueChanged(int param_index, float new_value) override;
-public: void parameterGestureChanged(int /*param_index*/, bool /*starting*/) override {}
+public: virtual void update_according_to_mod() {};
+public: void valueChanged(Value& value) override;
 public: ~Exposed_Control_B();
 
 //==============================================================================
