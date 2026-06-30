@@ -1,7 +1,8 @@
 #include "G_WIDG_Sli_Display_Exp_P.h"
 
-Slider_Display_Exposed_P::Slider_Display_Exposed_P(const int param_index, Data_Hub_P* hub) :
-	Slider_Display_Exposed_B{ param_index, hub},
+Slider_Display_Exposed_P::Slider_Display_Exposed_P(const int param_index, Data_Hub_P* hub,
+												   Slider_Wheel_Mod_P* parent_slider) :
+	Slider_Display_Exposed_B{ param_index, hub, parent_slider },
 	for_osc_balance{ exp_info.ctrl_type_for(param_index) == Ctrl_Type::slider_osc_balance }
 {
 	setComponentID(for_osc_balance ? ID::label_linear.toString() : ID::label_led.toString());
@@ -39,7 +40,7 @@ void Slider_Display_Exposed_P::on_editor_show() {
 }
 
 void Slider_Display_Exposed_P::set_text_to_stored_choice() {
-	auto choice_num{ roundToInt(param->convertFrom0to1(param->getValue())) };
+	auto choice_num{ roundToInt(parent_slider->getValue()) };
 	auto choice_name{ exp_info.choice_for(param_index, choice_num, true) };
 	setText(choice_name, dontSendNotification);
 }
@@ -68,8 +69,10 @@ void Slider_Display_Exposed_P::on_text_change() {
 			if (display_type == Slider_Display_Type::signed_7_bit)
 				new_val += 63.0f;
 		}
-		param->setValueNotifyingHost(param->convertTo0to1(new_val));
-		return;
+		if (new_val > -63.0f)
+			parent_slider->setValue(new_val);
+		else
+			set_text_to_stored_choice();
 	}
 	set_text_to_stored_choice();
 }
