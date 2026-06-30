@@ -127,6 +127,8 @@
             file="Project_Source_Files/G_WIDG_Sli_Display_Exp_P.h"/>
       <FILE id="G8ZL05" name="G_WIDG_Sli_Wheel_Mod_P.h" compile="0" resource="0"
             file="Project_Source_Files/G_WIDG_Sli_Wheel_Mod_P.h"/>
+      <FILE id="WlwXjJ" name="G_WIDG_Slider_Exp_P.h" compile="0" resource="0"
+            file="Project_Source_Files/G_WIDG_Slider_Exp_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

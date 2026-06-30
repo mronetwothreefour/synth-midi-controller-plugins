@@ -3031,6 +3031,7 @@
     <ClInclude Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Sli_Display_Exp_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Sli_Wheel_Mod_P.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Slider_Exp_P.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

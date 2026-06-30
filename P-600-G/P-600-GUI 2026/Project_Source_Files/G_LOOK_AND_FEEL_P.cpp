@@ -26,3 +26,17 @@ void Look_And_Feel_P::drawRotarySlider(Graphics& g, int /*x*/, int /*y*/, int /*
 		g.strokePath(indicator, stroke);
 	}
 }
+
+void Look_And_Feel_P::drawLinearSlider(Graphics& g, int /*x*/, int /*y*/, int /*w*/, int /*h*/,
+									   float pos, float /*min_pos*/, float /*max_pos*/,
+									   const Slider::SliderStyle /*style*/, Slider& /*s*/)
+{
+	auto tab_h = 16 * scale_factor;
+	auto tab_w = 18 * scale_factor;
+	Rectangle<float> tab_bounds{ 0.0f, 0.0f, tab_w , tab_h};
+	tab_bounds.setCentre(10 * scale_factor, pos);
+	g.setColour(COLOR::grey_dark);
+	g.fillRect(tab_bounds);
+	g.setColour(COLOR::grey_lite);
+	g.drawRect(tab_bounds, 0.5f * scale_factor);
+}

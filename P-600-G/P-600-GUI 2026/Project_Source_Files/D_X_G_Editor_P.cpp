@@ -6,11 +6,14 @@ using namespace XYWH;
 
 Editor_P::Editor_P(Audio_Processor_P& processor, Data_Hub_P* hub) :
     Editor_B{ processor, hub },
-    knob{ new Slider_Exposed_B{ 0, hub } }
+    knob{ new Slider_Exposed_P{ 0, hub } },
+    switch_slider{ new Slider_Exposed_P{ 1, hub } }
 {
     knob->attach_to_param();
     knob->modifying_pitch = true;
     addAndMakeVisible(knob.get());
+    switch_slider->attach_to_param();
+    addAndMakeVisible(switch_slider.get());
     resized();
 }
 
@@ -19,4 +22,7 @@ void Editor_P::resized() {
     Rectangle<int> knob_bounds{ 0, 0, knob_diameter, knob_diameter };
     knob_bounds.setCentre(exp_info.ctrl_center_for(0));
     knob->setBounds(knob_bounds.transformedBy(AffineTransform::scale(scale_factor)));
+    Rectangle<int> switch_bounds{ 0, 0, switch_w, switch_2_pole_h };
+    switch_bounds.setCentre(exp_info.ctrl_center_for(1));
+    switch_slider->setBounds(switch_bounds.transformedBy(AffineTransform::scale(scale_factor)));
 }

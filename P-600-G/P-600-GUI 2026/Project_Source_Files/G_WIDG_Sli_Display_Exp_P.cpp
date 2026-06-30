@@ -1,7 +1,8 @@
 #include "G_WIDG_Sli_Display_Exp_P.h"
 
-Slider_Display_Exposed_P::Slider_Display_Exposed_P(const int param_index, Data_Hub_P* hub) :
-	Slider_Display_Exposed_B{ param_index, hub }
+Slider_Display_Exposed_P::Slider_Display_Exposed_P(const int param_index, Data_Hub_P* hub,
+												   Slider_Wheel_Mod_P* parent_slider) :
+	Slider_Display_Exposed_B{ param_index, hub, parent_slider }
 {
 	setComponentID(ID::label_slider.toString());
 	setJustificationType(Justification::centred);
@@ -39,16 +40,16 @@ void Slider_Display_Exposed_P::on_editor_show() {
 }
 
 void Slider_Display_Exposed_P::set_text_to_stored_choice() {
-	auto choice_num{ roundToInt(param->convertFrom0to1(param->getValue())) };
+	auto choice_num{ roundToInt(parent_slider->getValue()) };
 	auto choice_name{ exp_info.choice_for(param_index, choice_num, true) };
 	setText(choice_name, dontSendNotification);
 }
 
 void Slider_Display_Exposed_P::on_text_change() {
-	if (display_type == Slider_Display_Type::osc_pitch) {
-		auto new_text{ getText().toUpperCase() };
-		auto new_val{ -1.0f };
-		if (new_text.isNotEmpty()) {
+	auto new_text{ getText().toUpperCase() };
+	auto new_val{ -1.0f };
+	if (new_text.isNotEmpty()) {
+		if (display_type == Slider_Display_Type::osc_pitch) {
 			if (new_text.containsAnyOf("abcdefgABCDEFG#")) {
 				for (int choice_num = 0; choice_num < EXP::choice_count_osc_pitch; ++choice_num) {
 					if (exp_info.choice_for(param_index, choice_num, true).removeCharacters(" ") == new_text) {
@@ -59,11 +60,11 @@ void Slider_Display_Exposed_P::on_text_change() {
 			}
 			else
 				new_val = new_text.getFloatValue();
-			if (new_val > -1.0f) {
-				param->setValueNotifyingHost(param->convertTo0to1(new_val));
-				return;
-			}
 		}
-		set_text_to_stored_choice();
+		else
+			new_val = new_text.getFloatValue();
+		if (new_val > -1.0f)
+			parent_slider->setValue(new_val);
 	}
+	set_text_to_stored_choice();
 }
