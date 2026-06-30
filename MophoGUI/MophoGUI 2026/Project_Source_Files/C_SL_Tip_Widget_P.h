@@ -36,6 +36,17 @@ Sawtooth/Triangle Mix: ‘S/T’ or ‘3’.
 Pulse Width 0..99: ‘PW0’..‘PW99’ or ‘4’..‘104’.
 Square: ‘SQR’ or ‘PW50’ or ‘54’.)";
 
+	constexpr auto knob_txt_edit_seq_step_tip = u8R"(
+Type in a new setting, either as an
+integer or as a pitch name and octave
+number (add a ‘+’ at the end to ‘bend’
+the pitch upward by 25 cents).
+Range: 0 (C0) to 125 (D5+).
+126 or ‘<’ for track reset.)";
+
+	constexpr auto knob_txt_edit_seq_step_track_1_tip = u8R"(
+127 or ‘.’ for a rest.)";
+
 	constexpr auto knob_txt_edit_osc_slop_tip = u8R"(
 Type in a new setting.
 Range: 0 to 5.)";

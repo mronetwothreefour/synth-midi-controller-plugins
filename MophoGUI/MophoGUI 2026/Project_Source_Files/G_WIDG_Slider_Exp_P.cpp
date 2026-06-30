@@ -3,6 +3,8 @@
 Slider_Exposed_P::Slider_Exposed_P(const int param_index, Data_Hub_P* hub) :
 	Slider_Exposed_B{ param_index, hub }
 {
+	if (ctrl_type == Ctrl_Type::knob_pitch)
+		modifying_pitch = true;
 	if (ctrl_type == Ctrl_Type::seq_step || ctrl_type == Ctrl_Type::seq_step_track_1) {
 		auto track = (param_index - EXP::first_seq_step_param_index) / 16;
 		mod_param_index = EXP::first_seq_track_dest_param_index + track;
