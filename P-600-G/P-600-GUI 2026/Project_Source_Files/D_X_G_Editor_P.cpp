@@ -10,7 +10,6 @@ Editor_P::Editor_P(Audio_Processor_P& processor, Data_Hub_P* hub) :
     switch_slider{ new Slider_Exposed_P{ 1, hub } }
 {
     knob->attach_to_param();
-    knob->modifying_pitch = true;
     addAndMakeVisible(knob.get());
     switch_slider->attach_to_param();
     addAndMakeVisible(switch_slider.get());

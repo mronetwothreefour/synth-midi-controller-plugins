@@ -8,6 +8,8 @@ namespace ENUM
 		dummy,
 		knob,
 		knob_osc_pitch_fine,
+		knob_osc_2_pitch_eg_int,
+		knob_tempo,
 		knob_voice_mode_depth,
 		knob_lfo_rate,
 		knob_lpf_freq,

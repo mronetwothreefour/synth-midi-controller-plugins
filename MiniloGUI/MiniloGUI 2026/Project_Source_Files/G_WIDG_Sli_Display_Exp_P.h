@@ -8,10 +8,11 @@ class Slider_Display_Exposed_P :
 	public Slider_Display_Exposed_B
 {
 //==============================================================================
-public: Slider_Display_Exposed_P(const int param_index, Data_Hub_P* hub);
+public: Slider_Display_Exposed_P(const int param_index, Data_Hub_P* hub,
+								 Slider_Wheel_Mod_P* parent_slider);
 
 private: void on_editor_show() override;
-private: void set_text_to_stored_choice() override;
+public: void set_text_to_stored_choice() override;
 private: void on_text_change() override;
 private: void on_text_change_lfo_rate();
 private: void on_text_change_lpf_eg_int();

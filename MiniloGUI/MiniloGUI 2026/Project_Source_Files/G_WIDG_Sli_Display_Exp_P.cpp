@@ -1,7 +1,8 @@
 #include "G_WIDG_Sli_Display_Exp_P.h"
 
-Slider_Display_Exposed_P::Slider_Display_Exposed_P(const int param_index, Data_Hub_P* hub) :
-	Slider_Display_Exposed_B{ param_index, hub }
+Slider_Display_Exposed_P::Slider_Display_Exposed_P(const int param_index, Data_Hub_P* hub,
+												   Slider_Wheel_Mod_P* parent_slider) :
+	Slider_Display_Exposed_B{ param_index, hub, parent_slider }
 {}
 
 void Slider_Display_Exposed_P::on_editor_show() {
@@ -64,8 +65,8 @@ void Slider_Display_Exposed_P::on_editor_show() {
 }
 
 void Slider_Display_Exposed_P::set_text_to_stored_choice() {
-	auto choice_num{ roundToInt(param->convertFrom0to1(param->getValue())) };
-	auto name = exp_info.choice_for(choice_num, param_index, true);
+	auto choice_num{ roundToInt(parent_slider->getValue()) };
+	auto name = exp_info.choice_for(param_index, choice_num, true);
 	auto ctrl_type = exp_info.ctrl_type_for(param_index);
 	if (ctrl_type == Ctrl_Type::knob_lfo_rate) {
 		if (avp.lfo_sync_bpm_on())
@@ -139,9 +140,8 @@ void Slider_Display_Exposed_P::on_text_change_lfo_rate() {
 	if (new_text.isNotEmpty()) {
 		auto new_val{ new_text.getFloatValue() };
 		if (avp.lfo_sync_bpm_on())
-			param->setValueNotifyingHost(param->convertTo0to1((new_val) * 64.0f));
-		else
-			param->setValueNotifyingHost(param->convertTo0to1(new_val));
+			new_val *= 64.0f;
+		parent_slider->setValue(new_val);
 	}
 	else
 		set_text_to_stored_choice();
@@ -168,7 +168,7 @@ void Slider_Display_Exposed_P::on_text_change_lpf_eg_int() {
 					new_val = (float)n;
 			}
 		}
-		param->setValueNotifyingHost(param->convertTo0to1(new_val));
+		parent_slider->setValue(new_val);
 	}
 	else
 		set_text_to_stored_choice();
@@ -251,7 +251,7 @@ void Slider_Display_Exposed_P::on_text_change_osc_2_pitch_eg_int() {
 		}
 		if (input_val >= 4789)
 			new_val = 1023;
-		param->setValueNotifyingHost(param->convertTo0to1((float)new_val));
+		parent_slider->setValue(new_val);
 	}
 	else
 		set_text_to_stored_choice();
@@ -327,7 +327,7 @@ void Slider_Display_Exposed_P::on_text_change_osc_pitch_fine() {
 		}
 		if (input_val == 1200)
 			new_val = 1023;
-		param->setValueNotifyingHost(param->convertTo0to1((float)new_val));
+		parent_slider->setValue(new_val);
 	}
 	else
 		set_text_to_stored_choice();
@@ -337,7 +337,7 @@ void Slider_Display_Exposed_P::on_text_change_unsigned_10_bit() {
 	auto new_text{ getText() };
 	if (new_text.isNotEmpty()) {
 		auto new_val{ new_text.getFloatValue() };
-		param->setValueNotifyingHost(param->convertTo0to1(new_val));
+		parent_slider->setValue(new_val);
 	}
 		set_text_to_stored_choice();
 }
@@ -348,14 +348,14 @@ void Slider_Display_Exposed_P::on_text_change_voice_mode_depth() {
 	if (new_text.isNotEmpty()) {
 		switch (avp.voice_mode())
 		{
-		case Voice_Mode::poly: param->setValueNotifyingHost(param->convertTo0to1(new_val * 114.0f)); break;
-		case Voice_Mode::duo: param->setValueNotifyingHost(param->convertTo0to1(new_val * 20.0f)); break;
-		case Voice_Mode::unison: param->setValueNotifyingHost(param->convertTo0to1(new_val * 20.0f)); break;
-		case Voice_Mode::mono: param->setValueNotifyingHost(param->convertTo0to1(new_val)); break;
-		case Voice_Mode::chord: param->setValueNotifyingHost(param->convertTo0to1(new_val * 74.0f)); break;
-		case Voice_Mode::delay: param->setValueNotifyingHost(param->convertTo0to1(new_val * 86.0f)); break;
-		case Voice_Mode::arp: param->setValueNotifyingHost(param->convertTo0to1(new_val * 79.0f)); break;
-		case Voice_Mode::sidechain: param->setValueNotifyingHost(param->convertTo0to1(new_val)); break;
+		case Voice_Mode::poly: parent_slider->setValue(new_val * 114.0f); break;
+		case Voice_Mode::duo: parent_slider->setValue(new_val * 20.0f); break;
+		case Voice_Mode::unison: parent_slider->setValue(new_val * 20.0f); break;
+		case Voice_Mode::mono: parent_slider->setValue(new_val); break;
+		case Voice_Mode::chord: parent_slider->setValue(new_val * 74.0f); break;
+		case Voice_Mode::delay: parent_slider->setValue(new_val * 86.0f); break;
+		case Voice_Mode::arp: parent_slider->setValue(new_val * 79.0f); break;
+		case Voice_Mode::sidechain: parent_slider->setValue(new_val); break;
 		default: set_text_to_stored_choice(); break;
 		}
 	}

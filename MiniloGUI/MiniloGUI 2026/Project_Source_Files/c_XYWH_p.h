@@ -25,7 +25,7 @@ namespace XYWH
 
 	constexpr int knob_diameter{ 34 };
 	constexpr int knob_diameter_lpf_freq{ 50 };
-
+	
 	constexpr int switch_h{ 52 };
 	constexpr int switch_lpf_type_h{ 84 };
 	constexpr int switch_w{ 34 };

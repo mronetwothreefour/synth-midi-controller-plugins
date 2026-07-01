@@ -63,8 +63,10 @@ void Slider_Display_Exposed_P::on_text_change() {
 		}
 		else
 			new_val = new_text.getFloatValue();
-		if (new_val > -1.0f)
+		if (new_val > -1.0f) {
 			parent_slider->setValue(new_val);
+			return;
+		}
 	}
 	set_text_to_stored_choice();
 }

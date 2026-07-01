@@ -73,6 +73,10 @@ namespace ID
 
 	static const Identifier subtree_bit_locations{ "subtree_bit_locations" };
 
+	static const Identifier switch_2_pole{ "switch_2_pole" };
+	static const Identifier switch_3_pole{ "switch_3_pole" };
+	static const Identifier switch_osc_octave{ "switch_osc_octave" };
+
 	static const Identifier tree_additional_voice{ "tree_additional_voice" };
 
 	static const Identifier xml_state_additional_voice{ "xml_state_additional_voice" };

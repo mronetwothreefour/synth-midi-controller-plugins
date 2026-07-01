@@ -766,6 +766,9 @@
     <ClCompile Include="..\..\Project_Source_Files\G_WIDG_Sli_Wheel_Mod_P.cpp">
       <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\G_WIDG_Slider_Exp_P.cpp">
+      <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
     </ClCompile>
@@ -3910,6 +3913,9 @@
       <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Sli_Wheel_Mod_P.h">
+      <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Slider_Exp_P.h">
       <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

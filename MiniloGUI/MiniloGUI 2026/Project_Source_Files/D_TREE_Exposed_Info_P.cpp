@@ -75,9 +75,9 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			ID::exp_09_osc_2_pitch_eg_int, "Oscillator 2 Pitch EG Intensity", Ctrl_Type::knob,
-			Display::osc_2_pitch_eg_int, 42, EXP::choice_count_unsigned_10_bit, 512,
-			124, ctrl_row_3_y, knob_diameter, knob_diameter,
+			ID::exp_09_osc_2_pitch_eg_int, "Oscillator 2 Pitch EG Intensity",
+			Ctrl_Type::knob_osc_2_pitch_eg_int, Display::osc_2_pitch_eg_int, 42,
+			EXP::choice_count_unsigned_10_bit, 512, 124, ctrl_row_3_y, knob_diameter, knob_diameter,
 			Tip_Exp::osc_2_pitch_eg_int(), Bit_Loc_Exp::osc_2_pitch_eg_int(),
 			Choices_Exp::osc_2_pitch_eg_int(curt), Choices_Exp::osc_2_pitch_eg_int()
 		),

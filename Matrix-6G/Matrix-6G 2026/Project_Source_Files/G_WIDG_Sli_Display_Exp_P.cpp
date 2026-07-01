@@ -69,8 +69,10 @@ void Slider_Display_Exposed_P::on_text_change() {
 			if (display_type == Slider_Display_Type::signed_7_bit)
 				new_val += 63.0f;
 		}
-		if (new_val > -64.0f)
+		if (new_val > -64.0f) {
 			parent_slider->setValue(new_val);
+			return;
+		}
 	}
 	set_text_to_stored_choice();
 }

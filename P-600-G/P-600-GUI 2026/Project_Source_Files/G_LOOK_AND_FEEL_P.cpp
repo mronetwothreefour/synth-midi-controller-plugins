@@ -2,11 +2,7 @@
 
 Look_And_Feel_P::Look_And_Feel_P(float& scale_factor) :
 	Look_And_Feel_B{ scale_factor }
-{
-}
-
-void Look_And_Feel_P::draw_label_p(Graphics& /*g*/, Label& /*lbl*/, String& /*lbl_id*/) {
-}
+{}
 
 void Look_And_Feel_P::drawRotarySlider(Graphics& g, int /*x*/, int /*y*/, int /*w*/, int /*h*/, float pos,
 									   const float min_angle, const float max_angle, Slider& s)
@@ -38,5 +34,5 @@ void Look_And_Feel_P::drawLinearSlider(Graphics& g, int /*x*/, int /*y*/, int /*
 	g.setColour(COLOR::grey_dark);
 	g.fillRect(tab_bounds);
 	g.setColour(COLOR::grey_lite);
-	g.drawRect(tab_bounds, 0.5f * scale_factor);
+	g.drawRect(tab_bounds, 0.3f * scale_factor);
 }
