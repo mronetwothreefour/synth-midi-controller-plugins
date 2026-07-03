@@ -1,5 +1,7 @@
 #include "G_LOOK_AND_FEEL_P.h"
 
+#include "G_DRAW_Paths_Sliders_P.h"
+
 Look_And_Feel_P::Look_And_Feel_P(float& scale_factor) :
 	Look_And_Feel_B{ scale_factor }
 {}
@@ -25,18 +27,19 @@ void Look_And_Feel_P::drawLinearSlider(Graphics& g, int /*x*/, int /*y*/, int /*
 									   float /*pos*/, float /*min_pos*/, float /*max_pos*/,
 									   const Slider::SliderStyle /*style*/, Slider& s)
 {
-	auto tab_diameter = 12 * scale_factor;
+	if (s.getComponentID() == ID::switch_2_pole.toString()) {
+		Draw_Paths_Sliders_P::switch_2_pole(g, scale_factor, roundToInt(s.getValue()));
+	}
+	if (s.getComponentID() == ID::switch_3_pole.toString()) {
+		Draw_Paths_Sliders_P::switch_3_pole(g, scale_factor, roundToInt(s.getValue()));
+	}
+	if (s.getComponentID() == ID::switch_lpf_type.toString()) {
+		Draw_Paths_Sliders_P::switch_lpf_type(g, scale_factor, roundToInt(s.getValue()));
+	}
+	if (s.getComponentID() == ID::switch_keyboard_octave.toString()) {
+		Draw_Paths_Sliders_P::switch_keyboard_octave(g, scale_factor, roundToInt(s.getValue()));
+	}
 	if (s.getComponentID() == ID::switch_osc_octave.toString()) {
-		auto s_val = roundToInt(s.getValue());
-		auto tab_center_y = ((3 - s_val) * 12 + 8) * scale_factor;
-		Rectangle<float> tab_bounds{ 0.0f, 0.0f, tab_diameter , tab_diameter };
-		tab_bounds.setCentre(8 * scale_factor, tab_center_y);
-		g.setColour(COLOR::grey_switch_tabs);
-		g.fillEllipse(tab_bounds);
-		auto led_diameter = 8 * scale_factor;
-		Rectangle<float> led_bounds{ 0.0f, 0.0f, led_diameter, led_diameter };
-		led_bounds.setCentre(30 * scale_factor, tab_center_y);
-		g.setColour(COLOR::red_led_on);
-		g.fillEllipse(led_bounds);
+		Draw_Paths_Sliders_P::switch_osc_octave(g, scale_factor, roundToInt(s.getValue()));
 	}
 }

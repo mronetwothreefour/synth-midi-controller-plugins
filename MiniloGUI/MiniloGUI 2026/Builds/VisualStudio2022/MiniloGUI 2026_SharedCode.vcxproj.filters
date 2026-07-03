@@ -757,6 +757,9 @@
     <ClCompile Include="..\..\Project_Source_Files\G_DRAW_Paths_Editor_P.cpp">
       <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\G_DRAW_Paths_Sliders_P.cpp">
+      <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.cpp">
       <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
     </ClCompile>
@@ -3855,6 +3858,9 @@
     <ClInclude Include="..\..\Project_Source_Files\C_PATH_Editor_Background_P.h">
       <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\C_PATH_Sliders_P.h">
+      <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\C_SL_Tip_Exposed_P.h">
       <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
     </ClInclude>
@@ -3904,6 +3910,9 @@
       <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_Editor_P.h">
+      <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_Sliders_P.h">
       <Filter>MiniloGUI 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.h">

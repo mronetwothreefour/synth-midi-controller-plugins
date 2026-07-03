@@ -151,7 +151,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			ID::exp_18_lpf_type, "LPF Type", Ctrl_Type::switch_2_pole,
+			ID::exp_18_lpf_type, "LPF Type", Ctrl_Type::switch_lpf_type,
 			Display::none, 84, 2, 1, 380, ctrl_row_3_y, switch_w, switch_h,
 			Tip_Exp::lpf_type(), Bit_Loc_Exp::lpf_type(),
 			Choices_Exp::lpf_type(curt), Choices_Exp::lpf_type()

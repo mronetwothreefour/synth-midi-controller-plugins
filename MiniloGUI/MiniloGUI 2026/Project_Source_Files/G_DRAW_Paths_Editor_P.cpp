@@ -28,8 +28,6 @@ void Draw_Paths_Editor_P::background(Graphics& g) {
 	g.fillPath(load_path(PATH::editor_grey_buttons, sizeof(PATH::editor_grey_buttons)));
 	g.setColour(COLOR::grey_cbox_arrows);
 	g.fillPath(load_path(PATH::editor_grey_cbox_arrows, sizeof(PATH::editor_grey_cbox_arrows)));
-	g.setColour(COLOR::red_led_off);
-	g.fillPath(load_path(PATH::editor_red_led_off, sizeof(PATH::editor_red_led_off)));
 	if (ModifierKeys::currentModifiers == ModifierKeys::altModifier) {
 		g.setColour(COLOR::black);
 		g.fillPath(load_path(PATH::editor_alt_underlines, sizeof(PATH::editor_alt_underlines)));

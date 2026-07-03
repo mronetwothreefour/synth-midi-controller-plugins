@@ -8,6 +8,7 @@ Slider_Wheel_Mod_P::Slider_Wheel_Mod_P(UndoManager* u_m, Ctrl_Type ctrl_type) :
 {
 	if (ctrl_type == Ctrl_Type::switch_2_pole ||
 		ctrl_type == Ctrl_Type::switch_3_pole ||
+		ctrl_type == Ctrl_Type::switch_lpf_type ||
 		ctrl_type == Ctrl_Type::switch_osc_octave)
 	{
 		setSliderStyle(SliderStyle::LinearVertical);

@@ -75,6 +75,8 @@ namespace ID
 
 	static const Identifier switch_2_pole{ "switch_2_pole" };
 	static const Identifier switch_3_pole{ "switch_3_pole" };
+	static const Identifier switch_lpf_type{ "switch_lpf_type" };
+	static const Identifier switch_keyboard_octave{ "switch_keyboard_octave" };
 	static const Identifier switch_osc_octave{ "switch_osc_octave" };
 
 	static const Identifier tree_additional_voice{ "tree_additional_voice" };

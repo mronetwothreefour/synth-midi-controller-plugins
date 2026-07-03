@@ -15,6 +15,7 @@ namespace ENUM
 		knob_lpf_freq,
 		switch_2_pole,
 		switch_3_pole,
+		switch_lpf_type,
 		switch_osc_octave
 	};
 

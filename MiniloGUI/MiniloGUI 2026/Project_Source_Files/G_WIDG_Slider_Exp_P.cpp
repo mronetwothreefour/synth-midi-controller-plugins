@@ -5,6 +5,7 @@ Slider_Exposed_P::Slider_Exposed_P(const int param_index, Data_Hub_P* hub) :
 {
 	if (ctrl_type == Ctrl_Type::switch_2_pole ||
 		ctrl_type == Ctrl_Type::switch_3_pole ||
+		ctrl_type == Ctrl_Type::switch_lpf_type ||
 		ctrl_type == Ctrl_Type::switch_osc_octave)
 	{
 		removeChildComponent(&display);
@@ -12,6 +13,8 @@ Slider_Exposed_P::Slider_Exposed_P(const int param_index, Data_Hub_P* hub) :
 			setComponentID(ID::switch_2_pole.toString());
 		if (ctrl_type == Ctrl_Type::switch_3_pole)
 			setComponentID(ID::switch_3_pole.toString());
+		if (ctrl_type == Ctrl_Type::switch_lpf_type)
+			setComponentID(ID::switch_lpf_type.toString());
 		if (ctrl_type == Ctrl_Type::switch_osc_octave)
 			setComponentID(ID::switch_osc_octave.toString());
 	}

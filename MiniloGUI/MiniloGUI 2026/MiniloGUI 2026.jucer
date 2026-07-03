@@ -75,6 +75,8 @@
       <FILE id="gHjULB" name="C_ID_P.h" compile="0" resource="0" file="Project_Source_Files/C_ID_P.h"/>
       <FILE id="HHCrNp" name="C_PATH_Editor_Background_P.h" compile="0" resource="0"
             file="Project_Source_Files/C_PATH_Editor_Background_P.h"/>
+      <FILE id="gaMULQ" name="C_PATH_Sliders_P.h" compile="0" resource="0"
+            file="Project_Source_Files/C_PATH_Sliders_P.h"/>
       <FILE id="LZ1D7l" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
             file="Project_Source_Files/C_SL_Tip_Exposed_P.h"/>
       <FILE id="ox30lQ" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
@@ -129,6 +131,10 @@
             file="Project_Source_Files/G_DRAW_Paths_Editor_P.cpp"/>
       <FILE id="sltYGt" name="G_DRAW_Paths_Editor_P.h" compile="0" resource="0"
             file="Project_Source_Files/G_DRAW_Paths_Editor_P.h"/>
+      <FILE id="Xj0mw7" name="G_DRAW_Paths_Sliders_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/G_DRAW_Paths_Sliders_P.cpp"/>
+      <FILE id="Xc4V7x" name="G_DRAW_Paths_Sliders_P.h" compile="0" resource="0"
+            file="Project_Source_Files/G_DRAW_Paths_Sliders_P.h"/>
       <FILE id="CSkZF0" name="G_LOOK_AND_FEEL_P.cpp" compile="1" resource="0"
             file="Project_Source_Files/G_LOOK_AND_FEEL_P.cpp"/>
       <FILE id="ERl643" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"
