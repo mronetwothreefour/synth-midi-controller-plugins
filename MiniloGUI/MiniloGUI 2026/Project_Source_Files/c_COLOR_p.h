@@ -9,7 +9,7 @@ namespace COLOR
 
 	const Colour grey_buttons{ 0xff222123 };
 	const Colour grey_cbox_arrows{ 0xffc9c9c9 };
-	const Colour grey_knob_indicators{ 0xff58595b };
+	const Colour grey_knob_indicators{ 0xff484848 };
 	const Colour grey_switch_tabs{ 0xffc9c9c9 };
 	const Colour red_led_off{ 0xff412828 };
 	const Colour red_led_on{ 0xffff0000 };

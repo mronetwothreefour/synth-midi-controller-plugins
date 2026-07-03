@@ -71,6 +71,8 @@ namespace ID
 	static const Identifier exp_p_bit_count{ "exp_p_bit_count" };
 	static const Identifier exp_p_cc_num{ "exp_p_cc_num" };
 
+	static const Identifier knob_lpf_freq{ "knob_lpf_freq" };
+
 	static const Identifier subtree_bit_locations{ "subtree_bit_locations" };
 
 	static const Identifier switch_2_pole{ "switch_2_pole" };

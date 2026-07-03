@@ -82,6 +82,26 @@ void Draw_Paths_Sliders_P::draw_switch_v_tab(Graphics& g, float& scale, char pos
 	}
 }
 
+void Draw_Paths_Sliders_P::knob(Graphics& g, float& rotation, float& scale) {
+	auto body = load_path(PATH::knob_body, sizeof(PATH::knob_body));
+	g.setColour(COLOR::black);
+	g.fillPath(body, AffineTransform::scale(scale));
+	auto indicator = load_path(PATH::knob_indicator, sizeof(PATH::knob_indicator));
+	indicator.applyTransform(AffineTransform::rotation(rotation, 17, 17));
+	g.setColour(COLOR::grey_knob_indicators);
+	g.fillPath(indicator, AffineTransform::scale(scale));
+}
+
+void Draw_Paths_Sliders_P::knob_lpf_freq(Graphics& g, float& rotation, float& scale) {
+	auto body = load_path(PATH::knob_lpf_freq_body, sizeof(PATH::knob_lpf_freq_body));
+	g.setColour(COLOR::black);
+	g.fillPath(body, AffineTransform::scale(scale));
+	auto indicator = load_path(PATH::knob_lpf_freq_indicator, sizeof(PATH::knob_lpf_freq_indicator));
+	indicator.applyTransform(AffineTransform::rotation(rotation, 25, 25));
+	g.setColour(COLOR::grey_knob_indicators);
+	g.fillPath(indicator, AffineTransform::scale(scale));
+}
+
 void Draw_Paths_Sliders_P::switch_2_pole(Graphics& g, float& scale, int setting) {
 	draw_switch_v_slot(g, scale);
 	switch (setting)

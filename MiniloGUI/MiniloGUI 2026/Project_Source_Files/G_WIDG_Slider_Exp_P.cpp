@@ -3,6 +3,8 @@
 Slider_Exposed_P::Slider_Exposed_P(const int param_index, Data_Hub_P* hub) :
 	Slider_Exposed_B{ param_index, hub }
 {
+	if (ctrl_type == Ctrl_Type::knob_lpf_freq)
+		setComponentID(ID::knob_lpf_freq.toString());
 	if (ctrl_type == Ctrl_Type::switch_2_pole ||
 		ctrl_type == Ctrl_Type::switch_3_pole ||
 		ctrl_type == Ctrl_Type::switch_lpf_type ||
