@@ -7,7 +7,7 @@
 namespace COLOR
 {
 
-	const Colour grey{ 0xff464646 };
+	const Colour grey{ 0xff505050 };
 	const Colour grey_dark{ 0xff171717 };
 	const Colour grey_lite{ 0xffa6a6a6 };
 	const Colour red_btn{ 0xff7d0000 };

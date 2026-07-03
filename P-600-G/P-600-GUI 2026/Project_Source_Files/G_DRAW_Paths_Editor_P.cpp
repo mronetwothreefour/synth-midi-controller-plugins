@@ -8,14 +8,10 @@ void Draw_Paths_Editor_P::background(Graphics& g) {
 	JPEGImageFormat img_format;
 	auto background_texture = img_format.decodeImage(texture_stream);
 	g.drawImageAt(background_texture, 0, 0);
-	g.setColour(COLOR::black);
-	g.fillPath(load_path(PATH::editor_black, sizeof(PATH::editor_black)));
 	g.setColour(COLOR::translucent_white);
 	g.fillPath(load_path(PATH::editor_translucent_white, sizeof(PATH::editor_translucent_white)));
 	g.setColour(COLOR::grey_dark);
 	g.fillPath(load_path(PATH::editor_grey_dark, sizeof(PATH::editor_grey_dark)));
-	g.setColour(COLOR::grey);
-	g.fillPath(load_path(PATH::editor_grey, sizeof(PATH::editor_grey)));
 	g.setColour(COLOR::red_led_1);
 	g.fillPath(load_path(PATH::editor_red_led_1, sizeof(PATH::editor_red_led_1)));
 	g.setColour(COLOR::red_led_2);

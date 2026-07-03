@@ -35,7 +35,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 				osc == 1 ? Ctrl_Type::switch_2_pole : Ctrl_Type::knob, osc == 1 ? 30 : 9,
 				osc == 1 ? 2 : 3, osc == 1 ? 1 : 7, osc == 1 ? Display::none : Display::int_7_bit,
 				osc == 1 ? 2 : 128, 0, osc_col_2_x,
-				osc == 1 ? switch_row_1_y : knob_row_3_y, osc == 1 ? switch_w : knob_diameter,
+				osc == 1 ? switch_row_1_y : knob_row_3_y, osc == 1 ? switch_2_pole_w : knob_diameter,
 				osc == 1 ? switch_2_pole_h : knob_diameter,
 				osc == 1 ? Tip_Exp::osc_a_sync() : Tip_Exp::osc_b_fine(),
 				osc == 1 ? Choices_Exp::off_on(curt) : Choices_Exp::unsigned_int(128, curt),
@@ -48,7 +48,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 				osc == 1 ? ID::exp_02_osc_a_saw : ID::exp_08_osc_b_saw,
 				"Oscillator " + o + " Shape: Sawtooth", Ctrl_Type::switch_2_pole, 30,
 				osc == 1 ? 0 : 3, 1, Display::none, 2, 0, osc_col_3_x, osc == 1 ? switch_row_1_y : switch_row_2_y,
-				switch_w, switch_2_pole_h, "When on, oscillator " + o + " outputs a sawtooth wave.",
+				switch_2_pole_w, switch_2_pole_h, "When on, oscillator " + o + " outputs a sawtooth wave.",
 				Choices_Exp::off_on(curt), Choices_Exp::off_on()
 			),
 			-1, nullptr);
@@ -58,7 +58,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 				osc == 1 ? ID::exp_03_osc_a_tri : ID::exp_09_osc_b_tri,
 				"Oscillator " + o + " Shape: Triangle", Ctrl_Type::switch_2_pole, osc == 1 ? 30 : 31,
 				osc == 1 ? 1 : 0, 1, Display::none, 2, 1, osc_col_4_x, osc == 1 ? switch_row_1_y : switch_row_2_y,
-				switch_w, switch_2_pole_h, "When on, oscillator " + o + " outputs a triangle wave.",
+				switch_2_pole_w, switch_2_pole_h, "When on, oscillator " + o + " outputs a triangle wave.",
 				Choices_Exp::off_on(curt), Choices_Exp::off_on()
 			),
 			-1, nullptr);
@@ -68,7 +68,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 				osc == 1 ? ID::exp_04_osc_a_pulse : ID::exp_10_osc_b_pulse,
 				"Oscillator " + o + " Shape: Pulse", Ctrl_Type::switch_2_pole, 28,
 				osc == 1 ? 0 : 1, 1, Display::none, 2, 0, osc_col_5_x, osc == 1 ? switch_row_1_y : switch_row_2_y,
-				switch_w, switch_2_pole_h, "When on, oscillator " + o + " outputs a pulse wave.",
+				switch_2_pole_w, switch_2_pole_h, "When on, oscillator " + o + " outputs a pulse wave.",
 				Choices_Exp::off_on(curt), Choices_Exp::off_on()
 			),
 			-1, nullptr);
@@ -130,7 +130,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 	tree.addChild(
 		Sub_Tree_Exposed::build(
 			ID::exp_17_filter_key_track, "Filter Keyboard Tracking", Ctrl_Type::switch_3_pole,
-			28, 2, 2, Display::none, 3, 2, 1278, 72, switch_w, switch_3_pole_h, Tip_Exp::filter_key_track(),
+			28, 2, 2, Display::none, 3, 2, 1291, 72, switch_3_pole_w, switch_3_pole_h, Tip_Exp::filter_key_track(),
 			Choices_Exp::filter_key_track(curt), Choices_Exp::filter_key_track()
 		),
 		-1, nullptr);
@@ -229,7 +229,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			ID::exp_28_p_mod_dest_osc_a_freq, "Poly-Mod Destination: Oscillator A Frequency",
 			Ctrl_Type::switch_2_pole, 31, 1, 1, Display::none, 2, 0, 287, switch_row_1_y,
-			switch_w, switch_2_pole_h, Tip_Exp::poly_mod_dest_osc_a_pitch(),
+			switch_2_pole_w, switch_2_pole_h, Tip_Exp::poly_mod_dest_osc_a_pitch(),
 			Choices_Exp::off_on(curt), Choices_Exp::off_on()
 		),
 		-1, nullptr);
@@ -238,7 +238,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			ID::exp_29_p_mod_dest_filter, "Poly-Mod Destination: Filter Cutoff Frequency",
 			Ctrl_Type::switch_2_pole, 31, 2, 1, Display::none, 2, 0, 347, switch_row_1_y,
-			switch_w, switch_2_pole_h, Tip_Exp::poly_mod_dest_filter_freq(),
+			switch_2_pole_w, switch_2_pole_h, Tip_Exp::poly_mod_dest_filter_freq(),
 			Choices_Exp::off_on(curt), Choices_Exp::off_on()
 		),
 		-1, nullptr);
@@ -248,7 +248,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			ID::exp_30_unison_track, "Unison Tracking",
 			Ctrl_Type::switch_2_pole, 31, 3, 1, Display::none, 2, 0, 416, switch_row_1_y,
-			switch_w, switch_2_pole_h, Tip_Exp::unison_track(),
+			switch_2_pole_w, switch_2_pole_h, Tip_Exp::unison_track(),
 			Choices_Exp::off_on(curt), Choices_Exp::off_on()
 		),
 		-1, nullptr);
@@ -265,7 +265,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 	tree.addChild(
 		Sub_Tree_Exposed::build(
 			ID::exp_32_lfo_shape, "LFO Wave Shape", Ctrl_Type::switch_2_pole, 29, 0, 1, Display::none,
-			2, 1, 126, switch_row_2_y, switch_w, switch_2_pole_h, Tip_Exp::lfo_shape(),
+			2, 1, 126, switch_row_2_y, switch_2_pole_w, switch_2_pole_h, Tip_Exp::lfo_shape(),
 			Choices_Exp::lfo_shape(curt), Choices_Exp::lfo_shape()
 		),
 		-1, nullptr);
@@ -281,7 +281,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 	tree.addChild(
 		Sub_Tree_Exposed::build(
 			ID::exp_34_lfo_dest_osc_pitch, "LFO Destination: Oscillator Frequency", Ctrl_Type::switch_2_pole,
-			29, 1, 1, Display::none, 2, 0, 282, switch_row_2_y, switch_w, switch_2_pole_h,
+			29, 1, 1, Display::none, 2, 0, 282, switch_row_2_y, switch_2_pole_w, switch_2_pole_h,
 			Tip_Exp::lfo_dest_osc_pitch(), Choices_Exp::off_on(curt), Choices_Exp::off_on()
 		),
 		-1, nullptr);
@@ -289,7 +289,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 	tree.addChild(
 		Sub_Tree_Exposed::build(
 			ID::exp_35_lfo_dest_osc_pw, "LFO Destination: Oscillator Pulse Width", Ctrl_Type::switch_2_pole,
-			29, 2, 1, Display::none, 2, 0, 342, switch_row_2_y, switch_w, switch_2_pole_h,
+			29, 2, 1, Display::none, 2, 0, 342, switch_row_2_y, switch_2_pole_w, switch_2_pole_h,
 			Tip_Exp::lfo_dest_osc_pw(), Choices_Exp::off_on(curt), Choices_Exp::off_on()
 		),
 		-1, nullptr);
@@ -297,7 +297,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 	tree.addChild(
 		Sub_Tree_Exposed::build(
 			ID::exp_36_lfo_dest_filter, "LFO Destination: Filter Cutoff", Ctrl_Type::switch_2_pole,
-			29, 3, 1, Display::none, 2, 0, 402, switch_row_2_y, switch_w, switch_2_pole_h,
+			29, 3, 1, Display::none, 2, 0, 402, switch_row_2_y, switch_2_pole_w, switch_2_pole_h,
 			Tip_Exp::lfo_dest_filter(), Choices_Exp::off_on(curt), Choices_Exp::off_on()
 		),
 		-1, nullptr);

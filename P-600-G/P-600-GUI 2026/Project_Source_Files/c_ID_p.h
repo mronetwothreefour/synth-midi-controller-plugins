@@ -53,4 +53,7 @@ namespace ID
 	static const Identifier knob_led_voice_num{ "knob_led_voice_num" };
 
 	static const Identifier label_led{ "label_led" };
+
+	static const Identifier switch_2_pole{ "switch_2_pole" };
+	static const Identifier switch_3_pole{ "switch_3_pole" };
 }

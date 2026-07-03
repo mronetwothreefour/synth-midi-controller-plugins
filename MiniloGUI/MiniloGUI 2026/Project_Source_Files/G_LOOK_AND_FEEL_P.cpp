@@ -20,19 +20,14 @@ void Look_And_Feel_P::drawLinearSlider(Graphics& g, int /*x*/, int /*y*/, int /*
 									   float /*pos*/, float /*min_pos*/, float /*max_pos*/,
 									   const Slider::SliderStyle /*style*/, Slider& s)
 {
-	if (s.getComponentID() == ID::switch_2_pole.toString()) {
+	if (s.getComponentID() == ID::switch_2_pole.toString())
 		Draw_Paths_Sliders_P::switch_2_pole(g, scale_factor, roundToInt(s.getValue()));
-	}
-	if (s.getComponentID() == ID::switch_3_pole.toString()) {
+	if (s.getComponentID() == ID::switch_3_pole.toString())
 		Draw_Paths_Sliders_P::switch_3_pole(g, scale_factor, roundToInt(s.getValue()));
-	}
-	if (s.getComponentID() == ID::switch_lpf_type.toString()) {
+	if (s.getComponentID() == ID::switch_lpf_type.toString())
 		Draw_Paths_Sliders_P::switch_lpf_type(g, scale_factor, roundToInt(s.getValue()));
-	}
-	if (s.getComponentID() == ID::switch_keyboard_octave.toString()) {
+	if (s.getComponentID() == ID::switch_keyboard_octave.toString())
 		Draw_Paths_Sliders_P::switch_keyboard_octave(g, scale_factor, roundToInt(s.getValue()));
-	}
-	if (s.getComponentID() == ID::switch_osc_octave.toString()) {
+	if (s.getComponentID() == ID::switch_osc_octave.toString())
 		Draw_Paths_Sliders_P::switch_osc_octave(g, scale_factor, roundToInt(s.getValue()));
-	}
 }
