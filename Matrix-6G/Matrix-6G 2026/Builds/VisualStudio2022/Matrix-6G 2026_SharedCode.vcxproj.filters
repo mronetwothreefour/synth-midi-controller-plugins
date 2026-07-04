@@ -712,6 +712,9 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.cpp">
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Cbox_Exp_B.cpp">
+      <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exp_Ctrl_B.cpp">
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClCompile>
@@ -3808,6 +3811,9 @@
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.h">
+      <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Cbox_Exp_B.h">
       <Filter>Matrix-6G 2026\_Base_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exp_Ctrl_B.h">
