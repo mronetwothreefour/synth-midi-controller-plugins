@@ -97,7 +97,10 @@ const StringArray Tree_Exposed_Info_B::choices_list_for(int i, bool curt) const
 
 const int Tree_Exposed_Info_B::drag_sensitivity_for(int i, float scale_factor) const {
 	if (i < exp_param_count) {
-		auto sensitivity = (80.0f + choice_count_for(i) / 2.0f) * scale_factor;
+		auto choice_count = choice_count_for(i);
+		auto sensitivity = 175.0f * scale_factor;
+		if (choice_count < 128)
+			sensitivity = (80.0f + choice_count / 2.0f) * scale_factor;
 		return roundToInt(sensitivity);
 	}
 	return -1;
