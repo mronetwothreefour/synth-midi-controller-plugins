@@ -1,9 +1,9 @@
-#include "G_DRAW_Paths_Sliders_P.h"
+#include "G_DRAW_Paths_Widgets_P.h"
 
 #include "C_COLOR_P.h"
-#include "C_PATH_Sliders_P.h"
+#include "C_PATH_Widgets_P.h"
 
-void Draw_Paths_Sliders_P::draw_switch_h_led(Graphics& g, float& scale, char pos, Colour clr) {
+void Draw_Paths_Widgets_P::draw_switch_h_led(Graphics& g, float& scale, char pos, Colour clr) {
 	Path led{};
 	switch (pos)
 	{
@@ -20,13 +20,13 @@ void Draw_Paths_Sliders_P::draw_switch_h_led(Graphics& g, float& scale, char pos
 	}
 }
 
-void Draw_Paths_Sliders_P::draw_switch_h_slot(Graphics& g, float& scale) {
+void Draw_Paths_Widgets_P::draw_switch_h_slot(Graphics& g, float& scale) {
 	Path slot{ load_path(PATH::switch_h_slot, sizeof(PATH::switch_h_slot)) };
 	g.setColour(COLOR::black);
 	g.fillPath(slot, AffineTransform::scale(scale));
 }
 
-void Draw_Paths_Sliders_P::draw_switch_h_tab(Graphics& g, float& scale, char pos) {
+void Draw_Paths_Widgets_P::draw_switch_h_tab(Graphics& g, float& scale, char pos) {
 	Path tab{};
 	switch (pos)
 	{
@@ -43,7 +43,7 @@ void Draw_Paths_Sliders_P::draw_switch_h_tab(Graphics& g, float& scale, char pos
 	}
 }
 
-void Draw_Paths_Sliders_P::draw_switch_v_led(Graphics& g, float& scale, char pos, Colour clr) {
+void Draw_Paths_Widgets_P::draw_switch_v_led(Graphics& g, float& scale, char pos, Colour clr) {
 	Path led{};
 	switch (pos)
 	{
@@ -59,13 +59,13 @@ void Draw_Paths_Sliders_P::draw_switch_v_led(Graphics& g, float& scale, char pos
 	}
 }
 
-void Draw_Paths_Sliders_P::draw_switch_v_slot(Graphics& g, float& scale) {
+void Draw_Paths_Widgets_P::draw_switch_v_slot(Graphics& g, float& scale) {
 	Path slot{ load_path(PATH::switch_v_slot, sizeof(PATH::switch_v_slot)) };
 	g.setColour(COLOR::black);
 	g.fillPath(slot, AffineTransform::scale(scale));
 }
 
-void Draw_Paths_Sliders_P::draw_switch_v_tab(Graphics& g, float& scale, char pos) {
+void Draw_Paths_Widgets_P::draw_switch_v_tab(Graphics& g, float& scale, char pos) {
 	Path tab{};
 	switch (pos)
 	{
@@ -82,7 +82,7 @@ void Draw_Paths_Sliders_P::draw_switch_v_tab(Graphics& g, float& scale, char pos
 	}
 }
 
-void Draw_Paths_Sliders_P::knob(Graphics& g, float& rotation, float& scale) {
+void Draw_Paths_Widgets_P::knob(Graphics& g, float& rotation, float& scale) {
 	auto body = load_path(PATH::knob_body, sizeof(PATH::knob_body));
 	g.setColour(COLOR::black);
 	g.fillPath(body, AffineTransform::scale(scale));
@@ -92,7 +92,7 @@ void Draw_Paths_Sliders_P::knob(Graphics& g, float& rotation, float& scale) {
 	g.fillPath(indicator, AffineTransform::scale(scale));
 }
 
-void Draw_Paths_Sliders_P::knob_lpf_freq(Graphics& g, float& rotation, float& scale) {
+void Draw_Paths_Widgets_P::knob_lpf_freq(Graphics& g, float& rotation, float& scale) {
 	auto body = load_path(PATH::knob_lpf_freq_body, sizeof(PATH::knob_lpf_freq_body));
 	g.setColour(COLOR::black);
 	g.fillPath(body, AffineTransform::scale(scale));
@@ -102,7 +102,7 @@ void Draw_Paths_Sliders_P::knob_lpf_freq(Graphics& g, float& rotation, float& sc
 	g.fillPath(indicator, AffineTransform::scale(scale));
 }
 
-void Draw_Paths_Sliders_P::switch_2_pole(Graphics& g, float& scale, int setting) {
+void Draw_Paths_Widgets_P::switch_2_pole(Graphics& g, float& scale, int setting) {
 	draw_switch_v_slot(g, scale);
 	switch (setting)
 	{
@@ -112,7 +112,7 @@ void Draw_Paths_Sliders_P::switch_2_pole(Graphics& g, float& scale, int setting)
 	}
 }
 
-void Draw_Paths_Sliders_P::switch_3_pole(Graphics& g, float& scale, int setting) {
+void Draw_Paths_Widgets_P::switch_3_pole(Graphics& g, float& scale, int setting) {
 	draw_switch_v_slot(g, scale);
 	switch (setting)
 	{
@@ -123,7 +123,7 @@ void Draw_Paths_Sliders_P::switch_3_pole(Graphics& g, float& scale, int setting)
 	}
 }
 
-void Draw_Paths_Sliders_P::switch_osc_octave(Graphics& g, float& scale, int setting) {
+void Draw_Paths_Widgets_P::switch_osc_octave(Graphics& g, float& scale, int setting) {
 	draw_switch_v_slot(g, scale);
 	switch (setting)
 	{
@@ -139,7 +139,7 @@ void Draw_Paths_Sliders_P::switch_osc_octave(Graphics& g, float& scale, int sett
 	draw_switch_v_led(g, scale, 'd', setting == 3 ? COLOR::red_led_on : COLOR::red_led_off);
 }
 
-void Draw_Paths_Sliders_P::switch_lpf_type(Graphics& g, float& scale, int setting) {
+void Draw_Paths_Widgets_P::switch_lpf_type(Graphics& g, float& scale, int setting) {
 	auto t = AffineTransform::translation(0, 16);
 	auto slot = load_path(PATH::switch_v_slot, sizeof(PATH::switch_v_slot));
 	slot.applyTransform(t);
@@ -157,7 +157,7 @@ void Draw_Paths_Sliders_P::switch_lpf_type(Graphics& g, float& scale, int settin
 	}
 }
 
-void Draw_Paths_Sliders_P::switch_keyboard_octave(Graphics& g, float& scale, int setting) {
+void Draw_Paths_Widgets_P::switch_keyboard_octave(Graphics& g, float& scale, int setting) {
 	draw_switch_h_slot(g, scale);
 	switch (setting)
 	{

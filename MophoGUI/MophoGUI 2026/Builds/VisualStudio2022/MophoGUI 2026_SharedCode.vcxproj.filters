@@ -751,6 +751,9 @@
     <ClCompile Include="..\..\Project_Source_Files\G_DRAW_Paths_Osc_Shape_P.cpp">
       <Filter>MophoGUI 2026\Project_Source_Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\G_DRAW_Paths_Widgets_P.cpp">
+      <Filter>MophoGUI 2026\Project_Source_Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.cpp">
       <Filter>MophoGUI 2026\Project_Source_Files</Filter>
     </ClCompile>
@@ -3849,6 +3852,9 @@
     <ClInclude Include="..\..\Project_Source_Files\C_PATH_Editor_Background_P.h">
       <Filter>MophoGUI 2026\Project_Source_Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\C_PATH_Widgets_P.h">
+      <Filter>MophoGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\C_SL_Tip_Exposed_P.h">
       <Filter>MophoGUI 2026\Project_Source_Files</Filter>
     </ClInclude>
@@ -3892,6 +3898,9 @@
       <Filter>MophoGUI 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_Osc_Shape_P.h">
+      <Filter>MophoGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_Widgets_P.h">
       <Filter>MophoGUI 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.h">

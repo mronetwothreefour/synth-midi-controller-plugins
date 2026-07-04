@@ -1,8 +1,10 @@
 #include "G_LOOK_AND_FEEL_P.h"
 
 #include "G_DRAW_Paths_Osc_Shape_P.h"
+#include "G_DRAW_Paths_Widgets_P.h"
 
 using Draw_Shape = Draw_Paths_Osc_Shape_P;
+using Draw_Widget = Draw_Paths_Widgets_P;
 
 Look_And_Feel_P::Look_And_Feel_P(float& scale_factor) :
 	Look_And_Feel_B{ scale_factor }
@@ -60,15 +62,6 @@ void Look_And_Feel_P::drawRotarySlider(Graphics& g, int /*x*/, int /*y*/, int /*
 	if (s.getComponentID() == ID::knob_seq_step.toString() ||
 		s.getComponentID() == ID::knob_seq_step_track_1.toString())
 		return;
-	auto diam{ (float)s.getWidth() };
-	Point<float> center{ diam / 2.0f, diam / 2.0f };
-	Line<float> line;
-	line.setStart(center.x, center.y);
-	line.setEnd(center.x, diam);
-	Path indicator;
-	indicator.addArrow(line, scale_factor, 8.0f * scale_factor, 7.0f * scale_factor);
-	auto angle = min_angle + pos * (max_angle - min_angle);
-	indicator.applyTransform(AffineTransform::rotation(angle, center.x, center.y));
-	g.setColour(COLOR::black);
-	g.fillPath(indicator);
+	auto rotation = min_angle + pos * (max_angle - min_angle);
+	Draw_Widget::knob(g, rotation, scale_factor);
 }

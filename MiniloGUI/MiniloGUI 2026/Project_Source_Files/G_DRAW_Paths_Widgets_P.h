@@ -4,7 +4,7 @@
 
 #include "G_DRAW_Paths_B.h"
 
-struct Draw_Paths_Sliders_P :
+struct Draw_Paths_Widgets_P :
 	public Draw_Paths_B
 {
 private: static void draw_switch_h_led(Graphics& g, float& scale_factor, char led_position, Colour color);

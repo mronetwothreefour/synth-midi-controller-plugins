@@ -6,6 +6,7 @@ C_EXP_P
 C_FONT_P
 C_ID_P
 C_PATH_Editor_Background_P
+C_PATH_Widgets_P
 C_SL_Tip_Exposed_P
 C_SL_Tip_Widget_P
 C_VOICE_P
@@ -21,6 +22,7 @@ D_X_G_Data_User_P
 D_X_G_Editor_P
 G_DRAW_Paths_Editor_P
 G_DRAW_Paths_Osc_Shape_P
+G_DRAW_Paths_Widgets_P
 G_LOOK_AND_FEEL_P
 G_WIDG_Sli_Display_Exp_P
 G_WIDG_Sli_Wheel_Mod_P

@@ -748,7 +748,7 @@
     <ClCompile Include="..\..\Project_Source_Files\G_DRAW_Paths_Editor_P.cpp">
       <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Project_Source_Files\G_DRAW_Paths_Sliders_P.cpp">
+    <ClCompile Include="..\..\Project_Source_Files\G_DRAW_Paths_Widgets_P.cpp">
       <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.cpp">
@@ -3843,7 +3843,7 @@
     <ClInclude Include="..\..\Project_Source_Files\C_PATH_Editor_Background_P.h">
       <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\C_PATH_Sliders_P.h">
+    <ClInclude Include="..\..\Project_Source_Files\C_PATH_Widgets_P.h">
       <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\C_SL_Tip_Exposed_P.h">
@@ -3885,7 +3885,7 @@
     <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_Editor_P.h">
       <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_Sliders_P.h">
+    <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_Widgets_P.h">
       <Filter>P-600-GUI 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.h">
