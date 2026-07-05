@@ -25,4 +25,8 @@ public: void attach_to_param() override {
 public: void remove_attachment() override {
 			 	 attachment = nullptr;
 			 }
+
+public: void modifierKeysChanged(const Mods& mods) override {
+				 tip_update.on_mod_keys_changed(mods, this);
+			 }
 };

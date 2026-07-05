@@ -548,6 +548,12 @@ Path Draw_Paths_LED_P::build_char_path(const uint8 char_num) {
 	}
 }
 
+Path Draw_Paths_LED_P::build_vert_bar(float& scale_factor) {
+	auto p = load_path(led_vert_bar, sizeof(led_vert_bar));
+	p.applyTransform(AffineTransform::scale(scale_factor));
+	return p;
+}
+
 void Draw_Paths_LED_P::display_text(Graphics& g, const String txt, const int display_w, 
 									float& scale_factor, Justification j, float alpha)
 {
@@ -583,11 +589,10 @@ void Draw_Paths_LED_P::display_text(Graphics& g, const String txt, const int dis
 	g.fillPath(path);
 }
 
-void Draw_Paths_LED_P::slider_tab(Graphics& g, float pos) {
-	auto path_vert_bar = load_path(led_vert_bar, sizeof(led_vert_bar));
+void Draw_Paths_LED_P::slider_tab(Graphics& g, float pos, float& scale) {
 	Path path_tab;
 	for (int i = 0; i < 6; ++i)
-		path_tab.addPath(path_vert_bar, AffineTransform::translation(i * 3.0f, 0.0f));
+		path_tab.addPath(build_vert_bar(scale), AffineTransform::translation(i * 3.0f * scale, 0.0f));
 	g.setColour(COLOR::light_blue);
-	g.fillPath(path_tab, AffineTransform::translation(pos - 8.0f, 0.0f));
+	g.fillPath(path_tab, AffineTransform::translation(pos - 8.0f * scale, 0.0f));
 }
