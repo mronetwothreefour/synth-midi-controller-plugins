@@ -11,7 +11,8 @@ class Editor_P :
 {
 private: std::unique_ptr<Slider_Exposed_P> knob_1;
 private: std::unique_ptr<Slider_Exposed_P> knob_2;
-private: std::unique_ptr<Combo_Box_Exposed_B> cbox;
+private: std::unique_ptr<Combo_Box_Exposed_B> cbox_1;
+private: std::unique_ptr<Combo_Box_Exposed_B> cbox_2;
 
 //==============================================================================
 public: Editor_P(Audio_Processor_P& processor, Data_Hub_P* hub);

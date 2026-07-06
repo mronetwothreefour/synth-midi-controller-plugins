@@ -16,24 +16,24 @@ void Look_And_Feel_P::positionComboBoxText(ComboBox& cbox, Label& lbl) {
 	lbl.setBounds(0, 0, cbox.getWidth(), cbox.getHeight());
 }
 
-PopupMenu::Options Look_And_Feel_P::getOptionsForComboBoxPopupMenu(ComboBox& cbox, Label& lbl) {
-	auto item_count = cbox.getNumItems();
-	auto cbox_bounds = cbox.getScreenBounds();
-	auto popup_x = cbox_bounds.getX() * scale_factor;
-	auto draw_above = cbox_bounds.getY() > (XYWH::env_ctrl_row_1_y * scale_factor);
-	float popup_y{ 0.0f };
-	if (draw_above)
-		popup_y = cbox_bounds.getY() - XYWH::ctrl_h * (item_count - cbox.getSelectedItemIndex()) - 3;
-	else
-		popup_y = cbox_bounds.getBottom() + XYWH::ctrl_h * cbox.getSelectedItemIndex() + 3;
-	auto popup_w = cbox_bounds.getWidth() * 1.0f;
-	auto popup_h = item_count * XYWH::ctrl_h * scale_factor;
-	Rectangle<float> popup_bounds{ popup_x, popup_y, popup_w, popup_h };
-	return PopupMenu::Options().withTargetScreenArea(popup_bounds.toNearestInt())
+PopupMenu::Options Look_And_Feel_P::getOptionsForComboBoxPopupMenu(ComboBox& cbox, Label& /*lbl*/) {
+	auto target_area = cbox.getScreenBounds();
+	auto menu_above = target_area.getY() > (XYWH::env_ctrl_row_1_y * scale_factor);
+	auto selected_index = cbox.getSelectedItemIndex();
+	if (menu_above) {
+		auto item_count = cbox.getNumItems();
+		auto offset_y = roundToInt((selected_index - item_count) * XYWH::ctrl_h * scale_factor);
+		target_area.translate(0, offset_y - roundToInt(2 * scale_factor));
+	}
+	else {
+		auto offset_y = roundToInt((selected_index + 1) * XYWH::ctrl_h * scale_factor);
+		target_area.translate(0, offset_y + roundToInt(3 * scale_factor));
+	}
+	return PopupMenu::Options().withTargetScreenArea(target_area)
 							   .withItemThatMustBeVisible(cbox.getSelectedId())
 							   .withMinimumWidth(cbox.getWidth())
 							   .withMaximumNumColumns(1)
-							   .withStandardItemHeight(lbl.getHeight() + 2);
+							   .withStandardItemHeight(roundToInt(XYWH::ctrl_h * scale_factor));
 }
 
 void Look_And_Feel_P::drawPopupMenuBackground(Graphics& g, int /*w*/, int /*h*/) {
@@ -47,9 +47,8 @@ void Look_And_Feel_P::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area,
 										const Colour* const /*txt_clr*/)
 {
 	if (hilited && active) {
-		g.setColour(findColour(PopupMenu::highlightedBackgroundColourId));
-		g.fillRect(area.translated(0, 50));
-		g.setColour(findColour(PopupMenu::highlightedTextColourId));
+		g.setColour(COLOR::popup_bkgrnd.brighter(0.05f));
+		g.fillRect(area);
 	}
 	if (ticked) {
 		g.setColour(COLOR::light_blue);
@@ -61,8 +60,8 @@ void Look_And_Feel_P::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area,
 
 void Look_And_Feel_P::getIdealPopupMenuItemSizeWithOptions(const String& /*txt*/, bool /*separator*/, int /*standard_h*/, int& ideal_w, int& ideal_h, const PopupMenu::Options& o)
 {
-	ideal_w = o.getTargetScreenArea().getWidth() - 3;
-	ideal_h = XYWH::ctrl_h;
+	ideal_w = roundToInt(o.getTargetScreenArea().getWidth() - 3 * scale_factor);
+	ideal_h = roundToInt(XYWH::ctrl_h * scale_factor);
 }
 
 void Look_And_Feel_P::draw_label_p(Graphics& g, Label& lbl, String& id) {
