@@ -3008,6 +3008,7 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Editor_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_DRAW_Paths_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.h"/>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Cbox_Exp_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exp_Ctrl_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Sli_Display_Exp_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Sli_Wheel_Mod_B.h"/>
@@ -4424,6 +4425,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\..\..\SOCL0\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\OVERPASS-BOLD.TTF"/>
+    <None Include="..\..\..\..\..\..\..\SOCL0\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\OVERPASS-SEMIBOLD.TTF"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\src\common\README.md"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\README.md"/>

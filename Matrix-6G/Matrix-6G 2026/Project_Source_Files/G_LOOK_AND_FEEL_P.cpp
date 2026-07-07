@@ -20,20 +20,21 @@ PopupMenu::Options Look_And_Feel_P::getOptionsForComboBoxPopupMenu(ComboBox& cbo
 	auto target_area = cbox.getScreenBounds();
 	auto menu_above = target_area.getY() > (XYWH::env_ctrl_row_1_y * scale_factor);
 	auto selected_index = cbox.getSelectedItemIndex();
+	auto item_h = roundToInt(XYWH::ctrl_h * scale_factor);
 	if (menu_above) {
 		auto item_count = cbox.getNumItems();
-		auto offset_y = roundToInt((selected_index - item_count) * XYWH::ctrl_h * scale_factor);
+		auto offset_y = (selected_index - item_count) * item_h;
 		target_area.translate(0, offset_y - roundToInt(2 * scale_factor));
 	}
 	else {
-		auto offset_y = roundToInt((selected_index + 1) * XYWH::ctrl_h * scale_factor);
+		auto offset_y = (selected_index + 1) * item_h;
 		target_area.translate(0, offset_y + roundToInt(3 * scale_factor));
 	}
 	return PopupMenu::Options().withTargetScreenArea(target_area)
 							   .withItemThatMustBeVisible(cbox.getSelectedId())
 							   .withMinimumWidth(cbox.getWidth())
 							   .withMaximumNumColumns(1)
-							   .withStandardItemHeight(roundToInt(XYWH::ctrl_h * scale_factor));
+							   .withStandardItemHeight(item_h);
 }
 
 void Look_And_Feel_P::drawPopupMenuBackground(Graphics& g, int /*w*/, int /*h*/) {
@@ -53,15 +54,17 @@ void Look_And_Feel_P::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area,
 	if (ticked) {
 		g.setColour(COLOR::light_blue);
 		auto vert_bar = Draw_LED::build_vert_bar(scale_factor);
-		g.fillPath(vert_bar, AffineTransform::translation(1.0f * scale_factor, 0.0f));
+		g.fillPath(vert_bar, AffineTransform::translation(2.5f * scale_factor, 0.0f));
 	}
 	Draw_LED::display_text(g, txt, area.getWidth(), scale_factor, Justification::right, 1.0f);
 }
 
-void Look_And_Feel_P::getIdealPopupMenuItemSizeWithOptions(const String& /*txt*/, bool /*separator*/, int /*standard_h*/, int& ideal_w, int& ideal_h, const PopupMenu::Options& o)
+void Look_And_Feel_P::getIdealPopupMenuItemSizeWithOptions(const String& /*txt*/, bool /*separator*/,
+														   int standard_h, int& ideal_w, 
+														   int& ideal_h, const PopupMenu::Options& o)
 {
 	ideal_w = roundToInt(o.getTargetScreenArea().getWidth() - 3 * scale_factor);
-	ideal_h = roundToInt(XYWH::ctrl_h * scale_factor);
+	ideal_h = standard_h;
 }
 
 void Look_And_Feel_P::draw_label_p(Graphics& g, Label& lbl, String& id) {

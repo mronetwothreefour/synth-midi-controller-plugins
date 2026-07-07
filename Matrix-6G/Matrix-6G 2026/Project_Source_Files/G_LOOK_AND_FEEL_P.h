@@ -10,8 +10,6 @@ class Look_And_Feel_P :
 //==============================================================================
 public: explicit Look_And_Feel_P(float& scale_factor);
 
-public: void drawComboBox(Graphics& /*g*/, int /*w*/, int /*h*/, bool /*mouse_down*/, int /*btn_x*/,
-						  int /*btn_y*/, int /*btn_w*/, int /*btn_h*/, ComboBox& /*cbox*/) override {}
 public: void positionComboBoxText(ComboBox& cbox, Label& lbl) override;
 public: PopupMenu::Options getOptionsForComboBoxPopupMenu(ComboBox& cbox, Label& lbl) override;
 public: void drawPopupMenuBackground(Graphics& g, int w, int h) override;
@@ -22,6 +20,7 @@ public: void drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, const bo
 public: void getIdealPopupMenuItemSizeWithOptions(const String& txt, bool separator,
 												  int standard_h, int& ideal_w, int& ideal_h,
 												  const PopupMenu::Options& o) override;
+
 public: void draw_label_p(Graphics& g, Label& lbl, String& lbl_id) override;
 
 public: void drawRotarySlider(Graphics& /*g*/, int /*x*/, int /*y*/, int /*w*/, int /*h*/, float /*current_pos*/,

@@ -105,10 +105,10 @@ ValueTree Subtree_Choices_Exp_P::clock_tempo(const bool curt) {
 
 ValueTree Subtree_Choices_Exp_P::glide_mode(const bool curt) {
 	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
-	tree.setProperty("choice_0", "Fixed Rate", nullptr);;
-	tree.setProperty("choice_1", "Fixed Rate Auto", nullptr);
-	tree.setProperty("choice_2", "Fixed Time", nullptr);
-	tree.setProperty("choice_3", "Fixed Time Auto", nullptr);
+	tree.setProperty("choice_0", "fixed rate", nullptr);;
+	tree.setProperty("choice_1", "fixed rate auto", nullptr);
+	tree.setProperty("choice_2", "fixed time", nullptr);
+	tree.setProperty("choice_3", "fixed time auto", nullptr);
 	return tree;
 }
 

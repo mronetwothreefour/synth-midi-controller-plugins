@@ -674,7 +674,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 				"ep_10" + n + "_seq_track_" + n + "_dest", "Sequencer Track " + n + " Destination",
 				Ctrl_Type::cbox, Display::none, 76 + track, 
 				EXP::choice_count_mod_dest + (even_track ? 1 : 0), track < 3 ? track : track == 3 ? 9 : 0,
-				seq_track_dest_cbox_x, 169 + ((track - 1) * seq_track_block_spacing),
+				seq_track_dest_cbox_x, seq_track_1_dest_cbox_y + ((track - 1) * seq_track_block_spacing),
 				seq_track_dest_cbox_w, cbox_h, Tip_Exp::seq_track_dest(n),
 				even_track ? Choices_Exp::seq_track_2_4_dest(track == 2, curt) : Choices_Exp::mod_dest(curt),
 				even_track ? Choices_Exp::seq_track_2_4_dest(track == 2) : Choices_Exp::mod_dest()

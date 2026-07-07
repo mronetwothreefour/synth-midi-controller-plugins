@@ -20,7 +20,7 @@ public: void drawComboBox(Graphics& /*g*/, int /*w*/, int /*h*/, bool /*down*/, 
 
 public: void drawLabel(Graphics& g, Label& lbl) override;
 public: virtual void draw_label_p(Graphics& g, Label& lbl, String& id)=0;
-public: virtual void fillTextEditorBackground(Graphics& g, int w, int h, TextEditor& editor) override;
+public: void fillTextEditorBackground(Graphics& g, int w, int h, TextEditor& editor) override;
 public: void drawTextEditorOutline(Graphics& /*g*/, int /*w*/, int /*h*/, TextEditor& /*editor*/) override {}
 
 public: void drawTooltip(Graphics& g, const String& txt, int w, int h) override;

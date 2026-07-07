@@ -74,6 +74,7 @@ namespace XYWH
 	constexpr int seq_step_h{ 26 };
 	constexpr int seq_step_w{ 26 };
 	constexpr int seq_track_block_spacing{ 83 };
+	constexpr int seq_track_1_dest_cbox_y{ 169 };
 	constexpr int seq_track_dest_cbox_w{ 126 };
 	constexpr int seq_track_dest_cbox_x{ 1065 };
 	constexpr int step_and_char_gap{ 2 };

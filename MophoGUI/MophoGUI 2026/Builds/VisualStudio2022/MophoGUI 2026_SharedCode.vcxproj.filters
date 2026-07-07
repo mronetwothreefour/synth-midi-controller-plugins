@@ -3819,6 +3819,9 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.h">
       <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Cbox_Exp_B.h">
+      <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exp_Ctrl_B.h">
       <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
     </ClInclude>
@@ -8061,6 +8064,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\..\..\SOCL0\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\OVERPASS-BOLD.TTF">
+      <Filter>MophoGUI 2026\Project_Source_Files\binaries</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\..\SOCL0\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\OVERPASS-SEMIBOLD.TTF">
       <Filter>MophoGUI 2026\Project_Source_Files\binaries</Filter>
     </None>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt">

@@ -1,5 +1,6 @@
 #include "G_LOOK_AND_FEEL_P.h"
 
+#include "C_EXP_P.h"
 #include "G_DRAW_Paths_Osc_Shape_P.h"
 #include "G_DRAW_Paths_Widgets_P.h"
 
@@ -9,6 +10,91 @@ using Draw_Widget = Draw_Paths_Widgets_P;
 Look_And_Feel_P::Look_And_Feel_P(float& scale_factor) :
 	Look_And_Feel_B{ scale_factor }
 {}
+
+void Look_And_Feel_P::positionComboBoxText(ComboBox& cbox, Label& lbl) {
+	auto icon_w = 11;
+	lbl.setBounds(0, 0, cbox.getWidth() - icon_w, cbox.getHeight());
+}
+
+PopupMenu::Options Look_And_Feel_P::getOptionsForComboBoxPopupMenu(ComboBox& cbox, Label& /*lbl*/) {
+	auto cbox_area = cbox.getBoundsInParent();
+	auto cbox_area_x = cbox_area.getCentreX();
+	auto cbox_area_y = cbox_area.getCentreY();
+	auto target_area = cbox.getScreenBounds();
+	auto selected_index = cbox.getSelectedItemIndex();
+	auto item_h = roundToInt((XYWH::cbox_h - 2) * scale_factor);
+	auto col_count = 1;
+	auto item_count = cbox.getNumItems();
+	if (item_count == EXP::choice_count_mod_src)
+		col_count = 2;
+	if (item_count >= EXP::choice_count_mod_dest)
+		col_count = 5;
+	auto min_w = roundToInt((cbox.getWidth() - 4) * scale_factor);
+	auto menu_above = cbox_area_y > XYWH::lfo_row_1_y * scale_factor;
+	auto offset_y = 0;
+	if (col_count == 1) {
+		if (menu_above) {
+			offset_y = roundToInt((selected_index - item_count) * item_h);
+			target_area.translate(0, offset_y - roundToInt(scale_factor));
+		}
+		else {
+			offset_y = (selected_index + 1) * item_h;
+			target_area.translate(0, offset_y + roundToInt(3 * scale_factor));
+		}
+	}
+	else {
+		auto offset_x = 0;
+		if (col_count == 2) {
+
+		}
+		if (col_count == 5) {
+			if (item_count == EXP::choice_count_mod_dest) {
+				if (cbox_area_x < XYWH::ctrl_col_4_x)
+					offset_y = (selected_index % 10 - 10) * item_h;
+			}
+			target_area.translate(offset_x, offset_y - roundToInt(scale_factor));
+		}
+	}
+	return PopupMenu::Options().withTargetScreenArea(target_area)
+		.withItemThatMustBeVisible(cbox.getSelectedId())
+		.withMinimumWidth(min_w)
+		.withMinimumNumColumns(col_count)
+		.withMaximumNumColumns(col_count)
+		.withStandardItemHeight(roundToInt(item_h));
+}
+
+void Look_And_Feel_P::drawPopupMenuBackground(Graphics& g, int /*w*/, int /*h*/) {
+	g.fillAll(COLOR::popup_bkgrnd);
+}
+
+void Look_And_Feel_P::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, const bool /*separator*/, 
+										const bool active, const bool hilited, const bool ticked, 
+										const bool /*has_submenu*/, const String& txt, 
+										const String& /*shortcut_txt*/, const Drawable* /*icon*/, 
+										const Colour* const /*txt_clr*/)
+{
+	if (hilited && active) {
+		g.setColour(COLOR::popup_bkgrnd.brighter(0.05f));
+		g.fillRect(area);
+	}
+	if (ticked) {
+		g.setColour(COLOR::yellow);
+		auto tick_diam = 4.0f * scale_factor;
+		g.fillEllipse(4.0f * scale_factor, 4.0f * scale_factor, tick_diam, tick_diam);
+	}
+	auto txt_area = area.withTrimmedLeft(roundToInt(12 * scale_factor));
+	g.setFont(FONT::cbox(scale_factor));
+	g.setColour(COLOR::text);
+	g.drawFittedText(txt, txt_area, Justification::centredLeft, 1);
+}
+
+void Look_And_Feel_P::getIdealPopupMenuItemSizeWithOptions(const String& /*txt*/, bool /*separator*/,
+														   int standard_h, int& ideal_w, 
+														   int& ideal_h, const PopupMenu::Options& o)
+{
+	ideal_w = roundToInt(o.getTargetScreenArea().getWidth() - 4 * scale_factor);
+	ideal_h = standard_h;
+}
 
 void Look_And_Feel_P::draw_label_p(Graphics& g, Label& lbl, String& id) {
 	auto txt = lbl.getText();
@@ -38,6 +124,7 @@ void Look_And_Feel_P::draw_label_p(Graphics& g, Label& lbl, String& id) {
 		}
 		g.setFont(FONT::knob(scale_factor));
 		g.drawFittedText(txt == "OFF" ? txt : "ERR", lbl.getLocalBounds().translated(0, 1), Justification::centred, 1, 1.0f);
+		return;
 	}
 	if (id == ID::label_seq_step.toString()) {
 		auto sf = scale_factor;
@@ -53,7 +140,10 @@ void Look_And_Feel_P::draw_label_p(Graphics& g, Label& lbl, String& id) {
 		}
 		g.setFont(FONT::seq_step(scale_factor));
 		g.drawFittedText(txt, lbl.getLocalBounds().translated(0, 1), Justification::centred, 1, 1.0f);
+		return;
 	}
+	g.setFont(FONT::cbox(scale_factor));
+	g.drawFittedText(txt, lbl.getLocalBounds(), Justification::centred, 1, 1.0f);
 }
 
 void Look_And_Feel_P::drawRotarySlider(Graphics& g, int /*x*/, int /*y*/, int /*w*/, int /*h*/, float pos,
