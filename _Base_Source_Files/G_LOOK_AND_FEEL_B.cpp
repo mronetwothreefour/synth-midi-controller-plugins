@@ -9,6 +9,14 @@ Look_And_Feel_B::Look_And_Feel_B(float& scale_factor) :
 	setColour(TextEditor::highlightColourId, COLOR::txt_highlight);
 }
 
+void Look_And_Feel_B::getIdealPopupMenuItemSizeWithOptions(const String& /*txt*/, bool /*separator*/,
+														   int standard_h, int& ideal_w, 
+														   int& ideal_h, const PopupMenu::Options& o)
+{
+	ideal_w = o.getMinimumWidth() - 4;
+	ideal_h = standard_h;
+}
+
 void Look_And_Feel_B::drawLabel(Graphics& g, Label& lbl) {
 	g.setColour(lbl.isBeingEdited() ? COLOR::text.withAlpha(0.0f) : COLOR::text);
 	auto id = lbl.getComponentID();

@@ -26,6 +26,14 @@ public: void remove_attachment() override {
 			 	 attachment = nullptr;
 			 }
 
+public: void mouseDown(const MouseEvent& e) override {
+	if (isPopupActive() && e.mods == ModifierKeys::leftButtonModifier) {
+		hidePopup();
+		return;
+	}
+	ComboBox::mouseDown(e);
+}
+
 public: void modifierKeysChanged(const Mods& mods) override {
 				 tip_update.on_mod_keys_changed(mods, this);
 			 }

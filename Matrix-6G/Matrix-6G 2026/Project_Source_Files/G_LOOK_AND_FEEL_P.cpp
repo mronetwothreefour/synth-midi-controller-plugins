@@ -1,5 +1,6 @@
 #include "G_LOOK_AND_FEEL_P.h"
 
+#include "C_EXP_P.h"
 #include "G_DRAW_Paths_LED_P.h"
 
 using Draw_LED = Draw_Paths_LED_P;
@@ -17,54 +18,63 @@ void Look_And_Feel_P::positionComboBoxText(ComboBox& cbox, Label& lbl) {
 }
 
 PopupMenu::Options Look_And_Feel_P::getOptionsForComboBoxPopupMenu(ComboBox& cbox, Label& /*lbl*/) {
+	auto cbox_area = cbox.getBoundsInParent();
+	auto cbox_area_y = cbox_area.getCentreY();
 	auto target_area = cbox.getScreenBounds();
-	auto menu_above = target_area.getY() > (XYWH::env_ctrl_row_1_y * scale_factor);
-	auto selected_index = cbox.getSelectedItemIndex();
+	auto selected_item = cbox.getSelectedItemIndex();
 	auto item_h = roundToInt(XYWH::ctrl_h * scale_factor);
-	if (menu_above) {
-		auto item_count = cbox.getNumItems();
-		auto offset_y = (selected_index - item_count) * item_h;
-		target_area.translate(0, offset_y - roundToInt(2 * scale_factor));
+	auto col_count = 1;
+	auto item_count = cbox.getNumItems();
+	if (item_count == EXP::choice_count_mod_src)
+		col_count = 3;
+	auto min_w = cbox.getWidth();
+	auto menu_above = cbox_area_y > XYWH::env_ctrl_row_1_y * scale_factor;
+	auto offset_y = 0;
+	auto offset_x = 0;
+	if (col_count == 1) {
+		if (menu_above)
+			offset_y = (selected_item - item_count) * item_h;
+		else
+			offset_y = (selected_item + 1) * item_h;
 	}
 	else {
-		auto offset_y = (selected_index + 1) * item_h;
-		target_area.translate(0, offset_y + roundToInt(3 * scale_factor));
+		min_w += 10;
+		offset_x -= min_w * 2;
+		offset_y = (selected_item % 7 + 1) * item_h;
 	}
+	if (menu_above)
+		target_area.translate(offset_x, offset_y - roundToInt(2 * scale_factor));
+	else
+		target_area.translate(offset_x, offset_y + roundToInt(3 * scale_factor));
 	return PopupMenu::Options().withTargetScreenArea(target_area)
 							   .withItemThatMustBeVisible(cbox.getSelectedId())
-							   .withMinimumWidth(cbox.getWidth())
-							   .withMaximumNumColumns(1)
-							   .withStandardItemHeight(item_h);
+							   .withMinimumWidth(min_w)
+							   .withMinimumNumColumns(col_count)
+							   .withMaximumNumColumns(col_count)
+							   .withStandardItemHeight(roundToInt(item_h));
 }
 
 void Look_And_Feel_P::drawPopupMenuBackground(Graphics& g, int /*w*/, int /*h*/) {
 	g.fillAll(COLOR::popup_bkgrnd);
 }
 
-void Look_And_Feel_P::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, const bool /*separator*/, 
-										const bool active, const bool hilited, const bool ticked, 
-										const bool /*has_submenu*/, const String& txt, 
-										const String& /*shortcut_txt*/, const Drawable* /*icon*/, 
-										const Colour* const /*txt_clr*/)
+void Look_And_Feel_P::drawPopupMenuItemWithOptions(Graphics& g, const Rectangle<int>& area,
+												   bool hilited, const PopupMenu::Item& item,
+												   const PopupMenu::Options& o)
 {
-	if (hilited && active) {
+	if (hilited) {
 		g.setColour(COLOR::popup_bkgrnd.brighter(0.05f));
 		g.fillRect(area);
 	}
-	if (ticked) {
+	auto offset_x = 0;
+	if (o.getMinimumNumColumns() > 1)
+		offset_x = 10;
+	if (item.isTicked) {
 		g.setColour(COLOR::light_blue);
 		auto vert_bar = Draw_LED::build_vert_bar(scale_factor);
 		g.fillPath(vert_bar, AffineTransform::translation(2.5f * scale_factor, 0.0f));
 	}
-	Draw_LED::display_text(g, txt, area.getWidth(), scale_factor, Justification::right, 1.0f);
-}
-
-void Look_And_Feel_P::getIdealPopupMenuItemSizeWithOptions(const String& /*txt*/, bool /*separator*/,
-														   int standard_h, int& ideal_w, 
-														   int& ideal_h, const PopupMenu::Options& o)
-{
-	ideal_w = roundToInt(o.getTargetScreenArea().getWidth() - 3 * scale_factor);
-	ideal_h = standard_h;
+	Draw_LED::display_text(g, item.text, area.getWidth() - roundToInt(offset_x * scale_factor), scale_factor, Justification::right, 1.0f);
 }
 
 void Look_And_Feel_P::draw_label_p(Graphics& g, Label& lbl, String& id) {

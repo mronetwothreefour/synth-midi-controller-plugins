@@ -326,7 +326,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 			Subtree_Exposed_Info_P::build(
 				lfo == 1 ? ID::exp_40_lfo_1_samp_source : ID::exp_49_lfo_2_Samp_source, lfo == 1 ? 88 : 98,
 				"LFO " + (String)lfo + " Sample Source", Ctrl_Type::cbox, lfo == 1 ? 32 : 39,
-				Range_Type::unsigned_int, Display::none, 21, 9,
+				Range_Type::unsigned_int, Display::none, EXP::choice_count_mod_src, 9,
 				center_x, ctrl_row_03_y, lfo_ctrl_w, Tip_Exp::lfo_sample_source(lfo),
 				Choices_Exp::input_source(Input_Choice_Type::lfo, curt),
 				Choices_Exp::input_source(Input_Choice_Type::lfo)
@@ -423,7 +423,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
 			ID::exp_60_track_input, 33, "Tracking Generator Input", Ctrl_Type::cbox, 68,
-			Range_Type::unsigned_int, Display::none, 21, 9,
+			Range_Type::unsigned_int, Display::none, EXP::choice_count_mod_src, 9,
 			track_input_x, track_input_y, track_input_w, Tip_Exp::track_input(),
 			Choices_Exp::input_source(Input_Choice_Type::tracking, curt),
 			Choices_Exp::input_source(Input_Choice_Type::tracking)

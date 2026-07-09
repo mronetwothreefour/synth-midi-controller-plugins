@@ -7,6 +7,7 @@ namespace EXP
 
 	constexpr int choice_count_bend_range{ 13 };
 	constexpr int choice_count_clock_tempo{ 221 };
+	constexpr int choice_count_knob_assign{ 169 };
 	constexpr int choice_count_lfo_freq{ 167 };
 	constexpr int choice_count_lpf_freq{ 165 };
 	constexpr int choice_count_mod_dest{ 47 };

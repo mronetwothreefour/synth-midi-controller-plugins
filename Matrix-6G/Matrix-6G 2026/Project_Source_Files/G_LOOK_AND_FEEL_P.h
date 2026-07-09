@@ -13,13 +13,8 @@ public: explicit Look_And_Feel_P(float& scale_factor);
 public: void positionComboBoxText(ComboBox& cbox, Label& lbl) override;
 public: PopupMenu::Options getOptionsForComboBoxPopupMenu(ComboBox& cbox, Label& lbl) override;
 public: void drawPopupMenuBackground(Graphics& g, int w, int h) override;
-public: void drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, const bool separator,
-							   const bool active, const bool hilited, const bool ticked, 
-							   const bool has_submenu, const String& txt, const String& shortcut_txt,
-							   const Drawable* icon, const Colour* const txt_clr) override;
-public: void getIdealPopupMenuItemSizeWithOptions(const String& txt, bool separator,
-												  int standard_h, int& ideal_w, int& ideal_h,
-												  const PopupMenu::Options& o) override;
+public: void drawPopupMenuItemWithOptions(Graphics& g, const Rectangle<int>& area, bool hilited, 
+										  const PopupMenu::Item& item, const PopupMenu::Options& o) override;
 
 public: void draw_label_p(Graphics& g, Label& lbl, String& lbl_id) override;
 

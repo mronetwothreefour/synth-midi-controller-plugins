@@ -583,7 +583,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 			cc_cbox_w, cbox_h, cc_dest_description, Choices_Exp::mod_dest(curt), Choices_Exp::mod_dest()
 		),
 		-1, nullptr);
-	// ---------------------------------------------------------- end midi ctrl section
+	// ---------------------------------------------------------- end midi cc section
 
 	// *************************************************************** push it section
 	tree.addChild(
@@ -689,7 +689,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		tree.addChild(
 			Subtree_Exposed_Info_P::build(
 				"ep_10" + String{ 4 + knob } + "_assign_knob_" + n, "Parameter Assigned To Knob " + n,
-				Ctrl_Type::cbox, Display::none, 104 + knob, 169,
+				Ctrl_Type::cbox, Display::none, 104 + knob, choice_count_knob_assign,
 				knob == 1 ? 5 : knob == 2 ? 11 : knob == 3 ? 43 : 23, knob_assign_cbox_x,
 				521 + ((knob - 1) * knob_assign_spacing), knob_assign_cbox_w, cbox_h,
 				Tip_Exp::knob_assign(n), Choices_Exp::knob_assign(curt), Choices_Exp::knob_assign()
@@ -710,7 +710,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 					t == "1" ? Ctrl_Type::seq_step_track_1 : Ctrl_Type::seq_step,
 					t == "1" ? Display::seq_step_track_1 : Display::seq_step,
 					120 + track * 16 + step, t == "1" ? 128 : 127, 0,
-					825 + step * (seq_step_w + step_and_char_gap), 196 + track * seq_track_block_spacing,
+					seq_step_col_1 + step * (seq_step_w + step_and_char_gap), 196 + track * seq_track_block_spacing,
 					seq_step_w, seq_step_h, Tip_Exp::seq_track_step(t, s),
 					Choices_Exp::seq_track_step(curt), Choices_Exp::seq_track_step()
 				),

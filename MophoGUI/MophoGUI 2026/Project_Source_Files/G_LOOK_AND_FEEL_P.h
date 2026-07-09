@@ -17,9 +17,6 @@ public: void drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, const bo
 							   const bool active, const bool hilited, const bool ticked, 
 							   const bool has_submenu, const String& txt, const String& shortcut_txt,
 							   const Drawable* icon, const Colour* const txt_clr) override;
-public: void getIdealPopupMenuItemSizeWithOptions(const String& txt, bool separator,
-												  int standard_h, int& ideal_w, int& ideal_h,
-												  const PopupMenu::Options& o) override;
 
 public: void draw_label_p(Graphics& g, Label& lbl, String& lbl_id) override;
 

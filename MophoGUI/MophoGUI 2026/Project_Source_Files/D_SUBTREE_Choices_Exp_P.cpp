@@ -286,7 +286,7 @@ ValueTree Subtree_Choices_Exp_P::mod_dest(const bool curt) {
 	tree.setProperty(choice_ + "13", "output panning", nullptr);
 	for (int n = 14; n < 18; ++n)
 		tree.setProperty(choice_ + (String)n, "LFO " + String{ n - 13 } + " frequency", nullptr);
-	tree.setProperty(choice_ + "18", "All LFO Frequencies", nullptr);
+	tree.setProperty(choice_ + "18", "all LFO frequencies", nullptr);
 	for (int n = 19; n < 23; ++n)
 		tree.setProperty(choice_ + (String)n, "LFO " + String{ n - 18 } + " amount", nullptr);
 	tree.setProperty(choice_ + "23", "all LFO amounts", nullptr);
