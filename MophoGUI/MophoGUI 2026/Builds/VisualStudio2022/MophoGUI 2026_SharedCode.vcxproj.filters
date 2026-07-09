@@ -712,6 +712,9 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.cpp">
       <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Cbox_Exp_B.cpp">
+      <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exp_Ctrl_B.cpp">
       <Filter>MophoGUI 2026\_Base_Source_Files</Filter>
     </ClCompile>
@@ -764,6 +767,9 @@
       <Filter>MophoGUI 2026\Project_Source_Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\G_WIDG_Slider_Exp_P.cpp">
+      <Filter>MophoGUI 2026\Project_Source_Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\G_WIDG_Toggle_Exp_P.cpp">
       <Filter>MophoGUI 2026\Project_Source_Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -3916,6 +3922,9 @@
       <Filter>MophoGUI 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Slider_Exp_P.h">
+      <Filter>MophoGUI 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Toggle_Exp_P.h">
       <Filter>MophoGUI 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

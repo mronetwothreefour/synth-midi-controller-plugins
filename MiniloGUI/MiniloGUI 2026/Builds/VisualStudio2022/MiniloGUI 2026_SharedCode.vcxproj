@@ -151,6 +151,7 @@
     <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Data_Hub_B.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\D_X_G_Editor_B.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.cpp"/>
+    <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Cbox_Exp_B.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exp_Ctrl_B.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Sli_Display_Exp_B.cpp"/>
     <ClCompile Include="..\..\..\..\_Base_Source_Files\G_WIDG_Sli_Wheel_Mod_B.cpp"/>
@@ -3010,6 +3011,7 @@
     <ClInclude Include="..\..\..\..\_Base_Source_Files\D_X_G_Editor_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_DRAW_Paths_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_LOOK_AND_FEEL_B.h"/>
+    <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Cbox_Exp_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Exp_Ctrl_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Sli_Display_Exp_B.h"/>
     <ClInclude Include="..\..\..\..\_Base_Source_Files\G_WIDG_Sli_Wheel_Mod_B.h"/>

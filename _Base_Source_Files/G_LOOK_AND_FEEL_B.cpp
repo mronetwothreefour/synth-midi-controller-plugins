@@ -39,6 +39,11 @@ void Look_And_Feel_B::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h*/
 		g.fillAll(findColour(TextEditor::backgroundColourId));
 }
 
+void Look_And_Feel_B::drawToggleButton(Graphics& g, ToggleButton& btn, bool hilited, bool down) {
+	drawTickBox(g, btn, 0.0f, 0.0f, (float)btn.getWidth(), (float)btn.getHeight(),
+		btn.getToggleState(), btn.isEnabled(), hilited, down);
+}
+
 void Look_And_Feel_B::drawTooltip(Graphics& g, const String& txt, int w, int h) {
 	Rectangle<int> tip_box(w, h);
 	g.setColour(COLOR::popup_bkgrnd);

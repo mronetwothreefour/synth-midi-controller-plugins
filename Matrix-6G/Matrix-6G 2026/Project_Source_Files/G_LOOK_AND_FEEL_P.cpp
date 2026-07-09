@@ -59,19 +59,19 @@ void Look_And_Feel_P::drawPopupMenuBackground(Graphics& g, int /*w*/, int /*h*/)
 }
 
 void Look_And_Feel_P::drawPopupMenuItemWithOptions(Graphics& g, const Rectangle<int>& area,
-												   bool hilited, const PopupMenu::Item& item,
-												   const PopupMenu::Options& o)
+												   bool hilited, const PopupMenu::Item& i,
+												   const PopupMenu::Options& /*o*/)
 {
 	if (hilited) {
 		g.setColour(COLOR::popup_bkgrnd.brighter(0.05f));
 		g.fillRect(area);
 	}
-	if (item.isTicked) {
+	if (i.isTicked) {
 		g.setColour(COLOR::orange);
 		auto vert_bar = Draw_LED::build_vert_bar(scale_factor);
 		g.fillPath(vert_bar, AffineTransform::translation(2.5f * scale_factor, 0.0f));
 	}
-	Draw_LED::display_text(g, item.text, area.getWidth(), scale_factor, Justification::left, 1.0f);
+	Draw_LED::display_text(g, i.text, area.getWidth(), scale_factor, Justification::left, 1.0f);
 }
 
 void Look_And_Feel_P::draw_label_p(Graphics& g, Label& lbl, String& id) {

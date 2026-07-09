@@ -9,8 +9,6 @@ void Draw_Paths_Editor_P::background(Graphics& g) {
 	g.fillPath(load_path(PATH::editor_bullseye, sizeof(PATH::editor_bullseye)));
 	g.setColour(COLOR::black);
 	g.fillPath(load_path(PATH::editor_black, sizeof(PATH::editor_black)));
-	g.setColour(COLOR::red_toggle_off);
-	g.fillPath(load_path(PATH::editor_red_toggle_off, sizeof(PATH::editor_red_toggle_off)));
 	g.setColour(COLOR::yellow);
 	g.fillPath(load_path(PATH::editor_yellow, sizeof(PATH::editor_yellow)));
 	g.setColour(COLOR::red_btn);

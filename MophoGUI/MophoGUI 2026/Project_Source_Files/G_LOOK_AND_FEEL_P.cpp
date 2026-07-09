@@ -158,3 +158,14 @@ void Look_And_Feel_P::drawRotarySlider(Graphics& g, int /*x*/, int /*y*/, int /*
 	auto rotation = min_angle + pos * (max_angle - min_angle);
 	Draw_Widget::knob(g, rotation, scale_factor);
 }
+
+void Look_And_Feel_P::drawTickBox(Graphics& g, Component& c, float x, float y, 
+								  float w, float h, const bool ticked, const bool /*enabled*/,
+								  const bool /*hilited*/, const bool /*down*/)
+{
+	auto componentID{ c.getComponentID() };
+	if (componentID == ID::toggle_red.toString()) {
+		g.setColour(ticked ? COLOR::red_toggle_on : COLOR::red_toggle_off);
+		g.fillEllipse(x, y, w, h);
+	}
+}

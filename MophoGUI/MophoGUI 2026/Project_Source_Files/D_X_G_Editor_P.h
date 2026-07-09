@@ -5,6 +5,7 @@
 #include "D_X_G_Editor_B.h"
 #include "G_WIDG_Cbox_Exp_B.h"
 #include "G_WIDG_Slider_Exp_P.h"
+#include "G_WIDG_Toggle_Exp_P.h"
 
 class Editor_P :
     public Editor_B
@@ -13,6 +14,8 @@ private: std::unique_ptr<Slider_Exposed_P> knob_1;
 private: std::unique_ptr<Slider_Exposed_P> knob_2;
 private: std::unique_ptr<Combo_Box_Exposed_B> cbox_1;
 private: std::unique_ptr<Combo_Box_Exposed_B> cbox_2;
+private: std::unique_ptr<Toggle_Exposed_P> tgl_1;
+private: std::unique_ptr<Toggle_Exposed_P> tgl_2;
 
 //==============================================================================
 public: Editor_P(Audio_Processor_P& processor, Data_Hub_P* hub);

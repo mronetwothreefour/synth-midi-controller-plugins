@@ -26,6 +26,8 @@ public: virtual void draw_label_p(Graphics& g, Label& lbl, String& id)=0;
 public: void fillTextEditorBackground(Graphics& g, int w, int h, TextEditor& editor) override;
 public: void drawTextEditorOutline(Graphics& /*g*/, int /*w*/, int /*h*/, TextEditor& /*editor*/) override {}
 
+public: void drawToggleButton(Graphics& g, ToggleButton& btn, bool hilited, bool down) override;
+
 public: void drawTooltip(Graphics& g, const String& txt, int w, int h) override;
 public: Rectangle<int> getTooltipBounds(const String& tip_txt, Point<int> position, Rectangle<int> parent_area) override;
 public: TextLayout layout_tip_text(const String& txt) noexcept;

@@ -45,6 +45,8 @@
             file="../../_Base_Source_Files/G_LOOK_AND_FEEL_B.cpp"/>
       <FILE id="r22LAZ" name="G_LOOK_AND_FEEL_B.h" compile="0" resource="0"
             file="../../_Base_Source_Files/G_LOOK_AND_FEEL_B.h"/>
+      <FILE id="hBxnh3" name="G_WIDG_Cbox_Exp_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Cbox_Exp_B.cpp"/>
       <FILE id="IlE6i6" name="G_WIDG_Cbox_Exp_B.h" compile="0" resource="0"
             file="../../_Base_Source_Files/G_WIDG_Cbox_Exp_B.h"/>
       <FILE id="Twh0Mp" name="G_WIDG_Exp_Ctrl_B.cpp" compile="1" resource="0"
@@ -148,6 +150,10 @@
             file="Project_Source_Files/G_WIDG_Slider_Exp_P.cpp"/>
       <FILE id="kdUkWz" name="G_WIDG_Slider_Exp_P.h" compile="0" resource="0"
             file="Project_Source_Files/G_WIDG_Slider_Exp_P.h"/>
+      <FILE id="zW5RzY" name="G_WIDG_Toggle_Exp_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/G_WIDG_Toggle_Exp_P.cpp"/>
+      <FILE id="cIPOfk" name="G_WIDG_Toggle_Exp_P.h" compile="0" resource="0"
+            file="Project_Source_Files/G_WIDG_Toggle_Exp_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
