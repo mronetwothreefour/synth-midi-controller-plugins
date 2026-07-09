@@ -7,5 +7,7 @@
 struct Draw_Paths_Widgets_P :
 	public Draw_Paths_B
 {
-public: static void knob(Graphics& g, float& rotation, float& scale_factor);
+	static Path build_char_path(const uint8 char_num);
+	static void knob(Graphics& g, float& rotation, float& scale_factor);
+	static void lcd_char(Graphics& g, uint8 char_num, float& scale_factor);
 };

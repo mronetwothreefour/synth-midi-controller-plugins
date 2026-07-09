@@ -726,7 +726,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		id += "_voice_name_char_" + c;
 		tree.addChild(
 			Subtree_Exposed_Info_P::build(
-				id, "Program Name Character " + c, Ctrl_Type::voice_name_char, Display::none,
+				id, "Program Name Character " + c, Ctrl_Type::voice_name_char, Display::voice_name_char,
 				184 + character, choice_count_voice_name_char, (int)init_voice_name[character],
 				596 + character * (voice_name_char_w + step_and_char_gap), voice_name_char_y,
 				voice_name_char_w, voice_name_char_h, Tip_Exp::voice_name_char(c),

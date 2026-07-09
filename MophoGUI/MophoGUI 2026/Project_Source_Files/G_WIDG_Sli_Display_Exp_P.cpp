@@ -6,12 +6,13 @@ Slider_Display_Exposed_P::Slider_Display_Exposed_P(const int param_index, Data_H
 												   Slider_Wheel_Mod_P* parent_slider) :
 	Slider_Display_Exposed_B{ param_index, hub, parent_slider }
 {
-	auto ctrl_type = exp_info.ctrl_type_for(param_index);
 	Identifier id = ID::label_slider;
-	if (ctrl_type == Ctrl_Type::knob_osc_shape)
+	if (display_type == Display::osc_shape)
 		id = ID::label_osc_shape;
-	if (ctrl_type == Ctrl_Type::seq_step || ctrl_type == Ctrl_Type::seq_step_track_1)
+	if (display_type == Display::seq_step || display_type == Display::seq_step_track_1)
 		id = ID::label_seq_step;
+	if (display_type == Display::voice_name_char)
+		id = ID::label_voice_name_char;
 	setComponentID(id.toString());
 	setJustificationType(Justification::centred);
 }

@@ -30,7 +30,8 @@ namespace ENUM
 		seq_step,
 		seq_step_track_1,
 		signed_8_bit,
-		unsigned_7_bit
+		unsigned_7_bit,
+		voice_name_char
 	};
 
 	constexpr enum class Seq_Track {

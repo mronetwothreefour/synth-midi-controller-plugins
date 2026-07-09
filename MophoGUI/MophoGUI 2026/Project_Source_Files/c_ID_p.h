@@ -92,6 +92,7 @@ namespace ID
 
 	static const Identifier label_osc_shape{ "label_osc_shape" };
 	static const Identifier label_seq_step{ "label_seq_step" };
+	static const Identifier label_voice_name_char{ "label_voice_name_char" };
 
 	static const Identifier toggle_red{ "toggle_red" };
 }
