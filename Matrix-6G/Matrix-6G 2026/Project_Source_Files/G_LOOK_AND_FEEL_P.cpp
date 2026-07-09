@@ -38,7 +38,7 @@ PopupMenu::Options Look_And_Feel_P::getOptionsForComboBoxPopupMenu(ComboBox& cbo
 			offset_y = (selected_item + 1) * item_h;
 	}
 	else {
-		min_w += 10;
+		min_w += 8;
 		offset_x -= min_w * 2;
 		offset_y = (selected_item % 7 + 1) * item_h;
 	}
@@ -66,15 +66,12 @@ void Look_And_Feel_P::drawPopupMenuItemWithOptions(Graphics& g, const Rectangle<
 		g.setColour(COLOR::popup_bkgrnd.brighter(0.05f));
 		g.fillRect(area);
 	}
-	auto offset_x = 0;
-	if (o.getMinimumNumColumns() > 1)
-		offset_x = 10;
 	if (item.isTicked) {
-		g.setColour(COLOR::light_blue);
+		g.setColour(COLOR::orange);
 		auto vert_bar = Draw_LED::build_vert_bar(scale_factor);
 		g.fillPath(vert_bar, AffineTransform::translation(2.5f * scale_factor, 0.0f));
 	}
-	Draw_LED::display_text(g, item.text, area.getWidth() - roundToInt(offset_x * scale_factor), scale_factor, Justification::right, 1.0f);
+	Draw_LED::display_text(g, item.text, area.getWidth(), scale_factor, Justification::left, 1.0f);
 }
 
 void Look_And_Feel_P::draw_label_p(Graphics& g, Label& lbl, String& id) {

@@ -80,7 +80,7 @@ namespace XYWH
 	constexpr int mmod_ctrl_amt_w{ 40 };
 	constexpr int mmod_ctrl_src_dest_w{ 82 };
 
-	constexpr int led_display_left_inset{ 3 };
+	constexpr int led_display_left_inset{ 6 };
 	constexpr int led_display_right_inset{ 1 };
 	constexpr int led_display_char_w{ 11 };
 

@@ -6,7 +6,7 @@ namespace COLOR
 {
 
 	const Colour black{ 0xff000000 };
-	const Colour popup_bkgrnd{ 0xff1d1d1d };
+	const Colour popup_bkgrnd{ 0xff18181a};
 	const Colour text{ 0xffffffff };
 	const Colour white{ 0xffffffff };
 
