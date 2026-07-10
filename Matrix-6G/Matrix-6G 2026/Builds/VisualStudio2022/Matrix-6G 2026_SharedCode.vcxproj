@@ -165,6 +165,7 @@
     <ClCompile Include="..\..\Project_Source_Files\D_X_G_Editor_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\G_DRAW_Paths_Editor_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\G_DRAW_Paths_LED_P.cpp"/>
+    <ClCompile Include="..\..\Project_Source_Files\G_LAYER_Exp_Ctrls_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.cpp"/>
     <ClCompile Include="..\..\Project_Source_Files\G_WIDG_Sli_Display_Exp_P.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -3033,6 +3034,7 @@
     <ClInclude Include="..\..\Project_Source_Files\D_X_G_Editor_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_Editor_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_LED_P.h"/>
+    <ClInclude Include="..\..\Project_Source_Files\G_LAYER_Exp_Ctrls_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Sli_Display_Exp_P.h"/>
     <ClInclude Include="..\..\Project_Source_Files\G_WIDG_Sli_Wheel_Mod_P.h"/>

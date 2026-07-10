@@ -754,6 +754,9 @@
     <ClCompile Include="..\..\Project_Source_Files\G_DRAW_Paths_LED_P.cpp">
       <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Project_Source_Files\G_LAYER_Exp_Ctrls_P.cpp">
+      <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.cpp">
       <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
     </ClCompile>
@@ -3892,6 +3895,9 @@
       <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\G_DRAW_Paths_LED_P.h">
+      <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source_Files\G_LAYER_Exp_Ctrls_P.h">
       <Filter>Matrix-6G 2026\Project_Source_Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source_Files\G_LOOK_AND_FEEL_P.h">

@@ -7,9 +7,11 @@ Editor_B::Editor_B(Audio_Processor_P& processor, Data_Hub_P* hub) :
     AudioProcessorEditor{ &processor },
     processor{ processor },
     Data_User_P{ hub },
+    layer_exp_ctrls{ hub },
     l_a_f{ scale_factor }
 {
     LookAndFeel::setDefaultLookAndFeel(&l_a_f);
+    addAndMakeVisible(layer_exp_ctrls);
     tip_win.setMillisecondsBeforeTipAppears(50);
     tip_win.setComponentEffect(nullptr);
     setWantsKeyboardFocus(true);
