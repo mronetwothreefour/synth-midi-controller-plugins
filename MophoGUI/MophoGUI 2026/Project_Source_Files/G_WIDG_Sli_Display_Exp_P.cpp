@@ -11,8 +11,10 @@ Slider_Display_Exposed_P::Slider_Display_Exposed_P(const int param_index, Data_H
 		id = ID::label_osc_shape;
 	if (display_type == Display::seq_step || display_type == Display::seq_step_track_1)
 		id = ID::label_seq_step;
-	if (display_type == Display::voice_name_char)
+	if (display_type == Display::voice_name_char) {
 		id = ID::label_voice_name_char;
+		setEditable(false);
+	}
 	setComponentID(id.toString());
 	setJustificationType(Justification::centred);
 }

@@ -12,6 +12,7 @@ public: Slider_Exposed_P(const int param_index, Data_Hub_P* hub);
 
 public: void update_value_tip() override;
 public: void update_according_to_mod() override;
+public: void attach_to_param() override;
 public: ~Slider_Exposed_P();
 
 //==============================================================================

@@ -38,6 +38,12 @@ void Slider_Exposed_P::update_according_to_mod() {
 	display.set_text_to_stored_choice();
 }
 
+void Slider_Exposed_P::attach_to_param() {
+	Slider_Exposed_B::attach_to_param();
+	if (exp_param_index >= EXP::first_voice_name_char_param_index)
+		setRange(32.0, 127.0, 1.0);
+}
+
 Slider_Exposed_P::~Slider_Exposed_P() {
 	val_mod_param.removeListener(this);
 }

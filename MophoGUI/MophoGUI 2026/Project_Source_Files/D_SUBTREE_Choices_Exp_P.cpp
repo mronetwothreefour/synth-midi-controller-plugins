@@ -444,12 +444,12 @@ ValueTree Subtree_Choices_Exp_P::signed_8_bit_int(const bool curt) {
 ValueTree Subtree_Choices_Exp_P::voice_name_char(const bool curt) {
 	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
 	for (int n = 0; n < 32; ++n)
-		tree.setProperty("choice_" + (String)n, "ASCII control character " + (String)n, nullptr);
+		tree.setProperty("choice_" + (String)n, curt ? " " : "ASCII control character " + (String)n, nullptr);
 	tree.setProperty("choice_32", curt ? " " : "space", nullptr);
 	for (int n = 33; n < EXP::choice_count_voice_name_char; ++n) {
 		String name{ std::string(1, (char)n) };
 		if (n == 92)
-			name = curt ? (String)u8R"(¥)" : "yen symbol";
+			name = curt ? "\\" : "yen symbol";
 		if (n == 126)
 			name = curt ? "->" : "right arrow";
 		if (n == 127)

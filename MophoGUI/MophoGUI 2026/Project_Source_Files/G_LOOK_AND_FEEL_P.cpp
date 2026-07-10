@@ -145,6 +145,10 @@ void Look_And_Feel_P::draw_label_p(Graphics& g, Label& lbl, String& id) {
 		g.drawFittedText(txt, lbl.getLocalBounds().translated(0, 1), Justification::centred, 1, 1.0f);
 		return;
 	}
+	if (id == ID::label_voice_name_char.toString()) {
+		Draw_Paths_Widgets_P::lcd_char(g, (uint8)txt[0], scale_factor);
+		return;
+	}
 	g.setFont(FONT::cbox(scale_factor));
 	g.drawFittedText(txt, lbl.getLocalBounds(), Justification::centred, 1, 1.0f);
 }
