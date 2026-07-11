@@ -1,15 +1,5 @@
 #include "G_WIDG_Exp_Ctrl_B.h"
 
-Exposed_Control_B::Exposed_Control_B() :
-	Data_User_P{ nullptr },
-	exp_param_index{ -1 },
-	exp_param{ nullptr },
-	mod_param{ nullptr },
-	ctrl_type{ Ctrl_Type::dummy }
-{
-	// This default constructor is needed when initializing the vector in Exposed_Control_Hub
-}
-
 Exposed_Control_B::Exposed_Control_B(const int exp_param_index, Data_Hub_P* hub) :
 	Data_User_P{ hub },
 	exp_param_index{ exp_param_index },
@@ -19,8 +9,15 @@ Exposed_Control_B::Exposed_Control_B(const int exp_param_index, Data_Hub_P* hub)
 	ctrl_type{ exp_info.ctrl_type_for(exp_param_index) }
 {
 	val_exp_param.addListener(this);
+	init_bounds.setSize(exp_info.ctrl_width_for(exp_param_index),
+						exp_info.ctrl_height_for(exp_param_index));
+	init_bounds.setCentre(exp_info.ctrl_center_for(exp_param_index));
 	tip_update.tip_info = exp_info.tip_for(exp_param_index);
 	update_value_tip();
+}
+
+Rectangle<int> Exposed_Control_B::get_scaled_bounds() {
+	return init_bounds * scale_factor;
 }
 
 void Exposed_Control_B::update_value_tip() {

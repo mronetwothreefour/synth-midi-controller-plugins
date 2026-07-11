@@ -469,7 +469,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 				"ep_" + String{ 67 + param_offset } + "_env_" + env_num + "_velo_amt", 56 + param_offset,
 				"Envelope " + env_num + " Velocity Amount", Ctrl_Type::slider, 86 + env,
 				Range_Type::signed_7_bit, Display::signed_7_bit, 127, 126,
-				center_x, env_ctrl_row_1_y, env_ctrl_w, Tip_Exp::env_velo_amt(env_num),
+				center_x, env_ctrl_row_2_y, env_ctrl_w, Tip_Exp::env_velo_amt(env_num),
 				Choices_Exp::signed_7_bit_int(curt), Choices_Exp::signed_7_bit_int()
 			),
 			-1, nullptr);

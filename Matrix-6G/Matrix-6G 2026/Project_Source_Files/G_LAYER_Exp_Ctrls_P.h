@@ -3,12 +3,15 @@
 #include <JuceHeader.h>
 
 #include "D_X_G_Data_User_P.h"
+#include "G_WIDG_Cbox_Exp_B.h"
+#include "G_WIDG_Slider_Exp_P.h"
 
 class Layer_Exposed_Controls_P :
 	public Component,
 	public Data_User_P
 {
-private: std::vector<std::unique_ptr<Component>> controls;
+private: std::vector<std::unique_ptr<Slider_Exposed_P>> sliders;
+private: std::vector<std::unique_ptr<Combo_Box_Exposed_B>> cboxes;
 
 //==============================================================================
 public: Layer_Exposed_Controls_P(Data_Hub_P* hub);

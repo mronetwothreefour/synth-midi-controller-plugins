@@ -29,6 +29,7 @@ struct Subtree_Exposed_Info_P
 				{ ID::exp_p_ctrl_center_x, ctrl_center_x },
 				{ ID::exp_p_ctrl_center_y, ctrl_center_y },
 				{ ID::exp_p_ctrl_width, ctrl_w },
+				{ ID::exp_p_ctrl_height, XYWH::ctrl_h },
 				{ ID::exp_p_tip, tip },
 			},
 			{ choices_curt, choices }

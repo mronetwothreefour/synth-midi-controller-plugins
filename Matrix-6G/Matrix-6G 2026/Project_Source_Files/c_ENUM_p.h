@@ -5,7 +5,6 @@ namespace ENUM
 
 	constexpr enum class Ctrl_Type {
 		error = -1,
-		dummy,
 		slider,
 		slider_osc_pitch,
 		slider_osc_balance,

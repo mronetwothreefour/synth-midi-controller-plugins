@@ -7,7 +7,6 @@
 class Editor_P :
     public Editor_B
 {
-
 //==============================================================================
 public: Editor_P(Audio_Processor_P& processor, Data_Hub_P* hub);
 
