@@ -18,7 +18,7 @@ void Look_And_Feel_P::drawRotarySlider(Graphics& g, int /*x*/, int /*y*/, int /*
 }
 
 void Look_And_Feel_P::drawLinearSlider(Graphics& g, int /*x*/, int /*y*/, int /*w*/, int /*h*/,
-									   float pos, float /*min_pos*/, float /*max_pos*/,
+									   float /*pos*/, float /*min_pos*/, float /*max_pos*/,
 									   const Slider::SliderStyle /*style*/, Slider& s)
 {
 	if (s.getComponentID() == ID::switch_2_pole.toString())
