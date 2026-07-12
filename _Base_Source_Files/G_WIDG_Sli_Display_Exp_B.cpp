@@ -5,7 +5,8 @@ Slider_Display_Exposed_B::Slider_Display_Exposed_B(const int param_index, Data_H
 	Data_User_P{ hub },
 	param_index{ param_index },
 	display_type{ exp_info.display_type_for(param_index) },
-	parent_slider{ parent_slider }
+	parent_slider{ parent_slider },
+	editable{ true }
 {
 	setInterceptsMouseClicks(false, true);
 	setComponentID(ID::label_slider.toString());

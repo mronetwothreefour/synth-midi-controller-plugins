@@ -18,6 +18,7 @@ protected: const int param_index;
 protected: const Slider_Display_Type display_type;
 protected: Slider_Wheel_Mod_P* parent_slider;
 protected: Tip_Updater_B tip_update;
+public: bool editable;
 
 //==============================================================================
 public: Slider_Display_Exposed_B(const int param_index, Data_Hub_P* hub,

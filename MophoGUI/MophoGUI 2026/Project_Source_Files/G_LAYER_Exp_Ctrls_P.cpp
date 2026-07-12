@@ -3,7 +3,7 @@
 Layer_Exposed_Controls_P::Layer_Exposed_Controls_P(Data_Hub_P* hub) :
 	Data_User_P{ hub }
 {
-	setInterceptsMouseClicks(true, true);
+	setInterceptsMouseClicks(false, true);
 	for (int param_index = 0; param_index < EXP::exp_param_count; ++param_index) {
 		auto ctrl_type = exp_info.ctrl_type_for(param_index);
 		if (ctrl_type != Ctrl_Type::error) {

@@ -13,7 +13,7 @@ Slider_Display_Exposed_P::Slider_Display_Exposed_P(const int param_index, Data_H
 		id = ID::label_seq_step;
 	if (display_type == Display::voice_name_char) {
 		id = ID::label_voice_name_char;
-		setEditable(false);
+		editable = false;
 	}
 	setComponentID(id.toString());
 	setJustificationType(Justification::centred);
@@ -70,7 +70,9 @@ void Slider_Display_Exposed_P::on_editor_show() {
 	edit->setTooltip(Tip_W::knob_text_editor(display_type));
 	auto txt = getText().removeCharacters(" ");
 	if (display_type != Display::seq_step && display_type != Display::seq_step_track_1)
-		txt.removeCharacters("+");
+		txt = txt.removeCharacters("+");
+	if (display_type == Display::bend_range)
+		txt = txt.removeCharacters("/-");
 	edit->setText(txt);
 	edit->selectAll();
 }

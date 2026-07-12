@@ -25,7 +25,7 @@ void Slider_Exposed_B::remove_attachment() {
 }
 
 void Slider_Exposed_B::mouseDoubleClick(const MouseEvent& /*e*/) {
-	if (display.isEditable())
+	if (display.editable)
 		display.showEditor();
 }
 
