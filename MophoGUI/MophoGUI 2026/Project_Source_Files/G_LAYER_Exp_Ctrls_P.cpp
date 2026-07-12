@@ -3,6 +3,7 @@
 Layer_Exposed_Controls_P::Layer_Exposed_Controls_P(Data_Hub_P* hub) :
 	Data_User_P{ hub }
 {
+	setInterceptsMouseClicks(true, true);
 	for (int param_index = 0; param_index < EXP::exp_param_count; ++param_index) {
 		auto ctrl_type = exp_info.ctrl_type_for(param_index);
 		if (ctrl_type != Ctrl_Type::error) {
@@ -12,6 +13,15 @@ Layer_Exposed_Controls_P::Layer_Exposed_Controls_P(Data_Hub_P* hub) :
 				if (cbox_ptr) {
 					cbox_ptr->attach_to_param();
 					addAndMakeVisible(cbox_ptr);
+				}
+				continue;
+			}
+			if (ctrl_type == Ctrl_Type::toggle) {
+				toggles.push_back(std::make_unique<Toggle_Exposed_P>(param_index, hub));
+				auto toggle_ptr = toggles[toggles.size() - 1].get();
+				if (toggle_ptr) {
+					toggle_ptr->attach_to_param();
+					addAndMakeVisible(toggle_ptr);
 				}
 				continue;
 			}
@@ -36,6 +46,11 @@ void Layer_Exposed_Controls_P::resized() {
 		if (slider_ptr)
 			slider_ptr->setBounds(slider_ptr->get_scaled_bounds());
 	}
+	for (int i = 0; i < toggles.size(); ++i) {
+		auto toggle_ptr = toggles[i].get();
+		if (toggle_ptr)
+			toggle_ptr->setBounds(toggle_ptr->get_scaled_bounds());
+	}
 }
 
 Layer_Exposed_Controls_P::~Layer_Exposed_Controls_P() {
@@ -51,4 +66,10 @@ Layer_Exposed_Controls_P::~Layer_Exposed_Controls_P() {
 			slider_ptr->remove_attachment();
 	}
 	sliders.clear();
+	for (int i = 0; i < toggles.size(); ++i) {
+		auto toggle_ptr = toggles[i].get();
+		if (toggle_ptr)
+			toggle_ptr->remove_attachment();
+	}
+	toggles.clear();
 }

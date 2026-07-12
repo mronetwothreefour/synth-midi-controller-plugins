@@ -5,6 +5,7 @@
 #include "D_X_G_Data_User_P.h"
 #include "G_WIDG_Cbox_Exp_B.h"
 #include "G_WIDG_Slider_Exp_P.h"
+#include "G_WIDG_Toggle_Exp_P.h"
 
 class Layer_Exposed_Controls_P :
 	public Component,
@@ -12,6 +13,7 @@ class Layer_Exposed_Controls_P :
 {
 private: std::vector<std::unique_ptr<Combo_Box_Exposed_B>> cboxes;
 private: std::vector<std::unique_ptr<Slider_Exposed_P>> sliders;
+private: std::vector<std::unique_ptr<Toggle_Exposed_P>> toggles;
 
 //==============================================================================
 public: Layer_Exposed_Controls_P(Data_Hub_P* hub);

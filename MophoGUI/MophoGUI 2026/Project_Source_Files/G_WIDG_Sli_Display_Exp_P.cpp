@@ -80,8 +80,6 @@ void Slider_Display_Exposed_P::set_text_to_stored_choice() {
 	auto choice_name{ exp_info.choice_for(param_index, choice_num) };
 	tip_update.tip_value = choice_name;
 	auto choice_name_curt{ exp_info.choice_for(param_index, choice_num, true) };
-	if (display_type == Display::bend_range)
-		choice_name_curt = "+/-" + choice_name_curt;
 	if (display_type == Display::lfo_freq) {
 		parent_slider->modifying_pitch = choice_num >= EXP::first_lfo_pitched_freq_choice &&
 										 choice_num < EXP::first_lfo_synced_freq_choice;
