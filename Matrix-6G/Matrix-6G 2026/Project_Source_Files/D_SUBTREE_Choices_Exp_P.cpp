@@ -17,10 +17,10 @@ ValueTree Subtree_Choices_Exp_P::env_trig_mode(const bool curt) {
 	tree.setProperty("choice_1", curt ? "SRESET" : "single trigger reset", nullptr);
 	tree.setProperty("choice_2", curt ? "MTRIG" : "multiple trigger", nullptr);
 	tree.setProperty("choice_3", curt ? "MRESET" : "multiple trigger reset", nullptr);
-	tree.setProperty("choice_4", curt ? "XTRIG" : "ext. single trigger", nullptr);
-	tree.setProperty("choice_5", curt ? "XRESET" : "ext. single trigger reset", nullptr);
-	tree.setProperty("choice_6", curt ? "XMTRIG" : "ext. multiple trigger", nullptr);
-	tree.setProperty("choice_7", curt ? "XMRST" : "ext. multiple trigger reset", nullptr);
+	tree.setProperty("choice_4", curt ? "XTRIG" : "external single trigger", nullptr);
+	tree.setProperty("choice_5", curt ? "XRESET" : "external single trigger reset", nullptr);
+	tree.setProperty("choice_6", curt ? "XMTRIG" : "external multiple trigger", nullptr);
+	tree.setProperty("choice_7", curt ? "XMRST" : "external multiple trigger reset", nullptr);
 	return tree;
 }
 
@@ -161,7 +161,7 @@ ValueTree Subtree_Choices_Exp_P::ramp_trig(const bool curt) {
 	tree.setProperty("choice_0", curt ? "STRIG" : "single trigger", nullptr);
 	tree.setProperty("choice_1", curt ? "MTRIG" : "multiple trigger", nullptr);
 	tree.setProperty("choice_2", curt ? "XTRIG" : "external single trigger", nullptr);
-	tree.setProperty("choice_3", curt ? "GATEX" : "gated ext. single trigger", nullptr);
+	tree.setProperty("choice_3", curt ? "GATEX" : "gated external single trigger", nullptr);
 	return tree;
 }
 

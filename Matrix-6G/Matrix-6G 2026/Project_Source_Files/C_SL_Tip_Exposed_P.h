@@ -146,7 +146,7 @@ Range: 0 (beginning of the cycle) to 63 (the cycle’s half-way point).)";
     constexpr auto lfo_sample_source_tip = u8R"(
 Selects the modulation source that LFO _ will
 periodically sample to calculate its output value
-(when its wave type (above) is set to sample).)";
+(when its wave type (above) is set to sampled).)";
 
     constexpr auto lfo_speed_tip = u8R"(
 Sets the cycle rate of low-frequency oscillator _.
@@ -216,7 +216,7 @@ Selects which of the performance ‘levers’
 (wheel-type controllers) modulate oscillator _.
 • OFF: Oscillator _ is not modulated by either lever.
 • BEND: Pitch bend is modulated by lever 1 (pitch wheel).
-• VIB: Vibrato amount is modulated by lever 2 (mod wheel).
+• VIB: Pitch vibrato is modulated by lever 2 (mod wheel).
 • BOTH: Oscillator _ is modulated by both levers.)";
 
     constexpr auto osc_lfo_1_fm_tip = u8R"(
@@ -306,8 +306,8 @@ Selects the type of trigger that will start ramp _’s control cycle.
 notes are currently held down (only active in unison mode).
 • MTRIG (multiple): The ramp is triggered with every new note played.
 • XTRIG (external): An external signal (e.g. a footswitch) triggers the ramp.
-• GATEX (gated external): An external signal triggers the ramp only when
-there are one or more notes being played.)";
+• GATEX (gated external single): An external signal triggers the ramp only
+when there are one or more notes being played.)";
 
     constexpr auto track_input_tip = u8R"(
 Selects the modulation source which
@@ -398,8 +398,8 @@ higher notes are played and dropping as lower notes are played.)";
 Selects which of the performance ‘levers’
 (wheel-type controllers) modulate the VCF frequency.
 • OFF: VCF frequency is not modulated by either lever.
-• BEND: VCF frequency is modulated by lever 1 (pitch wheel).
-• VIB: VCF frequency is modulated by lever 2 (mod wheel).
+• BEND: VCF frequency bend is modulated by lever 1 (pitch wheel).
+• VIB: VCF frequency vibrato is modulated by lever 2 (mod wheel).
 • BOTH: VCF frequency is modulated by both levers.)";
 
     constexpr auto vcf_pressure_amt_tip = u8R"(

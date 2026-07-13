@@ -86,8 +86,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 				osc == 1 ? ID::exp_06_osc_1_lfo_2_pwm : ID::exp_16_osc_2_lfo_2_pwm, osc == 1 ? 4 : 14,
 				"Oscillator " + (String)osc + " Pulse Width Mod. by LFO 2", Ctrl_Type::slider, 
 				osc == 1 ? 79 : 81, Range_Type::signed_7_bit, Display::signed_7_bit,
-				127, 63, center_x, ctrl_row_07_y, osc_ctrl_w, 
-				osc == 1 ? Tip_Exp::osc_1_sync() : Tip_Exp::osc_lfo_2_pwm(osc),
+				127, 63, center_x, ctrl_row_07_y, osc_ctrl_w, Tip_Exp::osc_lfo_2_pwm(osc),
 				Choices_Exp::signed_7_bit_int(curt), Choices_Exp::signed_7_bit_int()
 			), 
 			-1, nullptr);
