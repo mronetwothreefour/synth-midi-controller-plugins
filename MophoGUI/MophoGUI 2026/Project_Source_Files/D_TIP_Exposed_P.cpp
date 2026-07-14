@@ -190,8 +190,15 @@ String Tip_Exposed_P::seq_on_off() {
     return from_string_literal(SL::seq_on_off_tip);
 }
 
-String Tip_Exposed_P::seq_track_dest(const String track_num) {
-    return from_string_literal(SL::seq_track_dest_tip).replace("_", track_num);
+String Tip_Exposed_P::seq_track_dest(const int track_num) {
+    auto tip = from_string_literal(SL::seq_track_dest_tip_1).replace("_", String{ track_num });
+    if (track_num == 2 || track_num == 4) {
+        tip += "\n";
+        tip += from_string_literal(SL::seq_track_dest_tip_2).
+               replace("_", String{ track_num - 1 }).
+               replace("^", String{ track_num });
+    }
+    return tip;
 }
 
 String Tip_Exposed_P::seq_track_step(const String track, String step) {

@@ -15,6 +15,7 @@ namespace EXP
 	constexpr int choice_count_osc_pitch{ 121 };
 	constexpr int choice_count_osc_fine{ 101 };
 	constexpr int choice_count_osc_shape{ 104 };
+	constexpr int choice_count_seq_track_2_4_dest{ 48 };
 	constexpr int choice_count_voice_name_char{ 128 };
 	constexpr int clock_tempo_offset{ 30 };
 	constexpr int exp_param_count{ 189 };

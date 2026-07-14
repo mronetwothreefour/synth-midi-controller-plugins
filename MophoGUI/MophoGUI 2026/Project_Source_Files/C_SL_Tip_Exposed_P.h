@@ -5,7 +5,7 @@ namespace SL
 
     constexpr auto arp_mode_tip = u8R"(
 Sets the order in which the arpeggiator plays notes.
-‘Assign’ modes play notes in the order they were struck.)";
+‘assign’ modes play notes in the order they were struck.)";
 
     constexpr auto arp_on_off_tip = u8R"(
 Turns the Mopho’s arpeggiator on and off.
@@ -80,9 +80,10 @@ feedback from the left audio output.
 Range: 0 to 127.)";
 
     constexpr auto glide_mode_tip = u8R"(
-Fixed Rate: The actual glide time depends on the size of the note interval.
-Fixed Time: The glide time is constant, regardless of the interval size.
-The ‘Auto’ modes only apply glide when a note is played legato
+Determines how glide (portamento) time is calculated and when it applies.
+• Fixed rate: The actual glide time depends on the size of the note interval.
+• Fixed time: The glide time is constant, regardless of the interval size.
+The ‘auto’ modes only apply glide when a note is played legato
 (i.e. a new note is triggered before the previous note is released).)";
 
     constexpr auto knob_assign_tip = u8R"(
@@ -245,11 +246,11 @@ it forces oscillator 1 to reset as well.)";
 
     constexpr auto push_it_mode_tip = u8R"(
 Sets the operating mode for the Mopho’s Push It! switch.
-Normal: The selected note is gated on when the switch is
+• Normal: The selected note is gated on when the switch is
 pressed and gated off when the switch is released.
-Toggle: The selected note is gated on when the switch is
+• Toggle: The selected note is gated on when the switch is
 pressed and remains on until the switch is pressed again.
-Audio In: The selected note is gated on for as long as the
+• Audio In: The selected note is gated on for as long as the
 external audio input level is above a certain threshold.)";
 
     constexpr auto push_it_pitch_tip = u8R"(
@@ -267,9 +268,14 @@ Range: 0 to 127.)";
 Turns the Mopho’s internal sequencer on and off.
 Turning this on will turn off the arpeggiator.)";
 
-    constexpr auto seq_track_dest_tip = u8R"(
-Selects the target parameter for
-modulation by sequencer track _.)";
+    constexpr auto seq_track_dest_tip_1 = u8R"(
+Selects the target parameter for modulation by sequencer track _.)";
+
+    constexpr auto seq_track_dest_tip_2 = u8R"(
+Sequencer track _ slew: This will smooth the transition between the
+corresponding step in track _ and the previous step (similar to
+oscillator glide). The higher the value, the longer the transition.
+This option is only available for sequencer track ^.)";
 
     constexpr auto seq_track_step_tip_1 = u8R"(
 Sets the value that sequencer track _’s destination parameter has at step %,
@@ -290,16 +296,16 @@ by 24 (equivalent to one octave including the ‘bent’ pitches).
 Otherwise, the value will increment by 10.)";
 
     constexpr auto seq_trig_mode_tip = u8R"(
-Normal: New notes reset the sequencer to the first step.
+• Normal: New notes reset the sequencer to the first step.
 The envelopes are re-triggered with each step.
-Normal, No Reset: New notes do not reset the sequencer to the
+• Normal, no reset: New notes do not reset the sequencer to the
 first step. The envelopes are re-triggered with each step.
-No Gate: New notes reset the sequencer to the first step. New
+• No gate: New notes reset the sequencer to the first step. New
 notes re-trigger the envelopes, but sequencer steps do not.
-No Gate, No Reset: New notes do not reset the sequencer to the
+• No gate, no reset: New notes do not reset the sequencer to the
 first step. Sequencer steps do not re-trigger the envelopes.
-Key Step: Each new note advances the sequencer one step.
-Audio Input: The sequencer advances one step every time the
+• Key step: Each new note advances the sequencer one step.
+• Audio input: The sequencer advances one step every time the
 external audio input level surpasses a certain threshold.)";
 
     constexpr auto vca_env_amt_tip = u8R"(

@@ -43,7 +43,9 @@ PopupMenu::Options Look_And_Feel_P::getOptionsForComboBoxPopupMenu(ComboBox& cbo
 		if (col_count == 2)
 			offset_y = (selected_item % 12 + 1) * item_h;
 		if (col_count == 5) {
-			if (item_count == EXP::choice_count_mod_dest) {
+			if (item_count == EXP::choice_count_mod_dest ||
+				item_count == EXP::choice_count_seq_track_2_4_dest)
+			{
 				if (menu_above)
 					offset_y = (selected_item % 10 - 10) * item_h;
 				else
@@ -58,7 +60,7 @@ PopupMenu::Options Look_And_Feel_P::getOptionsForComboBoxPopupMenu(ComboBox& cbo
 			}
 			else {
 				offset_x -= min_w * 4;
-				offset_y = (selected_item % 35 - 35) * item_h;
+				offset_y = (selected_item % 34 - 34) * item_h;
 			}
 		}
 	}

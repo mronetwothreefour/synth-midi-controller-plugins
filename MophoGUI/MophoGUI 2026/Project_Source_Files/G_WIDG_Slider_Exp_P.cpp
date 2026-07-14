@@ -19,8 +19,8 @@ Slider_Exposed_P::Slider_Exposed_P(const int param_index, Data_Hub_P* hub) :
 void Slider_Exposed_P::update_value_tip() {
 	auto choice_num = roundToInt(exp_param->convertFrom0to1(exp_param->getValue()));
 	String tip{};
-	if (!modifying_pitch && 
-		(ctrl_type == Ctrl_Type::seq_step || ctrl_type == Ctrl_Type::seq_step_track_1))
+	if ((ctrl_type == Ctrl_Type::seq_step || ctrl_type == Ctrl_Type::seq_step_track_1) &&
+		!modifying_pitch && choice_num < 126)
 	{
 		tip = String{ choice_num };
 	}

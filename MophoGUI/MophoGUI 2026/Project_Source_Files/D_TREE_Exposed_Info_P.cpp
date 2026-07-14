@@ -55,7 +55,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 				osc == 1 ? ID::exp_003_osc_1_glide : ID::exp_009_osc_2_glide,
 				"Oscillator " + n + " Glide Rate", Ctrl_Type::knob,
 				Display::unsigned_7_bit, osc == 1 ? 3 : 8, 128, 0,
-				ctrl_col_4_x, center_y, knob_diameter, knob_diameter, Tip_Exp::osc_fine(osc),
+				ctrl_col_4_x, center_y, knob_diameter, knob_diameter, Tip_Exp::osc_glide(osc),
 				Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
 			),
 			-1, nullptr);
@@ -380,9 +380,8 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 			Subtree_Exposed_Info_P::build(
 				"ep_0" + String{ 45 + param_offset } + "_lfo_" + n + "_key_sync",
 				"LFO " + n + " Key Sync On / Off", Ctrl_Type::toggle, Display::none,
-				41 + param_offset, 2, 0, 507 + lfo * lfo_block_spacing, 526,
-				26, 36, mod_dest_param_description + String{ " by LFO " } + n + ".",
-				Choices_Exp::mod_dest(curt), Choices_Exp::mod_dest(),
+				41 + param_offset, 2, 0, 507 + lfo * lfo_block_spacing, 526, 26, 36,
+				Tip_Exp::lfo_key_sync(lfo + 1), Choices_Exp::off_on(curt), Choices_Exp::off_on(),
 				507 + lfo * lfo_block_spacing, lfo_row_1_y
 			),
 			-1, nullptr);
@@ -673,9 +672,10 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 			Subtree_Exposed_Info_P::build(
 				"ep_10" + n + "_seq_track_" + n + "_dest", "Sequencer Track " + n + " Destination",
 				Ctrl_Type::cbox, Display::none, 76 + track, 
-				EXP::choice_count_mod_dest + (even_track ? 1 : 0), track < 3 ? track : track == 3 ? 9 : 0,
+				even_track ? EXP::choice_count_seq_track_2_4_dest : EXP::choice_count_mod_dest,
+				track < 3 ? track : track == 3 ? 9 : 0,
 				seq_track_dest_cbox_x, seq_track_1_dest_cbox_y + ((track - 1) * seq_track_block_spacing),
-				seq_track_dest_cbox_w, cbox_h, Tip_Exp::seq_track_dest(n),
+				seq_track_dest_cbox_w, cbox_h, Tip_Exp::seq_track_dest(track),
 				even_track ? Choices_Exp::seq_track_2_4_dest(track == 2, curt) : Choices_Exp::mod_dest(curt),
 				even_track ? Choices_Exp::seq_track_2_4_dest(track == 2) : Choices_Exp::mod_dest()
 			),

@@ -46,6 +46,10 @@ void Toggle_Exposed_P::mouseDown(const MouseEvent& /*e*/) {
 	toggle.triggerClick();
 }
 
+void Toggle_Exposed_P::modifierKeysChanged(const Mods& mods) {
+	tip_update.on_mod_keys_changed(mods, &toggle);
+}
+
 void Toggle_Exposed_P::update_according_to_mod() {
 	if ((int)val_mod_param.getValue() == 1)
 		toggle.setToggleState(false, sendNotification);

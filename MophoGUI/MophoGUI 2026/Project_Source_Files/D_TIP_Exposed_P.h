@@ -65,7 +65,7 @@ struct Tip_Exposed_P :
 	static String push_it_velocity();
 
 	static String seq_on_off();
-	static String seq_track_dest(const String track_num);
+	static String seq_track_dest(const int track_num);
 	static String seq_track_step(const String track_num, String step_num);
 	static String seq_trig_mode();
 

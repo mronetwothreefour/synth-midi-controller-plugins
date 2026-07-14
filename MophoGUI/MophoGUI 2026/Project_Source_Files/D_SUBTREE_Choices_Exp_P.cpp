@@ -278,7 +278,7 @@ ValueTree Subtree_Choices_Exp_P::mod_dest(const bool curt) {
 	tree.setProperty(choice_ + "5", "noise level", nullptr);
 	tree.setProperty(choice_ + "6", "oscillator 1 pulse width", nullptr);
 	tree.setProperty(choice_ + "7", "oscillator 2 pulse width", nullptr);
-	tree.setProperty(choice_ + "8", "oscillator 1 & 2 PW", nullptr);
+	tree.setProperty(choice_ + "8", curt ? "oscillator 1 & 2 PW" : "oscillator 1 & 2 pulse width", nullptr);
 	tree.setProperty(choice_ + "9", "LPF cutoff frequency", nullptr);
 	tree.setProperty(choice_ + "10", "LPF resonance", nullptr);
 	tree.setProperty(choice_ + "11", "LPF FM amount", nullptr);

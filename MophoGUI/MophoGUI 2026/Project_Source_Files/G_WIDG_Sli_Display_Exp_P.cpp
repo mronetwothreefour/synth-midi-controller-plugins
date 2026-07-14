@@ -87,7 +87,7 @@ void Slider_Display_Exposed_P::set_text_to_stored_choice() {
 										 choice_num < EXP::first_lfo_synced_freq_choice;
 	}
 	if (display_type == Display::seq_step || display_type == Display::seq_step_track_1) {
-		if (!parent_slider->modifying_pitch)
+		if (!parent_slider->modifying_pitch && choice_num < 126)
 			choice_name_curt = String{ choice_num };
 	}
 	setText(choice_name_curt, dontSendNotification);

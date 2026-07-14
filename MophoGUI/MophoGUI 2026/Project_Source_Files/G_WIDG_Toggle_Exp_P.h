@@ -18,6 +18,7 @@ public: void resized() override;
 public: void attach_to_param() override;
 public: void remove_attachment() override;
 public: void mouseDown(const MouseEvent& e) override;
+public: void modifierKeysChanged(const Mods& mods) override;
 public: void update_according_to_mod() override;
 
 //==============================================================================
