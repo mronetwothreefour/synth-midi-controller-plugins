@@ -143,8 +143,7 @@ void Slider_Display_Exposed_P::on_text_change_lfo_rate() {
 			new_val *= 64.0f;
 		parent_slider->setValue(new_val);
 	}
-	else
-		set_text_to_stored_choice();
+	set_text_to_stored_choice();
 }
 
 void Slider_Display_Exposed_P::on_text_change_lpf_eg_int() {
@@ -170,8 +169,7 @@ void Slider_Display_Exposed_P::on_text_change_lpf_eg_int() {
 		}
 		parent_slider->setValue(new_val);
 	}
-	else
-		set_text_to_stored_choice();
+	set_text_to_stored_choice();
 }
 
 void Slider_Display_Exposed_P::on_text_change_osc_2_pitch_eg_int() {
@@ -253,8 +251,7 @@ void Slider_Display_Exposed_P::on_text_change_osc_2_pitch_eg_int() {
 			new_val = 1023;
 		parent_slider->setValue(new_val);
 	}
-	else
-		set_text_to_stored_choice();
+	set_text_to_stored_choice();
 }
 
 void Slider_Display_Exposed_P::on_text_change_osc_pitch_fine() {
@@ -329,8 +326,7 @@ void Slider_Display_Exposed_P::on_text_change_osc_pitch_fine() {
 			new_val = 1023;
 		parent_slider->setValue(new_val);
 	}
-	else
-		set_text_to_stored_choice();
+	set_text_to_stored_choice();
 }
 
 void Slider_Display_Exposed_P::on_text_change_unsigned_10_bit() {
@@ -339,7 +335,7 @@ void Slider_Display_Exposed_P::on_text_change_unsigned_10_bit() {
 		auto new_val{ new_text.getFloatValue() };
 		parent_slider->setValue(new_val);
 	}
-		set_text_to_stored_choice();
+	set_text_to_stored_choice();
 }
 
 void Slider_Display_Exposed_P::on_text_change_voice_mode_depth() {
@@ -359,6 +355,5 @@ void Slider_Display_Exposed_P::on_text_change_voice_mode_depth() {
 		default: set_text_to_stored_choice(); break;
 		}
 	}
-	else
-		set_text_to_stored_choice();
+	set_text_to_stored_choice();
 }

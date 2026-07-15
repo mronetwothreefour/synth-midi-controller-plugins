@@ -120,7 +120,7 @@ Range: 0 (no modulation) to 15 (maximum).)";
     constexpr auto poly_mod_src_osc_b_amt_tip = u8R"(
 Sets the degree to which oscillator B’s frequency
 modulates the enabled poly-mod destination(s).
-Range: 0 (no modulation) to 15 (maximum).)";
+Range: 0 (no modulation) to 127 (maximum).)";
 
     constexpr auto unison_track_tip = u8R"(
 Enables one of the three unison keyboard tracking modes:

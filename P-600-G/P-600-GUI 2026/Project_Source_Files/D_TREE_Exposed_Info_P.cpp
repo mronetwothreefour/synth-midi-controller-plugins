@@ -165,7 +165,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			ID::exp_21_filter_env_release, "Filter Envelope Release", Ctrl_Type::knob, 17, 1, 4,
 			Display::int_4_bit, 16, 0, filter_amp_col_4_x, knob_row_2_y, knob_diameter, knob_diameter,
-			Tip_Exp::env_sustain(filter), Choices_Exp::unsigned_int(16, curt), Choices_Exp::unsigned_int(16)
+			Tip_Exp::env_release(filter), Choices_Exp::unsigned_int(16, curt), Choices_Exp::unsigned_int(16)
 		),
 		-1, nullptr);
 	// ---------------------------------------------------------- end filter section
@@ -201,7 +201,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			ID::exp_25_amp_env_release, "Amplifier Envelope Release", Ctrl_Type::knob, 21, 1, 4,
 			Display::int_4_bit, 16, 0, filter_amp_col_4_x, knob_row_3_y, knob_diameter, knob_diameter,
-			Tip_Exp::env_sustain(amp), Choices_Exp::unsigned_int(16, curt), Choices_Exp::unsigned_int(16)
+			Tip_Exp::env_release(amp), Choices_Exp::unsigned_int(16, curt), Choices_Exp::unsigned_int(16)
 		),
 		-1, nullptr);
 	// ---------------------------------------------------------- end amp section

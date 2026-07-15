@@ -112,8 +112,7 @@ void Slider_Display_Exposed_P::on_text_change() {
 	}
 	if (new_val > -128.0f)
 		parent_slider->setValue(new_val);
-	else
-		set_text_to_stored_choice();
+	set_text_to_stored_choice();
 }
 
 float Slider_Display_Exposed_P::text_to_float_osc_pitch_and_lpf_freq(const String& txt) {

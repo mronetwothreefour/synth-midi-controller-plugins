@@ -29,7 +29,7 @@ void Slider_Display_Exposed_P::on_editor_show() {
 		edit->setInputRestrictions(3, "0123456789");
 		break;
 	case Slider_Display_Type::osc_pitch:
-		edit->setInputRestrictions(4, "abcdefgABCDEFG0123456789#");
+		edit->setInputRestrictions(4, "abcdefgABCDEFG01234#");
 		break;
 	default:
 		break;
@@ -63,10 +63,8 @@ void Slider_Display_Exposed_P::on_text_change() {
 		}
 		else
 			new_val = new_text.getFloatValue();
-		if (new_val > -1.0f) {
+		if (new_val > -1.0f)
 			parent_slider->setValue(new_val);
-			return;
-		}
 	}
 	set_text_to_stored_choice();
 }
