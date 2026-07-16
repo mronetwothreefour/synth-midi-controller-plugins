@@ -120,7 +120,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 	// *************************************************************** lpf section
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			ID::exp_15_lpf_freq, "LPF Cutoff Frequency", Ctrl_Type::knob,
+			ID::exp_15_lpf_freq, "LPF Cutoff Frequency", Ctrl_Type::knob_lpf_freq,
 			Display::unsigned_10_bit, 43, EXP::choice_count_unsigned_10_bit, 1023,
 			433, 111, knob_diameter_lpf_freq, knob_diameter_lpf_freq,
 			Tip_Exp::lpf_freq(), Bit_Loc_Exp::lpf_freq(),
@@ -152,7 +152,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
 			ID::exp_18_lpf_type, "LPF Type", Ctrl_Type::switch_lpf_type,
-			Display::none, 84, 2, 1, 380, ctrl_row_3_y, switch_w, switch_h,
+			Display::none, 84, 2, 1, 380, ctrl_row_3_y, switch_w, switch_lpf_type_h,
 			Tip_Exp::lpf_type(), Bit_Loc_Exp::lpf_type(),
 			Choices_Exp::lpf_type(curt), Choices_Exp::lpf_type()
 		),

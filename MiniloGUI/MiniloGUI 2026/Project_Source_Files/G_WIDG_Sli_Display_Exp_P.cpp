@@ -8,6 +8,7 @@ Slider_Display_Exposed_P::Slider_Display_Exposed_P(const int param_index, Data_H
 void Slider_Display_Exposed_P::on_editor_show() {
 	auto edit = getCurrentTextEditor();
 	edit->setJustification(Justification::centred);
+	edit->setBounds(getLocalBounds().translated(0, -1));
 	edit->applyFontToAllText(FONT::knob_txt_edit(scale_factor));
 	switch (display_type)
 	{
