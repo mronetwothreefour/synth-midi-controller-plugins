@@ -277,16 +277,17 @@ ValueTree Subtree_Choices_Exp_P::osc_pitch_fine(const bool curt) {
     tree.setProperty("choice_549", "+8" + postfix, nullptr);
     tree.setProperty("choice_550", "+8" + postfix, nullptr);
     tree.setProperty("choice_551", "+9" + postfix, nullptr);
+    tree.setProperty("choice_552", "+10" + postfix, nullptr);
 
     cents = 10;
 
-    for (int n = 552; n < 669; ++n) {
+    for (int n = 553; n < 669; ++n) {
         if (n % 32 != 1 && n % 32 != 5 && n % 32 != 10 && n % 32 != 15 &&
             n % 32 != 19 && n % 32 != 24 && n % 32 != 28)
         {
             ++cents;
         }
-        tree.setProperty("choice_" + (String)n, (String)cents + postfix, nullptr);
+        tree.setProperty("choice_" + (String)n, "+" + (String)cents + postfix, nullptr);
     }
 
     for (int n = 669; n < 1020; ++n) {
