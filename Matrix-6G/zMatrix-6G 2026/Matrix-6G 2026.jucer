@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="qP09q8" name="Matrix-6G 2026" projectType="audioplug" useAppConfig="1"
+              addUsingNamespaceToJuceHeader="1" jucerFormatVersion="1" pluginFormats="buildStandalone,buildVST3"
+              pluginCharacteristicsValue="pluginEditorRequiresKeys,pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
+              version="2.1.0" companyName="Mister 1-2-3-4 Programming" companyWebsite="http://programming.mr1234.com"
+              companyEmail="programming@mr1234.com" pluginDesc="Sound editor/librarian for use with the Oberheim Matrix-6R synthesizer"
+              pluginManufacturerCode="TimD" pluginAUMainType="'aumi'" pluginVST3Category="Tools"
+              cppLanguageStandard="20" headerPath="..\..\..\..\_Base_Source_Files&#10;..\..\Project_Source_Files">
+  <MAINGROUP id="F43Kyc" name="Matrix-6G 2026">
+    <GROUP id="{602BA233-B181-6E09-6E24-6847DA41A16A}" name="_Base_Source_Files">
+      <FILE id="DEa7fL" name="C_COLOR_B.h" compile="0" resource="0" file="../../_Base_Source_Files/C_COLOR_B.h"/>
+      <FILE id="PaExEX" name="C_ID_B.h" compile="0" resource="0" file="../../_Base_Source_Files/C_ID_B.h"/>
+      <FILE id="bHalcF" name="D_CONVERT_Int_To_Pitch_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/D_CONVERT_Int_To_Pitch_B.h"/>
+      <FILE id="AajzYI" name="D_LAYOUT_Exposed_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/D_LAYOUT_Exposed_B.h"/>
+      <FILE id="dLQBRK" name="D_SUBTREE_Choices_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/D_SUBTREE_Choices_B.cpp"/>
+      <FILE id="resSyC" name="D_SUBTREE_Choices_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/D_SUBTREE_Choices_B.h"/>
+      <FILE id="MDe0V8" name="D_TIP_B.h" compile="0" resource="0" file="../../_Base_Source_Files/D_TIP_B.h"/>
+      <FILE id="zj2DJv" name="D_TREE_Exposed_Info_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/D_TREE_Exposed_Info_B.cpp"/>
+      <FILE id="R3uWD7" name="D_TREE_Exposed_Info_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/D_TREE_Exposed_Info_B.h"/>
+      <FILE id="BrNBwC" name="D_X_G_Audio_Processor_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/D_X_G_Audio_Processor_B.cpp"/>
+      <FILE id="EM9Ec6" name="D_X_G_Audio_Processor_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/D_X_G_Audio_Processor_B.h"/>
+      <FILE id="pAYTbP" name="D_X_G_Data_Hub_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/D_X_G_Data_Hub_B.cpp"/>
+      <FILE id="wuWfbk" name="D_X_G_Data_Hub_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/D_X_G_Data_Hub_B.h"/>
+      <FILE id="cyeehM" name="D_X_G_Data_User_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/D_X_G_Data_User_B.h"/>
+      <FILE id="YoCdoY" name="D_X_G_Editor_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/D_X_G_Editor_B.cpp"/>
+      <FILE id="JkqjD2" name="D_X_G_Editor_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/D_X_G_Editor_B.h"/>
+      <FILE id="pOkc4v" name="G_DRAW_Paths_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_DRAW_Paths_B.h"/>
+      <FILE id="j7UkPh" name="G_LOOK_AND_FEEL_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/G_LOOK_AND_FEEL_B.cpp"/>
+      <FILE id="DFECYH" name="G_LOOK_AND_FEEL_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_LOOK_AND_FEEL_B.h"/>
+      <FILE id="jgd6FG" name="G_WIDG_Cbox_Exp_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Cbox_Exp_B.cpp"/>
+      <FILE id="pCOiJW" name="G_WIDG_Cbox_Exp_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Cbox_Exp_B.h"/>
+      <FILE id="KUXzPc" name="G_WIDG_Exp_Ctrl_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Exp_Ctrl_B.cpp"/>
+      <FILE id="vTEXHx" name="G_WIDG_Exp_Ctrl_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Exp_Ctrl_B.h"/>
+      <FILE id="wNnbLU" name="G_WIDG_Sli_Display_Exp_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Sli_Display_Exp_B.cpp"/>
+      <FILE id="AzKc6I" name="G_WIDG_Sli_Display_Exp_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Sli_Display_Exp_B.h"/>
+      <FILE id="wLTYjx" name="G_WIDG_Sli_Wheel_Mod_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Sli_Wheel_Mod_B.cpp"/>
+      <FILE id="XjZWoS" name="G_WIDG_Sli_Wheel_Mod_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Sli_Wheel_Mod_B.h"/>
+      <FILE id="OIHt6u" name="G_WIDG_Slider_Exp_B.cpp" compile="1" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Slider_Exp_B.cpp"/>
+      <FILE id="CdW6rG" name="G_WIDG_Slider_Exp_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Slider_Exp_B.h"/>
+      <FILE id="XPUCAR" name="G_WIDG_Tip_Updater_B.h" compile="0" resource="0"
+            file="../../_Base_Source_Files/G_WIDG_Tip_Updater_B.h"/>
+    </GROUP>
+    <GROUP id="{B2F6A865-4EED-AC49-FF3C-B4C5A690524D}" name="Project_Source_Files">
+      <GROUP id="{C3C07938-B8AF-29A0-55C7-2E817B31A3D6}" name="binaries">
+        <FILE id="q2G8rN" name="SWISSB.TTF" compile="0" resource="1" file="../../../../../SOCL0/APPDATA/LOCAL/MICROSOFT/WINDOWS/FONTS/SWISSB.TTF"/>
+      </GROUP>
+      <FILE id="MxpVOZ" name="C_COLOR_P.h" compile="0" resource="0" file="Project_Source_Files/C_COLOR_P.h"/>
+      <FILE id="iTk4YJ" name="C_ENUM_P.h" compile="0" resource="0" file="Project_Source_Files/C_ENUM_P.h"/>
+      <FILE id="GYqiN5" name="C_EXP_P.h" compile="0" resource="0" file="Project_Source_Files/C_EXP_P.h"/>
+      <FILE id="mnQmzT" name="C_FONT_P.h" compile="0" resource="0" file="Project_Source_Files/C_FONT_P.h"/>
+      <FILE id="mBE8Vc" name="C_ID_P.h" compile="0" resource="0" file="Project_Source_Files/C_ID_P.h"/>
+      <FILE id="GetDUu" name="C_PATH_Editor_Background_P.h" compile="0" resource="0"
+            file="Project_Source_Files/C_PATH_Editor_Background_P.h"/>
+      <FILE id="PJrDDb" name="C_PATH_LED_Text_P.h" compile="0" resource="0"
+            file="Project_Source_Files/C_PATH_LED_Text_P.h"/>
+      <FILE id="OVHtAg" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
+            file="Project_Source_Files/C_SL_Tip_Exposed_P.h"/>
+      <FILE id="sYJtQy" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
+            file="Project_Source_Files/C_SL_Tip_Widget_P.h"/>
+      <FILE id="VRm3z6" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source_Files/C_XYWH_P.h"/>
+      <FILE id="FL19Wq" name="D_SUBTREE_Choices_Exp_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/D_SUBTREE_Choices_Exp_P.cpp"/>
+      <FILE id="R4gQa2" name="D_SUBTREE_Choices_Exp_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_SUBTREE_Choices_Exp_P.h"/>
+      <FILE id="TsjHGB" name="D_SUBTREE_Exposed_Info_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_SUBTREE_Exposed_Info_P.h"/>
+      <FILE id="EuUe8p" name="D_TIP_Exposed_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/D_TIP_Exposed_P.cpp"/>
+      <FILE id="KFOUT1" name="D_TIP_Exposed_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_TIP_Exposed_P.h"/>
+      <FILE id="jbc7GI" name="D_TIP_Widget_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/D_TIP_Widget_P.cpp"/>
+      <FILE id="inHDsR" name="D_TIP_Widget_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_TIP_Widget_P.h"/>
+      <FILE id="kPPgQM" name="D_TREE_Exposed_Info_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/D_TREE_Exposed_Info_P.cpp"/>
+      <FILE id="LbmVHv" name="D_TREE_Exposed_Info_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_TREE_Exposed_Info_P.h"/>
+      <FILE id="JThaP0" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/D_X_G_Audio_Processor_P.cpp"/>
+      <FILE id="PaCHRO" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_X_G_Audio_Processor_P.h"/>
+      <FILE id="zZdOpc" name="D_X_G_Data_Hub_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/D_X_G_Data_Hub_P.cpp"/>
+      <FILE id="fXgTe9" name="D_X_G_Data_Hub_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_X_G_Data_Hub_P.h"/>
+      <FILE id="ybkI3N" name="D_X_G_Data_User_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_X_G_Data_User_P.h"/>
+      <FILE id="bPU5kF" name="D_X_G_Editor_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/D_X_G_Editor_P.cpp"/>
+      <FILE id="iXvEW5" name="D_X_G_Editor_P.h" compile="0" resource="0"
+            file="Project_Source_Files/D_X_G_Editor_P.h"/>
+      <FILE id="DnYbRd" name="G_DRAW_Paths_Editor_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/G_DRAW_Paths_Editor_P.cpp"/>
+      <FILE id="yYLd5Q" name="G_DRAW_Paths_Editor_P.h" compile="0" resource="0"
+            file="Project_Source_Files/G_DRAW_Paths_Editor_P.h"/>
+      <FILE id="gkqj3U" name="G_DRAW_Paths_LED_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/G_DRAW_Paths_LED_P.cpp"/>
+      <FILE id="cFYY6i" name="G_DRAW_Paths_LED_P.h" compile="0" resource="0"
+            file="Project_Source_Files/G_DRAW_Paths_LED_P.h"/>
+      <FILE id="rhd6yQ" name="G_LAYER_Exp_Ctrls_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/G_LAYER_Exp_Ctrls_P.cpp"/>
+      <FILE id="FJQTts" name="G_LAYER_Exp_Ctrls_P.h" compile="0" resource="0"
+            file="Project_Source_Files/G_LAYER_Exp_Ctrls_P.h"/>
+      <FILE id="uXy5Oq" name="G_LOOK_AND_FEEL_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/G_LOOK_AND_FEEL_P.cpp"/>
+      <FILE id="Fz0RPp" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"
+            file="Project_Source_Files/G_LOOK_AND_FEEL_P.h"/>
+      <FILE id="CCox9Z" name="G_WIDG_Sli_Display_Exp_P.cpp" compile="1" resource="0"
+            file="Project_Source_Files/G_WIDG_Sli_Display_Exp_P.cpp"/>
+      <FILE id="bMWLgd" name="G_WIDG_Sli_Display_Exp_P.h" compile="0" resource="0"
+            file="Project_Source_Files/G_WIDG_Sli_Display_Exp_P.h"/>
+      <FILE id="HFrRZ2" name="G_WIDG_Sli_Wheel_Mod_P.h" compile="0" resource="0"
+            file="Project_Source_Files/G_WIDG_Sli_Wheel_Mod_P.h"/>
+      <FILE id="uQAzkC" name="G_WIDG_Slider_Exp_P.h" compile="0" resource="0"
+            file="Project_Source_Files/G_WIDG_Slider_Exp_P.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors_headless" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_midi_ci" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2022 targetFolder="Builds/VisualStudio2022">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Matrix-6G 2026 (Debug)"
+                       binaryPath="C:\Users\Public\Documents\VST3 Builds\Debug\Matrix-6G 2026"
+                       defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING" enableIncrementalLinking="1"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Matrix-6G 2026" binaryPath="C:\Users\Public\Documents\VST3 Builds\Release\Matrix-6G 2026"
+                       defines="JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING" useRuntimeLibDLL="0"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors_headless" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_midi_ci" path="../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2022>
+  </EXPORTFORMATS>
+</JUCERPROJECT>

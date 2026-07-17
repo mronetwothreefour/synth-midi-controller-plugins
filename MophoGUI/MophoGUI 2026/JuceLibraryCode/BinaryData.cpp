@@ -9,7 +9,7 @@
 namespace BinaryData
 {
 
-//================== OVERPASS-BOLD.TTF ==================
+//================== Overpass-Bold.ttf ==================
 static const unsigned char temp_binary_data_0[] =
 { 0,1,0,0,0,18,1,0,0,4,0,32,70,70,84,77,124,193,130,43,0,0,1,44,0,0,0,28,71,68,69,70,13,81,17,184,0,0,1,72,0,0,0,100,71,80,79,83,97,78,50,116,0,0,1,172,0,0,58,114,71,83,85,66,170,166,127,76,0,0,60,32,0,0,6,54,79,83,47,50,95,199,121,206,0,0,66,88,0,0,0,
 96,99,109,97,112,22,58,174,50,0,0,66,184,0,0,6,174,99,118,116,32,20,79,0,94,0,1,211,136,0,0,0,60,102,112,103,109,48,213,49,209,0,1,211,196,0,0,13,7,103,97,115,112,0,0,0,16,0,1,211,128,0,0,0,8,103,108,121,102,191,233,95,231,0,0,73,104,0,1,57,122,104,101,
@@ -1362,9 +1362,9 @@ static const unsigned char temp_binary_data_0[] =
 0,7,66,178,25,1,0,42,177,0,7,66,179,12,8,1,8,42,177,0,7,66,179,22,6,1,8,42,177,0,8,66,186,3,64,0,1,0,9,42,177,0,9,66,186,0,64,0,1,0,9,42,177,3,0,68,177,36,1,136,81,88,176,64,136,88,177,3,100,68,177,38,1,136,81,88,186,8,128,0,1,4,64,136,99,84,88,177,3,
 0,68,89,89,89,89,179,14,8,1,12,42,184,1,255,133,176,4,141,177,2,0,68,179,5,100,6,0,68,68,0,0,0,0,0 };
 
-const char* OVERPASSBOLD_TTF = (const char*) temp_binary_data_0;
+const char* OverpassBold_ttf = (const char*) temp_binary_data_0;
 
-//================== OVERPASS-SEMIBOLD.TTF ==================
+//================== Overpass-SemiBold.ttf ==================
 static const unsigned char temp_binary_data_1[] =
 { 0,1,0,0,0,18,1,0,0,4,0,32,70,70,84,77,124,193,130,43,0,0,1,44,0,0,0,28,71,68,69,70,13,81,17,157,0,0,1,72,0,0,0,100,71,80,79,83,163,116,53,46,0,0,1,172,0,0,52,40,71,83,85,66,170,166,127,76,0,0,53,212,0,0,6,54,79,83,47,50,95,99,120,223,0,0,60,12,0,0,0,
 96,99,109,97,112,22,58,174,50,0,0,60,108,0,0,6,174,99,118,116,32,20,49,0,68,0,1,204,64,0,0,0,60,102,112,103,109,48,213,49,209,0,1,204,124,0,0,13,7,103,97,115,112,0,0,0,16,0,1,204,56,0,0,0,8,103,108,121,102,83,248,236,72,0,0,67,28,0,1,55,224,104,101,97,
@@ -2696,7 +2696,7 @@ static const unsigned char temp_binary_data_1[] =
 7,66,179,22,6,1,8,42,177,0,8,66,186,3,64,0,1,0,9,42,177,0,9,66,186,0,64,0,1,0,9,42,177,3,0,68,177,36,1,136,81,88,176,64,136,88,177,3,100,68,177,38,1,136,81,88,186,8,128,0,1,4,64,136,99,84,88,177,3,0,68,89,89,89,89,179,14,8,1,12,42,184,1,255,133,176,4,
 141,177,2,0,68,179,5,100,6,0,68,68,0,0,0,0,0 };
 
-const char* OVERPASSSEMIBOLD_TTF = (const char*) temp_binary_data_1;
+const char* OverpassSemiBold_ttf = (const char*) temp_binary_data_1;
 
 
 const char* getNamedResource (const char* resourceNameUTF8, int& numBytes);
@@ -2710,8 +2710,8 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes)
 
     switch (hash)
     {
-        case 0x2ec22ef1:  numBytes = 123228; return OVERPASSBOLD_TTF;
-        case 0x44242ddf:  numBytes = 121364; return OVERPASSSEMIBOLD_TTF;
+        case 0xeff66b51:  numBytes = 123228; return OverpassBold_ttf;
+        case 0x9e23b65f:  numBytes = 121364; return OverpassSemiBold_ttf;
         default: break;
     }
 
@@ -2721,14 +2721,14 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes)
 
 const char* namedResourceList[] =
 {
-    "OVERPASSBOLD_TTF",
-    "OVERPASSSEMIBOLD_TTF"
+    "OverpassBold_ttf",
+    "OverpassSemiBold_ttf"
 };
 
 const char* originalFilenames[] =
 {
-    "OVERPASS-BOLD.TTF",
-    "OVERPASS-SEMIBOLD.TTF"
+    "Overpass-Bold.ttf",
+    "Overpass-SemiBold.ttf"
 };
 
 const char* getNamedResourceOriginalFilename (const char* resourceNameUTF8);

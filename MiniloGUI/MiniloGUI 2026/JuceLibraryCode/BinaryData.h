@@ -8,8 +8,8 @@
 
 namespace BinaryData
 {
-    extern const char*   OVERPASSBOLD_TTF;
-    const int            OVERPASSBOLD_TTFSize = 123228;
+    extern const char*   OverpassBold_ttf;
+    const int            OverpassBold_ttfSize = 123228;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
     const int namedResourceListSize = 1;
