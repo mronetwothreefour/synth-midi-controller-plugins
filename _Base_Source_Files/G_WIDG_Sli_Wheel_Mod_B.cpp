@@ -19,9 +19,9 @@ void Slider_Wheel_Mod_B::mouseWheelMove(const MouseEvent& e, const MouseWheelDet
 		auto increment{ getInterval() * (delta < 0.0 ? -1.0 : 1.0) };
 		if (delta != 0.0f) {
 			auto mods = e.mods.withoutMouseButtons();
-			if (mods == Mods::noModifiers) increment_value(increment, new_value);
-			if (mods == Mods::altModifier) alt_increment_value(increment, new_value);
-			if (mods == Mods::ctrlModifier) ctrl_increment_value(increment, new_value);
+			if (mods == Mods::noModifiers) mod_value(increment, new_value);
+			if (mods == Mods::altModifier) alt_mod_value(increment, new_value);
+			if (mods == Mods::ctrlModifier) ctrl_mod_value(increment, new_value);
 			if (mods == Mods::shiftModifier) shift_increment_value(increment, new_value);
 			setValue(new_value);
 		}
@@ -29,12 +29,12 @@ void Slider_Wheel_Mod_B::mouseWheelMove(const MouseEvent& e, const MouseWheelDet
 	}
 }
 
-void Slider_Wheel_Mod_B::increment_value(double increment, double& value) {
-	value += increment;
+void Slider_Wheel_Mod_B::mod_value(double increment, double& curr_sli_val) {
+	curr_sli_val += increment;
 }
 
-void Slider_Wheel_Mod_B::shift_increment_value(double increment, double& value) {
+void Slider_Wheel_Mod_B::shift_increment_value(double increment, double& curr_sli_val) {
 	increment *= modifying_pitch ? 12.0 : 10.0;
-	value += increment;
+	curr_sli_val += increment;
 }
 
