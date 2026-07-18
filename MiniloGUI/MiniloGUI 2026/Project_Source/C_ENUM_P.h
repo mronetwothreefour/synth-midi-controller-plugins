@@ -1,0 +1,177 @@
+#pragma once
+
+namespace ENUM
+{
+
+	static enum Additional_Voice_Param {
+		amp_mod_by_velo_amt,
+		current_voice_name,
+		keyboard_octave,
+		lfo_sync_bpm_on,
+		lfo_sync_key_on,
+		lfo_sync_voice_on,
+		microtune_scale,
+		pgm_fine_tune,
+		pgm_level,
+		pgm_transpose,
+		porta_mode_on,
+		porta_sync_bpm_on,
+		porta_time,
+		scale_key,
+		slider_range,
+		slider_range_pitch_bend_neg,
+		slider_range_pitch_bend_pos,
+		slider_target,
+		voice_mode
+	};
+
+	constexpr enum class Ctrl_Type {
+		error = -1,
+		knob,
+		knob_osc_pitch_fine,
+		knob_osc_2_pitch_eg_int,
+		knob_tempo,
+		knob_voice_mode_depth,
+		knob_lfo_rate,
+		knob_lpf_freq,
+		switch_2_pole,
+		switch_3_pole,
+		switch_lpf_type,
+		switch_osc_octave
+	};
+
+	static enum Exp_Param {
+		lfo_wave,
+		delay_feedback,
+		delay_hpf_freq,
+		delay_routing,
+		delay_time,
+		env_attack,
+		env_decay,
+		env_release,
+		env_sustain,
+		lfo_eg_mod,
+		lfo_int,
+		lfo_rate,
+		lfo_target,
+		lpf_eg_int,
+		lpf_freq,
+		lpf_key_track,
+		lpf_reso,
+		lpf_type,
+		lpf_vel_amt,
+		noise_level,
+		osc_1_level,
+		osc_1_octave,
+		osc_1_pitch_fine,
+		osc_1_shape,
+		osc_1_wave,
+		osc_2_level,
+		osc_2_octave,
+		osc_2_pitch_eg_int,
+		osc_2_pitch_fine,
+		osc_2_ring_mod,
+		osc_2_shape,
+		osc_2_sync,
+		osc_2_wave,
+		osc_2_xmod_depth,
+		vca_env_attack,
+		vca_env_decay,
+		vca_env_release,
+		vca_env_sustain,
+		voice_mode_depth
+	};
+
+	constexpr enum class Slider_Display_Type {
+		error = -1,
+		none,
+		lfo_rate,
+		lpf_eg_int,
+		osc_2_pitch_eg_int,
+		osc_pitch_fine,
+		unsigned_10_bit,
+		voice_mode_depth
+	};
+
+	constexpr enum class Microtune_Scale {
+		equal_temp = 0,
+		pure_major,
+		pure_minor,
+		pythagorean,
+		werckmeister,
+		kirnberger,
+		slendro,
+		pelog,
+		ionian,
+		dorian,
+		aeolian,
+		major_penta,
+		minor_penta,
+		reverse,
+		afx_1,
+		afx_2,
+		afx_3,
+		afx_4,
+		afx_5,
+		afx_6,
+		dc_1,
+		dc_2,
+		dc_3,
+		user_scale_1,
+		user_scale_2,
+		user_scale_3,
+		user_scale_4,
+		user_scale_5,
+		user_scale_6,
+		user_octave_1,
+		user_octave_2,
+		user_octave_3,
+		user_octave_4,
+		user_octave_5,
+		user_octave_6
+	};
+
+	constexpr enum class Assignable_Slider_Target {
+		pitch_bend = 0,
+		gate_time,
+		osc_1_pitch,
+		osc_1_shape,
+		osc_2_pitch,
+		osc_2_shape,
+		osc_2_x_mod_depth,
+		osc_2_pitch_eg_int,
+		level_osc_1,
+		level_osc_2,
+		level_noise,
+		lpf_cutoff,
+		lpf_reso,
+		lpf_eg_int,
+		vca_env_attack,
+		vca_env_decay,
+		vca_env_sustain,
+		vca_env_release,
+		env_attack,
+		env_decay,
+		env_sustain,
+		env_release,
+		lfo_rate,
+		lfo_int,
+		delay_hpf_freq,
+		delay_time,
+		delay_feedback,
+		porta_time,
+		voice_mode_depth
+	};
+
+	constexpr enum class Voice_Mode {
+		poly = 0,
+		duo,
+		unison,
+		mono,
+		chord,
+		delay,
+		arp,
+		sidechain
+	};
+
+}

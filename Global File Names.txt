@@ -1,5 +1,8 @@
 C_COLOR_G
+C_ENUM_P
 C_COLOR_P
+C_ID_G
+C_ID_P
 C_XYWH_P
 D_X_G_Audio_Processor_G
 D_X_G_Audio_Processor_P

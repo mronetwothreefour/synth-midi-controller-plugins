@@ -11,6 +11,7 @@
   <MAINGROUP id="ZPn9H4" name="P-600-GUI 2026">
     <GROUP id="{22028B08-C958-7E46-22FE-468E166FFF66}" name="_Global_Source">
       <FILE id="FS4H62" name="C_COLOR_G.h" compile="0" resource="0" file="../../_Global_Source/C_COLOR_G.h"/>
+      <FILE id="wpjApX" name="C_ID_G.h" compile="0" resource="0" file="../../_Global_Source/C_ID_G.h"/>
       <FILE id="nEnLSC" name="D_X_G_Audio_Processor_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/D_X_G_Audio_Processor_G.cpp"/>
       <FILE id="aNheMb" name="D_X_G_Audio_Processor_G.h" compile="0" resource="0"
@@ -27,6 +28,8 @@
         <FILE id="jzo5T0" name="texture.jpg" compile="0" resource="1" file="Project_Source/binaries/texture.jpg"/>
       </GROUP>
       <FILE id="YnWt9Q" name="C_COLOR_P.h" compile="0" resource="0" file="Project_Source/C_COLOR_P.h"/>
+      <FILE id="QIRW5w" name="C_ENUM_P.h" compile="0" resource="0" file="Project_Source/C_ENUM_P.h"/>
+      <FILE id="rrLS2M" name="C_ID_P.h" compile="0" resource="0" file="Project_Source/C_ID_P.h"/>
       <FILE id="S6sTot" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source/C_XYWH_P.h"/>
       <FILE id="kCtBXI" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="Project_Source/D_X_G_Audio_Processor_P.cpp"/>
