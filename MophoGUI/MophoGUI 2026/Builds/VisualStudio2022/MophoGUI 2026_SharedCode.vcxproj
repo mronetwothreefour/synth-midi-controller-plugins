@@ -2975,8 +2975,10 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_midi_ci.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\_Global_Source\C_COLOR_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.h"/>
+    <ClInclude Include="..\..\Project_Source\C_COLOR_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_XYWH_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Audio_Processor_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Editor_P.h"/>

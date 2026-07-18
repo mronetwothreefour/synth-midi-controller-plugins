@@ -10,6 +10,7 @@
               cppLanguageStandard="20" headerPath="..\..\..\..\_Global_Source&#10;..\..\Project_Source">
   <MAINGROUP id="ijhAFi" name="Matrix-6G 2026">
     <GROUP id="{A958F168-84D4-8B97-B836-269A1E247DEE}" name="_Global_Source">
+      <FILE id="gc8Yzl" name="C_COLOR_G.h" compile="0" resource="0" file="../../_Global_Source/C_COLOR_G.h"/>
       <FILE id="KveG7b" name="D_X_G_Audio_Processor_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/D_X_G_Audio_Processor_G.cpp"/>
       <FILE id="vYxQBF" name="D_X_G_Audio_Processor_G.h" compile="0" resource="0"
@@ -24,6 +25,7 @@
         <FILE id="aqlYMp" name="Overpass-Bold.ttf" compile="0" resource="1"
               file="../../../../../socl0/AppData/Local/Microsoft/Windows/Fonts/Overpass-Bold.ttf"/>
       </GROUP>
+      <FILE id="qIboWG" name="C_COLOR_P.h" compile="0" resource="0" file="Project_Source/C_COLOR_P.h"/>
       <FILE id="GFp8Bj" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source/C_XYWH_P.h"/>
       <FILE id="r5MbZv" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="Project_Source/D_X_G_Audio_Processor_P.cpp"/>

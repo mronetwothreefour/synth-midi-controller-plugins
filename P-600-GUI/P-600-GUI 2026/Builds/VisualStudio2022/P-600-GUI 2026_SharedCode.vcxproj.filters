@@ -3720,11 +3720,17 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\_Global_Source\C_COLOR_G.h">
+      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.h">
       <Filter>P-600-GUI 2026\_Global_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.h">
       <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\C_COLOR_P.h">
+      <Filter>P-600-GUI 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\C_XYWH_P.h">
       <Filter>P-600-GUI 2026\Project_Source</Filter>

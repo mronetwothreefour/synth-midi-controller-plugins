@@ -10,6 +10,7 @@
               cppLanguageStandard="20" headerPath="..\..\..\..\_Global_Source&#10;..\..\Project_Source">
   <MAINGROUP id="zGS4Ui" name="MophoGUI 2026">
     <GROUP id="{20AC4ACD-6996-A944-DDAB-C6D17E8BE11C}" name="_Global_Source">
+      <FILE id="cY2onN" name="C_COLOR_G.h" compile="0" resource="0" file="../../_Global_Source/C_COLOR_G.h"/>
       <FILE id="GASkPQ" name="D_X_G_Audio_Processor_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/D_X_G_Audio_Processor_G.cpp"/>
       <FILE id="hswO3A" name="D_X_G_Audio_Processor_G.h" compile="0" resource="0"
@@ -26,6 +27,7 @@
         <FILE id="Sv2OO4" name="Overpass-SemiBold.ttf" compile="0" resource="1"
               file="../../../../../socl0/AppData/Local/Microsoft/Windows/Fonts/Overpass-SemiBold.ttf"/>
       </GROUP>
+      <FILE id="ecofrm" name="C_COLOR_P.h" compile="0" resource="0" file="Project_Source/C_COLOR_P.h"/>
       <FILE id="QafCON" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source/C_XYWH_P.h"/>
       <FILE id="NfcYGz" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="Project_Source/D_X_G_Audio_Processor_P.cpp"/>
