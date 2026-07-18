@@ -7,14 +7,25 @@
               pluginCharacteristicsValue="pluginEditorRequiresKeys,pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginDesc="Sound editor/librarian for use with the SCI Prophet-600 synthesizer"
               pluginManufacturerCode="TimD" pluginCode="F0ch" pluginVST3Category="Tools"
-              cppLanguageStandard="20" headerPath="..\..\..\..\_Shared_Source&#10;..\..\Project_Source">
+              cppLanguageStandard="20" headerPath="..\..\..\..\_Global_Source&#10;..\..\Project_Source">
   <MAINGROUP id="ZPn9H4" name="P-600-GUI 2026">
+    <GROUP id="{22028B08-C958-7E46-22FE-468E166FFF66}" name="_Global_Source">
+      <FILE id="nEnLSC" name="D_X_G_Audio_Processor_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/D_X_G_Audio_Processor_G.cpp"/>
+      <FILE id="aNheMb" name="D_X_G_Audio_Processor_G.h" compile="0" resource="0"
+            file="../../_Global_Source/D_X_G_Audio_Processor_G.h"/>
+      <FILE id="PpiVQ6" name="D_X_G_Editor_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/D_X_G_Editor_G.cpp"/>
+      <FILE id="Cpjr4H" name="D_X_G_Editor_G.h" compile="0" resource="0"
+            file="../../_Global_Source/D_X_G_Editor_G.h"/>
+    </GROUP>
     <GROUP id="{79F1DF30-D46E-4059-92F9-950080CBDF0B}" name="Project_Source">
       <GROUP id="{06B94E68-0090-A03F-D446-BA23FEBC3B3C}" name="binaries">
         <FILE id="pHv5dY" name="Overpass-Bold.ttf" compile="0" resource="1"
               file="../../../../../socl0/AppData/Local/Microsoft/Windows/Fonts/Overpass-Bold.ttf"/>
         <FILE id="jzo5T0" name="texture.jpg" compile="0" resource="1" file="Project_Source/binaries/texture.jpg"/>
       </GROUP>
+      <FILE id="S6sTot" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source/C_XYWH_P.h"/>
       <FILE id="kCtBXI" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="Project_Source/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="IZYOth" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"

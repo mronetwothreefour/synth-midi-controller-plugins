@@ -2,6 +2,9 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Matrix-6G 2026\_Global_Source">
+      <UniqueIdentifier>{203E9892-BA10-BABC-4E41-42F397542862}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Matrix-6G 2026\Project_Source\binaries">
       <UniqueIdentifier>{F8A5F932-A142-D0B5-502B-44871EA621B9}</UniqueIdentifier>
     </Filter>
@@ -691,6 +694,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.cpp">
+      <Filter>Matrix-6G 2026\_Global_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.cpp">
+      <Filter>Matrix-6G 2026\_Global_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source\D_X_G_Audio_Processor_P.cpp">
       <Filter>Matrix-6G 2026\Project_Source</Filter>
     </ClCompile>
@@ -3711,6 +3720,15 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.h">
+      <Filter>Matrix-6G 2026\_Global_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.h">
+      <Filter>Matrix-6G 2026\_Global_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\C_XYWH_P.h">
+      <Filter>Matrix-6G 2026\Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source\D_X_G_Audio_Processor_P.h">
       <Filter>Matrix-6G 2026\Project_Source</Filter>
     </ClInclude>

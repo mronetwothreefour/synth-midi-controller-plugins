@@ -1,39 +1,16 @@
-/*
-  ==============================================================================
-
-    This file contains the basic framework code for a JUCE plugin editor.
-
-  ==============================================================================
-*/
-
 #include "D_X_G_Editor_P.h"
 
-//==============================================================================
-MiniloGUI2026AudioProcessorEditor::MiniloGUI2026AudioProcessorEditor (MiniloGUI2026AudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p)
+#include "C_XYWH_P.h"
+
+using namespace XYWH;
+
+Editor_P::Editor_P(Audio_Processor_P& processor/*, Data_Hub_P* hub*/) :
+    Editor_G{ processor/*, hub*/ }
 {
-    // Make sure that before the constructor has finished, you've set the
-    // editor's size to whatever you need it to be.
-    setSize (400, 300);
+    resized();
 }
 
-MiniloGUI2026AudioProcessorEditor::~MiniloGUI2026AudioProcessorEditor()
-{
-}
-
-//==============================================================================
-void MiniloGUI2026AudioProcessorEditor::paint (juce::Graphics& g)
-{
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
-
-    g.setColour (juce::Colours::white);
-    g.setFont (juce::FontOptions (15.0f));
-    g.drawFittedText ("Hello World!", getLocalBounds(), juce::Justification::centred, 1);
-}
-
-void MiniloGUI2026AudioProcessorEditor::resized()
-{
-    // This is generally where you'll want to lay out the positions of any
-    // subcomponents in your editor..
+void Editor_P::resized() {
+    //scale_factor = (float)getWidth() / XYWH::gui_init_w;
+    //layer_exp_ctrls.setBounds(getLocalBounds());
 }

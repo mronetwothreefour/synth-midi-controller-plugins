@@ -1,33 +1,17 @@
-/*
-  ==============================================================================
-
-    This file contains the basic framework code for a JUCE plugin editor.
-
-  ==============================================================================
-*/
-
 #pragma once
 
 #include <JuceHeader.h>
-#include "D_X_G_Audio_Processor_P.h"
+
+#include "D_X_G_Editor_G.h"
+
+class Editor_P :
+    public Editor_G
+{
+//==============================================================================
+public: Editor_P(Audio_Processor_P& processor/*, Data_Hub_P* hub*/);
+
+public: void resized() override;
 
 //==============================================================================
-/**
-*/
-class P600GUI2026AudioProcessorEditor  : public juce::AudioProcessorEditor
-{
-public:
-    P600GUI2026AudioProcessorEditor (P600GUI2026AudioProcessor&);
-    ~P600GUI2026AudioProcessorEditor() override;
-
-    //==============================================================================
-    void paint (juce::Graphics&) override;
-    void resized() override;
-
-private:
-    // This reference is provided as a quick way for your editor to
-    // access the processor object that created it.
-    P600GUI2026AudioProcessor& audioProcessor;
-
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (P600GUI2026AudioProcessorEditor)
+private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Editor_P)
 };

@@ -2,6 +2,9 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="MophoGUI 2026\_Global_Source">
+      <UniqueIdentifier>{2382E1D6-9A92-CDD1-9FB3-C17CB6E13952}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MophoGUI 2026\Project_Source\binaries">
       <UniqueIdentifier>{36A256EF-F426-EAEC-811F-7753B3F6303D}</UniqueIdentifier>
     </Filter>
@@ -691,6 +694,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.cpp">
+      <Filter>MophoGUI 2026\_Global_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.cpp">
+      <Filter>MophoGUI 2026\_Global_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source\D_X_G_Audio_Processor_P.cpp">
       <Filter>MophoGUI 2026\Project_Source</Filter>
     </ClCompile>
@@ -3711,6 +3720,15 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.h">
+      <Filter>MophoGUI 2026\_Global_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.h">
+      <Filter>MophoGUI 2026\_Global_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\C_XYWH_P.h">
+      <Filter>MophoGUI 2026\Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source\D_X_G_Audio_Processor_P.h">
       <Filter>MophoGUI 2026\Project_Source</Filter>
     </ClInclude>

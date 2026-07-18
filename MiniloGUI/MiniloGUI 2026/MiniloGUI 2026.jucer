@@ -6,13 +6,24 @@
               pluginFormats="buildStandalone,buildVST3" pluginCharacteristicsValue="pluginEditorRequiresKeys,pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginDesc="Sound editor/librarian for use with the Korg Minilogue synthesizer"
               pluginManufacturerCode="TimD" pluginCode="Kwvs" pluginVST3Category="Tools"
-              cppLanguageStandard="20" headerPath="..\..\..\..\_Shared_Source&#10;..\..\Project_Source">
+              cppLanguageStandard="20" headerPath="..\..\..\..\_Global_Source&#10;..\..\Project_Source">
   <MAINGROUP id="AhFawq" name="MiniloGUI 2026">
+    <GROUP id="{A89E336E-1EC3-5F8B-8601-F422EDA38ED4}" name="_Global_Source">
+      <FILE id="zFdgHO" name="D_X_G_Audio_Processor_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/D_X_G_Audio_Processor_G.cpp"/>
+      <FILE id="uKdjGt" name="D_X_G_Audio_Processor_G.h" compile="0" resource="0"
+            file="../../_Global_Source/D_X_G_Audio_Processor_G.h"/>
+      <FILE id="DV3s2E" name="D_X_G_Editor_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/D_X_G_Editor_G.cpp"/>
+      <FILE id="MVVJ8y" name="D_X_G_Editor_G.h" compile="0" resource="0"
+            file="../../_Global_Source/D_X_G_Editor_G.h"/>
+    </GROUP>
     <GROUP id="{466BC44A-4333-DF3E-C3D9-6E81D6C6A08E}" name="Project_Source">
       <GROUP id="{6D444D21-6E99-5817-8695-6E2D52F2324F}" name="binaries">
         <FILE id="VVjLvp" name="Overpass-Bold.ttf" compile="0" resource="1"
               file="../../../../../socl0/AppData/Local/Microsoft/Windows/Fonts/Overpass-Bold.ttf"/>
       </GROUP>
+      <FILE id="XamaW1" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source/C_XYWH_P.h"/>
       <FILE id="x4TAaL" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="Project_Source/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="ylavD1" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"

@@ -2,6 +2,9 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="MiniloGUI 2026\_Global_Source">
+      <UniqueIdentifier>{0FB7CAAF-C974-D0A9-F736-D4D706FBBBE9}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MiniloGUI 2026\Project_Source\binaries">
       <UniqueIdentifier>{8B3381EC-092B-DD68-0F4C-AB14D3A98BF7}</UniqueIdentifier>
     </Filter>
@@ -691,6 +694,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.cpp">
+      <Filter>MiniloGUI 2026\_Global_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.cpp">
+      <Filter>MiniloGUI 2026\_Global_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source\D_X_G_Audio_Processor_P.cpp">
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClCompile>
@@ -3711,6 +3720,15 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.h">
+      <Filter>MiniloGUI 2026\_Global_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.h">
+      <Filter>MiniloGUI 2026\_Global_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\C_XYWH_P.h">
+      <Filter>MiniloGUI 2026\Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source\D_X_G_Audio_Processor_P.h">
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClInclude>

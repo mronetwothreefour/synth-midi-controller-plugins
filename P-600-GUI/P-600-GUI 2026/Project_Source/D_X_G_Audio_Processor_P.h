@@ -1,59 +1,23 @@
-/*
-  ==============================================================================
-
-    This file contains the basic framework code for a JUCE plugin processor.
-
-  ==============================================================================
-*/
-
 #pragma once
 
 #include <JuceHeader.h>
 
-//==============================================================================
-/**
-*/
-class P600GUI2026AudioProcessor  : public juce::AudioProcessor
+#include "D_X_G_Audio_Processor_G.h"
+
+class Audio_Processor_P :
+    public Audio_Processor_G
 {
-public:
-    //==============================================================================
-    P600GUI2026AudioProcessor();
-    ~P600GUI2026AudioProcessor() override;
 
-    //==============================================================================
-    void prepareToPlay (double sampleRate, int samplesPerBlock) override;
-    void releaseResources() override;
+//==============================================================================
+public: Audio_Processor_P();
 
-   #ifndef JucePlugin_PreferredChannelConfigurations
-    bool isBusesLayoutSupported (const BusesLayout& layouts) const override;
-   #endif
+public: void process_block(AudioBuffer<float>& audio, MidiBuffer& midi) override;
+public: AudioProcessorEditor* create_editor() override;
+public: void store_plugin_specific_param_state(XmlElement& plugin_state) override;
+public: void restore_plugin_specific_param_state(XmlElement* plugin_state) override;
 
-    void processBlock (juce::AudioBuffer<float>&, juce::MidiBuffer&) override;
+public: ~Audio_Processor_P() override;
 
-    //==============================================================================
-    juce::AudioProcessorEditor* createEditor() override;
-    bool hasEditor() const override;
-
-    //==============================================================================
-    const juce::String getName() const override;
-
-    bool acceptsMidi() const override;
-    bool producesMidi() const override;
-    bool isMidiEffect() const override;
-    double getTailLengthSeconds() const override;
-
-    //==============================================================================
-    int getNumPrograms() override;
-    int getCurrentProgram() override;
-    void setCurrentProgram (int index) override;
-    const juce::String getProgramName (int index) override;
-    void changeProgramName (int index, const juce::String& newName) override;
-
-    //==============================================================================
-    void getStateInformation (juce::MemoryBlock& destData) override;
-    void setStateInformation (const void* data, int sizeInBytes) override;
-
-private:
-    //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (P600GUI2026AudioProcessor)
+//==============================================================================
+private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Audio_Processor_P)
 };

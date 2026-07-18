@@ -2,6 +2,9 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="P-600-GUI 2026\_Global_Source">
+      <UniqueIdentifier>{05DC63A8-27D6-D9E6-32AE-5F016EFF0210}</UniqueIdentifier>
+    </Filter>
     <Filter Include="P-600-GUI 2026\Project_Source\binaries">
       <UniqueIdentifier>{B68853C2-6FF8-E6A8-C2A3-6DDF9EB79785}</UniqueIdentifier>
     </Filter>
@@ -691,6 +694,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.cpp">
+      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.cpp">
+      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source\D_X_G_Audio_Processor_P.cpp">
       <Filter>P-600-GUI 2026\Project_Source</Filter>
     </ClCompile>
@@ -3711,6 +3720,15 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.h">
+      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.h">
+      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\C_XYWH_P.h">
+      <Filter>P-600-GUI 2026\Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source\D_X_G_Audio_Processor_P.h">
       <Filter>P-600-GUI 2026\Project_Source</Filter>
     </ClInclude>
