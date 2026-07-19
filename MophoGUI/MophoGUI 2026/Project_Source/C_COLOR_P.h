@@ -16,8 +16,8 @@ namespace COLOR
 	const Colour red_toggle_off{ 0xff4a0000 };
 	const Colour red_toggle_on{ 0xffff0000 };
 	const Colour tip_border{ COLOR::white };
+	const Colour yellow{ 0xffffbe00 };
 	const Colour txt_caret{ yellow.withAlpha(0.9f) };
 	const Colour txt_highlight{ yellow.withAlpha(0.6f) };
-	const Colour yellow{ 0xffffbe00 };
 
 }

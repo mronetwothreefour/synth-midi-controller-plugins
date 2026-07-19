@@ -14,4 +14,5 @@ D_X_G_Audio_Processor_P
 D_X_G_Editor_G
 D_X_G_Editor_P
 G_DRAW_Paths_G
+G_DRAW_Paths_Main_P
 G_WIDG_Tip_Updater_G

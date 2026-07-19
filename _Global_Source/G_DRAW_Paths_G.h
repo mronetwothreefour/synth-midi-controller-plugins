@@ -4,9 +4,9 @@
 
 struct Draw_Paths_G
 {
-	protected: static Path load_path(const void* data, size_t data_size) {
+	protected: static Path load_path(const void* data) {
 		Path path;
-		path.loadPathFromData(data, data_size);
+		path.loadPathFromData(data, sizeof(data));
 		return path;
 	}
 };
