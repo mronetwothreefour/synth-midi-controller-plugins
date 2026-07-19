@@ -25,6 +25,8 @@
             file="../../_Global_Source/D_X_G_Editor_G.h"/>
       <FILE id="WtcYEd" name="G_DRAW_Paths_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_DRAW_Paths_G.h"/>
+      <FILE id="DxHhL8" name="G_WIDG_Tip_Updater_G.h" compile="0" resource="0"
+            file="../../_Global_Source/G_WIDG_Tip_Updater_G.h"/>
     </GROUP>
     <GROUP id="{32DE5907-F490-4B16-B1D8-20E86D5C7794}" name="Project_Source">
       <GROUP id="{19317CD1-CD7C-448A-1E1D-08F2DA6A124B}" name="binaries">
@@ -36,6 +38,8 @@
       <FILE id="ecofrm" name="C_COLOR_P.h" compile="0" resource="0" file="Project_Source/C_COLOR_P.h"/>
       <FILE id="BfuieI" name="C_ENUM_P.h" compile="0" resource="0" file="Project_Source/C_ENUM_P.h"/>
       <FILE id="Rtg62l" name="C_ID_P.h" compile="0" resource="0" file="Project_Source/C_ID_P.h"/>
+      <FILE id="sPSzGH" name="C_EXP_P.h" compile="0" resource="0" file="Project_Source/C_EXP_P.h"/>
+      <FILE id="AWZBjh" name="C_FONT_P.h" compile="0" resource="0" file="Project_Source/C_FONT_P.h"/>
       <FILE id="QafCON" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source/C_XYWH_P.h"/>
       <FILE id="NfcYGz" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="Project_Source/D_X_G_Audio_Processor_P.cpp"/>

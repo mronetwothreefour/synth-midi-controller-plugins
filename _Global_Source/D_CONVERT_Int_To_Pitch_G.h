@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-struct Int_To_Pitch_G
+struct Int_To_Pitch
 {
     static String convert(const int i) {
         auto note{ i % 12 };

@@ -3741,6 +3741,9 @@
     <ClInclude Include="..\..\..\..\_Global_Source\G_DRAW_Paths_G.h">
       <Filter>MophoGUI 2026\_Global_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Tip_Updater_G.h">
+      <Filter>MophoGUI 2026\_Global_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source\C_COLOR_P.h">
       <Filter>MophoGUI 2026\Project_Source</Filter>
     </ClInclude>
@@ -3748,6 +3751,12 @@
       <Filter>MophoGUI 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\C_ID_P.h">
+      <Filter>MophoGUI 2026\Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\C_EXP_P.h">
+      <Filter>MophoGUI 2026\Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\C_FONT_P.h">
       <Filter>MophoGUI 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\C_XYWH_P.h">
