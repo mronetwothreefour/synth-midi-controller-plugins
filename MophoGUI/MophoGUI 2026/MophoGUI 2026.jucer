@@ -40,6 +40,8 @@
       <FILE id="Rtg62l" name="C_ID_P.h" compile="0" resource="0" file="Project_Source/C_ID_P.h"/>
       <FILE id="sPSzGH" name="C_EXP_P.h" compile="0" resource="0" file="Project_Source/C_EXP_P.h"/>
       <FILE id="AWZBjh" name="C_FONT_P.h" compile="0" resource="0" file="Project_Source/C_FONT_P.h"/>
+      <FILE id="X13I9q" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
+            file="Project_Source/C_PATH_Backdrop_Main_P.h"/>
       <FILE id="QafCON" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source/C_XYWH_P.h"/>
       <FILE id="NfcYGz" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="Project_Source/D_X_G_Audio_Processor_P.cpp"/>

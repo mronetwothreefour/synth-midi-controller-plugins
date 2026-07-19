@@ -2988,6 +2988,7 @@
     <ClInclude Include="..\..\Project_Source\C_ID_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_EXP_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_FONT_P.h"/>
+    <ClInclude Include="..\..\Project_Source\C_PATH_Backdrop_Main_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_XYWH_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Audio_Processor_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Editor_P.h"/>

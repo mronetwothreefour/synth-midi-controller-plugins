@@ -3759,6 +3759,9 @@
     <ClInclude Include="..\..\Project_Source\C_ID_P.h">
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Project_Source\C_PATH_Backdrop_Main_P.h">
+      <Filter>MiniloGUI 2026\Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source\C_XYWH_P.h">
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClInclude>
