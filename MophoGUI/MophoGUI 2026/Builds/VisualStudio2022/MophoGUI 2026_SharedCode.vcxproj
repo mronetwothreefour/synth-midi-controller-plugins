@@ -2977,8 +2977,11 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\..\_Global_Source\C_COLOR_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\C_ID_G.h"/>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_CONVERT_Int_To_Pitch_G.h"/>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_TIP_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.h"/>
+    <ClInclude Include="..\..\..\..\_Global_Source\G_DRAW_Paths_G.h"/>
     <ClInclude Include="..\..\Project_Source\C_COLOR_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_ENUM_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_ID_P.h"/>

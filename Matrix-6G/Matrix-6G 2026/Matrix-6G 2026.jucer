@@ -12,6 +12,9 @@
     <GROUP id="{A958F168-84D4-8B97-B836-269A1E247DEE}" name="_Global_Source">
       <FILE id="gc8Yzl" name="C_COLOR_G.h" compile="0" resource="0" file="../../_Global_Source/C_COLOR_G.h"/>
       <FILE id="tnPtBf" name="C_ID_G.h" compile="0" resource="0" file="../../_Global_Source/C_ID_G.h"/>
+      <FILE id="xUvfs0" name="D_CONVERT_Int_To_Pitch_G.h" compile="0" resource="0"
+            file="../../_Global_Source/D_CONVERT_Int_To_Pitch_G.h"/>
+      <FILE id="RRoWIw" name="D_TIP_G.h" compile="0" resource="0" file="../../_Global_Source/D_TIP_G.h"/>
       <FILE id="KveG7b" name="D_X_G_Audio_Processor_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/D_X_G_Audio_Processor_G.cpp"/>
       <FILE id="vYxQBF" name="D_X_G_Audio_Processor_G.h" compile="0" resource="0"
@@ -20,6 +23,8 @@
             file="../../_Global_Source/D_X_G_Editor_G.cpp"/>
       <FILE id="hA11H0" name="D_X_G_Editor_G.h" compile="0" resource="0"
             file="../../_Global_Source/D_X_G_Editor_G.h"/>
+      <FILE id="A7pa5P" name="G_DRAW_Paths_G.h" compile="0" resource="0"
+            file="../../_Global_Source/G_DRAW_Paths_G.h"/>
     </GROUP>
     <GROUP id="{6E0DE2B6-04BB-CD45-22FC-7935844A3B53}" name="Project_Source">
       <GROUP id="{A48EC3C8-7C59-C289-D775-ABC7A2088748}" name="binaries">

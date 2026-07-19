@@ -12,6 +12,9 @@
     <GROUP id="{22028B08-C958-7E46-22FE-468E166FFF66}" name="_Global_Source">
       <FILE id="FS4H62" name="C_COLOR_G.h" compile="0" resource="0" file="../../_Global_Source/C_COLOR_G.h"/>
       <FILE id="wpjApX" name="C_ID_G.h" compile="0" resource="0" file="../../_Global_Source/C_ID_G.h"/>
+      <FILE id="tUT8e3" name="D_CONVERT_Int_To_Pitch_G.h" compile="0" resource="0"
+            file="../../_Global_Source/D_CONVERT_Int_To_Pitch_G.h"/>
+      <FILE id="BuZG4y" name="D_TIP_G.h" compile="0" resource="0" file="../../_Global_Source/D_TIP_G.h"/>
       <FILE id="nEnLSC" name="D_X_G_Audio_Processor_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/D_X_G_Audio_Processor_G.cpp"/>
       <FILE id="aNheMb" name="D_X_G_Audio_Processor_G.h" compile="0" resource="0"
@@ -20,6 +23,8 @@
             file="../../_Global_Source/D_X_G_Editor_G.cpp"/>
       <FILE id="Cpjr4H" name="D_X_G_Editor_G.h" compile="0" resource="0"
             file="../../_Global_Source/D_X_G_Editor_G.h"/>
+      <FILE id="iWnun9" name="G_DRAW_Paths_G.h" compile="0" resource="0"
+            file="../../_Global_Source/G_DRAW_Paths_G.h"/>
     </GROUP>
     <GROUP id="{79F1DF30-D46E-4059-92F9-950080CBDF0B}" name="Project_Source">
       <GROUP id="{06B94E68-0090-A03F-D446-BA23FEBC3B3C}" name="binaries">
