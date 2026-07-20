@@ -4,14 +4,14 @@
 
 using namespace XYWH;
 
-Editor_P::Editor_P(Audio_Processor_P& processor/*, Data_Hub_P* hub*/) :
-    Editor_G{ processor/*, hub*/ }
+Editor_P::Editor_P(Audio_Processor_P& processor, Data_Hub_P* hub) :
+    Editor_G{ processor, hub }
 {
     resized();
 }
 
 void Editor_P::resized() {
-    //scale_factor = (float)getWidth() / editor_init_w;
+    scale_factor = (float)getWidth() / editor_init_w;
     //layer_exp_ctrls.setBounds(getLocalBounds());
 }
 

@@ -5,7 +5,7 @@
 struct FONT
 {
 	static const FontOptions bold() {
-		return FontOptions{ Typeface::createSystemTypefaceFor(BinaryData::OVERPASSBOLD_TTF, BinaryData::OVERPASSBOLD_TTFSize) };
+		return FontOptions{ Typeface::createSystemTypefaceFor(BinaryData::OverpassBold_ttf, BinaryData::OverpassBold_ttfSize) };
 	}
 
 	static const Font file_browser(const float scale_factor) {

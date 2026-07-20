@@ -15,21 +15,21 @@ ColourGradient Draw_Paths_Main_P::ground_gradient(float w, float h) {
 void Draw_Paths_Main_P::backdrop(Graphics& g) {
 	g.setGradientFill(ground_gradient((float)XYWH::editor_init_w, (float)XYWH::editor_init_h));
 	g.fillAll();
-	Path screws_path{ load_path(PATH::main_screws) };
+	Path screws_path{ load_path(PATH::main_screws, sizeof(PATH::main_screws)) };
 	DropShadow screws_shadow{ COLOR::black, 1, Point<int>{ -1, 1 } };
 	screws_shadow.drawForPath(g, screws_path);
 	g.setColour(COLOR::screw);
 	g.fillPath(screws_path);
 	g.setColour(COLOR::screw_hole);
-	g.fillPath(load_path(PATH::main_screw_holes));
+	g.fillPath(load_path(PATH::main_screw_holes, sizeof(PATH::main_screw_holes)));
 	g.setColour(COLOR::black);
-	g.fillPath(load_path(PATH::main_black));
+	g.fillPath(load_path(PATH::main_black, sizeof(PATH::main_black)));
 	g.setColour(COLOR::grey_btn);
-	g.fillPath(load_path(PATH::main_grey_buttons));
+	g.fillPath(load_path(PATH::main_grey_buttons, sizeof(PATH::main_grey_buttons)));
 	g.setColour(COLOR::grey_cbox_arrow);
-	g.fillPath(load_path(PATH::main_grey_cbox_arrows));
+	g.fillPath(load_path(PATH::main_grey_cbox_arrows, sizeof(PATH::main_grey_cbox_arrows)));
 	if (ModifierKeys::currentModifiers == ModifierKeys::altModifier) {
 		g.setColour(COLOR::black);
-		g.fillPath(load_path(PATH::main_alt_underlines));
+		g.fillPath(load_path(PATH::main_alt_underlines, sizeof(PATH::main_alt_underlines)));
 	}
 }

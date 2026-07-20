@@ -5,11 +5,11 @@
 struct FONT
 {
 	static const FontOptions bold() {
-		return FontOptions{ Typeface::createSystemTypefaceFor(BinaryData::OVERPASSBOLD_TTF, BinaryData::OVERPASSBOLD_TTFSize) };
+		return FontOptions{ Typeface::createSystemTypefaceFor(BinaryData::OverpassBold_ttf, BinaryData::OverpassBold_ttfSize) };
 	}
 
 	static const FontOptions semi() {
-		return FontOptions{ Typeface::createSystemTypefaceFor(BinaryData::OVERPASSSEMIBOLD_TTF, BinaryData::OVERPASSSEMIBOLD_TTFSize) };
+		return FontOptions{ Typeface::createSystemTypefaceFor(BinaryData::OverpassSemiBold_ttf, BinaryData::OverpassSemiBold_ttfSize) };
 	}
 
 	static const Font cbox(const float scale_factor) {

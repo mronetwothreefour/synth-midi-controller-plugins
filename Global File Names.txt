@@ -11,6 +11,10 @@ D_CONVERT_Int_To_Pitch_G
 D_TIP_G
 D_X_G_Audio_Processor_G
 D_X_G_Audio_Processor_P
+D_X_G_Data_Hub_G
+D_X_G_Data_Hub_P
+D_X_G_Data_User_G
+D_X_G_Data_User_P
 D_X_G_Editor_G
 D_X_G_Editor_P
 G_DRAW_Paths_G

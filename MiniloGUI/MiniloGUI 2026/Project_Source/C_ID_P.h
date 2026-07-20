@@ -13,8 +13,8 @@ namespace ID
 
 	static const String subtree_bit_locations{ "subtree_bit_locations" };
 
-	static const String tree_additional_voice{ "tree_additional_voice" };
+	static const String tree_aux_voice{ "tree_aux_voice" };
 
-	static const String xml_state_additional_voice{ "xml_state_additional_voice" };
+	static const String xml_state_aux_voice{ "xml_state_aux_voice" };
 
 }

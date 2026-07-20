@@ -697,10 +697,16 @@
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.cpp">
       <Filter>MiniloGUI 2026\_Global_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Data_Hub_G.cpp">
+      <Filter>MiniloGUI 2026\_Global_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.cpp">
       <Filter>MiniloGUI 2026\_Global_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source\D_X_G_Audio_Processor_P.cpp">
+      <Filter>MiniloGUI 2026\Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source\D_X_G_Data_Hub_P.cpp">
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source\D_X_G_Editor_P.cpp">
@@ -3738,6 +3744,12 @@
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.h">
       <Filter>MiniloGUI 2026\_Global_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Data_Hub_G.h">
+      <Filter>MiniloGUI 2026\_Global_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Data_User_G.h">
+      <Filter>MiniloGUI 2026\_Global_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.h">
       <Filter>MiniloGUI 2026\_Global_Source</Filter>
     </ClInclude>
@@ -3769,6 +3781,12 @@
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\D_X_G_Audio_Processor_P.h">
+      <Filter>MiniloGUI 2026\Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\D_X_G_Data_Hub_P.h">
+      <Filter>MiniloGUI 2026\Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\D_X_G_Data_User_P.h">
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\D_X_G_Editor_P.h">

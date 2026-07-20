@@ -3,7 +3,7 @@
 namespace ENUM
 {
 
-	static enum Additional_Voice_Param {
+	static enum Aux_Voice_Param {
 		amp_mod_by_velo_amt,
 		current_voice_name,
 		keyboard_octave,

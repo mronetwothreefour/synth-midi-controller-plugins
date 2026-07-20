@@ -146,8 +146,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.cpp"/>
+    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Data_Hub_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_X_G_Audio_Processor_P.cpp"/>
+    <ClCompile Include="..\..\Project_Source\D_X_G_Data_Hub_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_X_G_Editor_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\G_DRAW_Paths_Main_P.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -2981,6 +2983,8 @@
     <ClInclude Include="..\..\..\..\_Global_Source\D_CONVERT_Int_To_Pitch_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_TIP_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.h"/>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Data_Hub_G.h"/>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Data_User_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\G_DRAW_Paths_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Tip_Updater_G.h"/>
@@ -2992,6 +2996,8 @@
     <ClInclude Include="..\..\Project_Source\C_PATH_Backdrop_Main_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_XYWH_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Audio_Processor_P.h"/>
+    <ClInclude Include="..\..\Project_Source\D_X_G_Data_Hub_P.h"/>
+    <ClInclude Include="..\..\Project_Source\D_X_G_Data_User_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Editor_P.h"/>
     <ClInclude Include="..\..\Project_Source\G_DRAW_Paths_Main_P.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>

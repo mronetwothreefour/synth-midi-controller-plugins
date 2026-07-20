@@ -10,7 +10,7 @@ void Audio_Processor_P::process_block(AudioBuffer<float>& audio, MidiBuffer& /*m
 }
 
 AudioProcessorEditor* Audio_Processor_P::create_editor() {
-    return new Editor_P{ *this/*, hub.get()*/ };
+    return new Editor_P{ *this, hub.get() };
 }
 
 void Audio_Processor_P::store_plugin_specific_param_state(XmlElement& /*plugin_state*/) {
