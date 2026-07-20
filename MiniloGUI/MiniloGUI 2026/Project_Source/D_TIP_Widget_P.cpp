@@ -2,7 +2,7 @@
 
 #include "C_SL_Tip_Widget_P.h"
 
-String Tip_Widget_P::knob_text_editor(const Slider_Display_Type display/*, Tree_Additional_Voice_P& avp*/) {
+String Tip_Widget_P::knob_text_editor(const Slider_Display_Type display/*, Tree_Aux_Voice_P& avp*/) {
 	switch (display)
 	{
 	case Slider_Display_Type::lfo_rate: {

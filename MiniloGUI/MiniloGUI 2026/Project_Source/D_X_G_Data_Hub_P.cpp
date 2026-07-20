@@ -6,6 +6,6 @@ Data_Hub_P::Data_Hub_P(AudioProcessor* processor) :
 {
 }
 
-//Tree_Additional_Voice_P& Data_Hub_P::get_additional_voice_params() {
+//Tree_Aux_Voice_P& Data_Hub_P::get_additional_voice_params() {
 //	return additional_voice_params;
 //}

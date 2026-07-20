@@ -5,6 +5,10 @@ namespace ENUM
 
 	constexpr enum Aux_Voice_Param {
 		amp_mod_by_velo_amt,
+		assignable_slider_bend_range_neg,
+		assignable_slider_bend_range_pos,
+		assignable_slider_range,
+		assignable_slider_target,
 		current_voice_name,
 		keyboard_octave,
 		lfo_sync_bpm_on,
@@ -18,10 +22,6 @@ namespace ENUM
 		porta_sync_bpm_on,
 		porta_time,
 		scale_key,
-		slider_range,
-		slider_range_pitch_bend_neg,
-		slider_range_pitch_bend_pos,
-		assignable_slider_target,
 		voice_mode
 	};
 
