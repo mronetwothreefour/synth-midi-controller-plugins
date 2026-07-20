@@ -11,6 +11,8 @@ C_SL_Tip_Widget_P
 C_XYWH_P
 D_CONVERT_Int_To_Pitch_G
 D_TIP_G
+D_TIP_Exposed_P
+D_TIP_Widget_P
 D_X_G_Audio_Processor_G
 D_X_G_Audio_Processor_P
 D_X_G_Data_Hub_G

@@ -53,6 +53,14 @@
       <FILE id="LsIC7S" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
             file="Project_Source/C_SL_Tip_Widget_P.h"/>
       <FILE id="QafCON" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source/C_XYWH_P.h"/>
+      <FILE id="sicez6" name="D_TIP_Exposed_P.cpp" compile="1" resource="0"
+            file="Project_Source/D_TIP_Exposed_P.cpp"/>
+      <FILE id="btJ93q" name="D_TIP_Exposed_P.h" compile="0" resource="0"
+            file="Project_Source/D_TIP_Exposed_P.h"/>
+      <FILE id="zdNsvT" name="D_TIP_Widget_P.cpp" compile="1" resource="0"
+            file="Project_Source/D_TIP_Widget_P.cpp"/>
+      <FILE id="u4jDjH" name="D_TIP_Widget_P.h" compile="0" resource="0"
+            file="Project_Source/D_TIP_Widget_P.h"/>
       <FILE id="NfcYGz" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="Project_Source/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="aPITlq" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"
