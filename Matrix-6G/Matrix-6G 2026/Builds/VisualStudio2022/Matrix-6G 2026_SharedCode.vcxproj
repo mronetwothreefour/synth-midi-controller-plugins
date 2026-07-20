@@ -151,6 +151,7 @@
     <ClCompile Include="..\..\Project_Source\D_X_G_Audio_Processor_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_X_G_Data_Hub_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_X_G_Editor_P.cpp"/>
+    <ClCompile Include="..\..\..\..\z_Base_Source_Files\G_DRAW_Paths_LED_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\G_DRAW_Paths_Main_P.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
@@ -2994,11 +2995,13 @@
     <ClInclude Include="..\..\Project_Source\C_FONT_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_ID_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_PATH_Backdrop_Main_P.h"/>
+    <ClInclude Include="..\..\Project_Source\C_PATH_LED_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_XYWH_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Audio_Processor_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Data_Hub_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Data_User_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Editor_P.h"/>
+    <ClInclude Include="..\..\..\..\z_Base_Source_Files\G_DRAW_Paths_LED_P.h"/>
     <ClInclude Include="..\..\Project_Source\G_DRAW_Paths_Main_P.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>

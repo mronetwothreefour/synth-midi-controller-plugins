@@ -46,6 +46,7 @@
       <FILE id="t36MlA" name="C_ID_P.h" compile="0" resource="0" file="Project_Source/C_ID_P.h"/>
       <FILE id="mVL7be" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
             file="Project_Source/C_PATH_Backdrop_Main_P.h"/>
+      <FILE id="WAYfAk" name="C_PATH_LED_P.h" compile="0" resource="0" file="Project_Source/C_PATH_LED_P.h"/>
       <FILE id="GFp8Bj" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source/C_XYWH_P.h"/>
       <FILE id="r5MbZv" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="Project_Source/D_X_G_Audio_Processor_P.cpp"/>
@@ -61,6 +62,10 @@
             file="Project_Source/D_X_G_Editor_P.cpp"/>
       <FILE id="KEBYTt" name="D_X_G_Editor_P.h" compile="0" resource="0"
             file="Project_Source/D_X_G_Editor_P.h"/>
+      <FILE id="JxkQde" name="G_DRAW_Paths_LED_P.h" compile="0" resource="0"
+            file="../../z_Base_Source_Files/G_DRAW_Paths_LED_P.h"/>
+      <FILE id="fZqU4G" name="G_DRAW_Paths_LED_P.cpp" compile="1" resource="0"
+            file="../../z_Base_Source_Files/G_DRAW_Paths_LED_P.cpp"/>
       <FILE id="gRgFr9" name="G_DRAW_Paths_Main_P.cpp" compile="1" resource="0"
             file="Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="wI9oSW" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
