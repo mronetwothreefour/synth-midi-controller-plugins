@@ -10,6 +10,8 @@ C_SL_Tip_Exposed_P
 C_SL_Tip_Widget_P
 C_XYWH_P
 D_CONVERT_Int_To_Pitch_G
+D_SUBTREE_Choices_Exp_P
+D_SUBTREE_Choices_G
 D_TIP_G
 D_TIP_Exposed_P
 D_TIP_Widget_P

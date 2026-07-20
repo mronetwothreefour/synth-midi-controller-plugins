@@ -3,7 +3,7 @@
 namespace ENUM
 {
 
-	static enum Aux_Voice_Param {
+	constexpr enum Aux_Voice_Param {
 		amp_mod_by_velo_amt,
 		current_voice_name,
 		keyboard_octave,
@@ -40,7 +40,7 @@ namespace ENUM
 		switch_osc_octave
 	};
 
-	static enum Exp_Param {
+	constexpr enum Exp_Param {
 		lfo_wave,
 		delay_feedback,
 		delay_hpf_freq,

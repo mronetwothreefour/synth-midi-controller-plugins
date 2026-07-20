@@ -14,6 +14,10 @@
       <FILE id="tnPtBf" name="C_ID_G.h" compile="0" resource="0" file="../../_Global_Source/C_ID_G.h"/>
       <FILE id="xUvfs0" name="D_CONVERT_Int_To_Pitch_G.h" compile="0" resource="0"
             file="../../_Global_Source/D_CONVERT_Int_To_Pitch_G.h"/>
+      <FILE id="NrqBY0" name="D_SUBTREE_Choices_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/D_SUBTREE_Choices_G.cpp"/>
+      <FILE id="wu9ndo" name="D_SUBTREE_Choices_G.h" compile="0" resource="0"
+            file="../../_Global_Source/D_SUBTREE_Choices_G.h"/>
       <FILE id="RRoWIw" name="D_TIP_G.h" compile="0" resource="0" file="../../_Global_Source/D_TIP_G.h"/>
       <FILE id="KveG7b" name="D_X_G_Audio_Processor_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/D_X_G_Audio_Processor_G.cpp"/>
@@ -52,6 +56,10 @@
       <FILE id="nAvdYr" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
             file="Project_Source/C_SL_Tip_Widget_P.h"/>
       <FILE id="GFp8Bj" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source/C_XYWH_P.h"/>
+      <FILE id="wwwT4F" name="D_SUBTREE_Choices_Exp_P.cpp" compile="1" resource="0"
+            file="Project_Source/D_SUBTREE_Choices_Exp_P.cpp"/>
+      <FILE id="YFal1F" name="D_SUBTREE_Choices_Exp_P.h" compile="0" resource="0"
+            file="Project_Source/D_SUBTREE_Choices_Exp_P.h"/>
       <FILE id="Xf8ZIZ" name="D_TIP_Exposed_P.cpp" compile="1" resource="0"
             file="Project_Source/D_TIP_Exposed_P.cpp"/>
       <FILE id="Y5HKs8" name="D_TIP_Exposed_P.h" compile="0" resource="0"

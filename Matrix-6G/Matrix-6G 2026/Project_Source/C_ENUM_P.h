@@ -11,7 +11,7 @@ namespace ENUM
 		cbox
 	};
 
-	static enum Exp_Param {
+	constexpr enum Exp_Param {
 		env_1_attack,
 		env_1_decay,
 		env_1_delay,

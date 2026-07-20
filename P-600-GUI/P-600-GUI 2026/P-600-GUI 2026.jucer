@@ -14,6 +14,10 @@
       <FILE id="wpjApX" name="C_ID_G.h" compile="0" resource="0" file="../../_Global_Source/C_ID_G.h"/>
       <FILE id="tUT8e3" name="D_CONVERT_Int_To_Pitch_G.h" compile="0" resource="0"
             file="../../_Global_Source/D_CONVERT_Int_To_Pitch_G.h"/>
+      <FILE id="qR5XxR" name="D_SUBTREE_Choices_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/D_SUBTREE_Choices_G.cpp"/>
+      <FILE id="aEKngL" name="D_SUBTREE_Choices_G.h" compile="0" resource="0"
+            file="../../_Global_Source/D_SUBTREE_Choices_G.h"/>
       <FILE id="BuZG4y" name="D_TIP_G.h" compile="0" resource="0" file="../../_Global_Source/D_TIP_G.h"/>
       <FILE id="nEnLSC" name="D_X_G_Audio_Processor_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/D_X_G_Audio_Processor_G.cpp"/>
@@ -51,6 +55,10 @@
             file="Project_Source/C_SL_Tip_Exposed_P.h"/>
       <FILE id="j5SSPU" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
             file="Project_Source/C_SL_Tip_Widget_P.h"/>
+      <FILE id="MWRgXx" name="D_SUBTREE_Choices_Exp_P.cpp" compile="1" resource="0"
+            file="Project_Source/D_SUBTREE_Choices_Exp_P.cpp"/>
+      <FILE id="exBsjW" name="D_SUBTREE_Choices_Exp_P.h" compile="0" resource="0"
+            file="Project_Source/D_SUBTREE_Choices_Exp_P.h"/>
       <FILE id="S6sTot" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source/C_XYWH_P.h"/>
       <FILE id="iHvyxK" name="D_TIP_Exposed_P.cpp" compile="1" resource="0"
             file="Project_Source/D_TIP_Exposed_P.cpp"/>

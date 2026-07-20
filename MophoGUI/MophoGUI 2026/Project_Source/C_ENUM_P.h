@@ -15,7 +15,7 @@ namespace ENUM
 		voice_name_char
 	};
 
-	static enum Exp_Param {
+	constexpr enum Exp_Param {
 		arp_mode,
 		arpeg_on_off,
 		assign_knob_1,

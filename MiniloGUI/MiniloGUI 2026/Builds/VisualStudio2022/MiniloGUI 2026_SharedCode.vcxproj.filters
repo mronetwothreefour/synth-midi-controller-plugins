@@ -694,6 +694,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\_Global_Source\D_SUBTREE_Choices_G.cpp">
+      <Filter>MiniloGUI 2026\_Global_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.cpp">
       <Filter>MiniloGUI 2026\_Global_Source</Filter>
     </ClCompile>
@@ -702,6 +705,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.cpp">
       <Filter>MiniloGUI 2026\_Global_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.cpp">
+      <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source\D_TIP_Exposed_P.cpp">
       <Filter>MiniloGUI 2026\Project_Source</Filter>
@@ -3744,6 +3750,9 @@
     <ClInclude Include="..\..\..\..\_Global_Source\D_CONVERT_Int_To_Pitch_G.h">
       <Filter>MiniloGUI 2026\_Global_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_SUBTREE_Choices_G.h">
+      <Filter>MiniloGUI 2026\_Global_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\D_TIP_G.h">
       <Filter>MiniloGUI 2026\_Global_Source</Filter>
     </ClInclude>
@@ -3790,6 +3799,9 @@
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\C_XYWH_P.h">
+      <Filter>MiniloGUI 2026\Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.h">
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\D_TIP_Exposed_P.h">

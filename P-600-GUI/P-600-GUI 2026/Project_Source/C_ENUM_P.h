@@ -11,7 +11,7 @@ namespace ENUM
 		switch_3_pole
 	};
 
-	static enum Exp_Param {
+	constexpr enum Exp_Param {
 		amp_env_attack,
 		amp_env_decay,
 		amp_env_release,
