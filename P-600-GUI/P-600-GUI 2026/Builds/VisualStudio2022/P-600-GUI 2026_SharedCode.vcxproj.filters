@@ -3801,6 +3801,9 @@
     <ClInclude Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.h">
       <Filter>P-600-GUI 2026\Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Project_Source\D_SUBTREE_Exposed_Info_P.h">
+      <Filter>P-600-GUI 2026\Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source\C_XYWH_P.h">
       <Filter>P-600-GUI 2026\Project_Source</Filter>
     </ClInclude>

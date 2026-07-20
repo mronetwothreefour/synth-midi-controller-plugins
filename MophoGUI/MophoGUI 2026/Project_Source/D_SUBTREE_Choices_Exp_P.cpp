@@ -1,7 +1,6 @@
 #include "D_SUBTREE_Choices_Exp_P.h"
 
 #include "C_ID_P.h"
-#include "C_ENUM_P.h"
 #include "C_EXP_P.h"
 #include "D_CONVERT_Int_To_Pitch_G.h"
 

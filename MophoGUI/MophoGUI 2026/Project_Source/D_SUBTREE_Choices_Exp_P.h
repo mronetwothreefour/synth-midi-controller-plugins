@@ -4,8 +4,6 @@
 
 #include "D_SUBTREE_Choices_G.h"
 
-using namespace ENUM;
-
 struct Subtree_Choices_Exp_P :
 	public Subtree_Choices_G
 {

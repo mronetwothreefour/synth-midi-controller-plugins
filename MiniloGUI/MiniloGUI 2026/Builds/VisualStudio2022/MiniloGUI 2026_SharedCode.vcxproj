@@ -3001,8 +3001,10 @@
     <ClInclude Include="..\..\Project_Source\C_PATH_Backdrop_Main_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_SL_Tip_Exposed_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_SL_Tip_Widget_P.h"/>
+    <ClInclude Include="..\..\Project_Source\C_VOICE_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_XYWH_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.h"/>
+    <ClInclude Include="..\..\Project_Source\D_SUBTREE_Exposed_Info_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_TIP_Exposed_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_TIP_Widget_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Audio_Processor_P.h"/>

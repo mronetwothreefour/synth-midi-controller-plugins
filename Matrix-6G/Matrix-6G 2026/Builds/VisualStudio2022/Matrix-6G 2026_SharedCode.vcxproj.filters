@@ -3810,6 +3810,9 @@
     <ClInclude Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.h">
       <Filter>Matrix-6G 2026\Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Project_Source\D_SUBTREE_Exposed_Info_P.h">
+      <Filter>Matrix-6G 2026\Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source\D_TIP_Exposed_P.h">
       <Filter>Matrix-6G 2026\Project_Source</Filter>
     </ClInclude>

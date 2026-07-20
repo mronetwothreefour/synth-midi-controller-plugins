@@ -21,7 +21,7 @@ namespace ENUM
 		slider_range,
 		slider_range_pitch_bend_neg,
 		slider_range_pitch_bend_pos,
-		slider_target,
+		assignable_slider_target,
 		voice_mode
 	};
 

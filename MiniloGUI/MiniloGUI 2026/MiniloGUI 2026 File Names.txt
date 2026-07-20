@@ -1,4 +1,1 @@
-C_COLOR_P
-C_XYWH_P
-D_X_G_Audio_Processor_P
-D_X_G_Editor_P
+D_TREE_Aux_Voice_P

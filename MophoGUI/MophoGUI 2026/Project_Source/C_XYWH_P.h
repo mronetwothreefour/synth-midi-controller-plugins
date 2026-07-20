@@ -63,9 +63,9 @@ namespace XYWH
 	constexpr int mod_col_2_x{ 575 };
 
 	constexpr int osc_cbox_w{ 124 };
+	constexpr int osc_row_h{ 60 };
 	constexpr int osc_row_1_y{ 50 };
 	constexpr int osc_row_2_y{ osc_row_1_y + osc_row_h };
-	constexpr int osc_row_h{ 60 };
 
 	constexpr int push_it_knob_row_y{ 528 };
 

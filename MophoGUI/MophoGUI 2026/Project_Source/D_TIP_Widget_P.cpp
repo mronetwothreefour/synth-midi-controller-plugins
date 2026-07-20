@@ -23,7 +23,7 @@ String Tip_Widget_P::knob_text_editor(const Slider_Display_Type display_type) {
 		return from_string_literal(SL::knob_txt_edit_osc_slop_tip);
 	case ENUM::Slider_Display_Type::seq_step:
 		return from_string_literal(SL::knob_txt_edit_seq_step_tip);
-	case ENUM::Slider_Display_Type::seq_step_track_1:
+	case ENUM::Slider_Display_Type::seq_step_trk_1:
 		return from_string_literal(SL::knob_txt_edit_seq_step_tip) + "\n" +
 			   from_string_literal(SL::knob_txt_edit_seq_step_track_1_tip);
 	case ENUM::Slider_Display_Type::signed_8_bit:
