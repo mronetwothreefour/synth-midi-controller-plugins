@@ -6,6 +6,8 @@ C_FONT_P
 C_ID_G
 C_ID_P
 C_PATH_Backdrop_Main_P
+C_SL_Tip_Exposed_P
+C_SL_Tip_Widget_P
 C_XYWH_P
 D_CONVERT_Int_To_Pitch_G
 D_TIP_G

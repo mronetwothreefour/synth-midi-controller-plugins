@@ -2996,6 +2996,8 @@
     <ClInclude Include="..\..\Project_Source\C_ID_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_PATH_Backdrop_Main_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_PATH_LED_P.h"/>
+    <ClInclude Include="..\..\Project_Source\C_SL_Tip_Exposed_P.h"/>
+    <ClInclude Include="..\..\Project_Source\C_SL_Tip_Widget_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_XYWH_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Audio_Processor_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Data_Hub_P.h"/>

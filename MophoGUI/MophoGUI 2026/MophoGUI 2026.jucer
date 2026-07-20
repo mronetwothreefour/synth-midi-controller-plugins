@@ -48,6 +48,10 @@
       <FILE id="AWZBjh" name="C_FONT_P.h" compile="0" resource="0" file="Project_Source/C_FONT_P.h"/>
       <FILE id="X13I9q" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
             file="Project_Source/C_PATH_Backdrop_Main_P.h"/>
+      <FILE id="H3D5Fp" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
+            file="Project_Source/C_SL_Tip_Exposed_P.h"/>
+      <FILE id="LsIC7S" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
+            file="Project_Source/C_SL_Tip_Widget_P.h"/>
       <FILE id="QafCON" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source/C_XYWH_P.h"/>
       <FILE id="NfcYGz" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="Project_Source/D_X_G_Audio_Processor_P.cpp"/>

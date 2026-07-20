@@ -3783,6 +3783,12 @@
     <ClInclude Include="..\..\Project_Source\C_PATH_LED_P.h">
       <Filter>Matrix-6G 2026\Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Project_Source\C_SL_Tip_Exposed_P.h">
+      <Filter>Matrix-6G 2026\Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\C_SL_Tip_Widget_P.h">
+      <Filter>Matrix-6G 2026\Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source\C_XYWH_P.h">
       <Filter>Matrix-6G 2026\Project_Source</Filter>
     </ClInclude>

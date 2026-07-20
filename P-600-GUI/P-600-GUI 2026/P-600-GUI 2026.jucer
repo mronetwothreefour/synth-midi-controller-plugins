@@ -47,6 +47,10 @@
       <FILE id="rrLS2M" name="C_ID_P.h" compile="0" resource="0" file="Project_Source/C_ID_P.h"/>
       <FILE id="COK0bR" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
             file="Project_Source/C_PATH_Backdrop_Main_P.h"/>
+      <FILE id="ZEnHZe" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
+            file="Project_Source/C_SL_Tip_Exposed_P.h"/>
+      <FILE id="j5SSPU" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
+            file="Project_Source/C_SL_Tip_Widget_P.h"/>
       <FILE id="S6sTot" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source/C_XYWH_P.h"/>
       <FILE id="kCtBXI" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="Project_Source/D_X_G_Audio_Processor_P.cpp"/>

@@ -47,6 +47,10 @@
       <FILE id="mVL7be" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
             file="Project_Source/C_PATH_Backdrop_Main_P.h"/>
       <FILE id="WAYfAk" name="C_PATH_LED_P.h" compile="0" resource="0" file="Project_Source/C_PATH_LED_P.h"/>
+      <FILE id="wHarXw" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
+            file="Project_Source/C_SL_Tip_Exposed_P.h"/>
+      <FILE id="nAvdYr" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
+            file="Project_Source/C_SL_Tip_Widget_P.h"/>
       <FILE id="GFp8Bj" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source/C_XYWH_P.h"/>
       <FILE id="r5MbZv" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="Project_Source/D_X_G_Audio_Processor_P.cpp"/>
