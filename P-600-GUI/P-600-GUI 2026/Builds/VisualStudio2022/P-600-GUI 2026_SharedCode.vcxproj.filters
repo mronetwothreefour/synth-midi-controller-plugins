@@ -844,6 +844,9 @@
     <ClCompile Include="..\..\..\..\_Global_Source\D_SUBTREE_Choices_G.cpp">
       <Filter>P-600-GUI 2026\_Global_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Global_Source\D_TREE_Exposed_Info_G.cpp">
+      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.cpp">
       <Filter>P-600-GUI 2026\_Global_Source</Filter>
     </ClCompile>
@@ -4087,6 +4090,9 @@
       <Filter>P-600-GUI 2026\_Global_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\D_TIP_G.h">
+      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_TREE_Exposed_Info_G.h">
       <Filter>P-600-GUI 2026\_Global_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.h">

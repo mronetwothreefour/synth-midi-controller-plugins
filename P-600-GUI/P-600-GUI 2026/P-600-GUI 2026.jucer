@@ -19,6 +19,10 @@
       <FILE id="aEKngL" name="D_SUBTREE_Choices_G.h" compile="0" resource="0"
             file="../../_Global_Source/D_SUBTREE_Choices_G.h"/>
       <FILE id="BuZG4y" name="D_TIP_G.h" compile="0" resource="0" file="../../_Global_Source/D_TIP_G.h"/>
+      <FILE id="IR9fKO" name="D_TREE_Exposed_Info_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/D_TREE_Exposed_Info_G.cpp"/>
+      <FILE id="EqnPLH" name="D_TREE_Exposed_Info_G.h" compile="0" resource="0"
+            file="../../_Global_Source/D_TREE_Exposed_Info_G.h"/>
       <FILE id="nEnLSC" name="D_X_G_Audio_Processor_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/D_X_G_Audio_Processor_G.cpp"/>
       <FILE id="aNheMb" name="D_X_G_Audio_Processor_G.h" compile="0" resource="0"

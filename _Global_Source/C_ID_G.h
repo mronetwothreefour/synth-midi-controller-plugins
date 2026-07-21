@@ -12,7 +12,6 @@ namespace ID
 	static const String exp_p_ctrl_h{ "exp_p_ctrl_h" };
 	static const String exp_p_ctrl_type{ "exp_p_ctrl_type" };
 	static const String exp_p_ctrl_w{ "exp_p_ctrl_w" };
-	static const String exp_p_id{ "exp_p_id" };
 	static const String exp_p_tip{ "exp_p_tip" };
 	static const String exp_p_init_choice{ "exp_p_init_choice" };
 	static const String exp_p_sli_disp_type{ "exp_p_sli_disp_type" };
@@ -24,7 +23,6 @@ namespace ID
 
 	static const String subtree_choices{ "subtree_choices" };
 	static const String subtree_choices_curt{ "subtree_choices_curt" };
-	static const String subtree_exp_param_{ "subtree_exp_param_" };
 
 	static const String tree_exp_param_info{ "tree_exp_param_info" };
 	static const String tree_exp_param_state{ "tree_exp_param_state" };

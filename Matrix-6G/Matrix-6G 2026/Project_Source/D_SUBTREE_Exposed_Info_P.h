@@ -17,9 +17,8 @@ struct Subtree_Exposed_Info_P
 						   int ctrl_w, String tip, 
 						   ValueTree choices_curt,ValueTree choices)
 	{
-		ValueTree tree{ ID::subtree_exp_param_ + String{ id },
+		ValueTree tree{ String{ id },
 			{
-				{ ID::exp_p_id, (int)id },
 				{ ID::exp_p_number, number },
 				{ ID::exp_p_name, name },
 				{ ID::exp_p_ctrl_type, (int)ctrl },

@@ -146,12 +146,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\_Global_Source\D_SUBTREE_Choices_G.cpp"/>
+    <ClCompile Include="..\..\..\..\_Global_Source\D_TREE_Exposed_Info_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Data_Hub_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_TIP_Exposed_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_TIP_Widget_P.cpp"/>
+    <ClCompile Include="..\..\Project_Source\D_TREE_Exposed_Info_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_X_G_Audio_Processor_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_X_G_Data_Hub_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_X_G_Editor_P.cpp"/>
@@ -3157,6 +3159,7 @@
     <ClInclude Include="..\..\..\..\_Global_Source\D_CONVERT_Int_To_Pitch_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_SUBTREE_Choices_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_TIP_G.h"/>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_TREE_Exposed_Info_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Data_Hub_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Data_User_G.h"/>
@@ -3171,11 +3174,13 @@
     <ClInclude Include="..\..\Project_Source\C_PATH_Backdrop_Main_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_SL_Tip_Exposed_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_SL_Tip_Widget_P.h"/>
+    <ClInclude Include="..\..\Project_Source\C_VOICE_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_XYWH_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_SUBTREE_Exposed_Info_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_TIP_Exposed_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_TIP_Widget_P.h"/>
+    <ClInclude Include="..\..\Project_Source\D_TREE_Exposed_Info_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Audio_Processor_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Data_Hub_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Data_User_P.h"/>

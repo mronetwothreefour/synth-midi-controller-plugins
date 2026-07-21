@@ -17,6 +17,8 @@ D_SUBTREE_Exposed_Info_P
 D_TIP_G
 D_TIP_Exposed_P
 D_TIP_Widget_P
+D_TREE_Exposed_Info_G
+D_TREE_Exposed_Info_P
 D_X_G_Audio_Processor_G
 D_X_G_Audio_Processor_P
 D_X_G_Data_Hub_G

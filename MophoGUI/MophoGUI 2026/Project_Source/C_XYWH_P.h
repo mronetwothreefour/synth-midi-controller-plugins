@@ -24,8 +24,8 @@ namespace XYWH
 
 	constexpr int clock_and_seq_row_y{ 126 };
 
-	constexpr int ctrl_knob_diam{ 38 };
-	constexpr int ctrl_col_w{ ctrl_knob_diam + 7 };
+	constexpr int knob_diam{ 38 };
+	constexpr int ctrl_col_w{ knob_diam + 7 };
 	constexpr int ctrl_col_1_x{ 48 };
 	constexpr int ctrl_col_2_x{ ctrl_col_1_x + ctrl_col_w };
 	constexpr int ctrl_col_3_x{ ctrl_col_2_x + ctrl_col_w };

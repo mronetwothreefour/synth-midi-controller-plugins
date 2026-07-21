@@ -16,9 +16,8 @@ public: static ValueTree build(Exp_Param id, String name, Ctrl_Type ctrl,
 							   int ctrl_h,String tip, ValueTree bit_locations,
 							   ValueTree choices_curt, ValueTree choices)
 		{
-			ValueTree tree{ ID::subtree_exp_param_ + String{ id },
+			ValueTree tree{ String{ id },
 				{
-					{ ID::exp_p_id, (int)id },
 					{ ID::exp_p_name, name },
 					{ ID::exp_p_ctrl_type, (int)ctrl },
 					{ ID::exp_p_sli_disp_type, (int)display },

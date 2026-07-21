@@ -19,6 +19,10 @@
       <FILE id="pll8YG" name="D_SUBTREE_Choices_G.h" compile="0" resource="0"
             file="../../_Global_Source/D_SUBTREE_Choices_G.h"/>
       <FILE id="BmZ6Ac" name="D_TIP_G.h" compile="0" resource="0" file="../../_Global_Source/D_TIP_G.h"/>
+      <FILE id="qku2pN" name="D_TREE_Exposed_Info_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/D_TREE_Exposed_Info_G.cpp"/>
+      <FILE id="WM7vQr" name="D_TREE_Exposed_Info_G.h" compile="0" resource="0"
+            file="../../_Global_Source/D_TREE_Exposed_Info_G.h"/>
       <FILE id="GASkPQ" name="D_X_G_Audio_Processor_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/D_X_G_Audio_Processor_G.cpp"/>
       <FILE id="hswO3A" name="D_X_G_Audio_Processor_G.h" compile="0" resource="0"
@@ -56,6 +60,7 @@
             file="Project_Source/C_SL_Tip_Exposed_P.h"/>
       <FILE id="LsIC7S" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
             file="Project_Source/C_SL_Tip_Widget_P.h"/>
+      <FILE id="rfKmTJ" name="C_VOICE_P.h" compile="0" resource="0" file="Project_Source/C_VOICE_P.h"/>
       <FILE id="QafCON" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source/C_XYWH_P.h"/>
       <FILE id="kscOMj" name="D_SUBTREE_Choices_Exp_P.cpp" compile="1" resource="0"
             file="Project_Source/D_SUBTREE_Choices_Exp_P.cpp"/>
@@ -71,6 +76,10 @@
             file="Project_Source/D_TIP_Widget_P.cpp"/>
       <FILE id="u4jDjH" name="D_TIP_Widget_P.h" compile="0" resource="0"
             file="Project_Source/D_TIP_Widget_P.h"/>
+      <FILE id="OSSjnZ" name="D_TREE_Exposed_Info_P.cpp" compile="1" resource="0"
+            file="Project_Source/D_TREE_Exposed_Info_P.cpp"/>
+      <FILE id="kde465" name="D_TREE_Exposed_Info_P.h" compile="0" resource="0"
+            file="Project_Source/D_TREE_Exposed_Info_P.h"/>
       <FILE id="NfcYGz" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="Project_Source/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="aPITlq" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"

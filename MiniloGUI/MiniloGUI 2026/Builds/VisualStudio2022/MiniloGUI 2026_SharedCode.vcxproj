@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\_Global_Source\D_SUBTREE_Choices_G.cpp"/>
+    <ClCompile Include="..\..\..\..\_Global_Source\D_TREE_Exposed_Info_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Data_Hub_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.cpp"/>
@@ -3159,6 +3160,7 @@
     <ClInclude Include="..\..\..\..\_Global_Source\D_CONVERT_Int_To_Pitch_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_SUBTREE_Choices_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_TIP_G.h"/>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_TREE_Exposed_Info_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Data_Hub_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Data_User_G.h"/>

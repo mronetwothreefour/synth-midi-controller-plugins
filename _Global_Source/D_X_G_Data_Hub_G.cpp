@@ -12,9 +12,9 @@ Data_Hub_G::Data_Hub_G(AudioProcessor* /*processor*/) :
 {
 }
 
-//const Tree_Exposed_Info_P& Data_Hub_G::get_exposed_info() {
-//	return exposed_info;
-//}
+const Tree_Exposed_Info_P& Data_Hub_G::get_exposed_info() {
+	return exposed_info;
+}
 
 UndoManager* Data_Hub_G::get_undo_mngr() {
 	return undo_mngr.get();
