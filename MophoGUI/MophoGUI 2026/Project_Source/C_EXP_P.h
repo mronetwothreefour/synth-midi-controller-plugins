@@ -16,7 +16,7 @@ namespace EXP
 	constexpr int choice_count_seq_track_2_4_dest{ 48 };
 	constexpr int choice_count_voice_name_char{ 128 };
 	constexpr int clock_tempo_offset{ 30 };
-	constexpr int exp_param_count{ 189 };
+	constexpr int exp_param_count{ 200 };
 	constexpr int first_lfo_pitched_freq_choice{ 90 };
 	constexpr int first_lfo_synced_freq_choice{ 151 };
 

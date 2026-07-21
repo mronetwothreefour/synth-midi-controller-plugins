@@ -865,6 +865,9 @@
     <ClCompile Include="..\..\Project_Source\D_TIP_Widget_P.cpp">
       <Filter>Matrix-6G 2026\Project_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Project_Source\D_TREE_Exposed_Info_P.cpp">
+      <Filter>Matrix-6G 2026\Project_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source\D_X_G_Audio_Processor_P.cpp">
       <Filter>Matrix-6G 2026\Project_Source</Filter>
     </ClCompile>
@@ -4156,6 +4159,9 @@
       <Filter>Matrix-6G 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\D_TIP_Widget_P.h">
+      <Filter>Matrix-6G 2026\Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\D_TREE_Exposed_Info_P.h">
       <Filter>Matrix-6G 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\D_X_G_Audio_Processor_P.h">
