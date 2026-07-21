@@ -18,17 +18,17 @@ public: explicit Tree_Aux_Voice_P(UndoManager* u_m);
 public: const int amp_mod_by_velo_amt();
 public: void set_amp_mod_by_velo_amt(const int new_setting);
 
-public: const int assignable_slider_bend_range(const bool pos_limit);
-public: void set_assignable_slider_bend_range(const bool pos_limit, const int new_setting);
-
-public: const int assignable_slider_range();
-public: void set_assignable_slider_range(const int new_setting);
-
-public: const Assignable_Slider_Target assignable_slider_target();
-public: void set_assignable_slider_target(const Assignable_Slider_Target new_setting);
-
 public: const String current_voice_name();
 public: void set_current_voice_name(const String new_setting);
+
+public: const int flex_slider_bend_range(const bool pos_limit);
+public: void set_flex_slider_bend_range(const bool pos_limit, const int new_setting);
+
+public: const int flex_slider_range();
+public: void set_flex_slider_range(const int new_setting);
+
+public: const Flex_Slider_Target flex_slider_target();
+public: void set_flex_slider_target(const Flex_Slider_Target new_setting);
 
 public: const int keyboard_octave();
 public: void set_keyboard_octave(const int new_setting);

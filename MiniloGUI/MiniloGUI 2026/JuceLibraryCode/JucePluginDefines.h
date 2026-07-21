@@ -91,6 +91,9 @@
 #ifndef  JucePlugin_VSTCategory
  #define JucePlugin_VSTCategory            kPlugCategEffect
 #endif
+#ifndef  JucePlugin_LV2PluginClass
+ #define JucePlugin_LV2PluginClass         Plugin
+#endif
 #ifndef  JucePlugin_Vst3Category
  #define JucePlugin_Vst3Category           "Fx|Tools"
 #endif

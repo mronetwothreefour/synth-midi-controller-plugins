@@ -5,12 +5,14 @@
 
 using namespace ENUM;
 
+using AVP = Aux_Voice_Param;
+
 ValueTree Subtree_Bit_Loc_AV_P::build()
 {
 
 	return { 
 		ID::subtree_bit_locations, {}, {
-			ValueTree{ String{ Aux_Voice_Param::amp_mod_by_velo_amt },
+			ValueTree{ String{ AVP::amp_mod_by_velo_amt },
 				{
 					{ "bit_0", "byte_37__bit_0" },
 					{ "bit_1", "byte_37__bit_1" },
@@ -21,7 +23,8 @@ ValueTree Subtree_Bit_Loc_AV_P::build()
 					{ "bit_6", "byte_37__bit_6" },
 				}
 			},
-			ValueTree{ String{ Aux_Voice_Param::assignable_slider_bend_range_neg },
+		// AVP::current_voice_name is plugin-only
+		ValueTree{ String{ AVP::flex_slider_bend_range_neg },
 				{
 					{ "bit_0", "byte_75__bit_4" },
 					{ "bit_1", "byte_75__bit_5" },
@@ -29,7 +32,7 @@ ValueTree Subtree_Bit_Loc_AV_P::build()
 					{ "bit_3", "byte_71__bit_3" },
 				}
 			},
-			ValueTree{ String{ Aux_Voice_Param::assignable_slider_bend_range_pos },
+			ValueTree{ String{ AVP::flex_slider_bend_range_pos },
 				{
 					{ "bit_0", "byte_75__bit_0" },
 					{ "bit_1", "byte_75__bit_1" },
@@ -37,7 +40,7 @@ ValueTree Subtree_Bit_Loc_AV_P::build()
 					{ "bit_3", "byte_75__bit_3" },
 				}
 			},
-			ValueTree{ String{ Aux_Voice_Param::assignable_slider_range },
+			ValueTree{ String{ AVP::flex_slider_range },
 				{
 					{ "bit_0", "byte_86__bit_0" },
 					{ "bit_1", "byte_86__bit_1" },
@@ -49,7 +52,7 @@ ValueTree Subtree_Bit_Loc_AV_P::build()
 					{ "bit_7", "byte_79__bit_6" },
 				}
 			},
-			ValueTree{ String{ Aux_Voice_Param::assignable_slider_target }, 
+			ValueTree{ String{ AVP::flex_slider_target }, 
 				{
 					{ "bit_0", "byte_82__bit_0" },
 					{ "bit_1", "byte_82__bit_1" },
@@ -60,30 +63,29 @@ ValueTree Subtree_Bit_Loc_AV_P::build()
 					{ "bit_6", "byte_82__bit_6" },
 				}
 			},
-			// Aux_Voice_Param::current_voice_name is plugin-only
-			ValueTree{ String{ Aux_Voice_Param::keyboard_octave },
+			ValueTree{ String{ AVP::keyboard_octave },
 				{
 					{ "bit_0", "byte_83__bit_0" },
 					{ "bit_1", "byte_83__bit_1" },
 					{ "bit_2", "byte_83__bit_2" },
 				}
 			},
-			ValueTree{ String{ Aux_Voice_Param::lfo_sync_bpm_on },
+			ValueTree{ String{ AVP::lfo_sync_bpm_on },
 				{
 					{ "bit_0", "byte_78__bit_1" },
 				}
 			},
-			ValueTree{ String{ Aux_Voice_Param::lfo_sync_key_on },
+			ValueTree{ String{ AVP::lfo_sync_key_on },
 				{
 					{ "bit_0", "byte_78__bit_0" },
 				}
 			},
-			ValueTree{ String{ Aux_Voice_Param::lfo_sync_voice_on },
+			ValueTree{ String{ AVP::lfo_sync_voice_on },
 				{
 					{ "bit_0", "byte_78__bit_02" },
 				}
 			},
-			ValueTree{ String{ Aux_Voice_Param::microtune_scale },
+			ValueTree{ String{ AVP::microtune_scale },
 				{
 					{ "bit_0", "byte_89__bit_0" },
 					{ "bit_1", "byte_89__bit_1" },
@@ -95,7 +97,7 @@ ValueTree Subtree_Bit_Loc_AV_P::build()
 					{ "bit_7", "byte_87__bit_1" },
 				}
 			},
-			ValueTree{ String{ Aux_Voice_Param::pgm_fine_tune },
+			ValueTree{ String{ AVP::pgm_fine_tune },
 				{
 					{ "bit_0", "byte_88__bit_0" },
 					{ "bit_1", "byte_88__bit_1" },
@@ -106,7 +108,7 @@ ValueTree Subtree_Bit_Loc_AV_P::build()
 					{ "bit_6", "byte_88__bit_6" },
 				}
 			},
-			ValueTree{ String{ Aux_Voice_Param::pgm_level },
+			ValueTree{ String{ AVP::pgm_level },
 				{
 					{ "bit_0", "byte_81__bit_0" },
 					{ "bit_1", "byte_81__bit_1" },
@@ -117,7 +119,7 @@ ValueTree Subtree_Bit_Loc_AV_P::build()
 					{ "bit_6", "byte_81__bit_6" },
 				}
 			},
-			ValueTree{ String{ Aux_Voice_Param::pgm_transpose },
+			ValueTree{ String{ AVP::pgm_transpose },
 				{
 					{ "bit_0", "byte_92__bit_0" },
 					{ "bit_1", "byte_92__bit_1" },
@@ -126,17 +128,17 @@ ValueTree Subtree_Bit_Loc_AV_P::build()
 					{ "bit_4", "byte_92__bit_4" },
 				}
 			},
-			ValueTree{ String{ Aux_Voice_Param::porta_mode_on },
+			ValueTree{ String{ AVP::porta_mode_on },
 				{
 					{ "bit_0", "byte_78__bit_3" },
 				}
 			},
-			ValueTree{ String{ Aux_Voice_Param::porta_sync_bpm_on },
+			ValueTree{ String{ AVP::porta_sync_bpm_on },
 				{
 					{ "bit_0", "byte_78__bit_4" },
 				}
 			},
-			ValueTree{ String{ Aux_Voice_Param::porta_time },
+			ValueTree{ String{ AVP::porta_time },
 				{
 					{ "bit_0", "byte_69__bit_0" },
 					{ "bit_1", "byte_69__bit_1" },
@@ -148,7 +150,7 @@ ValueTree Subtree_Bit_Loc_AV_P::build()
 					{ "bit_7", "byte_63__bit_5" },
 				}
 			},
-			ValueTree{ String{ Aux_Voice_Param::scale_key },
+			ValueTree{ String{ AVP::scale_key },
 				{
 					{ "bit_0", "byte_90__bit_0" },
 					{ "bit_1", "byte_90__bit_1" },
@@ -157,7 +159,7 @@ ValueTree Subtree_Bit_Loc_AV_P::build()
 					{ "bit_4", "byte_90__bit_4" },
 				}
 			},
-			ValueTree{ String{ Aux_Voice_Param::voice_mode },
+			ValueTree{ String{ AVP::voice_mode },
 				{
 					{ "bit_0", "byte_73__bit_0" },
 					{ "bit_1", "byte_73__bit_1" },

@@ -58,12 +58,12 @@ String Tip_Exposed_P::ext_in_level() {
     return from_string_literal(SL::ext_in_level_tip);
 }
 
-String Tip_Exposed_P::glide_mode() {
-    return from_string_literal(SL::glide_mode_tip);
+String Tip_Exposed_P::flex_knob(const String knob) {
+    return from_string_literal(SL::flex_knob_tip).replace("_", knob);
 }
 
-String Tip_Exposed_P::knob_assign(const String knob) {
-    return from_string_literal(SL::knob_assign_tip).replace("_", knob);
+String Tip_Exposed_P::glide_mode() {
+    return from_string_literal(SL::glide_mode_tip);
 }
 
 String Tip_Exposed_P::lfo_amt(const int lfo) {

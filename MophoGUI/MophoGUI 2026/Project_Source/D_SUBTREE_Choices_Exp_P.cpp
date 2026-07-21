@@ -105,24 +105,15 @@ ValueTree Subtree_Choices_Exp_P::clock_tempo(const bool curt) {
 	return tree;
 }
 
-ValueTree Subtree_Choices_Exp_P::glide_mode(const bool curt) {
-	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
-	tree.setProperty("choice_0", "fixed rate", nullptr);;
-	tree.setProperty("choice_1", "fixed rate auto", nullptr);
-	tree.setProperty("choice_2", "fixed time", nullptr);
-	tree.setProperty("choice_3", "fixed time auto", nullptr);
-	return tree;
-}
-
-ValueTree Subtree_Choices_Exp_P::knob_assign(const bool curt) {
+ValueTree Subtree_Choices_Exp_P::flex_knob(const bool curt) {
 	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
 	String choice_{ "choice_" };
 	for (int osc = 1; osc < 3; ++osc) {
 		String o{ osc };
-		tree.setProperty(choice_ + (osc == 1 ? "0" : "6"),  "oscillator " + o + " pitch", nullptr);
-		tree.setProperty(choice_ + (osc == 1 ? "1" : "7"),  "oscillator " + o + " fine tune", nullptr);
-		tree.setProperty(choice_ + (osc == 1 ? "2" : "8"),  "oscillator " + o + " wave shape", nullptr);
-		tree.setProperty(choice_ + (osc == 1 ? "3" : "9"),  "oscillator " + o + " glide rate", nullptr);
+		tree.setProperty(choice_ + (osc == 1 ? "0" : "6"), "oscillator " + o + " pitch", nullptr);
+		tree.setProperty(choice_ + (osc == 1 ? "1" : "7"), "oscillator " + o + " fine tune", nullptr);
+		tree.setProperty(choice_ + (osc == 1 ? "2" : "8"), "oscillator " + o + " wave shape", nullptr);
+		tree.setProperty(choice_ + (osc == 1 ? "3" : "9"), "oscillator " + o + " glide rate", nullptr);
 		tree.setProperty(choice_ + (osc == 1 ? "4" : "10"), "oscillator " + o + " key track", nullptr);
 		tree.setProperty(choice_ + (osc == 1 ? "5" : "11"), "sub-oscillator " + o + " level", nullptr);
 	}
@@ -201,7 +192,7 @@ ValueTree Subtree_Choices_Exp_P::knob_assign(const bool curt) {
 	tree.setProperty(choice_ + "100", "sequencer on / off", nullptr);
 	for (int track = 1; track < 5; ++track) {
 		String t{ track };
-		tree.setProperty( choice_ + "10" + t, "sequencer track " + t + (curt ? " dest." : " destination"), nullptr);
+		tree.setProperty(choice_ + "10" + t, "sequencer track " + t + (curt ? " dest." : " destination"), nullptr);
 	}
 	for (int track = 0; track < 4; ++track) {
 		for (int step = 0; step < 16; ++step)
@@ -210,6 +201,15 @@ ValueTree Subtree_Choices_Exp_P::knob_assign(const bool curt) {
 				String{ curt ? "seq." : "sequencer" } + " track " + String{ track + 1 } + " step " + String{ step + 1 },
 				nullptr);
 	}
+	return tree;
+}
+
+ValueTree Subtree_Choices_Exp_P::glide_mode(const bool curt) {
+	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
+	tree.setProperty("choice_0", "fixed rate", nullptr);;
+	tree.setProperty("choice_1", "fixed rate auto", nullptr);
+	tree.setProperty("choice_2", "fixed time", nullptr);
+	tree.setProperty("choice_3", "fixed time auto", nullptr);
 	return tree;
 }
 

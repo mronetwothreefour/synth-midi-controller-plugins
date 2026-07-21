@@ -12,11 +12,11 @@ Tree_Aux_Voice_P::Tree_Aux_Voice_P(UndoManager* u_m) :
 	u_m{ u_m }
 {
 	set_amp_mod_by_velo_amt(0);
-	set_assignable_slider_bend_range(true, 1);
-	set_assignable_slider_bend_range(false, 1);
-	set_assignable_slider_range(200);
-	set_assignable_slider_target(Assignable_Slider_Target::pitch_bend);
 	set_current_voice_name(VOICE::init_voice_name);
+	set_flex_slider_bend_range(true, 1);
+	set_flex_slider_bend_range(false, 1);
+	set_flex_slider_range(200);
+	set_flex_slider_target(Flex_Slider_Target::pitch_bend);
 	set_keyboard_octave(2);
 	set_lfo_sync_bpm_on(false);
 	set_lfo_sync_key_on(true);
@@ -42,40 +42,6 @@ void Tree_Aux_Voice_P::set_amp_mod_by_velo_amt(const int new_setting) {
 	tree.setProperty(String{ AVP::amp_mod_by_velo_amt }, setting_clamped, u_m);
 }
 
-const int Tree_Aux_Voice_P::assignable_slider_bend_range(const bool pos_limit) {
-	auto id = pos_limit ? String{ AVP::assignable_slider_bend_range_pos } : 
-						  String{ AVP::assignable_slider_bend_range_neg };
-	return (int)tree[id];
-}
-
-void Tree_Aux_Voice_P::set_assignable_slider_bend_range(const bool pos_limit, const int new_setting) {
-	auto setting_clamped = std::clamp(new_setting, 0, 11);
-	auto id = pos_limit ? String{ AVP::assignable_slider_bend_range_pos } :
-						  String{ AVP::assignable_slider_bend_range_neg };
-	u_m->beginNewTransaction();
-	tree.setProperty(id, setting_clamped, u_m);
-}
-
-const int Tree_Aux_Voice_P::assignable_slider_range() {
-	return (int)tree[String{ AVP::assignable_slider_range }];
-}
-
-void Tree_Aux_Voice_P::set_assignable_slider_range(const int new_setting) {
-	auto setting_clamped = std::clamp(new_setting, 0, 200);
-	u_m->beginNewTransaction();
-	tree.setProperty(String{ AVP::assignable_slider_range }, setting_clamped, u_m);
-}
-
-const Assignable_Slider_Target Tree_Aux_Voice_P::assignable_slider_target() {
-	auto target_int = (int)tree[String{ AVP::assignable_slider_target }];
-	return Assignable_Slider_Target{ target_int };
-}
-
-void Tree_Aux_Voice_P::set_assignable_slider_target(const Assignable_Slider_Target new_setting) {
-	u_m->beginNewTransaction();
-	tree.setProperty(String{ AVP::assignable_slider_target }, (int)new_setting, u_m);
-}
-
 const String Tree_Aux_Voice_P::current_voice_name() {
 	return tree[String{ AVP::current_voice_name }].toString();
 }
@@ -87,6 +53,40 @@ void Tree_Aux_Voice_P::set_current_voice_name(const String new_setting) {
 		u_m->beginNewTransaction();
 		tree.setProperty(String{ AVP::current_voice_name }, new_setting, u_m);
 	}
+}
+
+const int Tree_Aux_Voice_P::flex_slider_bend_range(const bool pos) {
+	auto id = pos ? String{ AVP::flex_slider_bend_range_pos } : 
+					String{ AVP::flex_slider_bend_range_neg };
+	return (int)tree[id];
+}
+
+void Tree_Aux_Voice_P::set_flex_slider_bend_range(const bool pos, const int new_setting) {
+	auto setting_clamped = std::clamp(new_setting, 0, 11);
+	auto id = pos ? String{ AVP::flex_slider_bend_range_pos } :
+					String{ AVP::flex_slider_bend_range_neg };
+	u_m->beginNewTransaction();
+	tree.setProperty(id, setting_clamped, u_m);
+}
+
+const int Tree_Aux_Voice_P::flex_slider_range() {
+	return (int)tree[String{ AVP::flex_slider_range }];
+}
+
+void Tree_Aux_Voice_P::set_flex_slider_range(const int new_setting) {
+	auto setting_clamped = std::clamp(new_setting, 0, 200);
+	u_m->beginNewTransaction();
+	tree.setProperty(String{ AVP::flex_slider_range }, setting_clamped, u_m);
+}
+
+const Flex_Slider_Target Tree_Aux_Voice_P::flex_slider_target() {
+	auto target_int = (int)tree[String{ AVP::flex_slider_target }];
+	return Flex_Slider_Target{ target_int };
+}
+
+void Tree_Aux_Voice_P::set_flex_slider_target(const Flex_Slider_Target new_setting) {
+	u_m->beginNewTransaction();
+	tree.setProperty(String{ AVP::flex_slider_target }, (int)new_setting, u_m);
 }
 
 const int Tree_Aux_Voice_P::keyboard_octave() {

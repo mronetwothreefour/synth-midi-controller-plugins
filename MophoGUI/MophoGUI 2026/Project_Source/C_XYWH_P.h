@@ -42,9 +42,9 @@ namespace XYWH
 	constexpr int env_3_row_1_y{ 531 };
 	constexpr int env_3_row_2_y{ 583 };
 
-	constexpr int knob_assign_cbox_w{ 134 };
-	constexpr int knob_assign_cbox_x{ 1089 };
-	constexpr int knob_assign_spacing{ 28 };
+	constexpr int flex_knob_cbox_w{ 134 };
+	constexpr int flex_knob_cbox_x{ 1089 };
+	constexpr int flex_knob_spacing{ 28 };
 
 	constexpr int lfo_1_cbox_x{ 463 };
 	constexpr int lfo_block_spacing{ 155 };

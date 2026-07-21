@@ -79,16 +79,16 @@ input jack, this controls the level of
 feedback from the left audio output.
 Range: 0 to 127.)";
 
+    constexpr auto flex_knob_tip = u8R"(
+Selects a target parameter for
+assignable hardware knob _.)";
+
     constexpr auto glide_mode_tip = u8R"(
 Determines how glide (portamento) time is calculated and when it applies.
 • Fixed rate: The actual glide time depends on the size of the note interval.
 • Fixed time: The glide time is constant, regardless of the interval size.
 The ‘auto’ modes only apply glide when a note is played legato
 (i.e. a new note is triggered before the previous note is released).)";
-
-    constexpr auto knob_assign_tip = u8R"(
-Selects a target parameter for
-assignable hardware knob _.)";
 
     constexpr auto lfo_amt_tip = u8R"(
 Sets the degree to which LFO _

@@ -16,9 +16,9 @@ struct Subtree_Choices_Exp_P :
 	static ValueTree clock_div(const bool curt = false);
 	static ValueTree clock_tempo(const bool curt = false);
 
-	static ValueTree glide_mode(const bool curt = false);
+	static ValueTree flex_knob(const bool curt = false);
 
-	static ValueTree knob_assign(const bool curt = false);
+	static ValueTree glide_mode(const bool curt = false);
 
 	static ValueTree lfo_freq(const bool curt = false);
 	static ValueTree lfo_shape(const bool curt = false);

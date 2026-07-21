@@ -25,9 +25,9 @@ struct Tip_Exposed_P :
 	static String env_velo_amt(const String env_name);
 	static String ext_in_level();
 
-	static String glide_mode();
+	static String flex_knob(const String knob_num);
 
-	static String knob_assign(const String knob_num);
+	static String glide_mode();
 
 	static String lfo_amt(const int lfo_num);
 	static String lfo_freq(const int lfo_num);
