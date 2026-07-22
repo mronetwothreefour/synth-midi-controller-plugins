@@ -63,6 +63,10 @@
             file="Project_Source/D_SUBTREE_Bit_Loc_AV_P.cpp"/>
       <FILE id="zh3n2s" name="D_SUBTREE_Bit_Loc_AV_P.h" compile="0" resource="0"
             file="Project_Source/D_SUBTREE_Bit_Loc_AV_P.h"/>
+      <FILE id="eIkwEO" name="D_SUBTREE_Bit_Loc_Exp_P.cpp" compile="1" resource="0"
+            file="Project_Source/D_SUBTREE_Bit_Loc_Exp_P.cpp"/>
+      <FILE id="ZaonMH" name="D_SUBTREE_Bit_Loc_Exp_P.h" compile="0" resource="0"
+            file="Project_Source/D_SUBTREE_Bit_Loc_Exp_P.h"/>
       <FILE id="D4Y9Dj" name="D_SUBTREE_Choices_Exp_P.cpp" compile="1" resource="0"
             file="Project_Source/D_SUBTREE_Choices_Exp_P.cpp"/>
       <FILE id="Yb8Ytz" name="D_SUBTREE_Choices_Exp_P.h" compile="0" resource="0"
@@ -81,6 +85,10 @@
             file="Project_Source/D_TREE_Aux_Voice_P.cpp"/>
       <FILE id="qHQIt1" name="D_TREE_Aux_Voice_P.h" compile="0" resource="0"
             file="Project_Source/D_TREE_Aux_Voice_P.h"/>
+      <FILE id="NFqf6i" name="D_TREE_Exposed_Info_P.cpp" compile="1" resource="0"
+            file="Project_Source/D_TREE_Exposed_Info_P.cpp"/>
+      <FILE id="Z1wXtX" name="D_TREE_Exposed_Info_P.h" compile="0" resource="0"
+            file="Project_Source/D_TREE_Exposed_Info_P.h"/>
       <FILE id="x4TAaL" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="Project_Source/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="ylavD1" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"

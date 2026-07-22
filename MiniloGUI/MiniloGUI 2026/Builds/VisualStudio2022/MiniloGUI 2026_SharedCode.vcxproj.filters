@@ -859,6 +859,9 @@
     <ClCompile Include="..\..\Project_Source\D_SUBTREE_Bit_Loc_AV_P.cpp">
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Project_Source\D_SUBTREE_Bit_Loc_Exp_P.cpp">
+      <Filter>MiniloGUI 2026\Project_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.cpp">
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClCompile>
@@ -869,6 +872,9 @@
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source\D_TREE_Aux_Voice_P.cpp">
+      <Filter>MiniloGUI 2026\Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source\D_TREE_Exposed_Info_P.cpp">
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source\D_X_G_Audio_Processor_P.cpp">
@@ -4152,6 +4158,9 @@
     <ClInclude Include="..\..\Project_Source\D_SUBTREE_Bit_Loc_AV_P.h">
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Project_Source\D_SUBTREE_Bit_Loc_Exp_P.h">
+      <Filter>MiniloGUI 2026\Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.h">
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClInclude>
@@ -4165,6 +4174,9 @@
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\D_TREE_Aux_Voice_P.h">
+      <Filter>MiniloGUI 2026\Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\D_TREE_Exposed_Info_P.h">
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\D_X_G_Audio_Processor_P.h">
