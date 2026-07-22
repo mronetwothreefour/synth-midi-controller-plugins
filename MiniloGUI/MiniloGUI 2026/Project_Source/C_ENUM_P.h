@@ -159,7 +159,7 @@ namespace ENUM
 		lpf_eg_int,
 		osc_2_pitch_eg_int,
 		osc_pitch_fine,
-		unsigned_10_bit,
+		u_10_bit_int,
 		voice_mode_depth
 	};
 

@@ -15,8 +15,8 @@ String Tip_Widget_P::knob_text_editor(const Slider_Display_Type display/*, Tree_
 		return from_string_literal(SL::knob_txt_edit_osc_2_pitch_eg_int_tip);
 	case Slider_Display_Type::osc_pitch_fine:
 		return from_string_literal(SL::knob_txt_edit_osc_pitch_fine_tip);
-	case Slider_Display_Type::unsigned_10_bit:
-		return from_string_literal(SL::knob_txt_edit_unsigned_10_bit_tip);
+	case Slider_Display_Type::u_10_bit_int:
+		return from_string_literal(SL::knob_txt_edit_u_10_bit_int_tip);
 	//case Slider_Display_Type::voice_mode_depth:
 	//	switch (avp.voice_mode())
 	//	{

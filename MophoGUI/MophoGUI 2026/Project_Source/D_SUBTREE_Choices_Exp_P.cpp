@@ -434,7 +434,7 @@ ValueTree Subtree_Choices_Exp_P::seq_trig_mode(const bool curt) {
 	return tree;
 }
 
-ValueTree Subtree_Choices_Exp_P::signed_8_bit_int(const bool curt) {
+ValueTree Subtree_Choices_Exp_P::s_8_bit_int(const bool curt) {
 	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
 	for (int choice = 0; choice < 255; ++choice) {
 		auto name{ (choice > 127 ? "+" : "") + String{ choice - 127 } };

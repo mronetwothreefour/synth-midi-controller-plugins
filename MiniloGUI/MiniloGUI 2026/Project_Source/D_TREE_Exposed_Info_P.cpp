@@ -46,7 +46,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 			Subtree_Exposed_Info_P::build(
 				osc == 1 ? osc_1_pitch_fine : osc_2_pitch_fine,
 				"Oscillator " + o + " Pitch Fine Tune",  Ctrl_Type::knob_osc_pitch_fine,
-				Display::osc_pitch_fine, osc == 1 ? 34 : 35, EXP::choice_count_unsigned_10_bit,
+				Display::osc_pitch_fine, osc == 1 ? 34 : 35, EXP::choice_count_u_10_bit,
 				512, 184, osc == 1 ? ctrl_row_1_y : ctrl_row_2_y, knob_diam, knob_diam,
 				Tip_Exp::osc_pitch_fine(o), Bit_Loc_Exp::osc_pitch_fine(osc),
 				Choices_Exp::osc_pitch_fine(curt), Choices_Exp::osc_pitch_fine()
@@ -56,12 +56,11 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		tree.addChild(
 			Subtree_Exposed_Info_P::build(
 				osc == 1 ? osc_1_shape : osc_2_shape, "Oscillator " + o + " Shape",
-				Ctrl_Type::knob, Display::unsigned_10_bit, osc == 1 ? 36 : 37,
-				EXP::choice_count_unsigned_10_bit, 0, 244,
-				osc == 1 ? ctrl_row_1_y : ctrl_row_2_y, knob_diam, knob_diam,
-				Tip_Exp::osc_shape(o), Bit_Loc_Exp::osc_shape(osc),
-				Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-				Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit)
+				Ctrl_Type::knob, Display::u_10_bit_int, osc == 1 ? 36 : 37,
+				EXP::choice_count_u_10_bit, 0, 244, osc == 1 ? ctrl_row_1_y : ctrl_row_2_y,
+				knob_diam, knob_diam, Tip_Exp::osc_shape(o), Bit_Loc_Exp::osc_shape(osc),
+				Choices_Exp::u_int(EXP::choice_count_u_10_bit, curt),
+				Choices_Exp::u_int(EXP::choice_count_u_10_bit)
 			),
 			-1, nullptr);
 	} // ---------------------------------------------------------- end osc section
@@ -70,11 +69,10 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
 			osc_2_xmod_depth, "Oscillator 2 Cross-Modulation Depth", Ctrl_Type::knob,
-			Display::osc_2_pitch_eg_int, 41, EXP::choice_count_unsigned_10_bit, 0,
-			64, ctrl_row_3_y, knob_diam, knob_diam,
-			Tip_Exp::osc_2_x_mod_depth(), Bit_Loc_Exp::osc_2_x_mod_depth(),
-			Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-			Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit)
+			Display::osc_2_pitch_eg_int, 41, EXP::choice_count_u_10_bit, 0, 64, ctrl_row_3_y,
+			knob_diam, knob_diam, Tip_Exp::osc_2_x_mod_depth(), Bit_Loc_Exp::osc_2_x_mod_depth(),
+			Choices_Exp::u_int(EXP::choice_count_u_10_bit, curt),
+			Choices_Exp::u_int(EXP::choice_count_u_10_bit)
 		),
 		-1, nullptr);
 
@@ -82,7 +80,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Subtree_Exposed_Info_P::build(
 			osc_2_pitch_eg_int, "Oscillator 2 Pitch EG Intensity",
 			Ctrl_Type::knob_osc_2_pitch_eg_int, Display::osc_2_pitch_eg_int, 42,
-			EXP::choice_count_unsigned_10_bit, 512, 124, ctrl_row_3_y, knob_diam, knob_diam,
+			EXP::choice_count_u_10_bit, 512, 124, ctrl_row_3_y, knob_diam, knob_diam,
 			Tip_Exp::osc_2_pitch_eg_int(), Bit_Loc_Exp::osc_2_pitch_eg_int(),
 			Choices_Exp::osc_2_pitch_eg_int(curt), Choices_Exp::osc_2_pitch_eg_int()
 		),
@@ -91,8 +89,8 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
 			osc_2_sync, "Oscillator 2 Sync", Ctrl_Type::switch_2_pole, Display::none,
-			80, 2, 0, 184, ctrl_row_3_y, switch_w, switch_h, Tip_Exp::osc_2_sync(), Bit_Loc_Exp::osc_2_sync(),
-			Choices_Exp::off_on(curt), Choices_Exp::off_on()
+			80, 2, 0, 184, ctrl_row_3_y, switch_w, switch_h, Tip_Exp::osc_2_sync(),
+			Bit_Loc_Exp::osc_2_sync(), Choices_Exp::off_on(curt), Choices_Exp::off_on()
 		),
 		-1, nullptr);
 
@@ -114,12 +112,12 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 				String{ knob == 1 ? "Oscillator 1" :
 						knob == 2 ? "Oscillator 2" :
 						"Noise" } + " Level",
-				Ctrl_Type::knob, Display::unsigned_10_bit, knob == 1 ? 39 : knob == 2 ? 40 : 33,
-				EXP::choice_count_unsigned_10_bit, knob == 1 ? 1023 : 0, 318,
+				Ctrl_Type::knob, Display::u_10_bit_int, knob == 1 ? 39 : knob == 2 ? 40 : 33,
+				EXP::choice_count_u_10_bit, knob == 1 ? 1023 : 0, 318,
 				knob == 1 ? ctrl_row_1_y : knob == 2 ? ctrl_row_2_y : ctrl_row_3_y,
 				knob_diam, knob_diam, Tip_Exp::level_knob(knob), Bit_Loc_Exp::level_knob(knob),
-				Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-				Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit)
+				Choices_Exp::u_int(EXP::choice_count_u_10_bit, curt),
+				Choices_Exp::u_int(EXP::choice_count_u_10_bit)
 			),
 			-1, nullptr);
 	} // ---------------------------------------------------------- end mixer section
@@ -127,31 +125,29 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 	// *************************************************************** lpf section
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			lpf_freq, "LPF Cutoff Frequency", Ctrl_Type::knob_lpf_freq,
-			Display::unsigned_10_bit, 43, EXP::choice_count_unsigned_10_bit, 1023,
-			433, 111, knob_diam_lpf_freq, knob_diam_lpf_freq,
+			lpf_freq, "LPF Cutoff Frequency", Ctrl_Type::knob_lpf_freq, Display::u_10_bit_int, 43,
+			EXP::choice_count_u_10_bit, 1023, 433, 111, knob_diam_lpf_freq, knob_diam_lpf_freq,
 			Tip_Exp::lpf_freq(), Bit_Loc_Exp::lpf_freq(),
-			Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-			Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit)
+			Choices_Exp::u_int(EXP::choice_count_u_10_bit, curt),
+			Choices_Exp::u_int(EXP::choice_count_u_10_bit)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			lpf_reso, "LPF Resonance", Ctrl_Type::knob, Display::unsigned_10_bit,
-			44, EXP::choice_count_unsigned_10_bit, 0, 397, ctrl_row_2_y, knob_diam, knob_diam,
+			lpf_reso, "LPF Resonance", Ctrl_Type::knob, Display::u_10_bit_int,
+			44, EXP::choice_count_u_10_bit, 0, 397, ctrl_row_2_y, knob_diam, knob_diam,
 			Tip_Exp::lpf_reso(), Bit_Loc_Exp::lpf_reso(),
-			Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-			Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit)
+			Choices_Exp::u_int(EXP::choice_count_u_10_bit, curt),
+			Choices_Exp::u_int(EXP::choice_count_u_10_bit)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
 			lpf_eg_int, "LPF EG Intensity", Ctrl_Type::knob, Display::lpf_eg_int,
-			45, EXP::choice_count_unsigned_10_bit, 512, 469, ctrl_row_2_y, knob_diam, knob_diam,
-			Tip_Exp::lpf_eg_int(), Bit_Loc_Exp::lpf_eg_int(),
-			Choices_Exp::lpf_eg_int(curt),
+			45, EXP::choice_count_u_10_bit, 512, 469, ctrl_row_2_y, knob_diam, knob_diam,
+			Tip_Exp::lpf_eg_int(), Bit_Loc_Exp::lpf_eg_int(), Choices_Exp::lpf_eg_int(curt),
 			Choices_Exp::lpf_eg_int()
 		),
 		-1, nullptr);
@@ -174,9 +170,8 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			lpf_vel_amt, "LPF Velocity Amount", Ctrl_Type::switch_3_pole,
-			Display::none, 82, 3, 0, 482, ctrl_row_3_y, 40, switch_h,
-			Tip_Exp::lpf_velo_amt(), Bit_Loc_Exp::lpf_velo_amt(),
+			lpf_vel_amt, "LPF Velocity Amount", Ctrl_Type::switch_3_pole, Display::none, 82, 3, 0,
+			482, ctrl_row_3_y, 40, switch_h, Tip_Exp::lpf_velo_amt(), Bit_Loc_Exp::lpf_velo_amt(),
 			Choices_Exp::zero_50_100(curt), Choices_Exp::zero_50_100()
 		),
 		-1, nullptr);
@@ -189,44 +184,44 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		tree.addChild(
 			Subtree_Exposed_Info_P::build(
 				vca ? vca_env_attack : env_attack, pre + "Envelope Attack", Ctrl_Type::knob,
-				Display::unsigned_10_bit, vca ? 16 : 20, EXP::choice_count_unsigned_10_bit, 0,
+				Display::u_10_bit_int, vca ? 16 : 20, EXP::choice_count_u_10_bit, 0,
 				env_knob_a_x,  vca ? ctrl_row_1_y : ctrl_row_2_y, knob_diam, knob_diam,
 				Tip_Exp::env_attack(vca), Bit_Loc_Exp::env_attack(vca),
-				Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-				Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit)
+				Choices_Exp::u_int(EXP::choice_count_u_10_bit, curt),
+				Choices_Exp::u_int(EXP::choice_count_u_10_bit)
 			),
 			-1, nullptr);
 
 		tree.addChild(
 			Subtree_Exposed_Info_P::build(
 				vca ? vca_env_decay : env_decay, pre + "Envelope Decay", Ctrl_Type::knob,
-				Display::unsigned_10_bit, vca ? 17 : 21, EXP::choice_count_unsigned_10_bit, 512,
+				Display::u_10_bit_int, vca ? 17 : 21, EXP::choice_count_u_10_bit, 512,
 				env_knob_d_x,  vca ? ctrl_row_1_y : ctrl_row_2_y, knob_diam, knob_diam,
 				Tip_Exp::env_decay(vca), Bit_Loc_Exp::env_decay(vca),
-				Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-				Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit)
+				Choices_Exp::u_int(EXP::choice_count_u_10_bit, curt),
+				Choices_Exp::u_int(EXP::choice_count_u_10_bit)
 			),
 			-1, nullptr);
 
 		tree.addChild(
 			Subtree_Exposed_Info_P::build(
 				vca ? vca_env_sustain : env_sustain, pre + "Envelope Sustain", Ctrl_Type::knob,
-				Display::unsigned_10_bit, vca ? 18 : 22, EXP::choice_count_unsigned_10_bit,
+				Display::u_10_bit_int, vca ? 18 : 22, EXP::choice_count_u_10_bit,
 				vca ? 1023 : 0, env_knob_s_x,  vca ? ctrl_row_1_y : ctrl_row_2_y, knob_diam,
 				knob_diam, Tip_Exp::env_sustain(vca), Bit_Loc_Exp::env_sustain(vca),
-				Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-				Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit)
+				Choices_Exp::u_int(EXP::choice_count_u_10_bit, curt),
+				Choices_Exp::u_int(EXP::choice_count_u_10_bit)
 			),
 			-1, nullptr);
 
 		tree.addChild(
 			Subtree_Exposed_Info_P::build(
 				vca ? vca_env_release : env_release, pre + "Envelope Release", Ctrl_Type::knob,
-				Display::unsigned_10_bit, vca ? 19 : 23, EXP::choice_count_unsigned_10_bit, 0,
+				Display::u_10_bit_int, vca ? 19 : 23, EXP::choice_count_u_10_bit, 0,
 				env_knob_r_x,  vca ? ctrl_row_1_y : ctrl_row_2_y, knob_diam, knob_diam,
 				Tip_Exp::env_release(vca), Bit_Loc_Exp::env_release(vca),
-				Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-				Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit)
+				Choices_Exp::u_int(EXP::choice_count_u_10_bit, curt),
+				Choices_Exp::u_int(EXP::choice_count_u_10_bit)
 			),
 			-1, nullptr);
 	} // ---------------------------------------------------------- end env section
@@ -251,7 +246,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
 			lfo_rate, "LFO Rate", Ctrl_Type::knob_lfo_rate, Display::lfo_rate, 24,
-			EXP::choice_count_unsigned_10_bit, 512, 627, ctrl_row_3_y, knob_diam, knob_diam,
+			EXP::choice_count_u_10_bit, 512, 627, ctrl_row_3_y, knob_diam, knob_diam,
 			Tip_Exp::lfo_rate(), Bit_Loc_Exp::lfo_rate(), Choices_Exp::lfo_rate(curt),
 			Choices_Exp::lfo_rate()
 		),
@@ -259,11 +254,11 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			lfo_int, "LFO Intensity", Ctrl_Type::knob, Display::unsigned_10_bit,
-			26, EXP::choice_count_unsigned_10_bit, 0, 695, ctrl_row_3_y, knob_diam, knob_diam,
+			lfo_int, "LFO Intensity", Ctrl_Type::knob, Display::u_10_bit_int,
+			26, EXP::choice_count_u_10_bit, 0, 695, ctrl_row_3_y, knob_diam, knob_diam,
 			Tip_Exp::lfo_int(), Bit_Loc_Exp::lfo_int(),
-			Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-			Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit)
+			Choices_Exp::u_int(EXP::choice_count_u_10_bit, curt),
+			Choices_Exp::u_int(EXP::choice_count_u_10_bit)
 		),
 		-1, nullptr);
 
@@ -280,31 +275,31 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
 			delay_hpf_freq, "Delay HPF Cutoff Frequency", Ctrl_Type::knob,
-			Display::unsigned_10_bit, 29, EXP::choice_count_unsigned_10_bit, 256,
+			Display::u_10_bit_int, 29, EXP::choice_count_u_10_bit, 256,
 			848, ctrl_row_1_y, knob_diam, knob_diam,
 			Tip_Exp::delay_hpf_freq(), Bit_Loc_Exp::delay_hpf_freq(),
-			Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-			Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit)
+			Choices_Exp::u_int(EXP::choice_count_u_10_bit, curt),
+			Choices_Exp::u_int(EXP::choice_count_u_10_bit)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			delay_time, "Delay Time", Ctrl_Type::knob, Display::unsigned_10_bit,
-			30, EXP::choice_count_unsigned_10_bit, 1023, 908, ctrl_row_1_y, knob_diam, knob_diam,
+			delay_time, "Delay Time", Ctrl_Type::knob, Display::u_10_bit_int,
+			30, EXP::choice_count_u_10_bit, 1023, 908, ctrl_row_1_y, knob_diam, knob_diam,
 			Tip_Exp::delay_time(), Bit_Loc_Exp::delay_time(),
-			Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-			Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit)
+			Choices_Exp::u_int(EXP::choice_count_u_10_bit, curt),
+			Choices_Exp::u_int(EXP::choice_count_u_10_bit)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			delay_feedback, "Delay Feedback", Ctrl_Type::knob, Display::unsigned_10_bit,
-			31, EXP::choice_count_unsigned_10_bit, 512, 968, ctrl_row_1_y, knob_diam, knob_diam,
+			delay_feedback, "Delay Feedback", Ctrl_Type::knob, Display::u_10_bit_int,
+			31, EXP::choice_count_u_10_bit, 512, 968, ctrl_row_1_y, knob_diam, knob_diam,
 			Tip_Exp::delay_feedback(), Bit_Loc_Exp::delay_feedback(),
-			Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit, curt),
-			Choices_Exp::unsigned_int(EXP::choice_count_unsigned_10_bit)
+			Choices_Exp::u_int(EXP::choice_count_u_10_bit, curt),
+			Choices_Exp::u_int(EXP::choice_count_u_10_bit)
 		),
 		-1, nullptr);
 
@@ -321,7 +316,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
 			voice_mode_depth, "Voice Mode Depth", Ctrl_Type::knob_voice_mode_depth,
-			Display::voice_mode_depth, 27, EXP::choice_count_unsigned_10_bit, 0,
+			Display::voice_mode_depth, 27, EXP::choice_count_u_10_bit, 0,
 			1112, ctrl_row_2_y, knob_diam, knob_diam,
 			Tip_Exp::voice_mode_depth(), Bit_Loc_Exp::voice_mode_depth(),
 			Choices_Exp::voice_mode_depth(curt), Choices_Exp::voice_mode_depth()

@@ -33,5 +33,5 @@ struct Subtree_Choices_Exp_P :
 
 	static ValueTree ramp_trig(const bool curt = false);
 
-	static ValueTree signed_6_bit_int(const bool curt = false);
+	static ValueTree s_6_bit_int(const bool curt = false);
 };

@@ -167,7 +167,7 @@ ValueTree Subtree_Choices_Exp_P::ramp_trig(const bool curt) {
 	return tree;
 }
 
-ValueTree Subtree_Choices_Exp_P::signed_6_bit_int(const bool curt) {
+ValueTree Subtree_Choices_Exp_P::s_6_bit_int(const bool curt) {
 	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
 	for (auto choice = 0; choice < 64; ++choice) {
 		auto name{ (choice > 31 ? "+" : "") + String{ choice - 31 } };

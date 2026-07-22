@@ -41,8 +41,8 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 				osc == 1 ? 2 : 128, 0, osc_col_2_x, osc == 1 ? switch_row_1_y : knob_row_3_y,
 				osc == 1 ? switch_2_pole_w : knob_diam, osc == 1 ? switch_2_pole_h : knob_diam,
 				osc == 1 ? Tip_Exp::osc_a_sync() : Tip_Exp::osc_b_fine(),
-				osc == 1 ? Choices_Exp::off_on(curt) : Choices_Exp::unsigned_int(128, curt),
-				osc == 1 ? Choices_Exp::off_on() : Choices_Exp::unsigned_int(128)
+				osc == 1 ? Choices_Exp::off_on(curt) : Choices_Exp::u_int(128, curt),
+				osc == 1 ? Choices_Exp::off_on() : Choices_Exp::u_int(128)
 			),
 			-1, nullptr);
 
@@ -81,8 +81,8 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 				osc == 1 ? osc_a_pulse_w : osc_b_pulse_w, "Oscillator " + o + " Pulse Width",
 				Ctrl_Type::knob, osc == 1 ? 0 : 26, osc == 1 ? 0 : 1, 7, Display::int_7_bit, 128,
 				64, osc_col_6_x, osc == 1 ? knob_row_2_y : knob_row_3_y, knob_diam, knob_diam,
-				Tip_Exp::osc_pulse_w(o), Choices_Exp::unsigned_int(128, curt),
-				Choices_Exp::unsigned_int(128)
+				Tip_Exp::osc_pulse_w(o), Choices_Exp::u_int(128, curt),
+				Choices_Exp::u_int(128)
 			),
 			-1, nullptr);
 	} // ---------------------------------------------------------- end osc section
@@ -92,7 +92,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			mixer, "Mixer", Ctrl_Type::knob, 11, 2, 6, Display::int_6_bit, 64, 32,
 			mixer_glide_col_x, knob_row_2_y, knob_diam, knob_diam, Tip_Exp::mixer(),
-			Choices_Exp::unsigned_int(64, curt), Choices_Exp::unsigned_int(64)
+			Choices_Exp::u_int(64, curt), Choices_Exp::u_int(64)
 		),
 		-1, nullptr);
 
@@ -100,7 +100,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			glide, "Glide", Ctrl_Type::knob, 25, 1, 4, Display::int_4_bit, 16, 0,
 			mixer_glide_col_x, knob_row_3_y, knob_diam, knob_diam, Tip_Exp::glide(),
-			Choices_Exp::unsigned_int(16, curt), Choices_Exp::unsigned_int(16)
+			Choices_Exp::u_int(16, curt), Choices_Exp::u_int(16)
 		),
 		-1, nullptr);
 	// ---------------------------------------------------------- end mixer / glide section
@@ -110,7 +110,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			filter_cutoff, "Filter Cutoff Frequency", Ctrl_Type::knob, 13, 0, 7, Display::int_7_bit,
 			128, 64, filter_amp_col_1_x, knob_row_1_y, knob_diam, knob_diam, Tip_Exp::filter_cutoff(),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
@@ -118,7 +118,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			filter_reso, "Filter Resonance", Ctrl_Type::knob, 14, 3, 6, Display::int_6_bit, 64,
 			32, filter_amp_col_2_x, knob_row_1_y, knob_diam, knob_diam, Tip_Exp::filter_reso(),
-			Choices_Exp::unsigned_int(64, curt), Choices_Exp::unsigned_int(64)
+			Choices_Exp::u_int(64, curt), Choices_Exp::u_int(64)
 		),
 		-1, nullptr);
 
@@ -126,7 +126,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			filter_env_amt, "Filter Envelope Amount", Ctrl_Type::knob, 16, 1, 4, Display::int_4_bit,
 			16, 0, filter_amp_col_3_x, knob_row_1_y, knob_diam, knob_diam, Tip_Exp::filter_env_amt(),
-			Choices_Exp::unsigned_int(16, curt), Choices_Exp::unsigned_int(16)
+			Choices_Exp::u_int(16, curt), Choices_Exp::u_int(16)
 		),
 		-1, nullptr);
 
@@ -144,7 +144,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			filter_env_attack, "Filter Envelope Attack", Ctrl_Type::knob, 20, 1, 4,
 			Display::int_4_bit, 16, 0, filter_amp_col_1_x, knob_row_2_y, knob_diam, knob_diam,
-			Tip_Exp::env_attack(filter), Choices_Exp::unsigned_int(16, curt), Choices_Exp::unsigned_int(16)
+			Tip_Exp::env_attack(filter), Choices_Exp::u_int(16, curt), Choices_Exp::u_int(16)
 		),
 		-1, nullptr);
 
@@ -152,7 +152,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			filter_env_decay, "Filter Envelope Decay", Ctrl_Type::knob, 19, 1, 4,
 			Display::int_4_bit, 16, 0, filter_amp_col_2_x, knob_row_2_y, knob_diam, knob_diam,
-			Tip_Exp::env_decay(filter), Choices_Exp::unsigned_int(16, curt), Choices_Exp::unsigned_int(16)
+			Tip_Exp::env_decay(filter), Choices_Exp::u_int(16, curt), Choices_Exp::u_int(16)
 		),
 		-1, nullptr);
 
@@ -160,7 +160,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			filter_env_sustain, "Filter Envelope Sustain", Ctrl_Type::knob, 18, 1, 4,
 			Display::int_4_bit, 16, 0, filter_amp_col_3_x, knob_row_2_y, knob_diam, knob_diam,
-			Tip_Exp::env_sustain(filter), Choices_Exp::unsigned_int(16, curt), Choices_Exp::unsigned_int(16)
+			Tip_Exp::env_sustain(filter), Choices_Exp::u_int(16, curt), Choices_Exp::u_int(16)
 		),
 		-1, nullptr);
 
@@ -168,7 +168,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			filter_env_release, "Filter Envelope Release", Ctrl_Type::knob, 17, 1, 4,
 			Display::int_4_bit, 16, 0, filter_amp_col_4_x, knob_row_2_y, knob_diam, knob_diam,
-			Tip_Exp::env_release(filter), Choices_Exp::unsigned_int(16, curt), Choices_Exp::unsigned_int(16)
+			Tip_Exp::env_release(filter), Choices_Exp::u_int(16, curt), Choices_Exp::u_int(16)
 		),
 		-1, nullptr);
 	// ---------------------------------------------------------- end filter section
@@ -180,7 +180,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			amp_env_attack, "Amplifier Envelope Attack", Ctrl_Type::knob, 24, 1, 4,
 			Display::int_4_bit, 16, 0, filter_amp_col_1_x, knob_row_3_y, knob_diam, knob_diam,
-			Tip_Exp::env_attack(amp), Choices_Exp::unsigned_int(16, curt), Choices_Exp::unsigned_int(16)
+			Tip_Exp::env_attack(amp), Choices_Exp::u_int(16, curt), Choices_Exp::u_int(16)
 		),
 		-1, nullptr);
 
@@ -188,7 +188,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			amp_env_decay, "Amplifier Envelope Decay", Ctrl_Type::knob, 23, 1, 4,
 			Display::int_4_bit, 16, 0, filter_amp_col_2_x, knob_row_3_y, knob_diam, knob_diam,
-			Tip_Exp::env_decay(amp), Choices_Exp::unsigned_int(16, curt), Choices_Exp::unsigned_int(16)
+			Tip_Exp::env_decay(amp), Choices_Exp::u_int(16, curt), Choices_Exp::u_int(16)
 		),
 		-1, nullptr);
 
@@ -196,7 +196,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			amp_env_sustain, "Amplifier Envelope Sustain", Ctrl_Type::knob, 22, 1, 4,
 			Display::int_4_bit, 16, 15, filter_amp_col_3_x, knob_row_3_y, knob_diam, knob_diam,
-			Tip_Exp::env_sustain(amp), Choices_Exp::unsigned_int(16, curt), Choices_Exp::unsigned_int(16)
+			Tip_Exp::env_sustain(amp), Choices_Exp::u_int(16, curt), Choices_Exp::u_int(16)
 		),
 		-1, nullptr);
 
@@ -204,7 +204,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			amp_env_release, "Amplifier Envelope Release", Ctrl_Type::knob, 21, 1, 4,
 			Display::int_4_bit, 16, 0, filter_amp_col_4_x, knob_row_3_y, knob_diam, knob_diam,
-			Tip_Exp::env_release(amp), Choices_Exp::unsigned_int(16, curt), Choices_Exp::unsigned_int(16)
+			Tip_Exp::env_release(amp), Choices_Exp::u_int(16, curt), Choices_Exp::u_int(16)
 		),
 		-1, nullptr);
 	// ---------------------------------------------------------- end amp section
@@ -214,8 +214,8 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			p_mod_amt_filter_env, "Poly-Mod Source: Filter Envelope Amount",
 			Ctrl_Type::knob, 1, 3, 4, Display::int_4_bit, 16, 0, 60, knob_row_2_y, knob_diam,
-			knob_diam, Tip_Exp::poly_mod_src_filter_env_amt(), Choices_Exp::unsigned_int(16, curt), 
-			Choices_Exp::unsigned_int(16)
+			knob_diam, Tip_Exp::poly_mod_src_filter_env_amt(), Choices_Exp::u_int(16, curt), 
+			Choices_Exp::u_int(16)
 		),
 		-1, nullptr);
 
@@ -223,8 +223,8 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			p_mod_amt_osc_b, "Poly-Mod Source: Oscillator B Amount",
 			Ctrl_Type::knob, 3, 3, 7, Display::int_7_bit, 128, 0, 184, knob_row_2_y, knob_diam,
-			knob_diam, Tip_Exp::poly_mod_src_osc_b_amt(), Choices_Exp::unsigned_int(128, curt),
-			Choices_Exp::unsigned_int(128)
+			knob_diam, Tip_Exp::poly_mod_src_osc_b_amt(), Choices_Exp::u_int(128, curt),
+			Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
@@ -261,7 +261,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			lfo_freq, "LFO Frequency", Ctrl_Type::knob, 2, 3, 4, Display::int_4_bit,
 			16, 0, 60, knob_row_3_y, knob_diam, knob_diam, Tip_Exp::lfo_freq(),
-			Choices_Exp::unsigned_int(16, curt), Choices_Exp::unsigned_int(16)
+			Choices_Exp::u_int(16, curt), Choices_Exp::u_int(16)
 		),
 		-1, nullptr);
 
@@ -277,7 +277,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Sub_Tree_Exposed::build(
 			lfo_init_amt, "LFO Initial Amount", Ctrl_Type::knob, 5, 2, 5, Display::int_5_bit,
 			32, 0, 207, knob_row_3_y, knob_diam, knob_diam, Tip_Exp::lfo_init_amt(),
-			Choices_Exp::unsigned_int(32, curt), Choices_Exp::unsigned_int(32)
+			Choices_Exp::u_int(32, curt), Choices_Exp::u_int(32)
 		),
 		-1, nullptr);
 

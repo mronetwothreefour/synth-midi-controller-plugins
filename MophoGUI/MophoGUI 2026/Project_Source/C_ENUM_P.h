@@ -231,8 +231,8 @@ namespace ENUM
 		osc_slop,
 		seq_step,
 		seq_step_trk_1,
-		signed_8_bit,
-		unsigned_7_bit,
+		s_8_bit_int,
+		u_7_bit_int,
 		voice_name_char
 	};
 

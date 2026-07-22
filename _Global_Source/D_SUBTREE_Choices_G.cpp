@@ -21,7 +21,7 @@ ValueTree Subtree_Choices_G::osc_pitch(int choice_count, const bool curt) {
 	return tree;
 }
 
-ValueTree Subtree_Choices_G::signed_7_bit_int(const bool curt) {
+ValueTree Subtree_Choices_G::s_7_bit_int(const bool curt) {
 	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
 	for (int choice = 0; choice < 128; ++choice) {
 		auto name{ (choice > 63 ? "+" : "") + String{ choice - 63 } };
@@ -30,7 +30,7 @@ ValueTree Subtree_Choices_G::signed_7_bit_int(const bool curt) {
 	return tree;
 }
 
-ValueTree Subtree_Choices_G::unsigned_int(int count, const bool curt) {
+ValueTree Subtree_Choices_G::u_int(int count, const bool curt) {
 	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
 	for (int choice = 0; choice < count; ++choice) {
 		auto name{ (String)choice };

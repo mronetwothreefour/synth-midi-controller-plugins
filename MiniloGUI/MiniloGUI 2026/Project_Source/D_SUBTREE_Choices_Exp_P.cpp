@@ -306,7 +306,7 @@ ValueTree Subtree_Choices_Exp_P::osc_pitch_fine(const bool curt) {
 
 ValueTree Subtree_Choices_Exp_P::voice_mode_depth(const bool curt) {
     ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
-    for (uint16 n = 0; n < EXP::choice_count_unsigned_10_bit; ++n) {
+    for (uint16 n = 0; n < EXP::choice_count_u_10_bit; ++n) {
         auto choiceName{ choice_voice_mode_1_poly(n, curt) };
         choiceName += choice_voice_mode_2_duo_3_unison(n, curt);
         choiceName += choice_voice_mode_4_mono(n, curt);

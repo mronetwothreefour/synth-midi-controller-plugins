@@ -28,7 +28,7 @@ Range: -4800 to 4800.)";
 Type in a new setting.
 Range: -1200 to 1200.)";
 
-	constexpr auto knob_txt_edit_unsigned_10_bit_tip = u8R"(
+	constexpr auto knob_txt_edit_u_10_bit_int_tip = u8R"(
 Type in a new setting.
 Range: 0 to 1023.)";
 

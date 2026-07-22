@@ -55,11 +55,11 @@ Range: 0 to 5.)";
 Type in a new setting.
 Range: 0 to 12.)";
 
-	constexpr auto knob_txt_edit_signed_8_bit_tip = u8R"(
+	constexpr auto knob_txt_edit_s_8_bit_int_tip = u8R"(
 Type in a new setting.
 Range: -127 to 127.)";
 
-	constexpr auto knob_txt_edit_unsigned_7_bit_tip = u8R"(
+	constexpr auto knob_txt_edit_u_7_bit_int_tip = u8R"(
 Type in a new setting.
 Range: 0 to 127.)";
 

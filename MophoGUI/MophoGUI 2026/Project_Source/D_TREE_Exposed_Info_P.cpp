@@ -54,9 +54,9 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		tree.addChild(
 			Subtree_Exposed_Info_P::build(
 				osc == 1 ? osc_1_glide : osc_2_glide, "Oscillator " + n + " Glide Rate",
-				Ctrl_Type::knob, Display::unsigned_7_bit, osc == 1 ? 3 : 8, 128, 0,
+				Ctrl_Type::knob, Display::u_7_bit_int, osc == 1 ? 3 : 8, 128, 0,
 				ctrl_col_4_x, center_y, knob_diam, knob_diam, Tip_Exp::osc_glide(osc),
-				Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+				Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 			),
 			-1, nullptr);
 
@@ -74,9 +74,9 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 			Subtree_Exposed_Info_P::build(
 				osc == 1 ? osc_1_sub_level : osc_2_sub_level,
 				"Sub-Oscillator " + n + " Level", Ctrl_Type::knob,
-				Display::unsigned_7_bit, osc == 1 ? 114 : 115, 128, 0, ctrl_col_5_x,
+				Display::u_7_bit_int, osc == 1 ? 114 : 115, 128, 0, ctrl_col_5_x,
 				center_y, knob_diam, knob_diam, Tip_Exp::osc_sub_level(osc), 
-				Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+				Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 			),
 			-1, nullptr);
 	} 
@@ -101,7 +101,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		Subtree_Exposed_Info_P::build(
 			osc_slop, "Oscillator Slop", Ctrl_Type::knob, Display::osc_slop, 12, 6, 2,
 			ctrl_col_7_x, osc_row_1_y, knob_diam, knob_diam, Tip_Exp::osc_slop(),
-			Choices_Exp::unsigned_int(6, curt), Choices_Exp::unsigned_int(6)
+			Choices_Exp::u_int(6, curt), Choices_Exp::u_int(6)
 		),
 		-1, nullptr);
 
@@ -123,25 +123,25 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			osc_mix, "Oscillator 1 & 2 Mix", Ctrl_Type::knob, Display::unsigned_7_bit,
+			osc_mix, "Oscillator 1 & 2 Mix", Ctrl_Type::knob, Display::u_7_bit_int,
 			13, 128, 64, ctrl_col_8_x, osc_row_1_y, knob_diam, knob_diam, Tip_Exp::osc_mix(),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			noise_level, "Noise Level", Ctrl_Type::knob, Display::unsigned_7_bit, 14,
+			noise_level, "Noise Level", Ctrl_Type::knob, Display::u_7_bit_int, 14,
 			128, 0, ctrl_col_7_x, osc_row_2_y, knob_diam, knob_diam, Tip_Exp::noise_level(),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			ext_in_level, "External Audio Input Level", Ctrl_Type::knob, Display::unsigned_7_bit,
+			ext_in_level, "External Audio Input Level", Ctrl_Type::knob, Display::u_7_bit_int,
 			116, 128, 0, ctrl_col_8_x, osc_row_2_y, knob_diam, knob_diam, Tip_Exp::ext_in_level(),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 	// ---------------------------------------------------------- end osc section
@@ -157,25 +157,25 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			lpf_reso, "LPF Resonance", Ctrl_Type::knob, Display::unsigned_7_bit, 16, 128, 0,
+			lpf_reso, "LPF Resonance", Ctrl_Type::knob, Display::u_7_bit_int, 16, 128, 0,
 			ctrl_col_2_x, lpf_row_2_y, knob_diam, knob_diam, Tip_Exp::lpf_reso(),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			lpf_key_amt, "LPF Keyboard Amount", Ctrl_Type::knob, Display::unsigned_7_bit,
+			lpf_key_amt, "LPF Keyboard Amount", Ctrl_Type::knob, Display::u_7_bit_int,
 			17, 128, 0, ctrl_col_3_x, lpf_row_2_y, knob_diam, knob_diam, Tip_Exp::lpf_key_amt(),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			lpf_fm_amt, "LPF FM (By Oscillator 1)", Ctrl_Type::knob, Display::unsigned_7_bit,
+			lpf_fm_amt, "LPF FM (By Oscillator 1)", Ctrl_Type::knob, Display::u_7_bit_int,
 			18, 128, 0, ctrl_col_3_x, lpf_row_3_y, knob_diam, knob_diam, Tip_Exp::lpf_fm_amt(),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
@@ -189,9 +189,9 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			lpf_env_amt, "LPF Envelope Amount", Ctrl_Type::knob, Display::signed_8_bit, 20,
+			lpf_env_amt, "LPF Envelope Amount", Ctrl_Type::knob, Display::s_8_bit_int, 20,
 			255, 127, ctrl_col_1_x, lpf_row_3_y, knob_diam, knob_diam, Tip_Exp::lpf_env_amt(),
-			Choices_Exp::signed_8_bit_int(curt), Choices_Exp::signed_8_bit_int()
+			Choices_Exp::s_8_bit_int(curt), Choices_Exp::s_8_bit_int()
 		),
 		-1, nullptr);
 
@@ -200,49 +200,49 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
 			lpf_velo_amt, "LPF Envelope Velocity Amount", Ctrl_Type::knob,
-			Display::unsigned_7_bit, 21, 128, 0, ctrl_col_2_x, lpf_row_3_y,
+			Display::u_7_bit_int, 21, 128, 0, ctrl_col_2_x, lpf_row_3_y,
 			knob_diam, knob_diam, Tip_Exp::env_velo_amt(env_name),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			lpf_delay, "LPF Envelope Delay", Ctrl_Type::knob, Display::unsigned_7_bit, 22, 128,
+			lpf_delay, "LPF Envelope Delay", Ctrl_Type::knob, Display::u_7_bit_int, 22, 128,
 			0, ctrl_col_4_x, lpf_row_3_y, knob_diam, knob_diam, Tip_Exp::env_delay(env_name),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			lpf_attack, "LPF Envelope Attack", Ctrl_Type::knob, Display::unsigned_7_bit, 23, 128,
+			lpf_attack, "LPF Envelope Attack", Ctrl_Type::knob, Display::u_7_bit_int, 23, 128,
 			0, ctrl_col_5_x, lpf_row_3_y, knob_diam, knob_diam, Tip_Exp::env_attack(env_name),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			lpf_decay, "LPF Envelope Decay", Ctrl_Type::knob, Display::unsigned_7_bit, 24, 128,
+			lpf_decay, "LPF Envelope Decay", Ctrl_Type::knob, Display::u_7_bit_int, 24, 128,
 			0, ctrl_col_6_x, lpf_row_3_y, knob_diam, knob_diam, Tip_Exp::env_decay(env_name),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			lpf_sustain, "LPF Envelope Sustain", Ctrl_Type::knob, Display::unsigned_7_bit, 25,
+			lpf_sustain, "LPF Envelope Sustain", Ctrl_Type::knob, Display::u_7_bit_int, 25,
 			128, 0, ctrl_col_7_x, lpf_row_3_y, knob_diam, knob_diam, Tip_Exp::env_sustain(env_name),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			lpf_release, "LPF Envelope Release", Ctrl_Type::knob, Display::unsigned_7_bit, 26,
+			lpf_release, "LPF Envelope Release", Ctrl_Type::knob, Display::u_7_bit_int, 26,
 			128, 0, ctrl_col_8_x, lpf_row_3_y, knob_diam, knob_diam, Tip_Exp::env_release(env_name),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 	// ---------------------------------------------------------- end lpf section
@@ -250,17 +250,17 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 	// *************************************************************** vca section
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			vca_level, "VCA Baseline Level", Ctrl_Type::knob, Display::unsigned_7_bit, 27,
+			vca_level, "VCA Baseline Level", Ctrl_Type::knob, Display::u_7_bit_int, 27,
 			128, 0, ctrl_col_1_x, vca_row_1_y, knob_diam, knob_diam, Tip_Exp::vca_level(),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			vca_env_amt, "VCA Envelope Amount", Ctrl_Type::knob, Display::unsigned_7_bit, 30,
+			vca_env_amt, "VCA Envelope Amount", Ctrl_Type::knob, Display::u_7_bit_int, 30,
 			128, 127, ctrl_col_2_x, vca_row_1_y, knob_diam, knob_diam, Tip_Exp::vca_env_amt(),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
@@ -268,57 +268,57 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			vca_vel_amt, "VCA Envelope Velocity Amount", Ctrl_Type::knob, Display::unsigned_7_bit,
+			vca_vel_amt, "VCA Envelope Velocity Amount", Ctrl_Type::knob, Display::u_7_bit_int,
 			31, 128, 0, ctrl_col_3_x, vca_row_1_y, knob_diam, knob_diam, Tip_Exp::env_velo_amt(env_name),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			vca_delay, "VCA Envelope Delay", Ctrl_Type::knob, Display::unsigned_7_bit, 32,
+			vca_delay, "VCA Envelope Delay", Ctrl_Type::knob, Display::u_7_bit_int, 32,
 			128, 0, ctrl_col_4_x, vca_row_2_y, knob_diam, knob_diam, Tip_Exp::env_delay(env_name),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			vca_attack, "VCA Envelope Attack", Ctrl_Type::knob, Display::unsigned_7_bit, 33,
+			vca_attack, "VCA Envelope Attack", Ctrl_Type::knob, Display::u_7_bit_int, 33,
 			128, 0, ctrl_col_5_x, vca_row_2_y, knob_diam, knob_diam, Tip_Exp::env_attack(env_name),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			vca_decay, "VCA Envelope Decay", Ctrl_Type::knob, Display::unsigned_7_bit, 34, 128,
+			vca_decay, "VCA Envelope Decay", Ctrl_Type::knob, Display::u_7_bit_int, 34, 128,
 			0, ctrl_col_6_x, vca_row_2_y, knob_diam, knob_diam, Tip_Exp::env_decay(env_name),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			vca_sustain, "VCA Envelope Sustain", Ctrl_Type::knob, Display::unsigned_7_bit, 35,
+			vca_sustain, "VCA Envelope Sustain", Ctrl_Type::knob, Display::u_7_bit_int, 35,
 			128, 64, ctrl_col_7_x, vca_row_2_y, knob_diam, knob_diam, Tip_Exp::env_sustain(env_name),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			vca_release, "VCA Envelope Release", Ctrl_Type::knob, Display::unsigned_7_bit, 36,
+			vca_release, "VCA Envelope Release", Ctrl_Type::knob, Display::u_7_bit_int, 36,
 			128, 64, ctrl_col_8_x, vca_row_2_y, knob_diam, knob_diam, Tip_Exp::env_release(env_name),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			voice_volume, "Program Volume", Ctrl_Type::knob, Display::unsigned_7_bit, 29, 128,
+			voice_volume, "Program Volume", Ctrl_Type::knob, Display::u_7_bit_int, 29, 128,
 			120, ctrl_col_2_x, vca_row_2_y, knob_diam, knob_diam, Tip_Exp::voice_volume(),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 	// ---------------------------------------------------------- end vca section
@@ -350,9 +350,9 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		tree.addChild(
 			Subtree_Exposed_Info_P::build(
 				Exp_Param(lfo_1_amt + offset), "LFO " + n + " Amount", Ctrl_Type::knob,
-				Display::unsigned_7_bit, 39 + offset, 128, 0, 461 + lfo * lfo_block_spacing,
+				Display::u_7_bit_int, 39 + offset, 128, 0, 461 + lfo * lfo_block_spacing,
 				lfo_row_1_y, knob_diam, knob_diam, Tip_Exp::lfo_amt(lfo + 1),
-				Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+				Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 			),
 			-1, nullptr);
 
@@ -389,9 +389,9 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			env_3_amount, "Envelope 3 Amount", Ctrl_Type::knob, Display::signed_8_bit, 58,
+			env_3_amount, "Envelope 3 Amount", Ctrl_Type::knob, Display::s_8_bit_int, 58,
 			255, 127, ctrl_col_2_x, env_3_row_1_y, knob_diam, knob_diam, Tip_Exp::env_3_amt(),
-			Choices_Exp::signed_8_bit_int(curt), Choices_Exp::signed_8_bit_int()
+			Choices_Exp::s_8_bit_int(curt), Choices_Exp::s_8_bit_int()
 		),
 		-1, nullptr);
 
@@ -400,49 +400,49 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
 			env_3_velo_amt, "Envelope 3 Velocity Amount", Ctrl_Type::knob,
-			Display::unsigned_7_bit, 59, 128, 0, ctrl_col_3_x, env_3_row_1_y,
+			Display::u_7_bit_int, 59, 128, 0, ctrl_col_3_x, env_3_row_1_y,
 			knob_diam, knob_diam, Tip_Exp::env_velo_amt(env_name),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			env_3_delay, "Envelope 3 Delay", Ctrl_Type::knob, Display::unsigned_7_bit, 60, 128,
+			env_3_delay, "Envelope 3 Delay", Ctrl_Type::knob, Display::u_7_bit_int, 60, 128,
 			0, ctrl_col_4_x, env_3_row_2_y, knob_diam, knob_diam, Tip_Exp::env_delay(env_name),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			env_3_attack, "Envelope 3 Attack", Ctrl_Type::knob, Display::unsigned_7_bit, 61, 128,
+			env_3_attack, "Envelope 3 Attack", Ctrl_Type::knob, Display::u_7_bit_int, 61, 128,
 			0, ctrl_col_5_x, env_3_row_2_y, knob_diam, knob_diam, Tip_Exp::env_attack(env_name),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			env_3_decay, "Envelope 3 Decay", Ctrl_Type::knob, Display::unsigned_7_bit, 62, 128,
+			env_3_decay, "Envelope 3 Decay", Ctrl_Type::knob, Display::u_7_bit_int, 62, 128,
 			0, ctrl_col_6_x, env_3_row_2_y, knob_diam, knob_diam, Tip_Exp::env_decay(env_name),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			env_3_sustain, "Envelope 3 Sustain", Ctrl_Type::knob, Display::unsigned_7_bit, 63,
+			env_3_sustain, "Envelope 3 Sustain", Ctrl_Type::knob, Display::u_7_bit_int, 63,
 			128, 0, ctrl_col_7_x, env_3_row_2_y, knob_diam, knob_diam, Tip_Exp::env_sustain(env_name),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			env_3_release, "Envelope 3 Release", Ctrl_Type::knob, Display::unsigned_7_bit, 64,
+			env_3_release, "Envelope 3 Release", Ctrl_Type::knob, Display::u_7_bit_int, 64,
 			128, 0, ctrl_col_8_x, env_3_row_2_y, knob_diam, knob_diam, Tip_Exp::env_release(env_name),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 
@@ -471,9 +471,9 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 		tree.addChild(
 			Subtree_Exposed_Info_P::build(
 				Exp_Param(mod_1_amt + offset), "Modulator " + n + " Amount", Ctrl_Type::knob,
-				Display::signed_8_bit, 66 + offset, 255, 127, mod_col_2_x,
+				Display::s_8_bit_int, 66 + offset, 255, 127, mod_col_2_x,
 				201 + mod * mod_block_spacing, knob_diam, knob_diam, Tip_Exp::mod_amt(),
-				Choices_Exp::signed_8_bit_int(curt), Choices_Exp::signed_8_bit_int()
+				Choices_Exp::s_8_bit_int(curt), Choices_Exp::s_8_bit_int()
 			),
 			-1, nullptr);
 
@@ -493,9 +493,9 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 	auto cc_dest_description = mod_dest_param_description + String{ "." };
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			mod_wheel_amt, "Modulation Wheel Amount", Ctrl_Type::knob, Display::signed_8_bit, 81,
+			mod_wheel_amt, "Modulation Wheel Amount", Ctrl_Type::knob, Display::s_8_bit_int, 81,
 			255, 127, cc_col_2_x, cc_row_1_y, knob_diam, knob_diam, Tip_Exp::midi_mod_wheel_amt(),
-			Choices_Exp::signed_8_bit_int(curt), Choices_Exp::signed_8_bit_int()
+			Choices_Exp::s_8_bit_int(curt), Choices_Exp::s_8_bit_int()
 		),
 		-1, nullptr);
 
@@ -509,9 +509,9 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			press_amt, "Pressure (Aftertouch) Amount", Ctrl_Type::knob, Display::signed_8_bit, 83,
+			press_amt, "Pressure (Aftertouch) Amount", Ctrl_Type::knob, Display::s_8_bit_int, 83,
 			255, 127, cc_col_2_x, cc_row_2_y, knob_diam, knob_diam, Tip_Exp::midi_mod_wheel_amt(),
-			Choices_Exp::signed_8_bit_int(curt), Choices_Exp::signed_8_bit_int()
+			Choices_Exp::s_8_bit_int(curt), Choices_Exp::s_8_bit_int()
 		),
 		-1, nullptr);
 
@@ -525,9 +525,9 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			breath_amt, "Breath Amount", Ctrl_Type::knob, Display::signed_8_bit, 85, 255,
+			breath_amt, "Breath Amount", Ctrl_Type::knob, Display::s_8_bit_int, 85, 255,
 			127, cc_col_2_x, cc_row_3_y, knob_diam, knob_diam, Tip_Exp::midi_breath_amt(),
-			Choices_Exp::signed_8_bit_int(curt), Choices_Exp::signed_8_bit_int()
+			Choices_Exp::s_8_bit_int(curt), Choices_Exp::s_8_bit_int()
 		),
 		-1, nullptr);
 
@@ -541,9 +541,9 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			velocity_amt, "Note Velocity Amount", Ctrl_Type::knob, Display::signed_8_bit, 87, 255,
+			velocity_amt, "Note Velocity Amount", Ctrl_Type::knob, Display::s_8_bit_int, 87, 255,
 			127, cc_col_2_x, cc_row_4_y, knob_diam, knob_diam, Tip_Exp::midi_velocity_amt(),
-			Choices_Exp::signed_8_bit_int(curt), Choices_Exp::signed_8_bit_int()
+			Choices_Exp::s_8_bit_int(curt), Choices_Exp::s_8_bit_int()
 		),
 		-1, nullptr);
 
@@ -557,9 +557,9 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			pedal_amt, "Foot Pedal Amount", Ctrl_Type::knob, Display::signed_8_bit, 89, 255, 127,
+			pedal_amt, "Foot Pedal Amount", Ctrl_Type::knob, Display::s_8_bit_int, 89, 255, 127,
 			cc_col_2_x, cc_row_5_y, knob_diam, knob_diam, Tip_Exp::midi_pedal_amt(),
-			Choices_Exp::signed_8_bit_int(curt), Choices_Exp::signed_8_bit_int()
+			Choices_Exp::s_8_bit_int(curt), Choices_Exp::s_8_bit_int()
 		),
 		-1, nullptr);
 
@@ -584,9 +584,9 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			push_it_velo, "Push It! Switch Velocity", Ctrl_Type::knob, Display::unsigned_7_bit,
+			push_it_velo, "Push It! Switch Velocity", Ctrl_Type::knob, Display::u_7_bit_int,
 			112, 128, 100, 1239, push_it_knob_row_y, knob_diam, knob_diam, Tip_Exp::push_it_velocity(),
-			Choices_Exp::unsigned_int(128, curt), Choices_Exp::unsigned_int(128)
+			Choices_Exp::u_int(128, curt), Choices_Exp::u_int(128)
 		),
 		-1, nullptr);
 

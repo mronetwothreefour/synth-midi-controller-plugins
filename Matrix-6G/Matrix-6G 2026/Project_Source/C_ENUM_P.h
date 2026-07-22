@@ -120,16 +120,16 @@ namespace ENUM
 		error = -1,
 		none,
 		osc_pitch,
-		signed_6_bit,
-		signed_7_bit,
-		unsigned_int
+		s_6_bit_int,
+		s_7_bit_int,
+		u_int
 	};
 
 	constexpr enum class Range_Type {
 		error = -1,
-		signed_6_bit,
-		signed_7_bit,
-		unsigned_int
+		s_6_bit_int,
+		s_7_bit_int,
+		u_int
 	};
 
 }

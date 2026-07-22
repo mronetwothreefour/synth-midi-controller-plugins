@@ -39,7 +39,7 @@ struct Subtree_Choices_Exp_P :
 	static ValueTree seq_track_step(const bool curt = false);
 	static ValueTree seq_trig_mode(const bool curt = false);
 
-	static ValueTree signed_8_bit_int(const bool curt = false);
+	static ValueTree s_8_bit_int(const bool curt = false);
 
 	static ValueTree voice_name_char(const bool curt = false);
 };
