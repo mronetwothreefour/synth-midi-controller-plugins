@@ -1,0 +1,19 @@
+#pragma once
+
+#include <JuceHeader.h>
+
+#include "D_TREE_Exposed_Info_G.h"
+
+class Tree_Exposed_Info_P :
+	public Tree_Exposed_Info_G
+{
+//==============================================================================
+public: Tree_Exposed_Info_P();
+
+public: const int first_nybble_index_for(const Exp_Param id) const;
+public: const int first_bit_index_for(const Exp_Param id) const;
+public: const int bit_count_for(const Exp_Param id) const;
+
+//==============================================================================
+private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Tree_Exposed_Info_P)
+};

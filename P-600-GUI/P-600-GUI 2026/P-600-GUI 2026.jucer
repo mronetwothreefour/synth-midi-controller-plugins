@@ -74,6 +74,10 @@
             file="Project_Source/D_TIP_Widget_P.cpp"/>
       <FILE id="sjauBB" name="D_TIP_Widget_P.h" compile="0" resource="0"
             file="Project_Source/D_TIP_Widget_P.h"/>
+      <FILE id="T9x0Rp" name="D_TREE_Exposed_Info_P.h" compile="0" resource="0"
+            file="Project_Source/D_TREE_Exposed_Info_P.h"/>
+      <FILE id="IwkAu9" name="D_TREE_Exposed_Info_P.cpp" compile="1" resource="0"
+            file="Project_Source/D_TREE_Exposed_Info_P.cpp"/>
       <FILE id="kCtBXI" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="Project_Source/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="IZYOth" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"
