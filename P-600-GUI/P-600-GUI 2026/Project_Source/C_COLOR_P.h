@@ -1,7 +1,4 @@
 #pragma once
-
-#include <JuceHeader.h>
-
 #include "C_COLOR_G.h"
 
 namespace COLOR

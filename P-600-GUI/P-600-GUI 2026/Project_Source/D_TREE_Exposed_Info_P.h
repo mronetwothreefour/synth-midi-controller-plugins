@@ -1,7 +1,5 @@
 #pragma once
 
-#include <JuceHeader.h>
-
 #include "D_TREE_Exposed_Info_G.h"
 
 class Tree_Exposed_Info_P :
