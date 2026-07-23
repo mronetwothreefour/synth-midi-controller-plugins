@@ -1,7 +1,5 @@
 #pragma once
 
-#include <JuceHeader.h>
-
 #include "D_X_G_Audio_Processor_P.h"
 #include "D_X_G_Data_User_P.h"
 //#include "G_LAYER_Exp_Ctrls_P.h"

@@ -1,7 +1,5 @@
 #pragma once
 
-#include <JuceHeader.h>
-
 #include "C_ENUM_p.h"
 #include "D_SUBTREE_Choices_G.h"
 

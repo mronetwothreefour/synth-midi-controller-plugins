@@ -1,6 +1,5 @@
 #pragma once
 
-#include "C_XYWH_P.h"
 #include "D_TREE_Exposed_Info_G.h"
 
 class Tree_Exposed_Info_P :

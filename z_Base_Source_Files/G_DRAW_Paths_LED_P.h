@@ -1,7 +1,5 @@
 #pragma once
 
-#include <JuceHeader.h>
-
 #include "G_DRAW_Paths_G.h"
 
 struct Draw_Paths_LED_P :

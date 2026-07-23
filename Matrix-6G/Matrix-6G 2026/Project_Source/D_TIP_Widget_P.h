@@ -1,7 +1,5 @@
 #pragma once
 
-#include <JuceHeader.h>
-
 #include "C_Enum_P.h"
 #include "D_TIP_G.h"
 

@@ -1,9 +1,6 @@
 #pragma once
 
-#include <JuceHeader.h>
-
 #include "D_X_G_Data_Hub_P.h"
-#include "C_FONT_P.h"
 
 class Data_User_G
 {

@@ -151,6 +151,7 @@
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Data_Hub_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.cpp"/>
+    <ClCompile Include="..\..\Project_Source\D_SUBTREE_Exposed_Info_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_TIP_Exposed_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_TIP_Widget_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_TREE_Exposed_Info_P.cpp"/>

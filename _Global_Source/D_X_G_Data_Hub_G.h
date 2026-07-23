@@ -1,7 +1,5 @@
 #pragma once
 
-#include <JuceHeader.h>
-
 #include "D_TREE_Exposed_Info_P.h"
 
 using State = AudioProcessorValueTreeState;
