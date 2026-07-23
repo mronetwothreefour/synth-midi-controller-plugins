@@ -1,7 +1,5 @@
 #pragma once
 
-#include <JuceHeader.h>
-
 #include "D_SUBTREE_Choices_G.h"
 
 struct Subtree_Choices_Exp_P :

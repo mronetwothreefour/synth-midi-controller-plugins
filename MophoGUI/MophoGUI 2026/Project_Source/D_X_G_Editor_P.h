@@ -1,7 +1,5 @@
 #pragma once
 
-#include <JuceHeader.h>
-
 #include "D_X_G_Editor_G.h"
 
 class Editor_P :

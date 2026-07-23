@@ -1,7 +1,5 @@
 #pragma once
 
-#include <JuceHeader.h>
-
 #include "D_TIP_G.h"
 
 struct Tip_Exposed_P :
