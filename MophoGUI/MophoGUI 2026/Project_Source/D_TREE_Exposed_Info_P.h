@@ -13,6 +13,7 @@ public: Point<int> red_toggle_center_for(const Exp_Param id) const;
 public: const int packed_bits_byte_index_for(const Exp_Param id) const;
 public: const int packed_bits_mask_for(const Exp_Param id) const;
 public: const int byte_index_for(const Exp_Param id) const;
+public: Layout build_param_layout() const override;
 
 //==============================================================================
 private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Tree_Exposed_Info_P)

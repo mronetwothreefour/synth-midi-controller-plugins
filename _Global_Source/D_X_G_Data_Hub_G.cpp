@@ -2,12 +2,11 @@
 
 #include "C_EXP_P.h"
 #include "C_ID_G.h"
-//#include "D_LAYOUT_Exposed_G.h"
 
-Data_Hub_G::Data_Hub_G(AudioProcessor* /*processor*/) :
+Data_Hub_G::Data_Hub_G(AudioProcessor* processor) :
 	undo_mngr{ new UndoManager{} },
-	//exposed_state{ new State{ *processor, undo_mngr.get(), ID::tree_exp_param_state,
-	//			   Layout_Exposed_B::build(exposed_info) } },
+	exposed_state{ new State{ *processor, undo_mngr.get(), ID::tree_exp_param_state,
+							  exposed_info.build_param_layout() }},
 	scale_factor{ 1.0f }
 {
 }
@@ -20,15 +19,15 @@ UndoManager* Data_Hub_G::get_undo_mngr() {
 	return undo_mngr.get();
 }
 
-//State* Data_Hub_G::get_exposed_state() {
-//	return exposed_state.get();
-//}
+State* Data_Hub_G::get_exposed_state() {
+	return exposed_state.get();
+}
 
 float& Data_Hub_G::get_scale_factor() {
 	return scale_factor;
 }
 
 Data_Hub_G::~Data_Hub_G() {
-	//exposed_state = nullptr;
+	exposed_state = nullptr;
 	undo_mngr = nullptr;
 }

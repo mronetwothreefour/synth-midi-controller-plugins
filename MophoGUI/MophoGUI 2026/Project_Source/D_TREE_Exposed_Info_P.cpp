@@ -756,3 +756,17 @@ const int Tree_Exposed_Info_P::byte_index_for(const Exp_Param id) const {
 	return (int)param(id)[ID::exp_p_byte_index];
 }
 
+Layout Tree_Exposed_Info_P::build_param_layout() const {
+	Layout layout;
+	for (int i = 0; i < EXP::exp_param_count; ++i) {
+		if (i < Exp_Param::unassigned_1 || i > Exp_Param::unassigned_11) {
+			auto id{ Exp_Param(i) };
+			auto name{ name_for(id) };
+			auto choices_list{ choices_list_for(id) };
+			auto init_choice{ init_choice_for(id) };
+			layout.add(std::make_unique<AudioParameterChoice>(id, name, choices_list, init_choice));
+		}
+	}
+	return layout;
+}
+

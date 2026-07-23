@@ -77,3 +77,15 @@ const int Tree_Exposed_Info_G::drag_sensitivity_for(const Exp_Param id, float sc
 	return roundToInt(sensitivity);
 }
 
+Layout Tree_Exposed_Info_G::build_param_layout() const {
+	Layout layout;
+	for (int i = 0; i < EXP::exp_param_count; ++i) {
+		auto id{ Exp_Param(i) };
+		auto name{ name_for(id) };
+		auto choices_list{ choices_list_for(id) };
+		auto init_choice{ init_choice_for(id) };
+		layout.add(std::make_unique<AudioParameterChoice>(id, name, choices_list, init_choice));
+	}
+	return layout;
+}
+
