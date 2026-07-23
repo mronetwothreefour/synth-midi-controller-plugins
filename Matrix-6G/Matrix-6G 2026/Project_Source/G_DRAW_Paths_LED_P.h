@@ -2,10 +2,10 @@
 
 #include <JuceHeader.h>
 
-#include "G_DRAW_Paths_B.h"
+#include "G_DRAW_Paths_G.h"
 
 struct Draw_Paths_LED_P :
-	public Draw_Paths_B
+	public Draw_Paths_G
 {
 	static Path build_char_path(const uint8 char_num);
 	static Path build_vert_bar(float& scale_factor);

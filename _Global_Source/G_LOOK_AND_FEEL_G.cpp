@@ -23,6 +23,10 @@ void Look_And_Feel_G::getIdealPopupMenuItemSizeWithOptions(const String& /*txt*/
 	ideal_h = standard_h;
 }
 
+void Look_And_Feel_G::drawPopupMenuBackground(Graphics& g, int /*w*/, int /*h*/) {
+	g.fillAll(COLOR::popup_ground);
+}
+
 void Look_And_Feel_G::drawLabel(Graphics& g, Label& lbl) {
 	g.setColour(lbl.isBeingEdited() ? COLOR::text.withAlpha(0.0f) : COLOR::text);
 	auto id = lbl.getComponentID();
