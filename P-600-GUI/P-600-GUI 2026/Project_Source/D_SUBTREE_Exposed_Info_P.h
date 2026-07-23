@@ -6,7 +6,7 @@
 
 using namespace ENUM;
 
-struct Sub_Tree_Exposed_Info
+struct Subtree_Exposed_Info_P
 {
 	static ValueTree build(Exp_Param id, String name, Ctrl_Type ctrl,
 						   int first_nybble_index, int first_bit_index,

@@ -1,7 +1,5 @@
 #pragma once
 
-#include <JuceHeader.h>
-
 #include "D_X_G_Audio_Processor_G.h"
 
 class Audio_Processor_P :

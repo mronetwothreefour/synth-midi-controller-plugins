@@ -1,6 +1,7 @@
 #include "D_TREE_Exposed_Info_P.h"
 
 #include "C_EXP_P.h"
+#include "C_ID_P.h"
 #include "C_XYWH_P.h"
 #include "D_SUBTREE_Bit_Loc_Exp_P.h"
 #include "D_SUBTREE_Choices_Exp_P.h"

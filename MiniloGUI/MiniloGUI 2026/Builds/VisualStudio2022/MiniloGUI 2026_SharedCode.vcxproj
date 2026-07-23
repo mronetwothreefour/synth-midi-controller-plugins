@@ -153,6 +153,7 @@
     <ClCompile Include="..\..\Project_Source\D_SUBTREE_Bit_Loc_AV_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_SUBTREE_Bit_Loc_Exp_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.cpp"/>
+    <ClCompile Include="..\..\Project_Source\D_SUBTREE_Exposed_Info_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_TIP_Exposed_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_TIP_Widget_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_TREE_Aux_Voice_P.cpp"/>

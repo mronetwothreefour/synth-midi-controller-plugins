@@ -71,6 +71,8 @@
             file="Project_Source/D_SUBTREE_Choices_Exp_P.cpp"/>
       <FILE id="Yb8Ytz" name="D_SUBTREE_Choices_Exp_P.h" compile="0" resource="0"
             file="Project_Source/D_SUBTREE_Choices_Exp_P.h"/>
+      <FILE id="wAiBHt" name="D_SUBTREE_Exposed_Info_P.cpp" compile="1" resource="0"
+            file="Project_Source/D_SUBTREE_Exposed_Info_P.cpp"/>
       <FILE id="n4Zfck" name="D_SUBTREE_Exposed_Info_P.h" compile="0" resource="0"
             file="Project_Source/D_SUBTREE_Exposed_Info_P.h"/>
       <FILE id="GUjUE6" name="D_TIP_Exposed_P.cpp" compile="1" resource="0"

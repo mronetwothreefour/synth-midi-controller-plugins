@@ -1,7 +1,5 @@
 #pragma once
 
-#include <JuceHeader.h>
-
 namespace VOICE
 {
 	constexpr int voice_name_char_count{ 12 };

@@ -1,7 +1,5 @@
 #pragma once
 
-#include <JuceHeader.h>
-
 #include "D_X_G_Data_User_G.h"
 
 class Data_User_P :

@@ -1,7 +1,5 @@
 #pragma once
 
-#include <JuceHeader.h>
-
 #include "D_TREE_Aux_Voice_P.h"
 #include "D_X_G_Data_Hub_G.h"
 
