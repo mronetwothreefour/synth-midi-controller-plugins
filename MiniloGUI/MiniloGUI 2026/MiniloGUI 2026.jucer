@@ -38,6 +38,10 @@
             file="../../_Global_Source/D_X_G_Editor_G.h"/>
       <FILE id="OlszET" name="G_DRAW_Paths_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_DRAW_Paths_G.h"/>
+      <FILE id="kP0Gmv" name="G_LOOK_AND_FEEL_G.h" compile="0" resource="0"
+            file="../../_Global_Source/G_LOOK_AND_FEEL_G.h"/>
+      <FILE id="MJlkC1" name="G_LOOK_AND_FEEL_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/G_LOOK_AND_FEEL_G.cpp"/>
       <FILE id="uoqcTG" name="G_WIDG_Tip_Updater_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_WIDG_Tip_Updater_G.h"/>
     </GROUP>

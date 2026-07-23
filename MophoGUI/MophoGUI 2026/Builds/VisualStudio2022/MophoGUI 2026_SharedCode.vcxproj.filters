@@ -856,6 +856,9 @@
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.cpp">
       <Filter>MophoGUI 2026\_Global_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.cpp">
+      <Filter>MophoGUI 2026\_Global_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.cpp">
       <Filter>MophoGUI 2026\Project_Source</Filter>
     </ClCompile>
@@ -4114,6 +4117,9 @@
       <Filter>MophoGUI 2026\_Global_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\G_DRAW_Paths_G.h">
+      <Filter>MophoGUI 2026\_Global_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.h">
       <Filter>MophoGUI 2026\_Global_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Tip_Updater_G.h">

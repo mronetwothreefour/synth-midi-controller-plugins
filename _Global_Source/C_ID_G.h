@@ -27,6 +27,8 @@ namespace ID
 	static const String tree_exp_param_info{ "tree_exp_param_info" };
 	static const String tree_exp_param_state{ "tree_exp_param_state" };
 
+	static const String txt_editor_filled{ "txt_editor_filled" };
+
 	static const String xml_att_scale_factor{ "xml_att_scale_factor" };
 	static const String xml_state_exposed{ "xml_state_exposed" };
 	static const String xml_state_plugin{ "xml_state_plugin" };
