@@ -1,0 +1,12 @@
+#pragma once
+
+#include "G_DRAW_Paths_G.h"
+
+struct Draw_Paths_Widgets_P :
+	public Draw_Paths_G
+{
+private: static void draw_switch_tab(Graphics& g, float& scale_factor, char tab_position);
+public: static void knob(Graphics& g, float& rotation, float& scale_factor);
+public: static void switch_2_pole(Graphics& g, float& scale_factor, int setting);
+public: static void switch_3_pole(Graphics& g, float& scale_factor, int setting);
+};
