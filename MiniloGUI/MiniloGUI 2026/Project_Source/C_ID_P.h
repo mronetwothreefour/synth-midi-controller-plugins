@@ -5,6 +5,8 @@
 namespace ID
 {
 
+	static const String allowed_char_voice_mode_poly{ "012345678" };
+
 	// exposed parameter properties
 	static const String exp_p_bit_count{ "exp_p_bit_count" };
 	static const String exp_p_cc_num{ "exp_p_cc_num" };

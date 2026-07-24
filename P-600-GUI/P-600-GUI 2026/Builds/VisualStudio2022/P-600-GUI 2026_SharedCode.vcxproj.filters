@@ -853,10 +853,16 @@
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Data_Hub_G.cpp">
       <Filter>P-600-GUI 2026\_Global_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Data_User_G.cpp">
+      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.cpp">
       <Filter>P-600-GUI 2026\_Global_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.cpp">
+      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Display_Exp_G.cpp">
       <Filter>P-600-GUI 2026\_Global_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.cpp">
@@ -893,6 +899,9 @@
       <Filter>P-600-GUI 2026\Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source\G_LOOK_AND_FEEL_P.cpp">
+      <Filter>P-600-GUI 2026\Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source\G_WIDG_Sli_Display_Exp_P.cpp">
       <Filter>P-600-GUI 2026\Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -4131,6 +4140,9 @@
     <ClInclude Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.h">
       <Filter>P-600-GUI 2026\_Global_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Display_Exp_G.h">
+      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.h">
       <Filter>P-600-GUI 2026\_Global_Source</Filter>
     </ClInclude>
@@ -4201,6 +4213,9 @@
       <Filter>P-600-GUI 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\G_LOOK_AND_FEEL_P.h">
+      <Filter>P-600-GUI 2026\Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\G_WIDG_Sli_Display_Exp_P.h">
       <Filter>P-600-GUI 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\G_WIDG_Sli_Wheel_Mod_P.h">

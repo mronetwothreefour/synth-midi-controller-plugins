@@ -31,6 +31,8 @@
             file="../../_Global_Source/D_X_G_Data_Hub_G.cpp"/>
       <FILE id="B6GDkP" name="D_X_G_Data_Hub_G.h" compile="0" resource="0"
             file="../../_Global_Source/D_X_G_Data_Hub_G.h"/>
+      <FILE id="J9celj" name="D_X_G_Data_User_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/D_X_G_Data_User_G.cpp"/>
       <FILE id="XOcfhO" name="D_X_G_Data_User_G.h" compile="0" resource="0"
             file="../../_Global_Source/D_X_G_Data_User_G.h"/>
       <FILE id="PpiVQ6" name="D_X_G_Editor_G.cpp" compile="1" resource="0"
@@ -43,6 +45,10 @@
             file="../../_Global_Source/G_LOOK_AND_FEEL_G.h"/>
       <FILE id="wqwjP5" name="G_LOOK_AND_FEEL_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/G_LOOK_AND_FEEL_G.cpp"/>
+      <FILE id="stalKS" name="G_WIDG_Sli_Display_Exp_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/G_WIDG_Sli_Display_Exp_G.cpp"/>
+      <FILE id="AH1wr0" name="G_WIDG_Sli_Display_Exp_G.h" compile="0" resource="0"
+            file="../../_Global_Source/G_WIDG_Sli_Display_Exp_G.h"/>
       <FILE id="fEuxMs" name="G_WIDG_Sli_Wheel_Mod_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_WIDG_Sli_Wheel_Mod_G.h"/>
       <FILE id="ZG5sJQ" name="G_WIDG_Sli_Wheel_Mod_G.cpp" compile="1" resource="0"
@@ -116,6 +122,10 @@
             file="Project_Source/G_LOOK_AND_FEEL_P.cpp"/>
       <FILE id="BRR78u" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"
             file="Project_Source/G_LOOK_AND_FEEL_P.h"/>
+      <FILE id="o6fiyI" name="G_WIDG_Sli_Display_Exp_P.cpp" compile="1" resource="0"
+            file="Project_Source/G_WIDG_Sli_Display_Exp_P.cpp"/>
+      <FILE id="L4opqQ" name="G_WIDG_Sli_Display_Exp_P.h" compile="0" resource="0"
+            file="Project_Source/G_WIDG_Sli_Display_Exp_P.h"/>
       <FILE id="iw0XgB" name="G_WIDG_Sli_Wheel_Mod_P.h" compile="0" resource="0"
             file="Project_Source/G_WIDG_Sli_Wheel_Mod_P.h"/>
     </GROUP>

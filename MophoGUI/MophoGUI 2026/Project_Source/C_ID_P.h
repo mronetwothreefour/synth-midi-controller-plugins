@@ -5,6 +5,12 @@
 namespace ID
 {
 
+	static const String allowed_char_lfo_freq{ "abcdefgABCDEFG0123456789#:." };
+	static const String allowed_char_osc_shape{ "afiopqrstwAFIOPQRSTW0123456789/" };
+	static const String allowed_char_osc_slop{ "012345" };
+	static const String allowed_char_seq_step{ "abcdefgABCDEFG0123456789#+<" };
+	static const String allowed_char_seq_step_trk_1{ "abcdefgABCDEFG0123456789#+<." };
+
 	// exposed parameter properties
 	static const String exp_p_byte_index{ "exp_p_byte_index" };
 	static const String exp_p_nrpn{ "exp_p_nrpn" };

@@ -32,6 +32,8 @@
             file="../../_Global_Source/D_X_G_Data_Hub_G.h"/>
       <FILE id="QmvrJq" name="D_X_G_Data_User_G.h" compile="0" resource="0"
             file="../../_Global_Source/D_X_G_Data_User_G.h"/>
+      <FILE id="SJdKi2" name="D_X_G_Data_User_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/D_X_G_Data_User_G.cpp"/>
       <FILE id="DV3s2E" name="D_X_G_Editor_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/D_X_G_Editor_G.cpp"/>
       <FILE id="MVVJ8y" name="D_X_G_Editor_G.h" compile="0" resource="0"
@@ -42,6 +44,10 @@
             file="../../_Global_Source/G_LOOK_AND_FEEL_G.h"/>
       <FILE id="MJlkC1" name="G_LOOK_AND_FEEL_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/G_LOOK_AND_FEEL_G.cpp"/>
+      <FILE id="Aqpg3U" name="G_WIDG_Sli_Display_Exp_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/G_WIDG_Sli_Display_Exp_G.cpp"/>
+      <FILE id="DTyepO" name="G_WIDG_Sli_Display_Exp_G.h" compile="0" resource="0"
+            file="../../_Global_Source/G_WIDG_Sli_Display_Exp_G.h"/>
       <FILE id="vnd9Pc" name="G_WIDG_Sli_Wheel_Mod_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/G_WIDG_Sli_Wheel_Mod_G.cpp"/>
       <FILE id="lX7g5W" name="G_WIDG_Sli_Wheel_Mod_G.h" compile="0" resource="0"
@@ -125,6 +131,10 @@
             file="Project_Source/G_DRAW_Paths_Widgets_P.h"/>
       <FILE id="MmwEvL" name="G_LOOK_AND_FEEL_P.cpp" compile="1" resource="0"
             file="Project_Source/G_LOOK_AND_FEEL_P.cpp"/>
+      <FILE id="qFNEoB" name="G_WIDG_Sli_Display_Exp_P.cpp" compile="1" resource="0"
+            file="Project_Source/G_WIDG_Sli_Display_Exp_P.cpp"/>
+      <FILE id="cLHqoH" name="G_WIDG_Sli_Display_Exp_P.h" compile="0" resource="0"
+            file="Project_Source/G_WIDG_Sli_Display_Exp_P.h"/>
       <FILE id="UKMZQS" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"
             file="Project_Source/G_LOOK_AND_FEEL_P.h"/>
       <FILE id="TmuUj8" name="G_WIDG_Sli_Wheel_Mod_P.cpp" compile="1" resource="0"

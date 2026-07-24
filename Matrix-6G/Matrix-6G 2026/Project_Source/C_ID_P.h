@@ -11,5 +11,6 @@ namespace ID
 	static const String exp_p_range_type{ "exp_p_range_type" };
 
 	static const String label_led{ "label_led" };
+	static const String label_linear{ "label_linear" };
 
 }

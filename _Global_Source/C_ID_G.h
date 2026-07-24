@@ -5,6 +5,10 @@
 namespace ID
 {
 
+	static const String allowed_char_int_signed{ "-0123456789" };
+	static const String allowed_char_int_unsigned{ "0123456789" };
+	static const String allowed_char_osc_pitch{ "abcdefgABCDEFG0123456789#" };
+
 	// exposed parameter properties
 	static const String exp_p_choice_count{ "exp_p_choice_count" };
 	static const String exp_p_ctrl_cntr_x{ "exp_p_ctrl_cntr_x" };
