@@ -57,6 +57,8 @@
       <FILE id="LeTMHL" name="C_ID_P.h" compile="0" resource="0" file="Project_Source/C_ID_P.h"/>
       <FILE id="CljAML" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
             file="Project_Source/C_PATH_Backdrop_Main_P.h"/>
+      <FILE id="z6tHjb" name="C_PATH_Widgets_P.h" compile="0" resource="0"
+            file="Project_Source/C_PATH_Widgets_P.h"/>
       <FILE id="siDcfl" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
             file="Project_Source/C_SL_Tip_Exposed_P.h"/>
       <FILE id="XnBnV0" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
@@ -113,6 +115,14 @@
             file="Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="mED0W2" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
             file="Project_Source/G_DRAW_Paths_Main_P.h"/>
+      <FILE id="al25k6" name="G_DRAW_Paths_Widgets_P.cpp" compile="1" resource="0"
+            file="Project_Source/G_DRAW_Paths_Widgets_P.cpp"/>
+      <FILE id="i0dnyN" name="G_DRAW_Paths_Widgets_P.h" compile="0" resource="0"
+            file="Project_Source/G_DRAW_Paths_Widgets_P.h"/>
+      <FILE id="MmwEvL" name="G_LOOK_AND_FEEL_P.cpp" compile="1" resource="0"
+            file="Project_Source/G_LOOK_AND_FEEL_P.cpp"/>
+      <FILE id="UKMZQS" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"
+            file="Project_Source/G_LOOK_AND_FEEL_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

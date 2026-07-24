@@ -895,6 +895,12 @@
     <ClCompile Include="..\..\Project_Source\G_DRAW_Paths_Main_P.cpp">
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Project_Source\G_DRAW_Paths_Widgets_P.cpp">
+      <Filter>MiniloGUI 2026\Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source\G_LOOK_AND_FEEL_P.cpp">
+      <Filter>MiniloGUI 2026\Project_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
     </ClCompile>
@@ -4152,6 +4158,9 @@
     <ClInclude Include="..\..\Project_Source\C_PATH_Backdrop_Main_P.h">
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Project_Source\C_PATH_Widgets_P.h">
+      <Filter>MiniloGUI 2026\Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Project_Source\C_SL_Tip_Exposed_P.h">
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClInclude>
@@ -4201,6 +4210,12 @@
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\G_DRAW_Paths_Main_P.h">
+      <Filter>MiniloGUI 2026\Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\G_DRAW_Paths_Widgets_P.h">
+      <Filter>MiniloGUI 2026\Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\G_LOOK_AND_FEEL_P.h">
       <Filter>MiniloGUI 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
