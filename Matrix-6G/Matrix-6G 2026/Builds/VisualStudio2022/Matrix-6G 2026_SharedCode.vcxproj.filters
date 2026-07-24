@@ -859,6 +859,12 @@
     <ClCompile Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.cpp">
       <Filter>Matrix-6G 2026\_Global_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.cpp">
+      <Filter>Matrix-6G 2026\_Global_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source\G_WIDG_Sli_Wheel_Mod_P.cpp">
+      <Filter>Matrix-6G 2026\Project_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.cpp">
       <Filter>Matrix-6G 2026\Project_Source</Filter>
     </ClCompile>
@@ -4128,6 +4134,9 @@
     <ClInclude Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.h">
       <Filter>Matrix-6G 2026\_Global_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.h">
+      <Filter>Matrix-6G 2026\_Global_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Tip_Updater_G.h">
       <Filter>Matrix-6G 2026\_Global_Source</Filter>
     </ClInclude>
@@ -4195,6 +4204,9 @@
       <Filter>Matrix-6G 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\G_LOOK_AND_FEEL_P.h">
+      <Filter>Matrix-6G 2026\Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\G_WIDG_Sli_Wheel_Mod_P.h">
       <Filter>Matrix-6G 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

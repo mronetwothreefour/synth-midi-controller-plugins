@@ -43,10 +43,16 @@
             file="../../_Global_Source/G_LOOK_AND_FEEL_G.cpp"/>
       <FILE id="Zm5VZy" name="G_LOOK_AND_FEEL_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_LOOK_AND_FEEL_G.h"/>
+      <FILE id="BEVfTy" name="G_WIDG_Sli_Wheel_Mod_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/G_WIDG_Sli_Wheel_Mod_G.cpp"/>
+      <FILE id="dMAoFV" name="G_WIDG_Sli_Wheel_Mod_G.h" compile="0" resource="0"
+            file="../../_Global_Source/G_WIDG_Sli_Wheel_Mod_G.h"/>
       <FILE id="VUZSor" name="G_WIDG_Tip_Updater_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_WIDG_Tip_Updater_G.h"/>
     </GROUP>
     <GROUP id="{6E0DE2B6-04BB-CD45-22FC-7935844A3B53}" name="Project_Source">
+      <FILE id="I3qqj1" name="G_WIDG_Sli_Wheel_Mod_P.cpp" compile="1" resource="0"
+            file="Project_Source/G_WIDG_Sli_Wheel_Mod_P.cpp"/>
       <GROUP id="{A48EC3C8-7C59-C289-D775-ABC7A2088748}" name="binaries">
         <FILE id="aqlYMp" name="Overpass-Bold.ttf" compile="0" resource="1"
               file="../../../../../socl0/AppData/Local/Microsoft/Windows/Fonts/Overpass-Bold.ttf"/>
@@ -110,6 +116,8 @@
             file="Project_Source/G_LOOK_AND_FEEL_P.cpp"/>
       <FILE id="Zb6OiS" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"
             file="Project_Source/G_LOOK_AND_FEEL_P.h"/>
+      <FILE id="QYpftb" name="G_WIDG_Sli_Wheel_Mod_P.h" compile="0" resource="0"
+            file="Project_Source/G_WIDG_Sli_Wheel_Mod_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

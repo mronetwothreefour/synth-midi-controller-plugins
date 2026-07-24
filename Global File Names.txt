@@ -31,4 +31,6 @@ G_DRAW_Paths_G
 G_DRAW_Paths_Main_P
 G_LOOK_AND_FEEL_G
 G_LOOK_AND_FEEL_P
+G_WIDG_Sli_Wheel_Mod_G
+G_WIDG_Sli_Wheel_Mod_P
 G_WIDG_Tip_Updater_G

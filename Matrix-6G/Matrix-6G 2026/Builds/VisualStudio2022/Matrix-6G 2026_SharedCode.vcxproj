@@ -151,6 +151,8 @@
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Data_Hub_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.cpp"/>
+    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.cpp"/>
+    <ClCompile Include="..\..\Project_Source\G_WIDG_Sli_Wheel_Mod_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_SUBTREE_Exposed_Info_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_TIP_Exposed_P.cpp"/>
@@ -3170,6 +3172,7 @@
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\G_DRAW_Paths_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.h"/>
+    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Tip_Updater_G.h"/>
     <ClInclude Include="..\..\Project_Source\C_COLOR_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_ENUM_P.h"/>
@@ -3193,6 +3196,7 @@
     <ClInclude Include="..\..\..\..\z_Base_Source_Files\G_DRAW_Paths_LED_P.h"/>
     <ClInclude Include="..\..\Project_Source\G_DRAW_Paths_Main_P.h"/>
     <ClInclude Include="..\..\Project_Source\G_LOOK_AND_FEEL_P.h"/>
+    <ClInclude Include="..\..\Project_Source\G_WIDG_Sli_Wheel_Mod_P.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

@@ -43,6 +43,10 @@
             file="../../_Global_Source/G_LOOK_AND_FEEL_G.cpp"/>
       <FILE id="BMx66d" name="G_LOOK_AND_FEEL_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_LOOK_AND_FEEL_G.h"/>
+      <FILE id="qbW4su" name="G_WIDG_Sli_Wheel_Mod_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/G_WIDG_Sli_Wheel_Mod_G.cpp"/>
+      <FILE id="WAS9dp" name="G_WIDG_Sli_Wheel_Mod_G.h" compile="0" resource="0"
+            file="../../_Global_Source/G_WIDG_Sli_Wheel_Mod_G.h"/>
       <FILE id="DxHhL8" name="G_WIDG_Tip_Updater_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_WIDG_Tip_Updater_G.h"/>
     </GROUP>
@@ -114,6 +118,10 @@
             file="Project_Source/G_LOOK_AND_FEEL_P.cpp"/>
       <FILE id="vPGmVf" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"
             file="Project_Source/G_LOOK_AND_FEEL_P.h"/>
+      <FILE id="UhIX07" name="G_WIDG_Sli_Wheel_Mod_P.cpp" compile="1" resource="0"
+            file="Project_Source/G_WIDG_Sli_Wheel_Mod_P.cpp"/>
+      <FILE id="dHZhwM" name="G_WIDG_Sli_Wheel_Mod_P.h" compile="0" resource="0"
+            file="Project_Source/G_WIDG_Sli_Wheel_Mod_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

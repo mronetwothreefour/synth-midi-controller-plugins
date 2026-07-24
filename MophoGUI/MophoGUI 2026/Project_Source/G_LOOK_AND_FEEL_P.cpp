@@ -159,8 +159,8 @@ void Look_And_Feel_P::draw_label_p(Graphics& g, Label& lbl, String& id) {
 void Look_And_Feel_P::drawRotarySlider(Graphics& g, int /*x*/, int /*y*/, int /*w*/, int /*h*/, float pos,
 									   const float min_angle, const float max_angle, Slider& s)
 {
-	auto id = s.getComponentID().getIntValue();
-	if (id >= Exp_Param::seq_track_1_step_1 && id <= Exp_Param::seq_track_4_step_16)
+	auto id = s.getComponentID();
+	if (id == ID::knob_seq_step || id == ID::knob_seq_step_trk_1)
 		return;
 	auto rotation = min_angle + pos * (max_angle - min_angle);
 	Draw_Widget::knob(g, rotation, scale_factor);
