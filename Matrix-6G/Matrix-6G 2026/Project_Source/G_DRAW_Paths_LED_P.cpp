@@ -1,7 +1,7 @@
 #include "G_DRAW_Paths_LED_P.h"
 
 #include "C_COLOR_P.h"
-#include "C_PATH_LED_Text_P.h"
+#include "C_PATH_LED_P.h"
 #include "C_XYWH_P.h"
 
 using namespace PATH;
@@ -585,7 +585,7 @@ void Draw_Paths_LED_P::display_text(Graphics& g, const String txt, const int dis
 			path.addPath(char_path, char_transform);
 		}
 	}
-	g.setColour(COLOR::light_blue.withAlpha(alpha));
+	g.setColour(COLOR::blue_led.withAlpha(alpha));
 	g.fillPath(path);
 }
 
@@ -593,6 +593,6 @@ void Draw_Paths_LED_P::slider_tab(Graphics& g, float pos, float& scale) {
 	Path path_tab;
 	for (int i = 0; i < 6; ++i)
 		path_tab.addPath(build_vert_bar(scale), AffineTransform::translation(i * 3.0f * scale, 0.0f));
-	g.setColour(COLOR::light_blue);
+	g.setColour(COLOR::blue_led);
 	g.fillPath(path_tab, AffineTransform::translation(pos - 8.0f * scale, 0.0f));
 }
