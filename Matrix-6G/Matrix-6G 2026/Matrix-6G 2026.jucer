@@ -128,6 +128,10 @@
             file="Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="wI9oSW" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
             file="Project_Source/G_DRAW_Paths_Main_P.h"/>
+      <FILE id="UvoPFN" name="G_LAYER_Exp_Ctrls_P.cpp" compile="1" resource="0"
+            file="Project_Source/G_LAYER_Exp_Ctrls_P.cpp"/>
+      <FILE id="AQtsQo" name="G_LAYER_Exp_Ctrls_P.h" compile="0" resource="0"
+            file="Project_Source/G_LAYER_Exp_Ctrls_P.h"/>
       <FILE id="DOs0aN" name="G_LOOK_AND_FEEL_P.cpp" compile="1" resource="0"
             file="Project_Source/G_LOOK_AND_FEEL_P.cpp"/>
       <FILE id="Zb6OiS" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"

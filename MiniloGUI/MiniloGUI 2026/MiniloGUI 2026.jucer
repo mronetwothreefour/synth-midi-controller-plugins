@@ -141,14 +141,18 @@
             file="Project_Source/G_DRAW_Paths_Widgets_P.cpp"/>
       <FILE id="i0dnyN" name="G_DRAW_Paths_Widgets_P.h" compile="0" resource="0"
             file="Project_Source/G_DRAW_Paths_Widgets_P.h"/>
+      <FILE id="cGPn6Q" name="G_LAYER_Exp_Ctrls_P.cpp" compile="1" resource="0"
+            file="Project_Source/G_LAYER_Exp_Ctrls_P.cpp"/>
+      <FILE id="DMeec1" name="G_LAYER_Exp_Ctrls_P.h" compile="0" resource="0"
+            file="Project_Source/G_LAYER_Exp_Ctrls_P.h"/>
       <FILE id="MmwEvL" name="G_LOOK_AND_FEEL_P.cpp" compile="1" resource="0"
             file="Project_Source/G_LOOK_AND_FEEL_P.cpp"/>
+      <FILE id="UKMZQS" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"
+            file="Project_Source/G_LOOK_AND_FEEL_P.h"/>
       <FILE id="qFNEoB" name="G_WIDG_Sli_Display_Exp_P.cpp" compile="1" resource="0"
             file="Project_Source/G_WIDG_Sli_Display_Exp_P.cpp"/>
       <FILE id="cLHqoH" name="G_WIDG_Sli_Display_Exp_P.h" compile="0" resource="0"
             file="Project_Source/G_WIDG_Sli_Display_Exp_P.h"/>
-      <FILE id="UKMZQS" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"
-            file="Project_Source/G_LOOK_AND_FEEL_P.h"/>
       <FILE id="TmuUj8" name="G_WIDG_Sli_Wheel_Mod_P.cpp" compile="1" resource="0"
             file="Project_Source/G_WIDG_Sli_Wheel_Mod_P.cpp"/>
       <FILE id="smwCpj" name="G_WIDG_Sli_Wheel_Mod_P.h" compile="0" resource="0"
