@@ -874,6 +874,9 @@
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.cpp">
       <Filter>MophoGUI 2026\_Global_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Slider_Exp_G.cpp">
+      <Filter>MophoGUI 2026\_Global_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.cpp">
       <Filter>MophoGUI 2026\Project_Source</Filter>
     </ClCompile>
@@ -911,6 +914,9 @@
       <Filter>MophoGUI 2026\Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source\G_WIDG_Sli_Wheel_Mod_P.cpp">
+      <Filter>MophoGUI 2026\Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project_Source\G_WIDG_Slider_Exp_P.cpp">
       <Filter>MophoGUI 2026\Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -4161,6 +4167,9 @@
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.h">
       <Filter>MophoGUI 2026\_Global_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Slider_Exp_G.h">
+      <Filter>MophoGUI 2026\_Global_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Tip_Updater_G.h">
       <Filter>MophoGUI 2026\_Global_Source</Filter>
     </ClInclude>
@@ -4237,6 +4246,9 @@
       <Filter>MophoGUI 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\G_WIDG_Sli_Wheel_Mod_P.h">
+      <Filter>MophoGUI 2026\Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\G_WIDG_Slider_Exp_P.h">
       <Filter>MophoGUI 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

@@ -10,7 +10,7 @@ class Exposed_Control_G:
 protected: const Exp_Param param_id;
 protected: RangedAudioParameter* exp_param;
 protected: Value val_exp_param;
-protected: int mod_param_index;
+protected: Exp_Param mod_param_id;
 protected: RangedAudioParameter* mod_param;
 protected: Value val_mod_param;
 public: const Ctrl_Type ctrl_type;

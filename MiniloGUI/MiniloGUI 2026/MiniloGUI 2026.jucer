@@ -60,6 +60,10 @@
             file="../../_Global_Source/G_WIDG_Sli_Wheel_Mod_G.cpp"/>
       <FILE id="lX7g5W" name="G_WIDG_Sli_Wheel_Mod_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_WIDG_Sli_Wheel_Mod_G.h"/>
+      <FILE id="afqHmt" name="G_WIDG_Slider_Exp_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/G_WIDG_Slider_Exp_G.cpp"/>
+      <FILE id="tGKQb0" name="G_WIDG_Slider_Exp_G.h" compile="0" resource="0"
+            file="../../_Global_Source/G_WIDG_Slider_Exp_G.h"/>
       <FILE id="uoqcTG" name="G_WIDG_Tip_Updater_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_WIDG_Tip_Updater_G.h"/>
     </GROUP>
@@ -149,6 +153,10 @@
             file="Project_Source/G_WIDG_Sli_Wheel_Mod_P.cpp"/>
       <FILE id="smwCpj" name="G_WIDG_Sli_Wheel_Mod_P.h" compile="0" resource="0"
             file="Project_Source/G_WIDG_Sli_Wheel_Mod_P.h"/>
+      <FILE id="AIXpWC" name="G_WIDG_Slider_Exp_P.cpp" compile="1" resource="0"
+            file="Project_Source/G_WIDG_Slider_Exp_P.cpp"/>
+      <FILE id="pFSVoT" name="G_WIDG_Slider_Exp_P.h" compile="0" resource="0"
+            file="Project_Source/G_WIDG_Slider_Exp_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

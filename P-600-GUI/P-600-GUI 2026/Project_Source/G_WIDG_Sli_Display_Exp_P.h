@@ -1,7 +1,5 @@
 #pragma once
 
-#include <JuceHeader.h>
-
 #include "G_WIDG_Sli_Display_Exp_G.h"
 
 class Slider_Display_Exposed_P :

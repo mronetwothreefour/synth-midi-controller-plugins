@@ -61,6 +61,10 @@
             file="../../_Global_Source/G_WIDG_Sli_Wheel_Mod_G.cpp"/>
       <FILE id="WAS9dp" name="G_WIDG_Sli_Wheel_Mod_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_WIDG_Sli_Wheel_Mod_G.h"/>
+      <FILE id="GF2JS4" name="G_WIDG_Slider_Exp_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/G_WIDG_Slider_Exp_G.cpp"/>
+      <FILE id="u2PLjR" name="G_WIDG_Slider_Exp_G.h" compile="0" resource="0"
+            file="../../_Global_Source/G_WIDG_Slider_Exp_G.h"/>
       <FILE id="DxHhL8" name="G_WIDG_Tip_Updater_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_WIDG_Tip_Updater_G.h"/>
     </GROUP>
@@ -140,6 +144,10 @@
             file="Project_Source/G_WIDG_Sli_Wheel_Mod_P.cpp"/>
       <FILE id="dHZhwM" name="G_WIDG_Sli_Wheel_Mod_P.h" compile="0" resource="0"
             file="Project_Source/G_WIDG_Sli_Wheel_Mod_P.h"/>
+      <FILE id="ZTO4RE" name="G_WIDG_Slider_Exp_P.cpp" compile="1" resource="0"
+            file="Project_Source/G_WIDG_Slider_Exp_P.cpp"/>
+      <FILE id="zigHNZ" name="G_WIDG_Slider_Exp_P.h" compile="0" resource="0"
+            file="Project_Source/G_WIDG_Slider_Exp_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

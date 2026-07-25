@@ -37,4 +37,6 @@ G_WIDG_Sli_Display_Exp_G
 G_WIDG_Sli_Display_Exp_P
 G_WIDG_Sli_Wheel_Mod_G
 G_WIDG_Sli_Wheel_Mod_P
+G_WIDG_Slider_Exp_G
+G_WIDG_Slider_Exp_P
 G_WIDG_Tip_Updater_G
