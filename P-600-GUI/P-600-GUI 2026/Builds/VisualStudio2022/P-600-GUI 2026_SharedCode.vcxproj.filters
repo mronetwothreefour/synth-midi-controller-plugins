@@ -862,6 +862,9 @@
     <ClCompile Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.cpp">
       <Filter>P-600-GUI 2026\_Global_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Exp_Ctrl_G.cpp">
+      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Display_Exp_G.cpp">
       <Filter>P-600-GUI 2026\_Global_Source</Filter>
     </ClCompile>
@@ -4138,6 +4141,9 @@
       <Filter>P-600-GUI 2026\_Global_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.h">
+      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Exp_Ctrl_G.h">
       <Filter>P-600-GUI 2026\_Global_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Display_Exp_G.h">
