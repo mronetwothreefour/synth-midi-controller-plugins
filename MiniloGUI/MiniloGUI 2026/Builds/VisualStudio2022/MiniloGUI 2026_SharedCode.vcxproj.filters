@@ -862,6 +862,9 @@
     <ClCompile Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.cpp">
       <Filter>MiniloGUI 2026\_Global_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Cbox_Exp_G.cpp">
+      <Filter>MiniloGUI 2026\_Global_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Exp_Ctrl_G.cpp">
       <Filter>MiniloGUI 2026\_Global_Source</Filter>
     </ClCompile>
@@ -4153,6 +4156,9 @@
       <Filter>MiniloGUI 2026\_Global_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.h">
+      <Filter>MiniloGUI 2026\_Global_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Cbox_Exp_G.h">
       <Filter>MiniloGUI 2026\_Global_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Exp_Ctrl_G.h">

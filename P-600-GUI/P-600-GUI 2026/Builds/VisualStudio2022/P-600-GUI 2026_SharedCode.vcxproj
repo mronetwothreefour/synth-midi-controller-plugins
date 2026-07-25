@@ -152,6 +152,7 @@
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Data_User_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.cpp"/>
+    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Cbox_Exp_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Exp_Ctrl_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Display_Exp_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.cpp"/>
@@ -3175,6 +3176,7 @@
     <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\G_DRAW_Paths_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.h"/>
+    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Cbox_Exp_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Exp_Ctrl_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Display_Exp_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.h"/>

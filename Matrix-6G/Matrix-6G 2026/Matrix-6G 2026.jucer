@@ -45,6 +45,10 @@
             file="../../_Global_Source/G_LOOK_AND_FEEL_G.cpp"/>
       <FILE id="Zm5VZy" name="G_LOOK_AND_FEEL_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_LOOK_AND_FEEL_G.h"/>
+      <FILE id="pflUyG" name="G_WIDG_Cbox_Exp_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/G_WIDG_Cbox_Exp_G.cpp"/>
+      <FILE id="Jxr4J1" name="G_WIDG_Cbox_Exp_G.h" compile="0" resource="0"
+            file="../../_Global_Source/G_WIDG_Cbox_Exp_G.h"/>
       <FILE id="OLmrcR" name="G_WIDG_Exp_Ctrl_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/G_WIDG_Exp_Ctrl_G.cpp"/>
       <FILE id="VcchtT" name="G_WIDG_Exp_Ctrl_G.h" compile="0" resource="0"
@@ -112,10 +116,10 @@
             file="Project_Source/D_X_G_Editor_P.cpp"/>
       <FILE id="KEBYTt" name="D_X_G_Editor_P.h" compile="0" resource="0"
             file="Project_Source/D_X_G_Editor_P.h"/>
-      <FILE id="JxkQde" name="G_DRAW_Paths_LED_P.h" compile="0" resource="0"
-            file="../../z_Base_Source_Files/G_DRAW_Paths_LED_P.h"/>
-      <FILE id="fZqU4G" name="G_DRAW_Paths_LED_P.cpp" compile="1" resource="0"
-            file="../../z_Base_Source_Files/G_DRAW_Paths_LED_P.cpp"/>
+      <FILE id="xoYZm7" name="G_DRAW_Paths_LED_P.cpp" compile="1" resource="0"
+            file="Project_Source/G_DRAW_Paths_LED_P.cpp"/>
+      <FILE id="bclw1l" name="G_DRAW_Paths_LED_P.h" compile="0" resource="0"
+            file="Project_Source/G_DRAW_Paths_LED_P.h"/>
       <FILE id="gRgFr9" name="G_DRAW_Paths_Main_P.cpp" compile="1" resource="0"
             file="Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="wI9oSW" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
