@@ -148,6 +148,10 @@
             file="Project_Source/G_WIDG_Slider_Exp_P.cpp"/>
       <FILE id="zigHNZ" name="G_WIDG_Slider_Exp_P.h" compile="0" resource="0"
             file="Project_Source/G_WIDG_Slider_Exp_P.h"/>
+      <FILE id="IOM558" name="G_WIDG_Toggle_Exp_P.cpp" compile="1" resource="0"
+            file="Project_Source/G_WIDG_Toggle_Exp_P.cpp"/>
+      <FILE id="kOeFCf" name="G_WIDG_Toggle_Exp_P.h" compile="0" resource="0"
+            file="Project_Source/G_WIDG_Toggle_Exp_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
