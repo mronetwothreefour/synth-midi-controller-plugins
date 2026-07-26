@@ -146,7 +146,7 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 
 	tree.addChild(
 		Subtree_Exposed_Info_P::build(
-			lpf_eg_int, "LPF EG Intensity", Ctrl_Type::knob, Display::lpf_eg_int,
+			lpf_eg_int, "LPF EG Intensity", Ctrl_Type::knob_lpf_eg_int, Display::lpf_eg_int,
 			45, EXP::choice_count_u_10_bit, 512, 469, ctrl_row_2_y, knob_diam, knob_diam,
 			Tip_Exp::lpf_eg_int(), Bit_Loc_Exp::lpf_eg_int(), Choices_Exp::lpf_eg_int(curt),
 			Choices_Exp::lpf_eg_int()

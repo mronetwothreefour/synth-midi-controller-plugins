@@ -141,7 +141,7 @@ generator will change the pitch of oscillator 2 over time.
 For example, at 1200 cents the pitch will be raised by 1 octave
 when the envelope reaches its peak amplitude. At -1200 cents,
 the pitch will be lowered by 1 octave. Key modifiers for inc-
-rementing with the mouse wheel: SHIFT = 10 cent increments;
+rementing with the mouse wheel: SHIFT = 25 cent increments;
 CTRL = 100 cent increments; ALT = restrict to exact semitones
 only (i.e. 100, 200, 300, ... ). Transmits on CC #42.
 Range: -4800 to +4800 cents (-4 to +4 octaves).)";
@@ -162,7 +162,7 @@ Range: 16' (lowest) to 2' (highest).)";
 Fine tunes the pitch of oscillator _
 in increments of 1 cent (.01 semitone).
 Key modifiers for incrementing with the
-mouse wheel: SHIFT = 10 cent increments;
+mouse wheel: SHIFT = 25 cent increments;
 CTRL = 100 cent increments; ALT = restrict
 to exact semitones (i.e. 100, 200, 300, ... ).
 Transmits on CC #%%. Range: -1200 to +1200.)";

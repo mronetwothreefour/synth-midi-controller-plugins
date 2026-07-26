@@ -2,56 +2,101 @@
 
 #include "D_SUBTREE_Choices_Exp_P.h"
 
+using Choices = Subtree_Choices_Exp_P;
+
 Slider_Wheel_Mod_P::Slider_Wheel_Mod_P(UndoManager* u_m, Ctrl_Type ctrl_type) :
 	Slider_Wheel_Mod_G{ u_m },
-	modifying_osc_pitch_fine{ ctrl_type == Ctrl_Type::knob_osc_pitch_fine },
+	modifying_lpf_eg_int{ ctrl_type == Ctrl_Type::knob_lpf_eg_int },
 	modifying_osc_2_pitch_eg_int{ ctrl_type == Ctrl_Type::knob_osc_2_pitch_eg_int },
-	modifying_tempo{ ctrl_type == Ctrl_Type::knob_tempo }
+	modifying_osc_pitch_fine{ ctrl_type == Ctrl_Type::knob_osc_pitch_fine },
+	modifying_tempo{ ctrl_type == Ctrl_Type::knob_tempo },
+	non_standard_knob{ ctrl_type > Ctrl_Type::knob && ctrl_type < Ctrl_Type::switch_2_pole }
 {
 	if (ctrl_type >= Ctrl_Type::switch_2_pole)
 	{
 		setSliderStyle(SliderStyle::LinearVertical);
 	}
-	if (ctrl_type == Ctrl_Type::knob_osc_pitch_fine) {
-		auto choice_tree = Subtree_Choices_Exp_P::osc_pitch_fine(true);
-		for (int i = 0; i < choice_tree.getNumProperties(); ++i) {
-			auto choice_name = choice_tree.getProperty("choice_" + String{ i }).toString();
-			auto choice_val = choice_name.getIntValue();
-			display_values.add(choice_val);
+	if (non_standard_knob) {
+		ValueTree choice_tree{};
+		if (modifying_osc_2_pitch_eg_int)
+			choice_tree = Choices::osc_2_pitch_eg_int(true);
+		if (modifying_osc_pitch_fine)
+			choice_tree = Choices::osc_pitch_fine(true);
+		if (choice_tree.isValid()) {
+			for (int i = 0; i < choice_tree.getNumProperties(); ++i) {
+				auto choice_name = choice_tree.getProperty("choice_" + String{ i }).toString();
+				auto choice_val = choice_name.getIntValue();
+				display_values.add(choice_val);
+			}
 		}
 	}
 }
 
 void Slider_Wheel_Mod_P::mod_value(double incr, double& curr_sli_val) {
-	auto disp_val_index = roundToInt(curr_sli_val);
-	auto curr_disp_val = display_values[disp_val_index];
-	if (modifying_osc_pitch_fine && curr_disp_val > -10 && curr_disp_val < 10) {
-		curr_sli_val = get_best_display_value_match(disp_val_index, roundToInt(incr), -1200, 1200);
-		return;
+	if (non_standard_knob) {
+		auto disp_val_index = roundToInt(curr_sli_val);
+		auto curr_disp_val = display_values[disp_val_index];
+		if ((modifying_osc_2_pitch_eg_int || modifying_osc_pitch_fine))
+		{
+			if (curr_sli_val < 5 && incr > 0) {
+				curr_sli_val = 5;
+				return;
+			}
+			if (curr_sli_val > 1019 && incr < 0) {
+				curr_sli_val = 1019;
+				return;
+			}
+		}
+		if (modifying_osc_2_pitch_eg_int && curr_disp_val == 0) {
+				if (incr < 0)
+					curr_sli_val = 491;
+				else
+					curr_sli_val = 531;
+				return;
+		}
+		if (modifying_osc_pitch_fine && curr_disp_val > -100 && curr_disp_val < 100) {
+			curr_sli_val = get_best_display_value_match(disp_val_index, roundToInt(incr), -1200, 1200);
+			return;
+		}
 	}
 	curr_sli_val += incr;
 }
 
 void Slider_Wheel_Mod_P::alt_mod_value(double incr, double& curr_sli_val) {
-	if (modifying_osc_pitch_fine) {
-		curr_sli_val = get_next_multiple_of_100(roundToInt(incr), roundToInt(curr_sli_val));
-		return;
+	if (non_standard_knob) {
+		if (modifying_osc_2_pitch_eg_int || modifying_osc_pitch_fine) {
+			curr_sli_val = get_next_multiple_of_100(roundToInt(incr), roundToInt(curr_sli_val));
+			return;
+		}
 	}
 	mod_value(incr, curr_sli_val);
 }
 
 void Slider_Wheel_Mod_P::ctrl_mod_value(double incr, double& curr_sli_val) {
-	if (modifying_osc_pitch_fine) {
-		curr_sli_val = get_best_display_value_match(roundToInt(curr_sli_val), roundToInt(incr) * 100, -1200, 1200);
-		return;
+	if (non_standard_knob) {
+		auto v = roundToInt(curr_sli_val);
+		if (modifying_osc_2_pitch_eg_int) {
+			curr_sli_val = get_best_display_value_match(v, roundToInt(incr) * 100, -4800, 4800);
+			return;
+		}
+		if (modifying_osc_pitch_fine) {
+			curr_sli_val = get_best_display_value_match(v, roundToInt(incr) * 100, -1200, 1200);
+			return;
+		}
 	}
 	curr_sli_val += incr * 100.0;
 }
 
 void Slider_Wheel_Mod_P::shift_increment_value(double incr, double& v) {
-	if (modifying_osc_pitch_fine) {
-		v = get_best_display_value_match(roundToInt(v), roundToInt(incr) * 25, -1200, 1200);
-		return;
+	if (non_standard_knob) {
+		if (modifying_osc_2_pitch_eg_int) {
+			v = get_best_display_value_match(roundToInt(v), roundToInt(incr) * 25, -4800, 4800);
+			return;
+		}
+		if (modifying_osc_pitch_fine) {
+			v = get_best_display_value_match(roundToInt(v), roundToInt(incr) * 25, -1200, 1200);
+			return;
+		}
 	}
 	v += incr * 25.0;
 }

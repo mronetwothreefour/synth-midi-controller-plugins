@@ -8,9 +8,11 @@ using namespace ENUM;
 class Slider_Wheel_Mod_P :
 	public Slider_Wheel_Mod_G
 {
-public: bool modifying_osc_pitch_fine;
+public: bool modifying_lpf_eg_int;
 public: bool modifying_osc_2_pitch_eg_int;
+public: bool modifying_osc_pitch_fine;
 public: bool modifying_tempo;
+public: bool non_standard_knob;
 private: Array<int> display_values;
 
 //==============================================================================
