@@ -4,7 +4,7 @@
 
 Slider_Wheel_Mod_G::Slider_Wheel_Mod_G(UndoManager* u_m) :
 	u_m{ u_m },
-	modifying_pitch{ false }
+	for_pitch{ false }
 {
 	setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
 	setRotaryParameters(XYWH::rotary_slider_begin_angle, XYWH::rotary_slider_end_angle, true);
@@ -34,7 +34,7 @@ void Slider_Wheel_Mod_G::mod_value(double increment, double& curr_sli_val) {
 }
 
 void Slider_Wheel_Mod_G::shift_increment_value(double increment, double& curr_sli_val) {
-	increment *= modifying_pitch ? 12.0 : 10.0;
+	increment *= for_pitch ? 12.0 : 10.0;
 	curr_sli_val += increment;
 }
 

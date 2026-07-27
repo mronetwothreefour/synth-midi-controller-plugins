@@ -8,16 +8,18 @@ using namespace ENUM;
 class Slider_Wheel_Mod_P :
 	public Slider_Wheel_Mod_G
 {
-public: bool modifying_lpf_eg_int;
-public: bool modifying_osc_2_pitch_eg_int;
-public: bool modifying_osc_pitch_fine;
-public: bool modifying_tempo;
-public: bool non_standard_knob;
+public: bool for_lpf_eg_int;
+public: bool for_osc_2_pitch_eg_int;
+public: bool for_osc_pitch_fine;
+public: bool for_tempo;
+private: Voice_Mode for_voice_mode;
+public: bool for_non_standard_knob;
 private: Array<int> display_values;
 
 //==============================================================================
 public: explicit Slider_Wheel_Mod_P(UndoManager* u_m, Ctrl_Type ctrl_type);
 
+public: void update_for_voice_mode(Voice_Mode new_mode);
 private: void mod_value(double increment, double& current_slider_value) override;
 private: void alt_mod_value(double increment, double& current_slider_value) override;
 private: void ctrl_mod_value(double increment, double& current_slider_value) override;

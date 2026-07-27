@@ -88,11 +88,11 @@ void Slider_Display_Exposed_P::set_text_to_stored_choice() {
 	tip_update.tip_value = choice_name;
 	auto choice_name_curt{ exp_info.choice_for(param_id, choice_num, true) };
 	if (display_type == Display::lfo_freq) {
-		parent_slider->modifying_pitch = choice_num >= EXP::first_lfo_pitched_freq_choice &&
+		parent_slider->for_pitch = choice_num >= EXP::first_lfo_pitched_freq_choice &&
 										 choice_num < EXP::first_lfo_synced_freq_choice;
 	}
 	if (display_type == Display::seq_step || display_type == Display::seq_step_trk_1) {
-		if (!parent_slider->modifying_pitch && choice_num < 126)
+		if (!parent_slider->for_pitch && choice_num < 126)
 			choice_name_curt = String{ choice_num };
 	}
 	setText(choice_name_curt, dontSendNotification);

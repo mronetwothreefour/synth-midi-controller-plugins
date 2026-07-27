@@ -83,7 +83,7 @@ void Slider_Display_Exposed_P::set_text_to_stored_choice() {
 		switch (avp.voice_mode())
 		{
 		case Voice_Mode::poly:
-			name = name.fromFirstOccurrenceOf("1:INV ", false, false).upToFirstOccurrenceOf("|", false, false);
+			name = name.fromFirstOccurrenceOf("1:", false, false).upToFirstOccurrenceOf("|", false, false);
 			break;
 		case Voice_Mode::duo:
 			name = name.fromFirstOccurrenceOf("2&3:", false, false).upToFirstOccurrenceOf("|", false, false);

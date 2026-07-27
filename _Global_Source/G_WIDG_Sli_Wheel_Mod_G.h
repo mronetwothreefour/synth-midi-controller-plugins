@@ -8,7 +8,7 @@ class Slider_Wheel_Mod_G :
 	public Slider
 {
 private: UndoManager* u_m;
-public: bool modifying_pitch;
+public: bool for_pitch;
 
 //==============================================================================
 public: explicit Slider_Wheel_Mod_G(UndoManager* u_m);	

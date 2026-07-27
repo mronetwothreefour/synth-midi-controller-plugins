@@ -336,9 +336,7 @@ String Subtree_Choices_Exp_P::choice_voice_mode_1_poly(const uint16 n, const boo
 
 String Subtree_Choices_Exp_P::choice_voice_mode_2_duo_3_unison(const uint16 n, const bool curt) {
     String name{ curt ? "|2&3:" : "|2&3:detune " };
-    auto detune_num{ n / 20 };
-    if (detune_num > 50)
-        detune_num = 50;
+    auto detune_num{ std::clamp(n / 20, 0, 50) };
     name += (detune_num == 0 ? "" : "+") + (String)detune_num + (curt ? "C" : " cents");
     return name;
 }
@@ -351,24 +349,20 @@ String Subtree_Choices_Exp_P::choice_voice_mode_4_mono(const uint16 n, const boo
 
 String Subtree_Choices_Exp_P::choice_voice_mode_5_chord(const uint16 n, const bool curt) {
     String name{ "|5:" };
-    auto chord_num{ n / 74 };
-    switch (chord_num) {
-    case 0: { name += curt ? "5th(0)" : "5th interval"; break; }
-    case 1: { name += curt ? "sus2(1)" : "suspended 2nd chord"; break; }
-    case 2: { name += curt ? "m(2)" : "minor chord"; break; }
-    case 3: { name += curt ? "Maj(3)" : "major chord"; break; }
-    case 4: { name += curt ? "sus4(4)" : "suspended 4th chord"; break; }
-    case 5: { name += curt ? "m7(5)" : "minor 7th chord"; break; }
-    case 6: { name += curt ? "7th(6)" : "7th chord"; break; }
-    case 7: { name += curt ? "7sus4(7)" : "7th/sus. 4th chord"; break; }
-    case 8: { name += curt ? "Maj7(8)" : "major 7th chord"; break; }
-    case 9: { name += curt ? "aug(9)" : "augmented chord"; break; }
-    case 10: { name += curt ? "dim(10)" : "diminished chord"; break; }
-    case 11: { name += curt ? "m7b5(11)" : "minor 7th/flat 5th chord"; break; }
-    case 12: { name += curt ? "mM7(12)" : "minor/major 7th chord"; break; }
-    case 13: { name += curt ? "M7b5(13)" : "major 7th/flat 5th chord"; break; }
-    default: break;
-    }
+    if (n < 74) name += curt ? "5th(0)" : "5th interval";
+    if (n >= 74 && n < 147) name += curt ? "sus2(1)" : "suspended 2nd chord";
+    if (n >= 147 && n < 220) name += curt ? "m(2)" : "minor chord";
+    if (n >= 220 && n < 293) name += curt ? "Maj(3)" : "major chord";
+    if (n >= 293 && n < 366) name += curt ? "sus4(4)" : "suspended 4th chord";
+    if (n >= 366 && n < 439) name += curt ? "m7(5)" : "minor 7th chord";
+    if (n >= 439 && n < 512) name += curt ? "7th(6)" : "7th chord";
+    if (n >= 512 && n < 586) name += curt ? "7sus4(7)" : "7th/sus. 4th chord";
+    if (n >= 586 && n < 659) name += curt ? "Maj7(8)" : "major 7th chord";
+    if (n >= 659 && n < 732) name += curt ? "aug(9)" : "augmented chord";
+    if (n >= 732 && n < 805) name += curt ? "dim(10)" : "diminished chord";
+    if (n >= 805 && n < 878) name += curt ? "m7b5(11)" : "minor 7th/flat 5th chord";
+    if (n >= 878 && n < 951) name += curt ? "mM7(12)" : "minor/major 7th chord";
+    if (n >= 951 && n < 1024) name += curt ? "M7b5(13)" : "major 7th/flat 5th chord";
     return name;
 }
 

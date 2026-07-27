@@ -8,9 +8,9 @@ using namespace ENUM;
 class Slider_Wheel_Mod_P :
 	public Slider_Wheel_Mod_G
 {
-public: bool modifying_osc_shape;
-public: bool modifying_seq_step;
-public: bool modifying_seq_trk_1;
+public: bool for_osc_shape;
+public: bool for_seq_step;
+public: bool for_seq_trk_1;
 
 //==============================================================================
 public: Slider_Wheel_Mod_P(UndoManager* u_m, Ctrl_Type ctrl_type);

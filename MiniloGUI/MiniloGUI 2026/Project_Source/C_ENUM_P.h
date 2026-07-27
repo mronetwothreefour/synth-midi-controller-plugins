@@ -165,7 +165,8 @@ namespace ENUM
 	};
 
 	constexpr enum class Voice_Mode {
-		poly = 0,
+		none = -1,
+		poly,
 		duo,
 		unison,
 		mono,

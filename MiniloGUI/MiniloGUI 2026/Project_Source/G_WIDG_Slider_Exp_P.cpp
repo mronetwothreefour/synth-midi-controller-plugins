@@ -32,6 +32,8 @@ Slider_Exposed_P::Slider_Exposed_P(const Exp_Param param_id, Data_Hub_P* hub) :
 void Slider_Exposed_P::update_according_to_mod() {
 	update_value_tip();
 	display.set_text_to_stored_choice();
+	if (ctrl_type == Ctrl_Type::knob_voice_mode_depth)
+		update_for_voice_mode(avp.voice_mode());
 }
 
 Slider_Exposed_P::~Slider_Exposed_P() {
