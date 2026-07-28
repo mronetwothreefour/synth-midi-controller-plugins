@@ -73,17 +73,14 @@ void Slider_Display_Exposed_P::set_text_to_stored_choice() {
 	auto choice_num{ roundToInt(parent_slider->getValue()) };
 	auto ctrl_type = exp_info.ctrl_type_for(param_id);
 	String name{};
-	if (ctrl_type == Ctrl_Type::knob_voice_mode_depth)
-		name = exp_info.choice_for_voice_mode(avp.voice_mode(), choice_num, true);
-	else {
-		name = exp_info.choice_for(param_id, choice_num, true);
-		if (ctrl_type == Ctrl_Type::knob_lfo_rate) {
-			if (avp.lfo_sync_bpm_on())
-				name = name.fromFirstOccurrenceOf("|", false, false).upToFirstOccurrenceOf("(", false, false);
-			else
-				name = name.upToFirstOccurrenceOf("|", false, false);
-		}
+	if (ctrl_type == Ctrl_Type::knob_lfo_rate || ctrl_type == Ctrl_Type::knob_voice_mode_depth) {
+		if (ctrl_type == Ctrl_Type::knob_lfo_rate)
+			name = exp_info.choice_for_lfo_rate(avp.lfo_sync_bpm_on(), choice_num, true);
+		else
+			name = exp_info.choice_for_voice_mode(avp.voice_mode(), choice_num, true);
 	}
+	else
+		name = exp_info.choice_for(param_id, choice_num, true);
 	setText(name, dontSendNotification);
 }
 
@@ -145,8 +142,8 @@ void Slider_Display_Exposed_P::on_text_change_unsigned_10_bit() {
 
 void Slider_Display_Exposed_P::on_text_change_voice_mode_depth() {
 	auto new_text{ getText() };
-	auto new_val{ new_text.getFloatValue() };
 	if (new_text.isNotEmpty()) {
+		auto new_val{ new_text.getFloatValue() };
 		switch (avp.voice_mode())
 		{
 		case Voice_Mode::poly: parent_slider->setValue(new_val * 114.0f); break;

@@ -23,67 +23,83 @@ ValueTree Subtree_Choices_Exp_P::lfo_rate(const bool curt) {
     ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
     String name{ "" };
     for (int n = 0; n < 64; ++n) {
-        name = curt ? (String)n + "|4(0)" : "unsynced: " + (String)n + " | synced: 4 beats";
+        name = curt ? (String)n + "|1:4(0)" :
+                      "unsynced: " + (String)n + "|\nsynced:  1 cycle lasts 4 beats";
         tree.setProperty("choice_" + (String)n, name, nullptr);
     }
     for (int n = 64; n < 128; ++n) {
-        name = curt ? (String)n + "|2(1)" : "unsynced: " + (String)n + " | synced: 2 beats";
+        name = curt ? (String)n + "|1:2(1)" :
+                      "unsynced: " + (String)n + "|\nsynced: 1 cycle lasts 2 beats";
         tree.setProperty("choice_" + (String)n, name, nullptr);
     }
     for (int n = 128; n < 192; ++n) {
-        name = curt ? (String)n + "|1(2)" : "unsynced: " + (String)n + " | synced: 1 beat";
+        name = curt ? (String)n + "|1:1(2)" :
+                      "unsynced: " + (String)n + "|\nsynced: 1 cycle lasts 1 beat";
         tree.setProperty("choice_" + (String)n, name, nullptr);
     }
     for (int n = 192; n < 256; ++n) {
-        name = curt ? (String)n + "|3/4(3)" : "unsynced: " + (String)n + " | synced: 3/4 beat";
+        name = curt ? (String)n + "|4:3(3)" :
+                      "unsynced: " + (String)n + "|\nsynced: 1 cycle lasts 3/4 beat";
         tree.setProperty("choice_" + (String)n, name, nullptr);
     }
     for (int n = 256; n < 320; ++n) {
-        name = curt ? (String)n + "|1/2(4)" : "unsynced: " + (String)n + " | synced: 1/2 beat";
+        name = curt ? (String)n + "|2:1(4)" :
+                      "unsynced: " + (String)n + "|\nsynced: 1 cycle lasts 1/2 beat";
         tree.setProperty("choice_" + (String)n, name, nullptr);
     }
     for (int n = 320; n < 384; ++n) {
-        name = curt ? (String)n + "|3/8(5)" : "unsynced: " + (String)n + " | synced: 3/8 beat";
+        name = curt ? (String)n + "|8:3(5)" :
+                      "unsynced: " + (String)n + "|\nsynced: 1 cycle lasts 3/8 beat";
         tree.setProperty("choice_" + (String)n, name, nullptr);
     }
     for (int n = 384; n < 448; ++n) {
-        name = curt ? (String)n + "|1/3(6)" : "unsynced: " + (String)n + " | synced: 1/3 beat";
+        name = curt ? (String)n + "|3:1(6)" :
+                      "unsynced: " + (String)n + "|\nsynced: 1 cycle lasts 1/3 beat";
         tree.setProperty("choice_" + (String)n, name, nullptr);
     }
     for (int n = 448; n < 512; ++n) {
-        name = curt ? (String)n + "|1/4(7)" : "unsynced: " + (String)n + " | synced: 1/4 beat";
+        name = curt ? (String)n + "|4:1(7)" :
+                      "unsynced: " + (String)n + "|\nsynced: 1 cycle lasts 1/4 beat";
         tree.setProperty("choice_" + (String)n, name, nullptr);
     }
     for (int n = 512; n < 576; ++n) {
-        name = curt ? (String)n + "|3/16(8)" : "unsynced: " + (String)n + " | synced: 3/16 beat";
+        name = curt ? (String)n + "|16:3(8)" :
+                      "unsynced: " + (String)n + "|\nsynced: 1 cycle lasts 3/16 beat";
         tree.setProperty("choice_" + (String)n, name, nullptr);
     }
     for (int n = 576; n < 640; ++n) {
-        name = curt ? (String)n + "|1/6(9)" : "unsynced: " + (String)n + " | synced: 1/6 beat";
+        name = curt ? (String)n + "|6:1(9)" :
+                      "unsynced: " + (String)n + "|\nsynced: 1 cycle lasts 1/6 beat";
         tree.setProperty("choice_" + (String)n, name, nullptr);
     }
     for (int n = 640; n < 704; ++n) {
-        name = curt ? (String)n + "|1/8(10)" : "unsynced: " + (String)n + " | synced: 1/8 beat";
+        name = curt ? (String)n + "|8:1(10)" :
+                      "unsynced: " + (String)n + "|\nsynced: 1 cycle lasts 1/8 beat";
         tree.setProperty("choice_" + (String)n, name, nullptr);
     }
     for (int n = 704; n < 768; ++n) {
-        name = curt ? (String)n + "|1/12(11)" : "unsynced: " + (String)n + " | synced: 1/12 beat";
+        name = curt ? (String)n + "|12:1(11)" :
+                      "unsynced: " + (String)n + "|\nsynced: 1 cycle lasts 1/12 beat";
         tree.setProperty("choice_" + (String)n, name, nullptr);
     }
     for (int n = 768; n < 832; ++n) {
-        name = curt ? (String)n + "|1/16(12)" : "unsynced: " + (String)n + " | synced: 1/16 beat";
+        name = curt ? (String)n + "|16:1(12)" :
+                      "unsynced: " + (String)n + "|\nsynced: 1 cycle lasts 1/16 beat";
         tree.setProperty("choice_" + (String)n, name, nullptr);
     }
     for (int n = 832; n < 896; ++n) {
-        name = curt ? (String)n + "|1/24(13)" : "unsynced: " + (String)n + " | synced: 1/24 beat";
+        name = curt ? (String)n + "|24:1(13)" :
+                      "unsynced: " + (String)n + "|\nsynced: 1 cycle lasts 1/24 beat";
         tree.setProperty("choice_" + (String)n, name, nullptr);
     }
     for (int n = 896; n < 960; ++n) {
-        name = curt ? (String)n + "|1/32(14)" : "unsynced: " + (String)n + " | synced: 1/32 beat";
+        name = curt ? (String)n + "|32:1(14)" :
+                      "unsynced: " + (String)n + "|\nsynced: 1 cycle lasts 1/32 beat";
         tree.setProperty("choice_" + (String)n, name, nullptr);
     }
     for (int n = 960; n < 1024; ++n) {
-        name = curt ? (String)n + "|1/64(15)" : "unsynced: " + (String)n + " | synced: 1/64 beat";
+        name = curt ? (String)n + "|64:1(15)" :
+                      "unsynced: " + (String)n + "|\nsynced: 1 cycle lasts 1/64 beat";
         tree.setProperty("choice_" + (String)n, name, nullptr);
     }
     return tree;

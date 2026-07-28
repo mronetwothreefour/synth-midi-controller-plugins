@@ -357,6 +357,17 @@ const int Tree_Exposed_Info_P::bit_index_for_param_bit(const Exp_Param id, const
 	return -1;
 }
 
+const String Tree_Exposed_Info_P::choice_for_lfo_rate(const bool bpm_synced,
+													  const int choice_num, bool curt) const
+{
+	auto name = choice_for(Exp_Param::lfo_rate, choice_num, curt);
+	if (bpm_synced)
+		name = name.fromFirstOccurrenceOf("|", false, false).upToFirstOccurrenceOf("(", false, false);
+	else
+		name = name.upToFirstOccurrenceOf("|", false, false);
+	return name;
+}
+
 const String Tree_Exposed_Info_P::choice_for_voice_mode(const Voice_Mode mode,
 														const int choice_num, bool curt) const
 {
@@ -376,13 +387,13 @@ const String Tree_Exposed_Info_P::choice_for_voice_mode(const Voice_Mode mode,
 		name = name.fromFirstOccurrenceOf("4:", false, false).upToFirstOccurrenceOf("|", false, false);
 		break;
 	case Voice_Mode::chord:
-		name = name.fromFirstOccurrenceOf("5:", false, false).upToFirstOccurrenceOf("(", false, false);
+		name = name.fromFirstOccurrenceOf("5:", false, false).upToFirstOccurrenceOf(curt ? "(" : "|", false, false);
 		break;
 	case Voice_Mode::delay:
-		name = name.fromFirstOccurrenceOf("6:", false, false).upToFirstOccurrenceOf("(", false, false);
+		name = name.fromFirstOccurrenceOf("6:", false, false).upToFirstOccurrenceOf(curt ? "(" : "|", false, false);
 		break;
 	case Voice_Mode::arp:
-		name = name.fromFirstOccurrenceOf("7:", false, false).upToFirstOccurrenceOf("(", false, false);
+		name = name.fromFirstOccurrenceOf("7:", false, false).upToFirstOccurrenceOf(curt ? "(" : "|", false, false);
 		break;
 	case Voice_Mode::sidechain:
 		name = name.fromFirstOccurrenceOf("8:", false, false);

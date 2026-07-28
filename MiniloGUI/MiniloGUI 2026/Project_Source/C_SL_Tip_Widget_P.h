@@ -5,11 +5,11 @@ namespace SL
 
 	constexpr auto knob_txt_edit_lfo_synced_tip = u8R"(
 Select a new BPM-synced LFO rate
-(the length of 1 lfo cycle, in beats).
-Options: (0) 4,  (1) 2,  (2) 1,  (3) 3/4,
-(4) 1/2,  (5) 3/8, (6) 1/3,  (7) 1/4,  
-(8) 3/16,  (9) 1/6,  (10) 1/8,  (11) 1/12,
-(12) 1/16,  (13) 1/24,  (14) 1/32,  (15) 1/64.)";
+(number of cycles : number of beats).
+Options: (0) 1:4,  (1) 1:2,  (2) 1:1,  (3) 4:3,
+(4) 2:1,  (5) 8:3, (6) 3:1,  (7) 4:1,  
+(8) 16:3,  (9) 6:1,  (10) 8:1,  (11) 12:1,
+(12) 16:1,  (13) 24:1,  (14) 32:1,  (15) 64:1.)";
 
 	constexpr auto knob_txt_edit_lfo_unsynced_tip = u8R"(
 Type in a new
