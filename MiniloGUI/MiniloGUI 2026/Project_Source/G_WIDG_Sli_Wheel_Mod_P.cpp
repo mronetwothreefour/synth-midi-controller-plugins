@@ -225,6 +225,20 @@ int Slider_Wheel_Mod_P::get_best_display_value_match(int v, int incr, int min, i
 	return index;
 }
 
+int Slider_Wheel_Mod_P::get_best_display_value_match(int target) {
+	auto l = 0;
+	auto r = 1023;
+	while (l < r) {
+		if (abs(display_values[l] - target)
+			<= abs(display_values[r] - target)) {
+			r--;
+		}
+		else
+			l++;
+	}
+	return l;
+}
+
 int Slider_Wheel_Mod_P::get_next_multiple_of_100(int incr, int v) {
 	auto decreasing = incr < 0;
 	auto increasing = incr > 0;

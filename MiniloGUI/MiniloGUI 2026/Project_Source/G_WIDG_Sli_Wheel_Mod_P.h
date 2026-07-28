@@ -25,5 +25,6 @@ private: void alt_mod_value(double increment, double& current_slider_value) over
 private: void ctrl_mod_value(double increment, double& current_slider_value) override;
 private: void shift_increment_value(double increment, double& value) override;
 private: int get_best_display_value_match(int value, int increment, int min, int max);
+public: int get_best_display_value_match(int target_value);
 private: int get_next_multiple_of_100(int increment, int value);
 };

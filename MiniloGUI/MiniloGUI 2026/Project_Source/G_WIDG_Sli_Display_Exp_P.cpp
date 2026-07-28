@@ -94,13 +94,13 @@ void Slider_Display_Exposed_P::on_text_change() {
 		on_text_change_lfo_rate();
 		break;
 	case ENUM::Slider_Display_Type::lpf_eg_int:
-		on_text_change_lpf_eg_int();
+		on_text_change_get_best_match();
 		break;
 	case ENUM::Slider_Display_Type::osc_2_pitch_eg_int:
-		on_text_change_osc_2_pitch_eg_int();
+		on_text_change_get_best_match();
 		break;
 	case ENUM::Slider_Display_Type::osc_pitch_fine:
-		on_text_change_osc_pitch_fine();
+		on_text_change_get_best_match();
 		break;
 	case ENUM::Slider_Display_Type::u_10_bit_int:
 		on_text_change_unsigned_10_bit();
@@ -114,195 +114,21 @@ void Slider_Display_Exposed_P::on_text_change() {
 	}
 }
 
+void Slider_Display_Exposed_P::on_text_change_get_best_match() {
+	auto new_text{ getText() };
+	if (new_text.isNotEmpty()) {
+		auto input_val{ new_text.getIntValue() };
+		parent_slider->setValue(parent_slider->get_best_display_value_match(input_val));
+	}
+	set_text_to_stored_choice();
+}
+
 void Slider_Display_Exposed_P::on_text_change_lfo_rate() {
 	auto new_text{ getText() };
 	if (new_text.isNotEmpty()) {
 		auto new_val{ new_text.getFloatValue() };
 		if (avp.lfo_sync_bpm_on())
 			new_val *= 64.0f;
-		parent_slider->setValue(new_val);
-	}
-	set_text_to_stored_choice();
-}
-
-void Slider_Display_Exposed_P::on_text_change_lpf_eg_int() {
-	auto new_text{ getText() };
-	if (new_text.isNotEmpty()) {
-		auto input_val{ new_text.getIntValue() };
-		auto new_val{ 0.0f };
-		if (input_val == 0)
-			new_val = 512.0f;
-		if (input_val == 100)
-			new_val = 1023.0f;
-		if (input_val > -100 && input_val < 0) {
-			for (int n = 12; n < 492; ++n) {
-				if (exp_info.choice_for(param_id, n) == String{ input_val } + "%")
-					new_val = (float)n;
-			}
-		}
-		if (input_val > 0 && input_val < 100) {
-			for (int n = 533; n < 1013; ++n) {
-				if (exp_info.choice_for(param_id, n) == "+" + String{ input_val } + "%")
-					new_val = (float)n;
-			}
-		}
-		parent_slider->setValue(new_val);
-	}
-	set_text_to_stored_choice();
-}
-
-void Slider_Display_Exposed_P::on_text_change_osc_2_pitch_eg_int() {
-	auto new_text{ getText() };
-	if (new_text.isNotEmpty()) {
-		auto input_val{ new_text.getIntValue() };
-		auto new_val{ 0 };
-		if (input_val >= -4787 && input_val <= -401) {
-			new_val = input_val + 4787;
-			new_val = 5 + ((new_val / 25) * 2) + (new_val % 25 > 11 ? 1 : 0);
-		}
-		if (input_val >= -400 && input_val <= -25) {
-			new_val = input_val + 400;
-			auto offset{ 0 };
-			auto new_val_mod_25{ new_val % 25 };
-			if (new_val_mod_25 >= 4 && new_val_mod_25 <= 6) offset = 1;
-			if (new_val_mod_25 >= 7 && new_val_mod_25 <= 9) offset = 2;
-			if (new_val_mod_25 >= 10 && new_val_mod_25 <= 12) offset = 3;
-			if (new_val_mod_25 >= 13 && new_val_mod_25 <= 15) offset = 4;
-			if (new_val_mod_25 >= 16 && new_val_mod_25 <= 18) offset = 5;
-			if (new_val_mod_25 >= 19 && new_val_mod_25 <= 21) offset = 6;
-			if (new_val_mod_25 >= 22 && new_val_mod_25 <= 24) offset = 7;
-			new_val = 356 + ((new_val / 25) * 8) + offset;
-		}
-		if (input_val >= -24 && input_val <= 24) {
-			if (input_val == -24 || input_val == -23) new_val = 477;
-			if (input_val == -22 || input_val == -21) new_val = 478;
-			if (input_val == -20) new_val = 479;
-			if (input_val == -19 || input_val == -18) new_val = 480;
-			if (input_val == -17) new_val = 481;
-			if (input_val == -16 || input_val == -15) new_val = 482;
-			if (input_val == -14) new_val = 483;
-			if (input_val == -13 || input_val == -12) new_val = 484;
-			if (input_val == -11 || input_val == -10) new_val = 485;
-			if (input_val == -9) new_val = 486;
-			if (input_val == -8 || input_val == -7) new_val = 487;
-			if (input_val == -6 || input_val == -5) new_val = 488;
-			if (input_val == -4) new_val = 489;
-			if (input_val == -3) new_val = 490;
-			if (input_val == -2) new_val = 491;
-			if (input_val == -1) new_val = 492;
-			if (input_val == 0) new_val = 512;
-			if (input_val == 1) new_val = 531;
-			if (input_val == 2) new_val = 532;
-			if (input_val == 3) new_val = 533;
-			if (input_val == 4) new_val = 534;
-			if (input_val == 5 || input_val == 6) new_val = 535;
-			if (input_val == 7) new_val = 536;
-			if (input_val == 8 || input_val == 9) new_val = 537;
-			if (input_val == 10) new_val = 538;
-			if (input_val == 11 || input_val == 12) new_val = 539;
-			if (input_val == 13 || input_val == 14) new_val = 540;
-			if (input_val == 15) new_val = 541;
-			if (input_val == 16 || input_val == 17) new_val = 542;
-			if (input_val == 18) new_val = 543;
-			if (input_val == 19 || input_val == 20) new_val = 544;
-			if (input_val == 21) new_val = 545;
-			if (input_val == 22 || input_val == 23) new_val = 546;
-			if (input_val == 24) new_val = 547;
-		}
-		if (input_val >= 25 && input_val <= 400) {
-			new_val = input_val - 25;
-			auto offset{ 0 };
-			auto new_val_mod_25{ new_val % 25 };
-			if (new_val_mod_25 >= 4 && new_val_mod_25 <= 6) offset = 1;
-			if (new_val_mod_25 >= 7 && new_val_mod_25 <= 9) offset = 2;
-			if (new_val_mod_25 >= 10 && new_val_mod_25 <= 12) offset = 3;
-			if (new_val_mod_25 >= 13 && new_val_mod_25 <= 15) offset = 4;
-			if (new_val_mod_25 >= 16 && new_val_mod_25 <= 18) offset = 5;
-			if (new_val_mod_25 >= 19 && new_val_mod_25 <= 21) offset = 6;
-			if (new_val_mod_25 >= 22 && new_val_mod_25 <= 24) offset = 7;
-			new_val = 548 + ((new_val / 25) * 8) + offset;
-		}
-		if (input_val >= 401 && input_val <= 4788) {
-			new_val = input_val - 400;
-			new_val = 668 + ((new_val / 25) * 2) + (new_val % 25 > 11 ? 1 : 0);
-		}
-		if (input_val >= 4789)
-			new_val = 1023;
-		parent_slider->setValue(new_val);
-	}
-	set_text_to_stored_choice();
-}
-
-void Slider_Display_Exposed_P::on_text_change_osc_pitch_fine() {
-	auto new_text{ getText() };
-	if (new_text.isNotEmpty()) {
-		auto input_val{ new_text.getIntValue() };
-		auto new_val{ 0 };
-		if (input_val >= -1200 && input_val <= -100) {
-			new_val = input_val + 1200;
-			auto offset{ 0 };
-			auto new_val_mod_25{ new_val % 25 };
-			if (new_val_mod_25 >= 4 && new_val_mod_25 <= 6) offset = 1;
-			if (new_val_mod_25 >= 7 && new_val_mod_25 <= 9) offset = 2;
-			if (new_val_mod_25 >= 10 && new_val_mod_25 <= 12) offset = 3;
-			if (new_val_mod_25 >= 13 && new_val_mod_25 <= 15) offset = 4;
-			if (new_val_mod_25 >= 16 && new_val_mod_25 <= 18) offset = 5;
-			if (new_val_mod_25 >= 19 && new_val_mod_25 <= 21) offset = 6;
-			if (new_val_mod_25 >= 22 && new_val_mod_25 <= 24) offset = 7;
-			new_val = 4 + ((new_val / 25) * 8) + offset;
-		}
-		if (input_val >= -99 && input_val <= -7) {
-			new_val = input_val + 100;
-			auto new_val_mod_25 = new_val % 25;
-			auto offset{ 0 };
-			if (new_val_mod_25 >= 5 && new_val_mod_25 <= 8) offset = 1;
-			if (new_val_mod_25 >= 9 && new_val_mod_25 <= 11) offset = 2;
-			if (new_val_mod_25 >= 12 && new_val_mod_25 <= 15) offset = 3;
-			if (new_val_mod_25 >= 16 && new_val_mod_25 <= 18) offset = 4;
-			if (new_val_mod_25 >= 19 && new_val_mod_25 <= 22) offset = 5;
-			if (new_val_mod_25 >= 23 && new_val_mod_25 <= 24) offset = 6;
-			new_val = 356 + ((new_val / 25) * 32) + offset;
-		}
-		if (input_val == -6) new_val = 476;
-		if (input_val == -5) new_val = 477;
-		if (input_val == -4) new_val = 480;
-		if (input_val == -3) new_val = 482;
-		if (input_val == -2) new_val = 485;
-		if (input_val == -1) new_val = 487;
-		if (input_val == 0) new_val = 512;
-		if (input_val == 1) new_val = 533;
-		if (input_val == 2) new_val = 535;
-		if (input_val == 3) new_val = 538;
-		if (input_val == 4) new_val = 540;
-		if (input_val == 5) new_val = 543;
-		if (input_val == 6) new_val = 545;
-		if (input_val >= 7 && input_val <= 100) {
-			new_val = input_val;
-			auto new_val_mod_25 = new_val % 25;
-			auto offset{ 0 };
-			if (new_val_mod_25 >= 5 && new_val_mod_25 <= 8) offset = 1;
-			if (new_val_mod_25 >= 9 && new_val_mod_25 <= 11) offset = 2;
-			if (new_val_mod_25 >= 12 && new_val_mod_25 <= 15) offset = 3;
-			if (new_val_mod_25 >= 16 && new_val_mod_25 <= 18) offset = 4;
-			if (new_val_mod_25 >= 19 && new_val_mod_25 <= 22) offset = 5;
-			if (new_val_mod_25 >= 23 && new_val_mod_25 <= 24) offset = 6;
-			new_val = 540 + ((new_val / 25) * 32) + offset;
-		}
-		if (input_val >= 101 && input_val <= 1199) {
-			new_val = input_val + 1200;
-			auto offset{ 0 };
-			auto new_val_mod_25{ new_val % 25 };
-			if (new_val_mod_25 >= 4 && new_val_mod_25 <= 6) offset = 1;
-			if (new_val_mod_25 >= 7 && new_val_mod_25 <= 9) offset = 2;
-			if (new_val_mod_25 >= 10 && new_val_mod_25 <= 12) offset = 3;
-			if (new_val_mod_25 >= 13 && new_val_mod_25 <= 15) offset = 4;
-			if (new_val_mod_25 >= 16 && new_val_mod_25 <= 18) offset = 5;
-			if (new_val_mod_25 >= 19 && new_val_mod_25 <= 21) offset = 6;
-			if (new_val_mod_25 >= 22 && new_val_mod_25 <= 24) offset = 7;
-			new_val = 668 + ((new_val / 25) * 8) + offset;
-		}
-		if (input_val == 1200)
-			new_val = 1023;
 		parent_slider->setValue(new_val);
 	}
 	set_text_to_stored_choice();
