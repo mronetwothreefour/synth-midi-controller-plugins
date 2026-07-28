@@ -71,43 +71,17 @@ void Slider_Display_Exposed_P::on_editor_show() {
 
 void Slider_Display_Exposed_P::set_text_to_stored_choice() {
 	auto choice_num{ roundToInt(parent_slider->getValue()) };
-	auto name = exp_info.choice_for(param_id, choice_num, true);
 	auto ctrl_type = exp_info.ctrl_type_for(param_id);
-	if (ctrl_type == Ctrl_Type::knob_lfo_rate) {
-		if (avp.lfo_sync_bpm_on())
-			name = name.fromFirstOccurrenceOf("|", false, false).upToFirstOccurrenceOf("(", false, false);
-		else
-			name = name.upToFirstOccurrenceOf("|", false, false);
-	}
-	if (ctrl_type == Ctrl_Type::knob_voice_mode_depth) {
-		switch (avp.voice_mode())
-		{
-		case Voice_Mode::poly:
-			name = name.fromFirstOccurrenceOf("1:", false, false).upToFirstOccurrenceOf("|", false, false);
-			break;
-		case Voice_Mode::duo:
-			name = name.fromFirstOccurrenceOf("2&3:", false, false).upToFirstOccurrenceOf("|", false, false);
-			break;
-		case Voice_Mode::unison:
-			name = name.fromFirstOccurrenceOf("2&3:", false, false).upToFirstOccurrenceOf("|", false, false);
-			break;
-		case Voice_Mode::mono:
-			name = name.fromFirstOccurrenceOf("4:", false, false).upToFirstOccurrenceOf("|", false, false);
-			break;
-		case Voice_Mode::chord:
-			name = name.fromFirstOccurrenceOf("5:", false, false).upToFirstOccurrenceOf("(", false, false);
-			break;
-		case Voice_Mode::delay:
-			name = name.fromFirstOccurrenceOf("6:", false, false).upToFirstOccurrenceOf("(", false, false);
-			break;
-		case Voice_Mode::arp:
-			name = name.fromFirstOccurrenceOf("7:", false, false).upToFirstOccurrenceOf("(", false, false);
-			break;
-		case Voice_Mode::sidechain:
-			name = name.fromFirstOccurrenceOf("8:", false, false);
-			break;
-		default:
-			break;
+	String name{};
+	if (ctrl_type == Ctrl_Type::knob_voice_mode_depth)
+		name = exp_info.choice_for_voice_mode(avp.voice_mode(), choice_num, true);
+	else {
+		name = exp_info.choice_for(param_id, choice_num, true);
+		if (ctrl_type == Ctrl_Type::knob_lfo_rate) {
+			if (avp.lfo_sync_bpm_on())
+				name = name.fromFirstOccurrenceOf("|", false, false).upToFirstOccurrenceOf("(", false, false);
+			else
+				name = name.upToFirstOccurrenceOf("|", false, false);
 		}
 	}
 	setText(name, dontSendNotification);

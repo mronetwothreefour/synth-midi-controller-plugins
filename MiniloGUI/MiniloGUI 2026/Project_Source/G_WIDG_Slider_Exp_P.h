@@ -8,6 +8,7 @@ class Slider_Exposed_P :
 //==============================================================================
 public: Slider_Exposed_P(const Exp_Param param_id, Data_Hub_P* hub);
 
+public: void update_value_tip() override;
 public: void update_according_to_mod() override;
 public: ~Slider_Exposed_P();
 

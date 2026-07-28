@@ -356,3 +356,40 @@ const int Tree_Exposed_Info_P::bit_index_for_param_bit(const Exp_Param id, const
 	}
 	return -1;
 }
+
+const String Tree_Exposed_Info_P::choice_for_voice_mode(const Voice_Mode mode,
+														const int choice_num, bool curt) const
+{
+	auto name = choice_for(Exp_Param::voice_mode_depth, choice_num, curt);
+	switch (mode)
+	{
+	case Voice_Mode::poly:
+		name = name.fromFirstOccurrenceOf("1:", false, false).upToFirstOccurrenceOf("|", false, false);
+		break;
+	case Voice_Mode::duo:
+		name = name.fromFirstOccurrenceOf("2&3:", false, false).upToFirstOccurrenceOf("|", false, false);
+		break;
+	case Voice_Mode::unison:
+		name = name.fromFirstOccurrenceOf("2&3:", false, false).upToFirstOccurrenceOf("|", false, false);
+		break;
+	case Voice_Mode::mono:
+		name = name.fromFirstOccurrenceOf("4:", false, false).upToFirstOccurrenceOf("|", false, false);
+		break;
+	case Voice_Mode::chord:
+		name = name.fromFirstOccurrenceOf("5:", false, false).upToFirstOccurrenceOf("(", false, false);
+		break;
+	case Voice_Mode::delay:
+		name = name.fromFirstOccurrenceOf("6:", false, false).upToFirstOccurrenceOf("(", false, false);
+		break;
+	case Voice_Mode::arp:
+		name = name.fromFirstOccurrenceOf("7:", false, false).upToFirstOccurrenceOf("(", false, false);
+		break;
+	case Voice_Mode::sidechain:
+		name = name.fromFirstOccurrenceOf("8:", false, false);
+		break;
+	default:
+		name = "error";
+		break;
+	}
+	return name;
+}
