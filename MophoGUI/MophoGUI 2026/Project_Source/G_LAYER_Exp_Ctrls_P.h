@@ -14,7 +14,7 @@ private: std::vector<std::unique_ptr<Slider_Exposed_P>> sliders;
 private: std::vector<std::unique_ptr<Toggle_Exposed_P>> toggles;
 
 //==============================================================================
-public: Layer_Exposed_Controls_P(Data_Hub_P* hub);
+public: explicit Layer_Exposed_Controls_P(Data_Hub_P* hub);
 
 public: void resized() override;
 public: ~Layer_Exposed_Controls_P();

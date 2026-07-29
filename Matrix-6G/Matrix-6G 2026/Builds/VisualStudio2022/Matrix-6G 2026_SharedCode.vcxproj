@@ -153,6 +153,7 @@
     <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Cbox_Exp_G.cpp"/>
+    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Envelope_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Exp_Ctrl_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Display_Exp_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.cpp"/>
@@ -167,8 +168,10 @@
     <ClCompile Include="..\..\Project_Source\D_X_G_Editor_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\G_DRAW_Paths_LED_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\G_DRAW_Paths_Main_P.cpp"/>
+    <ClCompile Include="..\..\Project_Source\G_LAYER_Envelopes_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\G_LAYER_Exp_Ctrls_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\G_LOOK_AND_FEEL_P.cpp"/>
+    <ClCompile Include="..\..\Project_Source\G_WIDG_Envelope_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\G_WIDG_Sli_Display_Exp_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\G_WIDG_Sli_Wheel_Mod_P.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -3180,6 +3183,7 @@
     <ClInclude Include="..\..\..\..\_Global_Source\G_DRAW_Paths_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Cbox_Exp_G.h"/>
+    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Envelope_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Exp_Ctrl_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Display_Exp_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.h"/>
@@ -3206,8 +3210,10 @@
     <ClInclude Include="..\..\Project_Source\D_X_G_Editor_P.h"/>
     <ClInclude Include="..\..\Project_Source\G_DRAW_Paths_LED_P.h"/>
     <ClInclude Include="..\..\Project_Source\G_DRAW_Paths_Main_P.h"/>
+    <ClInclude Include="..\..\Project_Source\G_LAYER_Envelopes_P.h"/>
     <ClInclude Include="..\..\Project_Source\G_LAYER_Exp_Ctrls_P.h"/>
     <ClInclude Include="..\..\Project_Source\G_LOOK_AND_FEEL_P.h"/>
+    <ClInclude Include="..\..\Project_Source\G_WIDG_Envelope_P.h"/>
     <ClInclude Include="..\..\Project_Source\G_WIDG_Sli_Display_Exp_P.h"/>
     <ClInclude Include="..\..\Project_Source\G_WIDG_Sli_Wheel_Mod_P.h"/>
     <ClInclude Include="..\..\Project_Source\G_WIDG_Slider_Exp_P.h"/>

@@ -1,2 +1,4 @@
 C_PATH_LED_P
 G_DRAW_Paths_LED_P
+G_LAYER_Envelopes_P
+G_WIDG_Envelope_P

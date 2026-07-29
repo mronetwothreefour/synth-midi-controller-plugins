@@ -7,6 +7,7 @@ namespace COLOR
 
 	const Colour blue{ 0xff05239d };
 	const Colour blue_led{ 0xff00bed6 };
+	const Colour env_stroke{ blue_led };
 	const Colour grey{ 0xff3f3f3f };
 	const Colour grey_line{ 0xff656565 };
 	const Colour ground{ 0xff131316 };

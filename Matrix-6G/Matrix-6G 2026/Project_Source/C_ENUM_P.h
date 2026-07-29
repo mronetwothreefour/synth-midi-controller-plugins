@@ -11,6 +11,12 @@ namespace ENUM
 		cbox
 	};
 
+	constexpr enum class Env_Type {
+		env_1,
+		env_2,
+		env_3
+	};
+
 	constexpr enum Exp_Param {
 		env_1_amp,
 		env_1_attack,

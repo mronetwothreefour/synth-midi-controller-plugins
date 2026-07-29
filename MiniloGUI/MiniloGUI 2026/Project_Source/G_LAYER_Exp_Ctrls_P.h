@@ -10,7 +10,7 @@ class Layer_Exposed_Controls_P :
 private: std::vector<std::unique_ptr<Slider_Exposed_P>> sliders;
 
 //==============================================================================
-public: Layer_Exposed_Controls_P(Data_Hub_P* hub);
+public: explicit Layer_Exposed_Controls_P(Data_Hub_P* hub);
 
 public: void resized() override;
 public: ~Layer_Exposed_Controls_P();

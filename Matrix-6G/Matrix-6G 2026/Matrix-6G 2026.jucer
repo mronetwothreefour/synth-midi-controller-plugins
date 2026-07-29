@@ -49,6 +49,10 @@
             file="../../_Global_Source/G_WIDG_Cbox_Exp_G.cpp"/>
       <FILE id="Jxr4J1" name="G_WIDG_Cbox_Exp_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_WIDG_Cbox_Exp_G.h"/>
+      <FILE id="Rs5A52" name="G_WIDG_Envelope_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/G_WIDG_Envelope_G.cpp"/>
+      <FILE id="VJbCzO" name="G_WIDG_Envelope_G.h" compile="0" resource="0"
+            file="../../_Global_Source/G_WIDG_Envelope_G.h"/>
       <FILE id="OLmrcR" name="G_WIDG_Exp_Ctrl_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/G_WIDG_Exp_Ctrl_G.cpp"/>
       <FILE id="VcchtT" name="G_WIDG_Exp_Ctrl_G.h" compile="0" resource="0"
@@ -128,6 +132,10 @@
             file="Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="wI9oSW" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
             file="Project_Source/G_DRAW_Paths_Main_P.h"/>
+      <FILE id="odsrM5" name="G_LAYER_Envelopes_P.cpp" compile="1" resource="0"
+            file="Project_Source/G_LAYER_Envelopes_P.cpp"/>
+      <FILE id="Dr80vz" name="G_LAYER_Envelopes_P.h" compile="0" resource="0"
+            file="Project_Source/G_LAYER_Envelopes_P.h"/>
       <FILE id="UvoPFN" name="G_LAYER_Exp_Ctrls_P.cpp" compile="1" resource="0"
             file="Project_Source/G_LAYER_Exp_Ctrls_P.cpp"/>
       <FILE id="AQtsQo" name="G_LAYER_Exp_Ctrls_P.h" compile="0" resource="0"
@@ -136,6 +144,10 @@
             file="Project_Source/G_LOOK_AND_FEEL_P.cpp"/>
       <FILE id="Zb6OiS" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"
             file="Project_Source/G_LOOK_AND_FEEL_P.h"/>
+      <FILE id="NB4r0D" name="G_WIDG_Envelope_P.cpp" compile="1" resource="0"
+            file="Project_Source/G_WIDG_Envelope_P.cpp"/>
+      <FILE id="pgsLd4" name="G_WIDG_Envelope_P.h" compile="0" resource="0"
+            file="Project_Source/G_WIDG_Envelope_P.h"/>
       <FILE id="E2QFVO" name="G_WIDG_Sli_Display_Exp_P.cpp" compile="1" resource="0"
             file="Project_Source/G_WIDG_Sli_Display_Exp_P.cpp"/>
       <FILE id="fmMxDr" name="G_WIDG_Sli_Display_Exp_P.h" compile="0" resource="0"
