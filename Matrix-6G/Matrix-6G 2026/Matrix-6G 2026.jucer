@@ -136,6 +136,10 @@
             file="Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="wI9oSW" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
             file="Project_Source/G_DRAW_Paths_Main_P.h"/>
+      <FILE id="hhlnzQ" name="G_DRAW_Tracking_Env_P.cpp" compile="1" resource="0"
+            file="Project_Source/G_DRAW_Tracking_Env_P.cpp"/>
+      <FILE id="bf4Ngn" name="G_DRAW_Tracking_Env_P.h" compile="0" resource="0"
+            file="Project_Source/G_DRAW_Tracking_Env_P.h"/>
       <FILE id="odsrM5" name="G_LAYER_Envelopes_P.cpp" compile="1" resource="0"
             file="Project_Source/G_LAYER_Envelopes_P.cpp"/>
       <FILE id="Dr80vz" name="G_LAYER_Envelopes_P.h" compile="0" resource="0"

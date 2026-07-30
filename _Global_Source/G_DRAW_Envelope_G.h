@@ -17,7 +17,6 @@ protected: Value val_attack;
 protected: Value val_decay;
 protected: Value val_sustain;
 protected: Value val_release;
-protected: Rectangle<int> init_bounds;
 protected: float delay_w;
 protected: float attack_w;
 protected: float decay_w;

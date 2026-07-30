@@ -169,6 +169,7 @@
     <ClCompile Include="..\..\Project_Source\G_DRAW_Envelope_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\G_DRAW_Paths_LED_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\G_DRAW_Paths_Main_P.cpp"/>
+    <ClCompile Include="..\..\Project_Source\G_DRAW_Tracking_Env_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\G_LAYER_Envelopes_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\G_LAYER_Exp_Ctrls_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\G_LOOK_AND_FEEL_P.cpp"/>
@@ -3211,6 +3212,7 @@
     <ClInclude Include="..\..\Project_Source\G_DRAW_Envelope_P.h"/>
     <ClInclude Include="..\..\Project_Source\G_DRAW_Paths_LED_P.h"/>
     <ClInclude Include="..\..\Project_Source\G_DRAW_Paths_Main_P.h"/>
+    <ClInclude Include="..\..\Project_Source\G_DRAW_Tracking_Env_P.h"/>
     <ClInclude Include="..\..\Project_Source\G_LAYER_Envelopes_P.h"/>
     <ClInclude Include="..\..\Project_Source\G_LAYER_Exp_Ctrls_P.h"/>
     <ClInclude Include="..\..\Project_Source\G_LOOK_AND_FEEL_P.h"/>

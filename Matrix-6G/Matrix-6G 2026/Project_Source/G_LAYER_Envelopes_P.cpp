@@ -6,17 +6,20 @@ using namespace XYWH;
 
 Layer_Envelopes_P::Layer_Envelopes_P(Data_Hub_P* hub) :
 	Data_User_P{ hub },
+	tracking_env{ hub },
 	env_1{ Env_Type::env_1, hub },
 	env_2{ Env_Type::env_2, hub },
 	env_3{ Env_Type::env_3, hub }
 {
 	setInterceptsMouseClicks(false, false);
+	addAndMakeVisible(tracking_env);
 	addAndMakeVisible(env_1);
 	addAndMakeVisible(env_2);
 	addAndMakeVisible(env_3);
 }
 
 void Layer_Envelopes_P::resized() {
+	tracking_env.setBounds(getLocalBounds());
 	Rectangle<int> env_bounds{ env_1_init_x, env_init_y, env_init_w, env_init_h };
 	env_bounds = env_bounds.transformedBy(AffineTransform::scale(scale_factor));
 	env_1.setBounds(env_bounds);

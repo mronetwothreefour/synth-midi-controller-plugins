@@ -13,9 +13,17 @@ namespace XYWH
 	constexpr float env_init_min_y{ 98.0f };
 	constexpr float env_stage_init_max_w{ 43.0f };
 	constexpr float env_sustain_init_w{ 34.0f };
+
 	constexpr float led_display_y{ 3 };
+
 	constexpr float rotary_slider_begin_angle{ degreesToRadians(225.0f) };
 	constexpr float rotary_slider_end_angle{ degreesToRadians(495.0f) };
+
+	constexpr float track_env_init_begin_x{ 849.0f };
+	constexpr float track_env_init_max_y{ 193.0f };
+	constexpr float track_env_init_min_y{ 253.0f };
+	constexpr float track_env_init_h{ track_env_init_min_y - track_env_init_max_y };
+	constexpr float track_env_segment_init_w{ 33.0f };
 
 	constexpr int btn_main_big_h{ 38 };
 	constexpr int btn_main_big_w{ 68 };
