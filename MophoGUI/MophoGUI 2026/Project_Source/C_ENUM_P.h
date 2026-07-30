@@ -15,6 +15,12 @@ namespace ENUM
 		voice_name_char
 	};
 
+	constexpr enum class Env_Type {
+		env_lpf,
+		env_vca,
+		env_3
+	};
+
 	constexpr enum Exp_Param {
 		osc_1_pitch = 0,
 		osc_1_fine_tune,

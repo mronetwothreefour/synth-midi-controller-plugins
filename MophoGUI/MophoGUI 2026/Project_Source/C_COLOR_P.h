@@ -5,6 +5,7 @@
 namespace COLOR
 {
 
+	const Colour env_stroke{ white };
 	const Colour ground{ 0xffde9600 };
 	const Colour red_btn{ 0xff870000 };
 	const Colour red_btn_lite_1{ 0xffb40000 };
@@ -13,7 +14,7 @@ namespace COLOR
 	const Colour red_btn_dark_2{ 0xff640000 };
 	const Colour red_toggle_off{ 0xff4a0000 };
 	const Colour red_toggle_on{ 0xffff0000 };
-	const Colour tip_border{ COLOR::white };
+	const Colour tip_border{ white };
 	const Colour yellow{ 0xffffbe00 };
 	const Colour txt_caret{ yellow.withAlpha(0.9f) };
 	const Colour txt_highlight{ yellow.withAlpha(0.6f) };

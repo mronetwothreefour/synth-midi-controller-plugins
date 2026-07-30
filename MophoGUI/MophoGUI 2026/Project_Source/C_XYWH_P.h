@@ -7,6 +7,13 @@ namespace XYWH
 
 	constexpr double editor_aspect_ratio{ 2.03354 };
 
+	constexpr float env_init_begin_x{ 5.0f };
+	constexpr float env_init_end_x{ 205.0f };
+	constexpr float env_init_max_y{ 10.0f };
+	constexpr float env_init_min_y{ 80.0f };
+	constexpr float env_stage_init_max_w{ 43.0f };
+	constexpr float env_sustain_init_w{ 28.0f };
+
 	constexpr float rotary_slider_begin_angle{ degreesToRadians(45.0f) };
 	constexpr float rotary_slider_end_angle{ degreesToRadians(315.0f) };
 
@@ -41,6 +48,11 @@ namespace XYWH
 
 	constexpr int env_3_row_1_y{ 531 };
 	constexpr int env_3_row_2_y{ 583 };
+	constexpr int env_block_spacing{ 158 };
+	constexpr int env_init_h{ 90 };
+	constexpr int env_init_w{ 210 };
+	constexpr int env_init_x{ 168 };
+	constexpr int env_lpf_init_y{ 154 };
 
 	constexpr int flex_knob_cbox_w{ 134 };
 	constexpr int flex_knob_cbox_x{ 1089 };
