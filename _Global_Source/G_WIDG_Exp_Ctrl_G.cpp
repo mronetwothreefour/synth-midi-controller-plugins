@@ -1,5 +1,4 @@
 #include "G_WIDG_Exp_Ctrl_G.h"
-#include "G_WIDG_Envelope_G.h"
 
 Exposed_Control_G::Exposed_Control_G(const Exp_Param param_id, Data_Hub_P* hub) :
 	Data_User_P{ hub },

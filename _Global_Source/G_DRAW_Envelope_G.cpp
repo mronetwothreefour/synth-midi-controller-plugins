@@ -1,4 +1,4 @@
-#include "G_WIDG_Envelope_G.h"
+#include "G_DRAW_Envelope_G.h"
 
 #include "C_COLOR_P.h"
 #include "C_XYWH_P.h"
@@ -9,11 +9,11 @@ using End_Cap = PathStrokeType::EndCapStyle;
 using Joint = PathStrokeType::JointStyle;
 using Stroke = PathStrokeType;
 
-Envelope_G::Envelope_G(Data_Hub_P* hub) :
+Draw_Envelope_G::Draw_Envelope_G(Data_Hub_P* hub) :
 	Data_User_P{ hub }
 {}
 
-void Envelope_G::paint(Graphics& g) {
+void Draw_Envelope_G::paint(Graphics& g) {
 	Path p{};
 	auto x = env_init_begin_x * scale_factor;
 	auto end_x = env_init_end_x * scale_factor;
@@ -39,7 +39,7 @@ void Envelope_G::paint(Graphics& g) {
 	g.strokePath(p, Stroke{ 2.0f * scale_factor, Joint::curved, End_Cap::rounded });
 }
 
-void Envelope_G::valueChanged(Value& v) {
+void Draw_Envelope_G::valueChanged(Value& v) {
 	if (v.refersToSameSourceAs(val_delay) && param_delay)
 		delay_w = param_delay->getValue() * env_stage_init_max_w;
 	if (v.refersToSameSourceAs(val_attack) && param_attack)
@@ -53,7 +53,7 @@ void Envelope_G::valueChanged(Value& v) {
 	repaint();
 }
 
-Envelope_G::~Envelope_G() {
+Draw_Envelope_G::~Draw_Envelope_G() {
 	val_delay.removeListener(this);
 	val_attack.removeListener(this);
 	val_decay.removeListener(this);

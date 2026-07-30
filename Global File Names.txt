@@ -27,13 +27,13 @@ D_X_G_Data_User_G
 D_X_G_Data_User_P
 D_X_G_Editor_G
 D_X_G_Editor_P
+G_DRAW_Envelope_G
 G_DRAW_Paths_G
 G_DRAW_Paths_Main_P
 G_LAYER_Exp_Ctrls_P
 G_LOOK_AND_FEEL_G
 G_LOOK_AND_FEEL_P
 G_WIDG_Cbox_Exp_G
-G_WIDG_Envelope_G
 G_WIDG_Exp_Ctrl_G
 G_WIDG_Sli_Display_Exp_G
 G_WIDG_Sli_Display_Exp_P

@@ -1,14 +1,14 @@
 #pragma once
 
-#include "G_WIDG_Envelope_P.h"
+#include "G_DRAW_Envelope_P.h"
 
 class Layer_Envelopes_P :
 	public Component,
 	public Data_User_P
 {
-private: Envelope_P env_1;
-private: Envelope_P env_2;
-private: Envelope_P env_3;
+private: Draw_Envelope_P env_1;
+private: Draw_Envelope_P env_2;
+private: Draw_Envelope_P env_3;
 
 //==============================================================================
 public: explicit Layer_Envelopes_P(Data_Hub_P* hub);

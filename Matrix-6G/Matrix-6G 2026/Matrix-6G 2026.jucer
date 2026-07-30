@@ -39,6 +39,10 @@
             file="../../_Global_Source/D_X_G_Editor_G.cpp"/>
       <FILE id="hA11H0" name="D_X_G_Editor_G.h" compile="0" resource="0"
             file="../../_Global_Source/D_X_G_Editor_G.h"/>
+      <FILE id="Rs5A52" name="G_DRAW_Envelope_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/G_DRAW_Envelope_G.cpp"/>
+      <FILE id="VJbCzO" name="G_DRAW_Envelope_G.h" compile="0" resource="0"
+            file="../../_Global_Source/G_DRAW_Envelope_G.h"/>
       <FILE id="A7pa5P" name="G_DRAW_Paths_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_DRAW_Paths_G.h"/>
       <FILE id="zp69lQ" name="G_LOOK_AND_FEEL_G.cpp" compile="1" resource="0"
@@ -49,10 +53,6 @@
             file="../../_Global_Source/G_WIDG_Cbox_Exp_G.cpp"/>
       <FILE id="Jxr4J1" name="G_WIDG_Cbox_Exp_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_WIDG_Cbox_Exp_G.h"/>
-      <FILE id="Rs5A52" name="G_WIDG_Envelope_G.cpp" compile="1" resource="0"
-            file="../../_Global_Source/G_WIDG_Envelope_G.cpp"/>
-      <FILE id="VJbCzO" name="G_WIDG_Envelope_G.h" compile="0" resource="0"
-            file="../../_Global_Source/G_WIDG_Envelope_G.h"/>
       <FILE id="OLmrcR" name="G_WIDG_Exp_Ctrl_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/G_WIDG_Exp_Ctrl_G.cpp"/>
       <FILE id="VcchtT" name="G_WIDG_Exp_Ctrl_G.h" compile="0" resource="0"
@@ -124,6 +124,10 @@
             file="Project_Source/D_X_G_Editor_P.cpp"/>
       <FILE id="KEBYTt" name="D_X_G_Editor_P.h" compile="0" resource="0"
             file="Project_Source/D_X_G_Editor_P.h"/>
+      <FILE id="NB4r0D" name="G_DRAW_Envelope_P.cpp" compile="1" resource="0"
+            file="Project_Source/G_DRAW_Envelope_P.cpp"/>
+      <FILE id="pgsLd4" name="G_DRAW_Envelope_P.h" compile="0" resource="0"
+            file="Project_Source/G_DRAW_Envelope_P.h"/>
       <FILE id="xoYZm7" name="G_DRAW_Paths_LED_P.cpp" compile="1" resource="0"
             file="Project_Source/G_DRAW_Paths_LED_P.cpp"/>
       <FILE id="bclw1l" name="G_DRAW_Paths_LED_P.h" compile="0" resource="0"
@@ -144,10 +148,6 @@
             file="Project_Source/G_LOOK_AND_FEEL_P.cpp"/>
       <FILE id="Zb6OiS" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"
             file="Project_Source/G_LOOK_AND_FEEL_P.h"/>
-      <FILE id="NB4r0D" name="G_WIDG_Envelope_P.cpp" compile="1" resource="0"
-            file="Project_Source/G_WIDG_Envelope_P.cpp"/>
-      <FILE id="pgsLd4" name="G_WIDG_Envelope_P.h" compile="0" resource="0"
-            file="Project_Source/G_WIDG_Envelope_P.h"/>
       <FILE id="E2QFVO" name="G_WIDG_Sli_Display_Exp_P.cpp" compile="1" resource="0"
             file="Project_Source/G_WIDG_Sli_Display_Exp_P.cpp"/>
       <FILE id="fmMxDr" name="G_WIDG_Sli_Display_Exp_P.h" compile="0" resource="0"

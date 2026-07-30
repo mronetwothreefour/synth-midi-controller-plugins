@@ -1,7 +1,7 @@
-#include "G_WIDG_Envelope_P.h"
+#include "G_DRAW_Envelope_P.h"
 
-Envelope_P::Envelope_P(Env_Type env_type, Data_Hub_P* hub) :
-	Envelope_G{ hub }
+Draw_Envelope_P::Draw_Envelope_P(Env_Type env_type, Data_Hub_P* hub) :
+	Draw_Envelope_G{ hub }
 {
 	auto param_offset = (int)env_type * ((int)Exp_Param::env_2_delay - (int)Exp_Param::env_1_delay);
 	param_delay = exp_state->getParameter(String{ (int)Exp_Param::env_1_delay + param_offset });
