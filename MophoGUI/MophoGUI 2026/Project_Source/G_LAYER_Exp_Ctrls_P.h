@@ -9,9 +9,9 @@ class Layer_Exposed_Controls_P :
 	public Component,
 	public Data_User_P
 {
-private: std::vector<std::unique_ptr<Combo_Box_Exposed_G>> cboxes;
-private: std::vector<std::unique_ptr<Slider_Exposed_P>> sliders;
-private: std::vector<std::unique_ptr<Toggle_Exposed_P>> toggles;
+private: OwnedArray<Combo_Box_Exposed_G, CriticalSection> cboxes;
+private: OwnedArray<Slider_Exposed_P, CriticalSection> sliders;
+private: OwnedArray<Toggle_Exposed_P, CriticalSection> toggles;
 
 //==============================================================================
 public: explicit Layer_Exposed_Controls_P(Data_Hub_P* hub);

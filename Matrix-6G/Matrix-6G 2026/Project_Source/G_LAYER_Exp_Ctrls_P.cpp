@@ -9,16 +9,16 @@ Layer_Exposed_Controls_P::Layer_Exposed_Controls_P(Data_Hub_P* hub) :
 		auto ctrl_type = exp_info.ctrl_type_for(Exp_Param(i));
 		if (ctrl_type != Ctrl_Type::error) {
 			if (ctrl_type == Ctrl_Type::cbox) {
-				cboxes.push_back(std::make_unique<Combo_Box_Exposed_G>(Exp_Param(i), hub));
-				auto cbox_ptr = cboxes[cboxes.size() - 1].get();
+				cboxes.add(new Combo_Box_Exposed_G{ Exp_Param(i), hub });
+				auto cbox_ptr = cboxes[cboxes.size() - 1];
 				if (cbox_ptr) {
 					cbox_ptr->attach_to_param();
 					addAndMakeVisible(cbox_ptr);
 				}
 				continue;
 			}
-			sliders.push_back(std::make_unique<Slider_Exposed_P>(Exp_Param(i), hub));
-			auto slider_ptr = sliders[sliders.size() - 1].get();
+			sliders.add(new Slider_Exposed_P{ Exp_Param(i), hub });
+			auto slider_ptr = sliders[sliders.size() - 1];
 			if (slider_ptr) {
 				slider_ptr->attach_to_param();
 				addAndMakeVisible(slider_ptr);
@@ -29,28 +29,25 @@ Layer_Exposed_Controls_P::Layer_Exposed_Controls_P(Data_Hub_P* hub) :
 
 void Layer_Exposed_Controls_P::resized() {
 	for (int i = 0; i < cboxes.size(); ++i) {
-		auto cbox_ptr = cboxes[i].get();
+		auto cbox_ptr = cboxes[i];
 		if (cbox_ptr)
 			cbox_ptr->setBounds(cbox_ptr->get_scaled_bounds());
 	}
 	for (int i = 0; i < sliders.size(); ++i) {
-		auto slider_ptr = sliders[i].get();
-		if (slider_ptr)
-			slider_ptr->setBounds(slider_ptr->get_scaled_bounds());
+		if (sliders[i])
+			sliders[i]->setBounds(sliders[i]->get_scaled_bounds());
 	}
 }
 
 Layer_Exposed_Controls_P::~Layer_Exposed_Controls_P() {
 	for (int i = 0; i < cboxes.size(); ++i) {
-		auto cbox_ptr = cboxes[i].get();
-		if (cbox_ptr)
-			cbox_ptr->remove_attachment();
+		if (cboxes[i])
+			cboxes[i]->remove_attachment();
 	}
 	cboxes.clear();
 	for (int i = 0; i < sliders.size(); ++i) {
-		auto slider_ptr = sliders[i].get();
-		if (slider_ptr)
-			slider_ptr->remove_attachment();
+		if (sliders[i])
+			sliders[i]->remove_attachment();
 	}
 	sliders.clear();
 }

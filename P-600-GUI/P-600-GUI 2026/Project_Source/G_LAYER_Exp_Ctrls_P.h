@@ -7,7 +7,7 @@ class Layer_Exposed_Controls_P :
 	public Component,
 	public Data_User_P
 {
-private: std::vector<std::unique_ptr<Slider_Exposed_P>> sliders;
+private: OwnedArray<Slider_Exposed_P, CriticalSection> sliders;
 
 //==============================================================================
 public: explicit Layer_Exposed_Controls_P(Data_Hub_P* hub);
