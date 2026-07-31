@@ -5,10 +5,11 @@
 class Data_User_G
 {
 protected: Data_Hub_P* hub;
+protected: Tree_App_Options_P& app_options;
 protected: const Tree_Exposed_Info_P& exp_info;
-protected: UndoManager* u_m;
 protected: AudioProcessorValueTreeState* exp_state;
 protected: float& scale_factor;
+protected: UndoManager* u_m;
 
 //==============================================================================
 public: explicit Data_User_G(Data_Hub_P* hub);

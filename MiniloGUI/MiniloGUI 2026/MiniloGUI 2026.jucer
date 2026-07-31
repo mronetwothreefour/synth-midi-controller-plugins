@@ -18,6 +18,10 @@
       <FILE id="EGxXGC" name="D_SUBTREE_Choices_G.h" compile="0" resource="0"
             file="../../_Global_Source/D_SUBTREE_Choices_G.h"/>
       <FILE id="N6XMVo" name="D_TIP_G.h" compile="0" resource="0" file="../../_Global_Source/D_TIP_G.h"/>
+      <FILE id="Sw3iof" name="D_TREE_App_Options_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/D_TREE_App_Options_G.cpp"/>
+      <FILE id="iXMu6c" name="D_TREE_App_Options_G.h" compile="0" resource="0"
+            file="../../_Global_Source/D_TREE_App_Options_G.h"/>
       <FILE id="Ce1f6a" name="D_TREE_Exposed_Info_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/D_TREE_Exposed_Info_G.cpp"/>
       <FILE id="ZgQHEt" name="D_TREE_Exposed_Info_G.h" compile="0" resource="0"
@@ -111,6 +115,10 @@
             file="Project_Source/D_TIP_Widget_P.cpp"/>
       <FILE id="IAgrBW" name="D_TIP_Widget_P.h" compile="0" resource="0"
             file="Project_Source/D_TIP_Widget_P.h"/>
+      <FILE id="l35dDH" name="D_TREE_App_Options_P.cpp" compile="1" resource="0"
+            file="Project_Source/D_TREE_App_Options_P.cpp"/>
+      <FILE id="zRC3HK" name="D_TREE_App_Options_P.h" compile="0" resource="0"
+            file="Project_Source/D_TREE_App_Options_P.h"/>
       <FILE id="s03TQq" name="D_TREE_Aux_Voice_P.cpp" compile="1" resource="0"
             file="Project_Source/D_TREE_Aux_Voice_P.cpp"/>
       <FILE id="qHQIt1" name="D_TREE_Aux_Voice_P.h" compile="0" resource="0"

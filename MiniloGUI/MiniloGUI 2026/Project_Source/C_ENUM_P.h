@@ -3,7 +3,13 @@
 namespace ENUM
 {
 
-	constexpr enum Aux_Voice_Param {
+	constexpr enum class App_Option {
+		scale_percentage,
+		show_eg_env,
+		show_amp_eg_env
+	};
+
+	constexpr enum class Aux_Voice_Param {
 		amp_mod_by_velo_amt,
 		current_voice_name,
 		flex_slider_bend_range_neg,

@@ -11,6 +11,10 @@ Data_Hub_G::Data_Hub_G(AudioProcessor* processor) :
 {
 }
 
+Tree_App_Options_P& Data_Hub_G::get_app_options() {
+	return app_options;
+}
+
 const Tree_Exposed_Info_P& Data_Hub_G::get_exposed_info() {
 	return exposed_info;
 }

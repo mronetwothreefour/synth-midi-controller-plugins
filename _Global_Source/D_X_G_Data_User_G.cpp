@@ -2,8 +2,9 @@
 
 Data_User_G::Data_User_G(Data_Hub_P* hub) :
 	hub{ hub },
+	app_options{ hub->get_app_options() },
 	exp_info{ hub->get_exposed_info() },
-	u_m{ hub->get_undo_mngr() },
 	exp_state{ hub->get_exposed_state() },
-	scale_factor{ hub->get_scale_factor() }
+	scale_factor{ hub->get_scale_factor() },
+	u_m{ hub->get_undo_mngr() }
 {}

@@ -3,6 +3,10 @@
 namespace ENUM
 {
 
+	constexpr enum class App_Option {
+		scale_percentage
+	};
+
 	constexpr enum class Ctrl_Type {
 		error = -1,
 		knob,

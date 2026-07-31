@@ -28,6 +28,7 @@ namespace ID
 	static const String subtree_choices{ "subtree_choices" };
 	static const String subtree_choices_curt{ "subtree_choices_curt" };
 
+	static const String tree_app_options{ "tree_app_options" };
 	static const String tree_exp_param_info{ "tree_exp_param_info" };
 	static const String tree_exp_param_state{ "tree_exp_param_state" };
 
