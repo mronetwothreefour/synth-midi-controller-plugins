@@ -5,6 +5,7 @@
 namespace COLOR
 {
 
+	const Colour env_stroke{ white };
 	const Colour grey_btn{ 0xff222123 };
 	const Colour grey_cbox_arrow{ 0xffc9c9c9 };
 	const Colour grey_knob_ptr{ 0xff484848 };

@@ -42,6 +42,10 @@
             file="../../_Global_Source/D_X_G_Editor_G.cpp"/>
       <FILE id="MVVJ8y" name="D_X_G_Editor_G.h" compile="0" resource="0"
             file="../../_Global_Source/D_X_G_Editor_G.h"/>
+      <FILE id="Bej2q2" name="G_DRAW_Envelope_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/G_DRAW_Envelope_G.cpp"/>
+      <FILE id="KNoif0" name="G_DRAW_Envelope_G.h" compile="0" resource="0"
+            file="../../_Global_Source/G_DRAW_Envelope_G.h"/>
       <FILE id="OlszET" name="G_DRAW_Paths_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_DRAW_Paths_G.h"/>
       <FILE id="kP0Gmv" name="G_LOOK_AND_FEEL_G.h" compile="0" resource="0"
@@ -141,6 +145,10 @@
             file="Project_Source/D_X_G_Editor_P.cpp"/>
       <FILE id="ft5H6T" name="D_X_G_Editor_P.h" compile="0" resource="0"
             file="Project_Source/D_X_G_Editor_P.h"/>
+      <FILE id="NGdzQX" name="G_DRAW_Envelope_P.cpp" compile="1" resource="0"
+            file="Project_Source/G_DRAW_Envelope_P.cpp"/>
+      <FILE id="syI5RH" name="G_DRAW_Envelope_P.h" compile="0" resource="0"
+            file="Project_Source/G_DRAW_Envelope_P.h"/>
       <FILE id="hlTggf" name="G_DRAW_Paths_Main_P.cpp" compile="1" resource="0"
             file="Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="mED0W2" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
@@ -149,6 +157,10 @@
             file="Project_Source/G_DRAW_Paths_Widgets_P.cpp"/>
       <FILE id="i0dnyN" name="G_DRAW_Paths_Widgets_P.h" compile="0" resource="0"
             file="Project_Source/G_DRAW_Paths_Widgets_P.h"/>
+      <FILE id="SKhaiQ" name="G_LAYER_Envelopes_P.cpp" compile="1" resource="0"
+            file="Project_Source/G_LAYER_Envelopes_P.cpp"/>
+      <FILE id="t80pM8" name="G_LAYER_Envelopes_P.h" compile="0" resource="0"
+            file="Project_Source/G_LAYER_Envelopes_P.h"/>
       <FILE id="cGPn6Q" name="G_LAYER_Exp_Ctrls_P.cpp" compile="1" resource="0"
             file="Project_Source/G_LAYER_Exp_Ctrls_P.cpp"/>
       <FILE id="DMeec1" name="G_LAYER_Exp_Ctrls_P.h" compile="0" resource="0"
