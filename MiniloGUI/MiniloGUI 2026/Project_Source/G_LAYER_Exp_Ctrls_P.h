@@ -7,12 +7,17 @@ class Layer_Exposed_Controls_P :
 	public Component,
 	public Data_User_P
 {
+private: Component trig_area_env;
+private: Component trig_area_vca_env;
 private: OwnedArray<Slider_Exposed_P, CriticalSection> sliders;
 
 //==============================================================================
 public: explicit Layer_Exposed_Controls_P(Data_Hub_P* hub);
 
 public: void resized() override;
+public: void mouseEnter(const MouseEvent& e) override;
+public: void mouseExit(const MouseEvent& e) override;
+public: void mouseUp(const MouseEvent& e) override;
 public: ~Layer_Exposed_Controls_P();
 
 //==============================================================================

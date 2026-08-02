@@ -5,8 +5,8 @@ namespace ENUM
 
 	constexpr enum class App_Option {
 		scale_percentage,
-		show_eg_env,
-		show_amp_eg_env
+		show_env,
+		show_vca_env
 	};
 
 	constexpr enum class Aux_Voice_Param {

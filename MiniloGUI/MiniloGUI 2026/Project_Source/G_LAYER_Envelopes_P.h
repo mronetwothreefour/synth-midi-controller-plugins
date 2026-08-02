@@ -4,19 +4,20 @@
 
 class Layer_Envelopes_P :
 	public Component,
-	public Data_User_P
+	public Data_User_P,
+	public Value::Listener
 {
-private: Component trigger_area_env;
-private: Component trigger_area_vca_env;
 private: Draw_Envelope_P env;
 private: Draw_Envelope_P vca_env;
+private: Value val_show_env;
+private: Value val_show_vca_env;
 
 //==============================================================================
 public: explicit Layer_Envelopes_P(Data_Hub_P* hub);
 
 public: void resized() override;
-public: void mouseEnter(const MouseEvent& e) override;
-public: void mouseExit(const MouseEvent& e) override;
+public: void valueChanged(Value& value) override;
+public: ~Layer_Envelopes_P();
 
 //==============================================================================
 private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Layer_Envelopes_P)

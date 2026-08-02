@@ -38,7 +38,7 @@ namespace XYWH
 	constexpr int switch_w{ 34 };
 
 	static Rectangle<int> env_backdrop_init_bounds{ 834, 167, 102, 58 };
-	static Rectangle<int> env_trig_area_init_bounds{ 542, 180, 238, 34 };
-	static Rectangle<int> vca_env_trig_area_init_bounds{ 542, 86, 238, 34 };
+	static Rectangle<int> trig_area_env_init_bounds{ 542, 180, 238, 34 };
+	static Rectangle<int> trig_area_vca_env_init_bounds{ 542, 86, 238, 34 };
 
 }
