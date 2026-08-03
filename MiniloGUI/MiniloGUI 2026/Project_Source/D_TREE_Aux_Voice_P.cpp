@@ -11,25 +11,25 @@ Tree_Aux_Voice_P::Tree_Aux_Voice_P(UndoManager* u_m) :
 	tree_bit_loc{ Subtree_Bit_Loc_AV_P::build() },
 	u_m{ u_m }
 {
-	set_amp_mod_by_velo_amt(0);
-	set_current_voice_name(VOICE::init_voice_name);
-	set_flex_slider_bend_range(true, 1);
-	set_flex_slider_bend_range(false, 1);
-	set_flex_slider_range(200);
-	set_flex_slider_target(Flex_Slider_Target::pitch_bend);
-	set_keyboard_octave(2);
-	set_lfo_sync_bpm_on(false);
-	set_lfo_sync_key_on(true);
-	set_lfo_sync_voice_on(true);
-	set_microtune_scale(Microtune_Scale::equal_temp);
-	set_pgm_fine_tune(50);
-	set_pgm_level(25);
-	set_pgm_transpose(12);
-	set_porta_mode_on(false);
-	set_porta_sync_bpm_on(false);
-	set_porta_time(0);
-	set_scale_key(12);
-	set_voice_mode(Voice_Mode::poly);
+	tree.setProperty(String{ (int)AVP::amp_mod_by_velo_amt }, 0, nullptr);
+	tree.setProperty(String{ (int)AVP::current_voice_name }, VOICE::init_voice_name, nullptr);
+	tree.setProperty(String{ (int)AVP::flex_slider_bend_range_neg }, 1, nullptr);
+	tree.setProperty(String{ (int)AVP::flex_slider_bend_range_pos }, 1, nullptr);
+	tree.setProperty(String{ (int)AVP::flex_slider_range }, 200, nullptr);
+	tree.setProperty(String{ (int)AVP::flex_slider_target }, (int)Flex_Slider_Target::pitch_bend, nullptr);
+	tree.setProperty(String{ (int)AVP::keyboard_octave }, 2, nullptr);
+	tree.setProperty(String{ (int)AVP::lfo_sync_bpm_on }, false, nullptr);
+	tree.setProperty(String{ (int)AVP::lfo_sync_key_on }, true, nullptr);
+	tree.setProperty(String{ (int)AVP::lfo_sync_voice_on }, true, nullptr);
+	tree.setProperty(String{ (int)AVP::microtune_scale }, (int)Microtune_Scale::equal_temp, nullptr);
+	tree.setProperty(String{ (int)AVP::pgm_fine_tune }, 50, nullptr);
+	tree.setProperty(String{ (int)AVP::pgm_level }, 25, nullptr);
+	tree.setProperty(String{ (int)AVP::pgm_transpose }, 12, nullptr);
+	tree.setProperty(String{ (int)AVP::porta_mode_on }, false, nullptr);
+	tree.setProperty(String{ (int)AVP::porta_sync_bpm_on }, false, nullptr);
+	tree.setProperty(String{ (int)AVP::porta_time }, 0, nullptr);
+	tree.setProperty(String{ (int)AVP::scale_key }, 12, nullptr);
+	tree.setProperty(String{ (int)AVP::voice_mode }, (int)Voice_Mode::poly, nullptr);
 }
 
 const int Tree_Aux_Voice_P::amp_mod_by_velo_amt() {
