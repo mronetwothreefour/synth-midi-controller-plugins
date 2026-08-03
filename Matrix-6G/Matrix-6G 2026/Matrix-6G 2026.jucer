@@ -94,6 +94,8 @@
       <FILE id="nAvdYr" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
             file="Project_Source/C_SL_Tip_Widget_P.h"/>
       <FILE id="GFp8Bj" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source/C_XYWH_P.h"/>
+      <FILE id="Ne1k6U" name="D_CONVERT_P.cpp" compile="1" resource="0" file="Project_Source/D_CONVERT_P.cpp"/>
+      <FILE id="iH7qg6" name="D_CONVERT_P.h" compile="0" resource="0" file="Project_Source/D_CONVERT_P.h"/>
       <FILE id="wwwT4F" name="D_SUBTREE_Choices_Exp_P.cpp" compile="1" resource="0"
             file="Project_Source/D_SUBTREE_Choices_Exp_P.cpp"/>
       <FILE id="YFal1F" name="D_SUBTREE_Choices_Exp_P.h" compile="0" resource="0"

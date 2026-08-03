@@ -886,6 +886,9 @@
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Slider_Exp_G.cpp">
       <Filter>Matrix-6G 2026\_Global_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Project_Source\D_CONVERT_P.cpp">
+      <Filter>Matrix-6G 2026\Project_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.cpp">
       <Filter>Matrix-6G 2026\Project_Source</Filter>
     </ClCompile>
@@ -4228,6 +4231,9 @@
       <Filter>Matrix-6G 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\C_XYWH_P.h">
+      <Filter>Matrix-6G 2026\Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project_Source\D_CONVERT_P.h">
       <Filter>Matrix-6G 2026\Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.h">

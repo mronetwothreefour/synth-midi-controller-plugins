@@ -120,12 +120,6 @@ namespace ENUM
 		track_point_5,
 	};
 
-	constexpr enum class Input_Choice_Type {
-		mod,
-		lfo,
-		tracking
-	};
-
 	constexpr enum class Slider_Display_Type {
 		error = -1,
 		none,

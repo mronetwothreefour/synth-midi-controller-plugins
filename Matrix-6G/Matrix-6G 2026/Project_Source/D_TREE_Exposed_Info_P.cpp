@@ -331,8 +331,8 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 				"LFO " + (String)lfo + " Sample Source", Ctrl_Type::cbox, lfo == 1 ? 32 : 39,
 				Range_Type::u_int, Display::none, EXP::choice_count_mod_src, 9,
 				center_x, ctrl_row_03_y, lfo_ctrl_w, Tip_Exp::lfo_sample_source(lfo),
-				Choices_Exp::input_source(Input_Choice_Type::lfo, curt),
-				Choices_Exp::input_source(Input_Choice_Type::lfo)
+				Choices_Exp::input_source(true, curt),
+				Choices_Exp::input_source(true)
 			),
 			-1, nullptr);
 
@@ -428,8 +428,8 @@ Tree_Exposed_Info_P::Tree_Exposed_Info_P()
 			track_input, 33, "Tracking Generator Input", Ctrl_Type::cbox, 68,
 			Range_Type::u_int, Display::none, EXP::choice_count_mod_src, 9,
 			track_input_x, track_input_y, track_input_w, Tip_Exp::track_input(),
-			Choices_Exp::input_source(Input_Choice_Type::tracking, curt),
-			Choices_Exp::input_source(Input_Choice_Type::tracking)
+			Choices_Exp::input_source(false, curt),
+			Choices_Exp::input_source(false)
 		),
 		-1, nullptr);
 	for (int pt = 1; pt < 6; ++pt) {

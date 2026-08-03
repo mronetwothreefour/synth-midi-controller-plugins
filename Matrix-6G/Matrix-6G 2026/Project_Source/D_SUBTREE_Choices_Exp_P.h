@@ -18,7 +18,7 @@ struct Subtree_Choices_Exp_P :
 	static ValueTree lfo_trig_mode(const bool curt = false);
 	static ValueTree lfo_wave_type(const bool curt = false);
 
-	static ValueTree input_source(Input_Choice_Type type, const bool curt = false);
+	static ValueTree input_source(bool for_lfo, const bool curt = false);
 
 	static ValueTree off_on_matrix(const bool curt = false);
 	static ValueTree osc_1_key_track(const bool curt = false);

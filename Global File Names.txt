@@ -11,6 +11,7 @@ C_SL_Tip_Widget_P
 C_VOICE_P
 C_XYWH_P
 D_CONVERT_G
+D_CONVERT_P
 D_SUBTREE_Choices_Exp_P
 D_SUBTREE_Choices_G
 D_SUBTREE_Exposed_Info_P

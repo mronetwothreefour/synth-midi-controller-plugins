@@ -2,8 +2,6 @@
 
 #include "C_ID_p.h"
 
-using ICT = Input_Choice_Type;
-
 ValueTree Subtree_Choices_Exp_P::env_mode(const bool curt) {
 	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
 	tree.setProperty("choice_0", curt ? "NORMAL" : "normal", nullptr);
@@ -73,29 +71,29 @@ ValueTree Subtree_Choices_Exp_P::lfo_wave_type(const bool curt) {
 	return tree;
 }
 
-ValueTree Subtree_Choices_Exp_P::input_source(Input_Choice_Type t, const bool curt) {
+ValueTree Subtree_Choices_Exp_P::input_source(bool for_lfo, const bool curt) {
 	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
 	tree.setProperty("choice_0", curt ? "NONE" : "none", nullptr);
-	tree.setProperty("choice_1", curt ? t == ICT::lfo ? "ENV1" : "ENV 1" : "envelope 1", nullptr);
-	tree.setProperty("choice_2", curt ? t == ICT::lfo ? "ENV2" : "ENV 2" : "envelope 2", nullptr);
-	tree.setProperty("choice_3", curt ? t == ICT::lfo ? "ENV3" : "ENV 3" : "envelope 3", nullptr);
-	tree.setProperty("choice_4", curt ? t == ICT::lfo ? "LFO1" : "LFO 1" : "LFO 1", nullptr);
-	tree.setProperty("choice_5", curt ? t == ICT::lfo ? "LFO2" : "LFO 2" : "LFO 2", nullptr);
-	tree.setProperty("choice_6", curt ? t == ICT::lfo ? "VIB" : "VIBRATO" : "vibrato LFO", nullptr);
-	tree.setProperty("choice_7", curt ? t == ICT::lfo ? "RAMP1" : "RAMP 1" : "ramp generator 1", nullptr);
-	tree.setProperty("choice_8", curt ? t == ICT::lfo ? "RAMP2" : "RAMP 2" : "ramp generator 2", nullptr);
-	tree.setProperty("choice_9", curt ? t == ICT::lfo ? "KEYB" : t == ICT::mod ? "KEYBD" : "KEYBOARD" : "keyboard scaling", nullptr);
-	tree.setProperty("choice_10", curt ? t == ICT::lfo ? "PORT" : "PORTA" : "portamento speed", nullptr);
-	tree.setProperty("choice_11", curt ? t == ICT::lfo ? "TRAK" : t == ICT::mod ? "TRACK" : "TRACKING" : "tracking generator", nullptr);
+	tree.setProperty("choice_1", curt ? for_lfo ? "ENV1" : "ENV 1" : "envelope 1", nullptr);
+	tree.setProperty("choice_2", curt ? for_lfo ? "ENV2" : "ENV 2" : "envelope 2", nullptr);
+	tree.setProperty("choice_3", curt ? for_lfo ? "ENV3" : "ENV 3" : "envelope 3", nullptr);
+	tree.setProperty("choice_4", curt ? for_lfo ? "LFO1" : "LFO 1" : "LFO 1", nullptr);
+	tree.setProperty("choice_5", curt ? for_lfo ? "LFO2" : "LFO 2" : "LFO 2", nullptr);
+	tree.setProperty("choice_6", curt ? for_lfo ? "VIB" : "VIBRATO" : "vibrato LFO", nullptr);
+	tree.setProperty("choice_7", curt ? for_lfo ? "RAMP1" : "RAMP 1" : "ramp generator 1", nullptr);
+	tree.setProperty("choice_8", curt ? for_lfo ? "RAMP2" : "RAMP 2" : "ramp generator 2", nullptr);
+	tree.setProperty("choice_9", curt ? for_lfo ? "KEYB" : "KEYBOARD" : "keyboard scaling", nullptr);
+	tree.setProperty("choice_10", curt ? for_lfo ? "PORT" : "PORTA" : "portamento speed", nullptr);
+	tree.setProperty("choice_11", curt ? for_lfo ? "TRAK" : "TRACKING" : "tracking generator", nullptr);
 	tree.setProperty("choice_12", curt ? "GATE" : "keyboard note gate", nullptr);
-	tree.setProperty("choice_13", curt ? t == ICT::lfo ? "VEL" : t == ICT::mod ? "VELO" : "VELOCITY" : "keyboard note velocity", nullptr);
-	tree.setProperty("choice_14", curt ? t == ICT::lfo ? "RVEL" : t == ICT::mod ? "R VELO" : "REL VELO" : "keyboard release velocity", nullptr);
-	tree.setProperty("choice_15", curt ? t == ICT::lfo ? "PRES" : t == ICT::mod ? "PRESS" : "PRESSURE" : "keyboard pressure (aftertouch)", nullptr);
-	tree.setProperty("choice_16", curt ? t == ICT::lfo ? "PED1" : "PEDAL 1" : "pedal 1", nullptr);
-	tree.setProperty("choice_17", curt ? t == ICT::lfo ? "PED2" : "PEDAL 2" : "pedal 2", nullptr);
-	tree.setProperty("choice_18", curt ? t == ICT::lfo ? "LEV1" : "LEVER 1" : "lever 1 ", nullptr);
-	tree.setProperty("choice_19", curt ? t == ICT::lfo ? "LEV2" : "LEVER 2" : "lever 2", nullptr);
-	tree.setProperty("choice_20", curt ? t == ICT::lfo ? "LEV3" : "LEVER 3" : "lever 3 (lever 2 reverse)", nullptr);
+	tree.setProperty("choice_13", curt ? for_lfo ? "VEL" : "VELOCITY" : "keyboard note velocity", nullptr);
+	tree.setProperty("choice_14", curt ? for_lfo ? "RVEL" : "REL VELO" : "keyboard release velocity", nullptr);
+	tree.setProperty("choice_15", curt ? for_lfo ? "PRES" : "PRESSURE" : "keyboard pressure (aftertouch)", nullptr);
+	tree.setProperty("choice_16", curt ? for_lfo ? "PED1" : "PEDAL 1" : "pedal 1", nullptr);
+	tree.setProperty("choice_17", curt ? for_lfo ? "PED2" : "PEDAL 2" : "pedal 2", nullptr);
+	tree.setProperty("choice_18", curt ? for_lfo ? "LEV1" : "LEVER 1" : "lever 1 ", nullptr);
+	tree.setProperty("choice_19", curt ? for_lfo ? "LEV2" : "LEVER 2" : "lever 2", nullptr);
+	tree.setProperty("choice_20", curt ? for_lfo ? "LEV3" : "LEVER 3" : "lever 3 (lever 2 reverse)", nullptr);
 	return tree;
 }
 
