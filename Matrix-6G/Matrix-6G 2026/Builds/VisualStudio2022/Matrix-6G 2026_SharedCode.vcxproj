@@ -167,6 +167,7 @@
     <ClCompile Include="..\..\Project_Source\D_TIP_Widget_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_TREE_App_Options_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_TREE_Exposed_Info_P.cpp"/>
+    <ClCompile Include="..\..\Project_Source\D_TREE_Matrix_Mod_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_X_G_Audio_Processor_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_X_G_Data_Hub_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_X_G_Editor_P.cpp"/>
@@ -3212,6 +3213,7 @@
     <ClInclude Include="..\..\Project_Source\D_TIP_Widget_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_TREE_App_Options_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_TREE_Exposed_Info_P.h"/>
+    <ClInclude Include="..\..\Project_Source\D_TREE_Matrix_Mod_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Audio_Processor_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Data_Hub_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_X_G_Data_User_P.h"/>

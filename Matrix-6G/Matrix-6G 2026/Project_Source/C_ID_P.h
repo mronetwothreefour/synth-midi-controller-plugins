@@ -13,4 +13,8 @@ namespace ID
 	static const String label_led{ "label_led" };
 	static const String label_linear{ "label_linear" };
 
+	static const String tree_matrix_mod{ "tree_matrix_mod" };
+
+	static const String xml_state_matrix_mod{ "xml_state_matrix_mod" };
+
 }

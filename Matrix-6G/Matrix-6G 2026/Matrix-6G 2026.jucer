@@ -120,6 +120,10 @@
             file="Project_Source/D_TREE_Exposed_Info_P.cpp"/>
       <FILE id="vFCqAi" name="D_TREE_Exposed_Info_P.h" compile="0" resource="0"
             file="Project_Source/D_TREE_Exposed_Info_P.h"/>
+      <FILE id="Re33KC" name="D_TREE_Matrix_Mod_P.cpp" compile="1" resource="0"
+            file="Project_Source/D_TREE_Matrix_Mod_P.cpp"/>
+      <FILE id="Ziis69" name="D_TREE_Matrix_Mod_P.h" compile="0" resource="0"
+            file="Project_Source/D_TREE_Matrix_Mod_P.h"/>
       <FILE id="r5MbZv" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="Project_Source/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="DXzk5j" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"

@@ -9,28 +9,40 @@ const String Convert_P::int_to_mmod_amt(const int i, bool curt) {
 const String Convert_P::int_to_mmod_dest(const int i, bool curt) {
     switch (i)
     {
-    case 0: return curt ? "none" : "NONE";
-    case 1: return curt ? "envelope 1" : "ENV 1";
-    case 2: return curt ? "envelope 2" : "ENV 2";
-    case 3: return curt ? "envelope 3" : "ENV 3";
-    case 4: return "LFO 1";
-    case 5: return "LFO 2";
-    case 6: return curt ? "vibrato LFO" : "VIBRATO";
-    case 7: return curt ? "ramp generator 1" : "RAMP 1";
-    case 8: return curt ? "ramp generator 2" : "RAMP 2";
-    case 9: return curt ? "keyboard scaling" : "KEYBD";
-    case 10: return curt ? "portamento speed" : "PORTA";
-    case 11: return curt ? "tracking generator" : "TRACK";
-    case 12: return curt ? "keyboard note gate" : "GATE";
-    case 13: return curt ? "keyboard note velocity" : "VELO";
-    case 14: return curt ? "keyboard release velocity" : "R VELO";
-    case 15: return curt ? "keyboard pressure (aftertouch)" : "PRESS";
-    case 16: return curt ? "pedal 1" : "PEDAL 1";
-    case 17: return curt ? "pedal 2" : "PEDAL 2";
-    case 18: return curt ? "lever 1" : "LEVER 1";
-    case 19: return curt ? "lever 2" : "LEVER 2";
-    case 20: return curt ? "lever 3 (lever 2 reverse)" : "LEVER 3";
-    default: return curt ? "range error" : "err";
+    case 0: return curt ? "NONE" : "none";
+    case 1: return curt ? "OSC1 FQ" : "oscillator 1 frequency";
+    case 2: return curt ? "OSC1 PW" : "oscillator 1 pulse width";
+    case 3: return curt ? "OSC1 W" : "oscillator 1 saw/tri wave shape";
+    case 4: return curt ? "OSC2 FQ" : "oscillator 2 frequency";
+	case 5: return curt ? "OSC2 PW" : "oscillator 2 pulse width";
+	case 6: return curt ? "OSC2 W" : "oscillator 2 saw/tri wave shape";
+    case 7: return curt ? "OSC MIX" : "oscillator mix (balance)";
+    case 8: return curt ? "VCF FM" : "VCF FM amount";
+    case 9: return curt ? "VCF FQ" : "VCF cutoff frequency";
+    case 10: return curt ? "VCF RES" : "VCF resonance";
+    case 11: return curt ? "VCA1LVL" : "VCA 1 level";
+    case 12: return curt ? "VCA2LVL" : "VCA 2 level";
+    case 13: return curt ? "ENV1DEL" : "envelope 1 delay";
+    case 14: return curt ? "ENV1ATK" : "envelope 1 attack";
+    case 15: return curt ? "ENV1DEC" : "envelope 1 decay";
+    case 16: return curt ? "ENV1REL" : "envelope 1 release";
+    case 17: return curt ? "ENV1AMP" : "envelope 1 amplitude";
+    case 18: return curt ? "ENV2DEL" : "envelope 2 delay";
+	case 19: return curt ? "ENV2ATK" : "envelope 2 attack";
+	case 20: return curt ? "ENV2DEC" : "envelope 2 decay";
+	case 21: return curt ? "ENV2REL" : "envelope 2 release";
+	case 22: return curt ? "ENV2AMP" : "envelope 2 amplitude";
+    case 23: return curt ? "ENV3DEL" : "envelope 3 delay";
+	case 24: return curt ? "ENV3ATK" : "envelope 3 attack";
+	case 25: return curt ? "ENV3DEC" : "envelope 3 decay";
+	case 26: return curt ? "ENV3REL" : "envelope 3 release";
+	case 27: return curt ? "ENV3AMP" : "envelope 3 amplitude";
+	case 28: return curt ? "LFO1SPD" : "LFO 1 speed";
+	case 29: return curt ? "LFO1AMP" : "LFO 1 amplitude";
+	case 30: return curt ? "LFO2SPD" : "LFO 2 speed";
+	case 31: return curt ? "LFO2AMP" : "LFO 2 amplitude";
+	case 32: return curt ? "PORTA" : "portamento time";
+    default: return curt ? "range error" : "ERR";
     }
 }
 

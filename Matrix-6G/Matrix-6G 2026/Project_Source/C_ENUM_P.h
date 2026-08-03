@@ -120,6 +120,12 @@ namespace ENUM
 		track_point_5,
 	};
 
+	constexpr enum class Matrix_Mod_Param {
+		amt,
+		dest,
+		src
+	};
+
 	constexpr enum class Slider_Display_Type {
 		error = -1,
 		none,
