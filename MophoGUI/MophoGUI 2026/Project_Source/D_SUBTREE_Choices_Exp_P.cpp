@@ -2,7 +2,7 @@
 
 #include "C_ID_P.h"
 #include "C_EXP_P.h"
-#include "D_CONVERT_Int_To_Pitch_G.h"
+#include "D_CONVERT_G.h"
 
 String Subtree_Choices_Exp_P::convert_int_to_seq_step_pitch(const int i) {
 	auto note{ i % 24 };
@@ -218,7 +218,7 @@ ValueTree Subtree_Choices_Exp_P::lfo_freq(const bool curt) {
 	for (int n = 0; n < EXP::first_lfo_pitched_freq_choice; ++n)
 		tree.setProperty("choice_" + (String)n, curt ? (String)n : "un-synced " + (String)n, nullptr);
 	for (auto n = EXP::first_lfo_pitched_freq_choice; n < EXP::first_lfo_synced_freq_choice; ++n) {
-		auto pitch{ Int_To_Pitch_G::convert(n - EXP::first_lfo_pitched_freq_choice) };
+		auto pitch{ Convert_G::int_to_pitch(n - EXP::first_lfo_pitched_freq_choice) };
 		auto name{ curt ? pitch : (String)n + " (pitch freq. " + pitch + ")" };
 		tree.setProperty("choice_" + (String)n, name, nullptr);
 	}
@@ -255,7 +255,7 @@ ValueTree Subtree_Choices_Exp_P::lpf_freq(const bool curt) {
 	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
 	for (int num = 0; num < EXP::choice_count_lpf_freq; ++num) {
 		String n{ num };
-		auto pitch{ Int_To_Pitch_G::convert(num) };
+		auto pitch{ Convert_G::int_to_pitch(num) };
 		auto name{ curt ? pitch : n + " (pitch freq. " + pitch + ")" };
 		tree.setProperty("choice_" + n, name, nullptr);
 	}

@@ -12,8 +12,8 @@
     <GROUP id="{22028B08-C958-7E46-22FE-468E166FFF66}" name="_Global_Source">
       <FILE id="FS4H62" name="C_COLOR_G.h" compile="0" resource="0" file="../../_Global_Source/C_COLOR_G.h"/>
       <FILE id="wpjApX" name="C_ID_G.h" compile="0" resource="0" file="../../_Global_Source/C_ID_G.h"/>
-      <FILE id="tUT8e3" name="D_CONVERT_Int_To_Pitch_G.h" compile="0" resource="0"
-            file="../../_Global_Source/D_CONVERT_Int_To_Pitch_G.h"/>
+      <FILE id="wwx16c" name="D_CONVERT_G.cpp" compile="1" resource="0" file="../../_Global_Source/D_CONVERT_G.cpp"/>
+      <FILE id="ockPr7" name="D_CONVERT_G.h" compile="0" resource="0" file="../../_Global_Source/D_CONVERT_G.h"/>
       <FILE id="qR5XxR" name="D_SUBTREE_Choices_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/D_SUBTREE_Choices_G.cpp"/>
       <FILE id="aEKngL" name="D_SUBTREE_Choices_G.h" compile="0" resource="0"

@@ -1,7 +1,7 @@
 #include "D_SUBTREE_Choices_G.h"
 
 #include "C_ID_G.h"
-#include "D_CONVERT_Int_To_Pitch_G.h"
+#include "D_CONVERT_G.h"
 
 ValueTree Subtree_Choices_G::off_on(const bool curt) {
 	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
@@ -13,7 +13,7 @@ ValueTree Subtree_Choices_G::off_on(const bool curt) {
 ValueTree Subtree_Choices_G::osc_pitch(int choice_count, const bool curt) {
 	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
 	for (int choice = 0; choice < choice_count; ++choice) {
-		String name{ Int_To_Pitch_G::convert(choice) };
+		String name{ Convert_G::int_to_pitch(choice) };
 		if (!curt)
 			name << " (MIDI note " + (String)choice + ")";
 		tree.setProperty("choice_" + (String)choice, name, nullptr);

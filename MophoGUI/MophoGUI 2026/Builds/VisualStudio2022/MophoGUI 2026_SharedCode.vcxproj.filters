@@ -841,6 +841,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\_Global_Source\D_CONVERT_G.cpp">
+      <Filter>MophoGUI 2026\_Global_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Global_Source\D_SUBTREE_Choices_G.cpp">
       <Filter>MophoGUI 2026\_Global_Source</Filter>
     </ClCompile>
@@ -4146,7 +4149,7 @@
     <ClInclude Include="..\..\..\..\_Global_Source\C_ID_G.h">
       <Filter>MophoGUI 2026\_Global_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_CONVERT_Int_To_Pitch_G.h">
+    <ClInclude Include="..\..\..\..\_Global_Source\D_CONVERT_G.h">
       <Filter>MophoGUI 2026\_Global_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\D_SUBTREE_Choices_G.h">

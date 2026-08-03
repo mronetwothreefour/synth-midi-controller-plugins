@@ -145,6 +145,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\_Global_Source\D_CONVERT_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\D_SUBTREE_Choices_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\D_TREE_App_Options_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\D_TREE_Exposed_Info_G.cpp"/>
@@ -3178,7 +3179,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\..\_Global_Source\C_COLOR_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\C_ID_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_CONVERT_Int_To_Pitch_G.h"/>
+    <ClInclude Include="..\..\..\..\_Global_Source\D_CONVERT_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_SUBTREE_Choices_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_TIP_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\D_TREE_App_Options_G.h"/>

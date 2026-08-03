@@ -12,8 +12,8 @@
     <GROUP id="{A958F168-84D4-8B97-B836-269A1E247DEE}" name="_Global_Source">
       <FILE id="gc8Yzl" name="C_COLOR_G.h" compile="0" resource="0" file="../../_Global_Source/C_COLOR_G.h"/>
       <FILE id="tnPtBf" name="C_ID_G.h" compile="0" resource="0" file="../../_Global_Source/C_ID_G.h"/>
-      <FILE id="xUvfs0" name="D_CONVERT_Int_To_Pitch_G.h" compile="0" resource="0"
-            file="../../_Global_Source/D_CONVERT_Int_To_Pitch_G.h"/>
+      <FILE id="iy9lJS" name="D_CONVERT_G.cpp" compile="1" resource="0" file="../../_Global_Source/D_CONVERT_G.cpp"/>
+      <FILE id="xUvfs0" name="D_CONVERT_G.h" compile="0" resource="0" file="../../_Global_Source/D_CONVERT_G.h"/>
       <FILE id="NrqBY0" name="D_SUBTREE_Choices_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/D_SUBTREE_Choices_G.cpp"/>
       <FILE id="wu9ndo" name="D_SUBTREE_Choices_G.h" compile="0" resource="0"
