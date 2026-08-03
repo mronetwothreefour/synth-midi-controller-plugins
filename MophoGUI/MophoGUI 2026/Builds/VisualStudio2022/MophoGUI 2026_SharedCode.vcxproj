@@ -160,6 +160,7 @@
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Display_Exp_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Slider_Exp_G.cpp"/>
+    <ClCompile Include="..\..\Project_Source\D_CONVERT_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_SUBTREE_Exposed_Info_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_TIP_Exposed_P.cpp"/>
@@ -3206,6 +3207,7 @@
     <ClInclude Include="..\..\Project_Source\C_SL_Tip_Widget_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_VOICE_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_XYWH_P.h"/>
+    <ClInclude Include="..\..\Project_Source\D_CONVERT_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_SUBTREE_Exposed_Info_P.h"/>
     <ClInclude Include="..\..\Project_Source\D_TIP_Exposed_P.h"/>

@@ -2,40 +2,7 @@
 
 #include "C_ID_P.h"
 #include "C_EXP_P.h"
-#include "D_CONVERT_G.h"
-
-String Subtree_Choices_Exp_P::convert_int_to_seq_step_pitch(const int i) {
-	auto note{ i % 24 };
-	auto octave{ String(i / 24) };
-	switch (note)
-	{
-	case 0: return "C" + octave;
-	case 1: return "C" + octave + "+";
-	case 2: return "C#" + octave;
-	case 3: return "C#" + octave + "+";
-	case 4: return "D" + octave;
-	case 5: return "D" + octave + "+";
-	case 6: return "D#" + octave;
-	case 7: return "D#" + octave + "+";
-	case 8: return "E" + octave;
-	case 9: return "E" + octave + "+";
-	case 10: return "F" + octave;
-	case 11: return "F" + octave + "+";
-	case 12: return "F#" + octave;
-	case 13: return "F#" + octave + "+";
-	case 14: return "G" + octave;
-	case 15: return "G" + octave + "+";
-	case 16: return "G#" + octave;
-	case 17: return "G#" + octave + "+";
-	case 18: return "A" + octave;
-	case 19: return "A" + octave + "+";
-	case 20: return "A#" + octave;
-	case 21: return "A#" + octave + "+";
-	case 22: return "B" + octave;
-	case 23: return "B" + octave + "+";
-	default: return "";
-	}
-}
+#include "D_CONVERT_P.h"
 
 ValueTree Subtree_Choices_Exp_P::arp_mode(const bool curt) {
 	ValueTree tree{ curt ? ID::subtree_choices_curt : ID::subtree_choices };
@@ -415,8 +382,8 @@ ValueTree Subtree_Choices_Exp_P::seq_track_step(const bool curt) {
 	for (int n = 0; n < 126; ++n)
 		tree.setProperty(
 			"choice_" + (String)n,
-			curt ? convert_int_to_seq_step_pitch(n) :
-			(String)n + " (" + convert_int_to_seq_step_pitch(n) + ")",
+			curt ? Convert_P::int_to_seq_step_pitch(n) :
+			(String)n + " (" + Convert_P::int_to_seq_step_pitch(n) + ")",
 			nullptr);
 	tree.setProperty("choice_126", curt ? "<" : "reset sequence", nullptr);
 	tree.setProperty("choice_127", curt ? "." : "rest", nullptr);

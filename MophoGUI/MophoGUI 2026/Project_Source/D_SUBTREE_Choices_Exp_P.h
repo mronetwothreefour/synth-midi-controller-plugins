@@ -5,8 +5,6 @@
 struct Subtree_Choices_Exp_P :
 	public Subtree_Choices_G
 {
-	static String convert_int_to_seq_step_pitch(const int i);
-
 	static ValueTree arp_mode(const bool curt = false);
 
 	static ValueTree bend_range(const bool curt = false);

@@ -98,6 +98,8 @@
             file="Project_Source/C_SL_Tip_Widget_P.h"/>
       <FILE id="rfKmTJ" name="C_VOICE_P.h" compile="0" resource="0" file="Project_Source/C_VOICE_P.h"/>
       <FILE id="QafCON" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source/C_XYWH_P.h"/>
+      <FILE id="MDqXPm" name="D_CONVERT_P.cpp" compile="1" resource="0" file="Project_Source/D_CONVERT_P.cpp"/>
+      <FILE id="Ovn7I3" name="D_CONVERT_P.h" compile="0" resource="0" file="Project_Source/D_CONVERT_P.h"/>
       <FILE id="kscOMj" name="D_SUBTREE_Choices_Exp_P.cpp" compile="1" resource="0"
             file="Project_Source/D_SUBTREE_Choices_Exp_P.cpp"/>
       <FILE id="WTdQGb" name="D_SUBTREE_Choices_Exp_P.h" compile="0" resource="0"
