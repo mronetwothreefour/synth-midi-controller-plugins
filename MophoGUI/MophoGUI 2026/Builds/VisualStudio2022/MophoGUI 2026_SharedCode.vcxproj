@@ -160,6 +160,7 @@
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Display_Exp_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.cpp"/>
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Slider_Exp_G.cpp"/>
+    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Val_Ctrl_G.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_CONVERT_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.cpp"/>
     <ClCompile Include="..\..\Project_Source\D_SUBTREE_Exposed_Info_P.cpp"/>
@@ -3196,6 +3197,7 @@
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Slider_Exp_G.h"/>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Tip_Updater_G.h"/>
+    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Val_Ctrl_G.h"/>
     <ClInclude Include="..\..\Project_Source\C_COLOR_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_ENUM_P.h"/>
     <ClInclude Include="..\..\Project_Source\C_ID_P.h"/>

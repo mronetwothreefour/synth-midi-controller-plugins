@@ -38,6 +38,7 @@ G_LOOK_AND_FEEL_G
 G_LOOK_AND_FEEL_P
 G_WIDG_Cbox_Exp_G
 G_WIDG_Exp_Ctrl_G
+G_WIDG_Val_Ctrl_G
 G_WIDG_Sli_Display_Exp_G
 G_WIDG_Sli_Display_Exp_P
 G_WIDG_Sli_Wheel_Mod_G

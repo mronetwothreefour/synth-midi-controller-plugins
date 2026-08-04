@@ -883,6 +883,9 @@
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Slider_Exp_G.cpp">
       <Filter>P-600-GUI 2026\_Global_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Val_Ctrl_G.cpp">
+      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.cpp">
       <Filter>P-600-GUI 2026\Project_Source</Filter>
     </ClCompile>
@@ -4183,6 +4186,9 @@
       <Filter>P-600-GUI 2026\_Global_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Tip_Updater_G.h">
+      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Val_Ctrl_G.h">
       <Filter>P-600-GUI 2026\_Global_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\C_COLOR_P.h">

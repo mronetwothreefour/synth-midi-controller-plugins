@@ -25,6 +25,8 @@ public: void set_mod_src(const int mod_num, const int new_setting);
 
 public: Value get_param_as_value(const int mod_num, const Matrix_Mod_Param param);
 
+public: StringArray choices_list_for(const Matrix_Mod_Param param, const bool curt = false);
+
 public: std::unique_ptr<XmlElement> get_state();
 public: void replace_state(const ValueTree& new_state);
 

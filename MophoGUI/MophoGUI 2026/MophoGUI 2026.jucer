@@ -75,6 +75,10 @@
             file="../../_Global_Source/G_WIDG_Slider_Exp_G.h"/>
       <FILE id="DxHhL8" name="G_WIDG_Tip_Updater_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_WIDG_Tip_Updater_G.h"/>
+      <FILE id="OlLYBO" name="G_WIDG_Val_Ctrl_G.h" compile="0" resource="0"
+            file="../../_Global_Source/G_WIDG_Val_Ctrl_G.h"/>
+      <FILE id="C4xmf9" name="G_WIDG_Val_Ctrl_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/G_WIDG_Val_Ctrl_G.cpp"/>
     </GROUP>
     <GROUP id="{32DE5907-F490-4B16-B1D8-20E86D5C7794}" name="Project_Source">
       <GROUP id="{19317CD1-CD7C-448A-1E1D-08F2DA6A124B}" name="binaries">

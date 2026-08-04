@@ -1,6 +1,7 @@
 #include "D_TREE_Matrix_Mod_P.h"
 
 #include "C_ID_P.h"
+#include "D_CONVERT_P.h"
 
 using MMod_Param = Matrix_Mod_Param;
 
@@ -76,6 +77,28 @@ Value Tree_Matrix_Mod_P::get_param_as_value(const int mod, const Matrix_Mod_Para
 		return mod_tree.getPropertyAsValue(String{ (int)MMod_Param::src }, u_m);
 	}
 	return {};
+}
+
+StringArray Tree_Matrix_Mod_P::choices_list_for(const Matrix_Mod_Param param, const bool curt) {
+	StringArray list{};
+	switch (param)
+	{
+	case Matrix_Mod_Param::amt:
+		for (int i = 0; i < 128; ++i)
+			list.add(Convert_P::int_to_mmod_amt(i, curt));
+		break;
+	case Matrix_Mod_Param::dest:
+		for (int i = 0; i < 33; ++i)
+			list.add(Convert_P::int_to_mmod_dest(i, curt));
+		break;
+	case Matrix_Mod_Param::src:
+		for (int i = 0; i < 21; ++i)
+			list.add(Convert_P::int_to_mmod_src(i, curt));
+		break;
+	default:
+		break;
+	}
+	return list;
 }
 
 std::unique_ptr<XmlElement> Tree_Matrix_Mod_P::get_state() {

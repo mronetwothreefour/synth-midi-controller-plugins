@@ -74,6 +74,10 @@
             file="../../_Global_Source/G_WIDG_Slider_Exp_G.h"/>
       <FILE id="uoqcTG" name="G_WIDG_Tip_Updater_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_WIDG_Tip_Updater_G.h"/>
+      <FILE id="fRelis" name="G_WIDG_Val_Ctrl_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/G_WIDG_Val_Ctrl_G.cpp"/>
+      <FILE id="mUFrS0" name="G_WIDG_Val_Ctrl_G.h" compile="0" resource="0"
+            file="../../_Global_Source/G_WIDG_Val_Ctrl_G.h"/>
     </GROUP>
     <GROUP id="{466BC44A-4333-DF3E-C3D9-6E81D6C6A08E}" name="Project_Source">
       <GROUP id="{6D444D21-6E99-5817-8695-6E2D52F2324F}" name="binaries">
