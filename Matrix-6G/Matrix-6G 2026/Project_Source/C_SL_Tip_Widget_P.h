@@ -16,4 +16,21 @@ Range: -_ to _.)";
 Type in a new setting.
 Range: 0 to _.)";
 
+	constexpr auto matrix_mod_cbox_dest = u8R"(
+Selects the destination parameter for modulation.
+Matrix Mod parameters cannot be changed via Quick Patch Edit.
+Use the PUSH button to send the entire patch instead.)";
+
+	constexpr auto matrix_mod_cbox_src = u8R"(
+Selects the modulation source. Matrix Mod parameters
+cannot be changed via Quick Patch Edit. Use the
+PUSH button to send the entire patch instead.)";
+
+	constexpr auto matrix_mod_knob_amt = u8R"(
+Sets whether and to what degree the selected source
+modulates the selected destination. Range: -63 to +63.
+0 is no modulation. Negative values invert the modulation.
+Matrix Mod parameters cannot be changed via Quick Patch
+Edit. Use the PUSH button to send the entire patch instead.)";
+
 }

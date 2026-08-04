@@ -17,3 +17,13 @@ String Tip_Widget_P::knob_text_editor(const Slider_Display_Type display_type, bo
 		return "error";
 	}
 }
+
+String Tip_Widget_P::matrix_mod_cbox(bool for_source) {
+	if (for_source)
+		return from_string_literal(SL::matrix_mod_cbox_src);
+	return from_string_literal(SL::matrix_mod_cbox_src);
+}
+
+String Tip_Widget_P::matrix_mod_knob_amt() {
+	return from_string_literal(SL::matrix_mod_knob_amt);
+}
