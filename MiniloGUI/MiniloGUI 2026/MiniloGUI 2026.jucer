@@ -56,10 +56,14 @@
             file="../../_Global_Source/G_WIDG_Cbox_Exp_G.h"/>
       <FILE id="aV047H" name="G_WIDG_Cbox_Exp_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/G_WIDG_Cbox_Exp_G.cpp"/>
-      <FILE id="Kpu7bk" name="G_WIDG_Exp_Ctrl_G.cpp" compile="1" resource="0"
-            file="../../_Global_Source/G_WIDG_Exp_Ctrl_G.cpp"/>
-      <FILE id="HFMCbb" name="G_WIDG_Exp_Ctrl_G.h" compile="0" resource="0"
-            file="../../_Global_Source/G_WIDG_Exp_Ctrl_G.h"/>
+      <FILE id="tRBjFX" name="G_WIDG_Ctrl_Exp_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/G_WIDG_Ctrl_Exp_G.cpp"/>
+      <FILE id="J4BLdM" name="G_WIDG_Ctrl_Exp_G.h" compile="0" resource="0"
+            file="../../_Global_Source/G_WIDG_Ctrl_Exp_G.h"/>
+      <FILE id="EI8nc5" name="G_WIDG_Ctrl_Val_G.cpp" compile="1" resource="0"
+            file="../../_Global_Source/G_WIDG_Ctrl_Val_G.cpp"/>
+      <FILE id="KCmwpX" name="G_WIDG_Ctrl_Val_G.h" compile="0" resource="0"
+            file="../../_Global_Source/G_WIDG_Ctrl_Val_G.h"/>
       <FILE id="Aqpg3U" name="G_WIDG_Sli_Display_Exp_G.cpp" compile="1" resource="0"
             file="../../_Global_Source/G_WIDG_Sli_Display_Exp_G.cpp"/>
       <FILE id="DTyepO" name="G_WIDG_Sli_Display_Exp_G.h" compile="0" resource="0"
@@ -74,10 +78,6 @@
             file="../../_Global_Source/G_WIDG_Slider_Exp_G.h"/>
       <FILE id="uoqcTG" name="G_WIDG_Tip_Updater_G.h" compile="0" resource="0"
             file="../../_Global_Source/G_WIDG_Tip_Updater_G.h"/>
-      <FILE id="fRelis" name="G_WIDG_Val_Ctrl_G.cpp" compile="1" resource="0"
-            file="../../_Global_Source/G_WIDG_Val_Ctrl_G.cpp"/>
-      <FILE id="mUFrS0" name="G_WIDG_Val_Ctrl_G.h" compile="0" resource="0"
-            file="../../_Global_Source/G_WIDG_Val_Ctrl_G.h"/>
     </GROUP>
     <GROUP id="{466BC44A-4333-DF3E-C3D9-6E81D6C6A08E}" name="Project_Source">
       <GROUP id="{6D444D21-6E99-5817-8695-6E2D52F2324F}" name="binaries">

@@ -2,12 +2,12 @@
 
 #include <JuceHeader.h>
 
-#include "G_WIDG_Exp_Ctrl_G.h"
+#include "G_WIDG_Ctrl_Exp_G.h"
 
 using Cbox_Attachment = ComboBoxParameterAttachment;
 
 class Combo_Box_Exposed_G :
-	public Exposed_Control_G,
+	public Control_Exposed_G,
 	public ComboBox
 {
 protected: std::unique_ptr<Cbox_Attachment> attachment;

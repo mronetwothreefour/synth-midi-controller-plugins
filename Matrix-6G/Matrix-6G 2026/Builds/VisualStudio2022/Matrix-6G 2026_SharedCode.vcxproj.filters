@@ -874,7 +874,10 @@
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Cbox_Exp_G.cpp">
       <Filter>Matrix-6G 2026\_Global_Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Exp_Ctrl_G.cpp">
+    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Ctrl_Exp_G.cpp">
+      <Filter>Matrix-6G 2026\_Global_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Ctrl_Val_G.cpp">
       <Filter>Matrix-6G 2026\_Global_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Display_Exp_G.cpp">
@@ -884,9 +887,6 @@
       <Filter>Matrix-6G 2026\_Global_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Slider_Exp_G.cpp">
-      <Filter>Matrix-6G 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Val_Ctrl_G.cpp">
       <Filter>Matrix-6G 2026\_Global_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Project_Source\D_CONVERT_P.cpp">
@@ -4194,7 +4194,10 @@
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Cbox_Exp_G.h">
       <Filter>Matrix-6G 2026\_Global_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Exp_Ctrl_G.h">
+    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Ctrl_Exp_G.h">
+      <Filter>Matrix-6G 2026\_Global_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Ctrl_Val_G.h">
       <Filter>Matrix-6G 2026\_Global_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Display_Exp_G.h">
@@ -4207,9 +4210,6 @@
       <Filter>Matrix-6G 2026\_Global_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Tip_Updater_G.h">
-      <Filter>Matrix-6G 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Val_Ctrl_G.h">
       <Filter>Matrix-6G 2026\_Global_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Project_Source\C_COLOR_P.h">

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "G_WIDG_Exp_Ctrl_G.h"
+#include "G_WIDG_Ctrl_Exp_G.h"
 
 using Btn_Attachment = ButtonParameterAttachment;
 

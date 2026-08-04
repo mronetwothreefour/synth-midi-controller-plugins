@@ -1,14 +1,14 @@
 #include "G_WIDG_Cbox_Exp_G.h"
 
 Combo_Box_Exposed_G::Combo_Box_Exposed_G(const Exp_Param param_id, Data_Hub_P* hub) :
-	Exposed_Control_G{ param_id, hub }
+	Control_Exposed_G{ param_id, hub }
 {
 	auto choices_list = exp_info.choices_list_for(param_id, true);
 	addItemList(choices_list, 1);
 }
 
 inline void Combo_Box_Exposed_G::attach_to_param() {
-	attachment.reset(new Cbox_Attachment{ *exp_param, *this, Exposed_Control_G::u_m });
+	attachment.reset(new Cbox_Attachment{ *exp_param, *this, Control_Exposed_G::u_m });
 }
 
 inline void Combo_Box_Exposed_G::remove_attachment() {

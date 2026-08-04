@@ -1,7 +1,7 @@
 #include "G_WIDG_Slider_Exp_G.h"
 
 Slider_Exposed_G::Slider_Exposed_G(const Exp_Param param_id, Data_Hub_P* hub) :
-	Exposed_Control_G{ param_id, hub },
+	Control_Exposed_G{ param_id, hub },
 	Slider_Wheel_Mod_P{ hub->get_undo_mngr(), exp_info.ctrl_type_for(param_id)},
 	display{ param_id, hub, this }
 {
@@ -9,14 +9,14 @@ Slider_Exposed_G::Slider_Exposed_G(const Exp_Param param_id, Data_Hub_P* hub) :
 }
 
 void Slider_Exposed_G::resized() {
-	auto scale_f = Exposed_Control_G::scale_factor;
-	setMouseDragSensitivity(Exposed_Control_G::exp_info.drag_sensitivity_for(param_id, scale_f));
+	auto scale_f = Control_Exposed_G::scale_factor;
+	setMouseDragSensitivity(Control_Exposed_G::exp_info.drag_sensitivity_for(param_id, scale_f));
 	display.setBounds(getLocalBounds());
 	Slider::resized();
 }
 
 void Slider_Exposed_G::attach_to_param() {
-	attachment.reset(new Slider_Attachment{ *exp_param, *this, Exposed_Control_G::u_m });
+	attachment.reset(new Slider_Attachment{ *exp_param, *this, Control_Exposed_G::u_m });
 	setDoubleClickReturnValue(false, 0.0, Mods::noModifiers);
 }
 
