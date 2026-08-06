@@ -7,159 +7,30 @@
               pluginCharacteristicsValue="pluginEditorRequiresKeys,pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginDesc="Sound editor/librarian for use with the SCI Prophet-600 synthesizer"
               pluginManufacturerCode="TimD" pluginCode="F0ch" pluginVST3Category="Tools"
-              cppLanguageStandard="20" headerPath="..\..\..\..\_Global_Source&#10;..\..\Project_Source">
+              cppLanguageStandard="20" headerPath="..\..\..\..\_Abstract_Source&#10;..\..\_Project_Source">
   <MAINGROUP id="ZPn9H4" name="P-600-GUI 2026">
-    <GROUP id="{22028B08-C958-7E46-22FE-468E166FFF66}" name="_Global_Source">
-      <FILE id="FS4H62" name="C_COLOR_G.h" compile="0" resource="0" file="../../_Global_Source/C_COLOR_G.h"/>
-      <FILE id="wpjApX" name="C_ID_G.h" compile="0" resource="0" file="../../_Global_Source/C_ID_G.h"/>
-      <FILE id="wwx16c" name="D_CONVERT_G.cpp" compile="1" resource="0" file="../../_Global_Source/D_CONVERT_G.cpp"/>
-      <FILE id="ockPr7" name="D_CONVERT_G.h" compile="0" resource="0" file="../../_Global_Source/D_CONVERT_G.h"/>
-      <FILE id="qR5XxR" name="D_SUBTREE_Choices_G.cpp" compile="1" resource="0"
-            file="../../_Global_Source/D_SUBTREE_Choices_G.cpp"/>
-      <FILE id="aEKngL" name="D_SUBTREE_Choices_G.h" compile="0" resource="0"
-            file="../../_Global_Source/D_SUBTREE_Choices_G.h"/>
-      <FILE id="BuZG4y" name="D_TIP_G.h" compile="0" resource="0" file="../../_Global_Source/D_TIP_G.h"/>
-      <FILE id="Js6G60" name="D_TREE_App_Options_G.cpp" compile="1" resource="0"
-            file="../../_Global_Source/D_TREE_App_Options_G.cpp"/>
-      <FILE id="Muulj5" name="D_TREE_App_Options_G.h" compile="0" resource="0"
-            file="../../_Global_Source/D_TREE_App_Options_G.h"/>
-      <FILE id="IR9fKO" name="D_TREE_Exposed_Info_G.cpp" compile="1" resource="0"
-            file="../../_Global_Source/D_TREE_Exposed_Info_G.cpp"/>
-      <FILE id="EqnPLH" name="D_TREE_Exposed_Info_G.h" compile="0" resource="0"
-            file="../../_Global_Source/D_TREE_Exposed_Info_G.h"/>
-      <FILE id="nEnLSC" name="D_X_G_Audio_Processor_G.cpp" compile="1" resource="0"
-            file="../../_Global_Source/D_X_G_Audio_Processor_G.cpp"/>
-      <FILE id="aNheMb" name="D_X_G_Audio_Processor_G.h" compile="0" resource="0"
-            file="../../_Global_Source/D_X_G_Audio_Processor_G.h"/>
-      <FILE id="huBqDH" name="D_X_G_Data_Hub_G.cpp" compile="1" resource="0"
-            file="../../_Global_Source/D_X_G_Data_Hub_G.cpp"/>
-      <FILE id="B6GDkP" name="D_X_G_Data_Hub_G.h" compile="0" resource="0"
-            file="../../_Global_Source/D_X_G_Data_Hub_G.h"/>
-      <FILE id="J9celj" name="D_X_G_Data_User_G.cpp" compile="1" resource="0"
-            file="../../_Global_Source/D_X_G_Data_User_G.cpp"/>
-      <FILE id="XOcfhO" name="D_X_G_Data_User_G.h" compile="0" resource="0"
-            file="../../_Global_Source/D_X_G_Data_User_G.h"/>
-      <FILE id="PpiVQ6" name="D_X_G_Editor_G.cpp" compile="1" resource="0"
-            file="../../_Global_Source/D_X_G_Editor_G.cpp"/>
-      <FILE id="Cpjr4H" name="D_X_G_Editor_G.h" compile="0" resource="0"
-            file="../../_Global_Source/D_X_G_Editor_G.h"/>
-      <FILE id="iWnun9" name="G_DRAW_Paths_G.h" compile="0" resource="0"
-            file="../../_Global_Source/G_DRAW_Paths_G.h"/>
-      <FILE id="geBnDQ" name="G_LOOK_AND_FEEL_G.h" compile="0" resource="0"
-            file="../../_Global_Source/G_LOOK_AND_FEEL_G.h"/>
-      <FILE id="wqwjP5" name="G_LOOK_AND_FEEL_G.cpp" compile="1" resource="0"
-            file="../../_Global_Source/G_LOOK_AND_FEEL_G.cpp"/>
-      <FILE id="iBteXH" name="G_WIDG_Cbox_Exp_G.cpp" compile="1" resource="0"
-            file="../../_Global_Source/G_WIDG_Cbox_Exp_G.cpp"/>
-      <FILE id="hAD0zQ" name="G_WIDG_Cbox_Exp_G.h" compile="0" resource="0"
-            file="../../_Global_Source/G_WIDG_Cbox_Exp_G.h"/>
-      <FILE id="yqAUya" name="G_WIDG_Ctrl_Exp_G.cpp" compile="1" resource="0"
-            file="../../_Global_Source/G_WIDG_Ctrl_Exp_G.cpp"/>
-      <FILE id="klCGrT" name="G_WIDG_Ctrl_Exp_G.h" compile="0" resource="0"
-            file="../../_Global_Source/G_WIDG_Ctrl_Exp_G.h"/>
-      <FILE id="evSOMB" name="G_WIDG_Ctrl_Val_G.cpp" compile="1" resource="0"
-            file="../../_Global_Source/G_WIDG_Ctrl_Val_G.cpp"/>
-      <FILE id="jpqycD" name="G_WIDG_Ctrl_Val_G.h" compile="0" resource="0"
-            file="../../_Global_Source/G_WIDG_Ctrl_Val_G.h"/>
-      <FILE id="stalKS" name="G_WIDG_Sli_Display_Exp_G.cpp" compile="1" resource="0"
-            file="../../_Global_Source/G_WIDG_Sli_Display_Exp_G.cpp"/>
-      <FILE id="AH1wr0" name="G_WIDG_Sli_Display_Exp_G.h" compile="0" resource="0"
-            file="../../_Global_Source/G_WIDG_Sli_Display_Exp_G.h"/>
-      <FILE id="fEuxMs" name="G_WIDG_Sli_Wheel_Mod_G.h" compile="0" resource="0"
-            file="../../_Global_Source/G_WIDG_Sli_Wheel_Mod_G.h"/>
-      <FILE id="ZG5sJQ" name="G_WIDG_Sli_Wheel_Mod_G.cpp" compile="1" resource="0"
-            file="../../_Global_Source/G_WIDG_Sli_Wheel_Mod_G.cpp"/>
-      <FILE id="BtFQL3" name="G_WIDG_Slider_Exp_G.cpp" compile="1" resource="0"
-            file="../../_Global_Source/G_WIDG_Slider_Exp_G.cpp"/>
-      <FILE id="jydLmx" name="G_WIDG_Slider_Exp_G.h" compile="0" resource="0"
-            file="../../_Global_Source/G_WIDG_Slider_Exp_G.h"/>
-      <FILE id="SunnIq" name="G_WIDG_Tip_Updater_G.h" compile="0" resource="0"
-            file="../../_Global_Source/G_WIDG_Tip_Updater_G.h"/>
+    <GROUP id="{FA64F6F3-3D30-572C-C215-830A2830B9A3}" name="_Abstract_Source">
+      <FILE id="rpjpo9" name="D_X_G_Audio_Processor_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_X_G_Audio_Processor_A.cpp"/>
+      <FILE id="cKfEoN" name="D_X_G_Audio_Processor_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_X_G_Audio_Processor_A.h"/>
+      <FILE id="A72OKb" name="D_X_G_Editor_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_X_G_Editor_A.cpp"/>
+      <FILE id="rXTVD1" name="D_X_G_Editor_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_X_G_Editor_A.h"/>
     </GROUP>
-    <GROUP id="{79F1DF30-D46E-4059-92F9-950080CBDF0B}" name="Project_Source">
-      <GROUP id="{06B94E68-0090-A03F-D446-BA23FEBC3B3C}" name="binaries">
-        <FILE id="pHv5dY" name="Overpass-Bold.ttf" compile="0" resource="1"
-              file="../../../../../socl0/AppData/Local/Microsoft/Windows/Fonts/Overpass-Bold.ttf"/>
-        <FILE id="jzo5T0" name="texture.jpg" compile="0" resource="1" file="Project_Source/binaries/texture.jpg"/>
+    <GROUP id="{2B6FF762-7DA6-E418-FBFF-644113FC53B6}" name="_Project_Source">
+      <GROUP id="{B67082E3-4C7A-5DC5-7E05-9557F9987F02}" name="binaries">
+        <FILE id="oIl9aN" name="texture.jpg" compile="0" resource="1" file="_Project_Source/binaries/texture.jpg"/>
       </GROUP>
-      <FILE id="YnWt9Q" name="C_COLOR_P.h" compile="0" resource="0" file="Project_Source/C_COLOR_P.h"/>
-      <FILE id="QIRW5w" name="C_ENUM_P.h" compile="0" resource="0" file="Project_Source/C_ENUM_P.h"/>
-      <FILE id="MZGix4" name="C_EXP_P.h" compile="0" resource="0" file="Project_Source/C_EXP_P.h"/>
-      <FILE id="OEbPlR" name="C_FONT_P.h" compile="0" resource="0" file="Project_Source/C_FONT_P.h"/>
-      <FILE id="rrLS2M" name="C_ID_P.h" compile="0" resource="0" file="Project_Source/C_ID_P.h"/>
-      <FILE id="COK0bR" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
-            file="Project_Source/C_PATH_Backdrop_Main_P.h"/>
-      <FILE id="mcemJf" name="C_PATH_Widgets_P.h" compile="0" resource="0"
-            file="Project_Source/C_PATH_Widgets_P.h"/>
-      <FILE id="ZEnHZe" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
-            file="Project_Source/C_SL_Tip_Exposed_P.h"/>
-      <FILE id="j5SSPU" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
-            file="Project_Source/C_SL_Tip_Widget_P.h"/>
-      <FILE id="MWRgXx" name="D_SUBTREE_Choices_Exp_P.cpp" compile="1" resource="0"
-            file="Project_Source/D_SUBTREE_Choices_Exp_P.cpp"/>
-      <FILE id="exBsjW" name="D_SUBTREE_Choices_Exp_P.h" compile="0" resource="0"
-            file="Project_Source/D_SUBTREE_Choices_Exp_P.h"/>
-      <FILE id="TwdNcs" name="D_SUBTREE_Exposed_Info_P.cpp" compile="1" resource="0"
-            file="Project_Source/D_SUBTREE_Exposed_Info_P.cpp"/>
-      <FILE id="IuDklv" name="D_SUBTREE_Exposed_Info_P.h" compile="0" resource="0"
-            file="Project_Source/D_SUBTREE_Exposed_Info_P.h"/>
-      <FILE id="S6sTot" name="C_XYWH_P.h" compile="0" resource="0" file="Project_Source/C_XYWH_P.h"/>
-      <FILE id="iHvyxK" name="D_TIP_Exposed_P.cpp" compile="1" resource="0"
-            file="Project_Source/D_TIP_Exposed_P.cpp"/>
-      <FILE id="z5EztS" name="D_TIP_Exposed_P.h" compile="0" resource="0"
-            file="Project_Source/D_TIP_Exposed_P.h"/>
-      <FILE id="fDhdUj" name="D_TIP_Widget_P.cpp" compile="1" resource="0"
-            file="Project_Source/D_TIP_Widget_P.cpp"/>
-      <FILE id="sjauBB" name="D_TIP_Widget_P.h" compile="0" resource="0"
-            file="Project_Source/D_TIP_Widget_P.h"/>
-      <FILE id="KfFimG" name="D_TREE_App_Options_P.cpp" compile="1" resource="0"
-            file="Project_Source/D_TREE_App_Options_P.cpp"/>
-      <FILE id="r6j6zC" name="D_TREE_App_Options_P.h" compile="0" resource="0"
-            file="Project_Source/D_TREE_App_Options_P.h"/>
-      <FILE id="T9x0Rp" name="D_TREE_Exposed_Info_P.h" compile="0" resource="0"
-            file="Project_Source/D_TREE_Exposed_Info_P.h"/>
-      <FILE id="IwkAu9" name="D_TREE_Exposed_Info_P.cpp" compile="1" resource="0"
-            file="Project_Source/D_TREE_Exposed_Info_P.cpp"/>
-      <FILE id="kCtBXI" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
-            file="Project_Source/D_X_G_Audio_Processor_P.cpp"/>
-      <FILE id="IZYOth" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"
-            file="Project_Source/D_X_G_Audio_Processor_P.h"/>
-      <FILE id="hc3rBn" name="D_X_G_Data_Hub_P.cpp" compile="1" resource="0"
-            file="Project_Source/D_X_G_Data_Hub_P.cpp"/>
-      <FILE id="nDcazW" name="D_X_G_Data_Hub_P.h" compile="0" resource="0"
-            file="Project_Source/D_X_G_Data_Hub_P.h"/>
-      <FILE id="AR9DpB" name="D_X_G_Data_User_P.h" compile="0" resource="0"
-            file="Project_Source/D_X_G_Data_User_P.h"/>
-      <FILE id="wAgZYn" name="D_X_G_Editor_P.cpp" compile="1" resource="0"
-            file="Project_Source/D_X_G_Editor_P.cpp"/>
-      <FILE id="R6cywT" name="D_X_G_Editor_P.h" compile="0" resource="0"
-            file="Project_Source/D_X_G_Editor_P.h"/>
-      <FILE id="Gn8Csh" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
-            file="Project_Source/G_DRAW_Paths_Main_P.h"/>
-      <FILE id="e1Muru" name="G_DRAW_Paths_Main_P.cpp" compile="1" resource="0"
-            file="Project_Source/G_DRAW_Paths_Main_P.cpp"/>
-      <FILE id="IzUCMb" name="G_DRAW_Paths_Widgets_P.cpp" compile="1" resource="0"
-            file="Project_Source/G_DRAW_Paths_Widgets_P.cpp"/>
-      <FILE id="vhFfzO" name="G_DRAW_Paths_Widgets_P.h" compile="0" resource="0"
-            file="Project_Source/G_DRAW_Paths_Widgets_P.h"/>
-      <FILE id="p0RY7A" name="G_LAYER_Exp_Ctrls_P.cpp" compile="1" resource="0"
-            file="Project_Source/G_LAYER_Exp_Ctrls_P.cpp"/>
-      <FILE id="LeqbFs" name="G_LAYER_Exp_Ctrls_P.h" compile="0" resource="0"
-            file="Project_Source/G_LAYER_Exp_Ctrls_P.h"/>
-      <FILE id="jM9Oyi" name="G_LOOK_AND_FEEL_P.cpp" compile="1" resource="0"
-            file="Project_Source/G_LOOK_AND_FEEL_P.cpp"/>
-      <FILE id="BRR78u" name="G_LOOK_AND_FEEL_P.h" compile="0" resource="0"
-            file="Project_Source/G_LOOK_AND_FEEL_P.h"/>
-      <FILE id="o6fiyI" name="G_WIDG_Sli_Display_Exp_P.cpp" compile="1" resource="0"
-            file="Project_Source/G_WIDG_Sli_Display_Exp_P.cpp"/>
-      <FILE id="L4opqQ" name="G_WIDG_Sli_Display_Exp_P.h" compile="0" resource="0"
-            file="Project_Source/G_WIDG_Sli_Display_Exp_P.h"/>
-      <FILE id="iw0XgB" name="G_WIDG_Sli_Wheel_Mod_P.h" compile="0" resource="0"
-            file="Project_Source/G_WIDG_Sli_Wheel_Mod_P.h"/>
-      <FILE id="CCQvXT" name="G_WIDG_Slider_Exp_P.cpp" compile="1" resource="0"
-            file="Project_Source/G_WIDG_Slider_Exp_P.cpp"/>
-      <FILE id="iargRD" name="G_WIDG_Slider_Exp_P.h" compile="0" resource="0"
-            file="Project_Source/G_WIDG_Slider_Exp_P.h"/>
+      <FILE id="PObQeY" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_X_G_Audio_Processor_P.cpp"/>
+      <FILE id="FPrFph" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"
+            file="_Project_Source/D_X_G_Audio_Processor_P.h"/>
+      <FILE id="VMW56j" name="D_X_G_Editor_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_X_G_Editor_P.cpp"/>
+      <FILE id="TwrlHR" name="D_X_G_Editor_P.h" compile="0" resource="0"
+            file="_Project_Source/D_X_G_Editor_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

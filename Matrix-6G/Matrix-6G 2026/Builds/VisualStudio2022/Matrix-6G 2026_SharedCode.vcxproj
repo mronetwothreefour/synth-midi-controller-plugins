@@ -68,7 +68,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\..\..\_Global_Source;..\..\Project_Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\..\..\_Abstract_Source;..\..\_Project_Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -82,7 +82,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\..\..\_Global_Source;..\..\Project_Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\..\..\_Abstract_Source;..\..\_Project_Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
@@ -110,7 +110,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\..\..\_Global_Source;..\..\Project_Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\..\..\_Abstract_Source;..\..\_Project_Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -124,7 +124,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
-      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\..\..\_Global_Source;..\..\Project_Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Public\git-repos\JUCE\modules\juce_audio_processors_headless\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\Users\Public\git-repos\JUCE\modules;..\..\..\..\_Abstract_Source;..\..\_Project_Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_DISABLE_CAUTIOUS_PARAMETER_ID_CHECKING;JUCER_VS2022_78A503E=1;JUCE_APP_VERSION=2.1.0;JUCE_APP_VERSION_HEX=0x20100;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JucePlugin_Build_LV2=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
@@ -145,42 +145,10 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_CONVERT_G.cpp"/>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_SUBTREE_Choices_G.cpp"/>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_TREE_App_Options_G.cpp"/>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_TREE_Exposed_Info_G.cpp"/>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.cpp"/>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Data_Hub_G.cpp"/>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Data_User_G.cpp"/>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.cpp"/>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_DRAW_Envelope_G.cpp"/>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.cpp"/>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Cbox_Exp_G.cpp"/>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Ctrl_Exp_G.cpp"/>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Ctrl_Val_G.cpp"/>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Display_Exp_G.cpp"/>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.cpp"/>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Slider_Exp_G.cpp"/>
-    <ClCompile Include="..\..\Project_Source\D_CONVERT_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\D_SUBTREE_Exposed_Info_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\D_TIP_Exposed_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\D_TIP_Widget_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\D_TREE_App_Options_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\D_TREE_Exposed_Info_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\D_TREE_Matrix_Mod_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\D_X_G_Audio_Processor_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\D_X_G_Data_Hub_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\D_X_G_Editor_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\G_DRAW_Envelope_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\G_DRAW_Paths_LED_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\G_DRAW_Paths_Main_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\G_DRAW_Tracking_Env_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\G_LAYER_Envelopes_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\G_LAYER_Exp_Ctrls_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\G_LOOK_AND_FEEL_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\G_WIDG_Sli_Display_Exp_P.cpp"/>
-    <ClCompile Include="..\..\Project_Source\G_WIDG_Sli_Wheel_Mod_P.cpp"/>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.cpp"/>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Editor_P.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -3133,7 +3101,6 @@
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_midi_ci\juce_midi_ci.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_devices.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_formats.cpp"/>
@@ -3177,59 +3144,10 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_midi_ci.cpp"/>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\_Global_Source\C_COLOR_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\C_ID_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_CONVERT_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_SUBTREE_Choices_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_TIP_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_TREE_App_Options_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_TREE_Exposed_Info_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Data_Hub_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Data_User_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_DRAW_Envelope_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_DRAW_Paths_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Cbox_Exp_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Ctrl_Exp_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Ctrl_Val_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Display_Exp_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Slider_Exp_G.h"/>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Tip_Updater_G.h"/>
-    <ClInclude Include="..\..\Project_Source\C_COLOR_P.h"/>
-    <ClInclude Include="..\..\Project_Source\C_ENUM_P.h"/>
-    <ClInclude Include="..\..\Project_Source\C_EXP_P.h"/>
-    <ClInclude Include="..\..\Project_Source\C_FONT_P.h"/>
-    <ClInclude Include="..\..\Project_Source\C_ID_P.h"/>
-    <ClInclude Include="..\..\Project_Source\C_PATH_Backdrop_Main_P.h"/>
-    <ClInclude Include="..\..\Project_Source\C_PATH_LED_P.h"/>
-    <ClInclude Include="..\..\Project_Source\C_SL_Tip_Exposed_P.h"/>
-    <ClInclude Include="..\..\Project_Source\C_SL_Tip_Widget_P.h"/>
-    <ClInclude Include="..\..\Project_Source\C_XYWH_P.h"/>
-    <ClInclude Include="..\..\Project_Source\D_CONVERT_P.h"/>
-    <ClInclude Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.h"/>
-    <ClInclude Include="..\..\Project_Source\D_SUBTREE_Exposed_Info_P.h"/>
-    <ClInclude Include="..\..\Project_Source\D_TIP_Exposed_P.h"/>
-    <ClInclude Include="..\..\Project_Source\D_TIP_Widget_P.h"/>
-    <ClInclude Include="..\..\Project_Source\D_TREE_App_Options_P.h"/>
-    <ClInclude Include="..\..\Project_Source\D_TREE_Exposed_Info_P.h"/>
-    <ClInclude Include="..\..\Project_Source\D_TREE_Matrix_Mod_P.h"/>
-    <ClInclude Include="..\..\Project_Source\D_X_G_Audio_Processor_P.h"/>
-    <ClInclude Include="..\..\Project_Source\D_X_G_Data_Hub_P.h"/>
-    <ClInclude Include="..\..\Project_Source\D_X_G_Data_User_P.h"/>
-    <ClInclude Include="..\..\Project_Source\D_X_G_Editor_P.h"/>
-    <ClInclude Include="..\..\Project_Source\G_DRAW_Envelope_P.h"/>
-    <ClInclude Include="..\..\Project_Source\G_DRAW_Paths_LED_P.h"/>
-    <ClInclude Include="..\..\Project_Source\G_DRAW_Paths_Main_P.h"/>
-    <ClInclude Include="..\..\Project_Source\G_DRAW_Tracking_Env_P.h"/>
-    <ClInclude Include="..\..\Project_Source\G_LAYER_Envelopes_P.h"/>
-    <ClInclude Include="..\..\Project_Source\G_LAYER_Exp_Ctrls_P.h"/>
-    <ClInclude Include="..\..\Project_Source\G_LOOK_AND_FEEL_P.h"/>
-    <ClInclude Include="..\..\Project_Source\G_WIDG_Sli_Display_Exp_P.h"/>
-    <ClInclude Include="..\..\Project_Source\G_WIDG_Sli_Wheel_Mod_P.h"/>
-    <ClInclude Include="..\..\Project_Source\G_WIDG_Slider_Exp_P.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.h"/>
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Editor_P.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
@@ -4868,12 +4786,10 @@
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_midi_ci\detail\juce_CIResponder.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_midi_ci\juce_midi_ci.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h"/>
-    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h"/>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\..\..\socl0\AppData\Local\Microsoft\Windows\Fonts\Overpass-Bold.ttf"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\src\common\README.md"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\README.md"/>

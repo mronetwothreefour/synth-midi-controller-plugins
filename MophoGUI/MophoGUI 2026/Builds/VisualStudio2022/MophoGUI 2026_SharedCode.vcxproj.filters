@@ -2,14 +2,11 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="MophoGUI 2026\_Global_Source">
-      <UniqueIdentifier>{2382E1D6-9A92-CDD1-9FB3-C17CB6E13952}</UniqueIdentifier>
+    <Filter Include="MophoGUI 2026\_Abstract_Source">
+      <UniqueIdentifier>{593EF27A-E363-44B4-3949-4CDC556C35B7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MophoGUI 2026\Project_Source\binaries">
-      <UniqueIdentifier>{36A256EF-F426-EAEC-811F-7753B3F6303D}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MophoGUI 2026\Project_Source">
-      <UniqueIdentifier>{9C3205F0-0EE4-1D78-C4E9-AB547262D6C6}</UniqueIdentifier>
+    <Filter Include="MophoGUI 2026\_Project_Source">
+      <UniqueIdentifier>{4E470E62-089D-5569-A365-70048BF7F290}</UniqueIdentifier>
     </Filter>
     <Filter Include="MophoGUI 2026">
       <UniqueIdentifier>{4F61884B-D185-071A-25A8-A981DBDC5850}</UniqueIdentifier>
@@ -841,113 +838,17 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_CONVERT_G.cpp">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.cpp">
+      <Filter>MophoGUI 2026\_Abstract_Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_SUBTREE_Choices_G.cpp">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.cpp">
+      <Filter>MophoGUI 2026\_Abstract_Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_TREE_App_Options_G.cpp">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.cpp">
+      <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_TREE_Exposed_Info_G.cpp">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.cpp">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Data_Hub_G.cpp">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Data_User_G.cpp">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.cpp">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_DRAW_Envelope_G.cpp">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.cpp">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Cbox_Exp_G.cpp">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Ctrl_Exp_G.cpp">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Ctrl_Val_G.cpp">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Display_Exp_G.cpp">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.cpp">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Slider_Exp_G.cpp">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_CONVERT_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_SUBTREE_Exposed_Info_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_TIP_Exposed_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_TIP_Widget_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_TREE_App_Options_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_TREE_Exposed_Info_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_X_G_Audio_Processor_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_X_G_Data_Hub_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_X_G_Editor_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\G_DRAW_Envelope_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\G_DRAW_Paths_Main_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\G_DRAW_Paths_Widgets_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\G_LAYER_Envelopes_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\G_LAYER_Exp_Ctrls_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\G_LOOK_AND_FEEL_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\G_WIDG_Sli_Display_Exp_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\G_WIDG_Sli_Wheel_Mod_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\G_WIDG_Slider_Exp_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\G_WIDG_Toggle_Exp_P.cpp">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Editor_P.cpp">
+      <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -4051,9 +3952,6 @@
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_midi_ci\juce_midi_ci.cpp">
       <Filter>JUCE Modules\juce_midi_ci</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
-      <Filter>JUCE Library Code</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
@@ -4149,164 +4047,17 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\_Global_Source\C_COLOR_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.h">
+      <Filter>MophoGUI 2026\_Abstract_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\C_ID_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.h">
+      <Filter>MophoGUI 2026\_Abstract_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_CONVERT_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.h">
+      <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_SUBTREE_Choices_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_TIP_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_TREE_App_Options_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_TREE_Exposed_Info_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Data_Hub_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Data_User_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_DRAW_Envelope_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_DRAW_Paths_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Cbox_Exp_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Ctrl_Exp_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Ctrl_Val_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Display_Exp_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Slider_Exp_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Tip_Updater_G.h">
-      <Filter>MophoGUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_COLOR_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_ENUM_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_ID_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_EXP_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_FONT_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_PATH_Backdrop_Main_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_PATH_Widgets_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_SL_Tip_Exposed_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_SL_Tip_Widget_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_VOICE_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_XYWH_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_CONVERT_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_SUBTREE_Exposed_Info_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_TIP_Exposed_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_TIP_Widget_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_TREE_App_Options_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_TREE_Exposed_Info_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_X_G_Audio_Processor_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_X_G_Data_Hub_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_X_G_Data_User_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_X_G_Editor_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\G_DRAW_Envelope_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\G_DRAW_Paths_Main_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\G_DRAW_Paths_Widgets_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\G_LAYER_Envelopes_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\G_LAYER_Exp_Ctrls_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\G_LOOK_AND_FEEL_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\G_WIDG_Sli_Display_Exp_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\G_WIDG_Sli_Wheel_Mod_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\G_WIDG_Slider_Exp_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\G_WIDG_Toggle_Exp_P.h">
-      <Filter>MophoGUI 2026\Project_Source</Filter>
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Editor_P.h">
+      <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -9222,9 +8973,6 @@
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h">
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h">
-      <Filter>JUCE Library Code</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h">
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
@@ -9233,12 +8981,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\..\..\socl0\AppData\Local\Microsoft\Windows\Fonts\Overpass-Bold.ttf">
-      <Filter>MophoGUI 2026\Project_Source\binaries</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\..\socl0\AppData\Local\Microsoft\Windows\Fonts\Overpass-SemiBold.ttf">
-      <Filter>MophoGUI 2026\Project_Source\binaries</Filter>
-    </None>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt">
       <Filter>JUCE Modules\juce_audio_devices\native\asio</Filter>
     </None>

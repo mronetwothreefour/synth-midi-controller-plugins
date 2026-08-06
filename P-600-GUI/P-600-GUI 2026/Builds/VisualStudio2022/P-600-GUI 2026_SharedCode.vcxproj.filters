@@ -2,14 +2,14 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="P-600-GUI 2026\_Global_Source">
-      <UniqueIdentifier>{05DC63A8-27D6-D9E6-32AE-5F016EFF0210}</UniqueIdentifier>
+    <Filter Include="P-600-GUI 2026\_Abstract_Source">
+      <UniqueIdentifier>{2B44514A-F97C-9549-CADF-ABD861111A7D}</UniqueIdentifier>
     </Filter>
-    <Filter Include="P-600-GUI 2026\Project_Source\binaries">
-      <UniqueIdentifier>{B68853C2-6FF8-E6A8-C2A3-6DDF9EB79785}</UniqueIdentifier>
+    <Filter Include="P-600-GUI 2026\_Project_Source\binaries">
+      <UniqueIdentifier>{65EBAB2E-F16F-1954-9B42-09CBC7DEE0DE}</UniqueIdentifier>
     </Filter>
-    <Filter Include="P-600-GUI 2026\Project_Source">
-      <UniqueIdentifier>{9A7E0898-02B1-2505-C6EA-8AC3CF8F6A76}</UniqueIdentifier>
+    <Filter Include="P-600-GUI 2026\_Project_Source">
+      <UniqueIdentifier>{B8546EDD-DC43-EAC4-A854-8662C1C3E2EA}</UniqueIdentifier>
     </Filter>
     <Filter Include="P-600-GUI 2026">
       <UniqueIdentifier>{E1F63E47-95F5-E4C3-27D3-DF4BC1C44403}</UniqueIdentifier>
@@ -841,95 +841,17 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_CONVERT_G.cpp">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.cpp">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_SUBTREE_Choices_G.cpp">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.cpp">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_TREE_App_Options_G.cpp">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.cpp">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_TREE_Exposed_Info_G.cpp">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.cpp">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Data_Hub_G.cpp">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Data_User_G.cpp">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.cpp">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.cpp">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Cbox_Exp_G.cpp">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Ctrl_Exp_G.cpp">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Ctrl_Val_G.cpp">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Display_Exp_G.cpp">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.cpp">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Global_Source\G_WIDG_Slider_Exp_G.cpp">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.cpp">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_SUBTREE_Exposed_Info_P.cpp">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_TIP_Exposed_P.cpp">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_TIP_Widget_P.cpp">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_TREE_App_Options_P.cpp">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_TREE_Exposed_Info_P.cpp">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_X_G_Audio_Processor_P.cpp">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_X_G_Data_Hub_P.cpp">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\D_X_G_Editor_P.cpp">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\G_DRAW_Paths_Main_P.cpp">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\G_DRAW_Paths_Widgets_P.cpp">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\G_LAYER_Exp_Ctrls_P.cpp">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\G_LOOK_AND_FEEL_P.cpp">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\G_WIDG_Sli_Display_Exp_P.cpp">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project_Source\G_WIDG_Slider_Exp_P.cpp">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Editor_P.cpp">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -4131,146 +4053,17 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\_Global_Source\C_COLOR_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.h">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\C_ID_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.h">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_CONVERT_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_SUBTREE_Choices_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_TIP_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_TREE_App_Options_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_TREE_Exposed_Info_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Audio_Processor_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Data_Hub_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Data_User_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\D_X_G_Editor_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_DRAW_Paths_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_LOOK_AND_FEEL_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Cbox_Exp_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Ctrl_Exp_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Ctrl_Val_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Display_Exp_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Sli_Wheel_Mod_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Slider_Exp_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Global_Source\G_WIDG_Tip_Updater_G.h">
-      <Filter>P-600-GUI 2026\_Global_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_COLOR_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_ENUM_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_EXP_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_FONT_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_ID_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_PATH_Backdrop_Main_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_PATH_Widgets_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_SL_Tip_Exposed_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_SL_Tip_Widget_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_SUBTREE_Choices_Exp_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_SUBTREE_Exposed_Info_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\C_XYWH_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_TIP_Exposed_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_TIP_Widget_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_TREE_App_Options_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_TREE_Exposed_Info_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_X_G_Audio_Processor_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_X_G_Data_Hub_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_X_G_Data_User_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\D_X_G_Editor_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\G_DRAW_Paths_Main_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\G_DRAW_Paths_Widgets_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\G_LAYER_Exp_Ctrls_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\G_LOOK_AND_FEEL_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\G_WIDG_Sli_Display_Exp_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\G_WIDG_Sli_Wheel_Mod_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Project_Source\G_WIDG_Slider_Exp_P.h">
-      <Filter>P-600-GUI 2026\Project_Source</Filter>
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Editor_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -9197,11 +8990,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\..\..\socl0\AppData\Local\Microsoft\Windows\Fonts\Overpass-Bold.ttf">
-      <Filter>P-600-GUI 2026\Project_Source\binaries</Filter>
-    </None>
-    <None Include="..\..\Project_Source\binaries\texture.jpg">
-      <Filter>P-600-GUI 2026\Project_Source\binaries</Filter>
+    <None Include="..\..\_Project_Source\binaries\texture.jpg">
+      <Filter>P-600-GUI 2026\_Project_Source\binaries</Filter>
     </None>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt">
       <Filter>JUCE Modules\juce_audio_devices\native\asio</Filter>
