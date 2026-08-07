@@ -1,2 +1,4 @@
+C_ID_GUI_A
+C_XYWH_Get_A
 D_X_G_Audio_Processor_A
 D_X_G_Editor_A

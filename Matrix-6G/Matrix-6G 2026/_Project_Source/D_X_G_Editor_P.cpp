@@ -1,16 +1,10 @@
 #include "D_X_G_Editor_P.h"
 
-//#include "C_XYWH_P.h"
-
-//using namespace XYWH;
-
 Editor_P::Editor_P(Audio_Processor_P& processor/*, Data_Hub_P* hub*/) :
     Editor_A{ processor/*, hub*/ }/*,*/
     //layer_envelopes{ hub }
 {
     //addAndMakeVisible(layer_envelopes);
-    setSize(1252, 596); // too be removed
-    getConstrainer()->setFixedAspectRatio(2.10067); // to be removed
     resized();
 }
 

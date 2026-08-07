@@ -1,2 +1,4 @@
+C_ID_Exp_P
+C_XYWH_P
 D_X_G_Audio_Processor_P
 D_X_G_Editor_P

@@ -10,6 +10,10 @@
               cppLanguageStandard="20" headerPath="..\..\..\..\_Abstract_Source&#10;..\..\_Project_Source">
   <MAINGROUP id="ijhAFi" name="Matrix-6G 2026">
     <GROUP id="{54D73992-EB15-EBD3-71EE-111D1AA76D60}" name="_Abstract_Source">
+      <FILE id="kr0Vs9" name="C_ID_GUI_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_ID_GUI_A.h"/>
+      <FILE id="EnPHse" name="C_XYWH_Get_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/C_XYWH_Get_A.cpp"/>
+      <FILE id="kLMkV6" name="C_XYWH_Get_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_XYWH_Get_A.h"/>
       <FILE id="y3n7eZ" name="D_X_G_Audio_Processor_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/D_X_G_Audio_Processor_A.cpp"/>
       <FILE id="Q0HvMt" name="D_X_G_Audio_Processor_A.h" compile="0" resource="0"
@@ -20,6 +24,8 @@
             file="../../_Abstract_Source/D_X_G_Editor_A.h"/>
     </GROUP>
     <GROUP id="{184497C2-0BC4-A69C-3CF3-9218D550E5FD}" name="_Project_Source">
+      <FILE id="oPWDCv" name="C_ID_Exp_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Exp_P.h"/>
+      <FILE id="UTPdIm" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
       <FILE id="ftnzz2" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="Hvm73h" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"
