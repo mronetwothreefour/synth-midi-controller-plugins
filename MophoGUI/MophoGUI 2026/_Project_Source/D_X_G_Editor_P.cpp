@@ -9,8 +9,6 @@ Editor_P::Editor_P(Audio_Processor_P& processor/*, Data_Hub_P* hub*/) :
     //layer_envelopes{ hub }
 {
     //addAndMakeVisible(layer_envelopes);
-    setSize(1273, 626); // to be removed
-    getConstrainer()->setFixedAspectRatio(2.03354); // to be removed
     resized();
 }
 

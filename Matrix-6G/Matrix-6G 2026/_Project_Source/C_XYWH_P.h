@@ -6,6 +6,7 @@
 
 namespace XYWH
 {
+    
 	static const double editor_aspect_ratio{ 2.10067 };
 
 	static const float env_init_begin_x{ 11.0f };
@@ -124,4 +125,5 @@ namespace XYWH
 	static const std::map<String, Rectangle<int>> bounds_map{
 		{ ID::gui_editor, {0, 0, editor_init_w, editor_init_h}}
 	};
+	
 }
