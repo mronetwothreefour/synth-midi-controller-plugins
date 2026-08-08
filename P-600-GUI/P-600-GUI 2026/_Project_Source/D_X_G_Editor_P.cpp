@@ -7,8 +7,6 @@
 Editor_P::Editor_P(Audio_Processor_P& processor/*, Data_Hub_P* hub*/) :
     Editor_A{ processor/*, hub*/ }
 {
-    setSize(1342, 392); // too be removed
-    getConstrainer()->setFixedAspectRatio(3.42347); // to be removed
     resized();
 }
 
