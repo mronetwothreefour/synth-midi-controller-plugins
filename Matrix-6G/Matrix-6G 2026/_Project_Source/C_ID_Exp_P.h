@@ -154,7 +154,7 @@ namespace ID
 		exp_lfo_2_wave_type,
 		exp_lfo_2_samp_source,
 		exp_lfo_2_amp,
-		exp_lfo_2_press_amt,
+		exp_lfo_2_key_track_amt,
 		exp_lfo_2_ramp_2_amt,
 		exp_lfo_2_trig_mode,
 		exp_lfo_2_retrig_point,

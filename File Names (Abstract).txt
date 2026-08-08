@@ -1,3 +1,4 @@
+C_EXP_Get_A
 C_ID_GUI_A
 C_XYWH_Get_A
 D_X_G_Audio_Processor_A
