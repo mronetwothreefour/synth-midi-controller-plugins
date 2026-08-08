@@ -9,6 +9,10 @@
               cppLanguageStandard="20" headerPath="..\..\..\..\_Abstract_Source&#10;..\..\_Project_Source">
   <MAINGROUP id="AhFawq" name="MiniloGUI 2026">
     <GROUP id="{C640CBB8-D505-F881-CC30-9DE23AB1916B}" name="_Abstract_Source">
+      <FILE id="bKJDBh" name="C_ID_GUI_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_ID_GUI_A.h"/>
+      <FILE id="BcYMkI" name="C_XYWH_Get_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/C_XYWH_Get_A.cpp"/>
+      <FILE id="PfSnxg" name="C_XYWH_Get_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_XYWH_Get_A.h"/>
       <FILE id="uOb7gc" name="D_X_G_Audio_Processor_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/D_X_G_Audio_Processor_A.cpp"/>
       <FILE id="tazj4A" name="D_X_G_Audio_Processor_A.h" compile="0" resource="0"
@@ -19,6 +23,10 @@
             file="../../_Abstract_Source/D_X_G_Editor_A.h"/>
     </GROUP>
     <GROUP id="{32092108-0241-6FE8-7138-4212DA364901}" name="_Project_Source">
+      <FILE id="tfn1Lh" name="C_ID_Exp_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Exp_P.h"/>
+      <FILE id="hk4Zae" name="C_XYWH_Main_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_Main_P.h"/>
+      <FILE id="UA6EdL" name="C_XYWH_Map_Bounds_P.h" compile="0" resource="0"
+            file="_Project_Source/C_XYWH_Map_Bounds_P.h"/>
       <FILE id="pfuFVb" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="XHqP5e" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"
