@@ -25,7 +25,9 @@
     </GROUP>
     <GROUP id="{254E4686-BC92-207B-DE29-DE75CD919E28}" name="_Project_Source">
       <FILE id="YLBGkS" name="C_ID_Exp_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Exp_P.h"/>
-      <FILE id="nFf6MV" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
+      <FILE id="YKy4lq" name="C_XYWH_Main_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_Main_P.h"/>
+      <FILE id="nFf6MV" name="C_XYWH_Map_Bounds_P.h" compile="0" resource="0"
+            file="_Project_Source/C_XYWH_Map_Bounds_P.h"/>
       <FILE id="KJZvOd" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="kMyVPj" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"

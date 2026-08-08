@@ -4065,7 +4065,10 @@
     <ClInclude Include="..\..\_Project_Source\C_ID_Exp_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h">
+    <ClInclude Include="..\..\_Project_Source\C_XYWH_Main_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_XYWH_Map_Bounds_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.h">

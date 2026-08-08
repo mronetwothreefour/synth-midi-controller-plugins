@@ -2,8 +2,6 @@
 
 #include <JuceHeader.h>
 
-#include "C_ID_GUI_A.h"
-
 namespace XYWH
 {
 
@@ -101,9 +99,5 @@ namespace XYWH
 	constexpr int voice_name_char_h{ 17 };
 	constexpr int voice_name_char_w{ 12 };
 	constexpr int voice_name_char_y{ 52 };
-
-	static const std::map<String, Rectangle<int>> bounds_map{
-		{ ID::gui_editor, {0, 0, editor_init_w, editor_init_h}}
-	};
 
 }

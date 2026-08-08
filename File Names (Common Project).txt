@@ -1,4 +1,5 @@
 C_ID_Exp_P
-C_XYWH_P
+C_XYWH_Main_P
+C_XYWH_Map_Bounds_P
 D_X_G_Audio_Processor_P
 D_X_G_Editor_P

@@ -2,11 +2,9 @@
 
 #include <JuceHeader.h>
 
-#include "C_ID_GUI_A.h"
-
 namespace XYWH
 {
-    
+
 	static const double editor_aspect_ratio{ 2.10067 };
 
 	static const float env_init_begin_x{ 11.0f };
@@ -122,8 +120,4 @@ namespace XYWH
 	static const int vcf_vca_col_x{ 382 };
 	static const int vcf_vca_ctrl_w{ 60 };
 
-	static const std::map<String, Rectangle<int>> bounds_map{
-		{ ID::gui_editor, {0, 0, editor_init_w, editor_init_h}}
-	};
-	
 }
