@@ -3,7 +3,7 @@
 #include "D_CONVERT_P.h"
 
 const StringArray Build_Choices_A::off_on() {
-	return { "off", "on" };
+	return { "off^off", "on^on" };
 }
 
 const StringArray Build_Choices_A::osc_pitch(const int choice_count) {
