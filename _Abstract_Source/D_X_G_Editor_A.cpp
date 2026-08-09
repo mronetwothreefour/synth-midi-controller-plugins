@@ -7,7 +7,7 @@
 using namespace ID;
 using namespace XYWH;
 
-Editor_A::Editor_A(Audio_Processor_P& processor/*, Data_Hub_P* hub*/) :
+Editor_A::Editor_A(Audio_Processor& processor/*, Data_Hub_P* hub*/) :
     AudioProcessorEditor{ &processor },
     processor{ processor }/*,
     Data_User_P{ hub },

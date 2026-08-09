@@ -10,13 +10,13 @@ class Editor_A :
     //public Data_User_P,
     public ValueTree::Listener
 {
-protected: Audio_Processor_P& processor;
+protected: Audio_Processor& processor;
 //protected: Layer_Exposed_Controls_P layer_exp_ctrls;
 //protected: Look_And_Feel_P l_a_f;
 protected: TooltipWindow tip_win;
 
 //==============================================================================
-public: Editor_A(Audio_Processor_P& processor/*, Data_Hub_P* hub*/);
+public: Editor_A(Audio_Processor& processor/*, Data_Hub_P* hub*/);
 
 public: void paint(Graphics& g) override;
 public: void modifierKeysChanged(const ModifierKeys& mods) override;

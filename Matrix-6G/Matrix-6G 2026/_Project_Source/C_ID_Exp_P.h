@@ -102,7 +102,7 @@ namespace ID
 	static const String exp_track_point_4{ "exp_track_point_4" };
 	static const String exp_track_point_5{ "exp_track_point_5" };
 
-	static const StringArray exposed_id{
+	static const StringArray exp_id{
 		exp_osc_1_pitch,
 		exp_osc_1_type,
 		exp_osc_1_pulse_w,

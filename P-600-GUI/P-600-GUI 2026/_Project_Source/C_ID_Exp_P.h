@@ -43,7 +43,7 @@ namespace ID
 	static const String exp_p_mod_dest_osc_a_freq{ "exp_p_mod_dest_osc_a_freq" };
 	static const String exp_unison_track{ "exp_unison_track" };
 
-	static const StringArray exposed_id{
+	static const StringArray exp_id{
 		exp_unison_track,
 		exp_osc_a_pitch,
 		exp_osc_a_sync,
