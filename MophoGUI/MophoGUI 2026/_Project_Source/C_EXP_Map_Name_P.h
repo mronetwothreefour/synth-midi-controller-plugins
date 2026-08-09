@@ -5,7 +5,7 @@
 namespace EXP
 {
 
-	static const std::map<String, String> map_name{
+	static const std::unordered_map<String, String> map_name{
 		{ ID::exp_osc_1_pitch, "Oscillator 1 Pitch" },
 		{ ID::exp_osc_1_fine_tune, "Oscillator 1 Fine Tune" },
 		{ ID::exp_osc_1_shape, "Oscillator 1 Wave Shape" },

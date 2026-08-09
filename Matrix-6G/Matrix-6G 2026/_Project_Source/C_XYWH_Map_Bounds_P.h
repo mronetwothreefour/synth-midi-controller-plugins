@@ -6,7 +6,7 @@
 namespace XYWH
 {
     
-	static const std::map<String, Rectangle<int>> map_bounds{
+	static const std::unordered_map<String, Rectangle<int>> map_bounds{
 		{ ID::gui_editor, {0, 0, editor_init_w, editor_init_h}}
 	};
 	
