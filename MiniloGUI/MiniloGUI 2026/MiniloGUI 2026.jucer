@@ -30,6 +30,9 @@
       <FILE id="o9saaD" name="C_EXP_Map_Name_P.h" compile="0" resource="0"
             file="_Project_Source/C_EXP_Map_Name_P.h"/>
       <FILE id="tfn1Lh" name="C_ID_Exp_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Exp_P.h"/>
+      <FILE id="qedMdM" name="C_XYWH_Get_P.cpp" compile="1" resource="0"
+            file="_Project_Source/C_XYWH_Get_P.cpp"/>
+      <FILE id="ujOiAO" name="C_XYWH_Get_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_Get_P.h"/>
       <FILE id="hk4Zae" name="C_XYWH_Main_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_Main_P.h"/>
       <FILE id="UA6EdL" name="C_XYWH_Map_Bounds_P.h" compile="0" resource="0"
             file="_Project_Source/C_XYWH_Map_Bounds_P.h"/>

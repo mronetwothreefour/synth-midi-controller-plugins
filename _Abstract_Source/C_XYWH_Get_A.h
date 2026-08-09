@@ -5,7 +5,7 @@
 namespace XYWH
 {
 
-	struct Get
+	struct Get_A
 	{
 		static const double editor_aspect_ratio();
 		static const Rectangle<int> init_bounds_for(const String component_id);

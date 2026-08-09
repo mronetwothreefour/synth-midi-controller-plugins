@@ -1,6 +1,7 @@
 C_EXP_Get_P
 C_EXP_Map_Name_P
 C_ID_Exp_P
+C_XYWH_Get_P
 C_XYWH_Main_P
 C_XYWH_Map_Bounds_P
 D_X_G_Audio_Processor_P

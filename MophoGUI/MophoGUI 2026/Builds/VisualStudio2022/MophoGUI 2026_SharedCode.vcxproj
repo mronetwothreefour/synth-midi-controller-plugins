@@ -150,6 +150,7 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.cpp"/>
     <ClCompile Include="..\..\_Project_Source\C_EXP_Get_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\C_XYWH_Get_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Editor_P.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -3155,6 +3156,7 @@
     <ClInclude Include="..\..\_Project_Source\C_EXP_Get_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_EXP_Map_Name_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_ID_Exp_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_XYWH_Get_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_XYWH_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_XYWH_Map_Bounds_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.h"/>
