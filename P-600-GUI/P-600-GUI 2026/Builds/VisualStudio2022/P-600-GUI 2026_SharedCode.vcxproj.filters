@@ -847,6 +847,12 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\C_XYWH_Get_A.cpp">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_A.cpp">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.cpp">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.cpp">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClCompile>
@@ -857,6 +863,12 @@
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\C_XYWH_Get_P.cpp">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_P.cpp">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_CONVERT_P.cpp">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.cpp">
@@ -4074,6 +4086,12 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_XYWH_Get_A.h">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_A.h">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.h">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.h">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClInclude>
@@ -4096,6 +4114,12 @@
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_XYWH_Map_Bounds_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_CONVERT_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.h">

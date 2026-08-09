@@ -15,6 +15,12 @@
       <FILE id="BcYMkI" name="C_XYWH_Get_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/C_XYWH_Get_A.cpp"/>
       <FILE id="PfSnxg" name="C_XYWH_Get_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_XYWH_Get_A.h"/>
+      <FILE id="czxKWW" name="D_BUILD_Choices_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Choices_A.cpp"/>
+      <FILE id="hdj3kK" name="D_BUILD_Choices_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Choices_A.h"/>
+      <FILE id="ZMa6LL" name="D_CONVERT_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/D_CONVERT_A.cpp"/>
+      <FILE id="eilk6o" name="D_CONVERT_A.h" compile="0" resource="0" file="../../_Abstract_Source/D_CONVERT_A.h"/>
       <FILE id="uOb7gc" name="D_X_G_Audio_Processor_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/D_X_G_Audio_Processor_A.cpp"/>
       <FILE id="tazj4A" name="D_X_G_Audio_Processor_A.h" compile="0" resource="0"
@@ -36,6 +42,12 @@
       <FILE id="hk4Zae" name="C_XYWH_Main_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_Main_P.h"/>
       <FILE id="UA6EdL" name="C_XYWH_Map_Bounds_P.h" compile="0" resource="0"
             file="_Project_Source/C_XYWH_Map_Bounds_P.h"/>
+      <FILE id="eNAULD" name="D_BUILD_Choices_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_BUILD_Choices_P.cpp"/>
+      <FILE id="wrm5FB" name="D_BUILD_Choices_P.h" compile="0" resource="0"
+            file="_Project_Source/D_BUILD_Choices_P.h"/>
+      <FILE id="L08aya" name="D_CONVERT_P.cpp" compile="1" resource="0" file="_Project_Source/D_CONVERT_P.cpp"/>
+      <FILE id="JHbl2a" name="D_CONVERT_P.h" compile="0" resource="0" file="_Project_Source/D_CONVERT_P.h"/>
       <FILE id="pfuFVb" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="XHqP5e" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"

@@ -4,5 +4,7 @@ C_ID_Exp_P
 C_XYWH_Get_P
 C_XYWH_Main_P
 C_XYWH_Map_Bounds_P
+D_BUILD_Choices_P
+D_CONVERT_P
 D_X_G_Audio_Processor_P
 D_X_G_Editor_P
