@@ -27,8 +27,7 @@ const StringArray Build_Choices_A::signed_int(const int min, const int max) {
 const StringArray Build_Choices_A::unsigned_int(const int max) {
 	StringArray list;
 	for (int i = 0; i <= max; ++i) {
-		String n{ (i > 0 ? "+" : "") + (String)i };
-		list.add(n);
+		list.add((String)i);
 	}
 	return list;
 }
