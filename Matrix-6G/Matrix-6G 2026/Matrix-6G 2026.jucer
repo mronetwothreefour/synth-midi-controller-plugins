@@ -34,6 +34,8 @@
     <GROUP id="{184497C2-0BC4-A69C-3CF3-9218D550E5FD}" name="_Project_Source">
       <FILE id="svwFzy" name="C_EXP_Get_P.cpp" compile="1" resource="0" file="_Project_Source/C_EXP_Get_P.cpp"/>
       <FILE id="LxcoVg" name="C_EXP_Get_P.h" compile="0" resource="0" file="_Project_Source/C_EXP_Get_P.h"/>
+      <FILE id="CctvIM" name="C_EXP_Map_Choices_P.h" compile="0" resource="0"
+            file="_Project_Source/C_EXP_Map_Choices_P.h"/>
       <FILE id="YNCwpM" name="C_EXP_Map_Name_P.h" compile="0" resource="0"
             file="_Project_Source/C_EXP_Map_Name_P.h"/>
       <FILE id="oPWDCv" name="C_ID_Exp_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Exp_P.h"/>

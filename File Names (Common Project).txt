@@ -1,5 +1,6 @@
 C_EXP_Get_P
 C_EXP_Map_Name_P
+C_EXP_Map_Choices_P
 C_ID_Exp_P
 C_XYWH_Get_P
 C_XYWH_Main_P
