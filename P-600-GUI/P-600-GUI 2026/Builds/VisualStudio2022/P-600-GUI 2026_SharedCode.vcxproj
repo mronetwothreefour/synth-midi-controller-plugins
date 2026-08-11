@@ -3161,6 +3161,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.h"/>
     <ClInclude Include="..\..\_Project_Source\C_EXP_Get_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_EXP_Map_Choices_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_EXP_Map_Name_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_ID_Exp_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_XYWH_Get_P.h"/>
