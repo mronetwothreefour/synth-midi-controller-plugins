@@ -2,10 +2,10 @@
 
 #include "C_ID_Exp_P.h"
 
-namespace EXP
+namespace MAP
 {
 
-	static const std::unordered_map<String, String> map_name{
+	static const std::unordered_map<String, String> name{
 		{ ID::exp_osc_1_pitch, "Oscillator 1 Pitch" },
 		{ ID::exp_osc_1_type, "Oscillator 1 Type" },
 		{ ID::exp_osc_1_pulse_w, "Oscillator 1 Pulse Width" },

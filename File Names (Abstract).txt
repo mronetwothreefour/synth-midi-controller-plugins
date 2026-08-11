@@ -1,6 +1,5 @@
-C_EXP_Get_A
-C_ID_GUI_A
-C_XYWH_Get_A
+C_GET_A
+C_ID_A
 D_BUILD_Choices_A
 D_CONVERT_A
 D_X_G_Audio_Processor_A

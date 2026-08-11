@@ -1,11 +1,10 @@
 #include "D_X_G_Editor_A.h"
 
-#include "C_ID_GUI_A.h"
-#include "C_XYWH_Get_P.h"
+#include "C_ID_A.h"
+#include "C_GET_P.h"
 //#include "G_DRAW_Paths_Main_P.h"
 
 using namespace ID;
-using namespace XYWH;
 
 Editor_A::Editor_A(Audio_Processor& processor/*, Data_Hub_P* hub*/) :
     AudioProcessorEditor{ &processor },

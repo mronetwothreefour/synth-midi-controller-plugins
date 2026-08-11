@@ -10,12 +10,9 @@
               cppLanguageStandard="20" headerPath="..\..\..\..\_Abstract_Source&#10;..\..\_Project_Source">
   <MAINGROUP id="ZPn9H4" name="P-600-GUI 2026">
     <GROUP id="{FA64F6F3-3D30-572C-C215-830A2830B9A3}" name="_Abstract_Source">
-      <FILE id="kTuJlB" name="C_EXP_Get_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/C_EXP_Get_A.cpp"/>
-      <FILE id="VKYyRg" name="C_EXP_Get_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_EXP_Get_A.h"/>
-      <FILE id="uHslsx" name="C_ID_GUI_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_ID_GUI_A.h"/>
-      <FILE id="uvtOxe" name="C_XYWH_Get_A.cpp" compile="1" resource="0"
-            file="../../_Abstract_Source/C_XYWH_Get_A.cpp"/>
-      <FILE id="ikW3n1" name="C_XYWH_Get_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_XYWH_Get_A.h"/>
+      <FILE id="XYFw8I" name="C_GET_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/C_GET_A.cpp"/>
+      <FILE id="TcKDNp" name="C_GET_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_GET_A.h"/>
+      <FILE id="BnLTHL" name="C_ID_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_ID_A.h"/>
       <FILE id="hFgnaB" name="D_BUILD_Choices_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/D_BUILD_Choices_A.cpp"/>
       <FILE id="MiIt4e" name="D_BUILD_Choices_A.h" compile="0" resource="0"
@@ -35,19 +32,15 @@
       <GROUP id="{B67082E3-4C7A-5DC5-7E05-9557F9987F02}" name="binaries">
         <FILE id="oIl9aN" name="texture.jpg" compile="0" resource="1" file="_Project_Source/binaries/texture.jpg"/>
       </GROUP>
-      <FILE id="ySqwBi" name="C_EXP_Get_P.cpp" compile="1" resource="0" file="_Project_Source/C_EXP_Get_P.cpp"/>
-      <FILE id="ZcG1nz" name="C_EXP_Get_P.h" compile="0" resource="0" file="_Project_Source/C_EXP_Get_P.h"/>
-      <FILE id="qWabjl" name="C_EXP_Map_Choices_P.h" compile="0" resource="0"
-            file="_Project_Source/C_EXP_Map_Choices_P.h"/>
-      <FILE id="DhLz8c" name="C_EXP_Map_Name_P.h" compile="0" resource="0"
-            file="_Project_Source/C_EXP_Map_Name_P.h"/>
-      <FILE id="mAMon2" name="C_ID_Exp_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Exp_P.h"/>
-      <FILE id="GKowVz" name="C_XYWH_Get_P.cpp" compile="1" resource="0"
-            file="_Project_Source/C_XYWH_Get_P.cpp"/>
-      <FILE id="amGB3N" name="C_XYWH_Get_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_Get_P.h"/>
-      <FILE id="L1qTXl" name="C_XYWH_Main_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_Main_P.h"/>
-      <FILE id="SYcp30" name="C_XYWH_Map_Bounds_P.h" compile="0" resource="0"
-            file="_Project_Source/C_XYWH_Map_Bounds_P.h"/>
+      <FILE id="ySqwBi" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
+      <FILE id="ZcG1nz" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
+      <FILE id="mAMon2" name="C_ID_EXP_P.h" compile="0" resource="0" file="_Project_Source/C_ID_EXP_P.h"/>
+      <FILE id="SYcp30" name="C_MAP_Bounds_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Bounds_P.h"/>
+      <FILE id="qWabjl" name="C_MAP_Choices_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Choices_P.h"/>
+      <FILE id="DhLz8c" name="C_MAP_Name_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Name_P.h"/>
+      <FILE id="L1qTXl" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
       <FILE id="r85xIW" name="D_BUILD_Choices_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Choices_P.cpp"/>
       <FILE id="dfRBqi" name="D_BUILD_Choices_P.h" compile="0" resource="0"

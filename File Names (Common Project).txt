@@ -1,10 +1,9 @@
-C_EXP_Get_P
-C_EXP_Map_Name_P
-C_EXP_Map_Choices_P
-C_ID_Exp_P
-C_XYWH_Get_P
-C_XYWH_Main_P
-C_XYWH_Map_Bounds_P
+C_GET_P
+C_ID_EXP_P
+C_MAP_Choices_P
+C_MAP_Bounds_P
+C_MAP_Name_P
+C_XYWH_P
 D_BUILD_Choices_P
 D_CONVERT_P
 D_X_G_Audio_Processor_P

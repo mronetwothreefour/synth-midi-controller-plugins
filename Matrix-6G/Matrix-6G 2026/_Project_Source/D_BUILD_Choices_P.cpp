@@ -120,6 +120,7 @@ const StringArray Build_Choices::osc_2_and_vcf_key_track() {
 	list.add("OFF__key tracking is off");
 	list.add("PORTA__key tracking with portamento");
 	list.add("KEYBD__normal key tracking");
+	return list;
 }
 
 const StringArray Build_Choices::osc_lever_control() {

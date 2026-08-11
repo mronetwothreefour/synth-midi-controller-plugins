@@ -2,10 +2,10 @@
 
 #include "C_ID_Exp_P.h"
 
-namespace EXP
+namespace MAP
 {
 
-	static const std::unordered_map<String, String> map_name{
+	static const std::unordered_map<String, String> name{
 		{ ID::exp_osc_1_pitch, "Oscillator 1 Pitch" },
 		{ ID::exp_osc_1_fine_tune, "Oscillator 1 Fine Tune" },
 		{ ID::exp_osc_1_shape, "Oscillator 1 Wave Shape" },
@@ -32,7 +32,7 @@ namespace EXP
 		{ ID::exp_lpf_fm_amt, "LPF FM (By Oscillator 1)" },
 		{ ID::exp_lpf_type, "LPF Type" },
 		{ ID::exp_lpf_env_amt, "LPF Envelope Amount" },
-		{ ID::exp_lpf_velo_amt, "LPF Envelope Velocity Amount" },
+		{ ID::exp_lpf_vel_amt, "LPF Envelope Velocity Amount" },
 		{ ID::exp_lpf_delay, "LPF Envelope Delay" },
 		{ ID::exp_lpf_attack, "LPF Envelope Attack" },
 		{ ID::exp_lpf_decay, "LPF Envelope Decay" },
@@ -69,7 +69,7 @@ namespace EXP
 		{ ID::exp_lfo_4_key_sync, "LFO 4 Key Sync On / Off" },
 		{ ID::exp_env_3_dest, "Envelope 3 Modulation Destination" },
 		{ ID::exp_env_3_amount, "Envelope 3 Amount" },
-		{ ID::exp_env_3_velo_amt, "Envelope 3 Velocity Amount" },
+		{ ID::exp_env_3_vel_amt, "Envelope 3 Velocity Amount" },
 		{ ID::exp_env_3_delay, "Envelope 3 Delay" },
 		{ ID::exp_env_3_attack, "Envelope 3 Attack" },
 		{ ID::exp_env_3_decay, "Envelope 3 Decay" },

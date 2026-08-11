@@ -5,10 +5,10 @@
 
 using Choices = Build_Choices;
 
-namespace EXP
+namespace MAP
 {
 
-	static const std::unordered_map<String, StringArray> map_choices{
+	static const std::unordered_map<String, StringArray> choices{
 		{ ID::exp_osc_1_pitch, Choices::osc_pitch(121) },
 		{ ID::exp_osc_1_fine_tune, Choices::osc_fine() },
 		{ ID::exp_osc_1_shape, Choices::osc_shape() },

@@ -1,14 +1,14 @@
 #pragma once
 
-#include "C_ID_Exp_P.h"
+#include "C_ID_EXP_P.h"
 #include "D_BUILD_Choices_P.h"
 
 using Choices = Build_Choices;
 
-namespace EXP
+namespace MAP
 {
 
-	static const std::unordered_map<String, String> map_choices{
+	static const std::unordered_map<String, StringArray> choices{
 		{ ID::exp_unison_track, Choices::off_on() },
 		{ ID::exp_osc_a_pitch, Choices::osc_pitch(49) },
 		{ ID::exp_osc_a_sync, Choices::off_on() },
