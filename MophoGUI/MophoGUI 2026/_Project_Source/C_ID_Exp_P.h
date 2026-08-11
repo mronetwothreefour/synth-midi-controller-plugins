@@ -20,7 +20,7 @@ namespace ID
 	static const String exp_env_3_release{ "exp_env_3_release" };
 	static const String exp_env_3_repeat{ "exp_env_3_repeat" };
 	static const String exp_env_3_sustain{ "exp_env_3_sustain" };
-	static const String exp_env_3_velo_amt{ "exp_env_3_velo_amt" };
+	static const String exp_env_3_vel_amt{ "exp_env_3_vel_amt" };
 	static const String exp_ext_in_level{ "exp_ext_in_level" };
 	static const String exp_flex_knob_1{ "exp_flex_knob_1" };
 	static const String exp_flex_knob_2{ "exp_flex_knob_2" };
@@ -58,7 +58,7 @@ namespace ID
 	static const String exp_lpf_reso{ "exp_lpf_reso" };
 	static const String exp_lpf_sustain{ "exp_lpf_sustain" };
 	static const String exp_lpf_type{ "exp_lpf_type" };
-	static const String exp_lpf_velo_amt{ "exp_lpf_velo_amt" };
+	static const String exp_lpf_vel_amt{ "exp_lpf_vel_amt" };
 	static const String exp_mod_1_amt{ "exp_mod_1_amt" };
 	static const String exp_mod_1_dest{ "exp_mod_1_dest" };
 	static const String exp_mod_1_src{ "exp_mod_1_src" };
@@ -233,7 +233,7 @@ namespace ID
 		exp_lpf_fm_amt,
 		exp_lpf_type,
 		exp_lpf_env_amt,
-		exp_lpf_velo_amt,
+		exp_lpf_vel_amt,
 		exp_lpf_delay,
 		exp_lpf_attack,
 		exp_lpf_decay,
@@ -270,7 +270,7 @@ namespace ID
 		exp_lfo_4_key_sync,
 		exp_env_3_dest,
 		exp_env_3_amount,
-		exp_env_3_velo_amt,
+		exp_env_3_vel_amt,
 		exp_env_3_delay,
 		exp_env_3_attack,
 		exp_env_3_decay,
