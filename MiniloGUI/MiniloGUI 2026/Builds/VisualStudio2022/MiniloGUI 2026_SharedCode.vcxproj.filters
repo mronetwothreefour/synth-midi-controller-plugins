@@ -4095,6 +4095,9 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Choice_P.h">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Name_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>

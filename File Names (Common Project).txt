@@ -1,6 +1,7 @@
 C_GET_P
 C_ID_EXP_P
 C_MAP_Choices_P
+C_MAP_Init_Choice_P
 C_MAP_Bounds_P
 C_MAP_Name_P
 C_XYWH_P

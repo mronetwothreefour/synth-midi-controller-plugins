@@ -35,6 +35,8 @@
             file="_Project_Source/C_MAP_Bounds_P.h"/>
       <FILE id="n5qUXf" name="C_MAP_Choices_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Choices_P.h"/>
+      <FILE id="SfSjOa" name="C_MAP_Init_Choice_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Init_Choice_P.h"/>
       <FILE id="o9saaD" name="C_MAP_Name_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Name_P.h"/>
       <FILE id="hk4Zae" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
       <FILE id="eNAULD" name="D_BUILD_Choices_P.cpp" compile="1" resource="0"
