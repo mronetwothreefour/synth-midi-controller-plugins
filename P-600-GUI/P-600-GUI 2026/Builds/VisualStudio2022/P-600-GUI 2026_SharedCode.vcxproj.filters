@@ -847,10 +847,16 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_A.cpp">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Exp_Param_Layout_A.cpp">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.cpp">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.cpp">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.cpp">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.cpp">
@@ -866,6 +872,9 @@
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.cpp">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Data_Hub_P.cpp">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Editor_P.cpp">
@@ -4080,10 +4089,16 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_A.h">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Exp_Param_Layout_A.h">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.h">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.h">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.h">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.h">
@@ -4117,6 +4132,9 @@
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Data_Hub_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Editor_P.h">

@@ -12,7 +12,7 @@ const StringArray Build_Choices::lfo_rate() {
 	StringArray list;
     String n{ "$|%__unsynced: $|\nsynced: 1 cycle lasts & beat" };
     for (int i = 0; i < 1024; ++i) {
-        n.replace("$", (String)i);
+        n = n.replace("$", (String)i);
         if (i < 64)
             list.add(n.replace("%", "1:4(0)").replace("&", "4") + "s");
         if (i >= 64 && i < 128)

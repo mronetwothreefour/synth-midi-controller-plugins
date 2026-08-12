@@ -1,8 +1,8 @@
 #include "D_X_G_Audio_Processor_A.h"
 
 Audio_Processor_A::Audio_Processor_A() :
-    AudioProcessor{ BusesProperties{} }/*,*/
-    //hub{ new Data_Hub_P{ this } }
+    AudioProcessor{ BusesProperties{} },
+    hub{ new Data_Hub_P{ this } }
 {}
 
 const String Audio_Processor_A::getName() const { return JucePlugin_Name; }
@@ -43,7 +43,7 @@ AudioProcessorEditor* Audio_Processor_A::createEditor() {
 
 void Audio_Processor_A::getStateInformation(MemoryBlock& /*target_mem_block*/) {
     //XmlElement plugin_state{ ID::xml_state_plugin };
-    //auto exposed_state{ hub->get_exposed_state()->copyState().createXml() };
+    //auto exposed_state{ hub->get_exposed_param_state()->copyState().createXml() };
     //exposed_state->setTagName(ID::xml_state_exposed.toString());
     //if (exposed_state)
     //    plugin_state.addChildElement(exposed_state.release());
@@ -58,7 +58,7 @@ void Audio_Processor_A::setStateInformation(const void* /*stored_param_data*/, i
     //    auto exposed_state{ plugin_state->getChildByName(ID::xml_state_exposed.toString()) };
     //    if (exposed_state) {
     //        //transmitOptions->setParamChangesShouldBeTransmitted(false);
-    //        hub->get_exposed_state()->replaceState(ValueTree::fromXml(*exposed_state));
+    //        hub->get_exposed_param_state()->replaceState(ValueTree::fromXml(*exposed_state));
     //        //transmitOptions->setParamChangesShouldBeTransmitted(true);
     //    }
     //    auto& scale_factor = hub->get_scale_factor();
@@ -68,5 +68,5 @@ void Audio_Processor_A::setStateInformation(const void* /*stored_param_data*/, i
 }
 
 Audio_Processor_A::~Audio_Processor_A() {
-    //hub = nullptr;
+    hub = nullptr;
 }

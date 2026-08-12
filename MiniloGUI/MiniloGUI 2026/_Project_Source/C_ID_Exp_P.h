@@ -45,7 +45,7 @@ namespace ID
 	static const String exp_vca_env_sustain{ "exp_vca_env_sustain" };
 	static const String exp_voice_mode_depth{ "exp_voice_mode_depth" };
 
-	static const StringArray exp_id{
+	static const StringArray exp_params{
 		exp_osc_1_octave,
 		exp_osc_1_wave,
 		exp_osc_1_pitch_fine,

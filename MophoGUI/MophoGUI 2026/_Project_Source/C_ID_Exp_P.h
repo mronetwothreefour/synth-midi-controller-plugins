@@ -206,7 +206,7 @@ namespace ID
 	static const String exp_voice_name_char_9{ "exp_voice_name_char_9" };
 	static const String exp_voice_volume{ "exp_voice_volume" };
 
-	static const StringArray exp_id{
+	static const StringArray exp_params{
 		exp_osc_1_pitch,
 		exp_osc_1_fine_tune,
 		exp_osc_1_shape,

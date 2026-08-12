@@ -13,6 +13,7 @@ struct Get_A
 	static const float rotary_slider_begin_angle();
 	static const float rotary_slider_end_angle();
 
+	static const StringArray choices_for(const String component_id, const bool curt = false);
+	static const int init_choice_for(const String component_id);
 	static const String name_for(const String component_id);
-	static const StringArray choices_for(const String component_id, const bool curt);
 };

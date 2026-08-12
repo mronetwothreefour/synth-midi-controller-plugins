@@ -2,6 +2,7 @@
 
 #include "C_MAP_Bounds_P.h"
 #include "C_MAP_Choices_P.h"
+#include "C_MAP_Init_Choice_P.h"
 #include "C_MAP_Name_P.h"
 
 const double Get_A::editor_aspect_ratio() {
@@ -38,12 +39,6 @@ const float Get_A::rotary_slider_end_angle() {
 	return XYWH::rotary_slider_end_angle;
 }
 
-const String Get_A::name_for(const String component_id) {
-	if (MAP::name.find(component_id) != MAP::name.end())
-		return MAP::name.at(component_id);
-	return {};
-}
-
 const StringArray Get_A::choices_for(const String component_id, const bool curt) {
 	StringArray out_list;
 	if (MAP::choices.find(component_id) != MAP::choices.end()) {
@@ -56,4 +51,16 @@ const StringArray Get_A::choices_for(const String component_id, const bool curt)
 		}
 	}
 	return out_list;
+}
+
+const int Get_A::init_choice_for(const String component_id) {
+	if (MAP::init_choice.find(component_id) != MAP::init_choice.end())
+		return MAP::init_choice.at(component_id);
+	return -1;
+}
+
+const String Get_A::name_for(const String component_id) {
+	if (MAP::name.find(component_id) != MAP::name.end())
+		return MAP::name.at(component_id);
+	return {};
 }

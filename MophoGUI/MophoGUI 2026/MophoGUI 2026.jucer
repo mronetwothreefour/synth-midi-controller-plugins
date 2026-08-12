@@ -17,12 +17,20 @@
             file="../../_Abstract_Source/D_BUILD_Choices_A.cpp"/>
       <FILE id="Z44BwA" name="D_BUILD_Choices_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/D_BUILD_Choices_A.h"/>
+      <FILE id="fGtZpU" name="D_BUILD_Exp_Param_Layout_A.cpp" compile="1"
+            resource="0" file="../../_Abstract_Source/D_BUILD_Exp_Param_Layout_A.cpp"/>
+      <FILE id="kG5glQ" name="D_BUILD_Exp_Param_Layout_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Exp_Param_Layout_A.h"/>
       <FILE id="iJsfEi" name="D_CONVERT_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/D_CONVERT_A.cpp"/>
       <FILE id="NhGGcT" name="D_CONVERT_A.h" compile="0" resource="0" file="../../_Abstract_Source/D_CONVERT_A.h"/>
       <FILE id="bZUfyU" name="D_X_G_Audio_Processor_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/D_X_G_Audio_Processor_A.cpp"/>
       <FILE id="taFQ7m" name="D_X_G_Audio_Processor_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/D_X_G_Audio_Processor_A.h"/>
+      <FILE id="auEo5Z" name="D_X_G_Data_Hub_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_X_G_Data_Hub_A.cpp"/>
+      <FILE id="kDgUhg" name="D_X_G_Data_Hub_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_X_G_Data_Hub_A.h"/>
       <FILE id="bEJD9R" name="D_X_G_Editor_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/D_X_G_Editor_A.cpp"/>
       <FILE id="xfwA2U" name="D_X_G_Editor_A.h" compile="0" resource="0"
@@ -50,6 +58,10 @@
             file="_Project_Source/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="kMyVPj" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"
             file="_Project_Source/D_X_G_Audio_Processor_P.h"/>
+      <FILE id="zereqq" name="D_X_G_Data_Hub_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_X_G_Data_Hub_P.cpp"/>
+      <FILE id="dyzUAl" name="D_X_G_Data_Hub_P.h" compile="0" resource="0"
+            file="_Project_Source/D_X_G_Data_Hub_P.h"/>
       <FILE id="eGWOUv" name="D_X_G_Editor_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_X_G_Editor_P.cpp"/>
       <FILE id="LwZvTN" name="D_X_G_Editor_P.h" compile="0" resource="0"
