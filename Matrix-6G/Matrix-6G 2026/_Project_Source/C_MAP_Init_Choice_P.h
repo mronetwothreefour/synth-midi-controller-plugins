@@ -6,7 +6,7 @@ namespace MAP
 {
 
 	static const std::unordered_map<String, int> init_choice{
-		{ ID::exp_osc_1_pitch, 0 },
+		{ ID::exp_osc_1_pitch, 0 },			//osc
 		{ ID::exp_osc_1_type, 2 },
 		{ ID::exp_osc_1_pulse_w, 31 },
 		{ ID::exp_osc_1_saw_tri, 31 },
@@ -27,24 +27,24 @@ namespace MAP
 		{ ID::exp_osc_2_key_track, 2 },
 		{ ID::exp_osc_2_lever_ctrl, 3 },
 		{ ID::exp_osc_balance, 31 },
-		{ ID::exp_vcf_freq, 55 },
+		{ ID::exp_vcf_freq, 55 },			//vcf
 		{ ID::exp_vcf_reso, 0 },
 		{ ID::exp_vcf_env_1_amt, 105 },
 		{ ID::exp_vcf_press_amt, 63 },
 		{ ID::exp_vcf_lever_ctrl, 0 },
 		{ ID::exp_vcf_key_track, 2 },
-		{ ID::exp_vca_1_volume, 63 },
+		{ ID::exp_vca_1_volume, 63 },		//vca
 		{ ID::exp_vca_1_velo_amt, 63 },
 		{ ID::exp_vca_2_env_2_amt, 126 },
-		{ ID::exp_vcf_fm_osc_1_amt, 0 },
+		{ ID::exp_vcf_fm_osc_1_amt, 0 },	//vcf fm
 		{ ID::exp_vcf_fm_env_3_amt, 63 },
 		{ ID::exp_vcf_fm_press_amt, 63 },
-		{ ID::exp_porta_rate, 0 },
+		{ ID::exp_porta_rate, 0 },			//porta & keyboard mode
 		{ ID::exp_porta_velo, 63 },
 		{ ID::exp_porta_mode, 0 },
 		{ ID::exp_porta_legato, 0 },
 		{ ID::exp_keyboard_mode, 0 },
-		{ ID::exp_lfo_1_speed, 27 },
+		{ ID::exp_lfo_1_speed, 27 },		//lfo
 		{ ID::exp_lfo_1_wave_type, 0 },
 		{ ID::exp_lfo_1_samp_source, 9 },
 		{ ID::exp_lfo_1_amp, 0 },
@@ -62,17 +62,17 @@ namespace MAP
 		{ ID::exp_lfo_2_trig_mode, 0 },
 		{ ID::exp_lfo_2_retrig_point, 0 },
 		{ ID::exp_lfo_2_lag, 0 },
-		{ ID::exp_ramp_1_rate, 0 },
+		{ ID::exp_ramp_1_rate, 0 },			//ramp
 		{ ID::exp_ramp_1_trig, 0 },
 		{ ID::exp_ramp_2_rate, 0 },
 		{ ID::exp_ramp_2_trig, 0 },
-		{ ID::exp_track_input, 9 },
+		{ ID::exp_track_input, 9 },			//tracking
 		{ ID::exp_track_point_1, 0 },
 		{ ID::exp_track_point_2, 15 },
 		{ ID::exp_track_point_3, 31 },
 		{ ID::exp_track_point_4, 47 },
 		{ ID::exp_track_point_5, 63 },
-		{ ID::exp_env_1_amp, 40 },
+		{ ID::exp_env_1_amp, 40 },			//env
 		{ ID::exp_env_1_velo_amt, 126 },
 		{ ID::exp_env_1_trig_mode, 0 },
 		{ ID::exp_env_1_mode, 0 },

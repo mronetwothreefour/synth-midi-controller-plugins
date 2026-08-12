@@ -6,7 +6,7 @@ namespace MAP
 {
 
 	static const std::unordered_map<String, String> name{
-		{ ID::exp_osc_1_pitch, "Oscillator 1 Pitch" },
+		{ ID::exp_osc_1_pitch, "Oscillator 1 Pitch" },				//osc
 		{ ID::exp_osc_1_fine_tune, "Oscillator 1 Fine Tune" },
 		{ ID::exp_osc_1_shape, "Oscillator 1 Wave Shape" },
 		{ ID::exp_osc_1_glide, "Oscillator 1 Glide Rate" },
@@ -26,7 +26,7 @@ namespace MAP
 		{ ID::exp_osc_mix, "Oscillator 1 & 2 Mix" },
 		{ ID::exp_noise_level, "Noise Level" },
 		{ ID::exp_ext_in_level, "External Audio Input Level" },
-		{ ID::exp_lpf_freq, "LPF Cutoff Frequency" },
+		{ ID::exp_lpf_freq, "LPF Cutoff Frequency" },				//lpf
 		{ ID::exp_lpf_reso, "LPF Resonance" },
 		{ ID::exp_lpf_key_amt, "LPF Keyboard Amount" },
 		{ ID::exp_lpf_fm_amt, "LPF FM (By Oscillator 1)" },
@@ -38,7 +38,7 @@ namespace MAP
 		{ ID::exp_lpf_decay, "LPF Envelope Decay" },
 		{ ID::exp_lpf_sustain, "LPF Envelope Sustain" },
 		{ ID::exp_lpf_release, "LPF Envelope Release" },
-		{ ID::exp_vca_level, "VCA Baseline Level" },
+		{ ID::exp_vca_level, "VCA Baseline Level" },				//vca
 		{ ID::exp_vca_env_amt, "VCA Envelope Amount" },
 		{ ID::exp_vca_vel_amt, "VCA Envelope Velocity Amount" },
 		{ ID::exp_vca_delay, "VCA Envelope Delay" },
@@ -47,7 +47,7 @@ namespace MAP
 		{ ID::exp_vca_sustain, "VCA Envelope Sustain" },
 		{ ID::exp_vca_release, "VCA Envelope Release" },
 		{ ID::exp_voice_volume, "Program Volume" },
-		{ ID::exp_lfo_1_freq, "LFO 1 Frequency" },
+		{ ID::exp_lfo_1_freq, "LFO 1 Frequency" },					//lfo
 		{ ID::exp_lfo_1_shape, "LFO 1 Wave Shape" },
 		{ ID::exp_lfo_1_amt, "LFO 1 Amount" },
 		{ ID::exp_lfo_1_dest, "LFO 1 Modulation Destination" },
@@ -67,7 +67,7 @@ namespace MAP
 		{ ID::exp_lfo_4_amt, "LFO 4 Amount" },
 		{ ID::exp_lfo_4_dest, "LFO 4 Modulation Destination" },
 		{ ID::exp_lfo_4_key_sync, "LFO 4 Key Sync On / Off" },
-		{ ID::exp_env_3_dest, "Envelope 3 Modulation Destination" },
+		{ ID::exp_env_3_dest, "Envelope 3 Modulation Destination" }, //env 3
 		{ ID::exp_env_3_amount, "Envelope 3 Amount" },
 		{ ID::exp_env_3_vel_amt, "Envelope 3 Velocity Amount" },
 		{ ID::exp_env_3_delay, "Envelope 3 Delay" },
@@ -76,7 +76,7 @@ namespace MAP
 		{ ID::exp_env_3_sustain, "Envelope 3 Sustain" },
 		{ ID::exp_env_3_release, "Envelope 3 Release" },
 		{ ID::exp_env_3_repeat, "Envelope 3 Repeat" },
-		{ ID::exp_mod_1_src, "Modulator 1 Source" },
+		{ ID::exp_mod_1_src, "Modulator 1 Source" },				 //mod
 		{ ID::exp_mod_1_amt, "Modulator 1 Amount" },
 		{ ID::exp_mod_1_dest, "Modulator 1 Destination" },
 		{ ID::exp_mod_2_src, "Modulator 2 Source" },
@@ -88,7 +88,7 @@ namespace MAP
 		{ ID::exp_mod_4_src, "Modulator 4 Source" },
 		{ ID::exp_mod_4_amt, "Modulator 4 Amount" },
 		{ ID::exp_mod_4_dest, "Modulator 4 Destination" },
-		{ ID::exp_mod_wheel_amt, "Modulation Wheel Amount" },
+		{ ID::exp_mod_wheel_amt, "Modulation Wheel Amount" },		 //midi cc
 		{ ID::exp_mod_wheel_dest, "Modulation Wheel Destination" },
 		{ ID::exp_press_amt, "Pressure (Aftertouch) Amount" },
 		{ ID::exp_press_dest, "Pressure (Aftertouch) Destination" },
@@ -98,24 +98,24 @@ namespace MAP
 		{ ID::exp_velocity_dest, "Note Velocity Destination" },
 		{ ID::exp_pedal_amt, "Foot Pedal Amount" },
 		{ ID::exp_pedal_dest, "Foot Pedal Destination" },
-		{ ID::exp_push_it_pitch, "Push It! Switch Pitch" },
+		{ ID::exp_push_it_pitch, "Push It! Switch Pitch" },			 //push it
 		{ ID::exp_push_it_velo, "Push It! Switch Velocity" },
 		{ ID::exp_push_it_mode, "Push It! Switch Mode" },
-		{ ID::exp_clock_tempo, "Clock Tempo" },
+		{ ID::exp_clock_tempo, "Clock Tempo" },						 //clock & arp
 		{ ID::exp_clock_div, "Clock Division" },
 		{ ID::exp_arp_mode, "Arpeggiator Mode" },
 		{ ID::exp_arpeg_on_off, "Arpeggiator On / Off" },
-		{ ID::exp_seq_trig_mode, "Sequencer Trigger Mode" },
+		{ ID::exp_seq_trig_mode, "Sequencer Trigger Mode" },		//seq
 		{ ID::exp_seq_on_off, "Sequencer On / Off" },
 		{ ID::exp_seq_track_1_dest, "Sequencer Track 1 Destination" },
 		{ ID::exp_seq_track_2_dest, "Sequencer Track 2 Destination" },
 		{ ID::exp_seq_track_3_dest, "Sequencer Track 3 Destination" },
 		{ ID::exp_seq_track_4_dest, "Sequencer Track 4 Destination" },
-		{ ID::exp_flex_knob_1, "Parameter Assigned To Knob 1" },
+		{ ID::exp_flex_knob_1, "Parameter Assigned To Knob 1" },	//flex knob
 		{ ID::exp_flex_knob_2, "Parameter Assigned To Knob 2" },
 		{ ID::exp_flex_knob_3, "Parameter Assigned To Knob 3" },
 		{ ID::exp_flex_knob_4, "Parameter Assigned To Knob 4" },
-		{ ID::exp_unassigned_1, "" },
+		{ ID::exp_unassigned_1, "" },								//unassigned
 		{ ID::exp_unassigned_2, "" },
 		{ ID::exp_unassigned_3, "" },
 		{ ID::exp_unassigned_4, "" },
@@ -126,7 +126,7 @@ namespace MAP
 		{ ID::exp_unassigned_9, "" },
 		{ ID::exp_unassigned_10, "" },
 		{ ID::exp_unassigned_11, "" },
-		{ ID::exp_seq_track_1_step_1, "Sequencer Track 1 Step 1" },
+		{ ID::exp_seq_track_1_step_1, "Sequencer Track 1 Step 1" }, //seq step
 		{ ID::exp_seq_track_1_step_2, "Sequencer Track 1 Step 2" },
 		{ ID::exp_seq_track_1_step_3, "Sequencer Track 1 Step 3" },
 		{ ID::exp_seq_track_1_step_4, "Sequencer Track 1 Step 4" },

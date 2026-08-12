@@ -9,7 +9,7 @@ namespace MAP
 {
 
 	static const std::unordered_map<String, StringArray> choices{
-		{ ID::exp_osc_1_pitch, Choices::osc_pitch(64) },
+		{ ID::exp_osc_1_pitch, Choices::osc_pitch(64) },				//osc
 		{ ID::exp_osc_1_type, Choices::osc_type(1) },
 		{ ID::exp_osc_1_pulse_w, Choices::unsigned_int(63) },
 		{ ID::exp_osc_1_saw_tri, Choices::unsigned_int(63) },
@@ -30,24 +30,24 @@ namespace MAP
 		{ ID::exp_osc_2_key_track, Choices::osc_2_and_vcf_key_track() },
 		{ ID::exp_osc_2_lever_ctrl, Choices::osc_lever_control() },
 		{ ID::exp_osc_balance, Choices::unsigned_int(63) },
-		{ ID::exp_vcf_freq, Choices::unsigned_int(127) },
+		{ ID::exp_vcf_freq, Choices::unsigned_int(127) },				//vcf
 		{ ID::exp_vcf_reso, Choices::unsigned_int(63) },
 		{ ID::exp_vcf_env_1_amt, Choices::signed_int(-63, 63) },
 		{ ID::exp_vcf_press_amt, Choices::signed_int(-63, 63) },
 		{ ID::exp_vcf_lever_ctrl, Choices::lever_ctrl() },
 		{ ID::exp_vcf_key_track, Choices::osc_2_and_vcf_key_track() },
-		{ ID::exp_vca_1_volume, Choices::unsigned_int(63) },
+		{ ID::exp_vca_1_volume, Choices::unsigned_int(63) },			//vca
 		{ ID::exp_vca_1_velo_amt, Choices::signed_int(-63, 63) },
 		{ ID::exp_vca_2_env_2_amt, Choices::signed_int(-63, 63) },
-		{ ID::exp_vcf_fm_osc_1_amt, Choices::unsigned_int(63) },
+		{ ID::exp_vcf_fm_osc_1_amt, Choices::unsigned_int(63) },		//vcf fm
 		{ ID::exp_vcf_fm_env_3_amt, Choices::signed_int(-63, 63) },
 		{ ID::exp_vcf_fm_press_amt, Choices::signed_int(-63, 63) },
-		{ ID::exp_porta_rate, Choices::unsigned_int(63) },
+		{ ID::exp_porta_rate, Choices::unsigned_int(63) },				//porta & keyboard mode
 		{ ID::exp_porta_velo, Choices::signed_int(-63, 63) },
 		{ ID::exp_porta_mode, Choices::porta_mode() },
 		{ ID::exp_porta_legato, Choices::off_on_matrix() },
 		{ ID::exp_keyboard_mode, Choices::keyboard_mode() },
-		{ ID::exp_lfo_1_speed, Choices::unsigned_int(63) },
+		{ ID::exp_lfo_1_speed, Choices::unsigned_int(63) },				//lfo
 		{ ID::exp_lfo_1_wave_type, Choices::lfo_wave_type() },
 		{ ID::exp_lfo_1_samp_source, Choices::input_source(true) },
 		{ ID::exp_lfo_1_amp, Choices::unsigned_int(63) },
@@ -65,17 +65,17 @@ namespace MAP
 		{ ID::exp_lfo_2_trig_mode,  Choices::lfo_trig_mode() },
 		{ ID::exp_lfo_2_retrig_point, Choices::unsigned_int(63) },
 		{ ID::exp_lfo_2_lag, Choices::off_on_matrix() },
-		{ ID::exp_ramp_1_rate, Choices::unsigned_int(63) },
+		{ ID::exp_ramp_1_rate, Choices::unsigned_int(63) },				//ramp
 		{ ID::exp_ramp_1_trig, Choices::ramp_trig() },
 		{ ID::exp_ramp_2_rate, Choices::unsigned_int(63) },
 		{ ID::exp_ramp_2_trig, Choices::ramp_trig() },
 		{ ID::exp_track_input, Choices::input_source(false) },
-		{ ID::exp_track_point_1, Choices::unsigned_int(63) },
+		{ ID::exp_track_point_1, Choices::unsigned_int(63) },			//tracking
 		{ ID::exp_track_point_2, Choices::unsigned_int(63) },
 		{ ID::exp_track_point_3, Choices::unsigned_int(63) },
 		{ ID::exp_track_point_4, Choices::unsigned_int(63) },
 		{ ID::exp_track_point_5, Choices::unsigned_int(63) },
-		{ ID::exp_env_1_amp, Choices::unsigned_int(63) },
+		{ ID::exp_env_1_amp, Choices::unsigned_int(63) },				//env
 		{ ID::exp_env_1_velo_amt, Choices::signed_int(-63, 63) },
 		{ ID::exp_env_1_trig_mode, Choices::env_trig_mode() },
 		{ ID::exp_env_1_mode, Choices::env_mode() },
