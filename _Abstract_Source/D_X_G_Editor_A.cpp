@@ -2,14 +2,14 @@
 
 #include "C_ID_A.h"
 #include "C_GET_P.h"
-//#include "G_DRAW_Paths_Main_P.h"
+#include "G_DRAW_Paths_Main_P.h"
 
 using namespace ID;
 
-Editor_A::Editor_A(Audio_Processor& processor/*, Data_Hub_P* hub*/) :
+Editor_A::Editor_A(Audio_Processor& processor, Data_Hub_P* hub) :
     AudioProcessorEditor{ &processor },
-    processor{ processor }/*,
-    Data_User_P{ hub },
+    processor{ processor },
+    Data_User_P{ hub }/*,
     layer_exp_ctrls{ hub },
     l_a_f{ scale_factor }*/
 {
@@ -25,9 +25,9 @@ Editor_A::Editor_A(Audio_Processor& processor/*, Data_Hub_P* hub*/) :
     Timer::callAfterDelay(50, [this] { grabKeyboardFocus(); });
 }
 
-void Editor_A::paint(Graphics& /*g*/) {
-    //g.addTransform(AffineTransform::scale(scale_factor));
-    //Draw_Paths_Main_P::backdrop(g);
+void Editor_A::paint(Graphics& g) {
+    g.addTransform(AffineTransform::scale(scale_factor));
+    Draw_Paths_Main_P::backdrop(g);
 }
 
 void Editor_A::modifierKeysChanged(const ModifierKeys& /*mods*/) {

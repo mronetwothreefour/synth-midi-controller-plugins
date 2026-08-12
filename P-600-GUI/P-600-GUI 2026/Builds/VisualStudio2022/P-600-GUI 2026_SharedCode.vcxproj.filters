@@ -859,6 +859,9 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.cpp">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Data_User_A.cpp">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.cpp">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClCompile>
@@ -875,6 +878,9 @@
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Data_Hub_P.cpp">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Data_User_P.cpp">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Editor_P.cpp">
@@ -4080,6 +4086,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\C_COLOR_A.h">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_GET_A.h">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClInclude>
@@ -4101,7 +4110,13 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.h">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Data_User_A.h">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.h">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.h">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_GET_P.h">
@@ -4135,6 +4150,9 @@
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Data_Hub_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Data_User_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Editor_P.h">

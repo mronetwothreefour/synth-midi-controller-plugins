@@ -16,7 +16,7 @@ public: explicit Data_Hub_A(AudioProcessor* processor);
 
 //public: Tree_App_Options_P& get_app_options();
 public: UndoManager* get_undo_mngr();
-public: State* get_exposed_param_state();
+public: State* get_exposed_params_state();
 public: float& get_scale_factor();
 public: ~Data_Hub_A();
 

@@ -10,6 +10,7 @@
               cppLanguageStandard="20" headerPath="..\..\..\..\_Abstract_Source&#10;..\..\_Project_Source">
   <MAINGROUP id="ZPn9H4" name="P-600-GUI 2026">
     <GROUP id="{FA64F6F3-3D30-572C-C215-830A2830B9A3}" name="_Abstract_Source">
+      <FILE id="LYbKzx" name="C_COLOR_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_COLOR_A.h"/>
       <FILE id="XYFw8I" name="C_GET_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/C_GET_A.cpp"/>
       <FILE id="TcKDNp" name="C_GET_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_GET_A.h"/>
       <FILE id="BnLTHL" name="C_ID_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_ID_A.h"/>
@@ -31,10 +32,16 @@
             file="../../_Abstract_Source/D_X_G_Data_Hub_A.cpp"/>
       <FILE id="GqM4MQ" name="D_X_G_Data_Hub_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/D_X_G_Data_Hub_A.h"/>
+      <FILE id="GKrix1" name="D_X_G_Data_User_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_X_G_Data_User_A.cpp"/>
+      <FILE id="aVOA1g" name="D_X_G_Data_User_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_X_G_Data_User_A.h"/>
       <FILE id="A72OKb" name="D_X_G_Editor_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/D_X_G_Editor_A.cpp"/>
       <FILE id="rXTVD1" name="D_X_G_Editor_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/D_X_G_Editor_A.h"/>
+      <FILE id="SUaSdy" name="G_DRAW_Paths_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_DRAW_Paths_A.h"/>
     </GROUP>
     <GROUP id="{2B6FF762-7DA6-E418-FBFF-644113FC53B6}" name="_Project_Source">
       <GROUP id="{B67082E3-4C7A-5DC5-7E05-9557F9987F02}" name="binaries">
@@ -65,6 +72,10 @@
             file="_Project_Source/D_X_G_Data_Hub_P.cpp"/>
       <FILE id="iQHcEL" name="D_X_G_Data_Hub_P.h" compile="0" resource="0"
             file="_Project_Source/D_X_G_Data_Hub_P.h"/>
+      <FILE id="H03gpf" name="D_X_G_Data_User_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_X_G_Data_User_P.cpp"/>
+      <FILE id="uY56nF" name="D_X_G_Data_User_P.h" compile="0" resource="0"
+            file="_Project_Source/D_X_G_Data_User_P.h"/>
       <FILE id="VMW56j" name="D_X_G_Editor_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_X_G_Editor_P.cpp"/>
       <FILE id="TwrlHR" name="D_X_G_Editor_P.h" compile="0" resource="0"

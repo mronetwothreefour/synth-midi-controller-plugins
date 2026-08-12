@@ -14,7 +14,7 @@ UndoManager* Data_Hub_A::get_undo_mngr() {
 	return undo_mngr.get();
 }
 
-State* Data_Hub_A::get_exposed_param_state() {
+State* Data_Hub_A::get_exposed_params_state() {
 	return exposed_param_state.get();
 }
 

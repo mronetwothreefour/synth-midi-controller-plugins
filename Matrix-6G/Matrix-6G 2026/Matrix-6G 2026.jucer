@@ -10,6 +10,7 @@
               cppLanguageStandard="20" headerPath="..\..\..\..\_Abstract_Source&#10;..\..\_Project_Source">
   <MAINGROUP id="ijhAFi" name="Matrix-6G 2026">
     <GROUP id="{54D73992-EB15-EBD3-71EE-111D1AA76D60}" name="_Abstract_Source">
+      <FILE id="Fk212q" name="C_COLOR_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_COLOR_A.h"/>
       <FILE id="LDvtjR" name="C_GET_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/C_GET_A.cpp"/>
       <FILE id="pqHMpm" name="C_GET_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_GET_A.h"/>
       <FILE id="kr0Vs9" name="C_ID_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_ID_A.h"/>
@@ -31,12 +32,19 @@
             file="../../_Abstract_Source/D_X_G_Data_Hub_A.cpp"/>
       <FILE id="pijjPk" name="D_X_G_Data_Hub_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/D_X_G_Data_Hub_A.h"/>
+      <FILE id="J0lPn7" name="D_X_G_Data_User_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_X_G_Data_User_A.cpp"/>
+      <FILE id="hDbCcg" name="D_X_G_Data_User_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_X_G_Data_User_A.h"/>
       <FILE id="yLSiBl" name="D_X_G_Editor_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/D_X_G_Editor_A.cpp"/>
       <FILE id="HZPPKO" name="D_X_G_Editor_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/D_X_G_Editor_A.h"/>
+      <FILE id="oXfRo6" name="G_DRAW_Paths_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_DRAW_Paths_A.h"/>
     </GROUP>
     <GROUP id="{184497C2-0BC4-A69C-3CF3-9218D550E5FD}" name="_Project_Source">
+      <FILE id="LO3uDg" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
       <FILE id="svwFzy" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
       <FILE id="LxcoVg" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
       <FILE id="oPWDCv" name="C_ID_EXP_P.h" compile="0" resource="0" file="_Project_Source/C_ID_EXP_P.h"/>
@@ -47,6 +55,8 @@
       <FILE id="zMHfe4" name="C_MAP_Init_Choice_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Init_Choice_P.h"/>
       <FILE id="YNCwpM" name="C_MAP_Name_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Name_P.h"/>
+      <FILE id="UeOpt0" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
+            file="_Project_Source/C_PATH_Backdrop_Main_P.h"/>
       <FILE id="OaMFp6" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
       <FILE id="RapM7f" name="D_BUILD_Choices_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Choices_P.cpp"/>
@@ -62,10 +72,18 @@
             file="_Project_Source/D_X_G_Data_Hub_P.cpp"/>
       <FILE id="J0DZHJ" name="D_X_G_Data_Hub_P.h" compile="0" resource="0"
             file="_Project_Source/D_X_G_Data_Hub_P.h"/>
+      <FILE id="LUPeov" name="D_X_G_Data_User_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_X_G_Data_User_P.cpp"/>
+      <FILE id="ly9vPT" name="D_X_G_Data_User_P.h" compile="0" resource="0"
+            file="_Project_Source/D_X_G_Data_User_P.h"/>
       <FILE id="Gpgyfp" name="D_X_G_Editor_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_X_G_Editor_P.cpp"/>
       <FILE id="bMQzSd" name="D_X_G_Editor_P.h" compile="0" resource="0"
             file="_Project_Source/D_X_G_Editor_P.h"/>
+      <FILE id="EHN5cm" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
+            file="_Project_Source/G_DRAW_Paths_Main_P.h"/>
+      <FILE id="WbCudh" name="G_DRAW_Paths_Main_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_DRAW_Paths_Main_P.cpp"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
