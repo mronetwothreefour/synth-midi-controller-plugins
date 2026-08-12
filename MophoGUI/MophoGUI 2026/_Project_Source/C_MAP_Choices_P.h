@@ -9,7 +9,8 @@ namespace MAP
 {
 
 	static const std::unordered_map<String, StringArray> choices{
-		{ ID::exp_osc_1_pitch, Choices::osc_pitch(121) },		//osc
+		//exposed osc
+		{ ID::exp_osc_1_pitch, Choices::osc_pitch(121) },
 		{ ID::exp_osc_1_fine_tune, Choices::osc_fine() },
 		{ ID::exp_osc_1_shape, Choices::osc_shape() },
 		{ ID::exp_osc_1_glide, Choices::unsigned_int(127) },
@@ -29,7 +30,8 @@ namespace MAP
 		{ ID::exp_osc_mix, Choices::unsigned_int(127) },
 		{ ID::exp_noise_level, Choices::unsigned_int(127) },
 		{ ID::exp_ext_in_level, Choices::unsigned_int(127) },
-		{ ID::exp_lpf_freq, Choices::lpf_freq() },				//lpf
+		//exposed lpf
+		{ ID::exp_lpf_freq, Choices::lpf_freq() },
 		{ ID::exp_lpf_reso, Choices::unsigned_int(127) },
 		{ ID::exp_lpf_key_amt, Choices::unsigned_int(127) },
 		{ ID::exp_lpf_fm_amt, Choices::unsigned_int(127) },
@@ -41,7 +43,8 @@ namespace MAP
 		{ ID::exp_lpf_decay, Choices::unsigned_int(127) },
 		{ ID::exp_lpf_sustain, Choices::unsigned_int(127) },
 		{ ID::exp_lpf_release, Choices::unsigned_int(127) },
-		{ ID::exp_vca_level, Choices::unsigned_int(127) },		//vca
+		//exposed vca
+		{ ID::exp_vca_level, Choices::unsigned_int(127) },
 		{ ID::exp_vca_env_amt, Choices::unsigned_int(127) },
 		{ ID::exp_vca_vel_amt, Choices::unsigned_int(127) },
 		{ ID::exp_vca_delay, Choices::unsigned_int(127) },
@@ -50,7 +53,8 @@ namespace MAP
 		{ ID::exp_vca_sustain, Choices::unsigned_int(127) },
 		{ ID::exp_vca_release, Choices::unsigned_int(127) },
 		{ ID::exp_voice_volume, Choices::unsigned_int(127) },
-		{ ID::exp_lfo_1_freq, Choices::lfo_freq() },			//lfo
+		//exposed lfo
+		{ ID::exp_lfo_1_freq, Choices::lfo_freq() },
 		{ ID::exp_lfo_1_shape, Choices::lfo_shape() },
 		{ ID::exp_lfo_1_amt, Choices::unsigned_int(127) },
 		{ ID::exp_lfo_1_dest, Choices::mod_dest() },
@@ -70,7 +74,8 @@ namespace MAP
 		{ ID::exp_lfo_4_amt, Choices::unsigned_int(127) },
 		{ ID::exp_lfo_4_dest, Choices::mod_dest() },
 		{ ID::exp_lfo_4_key_sync, Choices::off_on() },
-		{ ID::exp_env_3_dest, Choices::mod_dest() },			//env 3
+		//exposed env 3
+		{ ID::exp_env_3_dest, Choices::mod_dest() },
 		{ ID::exp_env_3_amount, Choices::signed_int(-127, 127) },
 		{ ID::exp_env_3_vel_amt, Choices::unsigned_int(127) },
 		{ ID::exp_env_3_delay, Choices::unsigned_int(127) },
@@ -79,7 +84,8 @@ namespace MAP
 		{ ID::exp_env_3_sustain, Choices::unsigned_int(127) },
 		{ ID::exp_env_3_release, Choices::unsigned_int(127) },
 		{ ID::exp_env_3_repeat, Choices::off_on() },
-		{ ID::exp_mod_1_src, Choices::mod_src() },				//mod
+		//exposed mod
+		{ ID::exp_mod_1_src, Choices::mod_src() },
 		{ ID::exp_mod_1_amt, Choices::signed_int(-127, 127) },
 		{ ID::exp_mod_1_dest, Choices::mod_dest() },
 		{ ID::exp_mod_2_src, Choices::mod_src() },
@@ -91,7 +97,8 @@ namespace MAP
 		{ ID::exp_mod_4_src, Choices::mod_src() },
 		{ ID::exp_mod_4_amt, Choices::signed_int(-127, 127) },
 		{ ID::exp_mod_4_dest, Choices::mod_dest() },
-		{ ID::exp_mod_wheel_amt, Choices::signed_int(-127, 127) }, //midi cc
+		//exposed midi cc
+		{ ID::exp_mod_wheel_amt, Choices::signed_int(-127, 127) },
 		{ ID::exp_mod_wheel_dest, Choices::mod_dest() },
 		{ ID::exp_press_amt, Choices::signed_int(-127, 127) },
 		{ ID::exp_press_dest, Choices::mod_dest() },
@@ -101,24 +108,29 @@ namespace MAP
 		{ ID::exp_velocity_dest, Choices::mod_dest() },
 		{ ID::exp_pedal_amt, Choices::signed_int(-127, 127) },
 		{ ID::exp_pedal_dest, Choices::mod_dest() },
-		{ ID::exp_push_it_pitch, Choices::osc_pitch(121) },		 //push it
+		//exposed push it
+		{ ID::exp_push_it_pitch, Choices::osc_pitch(121) },
 		{ ID::exp_push_it_velo, Choices::unsigned_int(127) },
 		{ ID::exp_push_it_mode, Choices::push_it_mode() },
-		{ ID::exp_clock_tempo, Choices::clock_tempo() },		//clock & arp
+		{ ID::exp_clock_tempo, Choices::clock_tempo() },
+		//exposed clock & arp
 		{ ID::exp_clock_div, Choices::clock_div() },
 		{ ID::exp_arp_mode, Choices::arp_mode() },
 		{ ID::exp_arpeg_on_off, Choices::off_on() },
-		{ ID::exp_seq_trig_mode, Choices::seq_trig_mode() },	//seq
+		//exposed seq
+		{ ID::exp_seq_trig_mode, Choices::seq_trig_mode() },
 		{ ID::exp_seq_on_off, Choices::off_on() },
 		{ ID::exp_seq_track_1_dest, Choices::mod_dest() },
 		{ ID::exp_seq_track_2_dest, Choices::mod_dest() },
 		{ ID::exp_seq_track_3_dest, Choices::mod_dest() },
 		{ ID::exp_seq_track_4_dest, Choices::mod_dest() },
-		{ ID::exp_flex_knob_1, Choices::flex_knob() },			//flex knob
+		//exposed flex knob
+		{ ID::exp_flex_knob_1, Choices::flex_knob() },
 		{ ID::exp_flex_knob_2, Choices::flex_knob() },
 		{ ID::exp_flex_knob_3, Choices::flex_knob() },
 		{ ID::exp_flex_knob_4, Choices::flex_knob() },
-		{ ID::exp_unassigned_1, {} },							//unassigned
+		//exposed unassigned
+		{ ID::exp_unassigned_1, {} },
 		{ ID::exp_unassigned_2, {} },
 		{ ID::exp_unassigned_3, {} },
 		{ ID::exp_unassigned_4, {} },
@@ -129,7 +141,8 @@ namespace MAP
 		{ ID::exp_unassigned_9, {} },
 		{ ID::exp_unassigned_10, {} },
 		{ ID::exp_unassigned_11, {} },
-		{ ID::exp_seq_track_1_step_1, Choices::seq_track_step() }, //seq step
+		//exposed seq step
+		{ ID::exp_seq_track_1_step_1, Choices::seq_track_step() },
 		{ ID::exp_seq_track_1_step_2, Choices::seq_track_step() },
 		{ ID::exp_seq_track_1_step_3, Choices::seq_track_step() },
 		{ ID::exp_seq_track_1_step_4, Choices::seq_track_step() },

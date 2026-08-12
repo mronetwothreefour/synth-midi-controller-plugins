@@ -5,8 +5,9 @@
 namespace MAP
 {
 
-	static const std::unordered_map<String, StringArray> init_choice{
-		{ ID::exp_osc_1_pitch, 24 },	//osc
+	static const std::unordered_map<String, int> init_choice{
+		//exposed osc
+		{ ID::exp_osc_1_pitch, 24 },
 		{ ID::exp_osc_1_fine_tune, 49 },
 		{ ID::exp_osc_1_shape, 1 },
 		{ ID::exp_osc_1_glide, 0 },
@@ -26,7 +27,8 @@ namespace MAP
 		{ ID::exp_osc_mix, 64 },
 		{ ID::exp_noise_level, 0 },
 		{ ID::exp_ext_in_level, 0 },
-		{ ID::exp_lpf_freq, 148 },		//lpf
+		//exposed lpf
+		{ ID::exp_lpf_freq, 148 },
 		{ ID::exp_lpf_reso, 0 },
 		{ ID::exp_lpf_key_amt, 0 },
 		{ ID::exp_lpf_fm_amt, 0 },
@@ -38,7 +40,8 @@ namespace MAP
 		{ ID::exp_lpf_decay, 0 },
 		{ ID::exp_lpf_sustain, 0 },
 		{ ID::exp_lpf_release, 0 },
-		{ ID::exp_vca_level, 0 },		//vca
+		//exposed vca
+		{ ID::exp_vca_level, 0 },
 		{ ID::exp_vca_env_amt, 127 },
 		{ ID::exp_vca_vel_amt, 0 },
 		{ ID::exp_vca_delay, 0 },
@@ -47,7 +50,8 @@ namespace MAP
 		{ ID::exp_vca_sustain, 64 },
 		{ ID::exp_vca_release, 64 },
 		{ ID::exp_voice_volume, 120 },
-		{ ID::exp_lfo_1_freq, 80 },		//lfo
+		//exposed lfo
+		{ ID::exp_lfo_1_freq, 80 },
 		{ ID::exp_lfo_1_shape, 1 },
 		{ ID::exp_lfo_1_amt, 0 },
 		{ ID::exp_lfo_1_dest, 0 },
@@ -67,7 +71,8 @@ namespace MAP
 		{ ID::exp_lfo_4_amt, 0 },
 		{ ID::exp_lfo_4_dest, 0 },
 		{ ID::exp_lfo_4_key_sync, 0 },
-		{ ID::exp_env_3_dest, 0 },		//env 3
+		//exposed env 3
+		{ ID::exp_env_3_dest, 0 },
 		{ ID::exp_env_3_amount, 127 },
 		{ ID::exp_env_3_vel_amt, 0 },
 		{ ID::exp_env_3_delay, 0 },
@@ -76,7 +81,8 @@ namespace MAP
 		{ ID::exp_env_3_sustain, 0 },
 		{ ID::exp_env_3_release, 0 },
 		{ ID::exp_env_3_repeat, 0 },
-		{ ID::exp_mod_1_src, 0 },		//mod
+		//exposed mod
+		{ ID::exp_mod_1_src, 0 },
 		{ ID::exp_mod_1_amt, 127 },
 		{ ID::exp_mod_1_dest, 0 },
 		{ ID::exp_mod_2_src, 0 },
@@ -88,7 +94,8 @@ namespace MAP
 		{ ID::exp_mod_4_src, 0 },
 		{ ID::exp_mod_4_amt, 127 },
 		{ ID::exp_mod_4_dest, 0 },
-		{ ID::exp_mod_wheel_amt, 127 },	//midi cc
+		//exposed midi cc
+		{ ID::exp_mod_wheel_amt, 127 },
 		{ ID::exp_mod_wheel_dest, 0 },
 		{ ID::exp_press_amt, 127 },
 		{ ID::exp_press_dest, 0 },
@@ -98,24 +105,29 @@ namespace MAP
 		{ ID::exp_velocity_dest, 0 },
 		{ ID::exp_pedal_amt, 127 },
 		{ ID::exp_pedal_dest, 0 },
-		{ ID::exp_push_it_pitch, 60 },  //push it
+		//exposed push it
+		{ ID::exp_push_it_pitch, 60 },
 		{ ID::exp_push_it_velo, 0 },
 		{ ID::exp_push_it_mode, 0 },
-		{ ID::exp_clock_tempo, 90 },	//clock & arp
+		//exposed clock & arp
+		{ ID::exp_clock_tempo, 90 },
 		{ ID::exp_clock_div, 2 },
 		{ ID::exp_arp_mode, 0 },
 		{ ID::exp_arpeg_on_off, 0 },
-		{ ID::exp_seq_trig_mode, 0 },	//seq
+		//exposed seq
+		{ ID::exp_seq_trig_mode, 0 },
 		{ ID::exp_seq_on_off, 0 },
 		{ ID::exp_seq_track_1_dest, 1 },
 		{ ID::exp_seq_track_2_dest, 2 },
 		{ ID::exp_seq_track_3_dest, 9 },
 		{ ID::exp_seq_track_4_dest, 0 },
-		{ ID::exp_flex_knob_1, 5 },		//flex knob
+		//exposed flex knob
+		{ ID::exp_flex_knob_1, 5 },
 		{ ID::exp_flex_knob_2, 11 },
 		{ ID::exp_flex_knob_3, 43 },
 		{ ID::exp_flex_knob_4, 23 },
-		{ ID::exp_unassigned_1, -1 },	 //unassigned
+		//exposed unassigned
+		{ ID::exp_unassigned_1, -1 },
 		{ ID::exp_unassigned_2, -1 },
 		{ ID::exp_unassigned_3, -1 },
 		{ ID::exp_unassigned_4, -1 },
@@ -126,7 +138,8 @@ namespace MAP
 		{ ID::exp_unassigned_9, -1 },
 		{ ID::exp_unassigned_10, -1 },
 		{ ID::exp_unassigned_11, -1 },
-		{ ID::exp_seq_track_1_step_1, 0 }, //seq step
+		//exposed seq step
+		{ ID::exp_seq_track_1_step_1, 0 },
 		{ ID::exp_seq_track_1_step_2, 0 },
 		{ ID::exp_seq_track_1_step_3, 0 },
 		{ ID::exp_seq_track_1_step_4, 0 },
@@ -190,7 +203,8 @@ namespace MAP
 		{ ID::exp_seq_track_4_step_14, 0 },
 		{ ID::exp_seq_track_4_step_15, 0 },
 		{ ID::exp_seq_track_4_step_16, 0 },
-		{ ID::exp_voice_name_char_1, (int)'B' }, //voice name
+		//exposed voice name char
+		{ ID::exp_voice_name_char_1, (int)'B' },
 		{ ID::exp_voice_name_char_2, (int)'a' },
 		{ ID::exp_voice_name_char_3, (int)'s' },
 		{ ID::exp_voice_name_char_4, (int)'i' },

@@ -6,7 +6,8 @@ namespace MAP
 {
 
 	static const std::unordered_map<String, String> name{
-		{ ID::exp_osc_1_pitch, "Oscillator 1 Pitch" },						//osc
+		//exposed osc
+		{ ID::exp_osc_1_pitch, "Oscillator 1 Pitch" },
 		{ ID::exp_osc_1_type, "Oscillator 1 Type" },
 		{ ID::exp_osc_1_pulse_w, "Oscillator 1 Pulse Width" },
 		{ ID::exp_osc_1_saw_tri, "Oscillator 1 Saw / Triangle Wave Blend" },
@@ -27,24 +28,29 @@ namespace MAP
 		{ ID::exp_osc_2_key_track, "Oscillator 2 Key Tracking" },
 		{ ID::exp_osc_2_lever_ctrl, "Oscillator 2 Lever Control" },
 		{ ID::exp_osc_balance, "Oscillator Balance" },
-		{ ID::exp_vcf_freq, "VCF Cutoff Frequency" },						//vcf
+		//exposed vcf
+		{ ID::exp_vcf_freq, "VCF Cutoff Frequency" },
 		{ ID::exp_vcf_reso, "VCF Resonance" },
 		{ ID::exp_vcf_env_1_amt, "VCF Envelope 1 Amount" },
 		{ ID::exp_vcf_press_amt, "VCF Pressure Amount" },
 		{ ID::exp_vcf_lever_ctrl, "VCF Lever Control" },
 		{ ID::exp_vcf_key_track, "VCF Key Tracking" },
-		{ ID::exp_vca_1_volume, "VCA 1 Volume" },							//vca
+		//exposed vca
+		{ ID::exp_vca_1_volume, "VCA 1 Volume" },
 		{ ID::exp_vca_1_velo_amt, "VCA 1 Velocity Amount" },
 		{ ID::exp_vca_2_env_2_amt, "VCA 2 Envelope 2 Amount" },
-		{ ID::exp_vcf_fm_osc_1_amt, "VCF FM By Oscillator 1 Amount" },		//vcf fm
+		//exposed vcf fm
+		{ ID::exp_vcf_fm_osc_1_amt, "VCF FM By Oscillator 1 Amount" },
 		{ ID::exp_vcf_fm_env_3_amt, "VCF FM Envelope 3 Amount" },
 		{ ID::exp_vcf_fm_press_amt, "VCF FM Pressure Amount" },
-		{ ID::exp_porta_rate, "Portamento Rate" },					//porta & keyboard mode
+		//exposed porta & keyboard mode
+		{ ID::exp_porta_rate, "Portamento Rate" },
 		{ ID::exp_porta_velo, "Portamento Velocity Amount" },
 		{ ID::exp_porta_mode, "Portamento Mode" },
 		{ ID::exp_porta_legato, "Portamento Legato Off / On" },
 		{ ID::exp_keyboard_mode, "Keyboard Mode" },
-		{ ID::exp_lfo_1_speed, "LFO 1 Speed" },								//lfo
+		//exposed lfo
+		{ ID::exp_lfo_1_speed, "LFO 1 Speed" },
 		{ ID::exp_lfo_1_wave_type, "LFO 1 Wave Type" },
 		{ ID::exp_lfo_1_samp_source, "LFO 1 Sample Source" },
 		{ ID::exp_lfo_1_amp, "LFO 1 Amplitude" },
@@ -62,17 +68,20 @@ namespace MAP
 		{ ID::exp_lfo_2_trig_mode, "LFO 2 Trigger Mode" },
 		{ ID::exp_lfo_2_retrig_point, "LFO 2 Retrigger Point" },
 		{ ID::exp_lfo_2_lag, "LFO 2 Lag Processing Off / On" },
-		{ ID::exp_ramp_1_rate, "Ramp 1 Rate" },								//ramp
+		//exposed ramp
+		{ ID::exp_ramp_1_rate, "Ramp 1 Rate" },
 		{ ID::exp_ramp_1_trig, "Ramp 1 Trigger" },
 		{ ID::exp_ramp_2_rate, "Ramp 2 Rate" },
 		{ ID::exp_ramp_2_trig, "Ramp 2 Trigger" },
-		{ ID::exp_track_input, "Tracking Generator Input" },				//tracking
+		//exposed tracking
+		{ ID::exp_track_input, "Tracking Generator Input" },
 		{ ID::exp_track_point_1, "Tracking Point 1" },
 		{ ID::exp_track_point_2, "Tracking Point 2" },
 		{ ID::exp_track_point_3, "Tracking Point 3" },
 		{ ID::exp_track_point_4, "Tracking Point 4" },
 		{ ID::exp_track_point_5, "Tracking Point 5" },
-		{ ID::exp_env_1_amp, "Envelope 1 Amplitude" },						//env
+		//exposed env
+		{ ID::exp_env_1_amp, "Envelope 1 Amplitude" },
 		{ ID::exp_env_1_velo_amt, "Envelope 1 Velocity Amount" },
 		{ ID::exp_env_1_trig_mode, "Envelope 1 Trigger Mode" },
 		{ ID::exp_env_1_mode, "Envelope 1 Mode" },
