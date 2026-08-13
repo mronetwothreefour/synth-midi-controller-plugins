@@ -6,7 +6,7 @@ class Editor :
     public Editor_A
 {
 //==============================================================================
-public: Editor(Audio_Processor& processor/*, Data_Hub_P* hub*/);
+public: Editor(Audio_Processor& processor, Data_Hub_P* hub);
 
 public: void resized() override;
 
