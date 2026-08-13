@@ -43,6 +43,7 @@
             file="../../_Abstract_Source/G_DRAW_Paths_A.h"/>
     </GROUP>
     <GROUP id="{32092108-0241-6FE8-7138-4212DA364901}" name="_Project_Source">
+      <FILE id="KrX49J" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
       <FILE id="P21n9k" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
       <FILE id="YmBJVS" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
       <FILE id="tfn1Lh" name="C_ID_EXP_P.h" compile="0" resource="0" file="_Project_Source/C_ID_EXP_P.h"/>
@@ -53,6 +54,8 @@
       <FILE id="SfSjOa" name="C_MAP_Init_Choice_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Init_Choice_P.h"/>
       <FILE id="o9saaD" name="C_MAP_Name_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Name_P.h"/>
+      <FILE id="MpMZQl" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
+            file="_Project_Source/C_PATH_Backdrop_Main_P.h"/>
       <FILE id="hk4Zae" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
       <FILE id="eNAULD" name="D_BUILD_Choices_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Choices_P.cpp"/>
@@ -76,6 +79,10 @@
             file="_Project_Source/D_X_G_Editor_P.cpp"/>
       <FILE id="xYL011" name="D_X_G_Editor_P.h" compile="0" resource="0"
             file="_Project_Source/D_X_G_Editor_P.h"/>
+      <FILE id="IDE8D5" name="G_DRAW_Paths_Main_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_DRAW_Paths_Main_P.cpp"/>
+      <FILE id="E2IHz5" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
+            file="_Project_Source/G_DRAW_Paths_Main_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
