@@ -44,6 +44,7 @@
             file="../../_Abstract_Source/G_DRAW_Paths_A.h"/>
     </GROUP>
     <GROUP id="{254E4686-BC92-207B-DE29-DE75CD919E28}" name="_Project_Source">
+      <FILE id="qJ0JUp" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
       <FILE id="nFiIIh" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
       <FILE id="P9I3fG" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
       <FILE id="YLBGkS" name="C_ID_EXP_P.h" compile="0" resource="0" file="_Project_Source/C_ID_EXP_P.h"/>
@@ -54,6 +55,8 @@
       <FILE id="XY2dZ3" name="C_MAP_Init_Choice_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Init_Choice_P.h"/>
       <FILE id="vD7I0O" name="C_MAP_Name_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Name_P.h"/>
+      <FILE id="JtZo7R" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
+            file="_Project_Source/C_PATH_Backdrop_Main_P.h"/>
       <FILE id="YKy4lq" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
       <FILE id="BIdvPZ" name="D_BUILD_Choices_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Choices_P.cpp"/>
@@ -77,6 +80,10 @@
             file="_Project_Source/D_X_G_Editor_P.cpp"/>
       <FILE id="LwZvTN" name="D_X_G_Editor_P.h" compile="0" resource="0"
             file="_Project_Source/D_X_G_Editor_P.h"/>
+      <FILE id="tdRHvj" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
+            file="_Project_Source/G_DRAW_Paths_Main_P.h"/>
+      <FILE id="cLzEWb" name="G_DRAW_Paths_Main_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_DRAW_Paths_Main_P.cpp"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
