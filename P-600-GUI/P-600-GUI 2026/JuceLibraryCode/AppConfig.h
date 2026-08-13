@@ -22,7 +22,7 @@
 
 #include "JucePluginDefines.h"
 
-#define JUCE_PROJUCER_VERSION 0x90000
+#define JUCE_PROJUCER_VERSION 0x90001
 
 //==============================================================================
 #define JUCE_MODULE_AVAILABLE_juce_audio_basics                   1
@@ -98,6 +98,10 @@
 
 #ifndef    JUCE_USE_FLAC
  //#define JUCE_USE_FLAC 1
+#endif
+
+#ifndef    JUCE_INCLUDE_FLAC_CODE
+ //#define JUCE_INCLUDE_FLAC_CODE 1
 #endif
 
 #ifndef    JUCE_USE_OGGVORBIS
@@ -254,6 +258,14 @@
  //#define JUCE_DISABLE_COREGRAPHICS_FONT_SMOOTHING 0
 #endif
 
+#ifndef    JUCE_INCLUDE_PNGLIB_CODE
+ //#define JUCE_INCLUDE_PNGLIB_CODE 1
+#endif
+
+#ifndef    JUCE_INCLUDE_JPEGLIB_CODE
+ //#define JUCE_INCLUDE_JPEGLIB_CODE 1
+#endif
+
 //==============================================================================
 // juce_gui_basics flags:
 
@@ -307,6 +319,8 @@
 #ifndef    JUCE_ENABLE_LIVE_CONSTANT_EDITOR
  //#define JUCE_ENABLE_LIVE_CONSTANT_EDITOR 0
 #endif
+
+#define JUCE_WEBVIEW_INTEROP_LIBRARY_VERSION "1.0.0"
 
 //==============================================================================
 #ifndef    JUCE_STANDALONE_APPLICATION

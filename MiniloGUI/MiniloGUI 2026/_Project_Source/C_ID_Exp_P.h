@@ -23,7 +23,7 @@ namespace ID
 	static const String exp_lpf_key_track{ "exp_lpf_key_track" };
 	static const String exp_lpf_reso{ "exp_lpf_reso" };
 	static const String exp_lpf_type{ "exp_lpf_type" };
-	static const String exp_lpf_vel_amt{ "exp_lpf_vel_amt" };
+	static const String exp_lpf_velo_amt{ "exp_lpf_velo_amt" };
 	static const String exp_mix_noise{ "exp_level_noise" };
 	static const String exp_mix_osc_1{ "exp_level_osc_1" };
 	static const String exp_mix_osc_2{ "exp_level_osc_2" };
@@ -66,7 +66,7 @@ namespace ID
 		exp_lpf_eg_int,
 		exp_lpf_type,
 		exp_lpf_key_track,
-		exp_lpf_vel_amt,
+		exp_lpf_velo_amt,
 		exp_vca_env_attack,
 		exp_vca_env_decay,
 		exp_vca_env_sustain,

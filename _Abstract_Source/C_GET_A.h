@@ -16,4 +16,5 @@ struct Get_A
 	static const StringArray choices_for(const String component_id, const bool curt = false);
 	static const int init_choice_for(const String component_id);
 	static const String name_for(const String component_id);
+	static const String tip_for(const String component_id);
 };

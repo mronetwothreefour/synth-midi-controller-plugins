@@ -148,6 +148,7 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\C_GET_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Exp_Param_Layout_A.cpp"/>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.cpp"/>
@@ -155,6 +156,7 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.cpp"/>
     <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\D_BUILD_Tip_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_CONVERT_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Data_Hub_P.cpp"/>
@@ -3162,6 +3164,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_ID_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Exp_Param_Layout_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.h"/>
@@ -3175,9 +3178,12 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Choice_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Name_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Tip_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_PATH_Backdrop_Main_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Exposed_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\D_BUILD_Tip_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_CONVERT_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Data_Hub_P.h"/>
@@ -4855,6 +4861,10 @@
     <None Include="..\..\..\..\..\JUCE\modules\juce_graphics\image_formats\jpglib\JUCE_CHANGES.txt"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_graphics\image_formats\pnglib\JUCE_CHANGES.txt"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_graphics\unicode\sheenbidi\JUCE_CHANGES.txt"/>
+    <None Include="..\..\..\..\..\JUCE\modules\juce_gui_extra\native\typescript\webview-interop\LICENSE-AGPL.md"/>
+    <None Include="..\..\..\..\..\JUCE\modules\juce_gui_extra\native\typescript\webview-interop\LICENSE-JUCE.md"/>
+    <None Include="..\..\..\..\..\JUCE\modules\juce_gui_extra\native\typescript\webview-interop\LICENSE.md"/>
+    <None Include="..\..\..\..\..\JUCE\modules\juce_gui_extra\native\typescript\webview-interop\README.md"/>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
 </Project>

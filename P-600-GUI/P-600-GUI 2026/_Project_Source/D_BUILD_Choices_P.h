@@ -5,6 +5,6 @@
 struct Build_Choices :
 	public Build_Choices_A
 {
-	static const StringArray filter_key_track();
-	static const StringArray lfo_shape();
+	static const StringArray exp_filter_key_track();
+	static const StringArray exp_lfo_shape();
 };

@@ -22,6 +22,9 @@
             resource="0" file="../../_Abstract_Source/D_BUILD_Exp_Param_Layout_A.cpp"/>
       <FILE id="rF6GLa" name="D_BUILD_Exp_Param_Layout_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/D_BUILD_Exp_Param_Layout_A.h"/>
+      <FILE id="sKH72B" name="D_BUILD_Tip_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Tip_A.cpp"/>
+      <FILE id="fiTMOK" name="D_BUILD_Tip_A.h" compile="0" resource="0" file="../../_Abstract_Source/D_BUILD_Tip_A.h"/>
       <FILE id="HT9OJK" name="D_CONVERT_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/D_CONVERT_A.cpp"/>
       <FILE id="Mx8bk1" name="D_CONVERT_A.h" compile="0" resource="0" file="../../_Abstract_Source/D_CONVERT_A.h"/>
       <FILE id="rpjpo9" name="D_X_G_Audio_Processor_A.cpp" compile="1" resource="0"
@@ -58,13 +61,19 @@
       <FILE id="GwDJfB" name="C_MAP_Init_Choice_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Init_Choice_P.h"/>
       <FILE id="DhLz8c" name="C_MAP_Name_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Name_P.h"/>
+      <FILE id="DxsvA7" name="C_MAP_Tip_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Tip_P.h"/>
       <FILE id="IciGC5" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
             file="_Project_Source/C_PATH_Backdrop_Main_P.h"/>
+      <FILE id="z9oLvp" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
+            file="_Project_Source/C_SL_Tip_Exposed_P.h"/>
       <FILE id="L1qTXl" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
       <FILE id="r85xIW" name="D_BUILD_Choices_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Choices_P.cpp"/>
       <FILE id="dfRBqi" name="D_BUILD_Choices_P.h" compile="0" resource="0"
             file="_Project_Source/D_BUILD_Choices_P.h"/>
+      <FILE id="LrsQAc" name="D_BUILD_Tip_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_BUILD_Tip_P.cpp"/>
+      <FILE id="eKVSZv" name="D_BUILD_Tip_P.h" compile="0" resource="0" file="_Project_Source/D_BUILD_Tip_P.h"/>
       <FILE id="SJUxeK" name="D_CONVERT_P.cpp" compile="1" resource="0" file="_Project_Source/D_CONVERT_P.cpp"/>
       <FILE id="Sv9wVH" name="D_CONVERT_P.h" compile="0" resource="0" file="_Project_Source/D_CONVERT_P.h"/>
       <FILE id="PObQeY" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"

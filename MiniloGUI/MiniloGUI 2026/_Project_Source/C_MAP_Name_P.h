@@ -30,7 +30,7 @@ namespace MAP
 		{ ID::exp_lpf_eg_int, "LPF EG Intensity" },
 		{ ID::exp_lpf_type, "LPF Type" },
 		{ ID::exp_lpf_key_track, "LPF Key Tracking" },
-		{ ID::exp_lpf_vel_amt, "LPF Velocity Amount" },
+		{ ID::exp_lpf_velo_amt, "LPF Velocity Amount" },
 		//vca env
 		{ ID::exp_vca_env_attack, "VCA Envelope Attack" },
 		{ ID::exp_vca_env_decay, "VCA Envelope Decay" },

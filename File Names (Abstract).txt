@@ -3,6 +3,7 @@ C_GET_A
 C_ID_A
 D_BUILD_Choices_A
 D_BUILD_Exp_Param_Layout_A
+D_BUILD_Tip_A
 D_CONVERT_A
 D_X_G_Audio_Processor_A
 D_X_G_Data_Hub_A

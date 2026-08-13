@@ -29,7 +29,7 @@ namespace MAP
 		{ ID::exp_filter_cutoff, Choices::unsigned_int(127) },
 		{ ID::exp_filter_reso, Choices::unsigned_int(63) },
 		{ ID::exp_filter_env_amt, Choices::unsigned_int(15) },
-		{ ID::exp_filter_key_track, Choices::filter_key_track() },
+		{ ID::exp_filter_key_track, Choices::exp_filter_key_track() },
 		{ ID::exp_filter_env_attack, Choices::unsigned_int(15) },
 		{ ID::exp_filter_env_decay, Choices::unsigned_int(15) },
 		{ ID::exp_filter_env_sustain, Choices::unsigned_int(15) },
@@ -46,7 +46,7 @@ namespace MAP
 		{ ID::exp_p_mod_dest_filter, Choices::off_on() },
 		//lfo
 		{ ID::exp_lfo_freq, Choices::unsigned_int(15) },
-		{ ID::exp_lfo_shape, Choices::lfo_shape() },
+		{ ID::exp_lfo_shape, Choices::exp_lfo_shape() },
 		{ ID::exp_lfo_init_amt, Choices::unsigned_int(31) },
 		{ ID::exp_lfo_dest_osc_pitch, Choices::off_on() },
 		{ ID::exp_lfo_dest_osc_pw, Choices::off_on() },

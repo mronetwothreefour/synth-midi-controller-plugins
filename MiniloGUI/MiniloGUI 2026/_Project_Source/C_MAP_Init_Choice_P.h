@@ -30,7 +30,7 @@ namespace MAP
 		{ ID::exp_lpf_eg_int, 512 },
 		{ ID::exp_lpf_type, 1 },
 		{ ID::exp_lpf_key_track, 0 },
-		{ ID::exp_lpf_vel_amt, 0 },
+		{ ID::exp_lpf_velo_amt, 0 },
 		//vca env
 		{ ID::exp_vca_env_attack, 0 },
 		{ ID::exp_vca_env_decay, 512 },

@@ -1,6 +1,6 @@
 #include "D_BUILD_Choices_P.h"
 
-const StringArray Build_Choices::env_mode() {
+const StringArray Build_Choices::exp_env_mode() {
 	StringArray list;
 	list.add("NORMAL__normal");
 	list.add("DADR__delay | attack | decay | release");
@@ -9,7 +9,7 @@ const StringArray Build_Choices::env_mode() {
 	return list;
 }
 
-const StringArray Build_Choices::env_trig_mode() {
+const StringArray Build_Choices::exp_env_trig_mode() {
 	StringArray list;
 	list.add("STRIG__single trigger");
 	list.add("SRESET__single trigger reset");
@@ -22,7 +22,7 @@ const StringArray Build_Choices::env_trig_mode() {
 	return list;
 }
 
-const StringArray Build_Choices::env_lfo_1_trig() {
+const StringArray Build_Choices::exp_env_lfo_1_trig() {
 	StringArray list;
 	list.add("NORMAL__normal (no LFO 1 trigger)");
 	list.add("G-LFO1__gated LFO 1 trigger");
@@ -30,7 +30,7 @@ const StringArray Build_Choices::env_lfo_1_trig() {
 	return list;
 }
 
-const StringArray Build_Choices::keyboard_mode() {
+const StringArray Build_Choices::exp_keyboard_mode() {
 	StringArray list;
 	list.add("REASGN__reassign");
 	list.add("ROTATE__rotate");
@@ -39,7 +39,7 @@ const StringArray Build_Choices::keyboard_mode() {
 	return list;
 }
 
-const StringArray Build_Choices::lever_ctrl() {
+const StringArray Build_Choices::exp_lever_ctrl() {
 	StringArray list;
 	list.add("OFF__off");
 	list.add("BEND__pitch bend by lever 1");
@@ -48,7 +48,7 @@ const StringArray Build_Choices::lever_ctrl() {
 	return list;
 }
 
-const StringArray Build_Choices::lfo_trig_mode() {
+const StringArray Build_Choices::exp_lfo_trig_mode() {
 	StringArray list;
 	list.add("OFF__off (free running)");
 	list.add("STRIG__single trigger");
@@ -57,7 +57,7 @@ const StringArray Build_Choices::lfo_trig_mode() {
 	return list;
 }
 
-const StringArray Build_Choices::lfo_wave_type() {
+const StringArray Build_Choices::exp_lfo_wave_type() {
 	StringArray list;
 	list.add("TRI__triangle");
 	list.add("UPSAW__up (rising) sawtooth");
@@ -69,7 +69,7 @@ const StringArray Build_Choices::lfo_wave_type() {
 	return list;
 }
 
-const StringArray Build_Choices::input_source(bool for_lfo) {
+const StringArray Build_Choices::exp_input_source(bool for_lfo) {
 	StringArray list;
 	list.add("NONE__none");
 	list.add(String{ for_lfo ? "ENV1" : "ENV 1" } + "__envelope 1");
@@ -95,18 +95,18 @@ const StringArray Build_Choices::input_source(bool for_lfo) {
 	return list;
 }
 
-const StringArray Build_Choices::off_on_matrix() {
+const StringArray Build_Choices::exp_off_on_matrix() {
 	return { "OFF__off", "ON__on" };
 }
 
-const StringArray Build_Choices::osc_1_key_track() {
+const StringArray Build_Choices::exp_osc_1_key_track() {
 	StringArray list;
 	list.add("KEYBD__normal key tracking");
 	list.add("PORTA__key tracking with portamento");
 	return list;
 }
 
-const StringArray Build_Choices::osc_1_sync() {
+const StringArray Build_Choices::exp_osc_1_sync() {
 	StringArray list;
 	list.add("OFF__off (0)");
 	list.add("SOFT__soft sync (1)");
@@ -115,7 +115,7 @@ const StringArray Build_Choices::osc_1_sync() {
 	return list;
 }
 
-const StringArray Build_Choices::osc_2_and_vcf_key_track() {
+const StringArray Build_Choices::exp_osc_2_and_vcf_key_track() {
 	StringArray list;
 	list.add("OFF__key tracking is off");
 	list.add("PORTA__key tracking with portamento");
@@ -123,7 +123,7 @@ const StringArray Build_Choices::osc_2_and_vcf_key_track() {
 	return list;
 }
 
-const StringArray Build_Choices::osc_lever_control() {
+const StringArray Build_Choices::exp_osc_lever_control() {
 	StringArray list;
 	list.add("OFF__off");
 	list.add("BEND__pitch bend by lever 1");
@@ -132,7 +132,7 @@ const StringArray Build_Choices::osc_lever_control() {
 	return list;
 }
 
-const StringArray Build_Choices::osc_type(const int o) {
+const StringArray Build_Choices::exp_osc_type(const int o) {
 	StringArray list;
 	list.add("OFF__off");
 	list.add("PULSE__pulse");
@@ -143,7 +143,7 @@ const StringArray Build_Choices::osc_type(const int o) {
 	return list;
 }
 
-const StringArray Build_Choices::porta_mode() {
+const StringArray Build_Choices::exp_porta_mode() {
 	StringArray list;
 	list.add("LINEAR__linear");
 	list.add("CONST__constant time");
@@ -151,7 +151,7 @@ const StringArray Build_Choices::porta_mode() {
 	return list;
 }
 
-const StringArray Build_Choices::ramp_trig() {
+const StringArray Build_Choices::exp_ramp_trig() {
 	StringArray list;
 	list.add("STRIG__single trigger");
 	list.add("MTRIG__multiple trigger");

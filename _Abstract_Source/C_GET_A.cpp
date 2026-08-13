@@ -4,6 +4,7 @@
 #include "C_MAP_Choices_P.h"
 #include "C_MAP_Init_Choice_P.h"
 #include "C_MAP_Name_P.h"
+#include "C_MAP_Tip_P.h"
 
 const double Get_A::editor_aspect_ratio() {
 	return XYWH::editor_aspect_ratio;
@@ -62,5 +63,11 @@ const int Get_A::init_choice_for(const String component_id) {
 const String Get_A::name_for(const String component_id) {
 	if (MAP::name.find(component_id) != MAP::name.end())
 		return MAP::name.at(component_id);
+	return {};
+}
+
+const String Get_A::tip_for(const String component_id) {
+	if (MAP::tip.find(component_id) != MAP::tip.end())
+		return MAP::tip.at(component_id);
 	return {};
 }
