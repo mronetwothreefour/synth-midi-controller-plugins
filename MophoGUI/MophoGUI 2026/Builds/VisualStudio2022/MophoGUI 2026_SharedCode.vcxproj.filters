@@ -874,6 +874,9 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.cpp">
       <Filter>MophoGUI 2026\_Abstract_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.cpp">
+      <Filter>MophoGUI 2026\_Abstract_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClCompile>
@@ -4132,6 +4135,9 @@
       <Filter>MophoGUI 2026\_Abstract_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.h">
+      <Filter>MophoGUI 2026\_Abstract_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.h">
       <Filter>MophoGUI 2026\_Abstract_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h">

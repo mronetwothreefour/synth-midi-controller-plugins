@@ -46,6 +46,10 @@
             file="../../_Abstract_Source/G_DRAW_Paths_A.cpp"/>
       <FILE id="dBkPO2" name="G_DRAW_Paths_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_DRAW_Paths_A.h"/>
+      <FILE id="YcvObZ" name="G_WIDGET_Tip_Updater_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Tip_Updater_A.cpp"/>
+      <FILE id="Af04Xk" name="G_WIDGET_Tip_Updater_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Tip_Updater_A.h"/>
     </GROUP>
     <GROUP id="{32092108-0241-6FE8-7138-4212DA364901}" name="_Project_Source">
       <FILE id="KrX49J" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>

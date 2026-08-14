@@ -10,3 +10,4 @@ D_X_G_Data_Hub_A
 D_X_G_Data_User_A
 D_X_G_Editor_A
 G_DRAW_Paths_A
+G_WIDGET_Tip_Updater_A
