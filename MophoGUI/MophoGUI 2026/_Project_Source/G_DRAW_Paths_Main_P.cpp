@@ -3,7 +3,9 @@
 #include "C_COLOR_P.h"
 #include "C_PATH_Backdrop_Main_P.h"
 
-void Draw_Paths_Main_P::backdrop(Graphics& g) {
+using namespace DRAW;
+
+void Paths_Main::backdrop(Graphics& g) {
 	g.fillAll(COLOR::ground);
 	g.setColour(COLOR::yellow);
 	g.fillPath(load_path(PATH::main_bullseye, sizeof(PATH::main_bullseye)));

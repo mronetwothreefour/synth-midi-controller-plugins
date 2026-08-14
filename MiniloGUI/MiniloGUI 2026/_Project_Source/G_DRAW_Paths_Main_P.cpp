@@ -5,9 +5,10 @@
 #include "C_GET_P.h"
 #include "C_PATH_Backdrop_Main_P.h"
 
+using namespace DRAW;
 using namespace ID;
 
-ColourGradient Draw_Paths_Main_P::ground_gradient(float w, float h) {
+ColourGradient Paths_Main::ground_gradient(float w, float h) {
 	ColourGradient gradient{ COLOR::ground_1, 0.0f, h, COLOR::ground_1, w, 0.0f, false };
 	gradient.addColour(0.22, COLOR::ground_2);
 	gradient.addColour(0.5, COLOR::ground_1);
@@ -15,7 +16,7 @@ ColourGradient Draw_Paths_Main_P::ground_gradient(float w, float h) {
 	return gradient;
 }
 
-void Draw_Paths_Main_P::backdrop(Graphics& g) {
+void Paths_Main::backdrop(Graphics& g) {
 	g.setGradientFill(ground_gradient((float)GET::init_w_for(gui_editor), (float)GET::init_h_for(gui_editor)));
 	g.fillAll();
 	Path screws_path{ load_path(PATH::main_screws, sizeof(PATH::main_screws)) };

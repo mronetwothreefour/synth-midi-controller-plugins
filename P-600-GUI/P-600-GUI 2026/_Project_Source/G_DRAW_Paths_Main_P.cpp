@@ -3,7 +3,9 @@
 #include "C_COLOR_P.h"
 #include "C_PATH_Backdrop_Main_P.h"
 
-void Draw_Paths_Main_P::backdrop(Graphics& g) {
+using namespace DRAW;
+
+void Paths_Main::backdrop(Graphics& g) {
 	MemoryInputStream texture_stream{ BinaryData::texture_jpg, BinaryData::texture_jpgSize, false };
 	JPEGImageFormat img_format;
 	auto background_texture = img_format.decodeImage(texture_stream);

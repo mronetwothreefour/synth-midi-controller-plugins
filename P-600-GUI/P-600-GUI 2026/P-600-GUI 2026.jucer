@@ -43,6 +43,8 @@
             file="../../_Abstract_Source/D_X_G_Editor_A.cpp"/>
       <FILE id="rXTVD1" name="D_X_G_Editor_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/D_X_G_Editor_A.h"/>
+      <FILE id="Zdv8AE" name="G_DRAW_Paths_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_DRAW_Paths_A.cpp"/>
       <FILE id="SUaSdy" name="G_DRAW_Paths_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_DRAW_Paths_A.h"/>
     </GROUP>

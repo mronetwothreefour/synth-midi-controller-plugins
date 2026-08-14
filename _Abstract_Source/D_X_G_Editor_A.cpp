@@ -27,7 +27,7 @@ Editor_A::Editor_A(Audio_Processor& processor, Data_Hub_P* hub) :
 
 void Editor_A::paint(Graphics& g) {
     g.addTransform(AffineTransform::scale(scale_factor));
-    Draw_Paths_Main_P::backdrop(g);
+    DRAW::Paths_Main::backdrop(g);
 }
 
 void Editor_A::modifierKeysChanged(const ModifierKeys& /*mods*/) {

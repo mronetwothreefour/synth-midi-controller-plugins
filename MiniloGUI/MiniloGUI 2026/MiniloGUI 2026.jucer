@@ -42,6 +42,8 @@
             file="../../_Abstract_Source/D_X_G_Editor_A.cpp"/>
       <FILE id="zdcqkI" name="D_X_G_Editor_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/D_X_G_Editor_A.h"/>
+      <FILE id="Rpq3UR" name="G_DRAW_Paths_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_DRAW_Paths_A.cpp"/>
       <FILE id="dBkPO2" name="G_DRAW_Paths_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_DRAW_Paths_A.h"/>
     </GROUP>
