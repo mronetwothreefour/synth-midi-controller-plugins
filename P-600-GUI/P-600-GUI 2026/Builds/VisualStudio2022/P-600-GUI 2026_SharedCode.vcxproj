@@ -3172,10 +3172,12 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.h"/>
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_ENUM_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_GET_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_ID_EXP_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Bounds_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Type_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Choice_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Name_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Tip_P.h"/>

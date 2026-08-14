@@ -4140,6 +4140,9 @@
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_ENUM_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_GET_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
@@ -4150,6 +4153,9 @@
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Type_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Choice_P.h">

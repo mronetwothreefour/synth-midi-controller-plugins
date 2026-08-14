@@ -48,6 +48,7 @@
     </GROUP>
     <GROUP id="{254E4686-BC92-207B-DE29-DE75CD919E28}" name="_Project_Source">
       <FILE id="qJ0JUp" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
+      <FILE id="QvoKYL" name="C_ENUM_P.h" compile="0" resource="0" file="_Project_Source/C_ENUM_P.h"/>
       <FILE id="nFiIIh" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
       <FILE id="P9I3fG" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
       <FILE id="YLBGkS" name="C_ID_EXP_P.h" compile="0" resource="0" file="_Project_Source/C_ID_EXP_P.h"/>
@@ -55,6 +56,8 @@
             file="_Project_Source/C_MAP_Bounds_P.h"/>
       <FILE id="RS0XUj" name="C_MAP_Choices_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Choices_P.h"/>
+      <FILE id="MOORah" name="C_MAP_Ctrl_Type_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Ctrl_Type_P.h"/>
       <FILE id="XY2dZ3" name="C_MAP_Init_Choice_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Init_Choice_P.h"/>
       <FILE id="vD7I0O" name="C_MAP_Name_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Name_P.h"/>
