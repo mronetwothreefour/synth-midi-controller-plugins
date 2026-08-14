@@ -7,7 +7,7 @@
 class Audio_Processor_A :
     public AudioProcessor
 {
-protected: std::unique_ptr<Data_Hub_P> hub;
+protected: std::unique_ptr<Data_Hub> hub;
 
 //==============================================================================
 public: Audio_Processor_A();

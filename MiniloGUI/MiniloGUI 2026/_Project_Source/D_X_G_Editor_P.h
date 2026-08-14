@@ -9,7 +9,7 @@ class Editor :
 //private: Layer_Envelopes_P layer_envelopes;
 
 //==============================================================================
-public: Editor(Audio_Processor& processor, Data_Hub_P* hub);
+public: Editor(Audio_Processor& processor, Data_Hub* hub);
 
 public: void resized() override;
 

@@ -2,7 +2,7 @@
 
 Audio_Processor_A::Audio_Processor_A() :
     AudioProcessor{ BusesProperties{} },
-    hub{ new Data_Hub_P{ this } }
+    hub{ new Data_Hub{ this } }
 {}
 
 const String Audio_Processor_A::getName() const { return JucePlugin_Name; }

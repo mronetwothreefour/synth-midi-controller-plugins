@@ -5,7 +5,7 @@
 
 using namespace ID;
 
-Editor::Editor(Audio_Processor& processor, Data_Hub_P* hub) :
+Editor::Editor(Audio_Processor& processor, Data_Hub* hub) :
     Editor_A{ processor, hub }/*,*/
     //layer_envelopes{ hub }
 {

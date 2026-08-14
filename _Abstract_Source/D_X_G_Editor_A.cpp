@@ -6,10 +6,10 @@
 
 using namespace ID;
 
-Editor_A::Editor_A(Audio_Processor& processor, Data_Hub_P* hub) :
+Editor_A::Editor_A(Audio_Processor& processor, Data_Hub* hub) :
     AudioProcessorEditor{ &processor },
     processor{ processor },
-    Data_User_P{ hub }/*,
+    Data_User{ hub }/*,
     layer_exp_ctrls{ hub },
     l_a_f{ scale_factor }*/
 {

@@ -7,7 +7,7 @@
 
 class Editor_A :
     public AudioProcessorEditor,
-    public Data_User_P,
+    public Data_User,
     public ValueTree::Listener
 {
 protected: Audio_Processor& processor;
@@ -16,7 +16,7 @@ protected: Audio_Processor& processor;
 protected: TooltipWindow tip_win;
 
 //==============================================================================
-public: Editor_A(Audio_Processor& processor, Data_Hub_P* hub);
+public: Editor_A(Audio_Processor& processor, Data_Hub* hub);
 
 public: void paint(Graphics& g) override;
 public: void modifierKeysChanged(const ModifierKeys& mods) override;

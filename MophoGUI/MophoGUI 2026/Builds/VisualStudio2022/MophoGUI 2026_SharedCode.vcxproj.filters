@@ -892,10 +892,10 @@
     <ClCompile Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.cpp">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\_Project_Source\D_X_G_Data_Hub_P.cpp">
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Data_Hub.cpp">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\_Project_Source\D_X_G_Data_User_P.cpp">
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Data_User.cpp">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Editor_P.cpp">
@@ -4191,10 +4191,10 @@
     <ClInclude Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.h">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\D_X_G_Data_Hub_P.h">
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Data_Hub.h">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\D_X_G_Data_User_P.h">
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Data_User.h">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Editor_P.h">
