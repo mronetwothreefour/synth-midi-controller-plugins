@@ -16,7 +16,7 @@ ColourGradient Draw_Paths_Main_P::ground_gradient(float w, float h) {
 }
 
 void Draw_Paths_Main_P::backdrop(Graphics& g) {
-	g.setGradientFill(ground_gradient((float)Get::init_w_for(gui_editor), (float)Get::init_h_for(gui_editor)));
+	g.setGradientFill(ground_gradient((float)GET::init_w_for(gui_editor), (float)GET::init_h_for(gui_editor)));
 	g.fillAll();
 	Path screws_path{ load_path(PATH::main_screws, sizeof(PATH::main_screws)) };
 	DropShadow screws_shadow{ COLOR::black, 1, Point<int>{ -1, 1 } };

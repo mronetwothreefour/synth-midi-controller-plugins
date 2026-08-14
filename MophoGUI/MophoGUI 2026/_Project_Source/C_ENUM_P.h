@@ -1,6 +1,7 @@
 #pragma once
 
-namespace ENUM {
+namespace ENUM
+{
 
 	enum class Ctrl {
 		null = -1,

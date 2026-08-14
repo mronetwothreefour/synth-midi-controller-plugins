@@ -3,7 +3,7 @@
 #include "C_ID_Exp_P.h"
 #include "D_BUILD_Tip_P.h"
 
-using Tip = Build_Tip;
+using namespace BUILD;
 
 namespace MAP
 {

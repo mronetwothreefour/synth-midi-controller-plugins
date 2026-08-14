@@ -2,20 +2,22 @@
 
 #include "D_CONVERT_P.h"
 
-const StringArray Build_Choices_A::off_on() {
+using namespace BUILD;
+
+const StringArray Choices_A::off_on() {
 	return { "off", "on" };
 }
 
-const StringArray Build_Choices_A::osc_pitch(const int choice_count) {
+const StringArray Choices_A::osc_pitch(const int choice_count) {
 	StringArray list;
 	for (int i = 0; i < choice_count; ++i) {
-		String p{ Convert::int_to_pitch(i) };
+		String p{ CONVERT::int_to_pitch(i) };
 		list.add(p + "__" + p + " (MIDI note " + (String)i + ")");
 	}
 	return list;
 }
 
-const StringArray Build_Choices_A::signed_int(const int min, const int max) {
+const StringArray Choices_A::signed_int(const int min, const int max) {
 	StringArray list;
 	for (int i = min; i <= max; ++i) {
 		String n{ (i > 0 ? "+" : "") + (String)i };
@@ -24,7 +26,7 @@ const StringArray Build_Choices_A::signed_int(const int min, const int max) {
 	return list;
 }
 
-const StringArray Build_Choices_A::unsigned_int(const int max) {
+const StringArray Choices_A::unsigned_int(const int max) {
 	StringArray list;
 	for (int i = 0; i <= max; ++i) {
 		list.add((String)i);

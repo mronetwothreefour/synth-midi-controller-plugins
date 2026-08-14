@@ -147,9 +147,9 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\..\_Abstract_Source\C_GET_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_A.cpp"/>
-    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Exp_Param_Layout_A.cpp"/>
-    <ClCompile Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.cpp"/>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Layout_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_A.cpp"/>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Data_User_A.cpp"/>
@@ -3162,9 +3162,9 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_GET_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_ID_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_A.h"/>
-    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Exp_Param_Layout_A.h"/>
-    <ClInclude Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Layout_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Data_User_A.h"/>

@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-struct Get_A
+struct GET_A
 {
 	static const double editor_aspect_ratio();
 	static const Rectangle<int> init_bounds_for(const String id);

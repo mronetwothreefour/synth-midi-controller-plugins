@@ -2,23 +2,28 @@
 
 #include "D_BUILD_Choices_A.h"
 
-struct Build_Choices :
-	public Build_Choices_A
+namespace BUILD
 {
-	static const StringArray exp_env_mode();
-	static const StringArray exp_env_trig_mode();
-	static const StringArray exp_env_lfo_1_trig();
-	static const StringArray exp_keyboard_mode();
-	static const StringArray exp_lever_ctrl();
-	static const StringArray exp_lfo_trig_mode();
-	static const StringArray exp_lfo_wave_type();
-	static const StringArray exp_input_source(bool for_lfo);
-	static const StringArray exp_off_on_matrix();
-	static const StringArray exp_osc_1_key_track();
-	static const StringArray exp_osc_1_sync();
-	static const StringArray exp_osc_2_and_vcf_key_track();
-	static const StringArray exp_osc_lever_control();
-	static const StringArray exp_osc_type(const int osc_num);
-	static const StringArray exp_porta_mode();
-	static const StringArray exp_ramp_trig();
-};
+
+	struct Choices :
+		public Choices_A
+	{
+		static const StringArray exp_env_mode();
+		static const StringArray exp_env_trig_mode();
+		static const StringArray exp_env_lfo_1_trig();
+		static const StringArray exp_keyboard_mode();
+		static const StringArray exp_lever_ctrl();
+		static const StringArray exp_lfo_trig_mode();
+		static const StringArray exp_lfo_wave_type();
+		static const StringArray exp_input_source(bool for_lfo);
+		static const StringArray exp_off_on_matrix();
+		static const StringArray exp_osc_1_key_track();
+		static const StringArray exp_osc_1_sync();
+		static const StringArray exp_osc_2_and_vcf_key_track();
+		static const StringArray exp_osc_lever_control();
+		static const StringArray exp_osc_type(const int osc_num);
+		static const StringArray exp_porta_mode();
+		static const StringArray exp_ramp_trig();
+	};
+
+}

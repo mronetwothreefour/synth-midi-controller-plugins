@@ -850,7 +850,7 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_A.cpp">
       <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Exp_Param_Layout_A.cpp">
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Layout_A.cpp">
       <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_A.cpp">
@@ -4107,7 +4107,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_A.h">
       <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Exp_Param_Layout_A.h">
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Layout_A.h">
       <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_A.h">

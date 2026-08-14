@@ -1,6 +1,6 @@
 #include "D_CONVERT_P.h"
 
-String Convert::int_to_seq_step_pitch(const int i) {
+String CONVERT::int_to_seq_step_pitch(const int i) {
 	auto note{ i % 24 };
 	auto octave{ String(i / 24) };
 	switch (note)

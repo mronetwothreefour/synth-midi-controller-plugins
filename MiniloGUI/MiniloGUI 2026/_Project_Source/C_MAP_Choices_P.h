@@ -3,7 +3,7 @@
 #include "C_ID_EXP_P.h"
 #include "D_BUILD_Choices_P.h"
 
-using Choices = Build_Choices;
+using namespace BUILD;
 
 namespace MAP
 {

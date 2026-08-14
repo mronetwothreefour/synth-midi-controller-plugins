@@ -4,7 +4,12 @@
 
 using Layout = AudioProcessorValueTreeState::ParameterLayout;
 
-struct Exp_Param_Layout_A
+namespace BUILD
 {
-	static Layout build();
-};
+
+	struct Layout_A
+	{
+		static Layout exposed();
+	};
+
+}

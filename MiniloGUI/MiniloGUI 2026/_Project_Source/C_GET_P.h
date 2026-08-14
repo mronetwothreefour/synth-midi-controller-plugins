@@ -4,7 +4,7 @@
 
 #include "C_GET_A.h"
 
-struct Get :
-	public Get_A
+struct GET :
+	public GET_A
 {
 };

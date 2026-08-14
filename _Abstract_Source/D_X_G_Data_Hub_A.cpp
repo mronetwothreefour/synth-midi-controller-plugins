@@ -1,12 +1,12 @@
 #include "D_X_G_Data_Hub_A.h"
 
 #include "C_ID_A.h"
-#include "D_BUILD_Exp_Param_Layout_A.h"
+#include "D_BUILD_Layout_A.h"
 
 Data_Hub_A::Data_Hub_A(AudioProcessor* processor) :
 	undo_mngr{ new UndoManager{} },
 	exposed_param_state{ new State{ *processor, undo_mngr.get(), ID::tree_exp_param_state,
-									Exp_Param_Layout_A::build() } },
+									BUILD::Layout_A::exposed() } },
 	scale_factor{ 1.0f }
 {}
 

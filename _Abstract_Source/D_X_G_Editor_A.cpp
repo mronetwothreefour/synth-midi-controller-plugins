@@ -20,8 +20,8 @@ Editor_A::Editor_A(Audio_Processor& processor, Data_Hub_P* hub) :
     setWantsKeyboardFocus(true);
     //app_options.add_listener(this);
     setResizable(true, true);
-    setSize(Get::init_w_for(gui_editor), Get::init_h_for(gui_editor));
-    getConstrainer()->setFixedAspectRatio(Get::editor_aspect_ratio());
+    setSize(GET::init_w_for(gui_editor), GET::init_h_for(gui_editor));
+    getConstrainer()->setFixedAspectRatio(GET::editor_aspect_ratio());
     Timer::callAfterDelay(50, [this] { grabKeyboardFocus(); });
 }
 

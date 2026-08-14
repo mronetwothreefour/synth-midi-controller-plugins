@@ -1,6 +1,6 @@
 #include "D_CONVERT_A.h"
 
-String Convert_A::int_to_pitch(const int i) {
+String CONVERT_A::int_to_pitch(const int i) {
     auto note{ i % 12 };
     String pitch;
     switch (note) {

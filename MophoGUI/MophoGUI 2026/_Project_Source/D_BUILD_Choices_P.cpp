@@ -2,7 +2,9 @@
 
 #include "D_CONVERT_P.h"
 
-const StringArray Build_Choices::exp_arp_mode() {
+using namespace BUILD;
+
+const StringArray Choices::exp_arp_mode() {
     StringArray list;
     list.add("1 octave up");
     list.add("1 octave down");
@@ -22,7 +24,7 @@ const StringArray Build_Choices::exp_arp_mode() {
     return list;
 }
 
-const StringArray Build_Choices::exp_bend_range() {
+const StringArray Choices::exp_bend_range() {
     StringArray list;
     list.add("0__no bend");
     list.add("+/-1__+ / -1 semitone");
@@ -40,7 +42,7 @@ const StringArray Build_Choices::exp_bend_range() {
     return list;
 }
 
-const StringArray Build_Choices::exp_clock_div() {
+const StringArray Choices::exp_clock_div() {
     StringArray list;
     list.add("half note__half note (BPM / 2)");
     list.add("quarter note__quarter note (BPM x 1)");
@@ -58,7 +60,7 @@ const StringArray Build_Choices::exp_clock_div() {
     return list;
 }
 
-const StringArray Build_Choices::exp_clock_tempo() {
+const StringArray Choices::exp_clock_tempo() {
     StringArray list;
     for (auto i = 30; i < 251; ++i) {
         String n{ i };
@@ -67,7 +69,7 @@ const StringArray Build_Choices::exp_clock_tempo() {
     return list;
 }
 
-const StringArray Build_Choices::exp_flex_knob() {
+const StringArray Choices::exp_flex_knob() {
     StringArray list;
     for (int i = 1; i < 3; ++i) {
         String osc{ "oscillator " + (String)i };
@@ -162,7 +164,7 @@ const StringArray Build_Choices::exp_flex_knob() {
     return list;
 }
 
-const StringArray Build_Choices::exp_glide_mode() {
+const StringArray Choices::exp_glide_mode() {
     StringArray list;
     list.add("fixed rate");
     list.add("fixed rate auto");
@@ -171,7 +173,7 @@ const StringArray Build_Choices::exp_glide_mode() {
     return list;
 }
 
-const StringArray Build_Choices::exp_lfo_freq() {
+const StringArray Choices::exp_lfo_freq() {
     StringArray list;
     for (int i = 1; i < 90; ++i) {
         String n{ i };
@@ -179,7 +181,7 @@ const StringArray Build_Choices::exp_lfo_freq() {
     }
     for (int i = 90; i < 151; ++i) {
         String n{ i };
-        auto pitch = Convert::int_to_pitch(i - 90);
+        auto pitch = CONVERT::int_to_pitch(i - 90);
         list.add(pitch + "__" + n + " (pitch freq. " + pitch + ")");
     }
     list.add("1:32__synced 151 : 1 LFO cycle lasts 32 steps");
@@ -201,7 +203,7 @@ const StringArray Build_Choices::exp_lfo_freq() {
     return list;
 }
 
-const StringArray Build_Choices::exp_lfo_shape() {
+const StringArray Choices::exp_lfo_shape() {
     StringArray list;
     list.add("triangle");
     list.add("reverse sawtooth");
@@ -211,21 +213,21 @@ const StringArray Build_Choices::exp_lfo_shape() {
     return list;
 }
 
-const StringArray Build_Choices::exp_lpf_freq() {
+const StringArray Choices::exp_lpf_freq() {
     StringArray list;
     for (int i = 0; i < 165; ++i) {
         String n{ i };
-        auto p{ Convert_A::int_to_pitch(i) };
+        auto p{ CONVERT::int_to_pitch(i) };
         list.add(p + "__" + n + " (pitch freq. " + p + ")");
     }
     return list;
 }
 
-const StringArray Build_Choices::exp_lpf_type() {
+const StringArray Choices::exp_lpf_type() {
     return { "2-Pole", "4-Pole" };
 }
 
-const StringArray Build_Choices::exp_mod_dest() {
+const StringArray Choices::exp_mod_dest() {
     StringArray list;
     list.add("off");
     list.add("oscillator 1 pitch");
@@ -271,7 +273,7 @@ const StringArray Build_Choices::exp_mod_dest() {
     return list;
 }
 
-const StringArray Build_Choices::exp_mod_src() {
+const StringArray Choices::exp_mod_src() {
     StringArray list;
     list.add("off");
     for (int i = 1; i < 4; ++i)
@@ -295,7 +297,7 @@ const StringArray Build_Choices::exp_mod_src() {
     return list;
 }
 
-const StringArray Build_Choices::exp_note_priority() {
+const StringArray Choices::exp_note_priority() {
     StringArray list;
     list.add("low note__low note has priority");
     list.add("low note (re-trigger)__low note has priority (re-trigger)");
@@ -306,7 +308,7 @@ const StringArray Build_Choices::exp_note_priority() {
     return list;
 }
 
-const StringArray Build_Choices::exp_osc_fine() {
+const StringArray Choices::exp_osc_fine() {
     StringArray list;
     for (auto i = -50; i < 50; ++i) {
         if (i >= -1 && i <= 1) {
@@ -319,7 +321,7 @@ const StringArray Build_Choices::exp_osc_fine() {
     return list;
 }
 
-const StringArray Build_Choices::exp_osc_shape() {
+const StringArray Choices::exp_osc_shape() {
     StringArray list;
     list.add("OFF__oscillator off");
     list.add("SAW__sawtooth");
@@ -336,7 +338,7 @@ const StringArray Build_Choices::exp_osc_shape() {
     return list;
 }
 
-const StringArray Build_Choices::exp_push_it_mode() {
+const StringArray Choices::exp_push_it_mode() {
     StringArray list;
     list.add("normal");
     list.add("toggle");
@@ -344,17 +346,17 @@ const StringArray Build_Choices::exp_push_it_mode() {
     return list;
 }
 
-const StringArray Build_Choices::exp_seq_track_2_4_dest(const bool trk_2) {
+const StringArray Choices::exp_seq_track_2_4_dest(const bool trk_2) {
     StringArray list{ exp_mod_dest() };
     String t{ trk_2 ? 1 : 3 };
     list.add("seq. track " + t + " slew__sequencer track " + t + " slew");
     return list;
 }
 
-const StringArray Build_Choices::exp_seq_track_step() {
+const StringArray Choices::exp_seq_track_step() {
     StringArray list;
     for (int i = 0; i < 126; ++i) {
-        auto p = Convert::int_to_seq_step_pitch(i);
+        auto p = CONVERT::int_to_seq_step_pitch(i);
         list.add(p + "__" + (String)i + " (" + p + ")");
     }
     list.add("<__reset sequence");
@@ -362,7 +364,7 @@ const StringArray Build_Choices::exp_seq_track_step() {
     return list;
 }
 
-const StringArray Build_Choices::exp_seq_trig_mode() {
+const StringArray Choices::exp_seq_trig_mode() {
     StringArray list;
     list.add("normal");
     list.add("normal, no reset");
@@ -373,7 +375,7 @@ const StringArray Build_Choices::exp_seq_trig_mode() {
     return list;
 }
 
-const StringArray Build_Choices::exp_voice_name_char() {
+const StringArray Choices::exp_voice_name_char() {
     StringArray list;
     for (int i = 0; i < 32; ++i)
         list.add(" __ASCII control character " + (String)i);

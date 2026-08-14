@@ -1,14 +1,16 @@
 #include "D_BUILD_Choices_P.h"
 
-const StringArray Build_Choices::exp_delay_routing() {
+using namespace BUILD;
+
+const StringArray Choices::exp_delay_routing() {
 	return { "bypass", "pre-filter", "post-filter" };
 }
 
-const StringArray Build_Choices::exp_lfo_eg_mod() {
+const StringArray Choices::exp_lfo_eg_mod() {
 	return { "off", "rate", "intensity" };
 }
 
-const StringArray Build_Choices::exp_lfo_rate() {
+const StringArray Choices::exp_lfo_rate() {
 	StringArray list;
     String n{ "$|%__unsynced: $|\nsynced: 1 cycle lasts & beat" };
     for (int i = 0; i < 1024; ++i) {
@@ -49,11 +51,11 @@ const StringArray Build_Choices::exp_lfo_rate() {
     return list;
 }
 
-const StringArray Build_Choices::exp_lfo_target() {
+const StringArray Choices::exp_lfo_target() {
 	return { "LPF cutoff frequency", "VCO 1 & 2 shape", "VCO 1 & 2 pitch" };
 }
 
-const StringArray Build_Choices::exp_lpf_eg_int() {
+const StringArray Choices::exp_lpf_eg_int() {
 	StringArray list;
     String n{ "_%" };
     for (int i = 0; i < 1024; ++i) {
@@ -75,11 +77,11 @@ const StringArray Build_Choices::exp_lpf_eg_int() {
 	return list;
 }
 
-const StringArray Build_Choices::exp_lpf_type() {
+const StringArray Choices::exp_lpf_type() {
 	return { "2-pole (12 dB / octave)", "4-pole (24 dB / octave)" };
 }
 
-const StringArray Build_Choices::exp_osc_2_pitch_eg_int() {
+const StringArray Choices::exp_osc_2_pitch_eg_int() {
 	StringArray list;
     String n{ "$__$ cents" };
     for (int i = 0; i < 5; ++i)
@@ -143,15 +145,15 @@ const StringArray Build_Choices::exp_osc_2_pitch_eg_int() {
     return list;
 }
 
-const StringArray Build_Choices::exp_osc_and_lfo_wave() {
+const StringArray Choices::exp_osc_and_lfo_wave() {
 	return { "square", "triangle", "sawtooth" };
 }
 
-const StringArray Build_Choices::exp_osc_octave() {
+const StringArray Choices::exp_osc_octave() {
 	return { "16'", "8'", "4'", "2'" };
 }
 
-const StringArray Build_Choices::exp_osc_pitch_fine() {
+const StringArray Choices::exp_osc_pitch_fine() {
 	StringArray list;
     String n{ "$__$ cents" };
     for (int i = 0; i < 5; ++i)
@@ -223,7 +225,7 @@ const StringArray Build_Choices::exp_osc_pitch_fine() {
     return list;
 }
 
-const StringArray Build_Choices::exp_voice_mode_depth() {
+const StringArray Choices::exp_voice_mode_depth() {
 	StringArray list;
     for (int i = 0; i < 1024; ++i) {
         auto n_curt{ exp_choice_voice_mode_1_poly(i, true) };
@@ -245,30 +247,30 @@ const StringArray Build_Choices::exp_voice_mode_depth() {
     return list;
 }
 
-const StringArray Build_Choices::exp_zero_50_100() {
+const StringArray Choices::exp_zero_50_100() {
 	return { "0%", "50%", "100%" };
 }
 
-String Build_Choices::exp_choice_voice_mode_1_poly(const int c, const bool curt) {
+String Choices::exp_choice_voice_mode_1_poly(const int c, const bool curt) {
     String n{ curt ? "1:INV " : "1:inversion " };
     n += String{ c / 114 };
     return n;
 }
 
-String Build_Choices::exp_choice_voice_mode_2_duo_3_unison(const int c, const bool curt) {
+String Choices::exp_choice_voice_mode_2_duo_3_unison(const int c, const bool curt) {
     String n{ curt ? "|2&3:" : "|2&3:detune " };
     auto detune{ std::clamp(c / 20, 0, 50) };
     n += (detune == 0 ? "" : "+") + (String)detune + (curt ? "C" : " cents");
     return n;
 }
 
-String Build_Choices::exp_choice_voice_mode_4_mono(const int c, const bool curt) {
+String Choices::exp_choice_voice_mode_4_mono(const int c, const bool curt) {
     String n{ curt ? "|4:" : "|4:sub " };
     n += (String)c;
     return n;
 }
 
-String Build_Choices::exp_choice_voice_mode_5_chord(const int c, const bool curt) {
+String Choices::exp_choice_voice_mode_5_chord(const int c, const bool curt) {
     String n{ "|5:" };
     if (c < 74) n += curt ? "5th(0)" : "5th interval";
     if (c >= 74 && c < 147) n += curt ? "sus2(1)" : "suspended 2nd chord";
@@ -287,7 +289,7 @@ String Build_Choices::exp_choice_voice_mode_5_chord(const int c, const bool curt
     return n;
 }
 
-String Build_Choices::exp_choice_voice_mode_6_delay(const int c, const bool curt) {
+String Choices::exp_choice_voice_mode_6_delay(const int c, const bool curt) {
     String n{ "|6:" };
     if (c < 86) n += curt ? "1/192(0)" : "1/192 beat delay";
     if (c >= 86 && c < 171) n += curt ? "1/128(1)" : "1/128 beat delay";
@@ -304,7 +306,7 @@ String Build_Choices::exp_choice_voice_mode_6_delay(const int c, const bool curt
     return n;
 }
 
-String Build_Choices::exp_choice_voice_mode_7_arp(const int c, const bool curt) {
+String Choices::exp_choice_voice_mode_7_arp(const int c, const bool curt) {
     String n{ "|7:" };
     if (c < 79) n += curt ? "man 1(0)" : "arpeggio: manual 1";
     if (c >= 79 && c < 158) n += curt ? "man 2(1)" : "arpeggio: manual 2";
@@ -322,7 +324,7 @@ String Build_Choices::exp_choice_voice_mode_7_arp(const int c, const bool curt) 
     return n;
 }
 
-String Build_Choices::exp_choice_voice_mode_8_sidechain(const int c, const bool curt) {
+String Choices::exp_choice_voice_mode_8_sidechain(const int c, const bool curt) {
     String name{ curt ? "|8:" : "|8:sidechain " };
     name += (String)c;
     return name;
