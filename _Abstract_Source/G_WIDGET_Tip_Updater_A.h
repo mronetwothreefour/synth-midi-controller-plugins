@@ -11,7 +11,7 @@ namespace WIDGET
     struct Tip_Updater_A
     {
         String tip_info;
-        String tip_value;
+        String tip_current_choice;
 
         void on_mod_keys_changed(const Mods& mods, Tip_Client* client) const;
     };
