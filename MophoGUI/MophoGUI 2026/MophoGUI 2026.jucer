@@ -66,7 +66,8 @@
             file="_Project_Source/C_MAP_Ctrl_Type_P.h"/>
       <FILE id="XY2dZ3" name="C_MAP_Init_Choice_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Init_Choice_P.h"/>
-      <FILE id="vD7I0O" name="C_MAP_Name_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Name_P.h"/>
+      <FILE id="vD7I0O" name="C_MAP_Exp_Name_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Exp_Name_P.h"/>
       <FILE id="sgFlSL" name="C_MAP_Tip_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Tip_P.h"/>
       <FILE id="JtZo7R" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
             file="_Project_Source/C_PATH_Backdrop_Main_P.h"/>

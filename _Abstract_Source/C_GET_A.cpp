@@ -4,7 +4,7 @@
 #include "C_MAP_Choices_P.h"
 #include "C_MAP_Ctrl_Type_P.h"
 #include "C_MAP_Init_Choice_P.h"
-#include "C_MAP_Name_P.h"
+#include "C_MAP_Exp_Name_P.h"
 #include "C_MAP_Tip_P.h"
 
 const double GET_A::editor_aspect_ratio() {
@@ -67,9 +67,9 @@ const int GET_A::init_choice_for(const String id) {
 	return -1;
 }
 
-const String GET_A::name_for(const String id) {
-	if (MAP::name.find(id) != MAP::name.end())
-		return MAP::name.at(id);
+const String GET_A::exp_name_for(const String id) {
+	if (MAP::exp_name.find(id) != MAP::exp_name.end())
+		return MAP::exp_name.at(id);
 	return {};
 }
 

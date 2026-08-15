@@ -4170,7 +4170,7 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Choice_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Name_P.h">
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Exp_Name_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Tip_P.h">

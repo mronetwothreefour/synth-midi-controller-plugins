@@ -69,7 +69,8 @@
             file="_Project_Source/C_MAP_Ctrl_Type_P.h"/>
       <FILE id="GwDJfB" name="C_MAP_Init_Choice_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Init_Choice_P.h"/>
-      <FILE id="DhLz8c" name="C_MAP_Name_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Name_P.h"/>
+      <FILE id="DhLz8c" name="C_MAP_Exp_Name_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Exp_Name_P.h"/>
       <FILE id="DxsvA7" name="C_MAP_Tip_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Tip_P.h"/>
       <FILE id="IciGC5" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
             file="_Project_Source/C_PATH_Backdrop_Main_P.h"/>

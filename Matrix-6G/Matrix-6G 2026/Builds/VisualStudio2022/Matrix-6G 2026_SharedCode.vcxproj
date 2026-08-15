@@ -3183,7 +3183,7 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Type_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Choice_P.h"/>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Name_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Exp_Name_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Tip_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_PATH_Backdrop_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Exposed_P.h"/>
