@@ -14,6 +14,7 @@
       <FILE id="XYFw8I" name="C_GET_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/C_GET_A.cpp"/>
       <FILE id="TcKDNp" name="C_GET_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_GET_A.h"/>
       <FILE id="BnLTHL" name="C_ID_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_ID_A.h"/>
+      <FILE id="Seqnku" name="C_NAME_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_NAME_A.h"/>
       <FILE id="hFgnaB" name="D_BUILD_Choices_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/D_BUILD_Choices_A.cpp"/>
       <FILE id="MiIt4e" name="D_BUILD_Choices_A.h" compile="0" resource="0"
@@ -57,7 +58,6 @@
         <FILE id="oIl9aN" name="texture.jpg" compile="0" resource="1" file="_Project_Source/binaries/texture.jpg"/>
       </GROUP>
       <FILE id="x0YNPv" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
-      <FILE id="wS763N" name="C_ENUM_P.h" compile="0" resource="0" file="_Project_Source/C_ENUM_P.h"/>
       <FILE id="ySqwBi" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
       <FILE id="ZcG1nz" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
       <FILE id="mAMon2" name="C_ID_EXP_P.h" compile="0" resource="0" file="_Project_Source/C_ID_EXP_P.h"/>
@@ -65,13 +65,14 @@
             file="_Project_Source/C_MAP_Bounds_P.h"/>
       <FILE id="qWabjl" name="C_MAP_Choices_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Choices_P.h"/>
-      <FILE id="RHMEV5" name="C_MAP_Ctrl_Type_P.h" compile="0" resource="0"
-            file="_Project_Source/C_MAP_Ctrl_Type_P.h"/>
+      <FILE id="RHMEV5" name="C_MAP_Ctrl_Name_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Ctrl_Name_P.h"/>
       <FILE id="GwDJfB" name="C_MAP_Init_Choice_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Init_Choice_P.h"/>
       <FILE id="DhLz8c" name="C_MAP_Exp_Name_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Exp_Name_P.h"/>
       <FILE id="DxsvA7" name="C_MAP_Tip_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Tip_P.h"/>
+      <FILE id="wS763N" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
       <FILE id="IciGC5" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
             file="_Project_Source/C_PATH_Backdrop_Main_P.h"/>
       <FILE id="z9oLvp" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"

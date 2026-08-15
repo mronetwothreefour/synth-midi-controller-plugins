@@ -2,7 +2,7 @@
 
 #include "C_MAP_Bounds_P.h"
 #include "C_MAP_Choices_P.h"
-#include "C_MAP_Ctrl_Type_P.h"
+#include "C_MAP_Ctrl_Name_P.h"
 #include "C_MAP_Init_Choice_P.h"
 #include "C_MAP_Exp_Name_P.h"
 #include "C_MAP_Tip_P.h"
@@ -55,22 +55,22 @@ const StringArray GET_A::choices_for(const String id, const bool curt) {
 	return out_list;
 }
 
-const int GET_A::ctrl_type_for(const String id) {
-	if (MAP::ctrl_type.find(id) != MAP::ctrl_type.end())
-		return (int)MAP::ctrl_type.at(id);
-	return (int)Ctrl::null;
-}
-
-const int GET_A::init_choice_for(const String id) {
-	if (MAP::init_choice.find(id) != MAP::init_choice.end())
-		return MAP::init_choice.at(id);
-	return -1;
+const String GET_A::ctrl_name_for(const String id) {
+	if (MAP::ctrl_name.find(id) != MAP::ctrl_name.end())
+		return MAP::ctrl_name.at(id);
+	return {};
 }
 
 const String GET_A::exp_name_for(const String id) {
 	if (MAP::exp_name.find(id) != MAP::exp_name.end())
 		return MAP::exp_name.at(id);
 	return {};
+}
+
+const int GET_A::init_choice_for(const String id) {
+	if (MAP::init_choice.find(id) != MAP::init_choice.end())
+		return MAP::init_choice.at(id);
+	return -1;
 }
 
 const String GET_A::tip_for(const String id) {

@@ -4110,6 +4110,9 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_ID_A.h">
       <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\C_NAME_A.h">
+      <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_A.h">
       <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
     </ClInclude>
@@ -4143,9 +4146,6 @@
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_ENUM_P.h">
-      <Filter>MiniloGUI 2026\_Project_Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_GET_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
@@ -4158,7 +4158,7 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Type_P.h">
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Name_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Choice_P.h">
@@ -4168,6 +4168,9 @@
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Tip_P.h">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_NAME_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_PATH_Backdrop_Main_P.h">
