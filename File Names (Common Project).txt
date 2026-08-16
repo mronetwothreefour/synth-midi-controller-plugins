@@ -10,6 +10,7 @@ C_MAP_Name_P
 C_MAP_Tip_P
 C_NAME_P
 C_PATH_Backdrop_Main_P
+C_PATH_Widgets_P
 C_SL_Tip_Exposed_P
 C_XYWH_P
 D_BUILD_Choices_P
@@ -20,3 +21,4 @@ D_X_G_Data_Hub_P
 D_X_G_Data_User_P
 D_X_G_Editor_P
 G_DRAW_Paths_Main_P
+G_DRAW_Paths_Widgets_P

@@ -1,7 +1,5 @@
 #pragma once
 
-#include <JuceHeader.h>
-
 #include "G_DRAW_Paths_A.h"
 
 namespace DRAW
