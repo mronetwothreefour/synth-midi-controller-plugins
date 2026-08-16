@@ -71,6 +71,8 @@
       <FILE id="eLqGJx" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
       <FILE id="MpMZQl" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
             file="_Project_Source/C_PATH_Backdrop_Main_P.h"/>
+      <FILE id="KhuWds" name="C_PATH_Widgets_P.h" compile="0" resource="0"
+            file="_Project_Source/C_PATH_Widgets_P.h"/>
       <FILE id="uOB0zv" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Exposed_P.h"/>
       <FILE id="hk4Zae" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
@@ -103,6 +105,10 @@
             file="_Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="E2IHz5" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Main_P.h"/>
+      <FILE id="C6hiS9" name="G_DRAW_Paths_Widgets_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_DRAW_Paths_Widgets_P.cpp"/>
+      <FILE id="CLroiL" name="G_DRAW_Paths_Widgets_P.h" compile="0" resource="0"
+            file="_Project_Source/G_DRAW_Paths_Widgets_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
