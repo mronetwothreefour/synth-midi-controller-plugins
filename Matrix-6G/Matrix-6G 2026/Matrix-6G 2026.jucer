@@ -76,6 +76,7 @@
       <FILE id="EV7Jbm" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
       <FILE id="UeOpt0" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
             file="_Project_Source/C_PATH_Backdrop_Main_P.h"/>
+      <FILE id="h5WzrD" name="C_PATH_LED_P.h" compile="0" resource="0" file="_Project_Source/C_PATH_LED_P.h"/>
       <FILE id="Ey5cxG" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Exposed_P.h"/>
       <FILE id="OaMFp6" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
@@ -104,6 +105,10 @@
             file="_Project_Source/D_X_G_Editor_P.cpp"/>
       <FILE id="bMQzSd" name="D_X_G_Editor_P.h" compile="0" resource="0"
             file="_Project_Source/D_X_G_Editor_P.h"/>
+      <FILE id="qIY3dw" name="G_DRAW_Paths_LED_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_DRAW_Paths_LED_P.cpp"/>
+      <FILE id="cVenTc" name="G_DRAW_Paths_LED_P.h" compile="0" resource="0"
+            file="_Project_Source/G_DRAW_Paths_LED_P.h"/>
       <FILE id="WbCudh" name="G_DRAW_Paths_Main_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="EHN5cm" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"

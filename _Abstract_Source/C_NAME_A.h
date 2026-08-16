@@ -5,6 +5,7 @@
 namespace NAME
 {
 
+	static const String disp_osc_pitch{ "disp_osc_pitch" };
 	static const String knob{ "knob" };
 	static const String knob_pitch{ "knob_pitch" };
 	static const String cbox{ "cbox" };
