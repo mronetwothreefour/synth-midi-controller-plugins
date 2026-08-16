@@ -16,8 +16,8 @@ namespace XYWH
 
 	static const float led_display_y{ 3 };
 
-	static const float rotary_slider_begin_angle{ degreesToRadians(225.0f) };
-	static const float rotary_slider_end_angle{ degreesToRadians(495.0f) };
+	static const float rotary_sli_begin_angle{ degreesToRadians(225.0f) };
+	static const float rotary_sli_end_angle{ degreesToRadians(495.0f) };
 
 	static const float track_env_init_begin_x{ 849.0f };
 	static const float track_env_init_max_y{ 193.0f };

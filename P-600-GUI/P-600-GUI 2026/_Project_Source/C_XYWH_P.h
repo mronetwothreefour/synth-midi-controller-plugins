@@ -7,16 +7,16 @@ namespace XYWH
 
 	constexpr double editor_aspect_ratio{ 3.42347 };
 
-	constexpr float rotary_slider_begin_angle{ degreesToRadians(30.0f) };
-	constexpr float rotary_slider_end_angle{ degreesToRadians(330.0f) };
+	constexpr float rotary_sli_begin_angle{ degreesToRadians(30.0f) };
+	constexpr float rotary_sli_end_angle{ degreesToRadians(330.0f) };
 
 	constexpr int editor_init_w{ 1342 }, editor_init_h{ 392 };
 
-	const auto filter_amp_col_spacing{ 75 };
-	const auto filter_amp_col_1_x{ 1057 };
-	const auto filter_amp_col_2_x{ filter_amp_col_1_x + filter_amp_col_spacing };
-	const auto filter_amp_col_3_x{ filter_amp_col_2_x + filter_amp_col_spacing };
-	const auto filter_amp_col_4_x{ filter_amp_col_3_x + filter_amp_col_spacing };
+	constexpr int filter_amp_col_spacing{ 75 };
+	constexpr int filter_amp_col_1_x{ 1057 };
+	constexpr int filter_amp_col_2_x{ filter_amp_col_1_x + filter_amp_col_spacing };
+	constexpr int filter_amp_col_3_x{ filter_amp_col_2_x + filter_amp_col_spacing };
+	constexpr int filter_amp_col_4_x{ filter_amp_col_3_x + filter_amp_col_spacing };
 
 	constexpr int knob_diam{ 34 };
 	constexpr int knob_row_1_y{ 67 };

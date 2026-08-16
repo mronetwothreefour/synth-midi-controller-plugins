@@ -3,8 +3,9 @@
 #include "C_MAP_Bounds_P.h"
 #include "C_MAP_Choices_P.h"
 #include "C_MAP_Ctrl_Name_P.h"
-#include "C_MAP_Init_Choice_P.h"
 #include "C_MAP_Exp_Name_P.h"
+#include "C_MAP_Init_Choice_P.h"
+#include "C_MAP_Label_Name_P.h"
 #include "C_MAP_Tip_P.h"
 
 const double GET_A::editor_aspect_ratio() {
@@ -33,12 +34,12 @@ const int GET_A::init_y_for(const String id) {
 	return init_bounds_for(id).getY();
 }
 
-const float GET_A::rotary_slider_begin_angle() {
-	return XYWH::rotary_slider_begin_angle;
+const float GET_A::rotary_sli_begin_angle() {
+	return XYWH::rotary_sli_begin_angle;
 }
 
-const float GET_A::rotary_slider_end_angle() {
-	return XYWH::rotary_slider_end_angle;
+const float GET_A::rotary_sli_end_angle() {
+	return XYWH::rotary_sli_end_angle;
 }
 
 const StringArray GET_A::choices_for(const String id, const bool curt) {
@@ -71,6 +72,12 @@ const int GET_A::init_choice_for(const String id) {
 	if (MAP::init_choice.find(id) != MAP::init_choice.end())
 		return MAP::init_choice.at(id);
 	return -1;
+}
+
+const String GET_A::label_name_for(const String id) {
+	if (MAP::label_name.find(id) != MAP::label_name.end())
+		return MAP::label_name.at(id);
+	return {};
 }
 
 const String GET_A::tip_for(const String id) {

@@ -877,6 +877,12 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.cpp">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Label_A.cpp">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Wheel_Mod_A.cpp">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.cpp">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClCompile>
@@ -908,6 +914,9 @@
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.cpp">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\G_WIDGET_Sli_Wheel_Mod_P.cpp">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -4149,6 +4158,12 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.h">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Label_A.h">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Wheel_Mod_A.h">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.h">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClInclude>
@@ -4219,6 +4234,9 @@
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\G_WIDGET_Sli_Wheel_Mod_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

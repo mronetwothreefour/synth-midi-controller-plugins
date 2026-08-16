@@ -8,7 +8,7 @@ namespace MAP
 
 	static const std::unordered_map<String, String> ctrl_name{
 		//exposed osc
-		{ ID::exp_osc_1_pitch, NAME::slider_osc_pitch },
+		{ ID::exp_osc_1_pitch, NAME::knob_pitch },
 		{ ID::exp_osc_1_type, NAME::cbox },
 		{ ID::exp_osc_1_pulse_w, NAME::knob },
 		{ ID::exp_osc_1_saw_tri, NAME::knob },
@@ -18,7 +18,7 @@ namespace MAP
 		{ ID::exp_osc_1_key_click, NAME::cbox },
 		{ ID::exp_osc_1_key_track, NAME::cbox },
 		{ ID::exp_osc_1_lever_ctrl, NAME::cbox },
-		{ ID::exp_osc_2_pitch, NAME::slider_osc_pitch },
+		{ ID::exp_osc_2_pitch, NAME::knob_pitch },
 		{ ID::exp_osc_2_type, NAME::cbox },
 		{ ID::exp_osc_2_pulse_w, NAME::knob },
 		{ ID::exp_osc_2_saw_tri, NAME::knob },

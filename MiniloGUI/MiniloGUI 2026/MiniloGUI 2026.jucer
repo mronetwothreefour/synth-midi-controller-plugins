@@ -47,12 +47,21 @@
             file="../../_Abstract_Source/G_DRAW_Paths_A.cpp"/>
       <FILE id="dBkPO2" name="G_DRAW_Paths_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_DRAW_Paths_A.h"/>
+      <FILE id="kuzgph" name="G_WIDGET_Sli_Label_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Sli_Label_A.cpp"/>
+      <FILE id="owfBMM" name="G_WIDGET_Sli_Label_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Sli_Label_A.h"/>
+      <FILE id="ZZwxKU" name="G_WIDGET_Sli_Wheel_Mod_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Sli_Wheel_Mod_A.cpp"/>
+      <FILE id="GzlIiD" name="G_WIDGET_Sli_Wheel_Mod_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Sli_Wheel_Mod_A.h"/>
       <FILE id="YcvObZ" name="G_WIDGET_Tip_Updater_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/G_WIDGET_Tip_Updater_A.cpp"/>
       <FILE id="Af04Xk" name="G_WIDGET_Tip_Updater_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_WIDGET_Tip_Updater_A.h"/>
     </GROUP>
     <GROUP id="{32092108-0241-6FE8-7138-4212DA364901}" name="_Project_Source">
+      <FILE id="yP5l6S" name="C_ENUM_P.h" compile="0" resource="0" file="_Project_Source/C_ENUM_P.h"/>
       <FILE id="KrX49J" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
       <FILE id="P21n9k" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
       <FILE id="YmBJVS" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
@@ -109,6 +118,10 @@
             file="_Project_Source/G_DRAW_Paths_Widgets_P.cpp"/>
       <FILE id="CLroiL" name="G_DRAW_Paths_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Widgets_P.h"/>
+      <FILE id="a8W4mQ" name="G_WIDGET_Sli_Wheel_Mod_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_WIDGET_Sli_Wheel_Mod_P.cpp"/>
+      <FILE id="Dbdzx6" name="G_WIDGET_Sli_Wheel_Mod_P.h" compile="0" resource="0"
+            file="_Project_Source/G_WIDGET_Sli_Wheel_Mod_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

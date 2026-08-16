@@ -12,4 +12,6 @@ D_X_G_Data_User_A
 D_X_G_Editor_A
 G_DRAW_Paths_A
 G_WIDGET_Param_Ctrl_A
+G_WIDGET_Sli_Label_A
+G_WIDGET_Sli_Wheel_Mod_A
 G_WIDGET_Tip_Updater_A

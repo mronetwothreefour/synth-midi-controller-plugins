@@ -4,7 +4,7 @@
 
 using namespace WIDGET;
 
-Param_Ctrl_A::Param_Ctrl_A(const String param_id, Data_Hub* hub) :
+Param_Ctrl_A::Param_Ctrl_A(const String& param_id, Data_Hub* hub) :
 	Data_User{ hub },
 	param_ptr{ exp_state->getParameter(String{ param_id }) },
 	param_val{ exp_state->getParameterAsValue(String{ param_id }) },

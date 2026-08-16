@@ -52,13 +52,26 @@
             file="../../_Abstract_Source/G_WIDGET_Param_Ctrl_A.cpp"/>
       <FILE id="J8NsJr" name="G_WIDGET_Param_Ctrl_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_WIDGET_Param_Ctrl_A.h"/>
+      <FILE id="gBuYLE" name="G_WIDGET_Sli_Label_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Sli_Label_A.cpp"/>
+      <FILE id="tIP1Dz" name="G_WIDGET_Sli_Label_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Sli_Label_A.h"/>
+      <FILE id="Lk3M0I" name="G_WIDGET_Sli_Wheel_Mod_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Sli_Wheel_Mod_A.cpp"/>
+      <FILE id="MX3Kxf" name="G_WIDGET_Sli_Wheel_Mod_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Sli_Wheel_Mod_A.h"/>
       <FILE id="z9xp4a" name="G_WIDGET_Tip_Updater_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/G_WIDGET_Tip_Updater_A.cpp"/>
       <FILE id="JdgJ2f" name="G_WIDGET_Tip_Updater_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_WIDGET_Tip_Updater_A.h"/>
     </GROUP>
     <GROUP id="{184497C2-0BC4-A69C-3CF3-9218D550E5FD}" name="_Project_Source">
+      <GROUP id="{102C058F-DF18-53AF-6381-D15ED0D32493}" name="binaries">
+        <FILE id="b2jzgS" name="OVERPASS-BOLD.TTF" compile="0" resource="1"
+              file="../../../../../SOCL0/APPDATA/LOCAL/MICROSOFT/WINDOWS/FONTS/OVERPASS-BOLD.TTF"/>
+      </GROUP>
       <FILE id="LO3uDg" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
+      <FILE id="G3HyeX" name="C_FONT_P.h" compile="0" resource="0" file="_Project_Source/C_FONT_P.h"/>
       <FILE id="svwFzy" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
       <FILE id="LxcoVg" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
       <FILE id="oPWDCv" name="C_ID_EXP_P.h" compile="0" resource="0" file="_Project_Source/C_ID_EXP_P.h"/>
@@ -68,10 +81,12 @@
             file="_Project_Source/C_MAP_Choices_P.h"/>
       <FILE id="Zbiqks" name="C_MAP_Ctrl_Name_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Ctrl_Name_P.h"/>
-      <FILE id="zMHfe4" name="C_MAP_Init_Choice_P.h" compile="0" resource="0"
-            file="_Project_Source/C_MAP_Init_Choice_P.h"/>
       <FILE id="YNCwpM" name="C_MAP_Exp_Name_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Exp_Name_P.h"/>
+      <FILE id="zMHfe4" name="C_MAP_Init_Choice_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Init_Choice_P.h"/>
+      <FILE id="bNlcgg" name="C_MAP_Label_Name_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Label_Name_P.h"/>
       <FILE id="N99Jff" name="C_MAP_Tip_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Tip_P.h"/>
       <FILE id="EV7Jbm" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
       <FILE id="UeOpt0" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
@@ -113,6 +128,10 @@
             file="_Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="EHN5cm" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Main_P.h"/>
+      <FILE id="mprfZ9" name="G_WIDGET_Sli_Wheel_Mod_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_WIDGET_Sli_Wheel_Mod_P.cpp"/>
+      <FILE id="U5IoOi" name="G_WIDGET_Sli_Wheel_Mod_P.h" compile="0" resource="0"
+            file="_Project_Source/G_WIDGET_Sli_Wheel_Mod_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

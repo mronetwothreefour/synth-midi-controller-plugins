@@ -156,6 +156,8 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Param_Ctrl_A.cpp"/>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Label_A.cpp"/>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Wheel_Mod_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.cpp"/>
     <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_P.cpp"/>
@@ -167,6 +169,7 @@
     <ClCompile Include="..\..\_Project_Source\D_X_G_Editor_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_LED_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\G_WIDGET_Sli_Wheel_Mod_P.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -3119,6 +3122,7 @@
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_midi_ci\juce_midi_ci.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_devices.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_formats.cpp"/>
@@ -3176,15 +3180,19 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Param_Ctrl_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Label_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Wheel_Mod_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.h"/>
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_FONT_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_GET_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_ID_EXP_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Bounds_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Name_P.h"/>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Choice_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Exp_Name_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Choice_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Label_Name_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Tip_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_NAME_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_PATH_Backdrop_Main_P.h"/>
@@ -3200,6 +3208,7 @@
     <ClInclude Include="..\..\_Project_Source\D_X_G_Editor_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_LED_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\G_WIDGET_Sli_Wheel_Mod_P.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
@@ -4838,10 +4847,12 @@
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_midi_ci\detail\juce_CIResponder.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_midi_ci\juce_midi_ci.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\..\..\..\SOCL0\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\OVERPASS-BOLD.TTF"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\src\common\README.md"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\README.md"/>

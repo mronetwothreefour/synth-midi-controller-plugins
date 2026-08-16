@@ -14,8 +14,8 @@ namespace XYWH
 	constexpr float env_stage_init_max_w{ 24.0f };
 	constexpr float env_sustain_init_w{ 20.0f };
 
-	constexpr float rotary_slider_begin_angle{ degreesToRadians(30.0f) };
-	constexpr float rotary_slider_end_angle{ degreesToRadians(330.0f) };
+	constexpr float rotary_sli_begin_angle{ degreesToRadians(30.0f) };
+	constexpr float rotary_sli_end_angle{ degreesToRadians(330.0f) };
 
 	constexpr int ctrl_row_h{ 94 };
 	constexpr int ctrl_row_1_y{ 103 };
