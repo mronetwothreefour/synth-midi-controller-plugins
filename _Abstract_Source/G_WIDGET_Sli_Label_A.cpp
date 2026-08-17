@@ -4,8 +4,9 @@
 #include "D_BUILD_Font_For_P.h"
 
 using namespace BUILD;
+using namespace WIDGET;
 
-WIDGET::Slider_Label_A::Slider_Label_A(const String& param_id, Data_Hub* hub,
+Slider_Label_A::Slider_Label_A(const String& param_id, Data_Hub* hub,
 									   Slider_Wheel_Mod* parent_slider) :
 	Data_User{ hub },
 	parent_slider{ parent_slider },
@@ -23,20 +24,20 @@ WIDGET::Slider_Label_A::Slider_Label_A(const String& param_id, Data_Hub* hub,
 		parent_slider->addListener(this);
 }
 
-void WIDGET::Slider_Label_A::resized() {
+void Slider_Label_A::resized() {
 	setFont(Font_For::knob(scale_factor));
 }
 
-void WIDGET::Slider_Label_A::set_text_to_stored_choice() {
+void Slider_Label_A::set_text_to_stored_choice() {
 	auto choice_num{ roundToInt(parent_slider->getValue()) };
 	setText(choices_curt[choice_num], dontSendNotification);
 }
 
-void WIDGET::Slider_Label_A::sliderValueChanged(Slider* /*slider*/) {
+void Slider_Label_A::sliderValueChanged(Slider* /*slider*/) {
 	set_text_to_stored_choice();
 }
 
-WIDGET::Slider_Label_A::~Slider_Label_A() {
+Slider_Label_A::~Slider_Label_A() {
 	if (parent_slider)
 		parent_slider->removeListener(this);
 }

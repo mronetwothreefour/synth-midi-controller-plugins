@@ -170,6 +170,7 @@
     <ClCompile Include="..\..\_Project_Source\D_X_G_Editor_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_LED_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\G_WIDGET_Sli_Label_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_WIDGET_Sli_Wheel_Mod_P.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
@@ -3198,6 +3199,7 @@
     <ClInclude Include="..\..\_Project_Source\C_PATH_Backdrop_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_PATH_LED_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Exposed_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Widget_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Font_For_P.h"/>
@@ -3209,6 +3211,7 @@
     <ClInclude Include="..\..\_Project_Source\D_X_G_Editor_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_LED_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\G_WIDGET_Sli_Label_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_WIDGET_Sli_Wheel_Mod_P.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>

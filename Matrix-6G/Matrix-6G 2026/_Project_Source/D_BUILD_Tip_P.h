@@ -69,6 +69,8 @@ namespace BUILD
 		static String exp_vcf_lever_ctrl();
 		static String exp_vcf_press_amt();
 		static String exp_vcf_reso();
+
+		static String slider_txt_editor(const String& slider_label_name, bool u_7_bit = false);
 	};
 
 }

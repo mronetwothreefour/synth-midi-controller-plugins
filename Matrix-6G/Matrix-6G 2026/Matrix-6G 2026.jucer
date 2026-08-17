@@ -93,6 +93,8 @@
       <FILE id="h5WzrD" name="C_PATH_LED_P.h" compile="0" resource="0" file="_Project_Source/C_PATH_LED_P.h"/>
       <FILE id="Ey5cxG" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Exposed_P.h"/>
+      <FILE id="gphNRs" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
+            file="_Project_Source/C_SL_Tip_Widget_P.h"/>
       <FILE id="OaMFp6" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
       <FILE id="RapM7f" name="D_BUILD_Choices_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Choices_P.cpp"/>
@@ -131,6 +133,10 @@
             file="_Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="EHN5cm" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Main_P.h"/>
+      <FILE id="DIC59t" name="G_WIDGET_Sli_Label_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_WIDGET_Sli_Label_P.cpp"/>
+      <FILE id="njTR82" name="G_WIDGET_Sli_Label_P.h" compile="0" resource="0"
+            file="_Project_Source/G_WIDGET_Sli_Label_P.h"/>
       <FILE id="mprfZ9" name="G_WIDGET_Sli_Wheel_Mod_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_WIDGET_Sli_Wheel_Mod_P.cpp"/>
       <FILE id="U5IoOi" name="G_WIDGET_Sli_Wheel_Mod_P.h" compile="0" resource="0"

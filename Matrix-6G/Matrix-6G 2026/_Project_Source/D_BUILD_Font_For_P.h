@@ -11,7 +11,7 @@ namespace BUILD
 
 		static const Font file_browser(const float scale_factor);
 		static const Font knob(const float scale_factor);
-		static const Font knob_txt_edit(const float scale_factor);
+		static const Font slider_txt_editor(const float scale_factor);
 		static const Font tip();
 	};
 

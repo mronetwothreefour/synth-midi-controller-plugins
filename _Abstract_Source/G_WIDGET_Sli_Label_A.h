@@ -15,8 +15,8 @@ namespace WIDGET
 	protected: Slider_Wheel_Mod* parent_slider;
 	protected: Tip_Updater_A tip_update;
 	public: bool editable;
-	private: const StringArray& choices;
-	private: const StringArray& choices_curt;
+	protected: const StringArray& choices;
+	protected: const StringArray& choices_curt;
 
 	//==============================================================================
 	public: Slider_Label_A(const String& param_id, Data_Hub* hub, Slider_Wheel_Mod* parent_slider);
