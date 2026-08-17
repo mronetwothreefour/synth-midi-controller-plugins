@@ -3,7 +3,6 @@ C_GET_A
 C_ID_A
 C_NAME_A
 D_BUILD_Choices_A
-D_BUILD_Font_For_A
 D_BUILD_Layout_A
 D_BUILD_Tip_A
 D_CONVERT_A

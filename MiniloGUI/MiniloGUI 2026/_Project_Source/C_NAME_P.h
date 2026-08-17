@@ -5,12 +5,12 @@
 namespace NAME
 {
 
-	static const String lbl_lfo_rate{ "lfo_rate" };
-	static const String lbl_lpf_eg_int{ "lpf_eg_int" };
-	static const String lbl_osc_2_pitch_eg_int{ "osc_2_pitch_eg_int" };
-	static const String lbl_osc_pitch_fine{ "osc_pitch_fine" };
-	static const String lbl_u_10_bit_int{ "u_10_bit_int" };
-	static const String voice_mode_depth{ "voice_mode_depth" };
+	static const String lbl_lfo_rate{ "lbl_lfo_rate" };
+	static const String lbl_lpf_eg_int{ "lbl_lpf_eg_int" };
+	static const String lbl_osc_2_pitch_eg_int{ "lbl_osc_2_pitch_eg_int" };
+	static const String lbl_osc_pitch_fine{ "lbl_osc_pitch_fine" };
+	static const String lbl_u_10_bit_int{ "lbl_u_10_bit_int" };
+	static const String lbl_voice_mode_depth{ "lbl_voice_mode_depth" };
 	static const String knob_lfo_rate{ "knob_lfo_rate" };
 	static const String knob_lpf_eg_int{ "knob_lpf_eg_int" };
 	static const String knob_lpf_freq{ "knob_lpf_freq" };

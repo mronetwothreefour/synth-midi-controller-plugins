@@ -78,10 +78,12 @@
             file="_Project_Source/C_MAP_Choices_P.h"/>
       <FILE id="MOORah" name="C_MAP_Ctrl_Name_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Ctrl_Name_P.h"/>
-      <FILE id="XY2dZ3" name="C_MAP_Init_Choice_P.h" compile="0" resource="0"
-            file="_Project_Source/C_MAP_Init_Choice_P.h"/>
       <FILE id="vD7I0O" name="C_MAP_Exp_Name_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Exp_Name_P.h"/>
+      <FILE id="XY2dZ3" name="C_MAP_Init_Choice_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Init_Choice_P.h"/>
+      <FILE id="bMLE4a" name="C_MAP_Label_Name_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Label_Name_P.h"/>
       <FILE id="sgFlSL" name="C_MAP_Tip_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Tip_P.h"/>
       <FILE id="QvoKYL" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
       <FILE id="JtZo7R" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"

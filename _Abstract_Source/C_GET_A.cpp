@@ -5,7 +5,7 @@
 #include "C_MAP_Ctrl_Name_P.h"
 #include "C_MAP_Exp_Name_P.h"
 #include "C_MAP_Init_Choice_P.h"
-//#include "C_MAP_Label_Name_P.h"
+#include "C_MAP_Label_Name_P.h"
 #include "C_MAP_Tip_P.h"
 
 const double GET_A::editor_aspect_ratio() {
@@ -75,8 +75,8 @@ const int GET_A::init_choice_for(const String id) {
 }
 
 const String GET_A::label_name_for(const String id) {
-	//if (MAP::label_name.find(id) != MAP::label_name.end())
-	//	return MAP::label_name.at(id);
+	if (MAP::label_name.find(id) != MAP::label_name.end())
+		return MAP::label_name.at(id);
 	return {};
 }
 
