@@ -5,7 +5,6 @@
 namespace NAME
 {
 
-	static const String allowed_char_pitch{ "abcdefgABCDEFG0123456789#" };
 	static const String allowed_char_lfo_freq{ "abcdefgABCDEFG0123456789#:." };
 	static const String allowed_char_osc_shape{ "afiopqrstwAFIOPQRSTW0123456789/" };
 	static const String allowed_char_osc_slop{ "012345" };

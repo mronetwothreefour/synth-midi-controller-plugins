@@ -43,6 +43,8 @@ namespace BUILD
 		static String exp_poly_mod_dest_osc_a_freq();
 
 		static String exp_unison_track();
+
+		static String knob_txt_editor(const String& slider_label_name);
 	};
 
 }

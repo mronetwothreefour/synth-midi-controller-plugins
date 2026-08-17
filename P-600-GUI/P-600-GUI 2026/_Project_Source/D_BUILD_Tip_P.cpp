@@ -1,6 +1,8 @@
 #include "D_BUILD_Tip_P.h"
 
+#include "C_NAME_P.h"
 #include "C_SL_Tip_Exposed_P.h"
+#include "C_SL_Tip_Widget_P.h"
 
 using namespace BUILD;
 
@@ -114,5 +116,19 @@ String Tip::exp_poly_mod_dest_osc_a_freq() {
 
 String Tip::exp_unison_track() {
     return from_string_literal(SL::unison_track_tip);
+}
+
+String BUILD::Tip::knob_txt_editor(const String& name) {
+	if (name == NAME::lbl_u_int_4_bit)
+		return from_string_literal(SL::knob_txt_edit_int_tip).replace("_", "15");
+    if (name == NAME::lbl_u_int_5_bit)
+        return from_string_literal(SL::knob_txt_edit_int_tip).replace("_", "31");
+    if (name == NAME::lbl_u_int_6_bit)
+        return from_string_literal(SL::knob_txt_edit_int_tip).replace("_", "63");
+    if (name == NAME::lbl_u_int_7_bit)
+        return from_string_literal(SL::knob_txt_edit_int_tip).replace("_", "127");
+	if (name == NAME::lbl_osc_pitch)
+		return from_string_literal(SL::knob_txt_edit_osc_pitch_tip);
+    return {};
 }
 

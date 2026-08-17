@@ -919,6 +919,9 @@
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.cpp">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\G_WIDGET_Sli_Label_P.cpp">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\_Project_Source\G_WIDGET_Sli_Wheel_Mod_P.cpp">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClCompile>
@@ -4212,6 +4215,9 @@
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Exposed_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Widget_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
@@ -4243,6 +4249,9 @@
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\G_WIDGET_Sli_Label_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\G_WIDGET_Sli_Wheel_Mod_P.h">

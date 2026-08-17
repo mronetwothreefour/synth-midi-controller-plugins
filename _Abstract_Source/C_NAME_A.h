@@ -5,6 +5,7 @@
 namespace NAME
 {
 
+	static const String allowed_char_pitch{ "abcdefgABCDEFG0123456789#" };
 	static const String allowed_char_s_int{ "-0123456789" };
 	static const String allowed_char_u_int{ "0123456789" };
 

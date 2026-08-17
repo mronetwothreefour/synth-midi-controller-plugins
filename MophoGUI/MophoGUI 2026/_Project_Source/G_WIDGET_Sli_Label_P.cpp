@@ -14,7 +14,6 @@ Slider_Label::Slider_Label(const String& param_id, Data_Hub* hub, Slider_Wheel_M
 {
 	if (getName() == lbl_voice_name_char)
 		editable = false;
-	setJustificationType(Justification::centred);
 }
 
 void Slider_Label::on_editor_show() {

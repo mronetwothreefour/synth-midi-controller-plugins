@@ -9,44 +9,38 @@ using namespace BUILD;
 using namespace NAME;
 using namespace WIDGET;
 
-using Justify = Justification;
-
 Slider_Label::Slider_Label(const String& param_id, Data_Hub* hub, Slider_Wheel_Mod* parent_slider) :
-	Slider_Label_A{ param_id, hub, parent_slider },
-	for_osc_balance{ GET::ctrl_name_for(param_id) == slider_osc_balance }
+	Slider_Label_A{ param_id, hub, parent_slider }
 {
-	if (!for_osc_balance)
-		setJustificationType(Justify::right);
 	set_text_to_stored_choice();
 }
 
 void Slider_Label::on_editor_show() {
 	auto edit = getCurrentTextEditor();
-	if (for_osc_balance)
-		edit->setName(txt_editor_filled);
-	edit->setJustification(for_osc_balance ? Justify::centred : Justify::centredRight);
+	edit->setJustification(Justification::centred);
 	edit->setBounds(getLocalBounds());
 	edit->applyFontToAllText(Font_For::knob_txt_editor(scale_factor));
 	auto n = getName();
-	if (n == lbl_osc_pitch)
-		edit->setInputRestrictions(4, allowed_char_pitch);
-	if (n == lbl_s_6_bit_int)
-		edit->setInputRestrictions(3, allowed_char_s_int);
-	if (n == lbl_s_7_bit_int)
-		edit->setInputRestrictions(3, allowed_char_s_int);
-	if (n == lbl_u_int)
-		edit->setInputRestrictions(3, allowed_char_u_int);
-	edit->setTooltip(Tip::knob_txt_editor(n, n == lbl_s_7_bit_int));
+	if (n == NAME::lbl_u_int_4_bit)
+		edit->setInputRestrictions(2, NAME::allowed_char_u_int);
+	if (n == NAME::lbl_u_int_5_bit)
+		edit->setInputRestrictions(2, NAME::allowed_char_u_int);
+	if (n == NAME::lbl_u_int_6_bit)
+		edit->setInputRestrictions(2, NAME::allowed_char_u_int);
+	if (n == NAME::lbl_u_int_7_bit)
+		edit->setInputRestrictions(3, NAME::allowed_char_u_int);
+	if (n == NAME::lbl_osc_pitch)
+		edit->setInputRestrictions(3, NAME::allowed_char_pitch);
+	edit->setTooltip(Tip::knob_txt_editor(n));
 	edit->setText(getText().removeCharacters(" +"));
 	edit->selectAll();
 }
 
 void Slider_Label::on_text_change() {
-	auto n = getName();
 	auto new_text{ getText().toUpperCase() };
-	auto new_val{ -64.0f };
+	auto new_val{ -1.0f };
 	if (new_text.isNotEmpty()) {
-		if (n == lbl_osc_pitch) {
+		if (getName() == lbl_osc_pitch) {
 			if (new_text.containsAnyOf("abcdefgABCDEFG#")) {
 				for (int i = 0; i < choices_curt.size(); ++i) {
 					if (choices_curt[i].removeCharacters(" ") == new_text) {
@@ -58,14 +52,9 @@ void Slider_Label::on_text_change() {
 			else
 				new_val = new_text.getFloatValue();
 		}
-		else {
+		else
 			new_val = new_text.getFloatValue();
-			if (n == lbl_s_6_bit_int)
-				new_val += 31.0f;
-			if (n == lbl_s_7_bit_int)
-				new_val += 63.0f;
-		}
-		if (new_val > -64.0f)
+		if (new_val > -1.0f)
 			parent_slider->setValue(new_val);
 	}
 	set_text_to_stored_choice();
