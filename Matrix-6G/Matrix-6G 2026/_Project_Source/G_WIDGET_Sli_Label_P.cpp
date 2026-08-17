@@ -25,7 +25,7 @@ void Slider_Label::on_editor_show() {
 		edit->setComponentID(txt_editor_filled);
 	edit->setJustification(for_osc_balance ? Justify::centred : Justify::centredRight);
 	edit->setBounds(getLocalBounds());
-	edit->applyFontToAllText(Font_For::slider_txt_editor(scale_factor));
+	edit->applyFontToAllText(Font_For::knob_txt_editor(scale_factor));
 	auto n = getName();
 	if (n == lbl_osc_pitch)
 		edit->setInputRestrictions(4, allowed_char_pitch);
@@ -35,7 +35,7 @@ void Slider_Label::on_editor_show() {
 		edit->setInputRestrictions(3, allowed_char_s_int);
 	if (n == lbl_u_int)
 		edit->setInputRestrictions(3, allowed_char_u_int);
-	edit->setTooltip(Tip::slider_txt_editor(n, n == lbl_s_7_bit_int));
+	edit->setTooltip(Tip::knob_txt_editor(n, n == lbl_s_7_bit_int));
 	edit->setText(getText().removeCharacters(" +"));
 	edit->selectAll();
 }
@@ -64,7 +64,7 @@ void Slider_Label::on_text_change() {
 			if (n == lbl_s_7_bit_int)
 				new_val += 63.0f;
 		}
-		if (new_val > -1.0f)
+		if (new_val > -64.0f)
 			parent_slider->setValue(new_val);
 	}
 	set_text_to_stored_choice();

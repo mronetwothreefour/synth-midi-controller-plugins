@@ -1,6 +1,8 @@
 #include "D_BUILD_Tip_P.h"
 
+#include "C_NAME_P.h"
 #include "C_SL_Tip_Exposed_P.h"
+#include "C_SL_Tip_Widget_P.h"
 
 using namespace BUILD;
 
@@ -140,6 +142,10 @@ String Tip::exp_mod_amt() {
     return from_string_literal(SL::mod_amt_tip);
 }
 
+String Tip::exp_mod_dest() {
+    return "Selects the target parameter for modulation";
+}
+
 String Tip::exp_noise_level() {
     return from_string_literal(SL::noise_level_tip);
 }
@@ -241,6 +247,31 @@ String Tip::exp_voice_volume() {
     return from_string_literal(SL::voice_volume_tip);
 }
 
-String Tip::exp_mod_dest() {
-    return "Selects the target parameter for modulation";
+String BUILD::Tip::knob_text_editor(const String& name) {
+    if (name == NAME::lbl_bend_range)
+        return from_string_literal(SL::knob_txt_edit_bend_range_tip);
+    if (name == NAME::lbl_clock_tempo)
+        return from_string_literal(SL::knob_txt_edit_clock_tempo_tip);
+    if (name == NAME::lbl_lfo_freq)
+        return from_string_literal(SL::knob_txt_edit_lfo_freq_tip);
+    if (name == NAME::lbl_lpf_freq)
+        return from_string_literal(SL::knob_txt_edit_lpf_freq_tip);
+    if (name == NAME::lbl_osc_fine)
+        return from_string_literal(SL::knob_txt_edit_osc_fine_tip);
+    if (name == NAME::lbl_osc_pitch)
+        return from_string_literal(SL::knob_txt_edit_osc_pitch_tip);
+    if (name == NAME::lbl_osc_shape)
+        return from_string_literal(SL::knob_txt_edit_osc_shape_tip);
+    if (name == NAME::lbl_osc_slop)
+        return from_string_literal(SL::knob_txt_edit_osc_slop_tip);
+    if (name == NAME::lbl_seq_step)
+        return from_string_literal(SL::knob_txt_edit_seq_step_tip);
+    if (name == NAME::lbl_seq_step_trk_1)
+        return from_string_literal(SL::knob_txt_edit_seq_step_tip) + "\n" +
+            from_string_literal(SL::knob_txt_edit_seq_step_track_1_tip);
+    if (name == NAME::lbl_s_8_bit_int)
+        return from_string_literal(SL::knob_txt_edit_s_8_bit_int_tip);
+    if (name == NAME::lbl_u_7_bit_int)
+        return from_string_literal(SL::knob_txt_edit_u_7_bit_int_tip);
+    return {};
 }

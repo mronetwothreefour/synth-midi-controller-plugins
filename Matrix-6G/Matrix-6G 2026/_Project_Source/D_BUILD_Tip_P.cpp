@@ -225,7 +225,7 @@ String Tip::exp_vcf_reso() {
     return from_string_literal(SL::vcf_reso_tip);
 }
 
-String BUILD::Tip::slider_txt_editor(const String& name, bool u_7_bit) {
+String BUILD::Tip::knob_txt_editor(const String& name, bool u_7_bit) {
 	if (name == NAME::lbl_osc_pitch)
         return from_string_literal(SL::knob_txt_edit_osc_pitch_tip);
     if (name == NAME::lbl_s_6_bit_int)
@@ -234,5 +234,5 @@ String BUILD::Tip::slider_txt_editor(const String& name, bool u_7_bit) {
         return from_string_literal(SL::knob_txt_edit_s_int_tip).replace("_", "63");
     if (name == NAME::lbl_u_int)
         return from_string_literal(SL::knob_txt_edit_u_int_tip).replace("_", u_7_bit ? "127" : "63");
-    return "";
+    return {};
 }

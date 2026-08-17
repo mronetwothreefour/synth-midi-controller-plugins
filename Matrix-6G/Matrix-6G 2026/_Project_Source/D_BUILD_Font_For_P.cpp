@@ -15,7 +15,7 @@ const Font Font_For::knob(const float scale_factor) {
 	return Font{ bold() }.withPointHeight(16.0f * scale_factor);
 }
 
-const Font Font_For::slider_txt_editor(const float scale_factor) {
+const Font Font_For::knob_txt_editor(const float scale_factor) {
 	return Font{ bold() }.withPointHeight(16.0f * scale_factor);
 }
 

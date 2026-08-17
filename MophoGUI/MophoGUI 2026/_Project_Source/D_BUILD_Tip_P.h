@@ -78,6 +78,7 @@ namespace BUILD
 		static String exp_voice_name_char(const int char_num);
 		static String exp_voice_volume();
 
+		static String knob_text_editor(const String& slider_label_name);
 	};
 
 }
