@@ -895,6 +895,9 @@
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_BUILD_Font_For_P.cpp">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Tip_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
@@ -4176,9 +4179,6 @@
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_FONT_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_GET_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
@@ -4222,6 +4222,9 @@
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_BUILD_Font_For_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Tip_P.h">
@@ -9176,7 +9179,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\..\..\SOCL0\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\OVERPASS-BOLD.TTF">
+    <None Include="..\..\_Project_Source\binaries\Overpass-Bold.ttf">
       <Filter>Matrix-6G 2026\_Project_Source\binaries</Filter>
     </None>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt">

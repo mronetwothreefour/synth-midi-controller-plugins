@@ -1,7 +1,9 @@
 #include "G_WIDGET_Sli_Label_A.h"
 
-#include "C_FONT_P.h"
 #include "C_GET_P.h"
+#include "D_BUILD_Font_For_P.h"
+
+using namespace BUILD;
 
 WIDGET::Slider_Label_A::Slider_Label_A(const String& param_id, Data_Hub* hub,
 									   Slider_Wheel_Mod* parent_slider) :
@@ -22,7 +24,7 @@ WIDGET::Slider_Label_A::Slider_Label_A(const String& param_id, Data_Hub* hub,
 }
 
 void WIDGET::Slider_Label_A::resized() {
-	setFont(FONT::knob(scale_factor));
+	setFont(Font_For::knob(scale_factor));
 }
 
 void WIDGET::Slider_Label_A::set_text_to_stored_choice() {

@@ -8,11 +8,14 @@
 
 namespace BinaryData
 {
+    extern const char*   OverpassBold_ttf;
+    const int            OverpassBold_ttfSize = 123228;
+
     extern const char*   texture_jpg;
     const int            texture_jpgSize = 113941;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 1;
+    const int namedResourceListSize = 2;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

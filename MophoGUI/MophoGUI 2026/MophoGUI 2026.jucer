@@ -62,6 +62,12 @@
             file="../../_Abstract_Source/G_WIDGET_Tip_Updater_A.h"/>
     </GROUP>
     <GROUP id="{254E4686-BC92-207B-DE29-DE75CD919E28}" name="_Project_Source">
+      <GROUP id="{A9F1A5B1-7BC0-A3B4-C605-CBCC7D8F6050}" name="binaries">
+        <FILE id="QSKeWv" name="Overpass-Bold.ttf" compile="0" resource="1"
+              file="_Project_Source/binaries/Overpass-Bold.ttf"/>
+        <FILE id="YaQDyG" name="Overpass-SemiBold.ttf" compile="0" resource="1"
+              file="_Project_Source/binaries/Overpass-SemiBold.ttf"/>
+      </GROUP>
       <FILE id="qJ0JUp" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
       <FILE id="nFiIIh" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
       <FILE id="P9I3fG" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
@@ -89,6 +95,10 @@
             file="_Project_Source/D_BUILD_Choices_P.cpp"/>
       <FILE id="ggg3rk" name="D_BUILD_Choices_P.h" compile="0" resource="0"
             file="_Project_Source/D_BUILD_Choices_P.h"/>
+      <FILE id="w5CBWy" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_BUILD_Font_For_P.cpp"/>
+      <FILE id="iv9PN7" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
+            file="_Project_Source/D_BUILD_Font_For_P.h"/>
       <FILE id="p0OHdM" name="D_BUILD_Tip_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Tip_P.cpp"/>
       <FILE id="CjE3Is" name="D_BUILD_Tip_P.h" compile="0" resource="0" file="_Project_Source/D_BUILD_Tip_P.h"/>

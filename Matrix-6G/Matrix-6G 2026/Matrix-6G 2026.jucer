@@ -66,12 +66,11 @@
             file="../../_Abstract_Source/G_WIDGET_Tip_Updater_A.h"/>
     </GROUP>
     <GROUP id="{184497C2-0BC4-A69C-3CF3-9218D550E5FD}" name="_Project_Source">
-      <GROUP id="{102C058F-DF18-53AF-6381-D15ED0D32493}" name="binaries">
-        <FILE id="b2jzgS" name="OVERPASS-BOLD.TTF" compile="0" resource="1"
-              file="../../../../../SOCL0/APPDATA/LOCAL/MICROSOFT/WINDOWS/FONTS/OVERPASS-BOLD.TTF"/>
+      <GROUP id="{E2CF511A-3BE4-2C85-8587-4B1D2DC29528}" name="binaries">
+        <FILE id="yKKyUG" name="Overpass-Bold.ttf" compile="0" resource="1"
+              file="_Project_Source/binaries/Overpass-Bold.ttf"/>
       </GROUP>
       <FILE id="LO3uDg" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
-      <FILE id="G3HyeX" name="C_FONT_P.h" compile="0" resource="0" file="_Project_Source/C_FONT_P.h"/>
       <FILE id="svwFzy" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
       <FILE id="LxcoVg" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
       <FILE id="oPWDCv" name="C_ID_EXP_P.h" compile="0" resource="0" file="_Project_Source/C_ID_EXP_P.h"/>
@@ -99,6 +98,10 @@
             file="_Project_Source/D_BUILD_Choices_P.cpp"/>
       <FILE id="XgtjdN" name="D_BUILD_Choices_P.h" compile="0" resource="0"
             file="_Project_Source/D_BUILD_Choices_P.h"/>
+      <FILE id="iRRUko" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_BUILD_Font_For_P.cpp"/>
+      <FILE id="G3HyeX" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
+            file="_Project_Source/D_BUILD_Font_For_P.h"/>
       <FILE id="rSwQCb" name="D_BUILD_Tip_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Tip_P.cpp"/>
       <FILE id="ZxIQEN" name="D_BUILD_Tip_P.h" compile="0" resource="0" file="_Project_Source/D_BUILD_Tip_P.h"/>

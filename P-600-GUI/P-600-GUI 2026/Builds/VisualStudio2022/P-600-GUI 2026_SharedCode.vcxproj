@@ -160,6 +160,7 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.cpp"/>
     <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\D_BUILD_Font_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Tip_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_CONVERT_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.cpp"/>
@@ -3196,6 +3197,7 @@
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Exposed_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\D_BUILD_Font_For_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Tip_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_CONVERT_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.h"/>
@@ -4848,6 +4850,7 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\_Project_Source\binaries\Overpass-Bold.ttf"/>
     <None Include="..\..\_Project_Source\binaries\texture.jpg"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\src\common\README.md"/>

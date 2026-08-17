@@ -1,6 +1,5 @@
 C_COLOR_P
 C_ENUM_P
-C_FONT_P
 C_GET_P
 C_ID_EXP_P
 C_MAP_Bounds_P
@@ -17,6 +16,7 @@ C_PATH_Widgets_P
 C_SL_Tip_Exposed_P
 C_XYWH_P
 D_BUILD_Choices_P
+D_BUILD_Font_For_P
 D_BUILD_Tip_P
 D_CONVERT_P
 D_X_G_Audio_Processor_P

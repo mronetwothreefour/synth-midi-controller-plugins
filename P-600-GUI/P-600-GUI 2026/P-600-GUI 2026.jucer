@@ -63,6 +63,8 @@
     </GROUP>
     <GROUP id="{2B6FF762-7DA6-E418-FBFF-644113FC53B6}" name="_Project_Source">
       <GROUP id="{B67082E3-4C7A-5DC5-7E05-9557F9987F02}" name="binaries">
+        <FILE id="dQNlYr" name="Overpass-Bold.ttf" compile="0" resource="1"
+              file="_Project_Source/binaries/Overpass-Bold.ttf"/>
         <FILE id="oIl9aN" name="texture.jpg" compile="0" resource="1" file="_Project_Source/binaries/texture.jpg"/>
       </GROUP>
       <FILE id="x0YNPv" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
@@ -92,6 +94,10 @@
             file="_Project_Source/D_BUILD_Choices_P.cpp"/>
       <FILE id="dfRBqi" name="D_BUILD_Choices_P.h" compile="0" resource="0"
             file="_Project_Source/D_BUILD_Choices_P.h"/>
+      <FILE id="kY7sV3" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_BUILD_Font_For_P.cpp"/>
+      <FILE id="TUXLFq" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
+            file="_Project_Source/D_BUILD_Font_For_P.h"/>
       <FILE id="LrsQAc" name="D_BUILD_Tip_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Tip_P.cpp"/>
       <FILE id="eKVSZv" name="D_BUILD_Tip_P.h" compile="0" resource="0" file="_Project_Source/D_BUILD_Tip_P.h"/>

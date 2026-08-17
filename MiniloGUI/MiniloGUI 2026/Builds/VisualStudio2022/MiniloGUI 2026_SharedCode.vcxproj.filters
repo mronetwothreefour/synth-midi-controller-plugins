@@ -5,6 +5,9 @@
     <Filter Include="MiniloGUI 2026\_Abstract_Source">
       <UniqueIdentifier>{313AD995-B340-1B7D-A3FF-485780AE53BE}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MiniloGUI 2026\_Project_Source\binaries">
+      <UniqueIdentifier>{96FD94EE-14BD-9B62-B38F-A95A14CB2E3D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MiniloGUI 2026\_Project_Source">
       <UniqueIdentifier>{690CA8C3-89EF-F607-D499-D9D9AC9C6736}</UniqueIdentifier>
     </Filter>
@@ -887,6 +890,9 @@
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_P.cpp">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_BUILD_Font_For_P.cpp">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Tip_P.cpp">
@@ -4018,6 +4024,9 @@
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_midi_ci\juce_midi_ci.cpp">
       <Filter>JUCE Modules\juce_midi_ci</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
@@ -4207,6 +4216,9 @@
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_P.h">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_BUILD_Font_For_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Tip_P.h">
@@ -9150,6 +9162,9 @@
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h">
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h">
+      <Filter>JUCE Library Code</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h">
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
@@ -9158,6 +9173,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\_Project_Source\binaries\Overpass-Bold.ttf">
+      <Filter>MiniloGUI 2026\_Project_Source\binaries</Filter>
+    </None>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt">
       <Filter>JUCE Modules\juce_audio_devices\native\asio</Filter>
     </None>
