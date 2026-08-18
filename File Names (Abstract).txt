@@ -1,10 +1,11 @@
 C_COLOR_A
 C_GET_A
 C_ID_A
+C_MISC_A
 C_NAME_A
 D_BUILD_Choices_For_A
 D_BUILD_Layout_A
-D_BUILD_Tip_A
+D_BUILD_Tip_For_A
 D_CONVERT_A
 D_X_G_Audio_Processor_A
 D_X_G_Data_Hub_A

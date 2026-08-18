@@ -10,6 +10,7 @@ C_MAP_Init_Choice_P
 C_MAP_Label_Name_P
 C_MAP_Name_P
 C_MAP_Tip_P
+C_MISC_P
 C_NAME_P
 C_PATH_Backdrop_Main_P
 C_PATH_Widgets_P
@@ -18,7 +19,7 @@ C_SL_Tip_Widget_P
 C_XYWH_P
 D_BUILD_Choices_For_P
 D_BUILD_Font_For_P
-D_BUILD_Tip_P
+D_BUILD_Tip_For_P
 D_CONVERT_P
 D_X_G_Audio_Processor_P
 D_X_G_Data_Hub_P

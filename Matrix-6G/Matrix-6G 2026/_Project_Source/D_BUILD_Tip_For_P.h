@@ -1,12 +1,12 @@
 #pragma once
 
-#include "D_BUILD_Tip_A.h"
+#include "D_BUILD_Tip_For_A.h"
 
 namespace BUILD
 {
 
-	struct Tip :
-		public Tip_A
+	struct Tip_For :
+		public Tip_For_A
 	{
 		static String exp_env_amp(const int env_num);
 		static String exp_env_attack(const int env_num);

@@ -23,9 +23,10 @@
             file="../../_Abstract_Source/D_BUILD_Layout_A.cpp"/>
       <FILE id="yiVENi" name="D_BUILD_Layout_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/D_BUILD_Layout_A.h"/>
-      <FILE id="ILbAIO" name="D_BUILD_Tip_A.cpp" compile="1" resource="0"
-            file="../../_Abstract_Source/D_BUILD_Tip_A.cpp"/>
-      <FILE id="rfs7Dy" name="D_BUILD_Tip_A.h" compile="0" resource="0" file="../../_Abstract_Source/D_BUILD_Tip_A.h"/>
+      <FILE id="aZLb3s" name="D_BUILD_Tip_For_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Tip_For_A.cpp"/>
+      <FILE id="IuXnPk" name="D_BUILD_Tip_For_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Tip_For_A.h"/>
       <FILE id="iJsfEi" name="D_CONVERT_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/D_CONVERT_A.cpp"/>
       <FILE id="NhGGcT" name="D_CONVERT_A.h" compile="0" resource="0" file="../../_Abstract_Source/D_CONVERT_A.h"/>
       <FILE id="bZUfyU" name="D_X_G_Audio_Processor_A.cpp" compile="1" resource="0"
@@ -103,9 +104,10 @@
             file="_Project_Source/D_BUILD_Font_For_P.cpp"/>
       <FILE id="iv9PN7" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
             file="_Project_Source/D_BUILD_Font_For_P.h"/>
-      <FILE id="p0OHdM" name="D_BUILD_Tip_P.cpp" compile="1" resource="0"
-            file="_Project_Source/D_BUILD_Tip_P.cpp"/>
-      <FILE id="CjE3Is" name="D_BUILD_Tip_P.h" compile="0" resource="0" file="_Project_Source/D_BUILD_Tip_P.h"/>
+      <FILE id="p0OHdM" name="D_BUILD_Tip_For_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_BUILD_Tip_For_P.cpp"/>
+      <FILE id="CjE3Is" name="D_BUILD_Tip_For_P.h" compile="0" resource="0"
+            file="_Project_Source/D_BUILD_Tip_For_P.h"/>
       <FILE id="dJycR7" name="D_CONVERT_P.cpp" compile="1" resource="0" file="_Project_Source/D_CONVERT_P.cpp"/>
       <FILE id="RH4KSw" name="D_CONVERT_P.h" compile="0" resource="0" file="_Project_Source/D_CONVERT_P.h"/>
       <FILE id="KJZvOd" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"

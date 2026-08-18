@@ -4,7 +4,7 @@
 #include "C_GET_P.h"
 #include "C_NAME_P.h"
 #include "D_BUILD_Font_For_P.h"
-#include "D_BUILD_Tip_P.h"
+#include "D_BUILD_Tip_For_P.h"
 
 using namespace BUILD;
 using namespace ENUM;
@@ -54,7 +54,7 @@ void Slider_Label::on_editor_show() {
 		//	break;
 		//}
 	}
-	edit->setTooltip(Tip::knob_txt_editor(n/* ,avp*/));
+	edit->setTooltip(Tip_For::knob_txt_editor(n/* ,avp*/));
 	edit->selectAll();
 }
 

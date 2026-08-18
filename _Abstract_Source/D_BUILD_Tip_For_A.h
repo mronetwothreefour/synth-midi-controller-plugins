@@ -5,7 +5,7 @@
 namespace BUILD 
 {
 
-	struct Tip_A
+	struct Tip_For_A
 	{
 		static String from_string_literal(const char8_t* sl);
 	};

@@ -850,13 +850,13 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\C_GET_A.cpp">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_For_A.cpp">
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_A.cpp">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Layout_A.cpp">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_A.cpp">
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_For_A.cpp">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.cpp">
@@ -892,13 +892,13 @@
     <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_For_For_P.cpp">
+    <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_For_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Font_For_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\_Project_Source\D_BUILD_Tip_P.cpp">
+    <ClCompile Include="..\..\_Project_Source\D_BUILD_Tip_For_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_CONVERT_P.cpp">
@@ -4140,13 +4140,13 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_NAME_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_For_A.h">
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Layout_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_A.h">
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_For_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.h">
@@ -4227,13 +4227,13 @@
     <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_For_For_P.h">
+    <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_For_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Font_For_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\D_BUILD_Tip_P.h">
+    <ClInclude Include="..\..\_Project_Source\D_BUILD_Tip_For_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_CONVERT_P.h">
