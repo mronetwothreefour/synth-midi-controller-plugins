@@ -1,14 +1,14 @@
-#include "D_BUILD_Choices_A.h"
+#include "D_BUILD_Choices_For_A.h"
 
 #include "D_CONVERT_P.h"
 
 using namespace BUILD;
 
-const StringArray Choices_A::off_on() {
+const StringArray Choices_For_A::off_on() {
 	return { "off", "on" };
 }
 
-const StringArray Choices_A::osc_pitch(const int choice_count) {
+const StringArray Choices_For_A::osc_pitch(const int choice_count) {
 	StringArray list;
 	for (int i = 0; i < choice_count; ++i) {
 		String p{ CONVERT::int_to_pitch(i) };
@@ -17,7 +17,7 @@ const StringArray Choices_A::osc_pitch(const int choice_count) {
 	return list;
 }
 
-const StringArray Choices_A::signed_int(const int min, const int max) {
+const StringArray Choices_For_A::signed_int(const int min, const int max) {
 	StringArray list;
 	for (int i = min; i <= max; ++i) {
 		String n{ (i > 0 ? "+" : "") + (String)i };
@@ -26,7 +26,7 @@ const StringArray Choices_A::signed_int(const int min, const int max) {
 	return list;
 }
 
-const StringArray Choices_A::unsigned_int(const int max) {
+const StringArray Choices_For_A::unsigned_int(const int max) {
 	StringArray list;
 	for (int i = 0; i <= max; ++i) {
 		list.add((String)i);

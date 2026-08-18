@@ -850,7 +850,7 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\C_GET_A.cpp">
       <Filter>MophoGUI 2026\_Abstract_Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_A.cpp">
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_A.cpp">
       <Filter>MophoGUI 2026\_Abstract_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Layout_A.cpp">
@@ -889,7 +889,7 @@
     <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_P.cpp">
+    <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_For_P.cpp">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Font_For_P.cpp">
@@ -4137,7 +4137,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_NAME_A.h">
       <Filter>MophoGUI 2026\_Abstract_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_A.h">
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_A.h">
       <Filter>MophoGUI 2026\_Abstract_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Layout_A.h">
@@ -4221,7 +4221,7 @@
     <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_P.h">
+    <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_For_P.h">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Font_For_P.h">

@@ -1,12 +1,12 @@
 #pragma once
 
-#include "D_BUILD_Choices_A.h"
+#include "D_BUILD_Choices_For_A.h"
 
 namespace BUILD
 {
 
-	struct Choices :
-		public Choices_A
+	struct Choices_For :
+		public Choices_For_A
 	{
 	public: static const StringArray exp_delay_routing();
 	public: static const StringArray exp_lfo_eg_mod();

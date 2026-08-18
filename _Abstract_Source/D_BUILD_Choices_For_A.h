@@ -4,7 +4,7 @@
 
 namespace BUILD {
 
-	struct Choices_A
+	struct Choices_For_A
 	{
 		static const StringArray off_on();
 		static const StringArray osc_pitch(const int choice_count);

@@ -15,10 +15,10 @@
       <FILE id="BPZtVt" name="C_GET_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_GET_A.h"/>
       <FILE id="IOvCsP" name="C_ID_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_ID_A.h"/>
       <FILE id="vnEIMK" name="C_NAME_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_NAME_A.h"/>
-      <FILE id="SmzlBW" name="D_BUILD_Choices_A.cpp" compile="1" resource="0"
-            file="../../_Abstract_Source/D_BUILD_Choices_A.cpp"/>
-      <FILE id="Z44BwA" name="D_BUILD_Choices_A.h" compile="0" resource="0"
-            file="../../_Abstract_Source/D_BUILD_Choices_A.h"/>
+      <FILE id="nbJfJg" name="D_BUILD_Choices_For_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Choices_For_A.cpp"/>
+      <FILE id="x12W7J" name="D_BUILD_Choices_For_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Choices_For_A.h"/>
       <FILE id="xK5OtU" name="D_BUILD_Layout_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/D_BUILD_Layout_A.cpp"/>
       <FILE id="yiVENi" name="D_BUILD_Layout_A.h" compile="0" resource="0"
@@ -95,10 +95,10 @@
       <FILE id="xjh2cE" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Widget_P.h"/>
       <FILE id="YKy4lq" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
-      <FILE id="BIdvPZ" name="D_BUILD_Choices_P.cpp" compile="1" resource="0"
-            file="_Project_Source/D_BUILD_Choices_P.cpp"/>
-      <FILE id="ggg3rk" name="D_BUILD_Choices_P.h" compile="0" resource="0"
-            file="_Project_Source/D_BUILD_Choices_P.h"/>
+      <FILE id="BIdvPZ" name="D_BUILD_Choices_For_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_BUILD_Choices_For_P.cpp"/>
+      <FILE id="ggg3rk" name="D_BUILD_Choices_For_P.h" compile="0" resource="0"
+            file="_Project_Source/D_BUILD_Choices_For_P.h"/>
       <FILE id="w5CBWy" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Font_For_P.cpp"/>
       <FILE id="iv9PN7" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
