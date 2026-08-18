@@ -5,6 +5,7 @@
 namespace NAME
 {
 
+	static const String allowed_char_vmode_poly{ "012345678" };
 	static const String lbl_lfo_rate{ "lbl_lfo_rate" };
 	static const String lbl_lpf_eg_int{ "lbl_lpf_eg_int" };
 	static const String lbl_osc_2_pitch_eg_int{ "lbl_osc_2_pitch_eg_int" };

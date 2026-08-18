@@ -15,7 +15,7 @@ inline const Font Font_For::knob(const float scale_factor) {
 	return Font{ bold() }.withPointHeight(10.0f * scale_factor);
 }
 
-inline const Font Font_For::knob_txt_edit(const float scale_factor) {
+inline const Font Font_For::knob_txt_editor(const float scale_factor) {
 	return Font{ bold() }.withPointHeight(10.0f * scale_factor);
 }
 

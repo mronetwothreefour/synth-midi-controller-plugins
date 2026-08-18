@@ -42,6 +42,8 @@ namespace BUILD
 		static String exp_osc_wave(const int osc_num);
 
 		static String exp_voice_mode_depth();
+
+		static String knob_txt_editor(const String& slider_label_name/*, Tree_Aux_Voice_P& avp*/);
 	};
 
 }

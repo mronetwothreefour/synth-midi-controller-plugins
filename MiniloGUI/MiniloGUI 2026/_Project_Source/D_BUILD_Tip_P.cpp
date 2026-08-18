@@ -1,6 +1,8 @@
 #include "D_BUILD_Tip_P.h"
 
+#include "C_NAME_P.h"
 #include "C_SL_Tip_Exposed_P.h"
+#include "C_SL_Tip_Widget_P.h"
 
 using namespace BUILD;
 
@@ -145,4 +147,44 @@ String Tip::exp_osc_wave(const int o) {
 
 String Tip::exp_voice_mode_depth() {
     return from_string_literal(SL::voice_mode_depth_tip);
+}
+
+String BUILD::Tip::knob_txt_editor(const String& name/*, Tree_Aux_Voice_P& avp*/) {
+	if (name == NAME::lbl_lfo_rate) {
+        //auto synced = avp.lfo_sync_bpm_on();
+        return from_string_literal(/*synced ? SL::knob_txt_edit_lfo_synced_tip :
+            */SL::knob_txt_edit_lfo_unsynced_tip);
+    }
+    if (name == NAME::lbl_lpf_eg_int)
+        return from_string_literal(SL::knob_txt_lpf_eg_int_tip);
+    if (name == NAME::lbl_osc_2_pitch_eg_int)
+        return from_string_literal(SL::knob_txt_edit_osc_2_pitch_eg_int_tip);
+    if (name == NAME::lbl_osc_pitch_fine)
+        return from_string_literal(SL::knob_txt_edit_osc_pitch_fine_tip);
+    if (name == NAME::lbl_u_10_bit_int)
+        return from_string_literal(SL::knob_txt_edit_u_10_bit_int_tip);
+    if (name == NAME::lbl_voice_mode_depth) {
+        //switch (avp.voice_mode())
+        //{
+        //case ENUM::Voice_Mode::poly:
+        //    return from_string_literal(SL::knob_txt_edit_voice_mode_0_tip);
+        //case ENUM::Voice_Mode::duo:
+        //    return from_string_literal(SL::knob_txt_edit_voice_mode_1_2_tip);
+        //case ENUM::Voice_Mode::unison:
+        //    return from_string_literal(SL::knob_txt_edit_voice_mode_1_2_tip);
+        //case ENUM::Voice_Mode::mono:
+        //    return from_string_literal(SL::knob_txt_edit_voice_mode_3_tip);
+        //case ENUM::Voice_Mode::chord:
+        //    return from_string_literal(SL::knob_txt_edit_voice_mode_4_tip);
+        //case ENUM::Voice_Mode::delay:
+        //    return from_string_literal(SL::knob_txt_edit_voice_mode_5_tip);
+        //case ENUM::Voice_Mode::arp:
+        //    return from_string_literal(SL::knob_txt_edit_voice_mode_6_tip);
+        //case ENUM::Voice_Mode::sidechain:
+        //    return from_string_literal(SL::knob_txt_edit_voice_mode_7_tip);
+        //default:
+        //    return "error";
+        //}
+    }
+    return {};
 }
