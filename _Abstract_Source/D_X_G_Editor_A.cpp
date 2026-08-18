@@ -2,9 +2,11 @@
 
 #include "C_ID_A.h"
 #include "C_GET_P.h"
+#include "C_MISC_P.h"
 #include "G_DRAW_Paths_Main_P.h"
 
 using namespace ID;
+using namespace MISC;
 
 Editor_A::Editor_A(Audio_Processor& processor, Data_Hub* hub) :
     AudioProcessorEditor{ &processor },
@@ -21,7 +23,7 @@ Editor_A::Editor_A(Audio_Processor& processor, Data_Hub* hub) :
     //app_options.add_listener(this);
     setResizable(true, true);
     setSize(GET::init_w_for(gui_editor), GET::init_h_for(gui_editor));
-    getConstrainer()->setFixedAspectRatio(GET::editor_aspect_ratio());
+    getConstrainer()->setFixedAspectRatio(editor_aspect_ratio);
     Timer::callAfterDelay(50, [this] { grabKeyboardFocus(); });
 }
 

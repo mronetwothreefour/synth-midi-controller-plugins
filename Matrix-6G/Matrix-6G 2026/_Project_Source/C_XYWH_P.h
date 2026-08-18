@@ -5,8 +5,6 @@
 namespace XYWH
 {
 
-	static const double editor_aspect_ratio{ 2.10067 };
-
 	static const float env_init_begin_x{ 11.0f };
 	static const float env_init_end_x{ 217.0f };
 	static const float env_init_max_y{ 10.0f };
@@ -15,9 +13,6 @@ namespace XYWH
 	static const float env_sustain_init_w{ 34.0f };
 
 	static const float led_display_y{ 3 };
-
-	static const float rotary_sli_begin_angle{ degreesToRadians(225.0f) };
-	static const float rotary_sli_end_angle{ degreesToRadians(495.0f) };
 
 	static const float track_env_init_begin_x{ 849.0f };
 	static const float track_env_init_max_y{ 193.0f };

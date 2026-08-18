@@ -2,12 +2,14 @@
 
 #include "C_ENUM_P.h"
 #include "C_GET_P.h"
+#include "C_MISC_P.h"
 #include "C_NAME_P.h"
 #include "D_BUILD_Font_For_P.h"
 #include "D_BUILD_Tip_For_P.h"
 
 using namespace BUILD;
 using namespace ENUM;
+using namespace MISC;
 using namespace NAME;
 using namespace WIDGET;
 
@@ -22,34 +24,34 @@ void Slider_Label::on_editor_show() {
 	edit->applyFontToAllText(Font_For::knob_txt_editor(scale_factor));
 	auto n = getName();
 	if (n == lbl_lfo_rate)
-		edit->setInputRestrictions(/*avp.lfo_sync_bpm_on() ? 2 : */4, allowed_char_u_int);
+		edit->setInputRestrictions(/*avp.lfo_sync_bpm_on() ? 2 : */4, allowed_chars_u_int);
 	if (n == lbl_lpf_eg_int)
-		edit->setInputRestrictions(4, allowed_char_s_int);
+		edit->setInputRestrictions(4, allowed_chars_s_int);
 	if (n == lbl_osc_2_pitch_eg_int)
-		edit->setInputRestrictions(5, allowed_char_s_int);
+		edit->setInputRestrictions(5, allowed_chars_s_int);
 	if (n == lbl_osc_pitch_fine)
-		edit->setInputRestrictions(5, allowed_char_s_int);
+		edit->setInputRestrictions(5, allowed_chars_s_int);
 	if (n == lbl_u_10_bit_int)
-		edit->setInputRestrictions(4, allowed_char_u_int);
+		edit->setInputRestrictions(4, allowed_chars_u_int);
 	if (n == lbl_voice_mode_depth) {
 		//switch (avp.voice_mode())
 		//{
 		//case Voice_Mode::poly:
-		//	edit->setInputRestrictions(1, allowed_char_vmode_poly);
+		//	edit->setInputRestrictions(1, allowed_chars_vmode_poly);
 		//case Voice_Mode::duo:
-		//	edit->setInputRestrictions(2, allowed_char_u_int);
+		//	edit->setInputRestrictions(2, allowed_chars_u_int);
 		//case Voice_Mode::unison:
-		//	edit->setInputRestrictions(2, allowed_char_u_int);
+		//	edit->setInputRestrictions(2, allowed_chars_u_int);
 		//case Voice_Mode::mono:
-		//	edit->setInputRestrictions(4, allowed_char_u_int);
+		//	edit->setInputRestrictions(4, allowed_chars_u_int);
 		//case Voice_Mode::chord:
-		//	edit->setInputRestrictions(2, allowed_char_u_int);
+		//	edit->setInputRestrictions(2, allowed_chars_u_int);
 		//case Voice_Mode::delay:
-		//	edit->setInputRestrictions(4, allowed_char_u_int);
+		//	edit->setInputRestrictions(4, allowed_chars_u_int);
 		//case Voice_Mode::arp:
-		//	edit->setInputRestrictions(2, allowed_char_u_int);
+		//	edit->setInputRestrictions(2, allowed_chars_u_int);
 		//case Voice_Mode::sidechain:
-		//	edit->setInputRestrictions(4, allowed_char_u_int);
+		//	edit->setInputRestrictions(4, allowed_chars_u_int);
 		//default:
 		//	break;
 		//}

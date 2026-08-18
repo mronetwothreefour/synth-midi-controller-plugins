@@ -1,11 +1,13 @@
 #include "G_WIDGET_Sli_Label_P.h"
 
 #include "C_GET_P.h"
+#include "C_MISC_P.h"
 #include "C_NAME_P.h"
 #include "D_BUILD_Font_For_P.h"
 #include "D_BUILD_Tip_For_P.h"
 
 using namespace BUILD;
+using namespace MISC;
 using namespace NAME;
 using namespace WIDGET;
 
@@ -22,15 +24,15 @@ void Slider_Label::on_editor_show() {
 	edit->applyFontToAllText(Font_For::knob_txt_editor(scale_factor));
 	auto n = getName();
 	if (n == NAME::lbl_u_int_4_bit)
-		edit->setInputRestrictions(2, NAME::allowed_char_u_int);
+		edit->setInputRestrictions(2, allowed_chars_u_int);
 	if (n == NAME::lbl_u_int_5_bit)
-		edit->setInputRestrictions(2, NAME::allowed_char_u_int);
+		edit->setInputRestrictions(2, allowed_chars_u_int);
 	if (n == NAME::lbl_u_int_6_bit)
-		edit->setInputRestrictions(2, NAME::allowed_char_u_int);
+		edit->setInputRestrictions(2, allowed_chars_u_int);
 	if (n == NAME::lbl_u_int_7_bit)
-		edit->setInputRestrictions(3, NAME::allowed_char_u_int);
+		edit->setInputRestrictions(3, allowed_chars_u_int);
 	if (n == NAME::lbl_osc_pitch)
-		edit->setInputRestrictions(3, NAME::allowed_char_pitch);
+		edit->setInputRestrictions(3, allowed_chars_pitch);
 	edit->setTooltip(Tip_For::knob_txt_editor(n));
 	edit->setText(getText().removeCharacters(" +"));
 	edit->selectAll();

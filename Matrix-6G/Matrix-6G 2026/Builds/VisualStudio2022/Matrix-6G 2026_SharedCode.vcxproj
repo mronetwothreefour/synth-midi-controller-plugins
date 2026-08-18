@@ -3171,6 +3171,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_COLOR_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_GET_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_ID_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\C_MISC_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_NAME_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Layout_A.h"/>
@@ -3195,6 +3196,7 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Choice_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Label_Name_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Tip_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_MISC_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_NAME_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_PATH_Backdrop_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_PATH_LED_P.h"/>

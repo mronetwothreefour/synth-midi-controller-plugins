@@ -1,8 +1,10 @@
 #include "D_BUILD_Choices_For_P.h"
 
 #include "D_CONVERT_P.h"
+#include "C_MISC_P.h"
 
 using namespace BUILD;
+using namespace MISC;
 
 const StringArray Choices_For::exp_arp_mode() {
     StringArray list;
@@ -175,13 +177,13 @@ const StringArray Choices_For::exp_glide_mode() {
 
 const StringArray Choices_For::exp_lfo_freq() {
     StringArray list;
-    for (int i = 1; i < 90; ++i) {
+    for (int i = 1; i < lfo_1st_pitch_freq; ++i) {
         String n{ i };
         list.add(n + "__un-synced " + n);
     }
-    for (int i = 90; i < 151; ++i) {
+    for (int i = lfo_1st_pitch_freq; i < lfo_1st_sync_freq; ++i) {
         String n{ i };
-        auto pitch = CONVERT::int_to_pitch(i - 90);
+        auto pitch = CONVERT::int_to_pitch(i - lfo_1st_pitch_freq);
         list.add(pitch + "__" + n + " (pitch freq. " + pitch + ")");
     }
     list.add("1:32__synced 151 : 1 LFO cycle lasts 32 steps");

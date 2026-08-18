@@ -5,12 +5,6 @@
 namespace NAME
 {
 
-	static const String allowed_char_lfo_freq{ "abcdefgABCDEFG0123456789#:." };
-	static const String allowed_char_osc_shape{ "afiopqrstwAFIOPQRSTW0123456789/" };
-	static const String allowed_char_osc_slop{ "012345" };
-	static const String allowed_char_seq_step{ "abcdefgABCDEFG0123456789#+<" };
-	static const String allowed_char_seq_step_trk_1{ "abcdefgABCDEFG0123456789#+<." };
-
 	static const String lbl_bend_range{ "lbl_bend_range" };
 	static const String lbl_clock_tempo{ "lbl_clock_tempo" };
 	static const String lbl_lfo_freq{ "lbl_lfo_freq" };

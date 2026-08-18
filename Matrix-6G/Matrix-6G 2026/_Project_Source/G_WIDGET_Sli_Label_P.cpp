@@ -1,11 +1,13 @@
 #include "G_WIDGET_Sli_Label_P.h"
 
 #include "C_GET_P.h"
+#include "C_MISC_P.h"
 #include "C_NAME_P.h"
 #include "D_BUILD_Font_For_P.h"
 #include "D_BUILD_Tip_For_P.h"
 
 using namespace BUILD;
+using namespace MISC;
 using namespace NAME;
 using namespace WIDGET;
 
@@ -29,13 +31,13 @@ void Slider_Label::on_editor_show() {
 	edit->applyFontToAllText(Font_For::knob_txt_editor(scale_factor));
 	auto n = getName();
 	if (n == lbl_osc_pitch)
-		edit->setInputRestrictions(4, allowed_char_pitch);
+		edit->setInputRestrictions(4, allowed_chars_pitch);
 	if (n == lbl_s_6_bit_int)
-		edit->setInputRestrictions(3, allowed_char_s_int);
+		edit->setInputRestrictions(3, allowed_chars_s_int);
 	if (n == lbl_s_7_bit_int)
-		edit->setInputRestrictions(3, allowed_char_s_int);
+		edit->setInputRestrictions(3, allowed_chars_s_int);
 	if (n == lbl_u_int)
-		edit->setInputRestrictions(3, allowed_char_u_int);
+		edit->setInputRestrictions(3, allowed_chars_u_int);
 	edit->setTooltip(Tip_For::knob_txt_editor(n, n == lbl_s_7_bit_int));
 	edit->setText(getText().removeCharacters(" +"));
 	edit->selectAll();
@@ -47,7 +49,7 @@ void Slider_Label::on_text_change() {
 	auto new_val{ -64.0f };
 	if (new_text.isNotEmpty()) {
 		if (n == lbl_osc_pitch) {
-			if (new_text.containsAnyOf("abcdefgABCDEFG#")) {
+			if (new_text.containsAnyOf(pitch_name_chars)) {
 				for (int i = 0; i < choices_curt.size(); ++i) {
 					if (choices_curt[i].removeCharacters(" ") == new_text) {
 						new_val = (float)i;

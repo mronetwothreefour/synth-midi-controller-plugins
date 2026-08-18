@@ -5,17 +5,12 @@
 namespace XYWH
 {
 
-	constexpr double editor_aspect_ratio{ 2.03354 };
-
 	constexpr float env_init_begin_x{ 5.0f };
 	constexpr float env_init_end_x{ 205.0f };
 	constexpr float env_init_max_y{ 10.0f };
 	constexpr float env_init_min_y{ 80.0f };
 	constexpr float env_stage_init_max_w{ 43.0f };
 	constexpr float env_sustain_init_w{ 28.0f };
-
-	constexpr float rotary_sli_begin_angle{ degreesToRadians(45.0f) };
-	constexpr float rotary_sli_end_angle{ degreesToRadians(315.0f) };
 
 	constexpr int cbox_h{ 16 };
 

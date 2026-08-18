@@ -1,7 +1,9 @@
 #include "G_WIDGET_Sli_Wheel_Mod_A.h"
 
 #include "C_GET_P.h"
+#include "C_MISC_P.h"
 
+using namespace MISC;
 using namespace WIDGET;
 
 Slider_Wheel_Mod_A::Slider_Wheel_Mod_A(const String& param_id, UndoManager* u_m) :
@@ -13,7 +15,7 @@ Slider_Wheel_Mod_A::Slider_Wheel_Mod_A(const String& param_id, UndoManager* u_m)
 	setComponentID(param_id);
 	setName(GET::ctrl_name_for(param_id));
 	setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-	setRotaryParameters(GET::rotary_sli_begin_angle(), GET::rotary_sli_end_angle(), true);
+	setRotaryParameters(rotary_sli_begin_angle, rotary_sli_end_angle, true);
 	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
 }
 

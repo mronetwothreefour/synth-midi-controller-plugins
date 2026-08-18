@@ -13,6 +13,7 @@
       <FILE id="BNceB1" name="C_GET_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/C_GET_A.cpp"/>
       <FILE id="MGA5HA" name="C_GET_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_GET_A.h"/>
       <FILE id="NQ7VzH" name="C_ID_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_ID_A.h"/>
+      <FILE id="CPTmuT" name="C_MISC_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_MISC_A.h"/>
       <FILE id="wx9MBp" name="C_NAME_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_NAME_A.h"/>
       <FILE id="KrP2CF" name="D_BUILD_Choices_For_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/D_BUILD_Choices_For_A.cpp"/>
@@ -84,6 +85,7 @@
       <FILE id="HJyEgI" name="C_MAP_Label_Name_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Label_Name_P.h"/>
       <FILE id="BcOpIg" name="C_MAP_Tip_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Tip_P.h"/>
+      <FILE id="Kwa7ts" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
       <FILE id="eLqGJx" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
       <FILE id="MpMZQl" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
             file="_Project_Source/C_PATH_Backdrop_Main_P.h"/>

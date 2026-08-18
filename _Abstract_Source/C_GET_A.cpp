@@ -8,10 +8,6 @@
 #include "C_MAP_Label_Name_P.h"
 #include "C_MAP_Tip_P.h"
 
-const double GET_A::editor_aspect_ratio() {
-	return XYWH::editor_aspect_ratio;
-}
-
 const Rectangle<int> GET_A::init_bounds_for(const String id) {
 	if (MAP::bounds.find(id) != MAP::bounds.end())
 		return MAP::bounds.at(id);
@@ -32,14 +28,6 @@ const int GET_A::init_x_for(const String id) {
 
 const int GET_A::init_y_for(const String id) {
 	return init_bounds_for(id).getY();
-}
-
-const float GET_A::rotary_sli_begin_angle() {
-	return XYWH::rotary_sli_begin_angle;
-}
-
-const float GET_A::rotary_sli_end_angle() {
-	return XYWH::rotary_sli_end_angle;
 }
 
 const StringArray GET_A::choices_for(const String id, const bool curt) {

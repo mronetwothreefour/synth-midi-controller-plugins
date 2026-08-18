@@ -4137,6 +4137,9 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_ID_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\C_MISC_A.h">
+      <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_NAME_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClInclude>
@@ -4207,6 +4210,9 @@
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Tip_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_MISC_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_NAME_P.h">
