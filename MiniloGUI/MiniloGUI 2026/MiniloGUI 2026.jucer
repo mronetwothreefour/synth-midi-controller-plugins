@@ -71,7 +71,9 @@
       <FILE id="KrX49J" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
       <FILE id="P21n9k" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
       <FILE id="YmBJVS" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
-      <FILE id="tfn1Lh" name="C_ID_EXP_P.h" compile="0" resource="0" file="_Project_Source/C_ID_EXP_P.h"/>
+      <FILE id="vAGvYn" name="C_ID_Aux_Voice_P.h" compile="0" resource="0"
+            file="_Project_Source/C_ID_Aux_Voice_P.h"/>
+      <FILE id="tfn1Lh" name="C_ID_Exp_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Exp_P.h"/>
       <FILE id="UA6EdL" name="C_MAP_Bounds_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Bounds_P.h"/>
       <FILE id="n5qUXf" name="C_MAP_Choices_P.h" compile="0" resource="0"
@@ -110,6 +112,10 @@
             file="_Project_Source/D_BUILD_Tip_For_P.h"/>
       <FILE id="L08aya" name="D_CONVERT_P.cpp" compile="1" resource="0" file="_Project_Source/D_CONVERT_P.cpp"/>
       <FILE id="JHbl2a" name="D_CONVERT_P.h" compile="0" resource="0" file="_Project_Source/D_CONVERT_P.h"/>
+      <FILE id="syDHoO" name="D_TREE_Aux_Voice_Params_P.cpp" compile="1"
+            resource="0" file="_Project_Source/D_TREE_Aux_Voice_Params_P.cpp"/>
+      <FILE id="AhVv6h" name="D_TREE_Aux_Voice_Params_P.h" compile="0" resource="0"
+            file="_Project_Source/D_TREE_Aux_Voice_Params_P.h"/>
       <FILE id="pfuFVb" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="XHqP5e" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"

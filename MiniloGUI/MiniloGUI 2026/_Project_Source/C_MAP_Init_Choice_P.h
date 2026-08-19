@@ -1,11 +1,35 @@
 #pragma once
 
-#include "C_ID_EXP_P.h"
+#include "C_ENUM_P.h"
+#include "C_ID_Aux_Voice_P.h"
+#include "C_ID_Exp_P.h"
+
+using namespace ENUM;
 
 namespace MAP
 {
 
 	static const std::unordered_map<String, int> init_choice{
+		{ ID::avp_amp_mod_by_velo_amt, 0 },
+		{ ID::avp_fine_tune, 50 },
+		{ ID::avp_flex_sli_bend_neg, 200 },
+		{ ID::avp_flex_sli_bend_pos, 0 },
+		{ ID::avp_flex_sli_range, 0 },
+		{ ID::avp_flex_sli_target, (int)Flex_Slider_Target::pitch_bend },
+		{ ID::avp_keyboard_octave, 2 },
+		{ ID::avp_level, 25 },
+		{ ID::avp_lfo_sync_bpm_on, 0 },
+		{ ID::avp_lfo_sync_key_on, 1 },
+		{ ID::avp_lfo_sync_voice_on, 1 },
+		{ ID::avp_microtune_scale, (int)Microtune_Scale::equal_temp },
+		{ ID::avp_name, -1 },
+		{ ID::avp_porta_mode_on, 0 },
+		{ ID::avp_porta_sync_bpm_on, 0 },
+		{ ID::avp_porta_time, 0 },
+		{ ID::avp_scale_key, 12 },
+		{ ID::avp_transpose, 12 },
+		{ ID::avp_voice_mode, (int)Voice_Mode::poly },
+
 		//osc
 		{ ID::exp_osc_1_octave, 1 },
 		{ ID::exp_osc_1_wave, 2 },

@@ -4,16 +4,16 @@
 
 struct GET_A
 {
-	static const Rectangle<int> init_bounds_for(const String id);
-	static const int init_h_for(const String id);
-	static const int init_w_for(const String id);
-	static const int init_x_for(const String id);
-	static const int init_y_for(const String id);
+	static const Rectangle<int> init_bounds_for(const String& id);
+	static const int init_h_for(const String& id);
+	static const int init_w_for(const String& id);
+	static const int init_x_for(const String& id);
+	static const int init_y_for(const String& id);
 
-	static const StringArray choices_for(const String id, const bool curt = false);
-	static const String ctrl_name_for(const String id);
-	static const String exp_name_for(const String id);
-	static const int init_choice_for(const String id);
-	static const String label_name_for(const String id);
-	static const String tip_for(const String id);
+	static const StringArray choices_for(const String& id, const bool curt = false);
+	static const String ctrl_name_for(const String& id);
+	static const String exp_name_for(const String& id);
+	static const int init_choice_for(const String& id);
+	static const String label_name_for(const String& id);
+	static const String tip_for(const String& id);
 };

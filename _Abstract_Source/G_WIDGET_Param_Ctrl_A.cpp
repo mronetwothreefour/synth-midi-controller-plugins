@@ -6,8 +6,8 @@ using namespace WIDGET;
 
 Param_Ctrl_A::Param_Ctrl_A(const String& param_id, Data_Hub* hub) :
 	Data_User{ hub },
-	param_ptr{ exp_state->getParameter(String{ param_id }) },
-	param_val{ exp_state->getParameterAsValue(String{ param_id }) },
+	param_ptr{ exp_state->getParameter(param_id) },
+	param_val{ exp_state->getParameterAsValue(param_id) },
 	linked_param_ptr{ nullptr },
 	choices{ GET::choices_for(param_id) },
 	choices_curt{ GET::choices_for(param_id, true) },

@@ -3186,7 +3186,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.h"/>
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_GET_P.h"/>
-    <ClInclude Include="..\..\_Project_Source\C_ID_EXP_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_ID_Exp_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Bounds_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Name_P.h"/>
