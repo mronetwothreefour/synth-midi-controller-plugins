@@ -30,6 +30,9 @@ namespace TREE {
 	public: const int keyboard_octave();
 	public: void set_keyboard_octave(const int new_setting);
 
+	public: const int level();
+	public: void set_level(const int new_setting);
+
 	public: const bool lfo_sync_bpm_on();
 	public: void set_lfo_sync_bpm_on(const bool should_be_on);
 
@@ -42,9 +45,6 @@ namespace TREE {
 	public: const int microtune_scale();
 	public: void set_microtune_scale(const int new_setting);
 	public: int microtune_scale_hardware_index(const int scale);
-
-	public: const int level();
-	public: void set_level(const int new_setting);
 
 	public: const String name();
 	public: void set_name(const String new_setting);

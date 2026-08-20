@@ -9,6 +9,25 @@ namespace MAP
 {
 
 	static const std::unordered_map<String, StringArray> choices{
+		{ ID::avp_amp_mod_by_velo_amt, Choices_For::unsigned_int(127) },
+		{ avp_fine_tune, Choices_For::fine_tune() },
+		{ avp_flex_sli_bend_neg, Choices_For::avp_flex_sli_bend_limit() },
+		{ avp_flex_sli_bend_pos, Choices_For::avp_flex_sli_bend_limit(true) },
+		{ avp_flex_sli_range, Choices_For::avp_flex_sli_range() },
+		{ avp_flex_sli_target, Choices_For::avp_flex_sli_target() },
+		{ avp_keyboard_octave, Choices_For::signed_int(-2, 2) },
+		{ avp_level, Choices_For::signed_int(-50, 50) },
+		{ avp_lfo_sync_bpm_on, Choices_For::off_on() },
+		{ avp_lfo_sync_key_on, Choices_For::off_on() },
+		{ avp_lfo_sync_voice_on, Choices_For::off_on() },
+		{ avp_microtune_scale, Choices_For::avp_microtune_scale() },
+		{ avp_porta_mode_on, Choices_For::avp_porta_mode_on() },
+		{ avp_porta_sync_bpm_on, Choices_For::off_on() },
+		{ avp_porta_time, Choices_For::avp_porta_time() },
+		{ avp_scale_key, Choices_For::avp_scale_key() },
+		{ avp_transpose, Choices_For::avp_transpose() },
+		{ avp_voice_mode, Choices_For::avp_voice_mode() },
+
 		//osc
 		{ ID::exp_osc_1_octave, Choices_For::exp_osc_octave() },
 		{ ID::exp_osc_1_wave, Choices_For::exp_osc_and_lfo_wave() },

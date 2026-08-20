@@ -72,6 +72,15 @@ void TREE::Aux_Voice_Params::set_keyboard_octave(const int s) {
 	tree.setProperty(ID::avp_keyboard_octave, std::clamp(s, 0, 4), u_m);
 }
 
+const int TREE::Aux_Voice_Params::level() {
+	return (int)tree[ID::avp_level];
+}
+
+void TREE::Aux_Voice_Params::set_level(const int s) {
+	u_m->beginNewTransaction();
+	tree.setProperty(ID::avp_level, std::clamp(s, 0, 50), u_m);
+}
+
 const bool TREE::Aux_Voice_Params::lfo_sync_bpm_on() {
 	return (bool)tree[ID::avp_lfo_sync_bpm_on];
 }
@@ -97,15 +106,6 @@ const bool TREE::Aux_Voice_Params::lfo_sync_voice_on() {
 void TREE::Aux_Voice_Params::set_lfo_sync_voice_on(const bool should_be_on) {
 	u_m->beginNewTransaction();
 	tree.setProperty(ID::avp_lfo_sync_voice_on, should_be_on, u_m);
-}
-
-const int TREE::Aux_Voice_Params::level() {
-	return (int)tree[ID::avp_level];
-}
-
-void TREE::Aux_Voice_Params::set_level(const int s) {
-	u_m->beginNewTransaction();
-	tree.setProperty(ID::avp_level, std::clamp(s, 0, 50), u_m);
 }
 
 const int TREE::Aux_Voice_Params::microtune_scale() {

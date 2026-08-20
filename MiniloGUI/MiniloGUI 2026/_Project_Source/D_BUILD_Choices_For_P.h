@@ -8,7 +8,7 @@ namespace BUILD
 	struct Choices_For :
 		public Choices_For_A
 	{
-	public: static const StringArray avp_flex_sli_bend_limit(const bool pos_limit);
+	public: static const StringArray avp_flex_sli_bend_limit(const bool pos_limit = false);
 	public: static const StringArray avp_flex_sli_range();
 	public: static const StringArray avp_flex_sli_target();
 	public: static const StringArray avp_microtune_scale();
