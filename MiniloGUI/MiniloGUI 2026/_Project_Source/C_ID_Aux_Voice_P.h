@@ -26,6 +26,7 @@ namespace ID
 		static const String avp_voice_mode{ "voice_mode" };
 
 		static const String tree_aux_voice{ "tree_aux_voice" };
+		static const String xml_state_aux_voice{ "xml_state_aux_voice" };
 
 		static const StringArray aux_voice_params{
 			avp_amp_mod_by_velo_amt,

@@ -15,8 +15,8 @@ namespace TREE {
 	public: const int amp_mod_by_velo_amt();
 	public: void set_amp_mod_by_velo_amt(const int new_setting);
 
-	public: const String name();
-	public: void set_name(const String new_setting);
+	public: const int fine_tune();
+	public: void set_fine_tune(const int new_setting);
 
 	public: const int flex_sli_bend_limit(const bool pos_limit);
 	public: void set_flex_sli_bend_limit(const bool pos_limit, const int new_setting);
@@ -43,11 +43,11 @@ namespace TREE {
 	public: void set_microtune_scale(const int new_setting);
 	public: int microtune_scale_hardware_index(const int scale);
 
-	public: const int fine_tune();
-	public: void set_fine_tune(const int new_setting);
-
 	public: const int level();
 	public: void set_level(const int new_setting);
+
+	public: const String name();
+	public: void set_name(const String new_setting);
 
 	public: const int transpose();
 	public: void set_transpose(const int new_setting);
@@ -69,7 +69,7 @@ namespace TREE {
 
 	public: Value get_param_as_value(const String& param_id);
 
-	public: std::unique_ptr<XmlElement> get_state();
+	public: std::unique_ptr<XmlElement> get_current_state();
 	public: void replace_state(const ValueTree& new_state);
 
 	//==============================================================================
