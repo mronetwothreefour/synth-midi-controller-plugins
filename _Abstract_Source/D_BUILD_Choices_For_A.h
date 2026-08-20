@@ -6,6 +6,7 @@ namespace BUILD {
 
 	struct Choices_For_A
 	{
+		static const StringArray fine_tune();
 		static const StringArray off_on();
 		static const StringArray osc_pitch(const int choice_count);
 		static const StringArray signed_int(const int min, const int max);

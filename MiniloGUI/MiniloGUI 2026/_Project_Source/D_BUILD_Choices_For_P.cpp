@@ -1,6 +1,147 @@
 #include "D_BUILD_Choices_For_P.h"
 
+#include "D_CONVERT_P.h"
+
 using namespace BUILD;
+
+const StringArray Choices_For::avp_flex_sli_bend_limit(const bool pos) {
+    StringArray list;
+    String s{ pos ? "+" : "-" };
+    for (int i = 0; i < 12; ++i) {
+        s += String{ i + 1 };
+        auto n = s + "__" + s + " semitone" + (i > 0 ? "s" : "");
+        list.add(n);
+    }
+    return list;
+}
+
+const StringArray Choices_For::avp_flex_sli_range() {
+    StringArray list;
+    for (int i = -100; i < 101; ++i) {
+        String n{ (i > 0 ? "+" : "") + String{ i + 1 } + "%" };
+        list.add(n);
+    }
+    return list;
+}
+
+const StringArray Choices_For::avp_flex_sli_target() {
+    return {
+        "pitch bend",
+        "gate time",
+        "osc 1 pitch__oscillator 1 pitch",
+        "osc 1 shape__oscillator 1 shape",
+        "osc 2 pitch__oscillator 2 pitch",
+        "osc 2 shape__oscillator 2 shape",
+        "osc 2 x-mod depth__oscillator 2 cross-modulation depth",
+        "osc 2 pitch EG int__oscillator 2 pitch EG intensity",
+        "osc 1 level__oscillator 1 level",
+        "osc 2 level__oscillator 2 level",
+        "noise level",
+        "lpf cutoff__lpf cutoff frequency",
+        "lpf resonance",
+        "LPF EG intensity",
+        "VCA EG attack",
+        "VCA EG decay",
+        "VCA EG sustain",
+        "VCA EG release",
+        "EG attack",
+        "EG decay",
+        "EG sustain",
+        "EG release",
+        "LFO rate",
+        "LFO intensity",
+        "delay HPF cutoff__delay HPF cutoff frequency",
+        "delay time",
+        "delay feedback",
+        "portamento time",
+        "voice mode depth"
+    };
+}
+
+const StringArray Choices_For::avp_microtune_scale() {
+    return {
+        "equal temp__equal temperament",
+        "pure major",
+        "pure minor",
+        "pythagorean",
+        "Werckmeister",
+        "Kirnberger",
+        "Slendro",
+        "Pelog",
+        "ionian",
+        "dorian",
+        "aeolian",
+        "major penta__major pentatonic",
+        "minor penta__minor pentatonic",
+        "reverse",
+        "AFX 1__Aphex Twin 1",
+        "AFX 2__Aphex Twin 2",
+        "AFX 3__Aphex Twin 3",
+        "AFX 4__Aphex Twin 4",
+        "AFX 5__Aphex Twin 5",
+        "AFX 6__Aphex Twin 6",
+        "DC 1__dorian concept 1",
+        "DC 2__dorian concept 2",
+        "DC 3__dorian concept 3",
+        "user scale 1",
+        "user scale 2",
+        "user scale 3",
+        "user scale 4",
+        "user scale 5",
+        "user scale 6",
+        "user octave 1",
+        "user octave 2",
+        "user octave 3",
+        "user octave 4",
+        "user octave 5",
+        "user octave 6"
+    };
+}
+
+const StringArray Choices_For::avp_porta_mode_on() {
+    return { "auto", "on" };
+}
+
+const StringArray Choices_For::avp_porta_time() {
+    StringArray list;
+    list.add("OFF__off");
+    for (int i = 1; i < 128; ++i)
+        list.add((String)i);
+    return StringArray();
+}
+
+const StringArray Choices_For::avp_scale_key() {
+    StringArray list;
+    for (int i = 0; i < 25; ++i)
+        list.add(CONVERT::int_to_pitch(i));
+    return StringArray();
+}
+
+const StringArray Choices_For::avp_transpose() {
+    StringArray list;
+    for (auto i = -12; i < 12; ++i) {
+        if (i >= -1 && i <= 1) {
+            list.add(i == -1 ? "-1__-1 semitone" : i == 0 ? "0__no transpose" : "+1__+1 semitone");
+            continue;
+        }
+        auto n = (i > 0 ? "+" : "") + (String)i;
+        list.add(n + "__" + n + " semitones");
+    }
+    return list;
+}
+
+const StringArray Choices_For::avp_voice_mode() {
+    return {
+        "POLY",
+        "DUO",
+        "UNISON",
+        "MONO",
+        "CHORD",
+        "DELAY",
+        "ARP",
+        "SIDECHAIN"
+    };
+}
 
 const StringArray Choices_For::exp_delay_routing() {
 	return { "bypass", "pre-filter", "post-filter" };
@@ -329,4 +470,3 @@ String Choices_For::exp_choice_voice_mode_8_sidechain(const int c, const bool cu
     name += (String)c;
     return name;
 }
-

@@ -8,6 +8,16 @@ namespace BUILD
 	struct Choices_For :
 		public Choices_For_A
 	{
+	public: static const StringArray avp_flex_sli_bend_limit(const bool pos_limit);
+	public: static const StringArray avp_flex_sli_range();
+	public: static const StringArray avp_flex_sli_target();
+	public: static const StringArray avp_microtune_scale();
+	public: static const StringArray avp_porta_mode_on();
+	public: static const StringArray avp_porta_time();
+	public: static const StringArray avp_scale_key();
+	public: static const StringArray avp_transpose();
+	public: static const StringArray avp_voice_mode();
+
 	public: static const StringArray exp_delay_routing();
 	public: static const StringArray exp_lfo_eg_mod();
 	public: static const StringArray exp_lfo_rate();

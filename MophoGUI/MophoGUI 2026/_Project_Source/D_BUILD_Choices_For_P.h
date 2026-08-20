@@ -21,7 +21,6 @@ namespace BUILD
 		static const StringArray exp_mod_dest();
 		static const StringArray exp_mod_src();
 		static const StringArray exp_note_priority();
-		static const StringArray exp_osc_fine();
 		static const StringArray exp_osc_shape();
 		static const StringArray exp_push_it_mode();
 		static const StringArray exp_seq_track_2_4_dest(const bool track_2);

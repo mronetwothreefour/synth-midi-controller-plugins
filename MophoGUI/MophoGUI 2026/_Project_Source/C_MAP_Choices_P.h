@@ -11,13 +11,13 @@ namespace MAP
 	static const std::unordered_map<String, StringArray> choices{
 		//exposed osc
 		{ ID::exp_osc_1_pitch, Choices_For::osc_pitch(121) },
-		{ ID::exp_osc_1_fine_tune, Choices_For::exp_osc_fine() },
+		{ ID::exp_osc_1_fine_tune, Choices_For::fine_tune() },
 		{ ID::exp_osc_1_shape, Choices_For::exp_osc_shape() },
 		{ ID::exp_osc_1_glide, Choices_For::unsigned_int(127) },
 		{ ID::exp_osc_1_key_track, Choices_For::off_on() },
 		{ ID::exp_osc_1_sub_level, Choices_For::unsigned_int(127) },
 		{ ID::exp_osc_2_pitch, Choices_For::osc_pitch(121) },
-		{ ID::exp_osc_2_fine_tune, Choices_For::exp_osc_fine() },
+		{ ID::exp_osc_2_fine_tune, Choices_For::fine_tune() },
 		{ ID::exp_osc_2_shape, Choices_For::exp_osc_shape() },
 		{ ID::exp_osc_2_glide, Choices_For::unsigned_int(127) },
 		{ ID::exp_osc_2_key_track, Choices_For::off_on() },

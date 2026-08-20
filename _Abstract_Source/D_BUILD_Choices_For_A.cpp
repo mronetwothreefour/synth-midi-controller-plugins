@@ -4,6 +4,19 @@
 
 using namespace BUILD;
 
+const StringArray BUILD::Choices_For_A::fine_tune() {
+	StringArray list;
+	for (auto i = -50; i < 50; ++i) {
+		if (i >= -1 && i <= 1) {
+			list.add(i == -1 ? "-1__-1 cent" : i == 0 ? "0__no detune" : "+1__+1 cent");
+			continue;
+		}
+		auto n = (i > 0 ? "+" : "") + (String)i;
+		list.add(n + "__" + n + " cents");
+	}
+	return list;
+}
+
 const StringArray Choices_For_A::off_on() {
 	return { "off", "on" };
 }
