@@ -47,7 +47,7 @@ namespace TREE {
 	public: int microtune_scale_hardware_index(const int scale);
 
 	public: const String name();
-	public: void set_name(const String new_setting);
+	public: void set_name(const String& new_setting);
 
 	public: const int transpose();
 	public: void set_transpose(const int new_setting);

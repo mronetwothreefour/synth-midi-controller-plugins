@@ -1,2 +1,3 @@
 C_ID_Aux_Voice_P
+C_SL_Tip_Aux_Voice_P
 D_TREE_Aux_Voice_Params_P

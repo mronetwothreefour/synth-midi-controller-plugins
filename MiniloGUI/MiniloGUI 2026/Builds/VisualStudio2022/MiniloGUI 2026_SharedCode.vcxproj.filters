@@ -4227,6 +4227,9 @@
     <ClInclude Include="..\..\_Project_Source\C_PATH_Widgets_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Aux_Voice_P.h">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Exposed_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>

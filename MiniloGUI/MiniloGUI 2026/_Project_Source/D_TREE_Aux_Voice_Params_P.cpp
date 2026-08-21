@@ -125,7 +125,7 @@ const String TREE::Aux_Voice_Params::name() {
 	return tree[ID::avp_name].toString();
 }
 
-void TREE::Aux_Voice_Params::set_name(const String s) {
+void TREE::Aux_Voice_Params::set_name(const String& s) {
 	u_m->beginNewTransaction();
 	tree.setProperty(ID::avp_name, s, u_m);
 }

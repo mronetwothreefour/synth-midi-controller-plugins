@@ -93,6 +93,8 @@
             file="_Project_Source/C_PATH_Backdrop_Main_P.h"/>
       <FILE id="KhuWds" name="C_PATH_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/C_PATH_Widgets_P.h"/>
+      <FILE id="HnYc8D" name="C_SL_Tip_Aux_Voice_P.h" compile="0" resource="0"
+            file="_Project_Source/C_SL_Tip_Aux_Voice_P.h"/>
       <FILE id="uOB0zv" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Exposed_P.h"/>
       <FILE id="loXxSK" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
