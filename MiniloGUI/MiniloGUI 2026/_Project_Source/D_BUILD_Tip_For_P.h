@@ -1,6 +1,9 @@
 #pragma once
 
 #include "D_BUILD_Tip_For_A.h"
+#include "D_TREE_Aux_Voice_Params_P.h"
+
+using namespace TREE;
 
 namespace BUILD
 {
@@ -43,7 +46,7 @@ namespace BUILD
 
 		static String exp_voice_mode_depth();
 
-		static String knob_txt_editor(const String& slider_label_name/*, Tree_Aux_Voice_P& avp*/);
+		static String knob_txt_editor(const String& slider_label_name, Aux_Voice_Params& avp);
 	};
 
 }

@@ -369,20 +369,20 @@ const StringArray Choices_For::exp_osc_pitch_fine() {
 const StringArray Choices_For::exp_voice_mode_depth() {
 	StringArray list;
     for (int i = 0; i < 1024; ++i) {
-        auto n_curt{ exp_choice_voice_mode_1_poly(i, true) };
-        auto n{ exp_choice_voice_mode_1_poly(i) };
-        n_curt += exp_choice_voice_mode_2_duo_3_unison(i, true);
-        n += exp_choice_voice_mode_2_duo_3_unison(i);
-        n_curt += exp_choice_voice_mode_4_mono(i, true);
-        n += exp_choice_voice_mode_4_mono(i);
-        n_curt += exp_choice_voice_mode_5_chord(i, true);
-        n += exp_choice_voice_mode_5_chord(i);
-        n_curt += exp_choice_voice_mode_6_delay(i, true);
-        n += exp_choice_voice_mode_6_delay(i);
-        n_curt += exp_choice_voice_mode_7_arp(i, true);
-        n += exp_choice_voice_mode_7_arp(i);
-        n_curt += exp_choice_voice_mode_8_sidechain(i, true);
-        n += exp_choice_voice_mode_8_sidechain(i);
+        auto n_curt{ exp_choice_voice_mode_0_poly(i, true) };
+        auto n{ exp_choice_voice_mode_0_poly(i) };
+        n_curt += exp_choice_voice_mode_1_duo_2_unison(i, true);
+        n += exp_choice_voice_mode_1_duo_2_unison(i);
+        n_curt += exp_choice_voice_mode_3_mono(i, true);
+        n += exp_choice_voice_mode_3_mono(i);
+        n_curt += exp_choice_voice_mode_4_chord(i, true);
+        n += exp_choice_voice_mode_4_chord(i);
+        n_curt += exp_choice_voice_mode_5_delay(i, true);
+        n += exp_choice_voice_mode_5_delay(i);
+        n_curt += exp_choice_voice_mode_6_arp(i, true);
+        n += exp_choice_voice_mode_6_arp(i);
+        n_curt += exp_choice_voice_mode_7_sidechain(i, true);
+        n += exp_choice_voice_mode_7_sidechain(i);
         list.add(n_curt + "__" + n);
     }
     return list;
@@ -392,27 +392,27 @@ const StringArray Choices_For::exp_zero_50_100() {
 	return { "0%", "50%", "100%" };
 }
 
-String Choices_For::exp_choice_voice_mode_1_poly(const int c, const bool curt) {
-    String n{ curt ? "1:INV " : "1:inversion " };
+String Choices_For::exp_choice_voice_mode_0_poly(const int c, const bool curt) {
+    String n{ curt ? "0:INV " : "1:inversion " };
     n += String{ c / 114 };
     return n;
 }
 
-String Choices_For::exp_choice_voice_mode_2_duo_3_unison(const int c, const bool curt) {
-    String n{ curt ? "|2&3:" : "|2&3:detune " };
+String Choices_For::exp_choice_voice_mode_1_duo_2_unison(const int c, const bool curt) {
+    String n{ curt ? "|1&2:" : "|2&3:detune " };
     auto detune{ std::clamp(c / 20, 0, 50) };
     n += (detune == 0 ? "" : "+") + (String)detune + (curt ? "C" : " cents");
     return n;
 }
 
-String Choices_For::exp_choice_voice_mode_4_mono(const int c, const bool curt) {
-    String n{ curt ? "|4:" : "|4:sub " };
+String Choices_For::exp_choice_voice_mode_3_mono(const int c, const bool curt) {
+    String n{ curt ? "|3:" : "|4:sub " };
     n += (String)c;
     return n;
 }
 
-String Choices_For::exp_choice_voice_mode_5_chord(const int c, const bool curt) {
-    String n{ "|5:" };
+String Choices_For::exp_choice_voice_mode_4_chord(const int c, const bool curt) {
+    String n{ "|4:" };
     if (c < 74) n += curt ? "5th(0)" : "5th interval";
     if (c >= 74 && c < 147) n += curt ? "sus2(1)" : "suspended 2nd chord";
     if (c >= 147 && c < 220) n += curt ? "m(2)" : "minor chord";
@@ -430,8 +430,8 @@ String Choices_For::exp_choice_voice_mode_5_chord(const int c, const bool curt) 
     return n;
 }
 
-String Choices_For::exp_choice_voice_mode_6_delay(const int c, const bool curt) {
-    String n{ "|6:" };
+String Choices_For::exp_choice_voice_mode_5_delay(const int c, const bool curt) {
+    String n{ "|5:" };
     if (c < 86) n += curt ? "1/192(0)" : "1/192 beat delay";
     if (c >= 86 && c < 171) n += curt ? "1/128(1)" : "1/128 beat delay";
     if (c >= 171 && c < 256) n += curt ? "1/64(2)" : "1/64 beat delay";
@@ -447,8 +447,8 @@ String Choices_For::exp_choice_voice_mode_6_delay(const int c, const bool curt) 
     return n;
 }
 
-String Choices_For::exp_choice_voice_mode_7_arp(const int c, const bool curt) {
-    String n{ "|7:" };
+String Choices_For::exp_choice_voice_mode_6_arp(const int c, const bool curt) {
+    String n{ "|6:" };
     if (c < 79) n += curt ? "man 1(0)" : "arpeggio: manual 1";
     if (c >= 79 && c < 158) n += curt ? "man 2(1)" : "arpeggio: manual 2";
     if (c >= 158 && c < 237) n += curt ? "rise1(2)" : "arpeggio: rise 1";
@@ -465,8 +465,8 @@ String Choices_For::exp_choice_voice_mode_7_arp(const int c, const bool curt) {
     return n;
 }
 
-String Choices_For::exp_choice_voice_mode_8_sidechain(const int c, const bool curt) {
-    String name{ curt ? "|8:" : "|8:sidechain " };
+String Choices_For::exp_choice_voice_mode_7_sidechain(const int c, const bool curt) {
+    String name{ curt ? "|7:" : "|7:sidechain " };
     name += (String)c;
     return name;
 }

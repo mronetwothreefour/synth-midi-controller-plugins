@@ -5,6 +5,7 @@
 class Data_User :
 	public Data_User_A
 {
+protected: Aux_Voice_Params& avp;
 
 //==============================================================================
 public: explicit Data_User(Data_Hub* hub);

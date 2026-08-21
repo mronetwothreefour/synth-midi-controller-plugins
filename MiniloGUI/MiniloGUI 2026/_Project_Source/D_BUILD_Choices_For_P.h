@@ -31,13 +31,13 @@ namespace BUILD
 	public: static const StringArray exp_voice_mode_depth();
 	public: static const StringArray exp_zero_50_100();
 
-	private: static String exp_choice_voice_mode_1_poly(const int choice_num, const bool curt = false);
-	private: static String exp_choice_voice_mode_2_duo_3_unison(const int choice_num, const bool curt = false);
-	private: static String exp_choice_voice_mode_4_mono(const int choice_num, const bool curt = false);
-	private: static String exp_choice_voice_mode_5_chord(const int choice_num, const bool curt = false);
-	private: static String exp_choice_voice_mode_6_delay(const int choice_num, const bool curt = false);
-	private: static String exp_choice_voice_mode_7_arp(const int choice_num, const bool curt = false);
-	private: static String exp_choice_voice_mode_8_sidechain(const int choice_num, const bool curt = false);
+	private: static String exp_choice_voice_mode_0_poly(const int choice_num, const bool curt = false);
+	private: static String exp_choice_voice_mode_1_duo_2_unison(const int choice_num, const bool curt = false);
+	private: static String exp_choice_voice_mode_3_mono(const int choice_num, const bool curt = false);
+	private: static String exp_choice_voice_mode_4_chord(const int choice_num, const bool curt = false);
+	private: static String exp_choice_voice_mode_5_delay(const int choice_num, const bool curt = false);
+	private: static String exp_choice_voice_mode_6_arp(const int choice_num, const bool curt = false);
+	private: static String exp_choice_voice_mode_7_sidechain(const int choice_num, const bool curt = false);
 	};
 
 }
