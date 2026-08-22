@@ -88,6 +88,8 @@
             file="_Project_Source/C_MAP_Init_Choice_P.h"/>
       <FILE id="bNlcgg" name="C_MAP_Label_Name_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Label_Name_P.h"/>
+      <FILE id="aN4QjR" name="C_MAP_Quick_Num_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Quick_Num_P.h"/>
       <FILE id="N99Jff" name="C_MAP_Tip_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Tip_P.h"/>
       <FILE id="EQLS47" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
       <FILE id="EV7Jbm" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>

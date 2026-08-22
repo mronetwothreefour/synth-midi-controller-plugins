@@ -4209,6 +4209,9 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Label_Name_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Quick_Num_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Tip_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
