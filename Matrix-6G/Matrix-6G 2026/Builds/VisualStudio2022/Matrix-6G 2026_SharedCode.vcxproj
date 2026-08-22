@@ -3190,6 +3190,7 @@
     <ClInclude Include="..\..\_Project_Source\C_GET_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_ID_Exp_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Bounds_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Byte_Index_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Name_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Exp_Name_P.h"/>

@@ -4194,6 +4194,9 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Bounds_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Byte_Index_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>

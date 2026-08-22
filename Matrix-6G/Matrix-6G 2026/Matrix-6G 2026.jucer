@@ -78,6 +78,8 @@
       <FILE id="oPWDCv" name="C_ID_Exp_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Exp_P.h"/>
       <FILE id="UTPdIm" name="C_MAP_Bounds_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Bounds_P.h"/>
+      <FILE id="nAsBA4" name="C_MAP_Byte_Index_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Byte_Index_P.h"/>
       <FILE id="CctvIM" name="C_MAP_Choices_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Choices_P.h"/>
       <FILE id="Zbiqks" name="C_MAP_Ctrl_Name_P.h" compile="0" resource="0"
