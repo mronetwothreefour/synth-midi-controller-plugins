@@ -4203,6 +4203,9 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Label_Name_P.h">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_NRPN_P.h">
+      <Filter>MophoGUI 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Tip_P.h">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClInclude>
