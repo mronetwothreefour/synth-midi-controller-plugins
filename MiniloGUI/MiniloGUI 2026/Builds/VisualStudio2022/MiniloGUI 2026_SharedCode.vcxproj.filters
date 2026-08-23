@@ -892,6 +892,9 @@
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_For_P.cpp">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_BUILD_Bit_Locations_For_P.cpp">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Font_For_P.cpp">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClCompile>
@@ -4194,6 +4197,9 @@
     <ClInclude Include="..\..\_Project_Source\C_ID_Exp_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Bit_Locations_P.h">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Bounds_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
@@ -4240,6 +4246,9 @@
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_For_P.h">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_BUILD_Bit_Locations_For_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Font_For_P.h">

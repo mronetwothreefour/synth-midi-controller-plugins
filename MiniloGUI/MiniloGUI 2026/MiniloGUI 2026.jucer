@@ -74,6 +74,8 @@
       <FILE id="vAGvYn" name="C_ID_Aux_Voice_P.h" compile="0" resource="0"
             file="_Project_Source/C_ID_Aux_Voice_P.h"/>
       <FILE id="tfn1Lh" name="C_ID_Exp_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Exp_P.h"/>
+      <FILE id="IS3evi" name="C_MAP_Bit_Locations_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Bit_Locations_P.h"/>
       <FILE id="UA6EdL" name="C_MAP_Bounds_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Bounds_P.h"/>
       <FILE id="n5qUXf" name="C_MAP_Choices_P.h" compile="0" resource="0"
@@ -104,6 +106,10 @@
             file="_Project_Source/D_BUILD_Choices_For_P.cpp"/>
       <FILE id="wrm5FB" name="D_BUILD_Choices_For_P.h" compile="0" resource="0"
             file="_Project_Source/D_BUILD_Choices_For_P.h"/>
+      <FILE id="P4JYRu" name="D_BUILD_Bit_Locations_For_P.cpp" compile="1"
+            resource="0" file="_Project_Source/D_BUILD_Bit_Locations_For_P.cpp"/>
+      <FILE id="o8rI4s" name="D_BUILD_Bit_Locations_For_P.h" compile="0"
+            resource="0" file="_Project_Source/D_BUILD_Bit_Locations_For_P.h"/>
       <FILE id="bHbJwV" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Font_For_P.cpp"/>
       <FILE id="SPctq9" name="D_BUILD_Font_For_P.h" compile="0" resource="0"

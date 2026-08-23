@@ -160,6 +160,7 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.cpp"/>
     <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_For_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\D_BUILD_Bit_Locations_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Font_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Tip_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_CONVERT_P.cpp"/>
@@ -3190,6 +3191,7 @@
     <ClInclude Include="..\..\_Project_Source\C_GET_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_ID_Aux_Voice_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_ID_Exp_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Bit_Locations_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Bounds_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Name_P.h"/>
@@ -3206,6 +3208,7 @@
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Widget_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_For_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\D_BUILD_Bit_Locations_For_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Font_For_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Tip_For_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_CONVERT_P.h"/>
