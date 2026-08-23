@@ -1,5 +1,71 @@
 #include "D_BUILD_Bit_Locations_For_P.h"
 
+const StringArray BUILD::Bit_Locations_For::avp_amp_mod_by_velo_amt() {
+    return {
+        "byte_37__bit_0",
+        "byte_37__bit_1",
+        "byte_37__bit_2",
+        "byte_37__bit_3",
+        "byte_37__bit_4",
+        "byte_37__bit_5",
+        "byte_37__bit_6",
+    };
+}
+
+const StringArray BUILD::Bit_Locations_For::avp_fine_tune() {
+    return {
+        "byte_88__bit_0",
+        "byte_88__bit_1",
+        "byte_88__bit_2",
+        "byte_88__bit_3",
+        "byte_88__bit_4",
+        "byte_88__bit_5",
+        "byte_88__bit_6",
+    };
+}
+
+const StringArray BUILD::Bit_Locations_For::avp_flex_sli_bend_limit(const bool pos) {
+    return {
+        pos ? "byte_75__bit_0" : "byte_75__bit_4",
+        pos ? "byte_75__bit_1" : "byte_75__bit_5",
+        pos ? "byte_75__bit_2" : "byte_75__bit_6",
+        pos ? "byte_75__bit_3" : "byte_71__bit_3",
+    };
+}
+
+const StringArray BUILD::Bit_Locations_For::avp_flex_sli_range() {
+    return {
+        "byte_86__bit_0",
+        "byte_86__bit_1",
+        "byte_86__bit_2",
+        "byte_86__bit_3",
+        "byte_86__bit_4",
+        "byte_86__bit_5",
+        "byte_86__bit_6",
+        "byte_79__bit_6"
+    };
+}
+
+const StringArray BUILD::Bit_Locations_For::avp_flex_sli_target() {
+    return {
+        "byte_82__bit_0",
+        "byte_82__bit_1",
+        "byte_82__bit_2",
+        "byte_82__bit_3",
+        "byte_82__bit_4",
+        "byte_82__bit_5",
+        "byte_82__bit_6"
+    };
+}
+
+const StringArray BUILD::Bit_Locations_For::avp_keyboard_octave() {
+    return {
+        "byte_83__bit_0",
+        "byte_83__bit_1",
+        "byte_83__bit_2"
+    };
+}
+
 const StringArray BUILD::Bit_Locations_For::exp_delay_feedback() {
     return {
         "byte_70__bit_6",
@@ -12,6 +78,92 @@ const StringArray BUILD::Bit_Locations_For::exp_delay_feedback() {
         "byte_58__bit_5",
         "byte_58__bit_6",
         "byte_55__bit_2"
+    };
+}
+
+const StringArray BUILD::Bit_Locations_For::avp_level() {
+    return {
+        "byte_81__bit_0",
+        "byte_81__bit_1",
+        "byte_81__bit_2",
+        "byte_81__bit_3",
+        "byte_81__bit_4",
+        "byte_81__bit_5",
+        "byte_81__bit_6"
+    };
+}
+
+const StringArray BUILD::Bit_Locations_For::avp_lfo_sync_bpm_on() {
+    return { "byte_78__bit_1" };
+}
+
+const StringArray BUILD::Bit_Locations_For::avp_lfo_sync_key_on() {
+    return { "byte_78__bit_0" };
+}
+
+const StringArray BUILD::Bit_Locations_For::avp_lfo_sync_voice_on() {
+    return { "byte_78__bit_2" };
+}
+
+const StringArray BUILD::Bit_Locations_For::avp_microtune_scale() {
+    return {
+        "byte_89__bit_0",
+        "byte_89__bit_1",
+        "byte_89__bit_2",
+        "byte_89__bit_3",
+        "byte_89__bit_4",
+        "byte_89__bit_5",
+        "byte_89__bit_6",
+        "byte_87__bit_1"
+    };
+}
+
+const StringArray BUILD::Bit_Locations_For::avp_porta_mode_on() {
+    return { "byte_78__bit_3" };
+}
+
+const StringArray BUILD::Bit_Locations_For::avp_porta_sync_bpm_on() {
+    return { "byte_78__bit_4" };
+}
+
+const StringArray BUILD::Bit_Locations_For::avp_porta_time() {
+    return {
+        "byte_69__bit_0",
+        "byte_69__bit_1",
+        "byte_69__bit_2",
+        "byte_69__bit_3",
+        "byte_69__bit_4",
+        "byte_69__bit_5",
+        "byte_69__bit_6",
+        "byte_63__bit_5"
+    };
+}
+
+const StringArray BUILD::Bit_Locations_For::avp_scale_key() {
+    return {
+        "byte_90__bit_0",
+        "byte_90__bit_1",
+        "byte_90__bit_2",
+        "byte_90__bit_3",
+        "byte_90__bit_4"
+    };
+}
+
+const StringArray BUILD::Bit_Locations_For::avp_transpose() {
+    return {
+        "byte_92__bit_0",
+        "byte_92__bit_1",
+        "byte_92__bit_2",
+        "byte_92__bit_3",
+        "byte_92__bit_4"
+    };
+}
+
+const StringArray BUILD::Bit_Locations_For::avp_voice_mode() {
+    return {
+        "byte_73__bit_0",
+        "byte_73__bit_1",
+        "byte_73__bit_2"
     };
 }
 

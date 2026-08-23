@@ -10,6 +10,25 @@ namespace MAP
 {
 
 	static const std::unordered_map<String, StringArray> bit_locations{
+		{ ID::avp_amp_mod_by_velo_amt, Bit_Locations_For::avp_amp_mod_by_velo_amt() },
+		{ ID::avp_fine_tune, Bit_Locations_For::avp_fine_tune() },
+		{ ID::avp_flex_sli_bend_neg, Bit_Locations_For::avp_flex_sli_bend_limit() },
+		{ ID::avp_flex_sli_bend_pos, Bit_Locations_For::avp_flex_sli_bend_limit(true) },
+		{ ID::avp_flex_sli_range, Bit_Locations_For::avp_flex_sli_range() },
+		{ ID::avp_flex_sli_target, Bit_Locations_For::avp_flex_sli_target() },
+		{ ID::avp_keyboard_octave, Bit_Locations_For::avp_keyboard_octave() },
+		{ ID::avp_level, Bit_Locations_For::avp_level() },
+		{ ID::avp_lfo_sync_bpm_on, Bit_Locations_For::avp_lfo_sync_bpm_on() },
+		{ ID::avp_lfo_sync_key_on, Bit_Locations_For::avp_lfo_sync_key_on() },
+		{ ID::avp_lfo_sync_voice_on, Bit_Locations_For::avp_lfo_sync_voice_on() },
+		{ ID::avp_microtune_scale, Bit_Locations_For::avp_microtune_scale() },
+		{ ID::avp_porta_mode_on, Bit_Locations_For::avp_porta_mode_on() },
+		{ ID::avp_porta_sync_bpm_on, Bit_Locations_For::avp_porta_sync_bpm_on() },
+		{ ID::avp_porta_time, Bit_Locations_For::avp_porta_time() },
+		{ ID::avp_scale_key, Bit_Locations_For::avp_scale_key() },
+		{ ID::avp_transpose, Bit_Locations_For::avp_transpose() },
+		{ ID::avp_voice_mode, Bit_Locations_For::avp_voice_mode() },
+
 		//osc
 		{ ID::exp_osc_1_octave, Bit_Locations_For::exp_osc_octave(1) },
 		{ ID::exp_osc_1_wave, Bit_Locations_For::exp_osc_wave(1) },
