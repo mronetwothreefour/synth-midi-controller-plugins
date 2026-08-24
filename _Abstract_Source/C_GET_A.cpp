@@ -1,6 +1,6 @@
 #include "C_GET_A.h"
 
-#include "C_MAP_Bounds_P.h"
+#include "C_MAP_Init_Bounds_P.h"
 #include "C_MAP_Choices_P.h"
 #include "C_MAP_Ctrl_Name_P.h"
 #include "C_MAP_Exp_Name_P.h"
@@ -9,8 +9,8 @@
 #include "C_MAP_Tip_P.h"
 
 const Rectangle<int> GET_A::init_bounds_for(const String& id) {
-	if (MAP::bounds.find(id) != MAP::bounds.end())
-		return MAP::bounds.at(id);
+	if (MAP::init_bounds.find(id) != MAP::init_bounds.end())
+		return MAP::init_bounds.at(id);
 	return {};
 }
 

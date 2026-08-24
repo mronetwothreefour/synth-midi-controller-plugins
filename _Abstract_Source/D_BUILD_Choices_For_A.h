@@ -2,7 +2,8 @@
 
 #include <JuceHeader.h>
 
-namespace BUILD {
+namespace BUILD
+{
 
 	struct Choices_For_A
 	{

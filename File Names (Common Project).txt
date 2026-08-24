@@ -1,8 +1,8 @@
 C_COLOR_P
 C_ENUM_P
 C_GET_P
-C_ID_EXP_P
-C_MAP_Bounds_P
+C_ID_Main_P
+C_MAP_Init_Bounds_P
 C_MAP_Choices_P
 C_MAP_Ctrl_Name_P
 C_MAP_Exp_Name_P
@@ -17,6 +17,7 @@ C_PATH_Widgets_P
 C_SL_Tip_Exposed_P
 C_SL_Tip_Widget_P
 C_XYWH_P
+D_BUILD_Init_Bounds_For_P
 D_BUILD_Choices_For_P
 D_BUILD_Font_For_P
 D_BUILD_Tip_For_P

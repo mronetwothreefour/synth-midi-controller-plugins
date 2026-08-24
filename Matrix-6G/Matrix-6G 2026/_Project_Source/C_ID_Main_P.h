@@ -201,4 +201,35 @@ namespace ID
 		exp_env_3_release
 	};
 
+	static const String mmod_0_amt{ "mmod_0_amt" };
+	static const String mmod_1_amt{ "mmod_1_amt" };
+	static const String mmod_2_amt{ "mmod_2_amt" };
+	static const String mmod_3_amt{ "mmod_3_amt" };
+	static const String mmod_4_amt{ "mmod_4_amt" };
+	static const String mmod_5_amt{ "mmod_5_amt" };
+	static const String mmod_6_amt{ "mmod_6_amt" };
+	static const String mmod_7_amt{ "mmod_7_amt" };
+	static const String mmod_8_amt{ "mmod_8_amt" };
+	static const String mmod_9_amt{ "mmod_9_amt" };
+	static const String mmod_0_dest{ "mmod_0_dest" };
+	static const String mmod_1_dest{ "mmod_1_dest" };
+	static const String mmod_2_dest{ "mmod_2_dest" };
+	static const String mmod_3_dest{ "mmod_3_dest" };
+	static const String mmod_4_dest{ "mmod_4_dest" };
+	static const String mmod_5_dest{ "mmod_5_dest" };
+	static const String mmod_6_dest{ "mmod_6_dest" };
+	static const String mmod_7_dest{ "mmod_7_dest" };
+	static const String mmod_8_dest{ "mmod_8_dest" };
+	static const String mmod_9_dest{ "mmod_9_dest" };
+	static const String mmod_0_src{ "mmod_0_src" };
+	static const String mmod_1_src{ "mmod_1_src" };
+	static const String mmod_2_src{ "mmod_2_src" };
+	static const String mmod_3_src{ "mmod_3_src" };
+	static const String mmod_4_src{ "mmod_4_src" };
+	static const String mmod_5_src{ "mmod_5_src" };
+	static const String mmod_6_src{ "mmod_6_src" };
+	static const String mmod_7_src{ "mmod_7_src" };
+	static const String mmod_8_src{ "mmod_8_src" };
+	static const String mmod_9_src{ "mmod_9_src" };
+
 }
