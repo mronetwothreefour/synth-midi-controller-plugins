@@ -2,10 +2,10 @@ C_COLOR_P
 C_ENUM_P
 C_GET_P
 C_ID_Main_P
-C_MAP_Init_Bounds_P
 C_MAP_Choices_P
 C_MAP_Ctrl_Name_P
 C_MAP_Exp_Name_P
+C_MAP_Init_Bounds_P
 C_MAP_Init_Choice_P
 C_MAP_Label_Name_P
 C_MAP_Name_P

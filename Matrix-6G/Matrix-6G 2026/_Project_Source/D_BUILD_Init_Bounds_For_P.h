@@ -2,7 +2,8 @@
 
 #include "D_BUILD_Init_Bounds_For_A.h"
 
-namespace BUILD {
+namespace BUILD
+{
 
 	struct Init_Bounds_For :
 		Init_Bounds_For_A

@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\..\_Abstract_Source\C_GET_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_A.cpp"/>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Init_Bounds_For_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Layout_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_For_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.cpp"/>
@@ -161,6 +162,7 @@
     <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Font_For_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\D_BUILD_Init_Bounds_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Tip_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_CONVERT_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.cpp"/>
@@ -3173,6 +3175,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_MISC_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_NAME_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Init_Bounds_For_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Layout_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_For_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.h"/>
@@ -3186,11 +3189,11 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.h"/>
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_GET_P.h"/>
-    <ClInclude Include="..\..\_Project_Source\C_ID_Exp_P.h"/>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Bounds_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_ID_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Name_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Exp_Name_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Bounds_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Choice_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Label_Name_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_NRPN_P.h"/>
@@ -3204,6 +3207,7 @@
     <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_For_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Font_For_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\D_BUILD_Init_Bounds_For_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Tip_For_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_CONVERT_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.h"/>
