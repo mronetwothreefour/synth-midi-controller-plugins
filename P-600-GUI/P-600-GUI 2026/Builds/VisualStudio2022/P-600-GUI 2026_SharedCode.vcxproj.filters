@@ -853,6 +853,9 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_A.cpp">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Init_Bounds_For_A.cpp">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Layout_A.cpp">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClCompile>
@@ -893,6 +896,9 @@
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Font_For_P.cpp">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_BUILD_Init_Bounds_For_P.cpp">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Tip_For_P.cpp">
@@ -4143,6 +4149,9 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_A.h">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Init_Bounds_For_A.h">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Layout_A.h">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClInclude>
@@ -4182,10 +4191,7 @@
     <ClInclude Include="..\..\_Project_Source\C_GET_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_ID_Exp_P.h">
-      <Filter>P-600-GUI 2026\_Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Bounds_P.h">
+    <ClInclude Include="..\..\_Project_Source\C_ID_Main_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h">
@@ -4198,6 +4204,9 @@
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Exp_Name_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Bounds_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Choice_P.h">
@@ -4234,6 +4243,9 @@
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Font_For_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_BUILD_Init_Bounds_For_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Tip_For_P.h">
