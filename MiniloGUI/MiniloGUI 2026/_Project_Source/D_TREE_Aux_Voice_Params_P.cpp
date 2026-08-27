@@ -2,7 +2,7 @@
 
 #include "C_ENUM_P.h"
 #include "C_GET_P.h"
-#include "C_ID_Aux_Voice_P.h"
+#include "C_ID_Main_P.h"
 
 using namespace ENUM;
 using namespace TREE;

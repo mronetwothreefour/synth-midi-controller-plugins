@@ -1,7 +1,6 @@
 #pragma once
 
-#include "C_ID_Aux_Voice_P.h"
-#include "C_ID_Exp_P.h"
+#include "C_ID_Main_P.h"
 #include "D_BUILD_Bit_Locations_For_P.h"
 
 using namespace BUILD;

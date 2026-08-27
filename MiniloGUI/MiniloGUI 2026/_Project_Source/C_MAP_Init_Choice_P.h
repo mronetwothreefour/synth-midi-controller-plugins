@@ -1,8 +1,7 @@
 #pragma once
 
 #include "C_ENUM_P.h"
-#include "C_ID_Aux_Voice_P.h"
-#include "C_ID_Exp_P.h"
+#include "C_ID_Main_P.h"
 
 using namespace ENUM;
 

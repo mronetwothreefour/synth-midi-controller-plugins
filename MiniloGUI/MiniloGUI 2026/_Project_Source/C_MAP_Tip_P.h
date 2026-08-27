@@ -1,7 +1,6 @@
 #pragma once
 
-#include "C_ID_Aux_Voice_P.h"
-#include "C_ID_Exp_P.h"
+#include "C_ID_Main_P.h"
 #include "C_SL_Tip_Aux_Voice_P.h"
 #include "C_SL_Tip_Exposed_P.h"
 #include "D_BUILD_Tip_For_P.h"
