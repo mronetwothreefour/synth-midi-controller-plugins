@@ -156,6 +156,8 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Data_User_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.cpp"/>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Param_Ctrl_A.cpp"/>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Param_Ctrl_Sli_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Label_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Wheel_Mod_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.cpp"/>
@@ -3186,6 +3188,8 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Data_User_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Param_Ctrl_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Param_Ctrl_Sli_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Label_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Wheel_Mod_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.h"/>

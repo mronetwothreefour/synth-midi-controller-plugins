@@ -53,6 +53,14 @@
             file="../../_Abstract_Source/G_DRAW_Paths_A.cpp"/>
       <FILE id="dBkPO2" name="G_DRAW_Paths_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_DRAW_Paths_A.h"/>
+      <FILE id="rOc3bd" name="G_WIDGET_Param_Ctrl_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Param_Ctrl_A.cpp"/>
+      <FILE id="kRTLB3" name="G_WIDGET_Param_Ctrl_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Param_Ctrl_A.h"/>
+      <FILE id="OlmSNA" name="G_WIDGET_Param_Ctrl_Sli_A.cpp" compile="1"
+            resource="0" file="../../_Abstract_Source/G_WIDGET_Param_Ctrl_Sli_A.cpp"/>
+      <FILE id="M5beFO" name="G_WIDGET_Param_Ctrl_Sli_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Param_Ctrl_Sli_A.h"/>
       <FILE id="kuzgph" name="G_WIDGET_Sli_Label_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/G_WIDGET_Sli_Label_A.cpp"/>
       <FILE id="owfBMM" name="G_WIDGET_Sli_Label_A.h" compile="0" resource="0"
