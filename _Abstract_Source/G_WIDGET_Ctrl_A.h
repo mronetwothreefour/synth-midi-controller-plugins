@@ -12,8 +12,6 @@ namespace WIDGET
 	{
 	protected: RangedAudioParameter* param_ptr;
 	protected: Value param_val;
-	protected: String linked_param_id;
-	protected: RangedAudioParameter* linked_param_ptr;
 	protected: Value linked_param_val;
 	protected: Tip_Updater_A tip_update;
 	public: const StringArray choices;
@@ -21,10 +19,11 @@ namespace WIDGET
 	private: Rectangle<int> init_bounds;
 
 	//==============================================================================
-	public: Ctrl_A(const String& param_id, Data_Hub* hub);
+	public: Ctrl_A(const String& param_id, Value param_val, Data_Hub* hub);
 
 	public: virtual void attach_to_param()=0;
 	public: virtual void remove_attachment()=0;
+	public: void link_to_another_param(Value param_to_link_val);
 	public: Rectangle<int> scaled_bounds();
 	public: virtual void update_tip_current_choice();
 	public: virtual void linked_param_changed() {};

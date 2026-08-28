@@ -17,7 +17,7 @@ namespace WIDGET
 	protected: std::unique_ptr<Slider_Attachment> attachment;
 
 	//==============================================================================
-	public: Ctrl_Slider_A(const String& param_id, Data_Hub* hub);
+	public: Ctrl_Slider_A(const String& param_id, Value param_val, Data_Hub* hub);
 
 	public: void resized() override;
 	public: void attach_to_param() override;

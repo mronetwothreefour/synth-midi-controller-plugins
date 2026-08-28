@@ -2,8 +2,8 @@
 
 using namespace WIDGET;
 
-Ctrl_Slider_A::Ctrl_Slider_A(const String& param_id, Data_Hub* hub) :
-	Ctrl_A{ param_id, hub },
+Ctrl_Slider_A::Ctrl_Slider_A(const String& param_id, Value param_val, Data_Hub* hub) :
+	Ctrl_A{ param_id, param_val, hub },
 	Slider_Wheel_Mod{ param_id, Ctrl_A::u_m },
 	label{ param_id, hub, this }
 {
@@ -17,8 +17,10 @@ void Ctrl_Slider_A::resized() {
 }
 
 void Ctrl_Slider_A::attach_to_param() {
-	attachment.reset(new Slider_Attachment{ *param_ptr, *this, Ctrl_A::u_m });
-	setDoubleClickReturnValue(false, 0.0, Mods::noModifiers);
+	if (param_ptr) {
+		attachment.reset(new Slider_Attachment{ *param_ptr, *this, Ctrl_A::u_m });
+		setDoubleClickReturnValue(false, 0.0, Mods::noModifiers);
+	}
 }
 
 void Ctrl_Slider_A::remove_attachment() {
