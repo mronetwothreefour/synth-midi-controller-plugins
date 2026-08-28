@@ -54,14 +54,14 @@
             file="../../_Abstract_Source/G_DRAW_Paths_A.cpp"/>
       <FILE id="oXfRo6" name="G_DRAW_Paths_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_DRAW_Paths_A.h"/>
-      <FILE id="Dr2o2t" name="G_WIDGET_Param_Ctrl_A.cpp" compile="1" resource="0"
-            file="../../_Abstract_Source/G_WIDGET_Param_Ctrl_A.cpp"/>
-      <FILE id="J8NsJr" name="G_WIDGET_Param_Ctrl_A.h" compile="0" resource="0"
-            file="../../_Abstract_Source/G_WIDGET_Param_Ctrl_A.h"/>
-      <FILE id="UMSePN" name="G_WIDGET_Param_Ctrl_Sli_A.cpp" compile="1"
-            resource="0" file="../../_Abstract_Source/G_WIDGET_Param_Ctrl_Sli_A.cpp"/>
-      <FILE id="do4SDU" name="G_WIDGET_Param_Ctrl_Sli_A.h" compile="0" resource="0"
-            file="../../_Abstract_Source/G_WIDGET_Param_Ctrl_Sli_A.h"/>
+      <FILE id="Dr2o2t" name="G_WIDGET_Ctrl_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Ctrl_A.cpp"/>
+      <FILE id="J8NsJr" name="G_WIDGET_Ctrl_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Ctrl_A.h"/>
+      <FILE id="UMSePN" name="G_WIDGET_Ctrl_Slider_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Ctrl_Slider_A.cpp"/>
+      <FILE id="do4SDU" name="G_WIDGET_Ctrl_Slider_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Ctrl_Slider_A.h"/>
       <FILE id="gBuYLE" name="G_WIDGET_Sli_Label_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/G_WIDGET_Sli_Label_A.cpp"/>
       <FILE id="tIP1Dz" name="G_WIDGET_Sli_Label_A.h" compile="0" resource="0"

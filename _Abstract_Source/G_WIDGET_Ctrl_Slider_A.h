@@ -1,6 +1,6 @@
 #pragma once
 
-#include "G_WIDGET_Param_Ctrl_A.h"
+#include "G_WIDGET_Ctrl_A.h"
 #include "G_WIDGET_Sli_Label_P.h"
 #include "G_WIDGET_Sli_Wheel_Mod_P.h"
 
@@ -9,15 +9,15 @@ using Slider_Attachment = SliderParameterAttachment;
 namespace WIDGET
 {
 
-	class Param_Ctrl_Slider_A :
-		public Param_Ctrl_A,
+	class Ctrl_Slider_A :
+		public Ctrl_A,
 		public Slider_Wheel_Mod
 	{
 	protected: Slider_Label label;
 	protected: std::unique_ptr<Slider_Attachment> attachment;
 
 	//==============================================================================
-	public: Param_Ctrl_Slider_A(const String& param_id, Data_Hub* hub);
+	public: Ctrl_Slider_A(const String& param_id, Data_Hub* hub);
 
 	public: void resized() override;
 	public: void attach_to_param() override;
@@ -27,7 +27,7 @@ namespace WIDGET
 	public: void modifierKeysChanged(const Mods& mods) override;
 
 	//==============================================================================
-	private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Param_Ctrl_Slider_A)
+	private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Ctrl_Slider_A)
 	};
 
 }

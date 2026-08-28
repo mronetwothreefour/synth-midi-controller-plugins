@@ -6,7 +6,7 @@
 namespace WIDGET
 {
 
-	class Param_Ctrl_A :
+	class Ctrl_A :
 		public Data_User,
 		public Value::Listener
 	{
@@ -21,7 +21,7 @@ namespace WIDGET
 	private: Rectangle<int> init_bounds;
 
 	//==============================================================================
-	public: Param_Ctrl_A(const String& param_id, Data_Hub* hub);
+	public: Ctrl_A(const String& param_id, Data_Hub* hub);
 
 	public: virtual void attach_to_param()=0;
 	public: virtual void remove_attachment()=0;
@@ -29,10 +29,10 @@ namespace WIDGET
 	public: virtual void update_tip_current_choice();
 	public: virtual void linked_param_changed() {};
 	public: void valueChanged(Value& value) override;
-	public: ~Param_Ctrl_A();
+	public: ~Ctrl_A();
 
 	//==============================================================================
-	private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Param_Ctrl_A)
+	private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Ctrl_A)
 	};
 
 }
