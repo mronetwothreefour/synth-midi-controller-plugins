@@ -54,6 +54,10 @@
             file="../../_Abstract_Source/G_DRAW_Paths_A.cpp"/>
       <FILE id="SUaSdy" name="G_DRAW_Paths_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_DRAW_Paths_A.h"/>
+      <FILE id="onR6f4" name="G_Look_And_Feel_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_Look_And_Feel_A.cpp"/>
+      <FILE id="Lm6sWb" name="G_Look_And_Feel_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_Look_And_Feel_A.h"/>
       <FILE id="MRZ0Mv" name="G_WIDGET_Ctrl_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/G_WIDGET_Ctrl_A.cpp"/>
       <FILE id="OmFyAk" name="G_WIDGET_Ctrl_A.h" compile="0" resource="0"
@@ -86,6 +90,7 @@
         <FILE id="oIl9aN" name="texture.jpg" compile="0" resource="1" file="_Project_Source/binaries/texture.jpg"/>
       </GROUP>
       <FILE id="x0YNPv" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
+      <FILE id="YcnX1I" name="C_FONT_P.h" compile="0" resource="0" file="_Project_Source/C_FONT_P.h"/>
       <FILE id="ySqwBi" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
       <FILE id="ZcG1nz" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
       <FILE id="mAMon2" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>

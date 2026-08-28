@@ -53,6 +53,10 @@
             file="../../_Abstract_Source/G_DRAW_Paths_A.cpp"/>
       <FILE id="dBkPO2" name="G_DRAW_Paths_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_DRAW_Paths_A.h"/>
+      <FILE id="uUOuYG" name="G_Look_And_Feel_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_Look_And_Feel_A.h"/>
+      <FILE id="pU5o9g" name="G_Look_And_Feel_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_Look_And_Feel_A.cpp"/>
       <FILE id="FpkM9e" name="G_WIDGET_Ctrl_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/G_WIDGET_Ctrl_A.cpp"/>
       <FILE id="zi88Kk" name="G_WIDGET_Ctrl_A.h" compile="0" resource="0"
@@ -83,8 +87,9 @@
         <FILE id="JtxvDh" name="Overpass-Bold.ttf" compile="0" resource="1"
               file="_Project_Source/binaries/Overpass-Bold.ttf"/>
       </GROUP>
-      <FILE id="yP5l6S" name="C_ENUM_P.h" compile="0" resource="0" file="_Project_Source/C_ENUM_P.h"/>
       <FILE id="KrX49J" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
+      <FILE id="yP5l6S" name="C_ENUM_P.h" compile="0" resource="0" file="_Project_Source/C_ENUM_P.h"/>
+      <FILE id="hutzv5" name="C_FONT_P.h" compile="0" resource="0" file="_Project_Source/C_FONT_P.h"/>
       <FILE id="P21n9k" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
       <FILE id="YmBJVS" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
       <FILE id="tfn1Lh" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>

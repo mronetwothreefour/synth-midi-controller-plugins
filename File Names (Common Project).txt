@@ -1,5 +1,6 @@
 C_COLOR_P
 C_ENUM_P
+C_FONT_P
 C_GET_P
 C_ID_Main_P
 C_MAP_Choices_P

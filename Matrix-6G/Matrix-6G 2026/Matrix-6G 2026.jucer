@@ -54,6 +54,10 @@
             file="../../_Abstract_Source/G_DRAW_Paths_A.cpp"/>
       <FILE id="oXfRo6" name="G_DRAW_Paths_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_DRAW_Paths_A.h"/>
+      <FILE id="xAaiSB" name="G_Look_And_Feel_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_Look_And_Feel_A.cpp"/>
+      <FILE id="OZSKQP" name="G_Look_And_Feel_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_Look_And_Feel_A.h"/>
       <FILE id="Dr2o2t" name="G_WIDGET_Ctrl_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/G_WIDGET_Ctrl_A.cpp"/>
       <FILE id="J8NsJr" name="G_WIDGET_Ctrl_A.h" compile="0" resource="0"
@@ -85,6 +89,7 @@
               file="_Project_Source/binaries/Overpass-Bold.ttf"/>
       </GROUP>
       <FILE id="LO3uDg" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
+      <FILE id="Lnu8Tr" name="C_FONT_P.h" compile="0" resource="0" file="_Project_Source/C_FONT_P.h"/>
       <FILE id="svwFzy" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
       <FILE id="LxcoVg" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
       <FILE id="oPWDCv" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>
