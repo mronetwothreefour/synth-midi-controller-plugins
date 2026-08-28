@@ -58,6 +58,10 @@
             file="../../_Abstract_Source/G_WIDGET_Ctrl_A.cpp"/>
       <FILE id="J8NsJr" name="G_WIDGET_Ctrl_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_WIDGET_Ctrl_A.h"/>
+      <FILE id="tSiwxd" name="G_WIDGET_Ctrl_Cbox_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Ctrl_Cbox_A.cpp"/>
+      <FILE id="hT5zf5" name="G_WIDGET_Ctrl_Cbox_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Ctrl_Cbox_A.h"/>
       <FILE id="UMSePN" name="G_WIDGET_Ctrl_Slider_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/G_WIDGET_Ctrl_Slider_A.cpp"/>
       <FILE id="do4SDU" name="G_WIDGET_Ctrl_Slider_A.h" compile="0" resource="0"

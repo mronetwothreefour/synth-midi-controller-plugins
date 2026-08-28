@@ -883,6 +883,9 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Ctrl_A.cpp">
       <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Ctrl_Cbox_A.cpp">
+      <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Ctrl_Slider_A.cpp">
       <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
     </ClCompile>
@@ -4189,6 +4192,9 @@
       <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Ctrl_A.h">
+      <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Ctrl_Cbox_A.h">
       <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Ctrl_Slider_A.h">
