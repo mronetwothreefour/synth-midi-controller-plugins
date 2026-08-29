@@ -12,11 +12,11 @@ Editor_A::Editor_A(Audio_Processor& processor, Data_Hub* hub) :
     AudioProcessorEditor{ &processor },
     processor{ processor },
     Data_User{ hub },
-    /*layer_exp_ctrls{ hub },*/
+    ctrls_exp{ hub },
     l_a_f{ scale_factor }
 {
     LookAndFeel::setDefaultLookAndFeel(&l_a_f);
-    //addAndMakeVisible(layer_exp_ctrls);
+    addAndMakeVisible(ctrls_exp);
     tip_win.setMillisecondsBeforeTipAppears(50);
     tip_win.setComponentEffect(nullptr);
     setWantsKeyboardFocus(true);

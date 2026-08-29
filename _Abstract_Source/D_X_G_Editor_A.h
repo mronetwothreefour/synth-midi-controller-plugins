@@ -2,8 +2,10 @@
 
 #include "D_X_G_Audio_Processor_P.h"
 #include "D_X_G_Data_User_P.h"
-//#include "G_LAYER_Exp_Ctrls_P.h"
+#include "G_LAYER_Ctrls_Exp_P.h"
 #include "G_Look_And_Feel_P.h"
+
+using namespace LAYER;
 
 class Editor_A :
     public AudioProcessorEditor,
@@ -11,7 +13,7 @@ class Editor_A :
     public ValueTree::Listener
 {
 protected: Audio_Processor& processor;
-//protected: Layer_Exposed_Controls_P layer_exp_ctrls;
+protected: Ctrls_Exposed ctrls_exp;
 protected: Look_And_Feel l_a_f;
 protected: TooltipWindow tip_win;
 
