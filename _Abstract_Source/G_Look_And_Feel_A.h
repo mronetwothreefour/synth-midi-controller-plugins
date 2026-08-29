@@ -18,7 +18,7 @@ public: void getIdealPopupMenuItemSizeWithOptions(const String& txt, bool separa
 public: void drawPopupMenuBackground(Graphics& g, int w, int h) override;
 
 public: void drawLabel(Graphics& g, Label& lbl) override;
-public: virtual void draw_label_p(Graphics& g, Label& lbl, String& id)=0;
+public: virtual void draw_label_p(Graphics& g, Label& lbl, String& lbl_name)=0;
 public: void fillTextEditorBackground(Graphics& g, int w, int h, TextEditor& editor) override;
 public: void drawTextEditorOutline(Graphics& /*g*/, int /*w*/, int /*h*/,
 								   TextEditor& /*editor*/) override {}

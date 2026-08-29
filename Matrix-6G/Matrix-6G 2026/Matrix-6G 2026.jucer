@@ -162,6 +162,14 @@
             file="_Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="EHN5cm" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Main_P.h"/>
+      <FILE id="lHsfnz" name="G_LAYER_Ctrls_Exp_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_Exp_P.cpp"/>
+      <FILE id="oD1jVE" name="G_LAYER_Ctrls_Exp_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_Exp_P.h"/>
+      <FILE id="EhgSqw" name="G_Look_And_Feel_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_Look_And_Feel_P.cpp"/>
+      <FILE id="DWUFCj" name="G_Look_And_Feel_P.h" compile="0" resource="0"
+            file="_Project_Source/G_Look_And_Feel_P.h"/>
       <FILE id="txIGav" name="G_WIDGET_Ctrl_Slider_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_WIDGET_Ctrl_Slider_P.cpp"/>
       <FILE id="HAICW9" name="G_WIDGET_Ctrl_Slider_P.h" compile="0" resource="0"

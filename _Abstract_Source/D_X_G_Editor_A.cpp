@@ -11,11 +11,11 @@ using namespace MISC;
 Editor_A::Editor_A(Audio_Processor& processor, Data_Hub* hub) :
     AudioProcessorEditor{ &processor },
     processor{ processor },
-    Data_User{ hub }/*,
-    layer_exp_ctrls{ hub },
-    l_a_f{ scale_factor }*/
+    Data_User{ hub },
+    /*layer_exp_ctrls{ hub },*/
+    l_a_f{ scale_factor }
 {
-    //LookAndFeel::setDefaultLookAndFeel(&l_a_f);
+    LookAndFeel::setDefaultLookAndFeel(&l_a_f);
     //addAndMakeVisible(layer_exp_ctrls);
     tip_win.setMillisecondsBeforeTipAppears(50);
     tip_win.setComponentEffect(nullptr);
@@ -45,5 +45,5 @@ void Editor_A::valueTreePropertyChanged(ValueTree& /*parent_tree*/, const Identi
 
 Editor_A::~Editor_A() {
     //app_options.remove_listener(this);
-    //LookAndFeel::setDefaultLookAndFeel(nullptr);
+    LookAndFeel::setDefaultLookAndFeel(nullptr);
 }

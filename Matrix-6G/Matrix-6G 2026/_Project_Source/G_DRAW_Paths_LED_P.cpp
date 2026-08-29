@@ -8,6 +8,8 @@ using namespace DRAW;
 using namespace PATH;
 using namespace XYWH;
 
+using Justify = Justification;
+
 Path Paths_LED::build_char_path(const uint8 char_num) {
 	auto char_num_space{ (uint8)32 };
 	if (char_num <= char_num_space)
@@ -562,7 +564,7 @@ void Paths_LED::display_text(Graphics& g, const String txt, const int display_w,
 	auto display_y = led_display_y * scale_factor;
 	Path path;
 	auto char_count{ txt.length() };
-	if (j == Justification::right) {
+	if (j == Justify::right) {
 		auto inset = led_display_right_inset * scale_factor;
 		auto last_char_x = (float)display_w - char_w - inset;
 		auto last_char_index = char_count - 1;

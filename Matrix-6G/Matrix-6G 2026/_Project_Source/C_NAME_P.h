@@ -5,6 +5,7 @@
 namespace NAME
 {
 
+	static const String lbl_led{ "lbl_led" };
 	static const String lbl_s_6_bit_int{ "lbl_s_6_bit_int" };
 	static const String lbl_s_7_bit_int{ "lbl_s_7_bit_int" };
 	static const String lbl_u_int{ "lbl_u_int" };

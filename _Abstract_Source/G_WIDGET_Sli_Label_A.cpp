@@ -6,6 +6,8 @@
 using namespace BUILD;
 using namespace WIDGET;
 
+using Justify = Justification;
+
 Slider_Label_A::Slider_Label_A(const String& param_id, Data_Hub* hub,
 									   Slider_Wheel_Mod* parent_slider) :
 	Data_User{ hub },
@@ -17,7 +19,7 @@ Slider_Label_A::Slider_Label_A(const String& param_id, Data_Hub* hub,
 	setInterceptsMouseClicks(false, true);
 	setComponentID(param_id);
 	setName(GET::label_name_for(param_id));
-	setJustificationType(Justification::centred);
+	setJustificationType(Justify::centred);
 	tip_update.tip_info = GET::tip_for(param_id);
 	onEditorShow = [this] { on_editor_show(); };
 	onTextChange = [this] { on_text_change(); };

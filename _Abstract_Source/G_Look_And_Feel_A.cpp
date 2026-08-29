@@ -4,6 +4,8 @@
 #include "C_FONT_P.h"
 #include "C_NAME_P.h"
 
+using Justify = Justification;
+
 Look_And_Feel_A::Look_And_Feel_A(float& scale_factor) :
 	scale_factor{ scale_factor }
 {
@@ -32,13 +34,13 @@ void Look_And_Feel_A::drawLabel(Graphics& g, Label& lbl) {
 	if (name == NAME::lbl_browser) {
 		auto txt_area{ lbl.getLocalBounds().removeFromLeft(5) };
 		g.setFont(FONT::file_browser(scale_factor));
-		g.drawFittedText(lbl.getText(), txt_area, Justification::centredLeft, 1, 1.0f);
+		g.drawFittedText(lbl.getText(), txt_area, Justify::centredLeft, 1, 1.0f);
 		return;
 	}
 	if (name == NAME::lbl_slider || name == NAME::lbl_cbox) {
 		g.setFont(lbl.getFont());
 		g.drawFittedText(lbl.getText(), lbl.getLocalBounds().translated(0, 1),
-			Justification::centred, 1, 1.0f);
+			Justify::centred, 1, 1.0f);
 		return;
 	}
 	draw_label_p(g, lbl, name);
@@ -79,7 +81,7 @@ Rectangle<int> Look_And_Feel_A::getTooltipBounds(const String& txt, Point<int> p
 
 TextLayout Look_And_Feel_A::layout_tip_text(const String& txt) noexcept {
 	AttributedString attrib_txt;
-	attrib_txt.setJustification(Justification::centred);
+	attrib_txt.setJustification(Justify::centred);
 	attrib_txt.append(txt, FONT::tip(), COLOR::text);
 	TextLayout layout;
 	auto max_w = 500.0f;

@@ -29,6 +29,8 @@ D_X_G_Data_User_P
 D_X_G_Editor_P
 G_DRAW_Paths_Main_P
 G_DRAW_Paths_Widgets_P
+G_LAYER_Ctrls_Exp_P
+G_Look_And_Feel_P
 G_WIDGET_Ctrl_Slider_P
 G_WIDGET_Sli_Label_P
 G_WIDGET_Sli_Wheel_Mod_P
