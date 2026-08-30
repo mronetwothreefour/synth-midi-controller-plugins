@@ -15,6 +15,6 @@ namespace COLOR
 	const Colour orange{ 0xffb53100 };
 	const Colour tip_border{ blue_led };
 	const Colour txt_caret{ blue_led.withAlpha(0.9f) };
-	const Colour txt_highlight{ blue_led.withAlpha(0.67f) };
+	const Colour txt_highlight{ blue_led.withAlpha(0.60f) };
 
 }

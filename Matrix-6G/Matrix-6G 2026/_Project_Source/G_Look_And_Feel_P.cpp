@@ -15,7 +15,6 @@ Look_And_Feel::Look_And_Feel(float& scale_factor) :
 }
 
 void Look_And_Feel::positionComboBoxText(ComboBox& cbox, Label& lbl) {
-	lbl.setName(NAME::lbl_led);
 	lbl.setJustificationType(Justify::right);
 	lbl.setBounds(0, 0, cbox.getWidth(), cbox.getHeight());
 }
@@ -25,7 +24,7 @@ PopupMenu::Options Look_And_Feel::getOptionsForComboBoxPopupMenu(ComboBox& cbox,
 	auto cbox_cntr_y = cbox_area.getCentreY();
 	auto target_area = cbox.getScreenBounds();
 	auto selected_item = cbox.getSelectedItemIndex();
-	auto item_h = roundToInt(cbox.getHeight());
+	auto item_h = roundToInt(XYWH::ctrl_h * scale_factor);
 	auto col_count = 1;
 	auto item_count = cbox.getNumItems();
 	if (item_count == MISC::choice_count_mod_src)
@@ -73,13 +72,11 @@ void Look_And_Feel::drawPopupMenuItemWithOptions(Graphics& g, const Rectangle<in
 	DRAW::Paths_LED::display_text(g, i.text, area.getWidth(), scale_factor, Justify::left, 1.0f);
 }
 
-void Look_And_Feel::draw_label_p(Graphics& g, Label& lbl, String& lbl_name) {
-	if (lbl_name == NAME::lbl_led) {
-		auto txt{ lbl.getText() };
-		auto alpha = lbl.isBeingEdited() ? 0.0f : 1.0f;
-		DRAW::Paths_LED::display_text(g, txt, lbl.getWidth(), scale_factor,
-			lbl.getJustificationType(), alpha);
-	}
+void Look_And_Feel::draw_label_p(Graphics& g, Label& lbl, String& /*lbl_name*/) {
+	auto txt{ lbl.getText() };
+	auto alpha = lbl.isBeingEdited() ? 0.0f : 1.0f;
+	DRAW::Paths_LED::display_text(g, txt, lbl.getWidth(), scale_factor,
+		lbl.getJustificationType(), alpha);
 }
 
 void Look_And_Feel::drawLinearSlider(Graphics& g, int /*x*/, int /*y*/, int /*w*/, int /*h*/,

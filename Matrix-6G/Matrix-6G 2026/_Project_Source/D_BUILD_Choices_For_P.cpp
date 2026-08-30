@@ -97,10 +97,6 @@ const StringArray Choices_For::exp_input_source(bool for_lfo) {
 	return list;
 }
 
-const StringArray Choices_For::exp_off_on_matrix() {
-	return { "OFF__off", "ON__on" };
-}
-
 const StringArray Choices_For::exp_osc_1_key_track() {
 	StringArray list;
 	list.add("KEYBD__normal key tracking");
@@ -160,4 +156,8 @@ const StringArray Choices_For::exp_ramp_trig() {
 	list.add("XTRIG__external single trigger");
 	list.add("GATEX__gated external single trigger");
 	return list;
+}
+
+const StringArray Choices_For::off_on_p() {
+	return { "OFF__off", "ON__on" };
 }

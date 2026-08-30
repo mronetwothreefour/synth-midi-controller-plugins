@@ -47,7 +47,7 @@ namespace MAP
 		{ ID::exp_porta_velo,	 Init_Bounds_For::exp_ctrl_porta_key_mode(6) },
 		{ ID::exp_porta_mode,	 Init_Bounds_For::exp_ctrl_porta_key_mode(7) },
 		{ ID::exp_porta_legato,  Init_Bounds_For::exp_ctrl_porta_key_mode(8) },
-		{ ID::exp_keyboard_mode, Init_Bounds_For::exp_ctrl_porta_key_mode(10) },
+		{ ID::exp_keyboard_mode, Init_Bounds_For::exp_ctrl_porta_key_mode(11) },
 		{ ID::exp_lfo_1_speed,		   Init_Bounds_For::exp_ctrl_lfo(1, 0) },
 		{ ID::exp_lfo_1_wave_type,     Init_Bounds_For::exp_ctrl_lfo(1, 1) },
 		{ ID::exp_lfo_1_samp_source,   Init_Bounds_For::exp_ctrl_lfo(1, 2) },

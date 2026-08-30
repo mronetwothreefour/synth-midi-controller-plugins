@@ -25,9 +25,9 @@ namespace MAP
 		{ ID::exp_osc_2_detune, NAME::knob },
 		{ ID::exp_osc_2_lfo_1_fm, NAME::knob },
 		{ ID::exp_osc_2_lfo_2_pwm, NAME::knob },
-		{ ID::exp_osc_1_key_click, NAME::cbox },
-		{ ID::exp_osc_1_key_track, NAME::cbox },
-		{ ID::exp_osc_1_lever_ctrl, NAME::cbox },
+		{ ID::exp_osc_2_key_click, NAME::cbox },
+		{ ID::exp_osc_2_key_track, NAME::cbox },
+		{ ID::exp_osc_2_lever_ctrl, NAME::cbox },
 		{ ID::exp_osc_balance, NAME::slider_osc_balance },
 		//exposed vcf
 		{ ID::exp_vcf_freq, NAME::knob },

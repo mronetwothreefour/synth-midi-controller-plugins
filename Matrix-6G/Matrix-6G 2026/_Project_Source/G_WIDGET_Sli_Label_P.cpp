@@ -17,15 +17,20 @@ Slider_Label::Slider_Label(const String& param_id, Data_Hub* hub, Slider_Wheel_M
 	Slider_Label_A{ param_id, hub, parent_slider },
 	for_osc_balance{ GET::ctrl_name_for(param_id) == slider_osc_balance }
 {
-	if (!for_osc_balance)
-		setJustificationType(Justify::right);
+	setJustificationType(Justify::right);
+	if (for_osc_balance) {
+		setAlpha(0.0f);
+		onEditorHide = [this] { setAlpha(0.0f); };
+	}
 	set_text_to_stored_choice();
 }
 
 void Slider_Label::on_editor_show() {
 	auto edit = getCurrentTextEditor();
-	if (for_osc_balance)
+	if (for_osc_balance) {
+		setAlpha(1.0f);
 		edit->setName(txt_editor_filled);
+	}
 	edit->setJustification(for_osc_balance ? Justify::centred : Justify::centredRight);
 	edit->setBounds(getLocalBounds());
 	edit->applyFontToAllText(Font_For::knob_txt_editor(scale_factor));

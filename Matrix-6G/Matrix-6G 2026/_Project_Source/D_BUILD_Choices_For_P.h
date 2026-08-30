@@ -16,7 +16,6 @@ namespace BUILD
 		static const StringArray exp_lfo_trig_mode();
 		static const StringArray exp_lfo_wave_type();
 		static const StringArray exp_input_source(bool for_lfo);
-		static const StringArray exp_off_on_matrix();
 		static const StringArray exp_osc_1_key_track();
 		static const StringArray exp_osc_1_sync();
 		static const StringArray exp_osc_2_and_vcf_key_track();
@@ -24,6 +23,7 @@ namespace BUILD
 		static const StringArray exp_osc_type(const int osc_num);
 		static const StringArray exp_porta_mode();
 		static const StringArray exp_ramp_trig();
+		static const StringArray off_on_p();
 	};
 
 }
