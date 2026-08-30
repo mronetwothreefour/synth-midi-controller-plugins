@@ -4,10 +4,10 @@
 
 using namespace WIDGET;
 
-Ctrl_A::Ctrl_A(const String& param_id, Value param_val, Data_Hub* hub) :
+Ctrl_A::Ctrl_A(const String& param_id, Value param_value, Data_Hub* hub) :
 	Data_User{ hub },
 	param_ptr{ nullptr },
-	param_val{ param_val },
+	param_val{ param_value },
 	choices{ GET::choices_for(param_id) },
 	choices_curt{ GET::choices_for(param_id, true) },
 	init_bounds{ GET::init_bounds_for(param_id) }

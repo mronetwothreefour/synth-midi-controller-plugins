@@ -19,7 +19,7 @@ namespace WIDGET
 	private: Rectangle<int> init_bounds;
 
 	//==============================================================================
-	public: Ctrl_A(const String& param_id, Value param_val, Data_Hub* hub);
+	public: Ctrl_A(const String& param_id, Value param_value, Data_Hub* hub);
 
 	public: virtual void attach_to_param()=0;
 	public: virtual void remove_attachment()=0;
