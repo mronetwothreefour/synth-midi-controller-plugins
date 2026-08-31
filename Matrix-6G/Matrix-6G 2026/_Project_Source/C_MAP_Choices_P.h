@@ -55,7 +55,7 @@ namespace MAP
 		//exposed lfo
 		{ ID::exp_lfo_1_speed, Choices_For::unsigned_int(63) },	
 		{ ID::exp_lfo_1_wave_type, Choices_For::exp_lfo_wave_type() },
-		{ ID::exp_lfo_1_samp_source, Choices_For::exp_input_source(true) },
+		{ ID::exp_lfo_1_samp_source, Choices_For::input_source(true) },
 		{ ID::exp_lfo_1_amp, Choices_For::unsigned_int(63) },
 		{ ID::exp_lfo_1_press_amt, Choices_For::signed_int(-63, 63) },
 		{ ID::exp_lfo_1_ramp_1_amt, Choices_For::signed_int(-63, 63) },
@@ -64,7 +64,7 @@ namespace MAP
 		{ ID::exp_lfo_1_lag, Choices_For::off_on_p() },
 		{ ID::exp_lfo_2_speed, Choices_For::unsigned_int(63) },
 		{ ID::exp_lfo_2_wave_type, Choices_For::exp_lfo_wave_type() },
-		{ ID::exp_lfo_2_samp_source, Choices_For::exp_input_source(true) },
+		{ ID::exp_lfo_2_samp_source, Choices_For::input_source(true) },
 		{ ID::exp_lfo_2_amp, Choices_For::unsigned_int(63) },
 		{ ID::exp_lfo_2_key_track_amt, Choices_For::signed_int(-63, 63) },
 		{ ID::exp_lfo_2_ramp_2_amt, Choices_For::signed_int(-63, 63) },
@@ -77,7 +77,7 @@ namespace MAP
 		{ ID::exp_ramp_2_rate, Choices_For::unsigned_int(63) },
 		{ ID::exp_ramp_2_trig, Choices_For::exp_ramp_trig() },
 		//exposed tracking
-		{ ID::exp_track_input, Choices_For::exp_input_source(false) },
+		{ ID::exp_track_input, Choices_For::input_source() },
 		{ ID::exp_track_point_1, Choices_For::unsigned_int(63) },
 		{ ID::exp_track_point_2, Choices_For::unsigned_int(63) },
 		{ ID::exp_track_point_3, Choices_For::unsigned_int(63) },
