@@ -1,4 +1,6 @@
 C_MAP_Byte_Index_P
 C_MAP_Quick_Num_P
 C_PATH_LED_P
+C_SL_Tip_Matrix_Mod_P
+D_TREE_Matrix_Mod_Params_P
 G_DRAW_Paths_LED_P

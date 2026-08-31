@@ -117,6 +117,8 @@
       <FILE id="h5WzrD" name="C_PATH_LED_P.h" compile="0" resource="0" file="_Project_Source/C_PATH_LED_P.h"/>
       <FILE id="Ey5cxG" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Exposed_P.h"/>
+      <FILE id="zS16kH" name="C_SL_Tip_Matrix_Mod_P.h" compile="0" resource="0"
+            file="_Project_Source/C_SL_Tip_Matrix_Mod_P.h"/>
       <FILE id="gphNRs" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Widget_P.h"/>
       <FILE id="OaMFp6" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>

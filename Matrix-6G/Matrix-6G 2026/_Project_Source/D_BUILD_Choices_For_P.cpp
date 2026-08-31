@@ -158,7 +158,7 @@ const StringArray Choices_For::input_source(const bool for_lfo, const bool for_m
 	return list;
 }
 
-const StringArray BUILD::Choices_For::mmod_dest() {
+const StringArray BUILD::Choices_For::mmod_destination() {
 	StringArray list;
 	list.add("NONE__none");
 	list.add("OSC1 FQ__oscillator 1 frequency");

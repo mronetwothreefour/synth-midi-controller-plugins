@@ -3216,6 +3216,7 @@
     <ClInclude Include="..\..\_Project_Source\C_PATH_Backdrop_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_PATH_LED_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Exposed_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Matrix_Mod_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Widget_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_For_P.h"/>

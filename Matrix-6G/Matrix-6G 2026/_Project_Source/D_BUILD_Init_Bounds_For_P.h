@@ -22,7 +22,7 @@ namespace BUILD
 	public: static const Rectangle<int> exp_ctrl_vcf_vca(const int row);
 
 	public: static const Rectangle<int> mmod_ctrl_amt(const int mod_num);
-	public: static const Rectangle<int> mmod_ctrl_dest(const int mod_num);
+	public: static const Rectangle<int> mmod_ctrl_dst(const int mod_num);
 	public: static const Rectangle<int> mmod_ctrl_src(const int mod_num);
 	};
 

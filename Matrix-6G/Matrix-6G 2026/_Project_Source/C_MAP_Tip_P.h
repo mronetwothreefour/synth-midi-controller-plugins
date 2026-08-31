@@ -2,6 +2,7 @@
 
 #include "C_ID_Main_P.h"
 #include "C_SL_Tip_Exposed_P.h"
+#include "C_SL_Tip_Matrix_Mod_P.h"
 #include "D_BUILD_Tip_For_P.h"
 
 using namespace BUILD;
@@ -115,6 +116,37 @@ namespace MAP
 		{ ID::exp_env_3_decay, Tip_For::exp_env_decay(3) },
 		{ ID::exp_env_3_sustain, Tip_For::exp_env_sustain(3) },
 		{ ID::exp_env_3_release, Tip_For::exp_env_release(3) },
+
+		{ ID::mmod_0_src, Tip_For::from_string_literal(SL::mmod_src_tip) },
+		{ ID::mmod_0_amt, Tip_For::from_string_literal(SL::mmod_amt_tip) },
+		{ ID::mmod_0_dst, Tip_For::from_string_literal(SL::mmod_dst_tip) },
+		{ ID::mmod_1_src, Tip_For::from_string_literal(SL::mmod_src_tip) },
+		{ ID::mmod_1_amt, Tip_For::from_string_literal(SL::mmod_amt_tip) },
+		{ ID::mmod_1_dst, Tip_For::from_string_literal(SL::mmod_dst_tip) },
+		{ ID::mmod_2_src, Tip_For::from_string_literal(SL::mmod_src_tip) },
+		{ ID::mmod_2_amt, Tip_For::from_string_literal(SL::mmod_amt_tip) },
+		{ ID::mmod_2_dst, Tip_For::from_string_literal(SL::mmod_dst_tip) },
+		{ ID::mmod_3_src, Tip_For::from_string_literal(SL::mmod_src_tip) },
+		{ ID::mmod_3_amt, Tip_For::from_string_literal(SL::mmod_amt_tip) },
+		{ ID::mmod_3_dst, Tip_For::from_string_literal(SL::mmod_dst_tip) },
+		{ ID::mmod_4_src, Tip_For::from_string_literal(SL::mmod_src_tip) },
+		{ ID::mmod_4_amt, Tip_For::from_string_literal(SL::mmod_amt_tip) },
+		{ ID::mmod_4_dst, Tip_For::from_string_literal(SL::mmod_dst_tip) },
+		{ ID::mmod_5_src, Tip_For::from_string_literal(SL::mmod_src_tip) },
+		{ ID::mmod_5_amt, Tip_For::from_string_literal(SL::mmod_amt_tip) },
+		{ ID::mmod_5_dst, Tip_For::from_string_literal(SL::mmod_dst_tip) },
+		{ ID::mmod_6_src, Tip_For::from_string_literal(SL::mmod_src_tip) },
+		{ ID::mmod_6_amt, Tip_For::from_string_literal(SL::mmod_amt_tip) },
+		{ ID::mmod_6_dst, Tip_For::from_string_literal(SL::mmod_dst_tip) },
+		{ ID::mmod_7_src, Tip_For::from_string_literal(SL::mmod_src_tip) },
+		{ ID::mmod_7_amt, Tip_For::from_string_literal(SL::mmod_amt_tip) },
+		{ ID::mmod_7_dst, Tip_For::from_string_literal(SL::mmod_dst_tip) },
+		{ ID::mmod_8_src, Tip_For::from_string_literal(SL::mmod_src_tip) },
+		{ ID::mmod_8_amt, Tip_For::from_string_literal(SL::mmod_amt_tip) },
+		{ ID::mmod_8_dst, Tip_For::from_string_literal(SL::mmod_dst_tip) },
+		{ ID::mmod_9_src, Tip_For::from_string_literal(SL::mmod_src_tip) },
+		{ ID::mmod_9_amt, Tip_For::from_string_literal(SL::mmod_amt_tip) },
+		{ ID::mmod_9_dst, Tip_For::from_string_literal(SL::mmod_dst_tip) },
 	};
 
 }

@@ -25,7 +25,7 @@ namespace BUILD
 
 		static const StringArray input_source(const bool for_lfo = false, const bool for_mmod = false);
 	
-		static const StringArray mmod_dest();
+		static const StringArray mmod_destination();
 	
 		static const StringArray off_on_p();
 	};

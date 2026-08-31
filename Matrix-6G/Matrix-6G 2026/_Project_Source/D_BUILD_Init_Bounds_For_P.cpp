@@ -61,7 +61,7 @@ const Rectangle<int> BUILD::Init_Bounds_For::mmod_ctrl_amt(const int n) {
     return { mmod_col_amt_x, ctrl_row_0_y + n * ctrl_row_h, mmod_ctrl_amt_w, ctrl_h };
 }
 
-const Rectangle<int> BUILD::Init_Bounds_For::mmod_ctrl_dest(const int n) {
+const Rectangle<int> BUILD::Init_Bounds_For::mmod_ctrl_dst(const int n) {
     return { mmod_col_dest_x, ctrl_row_0_y + n * ctrl_row_h, mmod_ctrl_src_dest_w, ctrl_h };
 }
 
