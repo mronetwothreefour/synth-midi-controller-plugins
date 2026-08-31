@@ -33,31 +33,6 @@ namespace ID
 	static const String avp_voice_mode_btn_6{ "avp_voice_mode_btn_6" };
 	static const String avp_voice_mode_btn_7{ "avp_voice_mode_btn_7" };
 
-	static const String tree_aux_voice{ "tree_aux_voice" };
-	static const String xml_state_aux_voice{ "xml_state_aux_voice" };
-
-	static const StringArray aux_voice_params{
-		avp_amp_mod_by_velo_amt,
-		avp_fine_tune,
-		avp_flex_sli_bend_neg,
-		avp_flex_sli_bend_pos,
-		avp_flex_sli_range,
-		avp_flex_sli_target,
-		avp_keyboard_octave,
-		avp_level,
-		avp_lfo_sync_bpm_on,
-		avp_lfo_sync_key_on,
-		avp_lfo_sync_voice_on,
-		avp_microtune_scale,
-		avp_name,
-		avp_porta_mode_on,
-		avp_porta_sync_bpm_on,
-		avp_porta_time,
-		avp_scale_key,
-		avp_transpose,
-		avp_voice_mode
-	};
-
 	static const String exp_delay_feedback{ "exp_delay_feedback" };
 	static const String exp_delay_hpf_freq{ "exp_delay_hpf_freq" };
 	static const String exp_delay_routing{ "exp_delay_routing" };
@@ -97,6 +72,32 @@ namespace ID
 	static const String exp_vca_env_release{ "exp_vca_env_release" };
 	static const String exp_vca_env_sustain{ "exp_vca_env_sustain" };
 	static const String exp_voice_mode_depth{ "exp_voice_mode_depth" };
+
+	static const String tree_aux_voice{ "tree_aux_voice" };
+	
+	static const String xml_state_aux_voice{ "xml_state_aux_voice" };
+
+	static const StringArray aux_voice_params{
+		avp_amp_mod_by_velo_amt,
+		avp_fine_tune,
+		avp_flex_sli_bend_neg,
+		avp_flex_sli_bend_pos,
+		avp_flex_sli_range,
+		avp_flex_sli_target,
+		avp_keyboard_octave,
+		avp_level,
+		avp_lfo_sync_bpm_on,
+		avp_lfo_sync_key_on,
+		avp_lfo_sync_voice_on,
+		avp_microtune_scale,
+		avp_name,
+		avp_porta_mode_on,
+		avp_porta_sync_bpm_on,
+		avp_porta_time,
+		avp_scale_key,
+		avp_transpose,
+		avp_voice_mode
+	};
 
 	static const StringArray exp_params{
 		exp_osc_1_octave,

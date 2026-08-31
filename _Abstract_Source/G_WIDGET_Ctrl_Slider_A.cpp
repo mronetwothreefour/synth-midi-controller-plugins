@@ -2,12 +2,18 @@
 
 using namespace WIDGET;
 
-Ctrl_Slider_A::Ctrl_Slider_A(const String& param_id, Value param_val, Data_Hub* hub) :
-	Ctrl_A{ param_id, param_val, hub },
+Ctrl_Slider_A::Ctrl_Slider_A(const String& param_id, Value param_value, Data_Hub* hub) :
+	Ctrl_A{ param_id, param_value, hub },
 	Slider_Wheel_Mod{ param_id, Ctrl_A::u_m },
 	label{ param_id, hub, this }
 {
 	addAndMakeVisible(label);
+	if (!param_ptr) {
+		onValueChange = [this] { param_val.setValue(roundToInt(getValue())); };
+		setRange(0.0, double(Ctrl_A::choices.size() - 1), 1.0);
+		update_ctrl_setting();
+		label.set_text_to_stored_choice();
+	}
 }
 
 void Ctrl_Slider_A::resized() {
@@ -33,6 +39,10 @@ void Ctrl_Slider_A::set_drag_sensitivity() {
 	if (choice_count < 128)
 		sensitivity = (80.0f + choice_count / 2.0f) * scale_factor;
 	setMouseDragSensitivity(roundToInt(sensitivity));
+}
+
+void Ctrl_Slider_A::update_ctrl_setting() {
+	setValue((double)param_val.getValue(), dontSendNotification);
 }
 
 void Ctrl_Slider_A::mouseDoubleClick(const MouseEvent&/*e*/) {

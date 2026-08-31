@@ -14,10 +14,11 @@ namespace WIDGET
 	protected: std::unique_ptr<Cbox_Attachment> attachment;
 
 	//==============================================================================
-	public: Ctrl_Cbox_A(const String& param_id, Value param_val, Data_Hub* hub);
+	public: Ctrl_Cbox_A(const String& param_id, Value param_value, Data_Hub* hub);
 
 	public: void attach_to_param() override;
 	public: void remove_attachment() override;
+	protected: void update_ctrl_setting() override;
 	public: void mouseDown(const MouseEvent& e) override;
 	public: void modifierKeysChanged(const Mods& mods) override;
 

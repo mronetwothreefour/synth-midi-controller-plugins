@@ -5,6 +5,8 @@
 namespace MISC
 {
 
+	static const int choice_count_input_source{ 21 };
+
 	static const String allowed_chars_pitch{ "abcdefgABCDEFG0123456789#" };
 	static const String allowed_chars_s_int{ "-0123456789" };
 	static const String allowed_chars_u_int{ "0123456789" };

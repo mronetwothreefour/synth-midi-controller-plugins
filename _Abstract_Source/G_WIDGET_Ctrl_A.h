@@ -26,6 +26,7 @@ namespace WIDGET
 	public: void link_to_another_param(Value param_to_link_val);
 	public: Rectangle<int> scaled_bounds();
 	public: virtual void update_tip_current_choice();
+	protected: virtual void update_ctrl_setting()=0;
 	public: virtual void linked_param_changed() {};
 	public: void valueChanged(Value& value) override;
 	public: ~Ctrl_A();

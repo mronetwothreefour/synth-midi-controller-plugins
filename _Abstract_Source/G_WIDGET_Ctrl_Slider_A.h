@@ -17,12 +17,13 @@ namespace WIDGET
 	protected: std::unique_ptr<Slider_Attachment> attachment;
 
 	//==============================================================================
-	public: Ctrl_Slider_A(const String& param_id, Value param_val, Data_Hub* hub);
+	public: Ctrl_Slider_A(const String& param_id, Value param_value, Data_Hub* hub);
 
 	public: void resized() override;
 	public: void attach_to_param() override;
 	public: void remove_attachment() override;
 	protected: virtual void set_drag_sensitivity();
+	protected: void update_ctrl_setting() override;
 	protected: void mouseDoubleClick(const MouseEvent& e) override;
 	public: void modifierKeysChanged(const Mods& mods) override;
 

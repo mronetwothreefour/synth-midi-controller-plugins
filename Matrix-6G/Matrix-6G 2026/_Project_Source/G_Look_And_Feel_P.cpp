@@ -27,7 +27,7 @@ PopupMenu::Options Look_And_Feel::getOptionsForComboBoxPopupMenu(ComboBox& cbox,
 	auto item_h = roundToInt(XYWH::ctrl_h * scale_factor);
 	auto col_count = 1;
 	auto item_count = cbox.getNumItems();
-	if (item_count == MISC::choice_count_mod_src)
+	if (item_count == MISC::choice_count_mod_src || item_count == MISC::choice_count_mod_dst)
 		col_count = 3;
 	auto min_w = cbox.getWidth();
 	auto menu_above = cbox_cntr_y > XYWH::env_ctrl_row_0_y * scale_factor;
@@ -42,7 +42,8 @@ PopupMenu::Options Look_And_Feel::getOptionsForComboBoxPopupMenu(ComboBox& cbox,
 	else {
 		min_w += 8;
 		offset_x -= min_w * 2;
-		offset_y = (selected_item % 7 + 1) * item_h;
+		auto m = item_count == MISC::choice_count_mod_src ? 7 : 11;
+		offset_y = (selected_item % m + 1) * item_h;
 	}
 	if (menu_above)
 		target_area.translate(offset_x, offset_y - roundToInt(2 * scale_factor));

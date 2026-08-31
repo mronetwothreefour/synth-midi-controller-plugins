@@ -1,11 +1,17 @@
 #include "G_WIDGET_Ctrl_Cbox_A.h"
 
+#include "C_GET_P.h"
+
 using namespace WIDGET;
 
-Ctrl_Cbox_A::Ctrl_Cbox_A(const String& param_id, Value param_val, Data_Hub* hub) :
-	Ctrl_A{ param_id, param_val, hub }
+Ctrl_Cbox_A::Ctrl_Cbox_A(const String& param_id, Value param_value, Data_Hub* hub) :
+	Ctrl_A{ param_id, param_value, hub }
 {
 	addItemList(choices_curt, 1);
+	if (!param_ptr) {
+		onChange = [this] { param_val.setValue(getSelectedItemIndex()); };
+		update_ctrl_setting();
+	}
 }
 
 void Ctrl_Cbox_A::attach_to_param() {
@@ -15,6 +21,10 @@ void Ctrl_Cbox_A::attach_to_param() {
 
 void Ctrl_Cbox_A::remove_attachment() {
 	attachment = nullptr;
+}
+
+void Ctrl_Cbox_A::update_ctrl_setting() {
+	setSelectedItemIndex((int)param_val.getValue(), dontSendNotification);
 }
 
 void Ctrl_Cbox_A::mouseDown(const MouseEvent& e) {

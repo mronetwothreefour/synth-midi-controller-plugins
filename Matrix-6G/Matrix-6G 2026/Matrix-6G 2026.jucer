@@ -140,6 +140,10 @@
             file="_Project_Source/D_BUILD_Tip_For_P.h"/>
       <FILE id="CD8B69" name="D_CONVERT_P.cpp" compile="1" resource="0" file="_Project_Source/D_CONVERT_P.cpp"/>
       <FILE id="mbDWFe" name="D_CONVERT_P.h" compile="0" resource="0" file="_Project_Source/D_CONVERT_P.h"/>
+      <FILE id="O96qQX" name="D_TREE_Matrix_Mod_Params_P.cpp" compile="1"
+            resource="0" file="_Project_Source/D_TREE_Matrix_Mod_Params_P.cpp"/>
+      <FILE id="qcefXg" name="D_TREE_Matrix_Mod_Params_P.h" compile="0" resource="0"
+            file="_Project_Source/D_TREE_Matrix_Mod_Params_P.h"/>
       <FILE id="ftnzz2" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="Hvm73h" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"
@@ -168,6 +172,10 @@
             file="_Project_Source/G_LAYER_Ctrls_Exp_P.cpp"/>
       <FILE id="oD1jVE" name="G_LAYER_Ctrls_Exp_P.h" compile="0" resource="0"
             file="_Project_Source/G_LAYER_Ctrls_Exp_P.h"/>
+      <FILE id="XQnDLG" name="G_LAYER_Ctrls_MMod_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_MMod_P.cpp"/>
+      <FILE id="wjhkIu" name="G_LAYER_Ctrls_MMod_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_MMod_P.h"/>
       <FILE id="EhgSqw" name="G_Look_And_Feel_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_Look_And_Feel_P.cpp"/>
       <FILE id="DWUFCj" name="G_Look_And_Feel_P.h" compile="0" resource="0"

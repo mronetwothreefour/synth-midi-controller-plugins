@@ -1,0 +1,47 @@
+#include "G_LAYER_Ctrls_MMod_P.h"
+
+#include "C_GET_P.h"
+#include "C_ID_Main_P.h"
+#include "C_NAME_P.h"
+
+using namespace LAYER;
+using namespace WIDGET;
+
+Ctrls_Matrix_Mod::Ctrls_Matrix_Mod(Data_Hub* hub) :
+	Data_User{ hub }
+{
+	setInterceptsMouseClicks(false, true);
+	for (auto& param_id : ID::matrix_mod_params) {
+		auto ctrl_name = GET::ctrl_name_for(param_id);
+		if (ctrl_name.isNotEmpty()) {
+			auto param_val = mmod.get_param_as_value(param_id);
+			if (ctrl_name == NAME::cbox) {
+				cboxes.add(new Ctrl_Cbox_A{ param_id, param_val, hub });
+				auto cbox = cboxes[cboxes.size() - 1];
+				if (cbox)
+					addAndMakeVisible(cbox);
+				continue;
+			}
+			sliders.add(new Ctrl_Slider{ param_id, param_val, hub });
+			auto slider = sliders[sliders.size() - 1];
+			if (slider)
+				addAndMakeVisible(slider);
+		}
+	}
+}
+
+void LAYER::Ctrls_Matrix_Mod::resized() {
+	for (int i = 0; i < cboxes.size(); ++i) {
+		if (cboxes[i])
+			cboxes[i]->setBounds(cboxes[i]->scaled_bounds());
+	}
+	for (int i = 0; i < sliders.size(); ++i) {
+		if (sliders[i])
+			sliders[i]->setBounds(sliders[i]->scaled_bounds());
+	}
+}
+
+LAYER::Ctrls_Matrix_Mod::~Ctrls_Matrix_Mod() {
+	cboxes.clear();
+	sliders.clear();
+}

@@ -919,6 +919,9 @@
     <ClCompile Include="..\..\_Project_Source\D_CONVERT_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_TREE_Matrix_Mod_Params_P.cpp">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
@@ -938,6 +941,9 @@
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.cpp">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\G_LAYER_Ctrls_MMod_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\G_Look_And_Feel_P.cpp">
@@ -4296,6 +4302,9 @@
     <ClInclude Include="..\..\_Project_Source\D_CONVERT_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_TREE_Matrix_Mod_Params_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
@@ -4315,6 +4324,9 @@
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_MMod_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\G_Look_And_Feel_P.h">

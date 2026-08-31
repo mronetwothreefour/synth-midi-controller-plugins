@@ -2,7 +2,8 @@
 
 #include <JuceHeader.h>
 
-namespace TREE {
+namespace TREE
+{
 
 	class Aux_Voice_Params
 	{

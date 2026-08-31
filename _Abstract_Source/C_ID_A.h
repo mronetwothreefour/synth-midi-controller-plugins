@@ -9,4 +9,6 @@ namespace ID
 
 	static const String tree_exp_param_state{ "tree_exp_param_state" };
 
+	static const String xml_state_exposed{ "xml_state_exposed" };
+
 }

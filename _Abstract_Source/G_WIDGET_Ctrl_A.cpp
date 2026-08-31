@@ -38,6 +38,8 @@ void Ctrl_A::valueChanged(Value& v) {
 		update_tip_current_choice();
 	if (v.refersToSameSourceAs(linked_param_val))
 		linked_param_changed();
+	if (!param_ptr)
+		update_ctrl_setting();
 }
 
 Ctrl_A::~Ctrl_A() {

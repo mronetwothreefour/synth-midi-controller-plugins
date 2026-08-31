@@ -5,6 +5,7 @@
 class Data_User :
 	public Data_User_A
 {
+protected: Matrix_Mod_Params& mmod;
 
 //==============================================================================
 public: explicit Data_User(Data_Hub* hub);

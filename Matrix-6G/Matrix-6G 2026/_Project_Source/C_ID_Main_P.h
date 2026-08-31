@@ -232,6 +232,10 @@ namespace ID
 	static const String mmod_9_dst{ "mmod_9_dst" };
 	static const String mmod_9_src{ "mmod_9_src" };
 
+	static const String tree_matrix_mod{ "tree_matrix_mod" };
+
+	static const String xml_state_matrix_mod{ "xml_state_matrix_mod" };
+
 	static const StringArray matrix_mod_params{
 		mmod_0_src,
 		mmod_0_amt,

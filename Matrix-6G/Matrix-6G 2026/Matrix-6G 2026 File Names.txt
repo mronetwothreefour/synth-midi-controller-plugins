@@ -4,3 +4,4 @@ C_PATH_LED_P
 C_SL_Tip_Matrix_Mod_P
 D_TREE_Matrix_Mod_Params_P
 G_DRAW_Paths_LED_P
+G_LAYER_Ctrls_MMod_P
