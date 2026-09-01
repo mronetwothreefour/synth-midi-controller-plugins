@@ -11,6 +11,10 @@ namespace WIDGET
 	//==============================================================================
 	public: Ctrl_Slider(const String& param_id, Value param_val, Data_Hub* hub);
 
+	public: void update_tip_current_choice() override;
+	public: void linked_param_changed() override;
+	public: void attach_to_param() override;
+
 	//==============================================================================
 	private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Ctrl_Slider)
 	};

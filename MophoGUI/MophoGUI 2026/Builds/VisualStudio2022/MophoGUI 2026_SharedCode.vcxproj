@@ -175,6 +175,10 @@
     <ClCompile Include="..\..\_Project_Source\D_X_G_Editor_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\G_Look_And_Feel_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\G_WIDGET_Ctrl_Slider_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\G_WIDGET_Ctrl_Toggle_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_WIDGET_Sli_Label_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_WIDGET_Sli_Wheel_Mod_P.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -3225,6 +3229,10 @@
     <ClInclude Include="..\..\_Project_Source\D_X_G_Editor_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\G_Look_And_Feel_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\G_WIDGET_Ctrl_Slider_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\G_WIDGET_Ctrl_Toggle_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_WIDGET_Sli_Label_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_WIDGET_Sli_Wheel_Mod_P.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>

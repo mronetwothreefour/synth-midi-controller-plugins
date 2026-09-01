@@ -39,9 +39,9 @@ namespace BUILD
 
 		static const Rectangle<int> toggle_arpeg_on_off();
 		static const Rectangle<int> toggle_env_3_repeat();
-		static const Rectangle<int> toggle_lfo_key_sync(const int lfo_num);
+		static const Rectangle<int> toggle_lfo_key_sync();
 		static const Rectangle<int> toggle_lpf_type();
-		static const Rectangle<int> toggle_osc_key_track(const int row_num);
+		static const Rectangle<int> toggle_osc_key_track();
 		static const Rectangle<int> toggle_osc_sync();
 		static const Rectangle<int> toggle_seq_on_off();
 	};

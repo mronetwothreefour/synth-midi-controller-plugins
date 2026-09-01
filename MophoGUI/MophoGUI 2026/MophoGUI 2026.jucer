@@ -162,6 +162,22 @@
             file="_Project_Source/G_DRAW_Paths_Widgets_P.cpp"/>
       <FILE id="Je7MBp" name="G_DRAW_Paths_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Widgets_P.h"/>
+      <FILE id="dYoJeL" name="G_LAYER_Ctrls_Exp_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_Exp_P.cpp"/>
+      <FILE id="tLbq76" name="G_LAYER_Ctrls_Exp_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_Exp_P.h"/>
+      <FILE id="RQxTVE" name="G_Look_And_Feel_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_Look_And_Feel_P.cpp"/>
+      <FILE id="LmK1Zr" name="G_Look_And_Feel_P.h" compile="0" resource="0"
+            file="_Project_Source/G_Look_And_Feel_P.h"/>
+      <FILE id="DmaeV4" name="G_WIDGET_Ctrl_Slider_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_WIDGET_Ctrl_Slider_P.cpp"/>
+      <FILE id="e7WZy0" name="G_WIDGET_Ctrl_Slider_P.h" compile="0" resource="0"
+            file="_Project_Source/G_WIDGET_Ctrl_Slider_P.h"/>
+      <FILE id="T4Cjjg" name="G_WIDGET_Ctrl_Toggle_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_WIDGET_Ctrl_Toggle_P.cpp"/>
+      <FILE id="w3V9vc" name="G_WIDGET_Ctrl_Toggle_P.h" compile="0" resource="0"
+            file="_Project_Source/G_WIDGET_Ctrl_Toggle_P.h"/>
       <FILE id="uBsYAx" name="G_WIDGET_Sli_Label_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_WIDGET_Sli_Label_P.cpp"/>
       <FILE id="F5GX4W" name="G_WIDGET_Sli_Label_P.h" compile="0" resource="0"

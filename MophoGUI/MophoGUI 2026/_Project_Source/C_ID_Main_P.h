@@ -409,16 +409,4 @@ namespace ID
 		exp_voice_name_char_16
 	};
 
-	static const String toggle_arpeg_on_off{ "toggle_arpeg_on_off" };
-	static const String toggle_env_3_repeat{ "toggle_env_3_repeat" };
-	static const String toggle_lfo_1_key_sync{ "toggle_lfo_1_key_sync" };
-	static const String toggle_lfo_2_key_sync{ "toggle_lfo_2_key_sync" };
-	static const String toggle_lfo_3_key_sync{ "toggle_lfo_3_key_sync" };
-	static const String toggle_lfo_4_key_sync{ "toggle_lfo_4_key_sync" };
-	static const String toggle_lpf_type{ "toggle_lpf_type" };
-	static const String toggle_osc_sync{ "toggle_osc_sync" };
-	static const String toggle_osc_1_key_track{ "toggle_osc_1_key_track" };
-	static const String toggle_osc_2_key_track{ "toggle_osc_2_key_track" };
-	static const String toggle_seq_on_off{ "toggle_seq_on_off" };
-
 }

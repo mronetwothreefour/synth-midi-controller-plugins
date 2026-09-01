@@ -5,13 +5,16 @@
 namespace MISC
 {
 
-	constexpr double editor_aspect_ratio{ 2.03354 };
+	static const double editor_aspect_ratio{ 2.03354 };
 
-	constexpr float rotary_sli_begin_angle{ degreesToRadians(45.0f) };
-	constexpr float rotary_sli_end_angle{ degreesToRadians(315.0f) };
+	static const float rotary_sli_begin_angle{ degreesToRadians(45.0f) };
+	static const float rotary_sli_end_angle{ degreesToRadians(315.0f) };
 
-	constexpr int lfo_1st_pitch_freq{ 90 };
-	constexpr int lfo_1st_sync_freq{ 151 };
+	static const int choice_count_mod_dest{ 47 };
+	static const int choice_count_mod_src{ 23 };
+	static const int choice_count_seq_track_2_4_dest{ 48 };
+	static const int lfo_1st_pitch_freq{ 90 };
+	static const int lfo_1st_sync_freq{ 151 };
 
 	static const String allowed_chars_lfo_freq{ "abcdefgABCDEFG0123456789#:." };
 	static const String allowed_chars_osc_shape{ "afiopqrstwAFIOPQRSTW0123456789/" };

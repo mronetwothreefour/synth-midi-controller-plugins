@@ -1,1 +1,2 @@
 C_MAP_NRPN_P
+G_WIDGET_Ctrl_Toggle_P

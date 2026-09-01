@@ -2,6 +2,7 @@
 
 #include "C_ID_A.h"
 #include "C_ID_Main_P.h"
+#include "C_NAME_P.h"
 #include "D_BUILD_Init_Bounds_For_P.h"
 
 using namespace BUILD;
@@ -213,17 +214,13 @@ namespace MAP
 
 		{ ID::gui_editor, Init_Bounds_For::gui_editor() },
 
-		{ ID::toggle_arpeg_on_off, Init_Bounds_For::toggle_arpeg_on_off() },
-		{ ID::toggle_env_3_repeat, Init_Bounds_For::toggle_env_3_repeat() },
-		{ ID::toggle_lfo_1_key_sync, Init_Bounds_For::toggle_lfo_key_sync(0) },
-		{ ID::toggle_lfo_2_key_sync, Init_Bounds_For::toggle_lfo_key_sync(1) },
-		{ ID::toggle_lfo_3_key_sync, Init_Bounds_For::toggle_lfo_key_sync(2) },
-		{ ID::toggle_lfo_4_key_sync, Init_Bounds_For::toggle_lfo_key_sync(3) },
-		{ ID::toggle_lpf_type, Init_Bounds_For::toggle_lpf_type() },
-		{ ID::toggle_osc_1_key_track, Init_Bounds_For::toggle_osc_key_track(0) },
-		{ ID::toggle_osc_2_key_track, Init_Bounds_For::toggle_osc_key_track(1) },
-		{ ID::toggle_osc_sync, Init_Bounds_For::toggle_osc_sync() },
-		{ ID::toggle_seq_on_off, Init_Bounds_For::toggle_seq_on_off() },
+		{ NAME::toggle_arpeg_on_off, Init_Bounds_For::toggle_arpeg_on_off() },
+		{ NAME::toggle_env_3_repeat, Init_Bounds_For::toggle_env_3_repeat() },
+		{ NAME::toggle_lfo_key_sync, Init_Bounds_For::toggle_lfo_key_sync() },
+		{ NAME::toggle_lpf_type, Init_Bounds_For::toggle_lpf_type() },
+		{ NAME::toggle_osc_key_track, Init_Bounds_For::toggle_osc_key_track() },
+		{ NAME::toggle_osc_sync, Init_Bounds_For::toggle_osc_sync() },
+		{ NAME::toggle_seq_on_off, Init_Bounds_For::toggle_seq_on_off() },
 	};
 
 }

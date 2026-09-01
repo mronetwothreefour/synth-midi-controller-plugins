@@ -14,6 +14,13 @@ namespace NAME
 	static const String lbl_slider{ "lbl_slider" };
 	static const String switch_2_pole{ "switch_2_pole" };
 	static const String switch_3_pole{ "switch_3_pole" };
-	static const String toggle{ "toggle" };
+	static const String toggle_arpeg_on_off{ "toggle_arpeg_on_off" };
+	static const String toggle_env_3_repeat{ "toggle_env_3_repeat" };
+	static const String toggle_lfo_key_sync{ "toggle_lfo_key_sync" };
+	static const String toggle_lpf_type{ "toggle_lpf_type" };
+	static const String toggle_osc_sync{ "toggle_osc_sync" };
+	static const String toggle_osc_key_track{ "toggle_osc_key_track" };
+	static const String toggle_seq_on_off{ "toggle_seq_on_off" };
+	static const String txt_editor_filled{ "txt_editor_filled" };
 
 }

@@ -168,32 +168,29 @@ const Rectangle<int> Init_Bounds_For::exp_ctrl_voice_name_char(const int n) {
 }
 
 const Rectangle<int> Init_Bounds_For::toggle_arpeg_on_off() {
-	return { 401, 103, toggle_diam, toggle_diam };
+	return { 0, 0, toggle_diam, toggle_diam };
 }
 
 const Rectangle<int> Init_Bounds_For::toggle_env_3_repeat() {
-	return { 41, 524, toggle_diam, toggle_diam };
+	return { 11, 0, toggle_diam, toggle_diam };
 }
 
-const Rectangle<int> Init_Bounds_For::toggle_lfo_key_sync(const int n) {
-	Rectangle<int> r{ 0, 0, toggle_diam, toggle_diam };
-	auto cntr_x = lfo_0_key_sync_cntr_x + n * lfo_block_spacing;
-	r.setCentre(cntr_x, lfo_knob_cntr_y);
-	return r;
+const Rectangle<int> Init_Bounds_For::toggle_lfo_key_sync() {
+	return { 7, 0, toggle_diam, toggle_diam };
 }
 
 const Rectangle<int> Init_Bounds_For::toggle_lpf_type() {
-	return { 86, 154, toggle_diam, toggle_diam };
+	return { 11, 0, toggle_diam, toggle_diam };
 }
 
-const Rectangle<int> Init_Bounds_For::toggle_osc_key_track(const int n) {
-	return { 266, n == 0 ? 43 : 103, toggle_diam, toggle_diam };
+const Rectangle<int> Init_Bounds_For::toggle_osc_key_track() {
+	return { 17, 0, toggle_diam, toggle_diam };
 }
 
 const Rectangle<int> Init_Bounds_For::toggle_osc_sync() {
-	return { 266, 15, toggle_diam, toggle_diam };
+	return { 66, 0, toggle_diam, toggle_diam };
 }
 
 const Rectangle<int> Init_Bounds_For::toggle_seq_on_off() {
-	return { 812, 119, toggle_diam, toggle_diam };
+	return { 0, 0, toggle_diam, toggle_diam };
 }
