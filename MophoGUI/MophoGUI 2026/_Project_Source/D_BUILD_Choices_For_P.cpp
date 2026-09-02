@@ -245,10 +245,10 @@ const StringArray Choices_For::exp_mod_dest() {
     list.add("LPF FM amount");
     list.add("VCA level");
     list.add("output panning");
-    for (int i = 1; i < 4; ++i)
+    for (int i = 1; i < 5; ++i)
         list.add("LFO " + (String)i + " frequency");
     list.add("all LFO frequencies");
-    for (int i = 1; i < 4; ++i)
+    for (int i = 1; i < 5; ++i)
         list.add("LFO " + (String)i + " amount");
     list.add("all LFO amounts");
     list.add("LPF envelope amount");
@@ -267,7 +267,7 @@ const StringArray Choices_For::exp_mod_dest() {
     list.add("VCA envelope release");
     list.add("envelope 3 release");
     list.add("all envelope releases");
-    for (int i = 1; i < 4; ++i)
+    for (int i = 1; i < 5; ++i)
         list.add("modulator " + (String)i + " amount");
     list.add("external audio in level__external audio input level");
     list.add("sub-osc. 1 level__sub-oscillator 1 level");
@@ -278,9 +278,9 @@ const StringArray Choices_For::exp_mod_dest() {
 const StringArray Choices_For::exp_mod_src() {
     StringArray list;
     list.add("off");
-    for (int i = 1; i < 4; ++i)
+    for (int i = 1; i < 5; ++i)
         list.add("sequencer track " + (String)i);
-    for (int i = 1; i < 4; ++i)
+    for (int i = 1; i < 5; ++i)
         list.add("LFO " + (String)i);
     list.add("LPF envelope");
     list.add("VCA envelope");
@@ -362,6 +362,10 @@ const StringArray Choices_For::exp_seq_trig_mode() {
     list.add("key step");
     list.add("audio input");
     return list;
+}
+
+const StringArray BUILD::Choices_For::exp_unassigned() {
+    return { "", "" };
 }
 
 const StringArray Choices_For::exp_voice_name_char() {

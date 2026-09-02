@@ -23,9 +23,10 @@ namespace BUILD
 		static const StringArray exp_note_priority();
 		static const StringArray exp_osc_shape();
 		static const StringArray exp_push_it_mode();
-		static const StringArray exp_seq_track_2_4_dest(const bool track_2);
+		static const StringArray exp_seq_track_2_4_dest(const bool track_2 = false);
 		static const StringArray exp_seq_track_step();
 		static const StringArray exp_seq_trig_mode();
+		static const StringArray exp_unassigned();
 		static const StringArray exp_voice_name_char();
 	};
 

@@ -6,7 +6,7 @@
 
 using namespace WIDGET;
 
-WIDGET::Ctrl_Toggle::Ctrl_Toggle(const String& param_id, Value param_val, Data_Hub* hub) :
+Ctrl_Toggle::Ctrl_Toggle(const String& param_id, Value param_val, Data_Hub* hub) :
 	Ctrl_A{ param_id, param_val, hub }
 {
 	setInterceptsMouseClicks(true, false);
@@ -24,32 +24,33 @@ WIDGET::Ctrl_Toggle::Ctrl_Toggle(const String& param_id, Value param_val, Data_H
 	linked_param_changed();
 }
 
-void WIDGET::Ctrl_Toggle::resized() {
-	toggle.setBounds(GET::init_bounds_for(getName()) * scale_factor);
+void Ctrl_Toggle::resized() {
+	auto b = GET::init_bounds_for(toggle.getName()) * scale_factor;
+	toggle.setBounds(b);
 }
 
-void WIDGET::Ctrl_Toggle::attach_to_param() {
+void Ctrl_Toggle::attach_to_param() {
 	if (param_ptr)
 		attachment.reset(new Btn_Attachment{ *param_ptr, toggle, Ctrl_A::u_m });
 }
 
-void WIDGET::Ctrl_Toggle::remove_attachment() {
+void Ctrl_Toggle::remove_attachment() {
 	attachment = nullptr;
 }
 
-void WIDGET::Ctrl_Toggle::update_ctrl_setting() {
+void Ctrl_Toggle::update_ctrl_setting() {
 	toggle.setToggleState((int)param_val.getValue() != 0, dontSendNotification);
 }
 
-void WIDGET::Ctrl_Toggle::mouseDown(const MouseEvent& /*e*/) {
+void Ctrl_Toggle::mouseDown(const MouseEvent& /*e*/) {
 	toggle.triggerClick();
 }
 
-void WIDGET::Ctrl_Toggle::modifierKeysChanged(const Mods& mods) {
+void Ctrl_Toggle::modifierKeysChanged(const Mods& mods) {
 	tip_update.on_mod_keys_changed(mods, &toggle);
 }
 
-void WIDGET::Ctrl_Toggle::linked_param_changed() {
+void Ctrl_Toggle::linked_param_changed() {
 	if ((int)linked_param_val.getValue() != 1)
 		toggle.setToggleState(false, sendNotification);
 }

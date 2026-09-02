@@ -20,8 +20,8 @@ void Look_And_Feel::positionComboBoxText(ComboBox& cbox, Label& lbl) {
 
 PopupMenu::Options Look_And_Feel::getOptionsForComboBoxPopupMenu(ComboBox& cbox, Label& /*lbl*/) {
 	auto cbox_area = cbox.getBoundsInParent();
-	auto cbox_area_x = cbox_area.getCentreX();
-	auto cbox_area_y = cbox_area.getCentreY();
+	auto cbox_area_cx = cbox_area.getCentreX();
+	auto cbox_area_cy = cbox_area.getCentreY();
 	auto target_area = cbox.getScreenBounds();
 	auto selected_item = cbox.getSelectedItemIndex();
 	auto item_h = roundToInt((XYWH::cbox_h - 2) * scale_factor);
@@ -32,7 +32,7 @@ PopupMenu::Options Look_And_Feel::getOptionsForComboBoxPopupMenu(ComboBox& cbox,
 	if (item_count >= MISC::choice_count_mod_dest)
 		col_count = 5;
 	auto min_w = cbox.getWidth();
-	auto menu_above = cbox_area_y > XYWH::lfo_knob_cntr_y * scale_factor;
+	auto menu_above = cbox_area_cy > XYWH::lfo_knob_cntr_y * scale_factor;
 	auto offset_y = 0;
 	auto offset_x = 0;
 	if (col_count == 1) {
@@ -52,12 +52,12 @@ PopupMenu::Options Look_And_Feel::getOptionsForComboBoxPopupMenu(ComboBox& cbox,
 					offset_y = (selected_item % 10 - 10) * item_h;
 				else
 					offset_y = (selected_item % 10 + 1) * item_h;
-				if (cbox_area_x >= XYWH::cc_dest_x * scale_factor &&
-					cbox_area_x < XYWH::seq_step_0_x * scale_factor)
+				if (cbox_area.getX() >= XYWH::cc_dest_x * scale_factor &&
+					cbox_area_cx < XYWH::seq_step_0_x * scale_factor)
 				{
 					offset_x -= min_w;
 				}
-				if (cbox_area_x > XYWH::seq_step_0_x * scale_factor)
+				if (cbox_area_cx > XYWH::seq_step_0_x * scale_factor)
 					offset_x -= min_w * (menu_above ? 2 : 3);
 			}
 			else {
@@ -129,7 +129,7 @@ void Look_And_Feel::draw_label_p(Graphics& g, Label& lbl, String& name) {
 		g.drawFittedText(txt == "OFF" ? txt : "ERR", lbl.getLocalBounds().translated(0, 1), Justification::centred, 1, 1.0f);
 		return;
 	}
-	if (name == NAME::lbl_seq_step) {
+	if (name == NAME::lbl_seq_step || name == NAME::lbl_seq_step_trk_1) {
 		auto sf = scale_factor;
 		if (txt == "<") {
 			Line<float> l{ 20.0f, 13.0f, 5.0f, 13.0f };
@@ -149,8 +149,13 @@ void Look_And_Feel::draw_label_p(Graphics& g, Label& lbl, String& name) {
 		Draw_Widget::lcd_char(g, (uint8)txt[0], scale_factor);
 		return;
 	}
-	g.setFont(FONT::cbox(scale_factor));
-	g.drawFittedText(txt, lbl.getLocalBounds(), Justification::centred, 1, 1.0f);
+	if (name == NAME::lbl_cbox) {
+		g.setFont(FONT::cbox(scale_factor));
+		g.drawFittedText(txt, lbl.getLocalBounds(), Justification::centred, 1, 1.0f);
+		return;
+	}
+	g.setFont(FONT::knob(scale_factor));
+	g.drawFittedText(txt, lbl.getLocalBounds().translated(0, 1), Justification::centred, 1, 1.0f);
 }
 
 void Look_And_Feel::drawRotarySlider(Graphics& g, int /*x*/, int /*y*/, int /*w*/, int /*h*/, float pos,

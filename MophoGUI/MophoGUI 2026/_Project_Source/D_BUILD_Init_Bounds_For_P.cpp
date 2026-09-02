@@ -15,8 +15,8 @@ const Rectangle<int> Init_Bounds_For::exp_ctrl_arpeg_on_off() {
 
 const Rectangle<int> Init_Bounds_For::exp_ctrl_cc_amt(const int n) {
 	Rectangle<int> r{ 0, 0, knob_diam, knob_diam };
-	auto cntr_y = mod_0_amt_cntr_y + n * mod_block_spacing;
-	r.setCentre(mod_amt_cntr_x, cntr_y);
+	auto cntr_y = cc_0_amt_cntr_y + n * cc_block_spacing;
+	r.setCentre(cc_amt_cntr_x, cntr_y);
 	return r;
 }
 
@@ -37,11 +37,11 @@ const Rectangle<int> Init_Bounds_For::exp_ctrl_clock_div() {
 
 const Rectangle<int> Init_Bounds_For::exp_ctrl_env_3(const int n, const int c) {
 	auto h = c == 0 ? 28 : knob_diam;
-	auto w = c == 0 ? 36 : knob_diam;
+	auto w = c == 0 ? 34 : knob_diam;
 	Rectangle<int> r{ 0, 0, w, h };
 	auto cntr_y = n == 0 ? env_3_row_0_cntr_y : env_3_row_1_cntr_y;
 	if (c == 0)
-		cntr_y += 14;
+		cntr_y += 6;
 	r.setCentre(ctrl_col_0_cntr_x + c * ctrl_col_w, cntr_y);
 	return r;
 }
@@ -184,7 +184,7 @@ const Rectangle<int> Init_Bounds_For::toggle_lpf_type() {
 }
 
 const Rectangle<int> Init_Bounds_For::toggle_osc_key_track() {
-	return { 17, 0, toggle_diam, toggle_diam };
+	return { 8, 0, toggle_diam, toggle_diam };
 }
 
 const Rectangle<int> Init_Bounds_For::toggle_osc_sync() {
