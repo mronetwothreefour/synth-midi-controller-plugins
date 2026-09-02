@@ -5,6 +5,8 @@
 namespace NAME
 {
 
+		static const String knob_led_voice_num{ "knob_led_voice_num" };
+
 		static const String lbl_u_int_4_bit{ "lbl_u_int_4_bit" };
 		static const String lbl_u_int_5_bit{ "lbl_u_int_5_bit" };
 		static const String lbl_u_int_6_bit{ "lbl_u_int_6_bit" };

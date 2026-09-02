@@ -162,6 +162,18 @@
             file="_Project_Source/G_DRAW_Paths_Widgets_P.cpp"/>
       <FILE id="TERhEN" name="G_DRAW_Paths_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Widgets_P.h"/>
+      <FILE id="z6aDdG" name="G_LAYER_Ctrls_Exp_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_Exp_P.cpp"/>
+      <FILE id="sDQuq8" name="G_LAYER_Ctrls_Exp_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_Exp_P.h"/>
+      <FILE id="fh4KHB" name="G_Look_And_Feel_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_Look_And_Feel_P.cpp"/>
+      <FILE id="PD4eIb" name="G_Look_And_Feel_P.h" compile="0" resource="0"
+            file="_Project_Source/G_Look_And_Feel_P.h"/>
+      <FILE id="ti8d9I" name="G_WIDGET_Ctrl_Slider_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_WIDGET_Ctrl_Slider_P.cpp"/>
+      <FILE id="kj3786" name="G_WIDGET_Ctrl_Slider_P.h" compile="0" resource="0"
+            file="_Project_Source/G_WIDGET_Ctrl_Slider_P.h"/>
       <FILE id="OCLp2A" name="G_WIDGET_Sli_Label_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_WIDGET_Sli_Label_P.cpp"/>
       <FILE id="WGYuSz" name="G_WIDGET_Sli_Label_P.h" compile="0" resource="0"
