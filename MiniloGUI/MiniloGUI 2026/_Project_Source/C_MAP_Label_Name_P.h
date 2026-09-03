@@ -7,6 +7,26 @@ namespace MAP
 {
 
 	static const std::unordered_map<String, String> label_name{
+		{ ID::avp_amp_mod_by_velo_amt, NAME::lbl_u_7_bit_int },
+		{ ID::avp_fine_tune, NAME::lbl_fine_tune_and_level },
+		{ ID::avp_flex_sli_bend_neg, NAME::lbl_flex_sli_bend_neg },
+		{ ID::avp_flex_sli_bend_pos, NAME::lbl_flex_sli_bend_pos },
+		{ ID::avp_flex_sli_range, NAME::lbl_flex_sli_range },
+		{ ID::avp_flex_sli_target, NAME::lbl_cbox },
+		{ ID::avp_keyboard_octave, "" },
+		{ ID::avp_level, NAME::lbl_fine_tune_and_level },
+		{ ID::avp_lfo_sync_bpm_on, "" },
+		{ ID::avp_lfo_sync_key_on, "" },
+		{ ID::avp_lfo_sync_voice_on, "" },
+		{ ID::avp_microtune_scale, NAME::lbl_cbox },
+		{ ID::avp_name, "" },
+		{ ID::avp_porta_mode_on,"" },
+		{ ID::avp_porta_sync_bpm_on, "" },
+		{ ID::avp_porta_time, NAME::lbl_porta_time },
+		{ ID::avp_scale_key, NAME::lbl_scale_key },
+		{ ID::avp_transpose, NAME::lbl_transpose },
+		{ ID::avp_voice_mode, "" },
+
 		//osc
 		{ ID::exp_osc_1_octave, "" },
 		{ ID::exp_osc_1_wave, "" },

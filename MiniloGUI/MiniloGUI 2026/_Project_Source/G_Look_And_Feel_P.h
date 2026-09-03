@@ -15,7 +15,7 @@ public: void drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, const bo
 							   const bool has_submenu, const String& txt, const String& shortcut_txt,
 							   const Drawable* icon, const Colour* const txt_clr) override;
 
-public: void draw_label_p(Graphics& g, Label& lbl, String& lbl_name) override {};
+public: void draw_label_p(Graphics& /*g*/, Label& /*lbl*/, String& /*lbl_name*/) override {};
 
 public: void drawRotarySlider(Graphics& g, int x, int y, int w, int h, float current_pos,
 							  const float min_angle, const float max_angle, Slider& s) override;

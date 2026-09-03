@@ -9275,6 +9275,9 @@
     <None Include="..\..\_Project_Source\binaries\Overpass-Bold.ttf">
       <Filter>MiniloGUI 2026\_Project_Source\binaries</Filter>
     </None>
+    <None Include="..\..\_Project_Source\binaries\Overpass-SemiBold.ttf">
+      <Filter>MiniloGUI 2026\_Project_Source\binaries</Filter>
+    </None>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt">
       <Filter>JUCE Modules\juce_audio_devices\native\asio</Filter>
     </None>

@@ -7,6 +7,26 @@ namespace MAP
 {
 
 	static const std::unordered_map<String, String> ctrl_name{
+		{ ID::avp_amp_mod_by_velo_amt, NAME::knob },
+		{ ID::avp_fine_tune, NAME::knob },
+		{ ID::avp_flex_sli_bend_neg, NAME::knob },
+		{ ID::avp_flex_sli_bend_pos, NAME::knob },
+		{ ID::avp_flex_sli_range, NAME::knob },
+		{ ID::avp_flex_sli_target, NAME::cbox },
+		{ ID::avp_keyboard_octave, NAME::switch_keyboard_octave },
+		{ ID::avp_level, NAME::knob },
+		{ ID::avp_lfo_sync_bpm_on, NAME::switch_2_pole },
+		{ ID::avp_lfo_sync_key_on, NAME::switch_2_pole },
+		{ ID::avp_lfo_sync_voice_on, NAME::switch_2_pole },
+		{ ID::avp_microtune_scale, NAME::cbox },
+		{ ID::avp_name, "" },
+		{ ID::avp_porta_mode_on, NAME::switch_2_pole },
+		{ ID::avp_porta_sync_bpm_on, NAME::switch_2_pole },
+		{ ID::avp_porta_time, NAME::knob },
+		{ ID::avp_scale_key, NAME::knob },
+		{ ID::avp_transpose, NAME::knob },
+		{ ID::avp_voice_mode, "" },
+
 		//osc
 		{ ID::exp_osc_1_octave, NAME::switch_osc_octave },
 		{ ID::exp_osc_1_wave, NAME::switch_3_pole },

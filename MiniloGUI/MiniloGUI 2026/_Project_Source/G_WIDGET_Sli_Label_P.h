@@ -15,8 +15,9 @@ namespace WIDGET
 	public: void set_text_to_stored_choice() override;
 	private: void on_text_change() override;
 	private: void on_text_change_get_best_match();
+	private: void on_text_change_integer();
 	private: void on_text_change_lfo_rate();
-	private: void on_text_change_unsigned_10_bit();
+	private: void on_text_change_scale_key();
 	private: void on_text_change_voice_mode_depth();
 
 	//==============================================================================

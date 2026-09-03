@@ -23,6 +23,12 @@ void Slider_Label::on_editor_show() {
 	edit->setBounds(getLocalBounds().translated(0, -1));
 	edit->applyFontToAllText(Font_For::knob_txt_editor(scale_factor));
 	auto n = getName();
+	if (n == lbl_fine_tune_and_level)
+		edit->setInputRestrictions(2, allowed_chars_s_int);
+	if (n == lbl_flex_sli_bend_neg || n == lbl_flex_sli_bend_pos)
+		edit->setInputRestrictions(2, allowed_chars_u_int);
+	if (n == lbl_flex_sli_range)
+		edit->setInputRestrictions(4, allowed_chars_s_int);
 	if (n == lbl_lfo_rate)
 		edit->setInputRestrictions(avp.lfo_sync_bpm_on() ? 2 : 4, allowed_chars_u_int);
 	if (n == lbl_lpf_eg_int)
@@ -31,6 +37,12 @@ void Slider_Label::on_editor_show() {
 		edit->setInputRestrictions(5, allowed_chars_s_int);
 	if (n == lbl_osc_pitch_fine)
 		edit->setInputRestrictions(5, allowed_chars_s_int);
+	if (n == lbl_porta_time)
+		edit->setInputRestrictions(3, allowed_chars_u_int + "foFO");
+	if (n == lbl_scale_key)
+		edit->setInputRestrictions(3, allowed_chars_pitch);
+	if (n == lbl_u_7_bit_int)
+		edit->setInputRestrictions(3, allowed_chars_s_int);
 	if (n == lbl_u_10_bit_int)
 		edit->setInputRestrictions(4, allowed_chars_u_int);
 	if (n == lbl_voice_mode_depth) {
@@ -65,6 +77,7 @@ void Slider_Label::on_editor_show() {
 		}
 	}
 	edit->setTooltip(Tip_For::knob_txt_editor(n, avp));
+	edit->setText(getText().removeCharacters(" +%"));
 	edit->selectAll();
 }
 
@@ -88,12 +101,17 @@ void Slider_Label::set_text_to_stored_choice() {
 
 void Slider_Label::on_text_change() {
 	auto n = getName();
+	if (n.startsWith("lbl_flex_sli_") || n.endsWith("_bit_int") ||
+		n == lbl_fine_tune_and_level || n == lbl_porta_time)
+	{
+		on_text_change_integer();
+	}
 	if (n == lbl_lfo_rate)
 		on_text_change_lfo_rate();
 	if (n == lbl_lpf_eg_int || n == lbl_osc_2_pitch_eg_int || n == lbl_osc_pitch_fine)
 		on_text_change_get_best_match();
-	if (n == lbl_u_10_bit_int)
-		on_text_change_unsigned_10_bit();
+	if (n == lbl_scale_key)
+		on_text_change_scale_key();
 	if (n == lbl_voice_mode_depth)
 		on_text_change_voice_mode_depth();
 }
@@ -103,6 +121,15 @@ void Slider_Label::on_text_change_get_best_match() {
 	if (new_text.isNotEmpty()) {
 		auto input_val{ new_text.getIntValue() };
 		parent_slider->setValue(parent_slider->get_best_display_value_match(input_val));
+	}
+	set_text_to_stored_choice();
+}
+
+void Slider_Label::on_text_change_integer() {
+	auto new_text{ getText() };
+	if (new_text.isNotEmpty()) {
+		auto new_val{ new_text.getFloatValue() };
+		parent_slider->setValue(new_val);
 	}
 	set_text_to_stored_choice();
 }
@@ -118,12 +145,16 @@ void Slider_Label::on_text_change_lfo_rate() {
 	set_text_to_stored_choice();
 }
 
-void Slider_Label::on_text_change_unsigned_10_bit() {
+void Slider_Label::on_text_change_scale_key() {
 	auto new_text{ getText() };
-	if (new_text.isNotEmpty()) {
-		auto new_val{ new_text.getFloatValue() };
-		parent_slider->setValue(new_val);
+	if (new_text.containsAnyOf(pitch_name_chars)) {
+		for (int i = 0; i < choices_curt.size(); ++i) {
+			if (choices_curt[i].removeCharacters(" ") == new_text)
+				parent_slider->setValue((float)i);
+		}
 	}
+	else
+		parent_slider->setValue(new_text.getFloatValue());
 	set_text_to_stored_choice();
 }
 

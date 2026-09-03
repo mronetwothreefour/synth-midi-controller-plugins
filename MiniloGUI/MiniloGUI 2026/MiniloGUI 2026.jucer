@@ -86,6 +86,8 @@
       <GROUP id="{89004418-210D-59FC-3949-84753EB32F24}" name="binaries">
         <FILE id="JtxvDh" name="Overpass-Bold.ttf" compile="0" resource="1"
               file="_Project_Source/binaries/Overpass-Bold.ttf"/>
+        <FILE id="VVfRs0" name="Overpass-SemiBold.ttf" compile="0" resource="1"
+              file="_Project_Source/binaries/Overpass-SemiBold.ttf"/>
       </GROUP>
       <FILE id="KrX49J" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
       <FILE id="yP5l6S" name="C_ENUM_P.h" compile="0" resource="0" file="_Project_Source/C_ENUM_P.h"/>
