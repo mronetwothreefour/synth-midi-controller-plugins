@@ -75,7 +75,7 @@ PopupMenu::Options Look_And_Feel::getOptionsForComboBoxPopupMenu(ComboBox& cbox,
 							   .withMinimumWidth(min_w)
 							   .withMinimumNumColumns(col_count)
 							   .withMaximumNumColumns(col_count)
-							   .withStandardItemHeight(roundToInt(item_h));
+							   .withStandardItemHeight(item_h);
 }
 
 void Look_And_Feel::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, const bool /*separator*/, 

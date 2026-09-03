@@ -2,3 +2,4 @@ C_MAP_Bit_Locations_P
 C_SL_Tip_Aux_Voice_P
 D_BUILD_Bit_Locations_For_P
 D_TREE_Aux_Voice_Params_P
+G_LAYER_Ctrls_Aux_Voice_P

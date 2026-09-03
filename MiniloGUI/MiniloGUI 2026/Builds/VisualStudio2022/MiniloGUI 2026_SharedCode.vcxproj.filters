@@ -943,6 +943,18 @@
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.cpp">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\G_LAYER_Ctrls_Aux_Voice_P.cpp">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.cpp">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\G_Look_And_Feel_P.cpp">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\G_WIDGET_Ctrl_Slider_P.cpp">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\_Project_Source\G_WIDGET_Sli_Label_P.cpp">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClCompile>
@@ -4315,6 +4327,18 @@
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.h">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_Aux_Voice_P.h">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.h">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\G_Look_And_Feel_P.h">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\G_WIDGET_Ctrl_Slider_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\G_WIDGET_Sli_Label_P.h">

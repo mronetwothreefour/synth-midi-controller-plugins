@@ -1,6 +1,5 @@
 #include "G_WIDGET_Ctrl_Slider_P.h"
 
-#include "C_GET_P.h"
 #include "C_NAME_P.h"
 
 using namespace WIDGET;

@@ -153,7 +153,7 @@ const StringArray Choices_For::exp_lfo_eg_mod() {
 
 const StringArray Choices_For::exp_lfo_rate() {
 	StringArray list;
-    String n{ "$|%__unsynced: $|\nsynced: 1 cycle lasts & beat" };
+    String n{ "$|%__unsynced: $|synced: 1 cycle lasts & beat" };
     for (int i = 0; i < 1024; ++i) {
         n = n.replace("$", (String)i);
         if (i < 64)
@@ -412,61 +412,61 @@ String Choices_For::exp_choice_voice_mode_3_mono(const int c, const bool curt) {
 }
 
 String Choices_For::exp_choice_voice_mode_4_chord(const int c, const bool curt) {
-    String n{ "|4:" };
-    if (c < 74) n += curt ? "5th(0)" : "5th interval";
-    if (c >= 74 && c < 147) n += curt ? "sus2(1)" : "suspended 2nd chord";
-    if (c >= 147 && c < 220) n += curt ? "m(2)" : "minor chord";
-    if (c >= 220 && c < 293) n += curt ? "Maj(3)" : "major chord";
-    if (c >= 293 && c < 366) n += curt ? "sus4(4)" : "suspended 4th chord";
-    if (c >= 366 && c < 439) n += curt ? "m7(5)" : "minor 7th chord";
-    if (c >= 439 && c < 512) n += curt ? "7th(6)" : "7th chord";
-    if (c >= 512 && c < 586) n += curt ? "7sus4(7)" : "7th/sus. 4th chord";
-    if (c >= 586 && c < 659) n += curt ? "Maj7(8)" : "major 7th chord";
-    if (c >= 659 && c < 732) n += curt ? "aug(9)" : "augmented chord";
-    if (c >= 732 && c < 805) n += curt ? "dim(10)" : "diminished chord";
-    if (c >= 805 && c < 878) n += curt ? "m7b5(11)" : "minor 7th/flat 5th chord";
-    if (c >= 878 && c < 951) n += curt ? "mM7(12)" : "minor/major 7th chord";
-    if (c >= 951 && c < 1024) n += curt ? "M7b5(13)" : "major 7th/flat 5th chord";
+    String n{ "|" };
+    if (c < 74) n += curt ? "4:5th(0)" : "5:5th interval";
+    if (c >= 74 && c < 147) n += curt ? "4:sus2(1)" : "5:suspended 2nd chord";
+    if (c >= 147 && c < 220) n += curt ? "4:m(2)" : "5:minor chord";
+    if (c >= 220 && c < 293) n += curt ? "4:Maj(3)" : "5:major chord";
+    if (c >= 293 && c < 366) n += curt ? "4:sus4(4)" : "5:suspended 4th chord";
+    if (c >= 366 && c < 439) n += curt ? "4:m7(5)" : "5:minor 7th chord";
+    if (c >= 439 && c < 512) n += curt ? "4:7th(6)" : "5:7th chord";
+    if (c >= 512 && c < 586) n += curt ? "4:7sus4(7)" : "5:7th/sus. 4th chord";
+    if (c >= 586 && c < 659) n += curt ? "4:Maj7(8)" : "5:major 7th chord";
+    if (c >= 659 && c < 732) n += curt ? "4:aug(9)" : "5:augmented chord";
+    if (c >= 732 && c < 805) n += curt ? "4:dim(10)" : "5:diminished chord";
+    if (c >= 805 && c < 878) n += curt ? "4:m7b5(11)" : "5:minor 7th/flat 5th chord";
+    if (c >= 878 && c < 951) n += curt ? "4:mM7(12)" : "5:minor/major 7th chord";
+    if (c >= 951 && c < 1024) n += curt ? "4:M7b5(13)" : "5:major 7th/flat 5th chord";
     return n;
 }
 
 String Choices_For::exp_choice_voice_mode_5_delay(const int c, const bool curt) {
-    String n{ "|5:" };
-    if (c < 86) n += curt ? "1/192(0)" : "1/192 beat delay";
-    if (c >= 86 && c < 171) n += curt ? "1/128(1)" : "1/128 beat delay";
-    if (c >= 171 && c < 256) n += curt ? "1/64(2)" : "1/64 beat delay";
-    if (c >= 256 && c < 342) n += curt ? "1/48(3)" : "1/48 beat delay";
-    if (c >= 342 && c < 427) n += curt ? "1/32(4)" : "1/32 beat delay";
-    if (c >= 427 && c < 512) n += curt ? "1/24(5)" : "1/24 beat delay";
-    if (c >= 512 && c < 598) n += curt ? "1/16(6)" : "1/16 beat delay";
-    if (c >= 598 && c < 683) n += curt ? "1/12(7)" : "1/12 beat delay";
-    if (c >= 683 && c < 768) n += curt ? "1/8(8)" : "1/8 beat delay";
-    if (c >= 768 && c < 854) n += curt ? "1/6(9)" : "1/6 beat delay";
-    if (c >= 854 && c < 939) n += curt ? "3/16(10)" : "3/16 beat delay";
-    if (c >= 939 && c < 1024) n += curt ? "1/4(11)" : "1/4 beat delay";
+    String n{ "|" };
+    if (c < 86) n += curt ? "5:1/192(0)" : "6:1/192 beat delay";
+    if (c >= 86 && c < 171) n += curt ? "5:1/128(1)" : "6:1/128 beat delay";
+    if (c >= 171 && c < 256) n += curt ? "5:1/64(2)" : "6:1/64 beat delay";
+    if (c >= 256 && c < 342) n += curt ? "5:1/48(3)" : "6:1/48 beat delay";
+    if (c >= 342 && c < 427) n += curt ? "5:1/32(4)" : "6:1/32 beat delay";
+    if (c >= 427 && c < 512) n += curt ? "5:1/24(5)" : "6:1/24 beat delay";
+    if (c >= 512 && c < 598) n += curt ? "5:1/16(6)" : "6:1/16 beat delay";
+    if (c >= 598 && c < 683) n += curt ? "5:1/12(7)" : "6:1/12 beat delay";
+    if (c >= 683 && c < 768) n += curt ? "5:1/8(8)" : "6:1/8 beat delay";
+    if (c >= 768 && c < 854) n += curt ? "5:1/6(9)" : "6:1/6 beat delay";
+    if (c >= 854 && c < 939) n += curt ? "5:3/16(10)" : "6:3/16 beat delay";
+    if (c >= 939 && c < 1024) n += curt ? "5:1/4(11)" : "6:1/4 beat delay";
     return n;
 }
 
 String Choices_For::exp_choice_voice_mode_6_arp(const int c, const bool curt) {
-    String n{ "|6:" };
-    if (c < 79) n += curt ? "man 1(0)" : "arpeggio: manual 1";
-    if (c >= 79 && c < 158) n += curt ? "man 2(1)" : "arpeggio: manual 2";
-    if (c >= 158 && c < 237) n += curt ? "rise1(2)" : "arpeggio: rise 1";
-    if (c >= 237 && c < 316) n += curt ? "rise2(3)" : "arpeggio: rise 2";
-    if (c >= 316 && c < 394) n += curt ? "fall 1(4)" : "arpeggio: fall 1";
-    if (c >= 394 && c < 473) n += curt ? "fall 2(5)" : "arpeggio: fall 2";
-    if (c >= 473 && c < 552) n += curt ? "r/f 1(6)" : "arpeggio: rise/fall 1";
-    if (c >= 552 && c < 631) n += curt ? "r/f 2(7)" : "arpeggio: rise/fall 2";
-    if (c >= 631 && c < 709) n += curt ? "poly1(8)" : "arpeggio: poly 1";
-    if (c >= 709 && c < 788) n += curt ? "poly2(9)" : "arpeggio: poly 2";
-    if (c >= 788 && c < 867) n += curt ? "rnd 1(10)" : "arpeggio: random 1";
-    if (c >= 867 && c < 946) n += curt ? "rnd 2(11)" : "arpeggio: random 2";
-    if (c >= 946 && c < 1024) n += curt ? "rnd 3(12)" : "arpeggio: random 3";
+    String n{ "|" };
+    if (c < 79) n += curt ? "6:man 1(0)" : "7:arpeggio: manual 1";
+    if (c >= 79 && c < 158) n += curt ? "6:man 2(1)" : "7:arpeggio: manual 2";
+    if (c >= 158 && c < 237) n += curt ? "6:rise1(2)" : "7:arpeggio: rise 1";
+    if (c >= 237 && c < 316) n += curt ? "6:rise2(3)" : "7:arpeggio: rise 2";
+    if (c >= 316 && c < 394) n += curt ? "6:fall 1(4)" : "7:arpeggio: fall 1";
+    if (c >= 394 && c < 473) n += curt ? "6:fall 2(5)" : "7:arpeggio: fall 2";
+    if (c >= 473 && c < 552) n += curt ? "6:r/f 1(6)" : "7:arpeggio: rise/fall 1";
+    if (c >= 552 && c < 631) n += curt ? "6:r/f 2(7)" : "7:arpeggio: rise/fall 2";
+    if (c >= 631 && c < 709) n += curt ? "6:poly1(8)" : "7:arpeggio: poly 1";
+    if (c >= 709 && c < 788) n += curt ? "6:poly2(9)" : "7:arpeggio: poly 2";
+    if (c >= 788 && c < 867) n += curt ? "6:rnd 1(10)" : "7:arpeggio: random 1";
+    if (c >= 867 && c < 946) n += curt ? "6:rnd 2(11)" : "7:arpeggio: random 2";
+    if (c >= 946 && c < 1024) n += curt ? "6:rnd 3(12)" : "7:arpeggio: random 3";
     return n;
 }
 
 String Choices_For::exp_choice_voice_mode_7_sidechain(const int c, const bool curt) {
-    String name{ curt ? "|7:" : "|7:sidechain " };
+    String name{ curt ? "|7:" : "|8:sidechain " };
     name += (String)c;
     return name;
 }

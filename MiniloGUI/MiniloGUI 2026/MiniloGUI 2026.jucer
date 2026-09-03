@@ -171,6 +171,22 @@
             file="_Project_Source/G_DRAW_Paths_Widgets_P.cpp"/>
       <FILE id="CLroiL" name="G_DRAW_Paths_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Widgets_P.h"/>
+      <FILE id="YfC0dt" name="G_LAYER_Ctrls_Aux_Voice_P.cpp" compile="1"
+            resource="0" file="_Project_Source/G_LAYER_Ctrls_Aux_Voice_P.cpp"/>
+      <FILE id="adwfrp" name="G_LAYER_Ctrls_Aux_Voice_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_Aux_Voice_P.h"/>
+      <FILE id="G3r23w" name="G_LAYER_Ctrls_Exp_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_Exp_P.cpp"/>
+      <FILE id="zeVFzR" name="G_LAYER_Ctrls_Exp_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_Exp_P.h"/>
+      <FILE id="QjMACt" name="G_Look_And_Feel_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_Look_And_Feel_P.cpp"/>
+      <FILE id="mgh1Zg" name="G_Look_And_Feel_P.h" compile="0" resource="0"
+            file="_Project_Source/G_Look_And_Feel_P.h"/>
+      <FILE id="cQPZd7" name="G_WIDGET_Ctrl_Slider_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_WIDGET_Ctrl_Slider_P.cpp"/>
+      <FILE id="nT3iZG" name="G_WIDGET_Ctrl_Slider_P.h" compile="0" resource="0"
+            file="_Project_Source/G_WIDGET_Ctrl_Slider_P.h"/>
       <FILE id="P2uMet" name="G_WIDGET_Sli_Label_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_WIDGET_Sli_Label_P.cpp"/>
       <FILE id="cmeMsO" name="G_WIDGET_Sli_Label_P.h" compile="0" resource="0"

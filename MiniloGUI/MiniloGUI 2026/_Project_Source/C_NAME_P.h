@@ -18,6 +18,7 @@ namespace NAME
 	static const String knob_osc_pitch_fine{ "knob_osc_pitch_fine" };
 	static const String knob_tempo{ "knob_tempo" };
 	static const String knob_voice_mode_depth{ "knob_voice_mode_depth" };
+	static const String switch_keyboard_octave{ "switch_keyboard_octave" };
 	static const String switch_lpf_type{ "switch_lpf_type" };
 	static const String switch_osc_octave{ "switch_osc_octave" };
 
