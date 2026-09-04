@@ -22,30 +22,30 @@ void Slider_Label::on_editor_show() {
 	edit->setBounds(getLocalBounds());
 	edit->setBounds(getLocalBounds().translated(0, -1));
 	edit->applyFontToAllText(Font_For::knob_txt_editor(scale_factor));
-	auto n = getName();
-	if (n == lbl_fine_tune_and_level)
-		edit->setInputRestrictions(2, allowed_chars_s_int);
-	if (n == lbl_flex_sli_bend_neg || n == lbl_flex_sli_bend_pos)
-		edit->setInputRestrictions(2, allowed_chars_u_int);
-	if (n == lbl_flex_sli_range)
-		edit->setInputRestrictions(4, allowed_chars_s_int);
-	if (n == lbl_lfo_rate)
-		edit->setInputRestrictions(avp.lfo_sync_bpm_on() ? 2 : 4, allowed_chars_u_int);
-	if (n == lbl_lpf_eg_int)
-		edit->setInputRestrictions(4, allowed_chars_s_int);
-	if (n == lbl_osc_2_pitch_eg_int)
-		edit->setInputRestrictions(5, allowed_chars_s_int);
-	if (n == lbl_osc_pitch_fine)
-		edit->setInputRestrictions(5, allowed_chars_s_int);
-	if (n == lbl_porta_time)
-		edit->setInputRestrictions(3, allowed_chars_u_int + "foFO");
-	if (n == lbl_scale_key)
-		edit->setInputRestrictions(3, allowed_chars_pitch);
-	if (n == lbl_u_7_bit_int)
-		edit->setInputRestrictions(3, allowed_chars_s_int);
-	if (n == lbl_u_10_bit_int)
+	auto n = parent_slider->getName();
+	if (n == knob)
 		edit->setInputRestrictions(4, allowed_chars_u_int);
-	if (n == lbl_voice_mode_depth) {
+	if (n == knob_fine_tune_and_level)
+		edit->setInputRestrictions(2, allowed_chars_s_int);
+	if (n == knob_flex_sli_bend_neg || n == knob_flex_sli_bend_pos)
+		edit->setInputRestrictions(2, allowed_chars_u_int);
+	if (n == knob_flex_sli_range)
+		edit->setInputRestrictions(4, allowed_chars_s_int);
+	if (n == knob_lfo_rate)
+		edit->setInputRestrictions(avp.lfo_sync_bpm_on() ? 2 : 4, allowed_chars_u_int);
+	if (n == knob_lpf_eg_int)
+		edit->setInputRestrictions(4, allowed_chars_s_int);
+	if (n == knob_osc_2_pitch_eg_int)
+		edit->setInputRestrictions(5, allowed_chars_s_int);
+	if (n == knob_osc_pitch_fine)
+		edit->setInputRestrictions(5, allowed_chars_s_int);
+	if (n == knob_porta_time)
+		edit->setInputRestrictions(3, allowed_chars_u_int + "foFO");
+	if (n == knob_scale_key)
+		edit->setInputRestrictions(3, allowed_chars_pitch);
+	if (n == knob_amp_mod_by_velo_amt)
+		edit->setInputRestrictions(3, allowed_chars_s_int);
+	if (n == knob_voice_mode_depth) {
 		auto mode = Voice_Mode(avp.voice_mode());
 		switch (mode)
 		{
@@ -83,10 +83,10 @@ void Slider_Label::on_editor_show() {
 
 void Slider_Label::set_text_to_stored_choice() {
 	auto v{ roundToInt(parent_slider->getValue()) };
-	auto n = getName();
+	auto n = parent_slider->getName();
 	String c{ choices_curt[v] };
-	if (n == lbl_lfo_rate || n == lbl_voice_mode_depth) {
-		if (n == lbl_lfo_rate)
+	if (n == knob_lfo_rate || n == knob_voice_mode_depth) {
+		if (n == knob_lfo_rate)
 			c = avp.lfo_sync_bpm_on() ? c.fromFirstOccurrenceOf("|", false, false) :
 										c.upToFirstOccurrenceOf("|", false, false);
 		else {
@@ -100,19 +100,19 @@ void Slider_Label::set_text_to_stored_choice() {
 }
 
 void Slider_Label::on_text_change() {
-	auto n = getName();
-	if (n.startsWith("lbl_flex_sli_") || n.endsWith("_bit_int") ||
-		n == lbl_fine_tune_and_level || n == lbl_porta_time)
+	auto n = parent_slider->getName();
+	if (n == knob || n == knob_amp_mod_by_velo_amt || n.startsWith("knob_flex_sli_") ||
+		n == knob_fine_tune_and_level || n == knob_porta_time)
 	{
 		on_text_change_integer();
 	}
-	if (n == lbl_lfo_rate)
+	if (n == knob_lfo_rate)
 		on_text_change_lfo_rate();
-	if (n == lbl_lpf_eg_int || n == lbl_osc_2_pitch_eg_int || n == lbl_osc_pitch_fine)
+	if (n == knob_lpf_eg_int || n == knob_osc_2_pitch_eg_int || n == knob_osc_pitch_fine)
 		on_text_change_get_best_match();
-	if (n == lbl_scale_key)
+	if (n == knob_scale_key)
 		on_text_change_scale_key();
-	if (n == lbl_voice_mode_depth)
+	if (n == knob_voice_mode_depth)
 		on_text_change_voice_mode_depth();
 }
 

@@ -22,14 +22,14 @@ void Slider_Label::on_editor_show() {
 	edit->setJustification(Justification::centred);
 	edit->setBounds(getLocalBounds());
 	edit->applyFontToAllText(Font_For::knob_txt_editor(scale_factor));
-	auto n = getName();
-	if (n == NAME::lbl_u_int_4_bit)
+	auto n = parent_slider->getName();
+	if (n == NAME::knob_u_int_4_bit)
 		edit->setInputRestrictions(2, allowed_chars_u_int);
-	if (n == NAME::lbl_u_int_5_bit)
+	if (n == NAME::knob_u_int_5_bit)
 		edit->setInputRestrictions(2, allowed_chars_u_int);
-	if (n == NAME::lbl_u_int_6_bit)
+	if (n == NAME::knob_u_int_6_bit)
 		edit->setInputRestrictions(2, allowed_chars_u_int);
-	if (n == NAME::lbl_u_int_7_bit)
+	if (n == NAME::knob_u_int_7_bit)
 		edit->setInputRestrictions(3, allowed_chars_u_int);
 	if (n == NAME::lbl_osc_pitch)
 		edit->setInputRestrictions(3, allowed_chars_pitch);
@@ -42,7 +42,7 @@ void Slider_Label::on_text_change() {
 	auto new_text{ getText().toUpperCase() };
 	auto new_val{ -1.0f };
 	if (new_text.isNotEmpty()) {
-		if (getName() == lbl_osc_pitch) {
+		if (parent_slider->getName() == knob_pitch) {
 			if (new_text.containsAnyOf("abcdefgABCDEFG#")) {
 				for (int i = 0; i < choices_curt.size(); ++i) {
 					if (choices_curt[i].removeCharacters(" ") == new_text) {

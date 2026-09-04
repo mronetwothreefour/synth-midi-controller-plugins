@@ -37,7 +37,7 @@ void Look_And_Feel_A::drawLabel(Graphics& g, Label& lbl) {
 		g.drawFittedText(lbl.getText(), txt_area, Justify::centredLeft, 1, 1.0f);
 		return;
 	}
-	if (name == NAME::lbl_slider || name == NAME::lbl_cbox) {
+	if (name == NAME::lbl_knob || name == NAME::lbl_cbox) {
 		g.setFont(lbl.getFont());
 		g.drawFittedText(lbl.getText(), lbl.getLocalBounds().translated(0, 1),
 			Justify::centred, 1, 1.0f);

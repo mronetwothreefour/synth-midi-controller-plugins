@@ -72,38 +72,38 @@ String Tip_For::exp_osc_wave(const int o) {
 }
 
 String Tip_For::knob_txt_editor(const String& n, Aux_Voice_Params& avp) {
-	if (n == NAME::lbl_lfo_rate) {
+	if (n == NAME::knob_lfo_rate) {
         auto synced = avp.lfo_sync_bpm_on();
         return from_string_literal(synced ? SL::knob_txt_edit_lfo_synced_tip :
                                             SL::knob_txt_edit_lfo_unsynced_tip);
     }
-    if (n == NAME::lbl_lpf_eg_int)
+    if (n == NAME::knob_lpf_eg_int)
         return from_string_literal(SL::knob_txt_lpf_eg_int_tip);
-    if (n == NAME::lbl_osc_2_pitch_eg_int)
+    if (n == NAME::knob_osc_2_pitch_eg_int)
         return from_string_literal(SL::knob_txt_edit_osc_2_pitch_eg_int_tip);
-    if (n == NAME::lbl_osc_pitch_fine)
+    if (n == NAME::knob_osc_pitch_fine)
         return from_string_literal(SL::knob_txt_edit_osc_pitch_fine_tip);
-    if (n == NAME::lbl_u_10_bit_int)
+    if (n == NAME::knob)
         return from_string_literal(SL::knob_txt_edit_u_10_bit_int_tip);
-    if (n == NAME::lbl_voice_mode_depth) {
+    if (n == NAME::knob_voice_mode_depth) {
         auto mode = Voice_Mode(avp.voice_mode());
         switch (mode)
         {
-        case ENUM::Voice_Mode::poly:
+        case Voice_Mode::poly:
             return from_string_literal(SL::knob_txt_edit_voice_mode_0_tip);
-        case ENUM::Voice_Mode::duo:
+        case Voice_Mode::duo:
             return from_string_literal(SL::knob_txt_edit_voice_mode_1_2_tip);
-        case ENUM::Voice_Mode::unison:
+        case Voice_Mode::unison:
             return from_string_literal(SL::knob_txt_edit_voice_mode_1_2_tip);
-        case ENUM::Voice_Mode::mono:
+        case Voice_Mode::mono:
             return from_string_literal(SL::knob_txt_edit_voice_mode_3_tip);
-        case ENUM::Voice_Mode::chord:
+        case Voice_Mode::chord:
             return from_string_literal(SL::knob_txt_edit_voice_mode_4_tip);
-        case ENUM::Voice_Mode::delay:
+        case Voice_Mode::delay:
             return from_string_literal(SL::knob_txt_edit_voice_mode_5_tip);
-        case ENUM::Voice_Mode::arp:
+        case Voice_Mode::arp:
             return from_string_literal(SL::knob_txt_edit_voice_mode_6_tip);
-        case ENUM::Voice_Mode::sidechain:
+        case Voice_Mode::sidechain:
             return from_string_literal(SL::knob_txt_edit_voice_mode_7_tip);
         default:
             return "error";

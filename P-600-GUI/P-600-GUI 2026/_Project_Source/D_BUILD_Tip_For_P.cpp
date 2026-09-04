@@ -47,13 +47,13 @@ String Tip_For::exp_osc_tri(const String o) {
 }
 
 String BUILD::Tip_For::knob_txt_editor(const String& name) {
-	if (name == NAME::lbl_u_int_4_bit)
+	if (name == NAME::knob_u_int_4_bit)
 		return from_string_literal(SL::knob_txt_edit_int_tip).replace("_", "15");
-    if (name == NAME::lbl_u_int_5_bit)
+    if (name == NAME::knob_u_int_5_bit)
         return from_string_literal(SL::knob_txt_edit_int_tip).replace("_", "31");
-    if (name == NAME::lbl_u_int_6_bit)
+    if (name == NAME::knob_u_int_6_bit)
         return from_string_literal(SL::knob_txt_edit_int_tip).replace("_", "63");
-    if (name == NAME::lbl_u_int_7_bit)
+    if (name == NAME::knob_u_int_7_bit)
         return from_string_literal(SL::knob_txt_edit_int_tip).replace("_", "127");
 	if (name == NAME::lbl_osc_pitch)
 		return from_string_literal(SL::knob_txt_edit_osc_pitch_tip);
