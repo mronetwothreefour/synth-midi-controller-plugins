@@ -2,7 +2,6 @@
 
 #include "C_NAME_P.h"
 #include "C_SL_Tip_Exposed_P.h"
-#include "C_SL_Tip_Widget_P.h"
 
 using namespace BUILD;
 
@@ -127,16 +126,4 @@ String Tip_For::exp_track_point(const int p, int c) {
     String s{ from_string_literal(SL::track_point_tip) };
     s = s.replace("_", (String)p).replace("%", (String)c);
     return s;
-}
-
-String BUILD::Tip_For::knob_txt_editor(const String& name, bool u_7_bit) {
-	if (name == NAME::lbl_osc_pitch)
-        return from_string_literal(SL::knob_txt_edit_osc_pitch_tip);
-    if (name == NAME::lbl_s_6_bit_int)
-        return from_string_literal(SL::knob_txt_edit_s_int_tip).replace("_", "31");
-    if (name == NAME::lbl_s_7_bit_int)
-        return from_string_literal(SL::knob_txt_edit_s_int_tip).replace("_", "63");
-    if (name == NAME::lbl_u_int)
-        return from_string_literal(SL::knob_txt_edit_u_int_tip).replace("_", u_7_bit ? "127" : "63");
-    return {};
 }

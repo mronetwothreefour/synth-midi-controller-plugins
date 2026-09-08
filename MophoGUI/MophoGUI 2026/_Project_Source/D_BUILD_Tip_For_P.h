@@ -39,8 +39,6 @@ namespace BUILD
 		static String exp_seq_track_step(const int track_num, int step_num);
 
 		static String exp_voice_name_char(const int char_num);
-
-		static String knob_text_editor(const String& slider_label_name);
 	};
 
 }

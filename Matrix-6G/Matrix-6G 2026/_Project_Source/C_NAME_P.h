@@ -5,9 +5,16 @@
 namespace NAME
 {
 
-	static const String lbl_s_6_bit_int{ "lbl_s_6_bit_int" };
-	static const String lbl_s_7_bit_int{ "lbl_s_7_bit_int" };
-	static const String lbl_u_int{ "lbl_u_int" };
-	static const String slider_osc_balance{ "slider_osc_balance" };
+	// control types
+	static const String sli_osc_bal{ "sli_osc_bal" };
+
+	// label types
+	static const String lbl_led_cbox{ "lbl_led_cbox" };
+	static const String lbl_led_knob{ "lbl_led_knob" };
+	static const String lbl_led_osc_bal{ "lbl_led_osc_bal" };
+
+	// parameter info
+	static const String byte_index{ "byte_index" };
+	static const String quick_num{ "quick_num" };
 
 }

@@ -10,9 +10,9 @@ namespace MISC
 	static const float rotary_sli_begin_angle{ degreesToRadians(45.0f) };
 	static const float rotary_sli_end_angle{ degreesToRadians(315.0f) };
 
-	static const int choice_count_mod_dest{ 47 };
+	static const int choice_count_mod_dst{ 47 };
 	static const int choice_count_mod_src{ 23 };
-	static const int choice_count_seq_track_2_4_dest{ 48 };
+	static const int choice_count_seq_track_2_4_dst{ 48 };
 	static const int lfo_1st_pitch_freq{ 90 };
 	static const int lfo_1st_sync_freq{ 151 };
 

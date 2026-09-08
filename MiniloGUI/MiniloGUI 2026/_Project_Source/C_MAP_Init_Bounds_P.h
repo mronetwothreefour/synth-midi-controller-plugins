@@ -1,7 +1,7 @@
 #pragma once
 
-#include "C_ID_A.h"
 #include "C_ID_Main_P.h"
+#include "C_NAME_P.h"
 #include "D_BUILD_Init_Bounds_For_P.h"
 
 using namespace BUILD;
@@ -76,7 +76,7 @@ namespace MAP
 		{ ID::exp_delay_routing, Init_Bounds_For::exp_ctrl_delay_routing() },
 		{ ID::exp_voice_mode_depth, Init_Bounds_For::exp_ctrl_voice_mode_depth() },
 
-		{ ID::gui_editor, Init_Bounds_For::gui_editor() },
+		{ NAME::gui_editor, Init_Bounds_For::gui_editor() },
 	};
 
 }

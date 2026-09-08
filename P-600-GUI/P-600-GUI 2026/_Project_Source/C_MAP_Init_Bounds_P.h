@@ -1,7 +1,7 @@
 #pragma once
 
-#include "C_ID_A.h"
 #include "C_ID_Main_P.h"
+#include "C_NAME_P.h"
 #include "D_BUILD_Init_Bounds_For_P.h"
 
 using namespace BUILD;
@@ -48,7 +48,7 @@ namespace MAP
 		{ ID::exp_lfo_dest_osc_pw, Init_Bounds_For::exp_ctrl_lfo_switch(3) },
 		{ ID::exp_lfo_dest_filter, Init_Bounds_For::exp_ctrl_lfo_switch(4) },
 
-		{ ID::gui_editor, Init_Bounds_For::gui_editor() },
+		{ NAME::gui_editor, Init_Bounds_For::gui_editor() },
 	};
 
 }

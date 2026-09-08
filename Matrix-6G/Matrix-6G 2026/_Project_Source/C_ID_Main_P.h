@@ -102,6 +102,37 @@ namespace ID
 	static const String exp_track_point_4{ "exp_track_point_4" };
 	static const String exp_track_point_5{ "exp_track_point_5" };
 
+	static const String mmod_0_amt{ "mmod_0_amt" };
+	static const String mmod_0_dst{ "mmod_0_dst" };
+	static const String mmod_0_src{ "mmod_0_src" };
+	static const String mmod_1_amt{ "mmod_1_amt" };
+	static const String mmod_1_dst{ "mmod_1_dst" };
+	static const String mmod_1_src{ "mmod_1_src" };
+	static const String mmod_2_amt{ "mmod_2_amt" };
+	static const String mmod_2_dst{ "mmod_2_dst" };
+	static const String mmod_2_src{ "mmod_2_src" };
+	static const String mmod_3_amt{ "mmod_3_amt" };
+	static const String mmod_3_dst{ "mmod_3_dst" };
+	static const String mmod_3_src{ "mmod_3_src" };
+	static const String mmod_4_amt{ "mmod_4_amt" };
+	static const String mmod_4_dst{ "mmod_4_dst" };
+	static const String mmod_4_src{ "mmod_4_src" };
+	static const String mmod_5_amt{ "mmod_5_amt" };
+	static const String mmod_5_dst{ "mmod_5_dst" };
+	static const String mmod_5_src{ "mmod_5_src" };
+	static const String mmod_6_amt{ "mmod_6_amt" };
+	static const String mmod_6_dst{ "mmod_6_dst" };
+	static const String mmod_6_src{ "mmod_6_src" };
+	static const String mmod_7_amt{ "mmod_7_amt" };
+	static const String mmod_7_dst{ "mmod_7_dst" };
+	static const String mmod_7_src{ "mmod_7_src" };
+	static const String mmod_8_amt{ "mmod_8_amt" };
+	static const String mmod_8_dst{ "mmod_8_dst" };
+	static const String mmod_8_src{ "mmod_8_src" };
+	static const String mmod_9_amt{ "mmod_9_amt" };
+	static const String mmod_9_dst{ "mmod_9_dst" };
+	static const String mmod_9_src{ "mmod_9_src" };
+
 	static const StringArray exp_params{
 		exp_osc_1_pitch,
 		exp_osc_1_type,
@@ -200,41 +231,6 @@ namespace ID
 		exp_env_3_sustain,
 		exp_env_3_release
 	};
-
-	static const String mmod_0_amt{ "mmod_0_amt" };
-	static const String mmod_0_dst{ "mmod_0_dst" };
-	static const String mmod_0_src{ "mmod_0_src" };
-	static const String mmod_1_amt{ "mmod_1_amt" };
-	static const String mmod_1_dst{ "mmod_1_dst" };
-	static const String mmod_1_src{ "mmod_1_src" };
-	static const String mmod_2_amt{ "mmod_2_amt" };
-	static const String mmod_2_dst{ "mmod_2_dst" };
-	static const String mmod_2_src{ "mmod_2_src" };
-	static const String mmod_3_amt{ "mmod_3_amt" };
-	static const String mmod_3_dst{ "mmod_3_dst" };
-	static const String mmod_3_src{ "mmod_3_src" };
-	static const String mmod_4_amt{ "mmod_4_amt" };
-	static const String mmod_4_dst{ "mmod_4_dst" };
-	static const String mmod_4_src{ "mmod_4_src" };
-	static const String mmod_5_amt{ "mmod_5_amt" };
-	static const String mmod_5_dst{ "mmod_5_dst" };
-	static const String mmod_5_src{ "mmod_5_src" };
-	static const String mmod_6_amt{ "mmod_6_amt" };
-	static const String mmod_6_dst{ "mmod_6_dst" };
-	static const String mmod_6_src{ "mmod_6_src" };
-	static const String mmod_7_amt{ "mmod_7_amt" };
-	static const String mmod_7_dst{ "mmod_7_dst" };
-	static const String mmod_7_src{ "mmod_7_src" };
-	static const String mmod_8_amt{ "mmod_8_amt" };
-	static const String mmod_8_dst{ "mmod_8_dst" };
-	static const String mmod_8_src{ "mmod_8_src" };
-	static const String mmod_9_amt{ "mmod_9_amt" };
-	static const String mmod_9_dst{ "mmod_9_dst" };
-	static const String mmod_9_src{ "mmod_9_src" };
-
-	static const String tree_matrix_mod{ "tree_matrix_mod" };
-
-	static const String xml_state_matrix_mod{ "xml_state_matrix_mod" };
 
 	static const StringArray matrix_mod_params{
 		mmod_0_src,

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "C_ID_A.h"
 #include "C_ID_Main_P.h"
+#include "C_NAME_P.h"
 #include "D_BUILD_Init_Bounds_For_P.h"
 
 using namespace BUILD;
@@ -107,7 +107,7 @@ namespace MAP
 		{ ID::exp_env_3_sustain, Init_Bounds_For::exp_ctrl_env_stage(3, 3) },
 		{ ID::exp_env_3_release, Init_Bounds_For::exp_ctrl_env_stage(3, 4) },
 
-		{ ID::gui_editor, Init_Bounds_For::gui_editor() },
+		{ NAME::gui_editor, Init_Bounds_For::gui_editor() },
 
 		{ ID::mmod_0_src, Init_Bounds_For::mmod_ctrl_src(0) },
 		{ ID::mmod_0_amt, Init_Bounds_For::mmod_ctrl_amt(0) },

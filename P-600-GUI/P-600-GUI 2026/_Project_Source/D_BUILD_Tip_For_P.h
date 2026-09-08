@@ -18,8 +18,6 @@ namespace BUILD
 		static String exp_osc_pulse(const String osc_letter);
 		static String exp_osc_saw(const String osc_letter);
 		static String exp_osc_tri(const String osc_letter);
-
-		static String knob_txt_editor(const String& slider_label_name);
 	};
 
 }

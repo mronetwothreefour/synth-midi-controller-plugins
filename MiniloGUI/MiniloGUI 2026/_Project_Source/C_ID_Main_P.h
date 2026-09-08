@@ -73,10 +73,6 @@ namespace ID
 	static const String exp_vca_env_sustain{ "exp_vca_env_sustain" };
 	static const String exp_voice_mode_depth{ "exp_voice_mode_depth" };
 
-	static const String tree_aux_voice{ "tree_aux_voice" };
-	
-	static const String xml_state_aux_voice{ "xml_state_aux_voice" };
-
 	static const StringArray aux_voice_params{
 		avp_amp_mod_by_velo_amt,
 		avp_fine_tune,

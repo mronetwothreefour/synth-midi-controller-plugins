@@ -5,11 +5,12 @@ C_GET_P
 C_ID_Main_P
 C_MAP_Choices_P
 C_MAP_Ctrl_Name_P
+C_MAP_Edit_Allowed_Chars_P
+C_MAP_Edit_Char_Limit_P
 C_MAP_Exp_Name_P
 C_MAP_Init_Bounds_P
 C_MAP_Init_Choice_P
 C_MAP_Label_Name_P
-C_MAP_Name_P
 C_MAP_Tip_P
 C_MISC_P
 C_NAME_P

@@ -3,6 +3,32 @@
 namespace SL
 {
 
+	constexpr auto knob_txt_edit_amp_mod_tip = u8R"(
+Type in a new setting.
+Range: 0 to 127.)";
+
+	constexpr auto knob_txt_edit_fine_tune_tip = u8R"(
+Type in a new setting.
+Range: -50 to 50.)";
+
+	constexpr auto knob_txt_edit_flex_sli_bend_tip = u8R"(
+Type in a new maximum
+_tive pitch bend.
+Range: -50 to 50.)";
+
+	constexpr auto knob_txt_edit_flex_sli_range_tip = u8R"(
+Type in a new range.
+Range: -100 to 100.)";
+
+	constexpr auto knob_txt_edit_level_tip = u8R"(
+Type in a new level.
+Range: -25 to 25.)";
+
+	constexpr auto knob_txt_edit_porta_time_tip = u8R"(
+Type in a new setting.
+Range: 0 (or ‘off’),
+1 to 127.)";
+
 	constexpr auto knob_txt_edit_lfo_synced_tip = u8R"(
 Select a new BPM-synced LFO rate
 (number of cycles : number of beats).
@@ -16,7 +42,7 @@ Type in a new
 unsynced LFO rate.
 Range: 0 to 1023.)";
 
-	constexpr auto knob_txt_lpf_eg_int_tip = u8R"(
+	constexpr auto knob_txt_edit_lpf_eg_int_tip = u8R"(
 Type in a new intensity.
 Range: -100 to 100.)";
 
@@ -27,6 +53,15 @@ Range: -4800 to 4800.)";
 	constexpr auto knob_txt_edit_osc_pitch_fine_tip = u8R"(
 Type in a new setting.
 Range: -1200 to 1200.)";
+
+	constexpr auto knob_txt_edit_scale_key_tip = u8R"(
+Type in either a pitch name and octave number
+(e.g. ‘C#1’) or a MIDI note number (e.g. ‘13’).
+Range: C0 (0) to C2 (24).)";
+
+	constexpr auto knob_txt_edit_transpose_tip = u8R"(
+Type in a new setting.
+Range: -12 to 12.)";
 
 	constexpr auto knob_txt_edit_u_10_bit_int_tip = u8R"(
 Type in a new setting.

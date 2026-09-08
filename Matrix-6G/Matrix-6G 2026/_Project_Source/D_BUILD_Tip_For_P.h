@@ -41,8 +41,6 @@ namespace BUILD
 		static String exp_ramp_trig(const int ramp_num);
 
 		static String exp_track_point(const int point_num, int init_choice);
-
-		static String knob_txt_editor(const String& slider_label_name, bool u_7_bit = false);
 	};
 
 }

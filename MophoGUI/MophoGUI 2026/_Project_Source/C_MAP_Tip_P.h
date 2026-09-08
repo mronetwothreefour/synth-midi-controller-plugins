@@ -130,18 +130,6 @@ namespace MAP
 		{ ID::exp_flex_knob_2, Tip_For::exp_flex_knob(2) },
 		{ ID::exp_flex_knob_3, Tip_For::exp_flex_knob(3) },
 		{ ID::exp_flex_knob_4, Tip_For::exp_flex_knob(4) },
-		//exposed unassigned
-		{ ID::exp_unassigned_1, "" },
-		{ ID::exp_unassigned_2, "" },
-		{ ID::exp_unassigned_3, "" },
-		{ ID::exp_unassigned_4, "" },
-		{ ID::exp_unassigned_5, "" },
-		{ ID::exp_unassigned_6, "" },
-		{ ID::exp_unassigned_7, "" },
-		{ ID::exp_unassigned_8, "" },
-		{ ID::exp_unassigned_9, "" },
-		{ ID::exp_unassigned_10, "" },
-		{ ID::exp_unassigned_11, "" },
 		//exposed seq step
 		{ ID::exp_seq_track_1_step_1, Tip_For::exp_seq_track_step(1, 1) },
 		{ ID::exp_seq_track_1_step_2, Tip_For::exp_seq_track_step(1, 2) },

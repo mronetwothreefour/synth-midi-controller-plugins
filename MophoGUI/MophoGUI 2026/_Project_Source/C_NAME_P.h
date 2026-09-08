@@ -5,21 +5,16 @@
 namespace NAME
 {
 
-	static const String lbl_bend_range{ "lbl_bend_range" };
-	static const String lbl_clock_tempo{ "lbl_clock_tempo" };
-	static const String lbl_lfo_freq{ "lbl_lfo_freq" };
-	static const String lbl_lpf_freq{ "lbl_lpf_freq" };
-	static const String lbl_osc_fine{ "lbl_osc_fine" };
-	static const String lbl_osc_shape{ "lbl_osc_shape" };
-	static const String lbl_osc_slop{ "lbl_osc_slop" };
-	static const String lbl_seq_step{ "lbl_seq_step" };
-	static const String lbl_seq_step_trk_1{ "lbl_seq_step_trk_1" };
-	static const String lbl_s_8_bit_int{ "lbl_s_8_bit_int" };
-	static const String lbl_u_7_bit_int{ "lbl_u_7_bit_int" };
 	static const String lbl_voice_name_char{ "lbl_voice_name_char" };
-	static const String knob_osc_shape{ "knob_osc_shape" };
-	static const String seq_step{ "seq_step" };
-	static const String seq_step_trk_1{ "seq_step_trk_1" };
-	static const String voice_name_char{ "voice_name_char" };
+	static const String sli_voice_name_char{ "sli_voice_name_char" };
+	static const String sli_seq_step{ "sli_seq_step" };
+	static const String sli_seq_step_trk_1{ "sli_seq_step_trk_1" };
+	static const String toggle_arpeg_on_off{ "toggle_arpeg_on_off" };
+	static const String toggle_env_3_repeat{ "toggle_env_3_repeat" };
+	static const String toggle_lfo_key_sync{ "toggle_lfo_key_sync" };
+	static const String toggle_lpf_type{ "toggle_lpf_type" };
+	static const String toggle_osc_sync{ "toggle_osc_sync" };
+	static const String toggle_osc_key_track{ "toggle_osc_key_track" };
+	static const String toggle_seq_on_off{ "toggle_seq_on_off" };
 
 }

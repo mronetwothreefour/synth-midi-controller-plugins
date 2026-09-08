@@ -1,8 +1,8 @@
 #include "D_X_G_Audio_Processor_A.h"
 
 Audio_Processor_A::Audio_Processor_A() :
-    AudioProcessor{ BusesProperties{} },
-    hub{ new Data_Hub{ this } }
+    AudioProcessor{ BusesProperties{} }/*,
+    hub{ new Data_Hub{ this } }*/
 {}
 
 const String Audio_Processor_A::getName() const { return JucePlugin_Name; }
@@ -68,5 +68,5 @@ void Audio_Processor_A::setStateInformation(const void* /*stored_param_data*/, i
 }
 
 Audio_Processor_A::~Audio_Processor_A() {
-    hub = nullptr;
+    //hub = nullptr;
 }

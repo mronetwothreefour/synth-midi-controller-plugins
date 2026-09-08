@@ -118,32 +118,3 @@ String Tip_For::exp_seq_track_step(const int track, int step) {
 String Tip_For::exp_voice_name_char(const int c) {
     return from_string_literal(SL::voice_name_char_tip).replace("_", (String)c);
 }
-
-String BUILD::Tip_For::knob_text_editor(const String& name) {
-    if (name == NAME::lbl_bend_range)
-        return from_string_literal(SL::knob_txt_edit_bend_range_tip);
-    if (name == NAME::lbl_clock_tempo)
-        return from_string_literal(SL::knob_txt_edit_clock_tempo_tip);
-    if (name == NAME::lbl_lfo_freq)
-        return from_string_literal(SL::knob_txt_edit_lfo_freq_tip);
-    if (name == NAME::lbl_lpf_freq)
-        return from_string_literal(SL::knob_txt_edit_lpf_freq_tip);
-    if (name == NAME::lbl_osc_fine)
-        return from_string_literal(SL::knob_txt_edit_osc_fine_tip);
-    if (name == NAME::lbl_osc_pitch)
-        return from_string_literal(SL::knob_txt_edit_osc_pitch_tip);
-    if (name == NAME::lbl_osc_shape)
-        return from_string_literal(SL::knob_txt_edit_osc_shape_tip);
-    if (name == NAME::lbl_osc_slop)
-        return from_string_literal(SL::knob_txt_edit_osc_slop_tip);
-    if (name == NAME::lbl_seq_step)
-        return from_string_literal(SL::knob_txt_edit_seq_step_tip);
-    if (name == NAME::lbl_seq_step_trk_1)
-        return from_string_literal(SL::knob_txt_edit_seq_step_tip) + "\n" +
-            from_string_literal(SL::knob_txt_edit_seq_step_track_1_tip);
-    if (name == NAME::lbl_s_8_bit_int)
-        return from_string_literal(SL::knob_txt_edit_s_8_bit_int_tip);
-    if (name == NAME::lbl_u_7_bit_int)
-        return from_string_literal(SL::knob_txt_edit_u_7_bit_int_tip);
-    return {};
-}

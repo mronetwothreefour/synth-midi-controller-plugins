@@ -1,6 +1,5 @@
 #pragma once
 
-#include "C_ID_A.h"
 #include "C_ID_Main_P.h"
 #include "C_NAME_P.h"
 #include "D_BUILD_Init_Bounds_For_P.h"
@@ -212,7 +211,7 @@ namespace MAP
 		{ ID::exp_voice_name_char_15, Init_Bounds_For::exp_ctrl_voice_name_char(14) },
 		{ ID::exp_voice_name_char_16, Init_Bounds_For::exp_ctrl_voice_name_char(15) },
 
-		{ ID::gui_editor, Init_Bounds_For::gui_editor() },
+		{ NAME::gui_editor, Init_Bounds_For::gui_editor() },
 
 		{ NAME::toggle_arpeg_on_off, Init_Bounds_For::toggle_arpeg_on_off() },
 		{ NAME::toggle_env_3_repeat, Init_Bounds_For::toggle_env_3_repeat() },
