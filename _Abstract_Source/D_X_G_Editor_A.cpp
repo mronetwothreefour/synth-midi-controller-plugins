@@ -1,6 +1,6 @@
 #include "D_X_G_Editor_A.h"
 
-//#include "C_GET_P.h"
+#include "C_GET_P.h"
 #include "C_MISC_P.h"
 #include "C_NAME_P.h"
 //#include "G_DRAW_Paths_Main_P.h"
@@ -22,7 +22,7 @@ Editor_A::Editor_A(Audio_Processor& processor/*, Data_Hub* hub*/) :
     setWantsKeyboardFocus(true);
     //app_options.add_listener(this);
     setResizable(true, true);
-    setSize(/*GET::init_w_for(gui_editor), GET::init_h_for(gui_editor)*/1252, 596);
+    setSize(GET::init_w_for(gui_editor), GET::init_h_for(gui_editor));
     getConstrainer()->setFixedAspectRatio(editor_aspect_ratio);
     Timer::callAfterDelay(50, [this] { grabKeyboardFocus(); });
 }

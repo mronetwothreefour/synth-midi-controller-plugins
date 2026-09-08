@@ -145,12 +145,14 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\C_GET_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Init_Bounds_For_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_For_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Font_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Init_Bounds_For_P.cpp"/>
@@ -3155,6 +3157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_COLOR_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\C_GET_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_MISC_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_NAME_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_SL_Tip_Widget_A.h"/>
@@ -3166,6 +3169,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.h"/>
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_FONT_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_GET_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_ID_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Byte_Index_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h"/>

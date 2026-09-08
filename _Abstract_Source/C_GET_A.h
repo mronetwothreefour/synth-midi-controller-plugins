@@ -12,6 +12,8 @@ struct GET_A
 
 	static const StringArray choices_for(const String& id, const bool curt = false);
 	static const String ctrl_name_for(const String& id);
+	static const String edit_allowed_chars_for(const String& id);
+	static const int edit_char_limit_for(const String& id);
 	static const String exp_name_for(const String& id);
 	static const int init_choice_for(const String& id);
 	static const String label_name_for(const String& id);

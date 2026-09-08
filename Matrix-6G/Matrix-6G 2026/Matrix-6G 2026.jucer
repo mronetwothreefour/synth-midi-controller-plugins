@@ -11,6 +11,8 @@
   <MAINGROUP id="ijhAFi" name="Matrix-6G 2026">
     <GROUP id="{54D73992-EB15-EBD3-71EE-111D1AA76D60}" name="_Abstract_Source">
       <FILE id="G4aGYK" name="C_COLOR_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_COLOR_A.h"/>
+      <FILE id="JZ8Ztg" name="C_GET_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/C_GET_A.cpp"/>
+      <FILE id="aMNKfH" name="C_GET_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_GET_A.h"/>
       <FILE id="Ehwa6I" name="C_MISC_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_MISC_A.h"/>
       <FILE id="xEjDSt" name="C_NAME_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_NAME_A.h"/>
       <FILE id="od49vf" name="C_SL_Tip_Widget_A.h" compile="0" resource="0"
@@ -45,6 +47,8 @@
       </GROUP>
       <FILE id="FPDXio" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
       <FILE id="vbzMrC" name="C_FONT_P.h" compile="0" resource="0" file="_Project_Source/C_FONT_P.h"/>
+      <FILE id="ALxc57" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
+      <FILE id="JvnKCP" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
       <FILE id="cLX831" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>
       <FILE id="wnWP0g" name="C_MAP_Byte_Index_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Byte_Index_P.h"/>

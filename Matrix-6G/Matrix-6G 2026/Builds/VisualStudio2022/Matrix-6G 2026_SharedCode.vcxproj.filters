@@ -847,6 +847,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\C_GET_A.cpp">
+      <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_A.cpp">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClCompile>
@@ -864,6 +867,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.cpp">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_For_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
@@ -4089,6 +4095,9 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_COLOR_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\C_GET_A.h">
+      <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_MISC_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClInclude>
@@ -4120,6 +4129,9 @@
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_FONT_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_GET_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_ID_Main_P.h">

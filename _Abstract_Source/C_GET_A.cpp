@@ -1,9 +1,11 @@
 #include "C_GET_A.h"
 
-#include "C_MAP_Init_Bounds_P.h"
 #include "C_MAP_Choices_P.h"
 #include "C_MAP_Ctrl_Name_P.h"
+#include "C_MAP_Edit_Allowed_Chars_P.h"
+#include "C_MAP_Edit_Char_Limit_P.h"
 #include "C_MAP_Exp_Name_P.h"
+#include "C_MAP_Init_Bounds_P.h"
 #include "C_MAP_Init_Choice_P.h"
 #include "C_MAP_Label_Name_P.h"
 #include "C_MAP_Tip_P.h"
@@ -47,6 +49,18 @@ const StringArray GET_A::choices_for(const String& id, const bool curt) {
 const String GET_A::ctrl_name_for(const String& id) {
 	if (MAP::ctrl_name.find(id) != MAP::ctrl_name.end())
 		return MAP::ctrl_name.at(id);
+	return {};
+}
+
+const String GET_A::edit_allowed_chars_for(const String& id) {
+	if (MAP::edit_allowed_chars.find(id) != MAP::edit_allowed_chars.end())
+		return MAP::edit_allowed_chars.at(id);
+	return {};
+}
+
+const int GET_A::edit_char_limit_for(const String& id) {
+	if (MAP::edit_char_limit.find(id) != MAP::edit_char_limit.end())
+		return MAP::edit_char_limit.at(id);
 	return {};
 }
 
