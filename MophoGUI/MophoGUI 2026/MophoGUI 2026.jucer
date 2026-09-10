@@ -11,24 +11,22 @@
   <MAINGROUP id="zGS4Ui" name="MophoGUI 2026">
     <GROUP id="{0525C884-1975-8794-69CF-2CDC44691FAD}" name="_Abstract_Source">
       <FILE id="h31TvD" name="C_COLOR_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_COLOR_A.h"/>
+      <FILE id="uq0MDA" name="C_GET_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/C_GET_A.cpp"/>
+      <FILE id="CCXZFb" name="C_GET_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_GET_A.h"/>
       <FILE id="uDPk9u" name="C_MISC_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_MISC_A.h"/>
       <FILE id="TNUQEu" name="C_NAME_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_NAME_A.h"/>
-      <FILE id="xB0wNI" name="C_SL_Tip_Widget_A.h" compile="0" resource="0"
+      <FILE id="ShoKql" name="C_SL_Tip_Widget_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/C_SL_Tip_Widget_A.h"/>
-      <FILE id="kTVPbJ" name="D_BUILD_Choices_For_A.cpp" compile="1" resource="0"
-            file="../../_Abstract_Source/D_BUILD_Choices_For_A.cpp"/>
-      <FILE id="e453aZ" name="D_BUILD_Choices_For_A.h" compile="0" resource="0"
-            file="../../_Abstract_Source/D_BUILD_Choices_For_A.h"/>
-      <FILE id="p8qUn0" name="D_BUILD_Init_Bounds_For_A.cpp" compile="1"
-            resource="0" file="../../_Abstract_Source/D_BUILD_Init_Bounds_For_A.cpp"/>
-      <FILE id="h4k7TP" name="D_BUILD_Init_Bounds_For_A.h" compile="0" resource="0"
-            file="../../_Abstract_Source/D_BUILD_Init_Bounds_For_A.h"/>
-      <FILE id="dkOZok" name="D_BUILD_Tip_For_A.cpp" compile="1" resource="0"
-            file="../../_Abstract_Source/D_BUILD_Tip_For_A.cpp"/>
-      <FILE id="WWx7iz" name="D_BUILD_Tip_For_A.h" compile="0" resource="0"
-            file="../../_Abstract_Source/D_BUILD_Tip_For_A.h"/>
-      <FILE id="VpME3R" name="D_CONVERT_A.h" compile="0" resource="0" file="../../_Abstract_Source/D_CONVERT_A.h"/>
-      <FILE id="TZsm41" name="D_CONVERT_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/D_CONVERT_A.cpp"/>
+      <FILE id="jwWxta" name="D_CONVERT_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/D_CONVERT_A.cpp"/>
+      <FILE id="bA4lSV" name="D_CONVERT_A.h" compile="0" resource="0" file="../../_Abstract_Source/D_CONVERT_A.h"/>
+      <FILE id="uZtFqe" name="D_X_G_Audio_Processor_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_X_G_Audio_Processor_A.cpp"/>
+      <FILE id="o57CQb" name="D_X_G_Audio_Processor_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_X_G_Audio_Processor_A.h"/>
+      <FILE id="ILx3iN" name="D_X_G_Editor_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_X_G_Editor_A.cpp"/>
+      <FILE id="rwXwoB" name="D_X_G_Editor_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_X_G_Editor_A.h"/>
     </GROUP>
     <GROUP id="{254E4686-BC92-207B-DE29-DE75CD919E28}" name="_Project_Source">
       <GROUP id="{A9F1A5B1-7BC0-A3B4-C605-CBCC7D8F6050}" name="binaries">
@@ -39,50 +37,30 @@
       </GROUP>
       <FILE id="WNC2br" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
       <FILE id="ViRDGx" name="C_FONT_P.h" compile="0" resource="0" file="_Project_Source/C_FONT_P.h"/>
-      <FILE id="R3RPGB" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>
-      <FILE id="Ms4NcO" name="C_MAP_Choices_P.h" compile="0" resource="0"
-            file="_Project_Source/C_MAP_Choices_P.h"/>
-      <FILE id="QbR7Gf" name="C_MAP_Ctrl_Name_P.h" compile="0" resource="0"
-            file="_Project_Source/C_MAP_Ctrl_Name_P.h"/>
-      <FILE id="WIQfIk" name="C_MAP_Exp_Name_P.h" compile="0" resource="0"
-            file="_Project_Source/C_MAP_Exp_Name_P.h"/>
-      <FILE id="SISSuN" name="C_MAP_Init_Bounds_P.h" compile="0" resource="0"
+      <FILE id="WFTtyK" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
+      <FILE id="DsVtXc" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
+      <FILE id="pAfM5S" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>
+      <FILE id="BQSO0r" name="C_MAP_Init_Bounds_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Init_Bounds_P.h"/>
-      <FILE id="GNJCvR" name="C_MAP_Init_Choice_P.h" compile="0" resource="0"
-            file="_Project_Source/C_MAP_Init_Choice_P.h"/>
-      <FILE id="lICHG3" name="C_MAP_Label_Name_P.h" compile="0" resource="0"
-            file="_Project_Source/C_MAP_Label_Name_P.h"/>
-      <FILE id="stUhGO" name="C_MAP_NRPN_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_NRPN_P.h"/>
-      <FILE id="Y5NSiD" name="C_MAP_Tip_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Tip_P.h"/>
-      <FILE id="Lvk3PM" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
+      <FILE id="OODQiu" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
       <FILE id="hgXOO1" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
-      <FILE id="cnoGwd" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
+      <FILE id="fIraDe" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
             file="_Project_Source/C_PATH_Backdrop_Main_P.h"/>
-      <FILE id="iSZtEr" name="C_PATH_Widgets_P.h" compile="0" resource="0"
+      <FILE id="b7l0iY" name="C_PATH_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/C_PATH_Widgets_P.h"/>
-      <FILE id="r9FALb" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
+      <FILE id="KS5Ghy" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Exposed_P.h"/>
-      <FILE id="m0qvge" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
+      <FILE id="SpntUd" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Widget_P.h"/>
-      <FILE id="wbfAxD" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
-      <FILE id="fPPzfc" name="D_BUILD_Choices_For_P.cpp" compile="1" resource="0"
-            file="_Project_Source/D_BUILD_Choices_For_P.cpp"/>
-      <FILE id="zj9UW8" name="D_BUILD_Choices_For_P.h" compile="0" resource="0"
-            file="_Project_Source/D_BUILD_Choices_For_P.h"/>
-      <FILE id="wD9pho" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
-            file="_Project_Source/D_BUILD_Font_For_P.cpp"/>
-      <FILE id="wA7fpl" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
-            file="_Project_Source/D_BUILD_Font_For_P.h"/>
-      <FILE id="W4WqFL" name="D_BUILD_Init_Bounds_For_P.cpp" compile="1"
-            resource="0" file="_Project_Source/D_BUILD_Init_Bounds_For_P.cpp"/>
-      <FILE id="I8fKnN" name="D_BUILD_Init_Bounds_For_P.h" compile="0" resource="0"
-            file="_Project_Source/D_BUILD_Init_Bounds_For_P.h"/>
-      <FILE id="Jilpew" name="D_BUILD_Tip_For_P.cpp" compile="1" resource="0"
-            file="_Project_Source/D_BUILD_Tip_For_P.cpp"/>
-      <FILE id="LdkOzM" name="D_BUILD_Tip_For_P.h" compile="0" resource="0"
-            file="_Project_Source/D_BUILD_Tip_For_P.h"/>
-      <FILE id="U8KXSa" name="D_CONVERT_P.cpp" compile="1" resource="0" file="_Project_Source/D_CONVERT_P.cpp"/>
-      <FILE id="cLyVZm" name="D_CONVERT_P.h" compile="0" resource="0" file="_Project_Source/D_CONVERT_P.h"/>
+      <FILE id="idBAOB" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
+      <FILE id="zlBaws" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_X_G_Audio_Processor_P.cpp"/>
+      <FILE id="foYSS1" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"
+            file="_Project_Source/D_X_G_Audio_Processor_P.h"/>
+      <FILE id="RELrQJ" name="D_X_G_Editor_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_X_G_Editor_P.cpp"/>
+      <FILE id="UZFvA2" name="D_X_G_Editor_P.h" compile="0" resource="0"
+            file="_Project_Source/D_X_G_Editor_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

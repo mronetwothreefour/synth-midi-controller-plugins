@@ -850,15 +850,6 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\C_GET_A.cpp">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_A.cpp">
-      <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Init_Bounds_For_A.cpp">
-      <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_For_A.cpp">
-      <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.cpp">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClCompile>
@@ -869,21 +860,6 @@
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_For_P.cpp">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\_Project_Source\D_BUILD_Font_For_P.cpp">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\_Project_Source\D_BUILD_Init_Bounds_For_P.cpp">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\_Project_Source\D_BUILD_Tip_For_P.cpp">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\_Project_Source\D_CONVERT_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.cpp">
@@ -4107,15 +4083,6 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_SL_Tip_Widget_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_A.h">
-      <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Init_Bounds_For_A.h">
-      <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_For_A.h">
-      <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClInclude>
@@ -4137,37 +4104,7 @@
     <ClInclude Include="..\..\_Project_Source\C_ID_Main_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Byte_Index_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Name_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Edit_Allowed_Chars_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Edit_Char_Limit_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Exp_Name_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Bounds_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Choice_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Label_Name_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Quick_Num_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Tip_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MISC_P.h">
@@ -4189,21 +4126,6 @@
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_For_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\D_BUILD_Font_For_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\D_BUILD_Init_Bounds_For_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\D_BUILD_Tip_For_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\D_CONVERT_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.h">

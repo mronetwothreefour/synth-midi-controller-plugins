@@ -13,22 +13,10 @@
       <FILE id="yfhtmJ" name="C_COLOR_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_COLOR_A.h"/>
       <FILE id="RZKUrh" name="C_MISC_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_MISC_A.h"/>
       <FILE id="mEJyMp" name="C_NAME_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_NAME_A.h"/>
-      <FILE id="ew7diF" name="C_SL_Tip_Widget_A.h" compile="0" resource="0"
+      <FILE id="OpSokD" name="C_SL_Tip_Widget_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/C_SL_Tip_Widget_A.h"/>
-      <FILE id="uAdzhO" name="D_BUILD_Choices_For_A.cpp" compile="1" resource="0"
-            file="../../_Abstract_Source/D_BUILD_Choices_For_A.cpp"/>
-      <FILE id="IBCnbA" name="D_BUILD_Choices_For_A.h" compile="0" resource="0"
-            file="../../_Abstract_Source/D_BUILD_Choices_For_A.h"/>
-      <FILE id="HFxDv5" name="D_BUILD_Init_Bounds_For_A.cpp" compile="1"
-            resource="0" file="../../_Abstract_Source/D_BUILD_Init_Bounds_For_A.cpp"/>
-      <FILE id="bsJjU7" name="D_BUILD_Init_Bounds_For_A.h" compile="0" resource="0"
-            file="../../_Abstract_Source/D_BUILD_Init_Bounds_For_A.h"/>
-      <FILE id="mS5cH1" name="D_BUILD_Tip_For_A.cpp" compile="1" resource="0"
-            file="../../_Abstract_Source/D_BUILD_Tip_For_A.cpp"/>
-      <FILE id="bDtErn" name="D_BUILD_Tip_For_A.h" compile="0" resource="0"
-            file="../../_Abstract_Source/D_BUILD_Tip_For_A.h"/>
-      <FILE id="NqOB6l" name="D_CONVERT_A.h" compile="0" resource="0" file="../../_Abstract_Source/D_CONVERT_A.h"/>
-      <FILE id="JSAcd5" name="D_CONVERT_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/D_CONVERT_A.cpp"/>
+      <FILE id="yZXpjg" name="D_CONVERT_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/D_CONVERT_A.cpp"/>
+      <FILE id="i6t1Nh" name="D_CONVERT_A.h" compile="0" resource="0" file="../../_Abstract_Source/D_CONVERT_A.h"/>
     </GROUP>
     <GROUP id="{2B6FF762-7DA6-E418-FBFF-644113FC53B6}" name="_Project_Source">
       <GROUP id="{B67082E3-4C7A-5DC5-7E05-9557F9987F02}" name="binaries">
@@ -38,51 +26,17 @@
       </GROUP>
       <FILE id="R9mJ5R" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
       <FILE id="hGXEvT" name="C_FONT_P.h" compile="0" resource="0" file="_Project_Source/C_FONT_P.h"/>
-      <FILE id="NI5Vtu" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>
-      <FILE id="tJRKV7" name="C_MAP_Choices_P.h" compile="0" resource="0"
-            file="_Project_Source/C_MAP_Choices_P.h"/>
-      <FILE id="LcX2Jb" name="C_MAP_Ctrl_Name_P.h" compile="0" resource="0"
-            file="_Project_Source/C_MAP_Ctrl_Name_P.h"/>
-      <FILE id="Go2jYM" name="C_MAP_Data_Location_P.h" compile="0" resource="0"
-            file="_Project_Source/C_MAP_Data_Location_P.h"/>
-      <FILE id="PRTKCE" name="C_MAP_Exp_Name_P.h" compile="0" resource="0"
-            file="_Project_Source/C_MAP_Exp_Name_P.h"/>
-      <FILE id="iseUJh" name="C_MAP_Init_Bounds_P.h" compile="0" resource="0"
-            file="_Project_Source/C_MAP_Init_Bounds_P.h"/>
-      <FILE id="hCjK23" name="C_MAP_Init_Choice_P.h" compile="0" resource="0"
-            file="_Project_Source/C_MAP_Init_Choice_P.h"/>
-      <FILE id="J6te2M" name="C_MAP_Label_Name_P.h" compile="0" resource="0"
-            file="_Project_Source/C_MAP_Label_Name_P.h"/>
-      <FILE id="scIDqh" name="C_MAP_Tip_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_Tip_P.h"/>
-      <FILE id="i0lNZF" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
+      <FILE id="PbYTP8" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>
+      <FILE id="iC46pk" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
       <FILE id="JdCso1" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
-      <FILE id="HU7EbN" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
+      <FILE id="B7aaV8" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
             file="_Project_Source/C_PATH_Backdrop_Main_P.h"/>
-      <FILE id="UX1rpC" name="C_PATH_Widgets_P.h" compile="0" resource="0"
+      <FILE id="osT4uc" name="C_PATH_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/C_PATH_Widgets_P.h"/>
-      <FILE id="pqzm2i" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
+      <FILE id="f3ubbj" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Exposed_P.h"/>
-      <FILE id="qcTxMl" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
+      <FILE id="DEhTf2" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Widget_P.h"/>
-      <FILE id="fNWVvd" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
-      <FILE id="TTP7Jt" name="D_BUILD_Choices_For_P.cpp" compile="1" resource="0"
-            file="_Project_Source/D_BUILD_Choices_For_P.cpp"/>
-      <FILE id="fHDj9y" name="D_BUILD_Choices_For_P.h" compile="0" resource="0"
-            file="_Project_Source/D_BUILD_Choices_For_P.h"/>
-      <FILE id="F4naiu" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
-            file="_Project_Source/D_BUILD_Font_For_P.cpp"/>
-      <FILE id="Whcyww" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
-            file="_Project_Source/D_BUILD_Font_For_P.h"/>
-      <FILE id="yxYe39" name="D_BUILD_Init_Bounds_For_P.cpp" compile="1"
-            resource="0" file="_Project_Source/D_BUILD_Init_Bounds_For_P.cpp"/>
-      <FILE id="mmCYZu" name="D_BUILD_Init_Bounds_For_P.h" compile="0" resource="0"
-            file="_Project_Source/D_BUILD_Init_Bounds_For_P.h"/>
-      <FILE id="TLxecg" name="D_BUILD_Tip_For_P.cpp" compile="1" resource="0"
-            file="_Project_Source/D_BUILD_Tip_For_P.cpp"/>
-      <FILE id="YsYfth" name="D_BUILD_Tip_For_P.h" compile="0" resource="0"
-            file="_Project_Source/D_BUILD_Tip_For_P.h"/>
-      <FILE id="Slv7fc" name="D_CONVERT_P.cpp" compile="1" resource="0" file="_Project_Source/D_CONVERT_P.cpp"/>
-      <FILE id="C9xTnR" name="D_CONVERT_P.h" compile="0" resource="0" file="_Project_Source/D_CONVERT_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

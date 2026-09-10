@@ -3,7 +3,7 @@
 namespace ENUM
 {
 
-	enum class Flex_Slider_Target {
+	enum class Flex_Sli_Target {
 		pitch_bend = 0,
 		gate_time,
 		osc_1_pitch,
@@ -35,7 +35,7 @@ namespace ENUM
 		voice_mode_depth
 	};
 
-	enum class Microtune_Scale {
+	enum class Micro_Scale {
 		equal_temp = 0,
 		pure_major,
 		pure_minor,

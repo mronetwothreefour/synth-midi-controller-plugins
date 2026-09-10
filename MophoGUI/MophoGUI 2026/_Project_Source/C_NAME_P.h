@@ -5,16 +5,16 @@
 namespace NAME
 {
 
-	static const String lbl_voice_name_char{ "lbl_voice_name_char" };
-	static const String sli_voice_name_char{ "sli_voice_name_char" };
-	static const String sli_seq_step{ "sli_seq_step" };
-	static const String sli_seq_step_trk_1{ "sli_seq_step_trk_1" };
-	static const String toggle_arpeg_on_off{ "toggle_arpeg_on_off" };
-	static const String toggle_env_3_repeat{ "toggle_env_3_repeat" };
-	static const String toggle_lfo_key_sync{ "toggle_lfo_key_sync" };
-	static const String toggle_lpf_type{ "toggle_lpf_type" };
-	static const String toggle_osc_sync{ "toggle_osc_sync" };
-	static const String toggle_osc_key_track{ "toggle_osc_key_track" };
-	static const String toggle_seq_on_off{ "toggle_seq_on_off" };
+	static const String ctr_sli_name_char{ "ctr_sli_name_char" };
+	static const String ctr_sli_step{ "ctr_sli_step" };
+	static const String ctr_sli_step_t_1{ "ctr_sli_step_t_1" };
+	static const String ctrl_tgl_arpeg{ "ctrl_tgl_arpeg" };
+	static const String ctrl_tgl_env_3{ "ctrl_tgl_env_3" };
+	static const String ctrl_tgl_lfo{ "ctrl_tgl_lfo" };
+	static const String ctrl_tgl_lpf{ "ctrl_tgl_lpf" };
+	static const String ctrl_tgl_osc_sync{ "ctrl_tgl_osc_sync" };
+	static const String ctrl_tgl_osc_trk{ "ctrl_tgl_osc_trk" };
+	static const String ctrl_tgl_seq{ "ctrl_tgl_seq" };
+	static const String lbl_name_char{ "lbl_name_char" };
 
 }

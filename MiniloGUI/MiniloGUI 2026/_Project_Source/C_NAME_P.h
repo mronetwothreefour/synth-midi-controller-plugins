@@ -5,10 +5,11 @@
 namespace NAME
 {
 
-	static const String sli_switch_keyboard_octave{ "sli_switch_keyboard_octave" };
-	static const String sli_switch_lpf_type{ "sli_switch_lpf_type" };
-	static const String sli_switch_osc_octave{ "sli_switch_osc_octave" };
-	static const String state_tree_aux_voice{ "state_tree_aux_voice" };
-	static const String state_xml_aux_voice{ "state_xml_aux_voice" };
+	static const String ctr_sli_sw_key_octv{ "ctr_sli_sw_key_octv" };
+	static const String ctr_sli_sw_lpf{ "ctr_sli_sw_lpf" };
+	static const String ctr_sli_sw_osc_octv{ "ctr_sli_sw_osc_octv" };
+
+	static const String state_tree_avp{ "state_tree_avp" };
+	static const String state_xml_avp{ "state_xml_avp" };
 
 }

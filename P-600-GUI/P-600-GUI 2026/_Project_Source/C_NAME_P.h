@@ -5,6 +5,6 @@
 namespace NAME
 {
 
-		static const String sli_led_voice_num{ "sli_led_voice_num" };
+		static const String ctr_sli_led_num{ "ctr_sli_led_num" };
 
 }
