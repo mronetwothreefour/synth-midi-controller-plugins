@@ -1,13 +1,11 @@
 #pragma once
 
-#include <JuceHeader.h>
-
 namespace COLOR
 {
 
-	const Colour black{ 0xff000000 };
-	const Colour popup_ground{ 0xff18181a };
-	const Colour text{ 0xffffffff };
-	const Colour white{ 0xffffffff };
+	constexpr auto black = 0xff000000;
+	constexpr auto popup_ground = 0xff18181a;
+	constexpr auto text = 0xffffffff;
+	constexpr auto white = 0xffffffff;
 
 }

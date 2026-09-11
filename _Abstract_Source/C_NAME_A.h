@@ -1,25 +1,23 @@
 #pragma once
 
-#include <JuceHeader.h>
-
 namespace NAME
 {
 
-	static const String ctr_cbx{ "ctr_cbx" };
-	static const String ctr_sli_knb{ "ctr_sli_knb" };
-	static const String ctr_sli_sw_2{ "ctr_sli_sw_2" };
-	static const String ctr_sli_sw_3{ "ctr_sli_sw_3" };
-	static const String ctr_tgl{ "ctr_tgl" };
+	constexpr auto ctr_cbx{ "ctr_cbx" };
+	constexpr auto ctr_sli_knb{ "ctr_sli_knb" };
+	constexpr auto ctr_sli_sw_2{ "ctr_sli_sw_2" };
+	constexpr auto ctr_sli_sw_3{ "ctr_sli_sw_3" };
+	constexpr auto ctr_tgl{ "ctr_tgl" };
 
-	static const String lbl_cbx{ "lbl_cbx" };
-	static const String lbl_brws{ "lbl_brws" };
-	static const String lbl_knb{ "lbl_knb" };
+	constexpr auto lbl_cbx{ "lbl_cbx" };
+	constexpr auto lbl_brws{ "lbl_brws" };
+	constexpr auto lbl_knb{ "lbl_knb" };
 
-	static const String gui_editor{ "gui_editor" };
+	constexpr auto gui_editor{ "gui_editor" };
 
-	static const String state_tree_exp{ "state_tree_exp" };
-	static const String state_xml_exp{ "state_xml_exp" };
+	constexpr auto state_tree_exp{ "state_tree_exp" };
+	constexpr auto state_xml_exp{ "state_xml_exp" };
 
-	static const String txt_edit_filled{ "txt_edit_filled" };
+	constexpr auto txt_edit_filled{ "txt_edit_filled" };
 
 }

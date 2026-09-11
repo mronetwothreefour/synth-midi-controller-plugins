@@ -26,7 +26,11 @@
       </GROUP>
       <FILE id="R9mJ5R" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
       <FILE id="hGXEvT" name="C_FONT_P.h" compile="0" resource="0" file="_Project_Source/C_FONT_P.h"/>
+      <FILE id="es9SEA" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
+      <FILE id="rtVuGq" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
       <FILE id="PbYTP8" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>
+      <FILE id="Ijy0iV" name="C_MAP_Init_Bounds_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Init_Bounds_P.h"/>
       <FILE id="iC46pk" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
       <FILE id="JdCso1" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
       <FILE id="B7aaV8" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
@@ -37,6 +41,15 @@
             file="_Project_Source/C_SL_Tip_Exposed_P.h"/>
       <FILE id="DEhTf2" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Widget_P.h"/>
+      <FILE id="BOAtpk" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
+      <FILE id="Cf3uF6" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_X_G_Audio_Processor_P.cpp"/>
+      <FILE id="zEJiOp" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"
+            file="_Project_Source/D_X_G_Audio_Processor_P.h"/>
+      <FILE id="JL8Eu6" name="D_X_G_Editor_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_X_G_Editor_P.cpp"/>
+      <FILE id="vYKRcE" name="D_X_G_Editor_P.h" compile="0" resource="0"
+            file="_Project_Source/D_X_G_Editor_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

@@ -2,14 +2,14 @@
 
 #include "C_ID_Main_P.h"
 #include "C_NAME_P.h"
-#include "D_BUILD_Init_Bounds_For_P.h"
+#include "C_XYWH_P.h"
 
-using namespace BUILD;
+using namespace XYWH;
 
 namespace MAP
 {
 
-	static const std::unordered_map<String, Rectangle<int>> init_bounds{
+	static const std::unordered_map<String, Array<int>> init_bounds{
 		{ ID::exp_unison_track, Init_Bounds_For::exp_ctrl_unison_track() },
 		{ ID::exp_osc_a_pitch, Init_Bounds_For::exp_ctrl_osc_pitch(true) },
 		{ ID::exp_osc_a_sync, Init_Bounds_For::exp_ctrl_osc_a_sync() },

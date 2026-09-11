@@ -146,6 +146,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Editor_P.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -3149,13 +3152,18 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.h"/>
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_FONT_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_GET_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_ID_Main_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Bounds_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MISC_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_NAME_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_PATH_Backdrop_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_PATH_Widgets_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Exposed_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Widget_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Editor_P.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
