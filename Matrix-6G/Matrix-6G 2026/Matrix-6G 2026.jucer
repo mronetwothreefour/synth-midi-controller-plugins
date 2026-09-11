@@ -17,6 +17,10 @@
       <FILE id="xEjDSt" name="C_NAME_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_NAME_A.h"/>
       <FILE id="DxHwlF" name="C_SL_Tip_Widget_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/C_SL_Tip_Widget_A.h"/>
+      <FILE id="UCScRv" name="D_BUILD_Tip_For_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Tip_For_A.cpp"/>
+      <FILE id="nRi9BF" name="D_BUILD_Tip_For_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Tip_For_A.h"/>
       <FILE id="WBvhOt" name="D_CONVERT_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/D_CONVERT_A.cpp"/>
       <FILE id="ccLzOZ" name="D_CONVERT_A.h" compile="0" resource="0" file="../../_Abstract_Source/D_CONVERT_A.h"/>
       <FILE id="oRQdDO" name="D_X_G_Audio_Processor_A.cpp" compile="1" resource="0"
@@ -44,6 +48,8 @@
       <FILE id="SvXo6I" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>
       <FILE id="kDZztW" name="C_MAP_Init_Bounds_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Init_Bounds_P.h"/>
+      <FILE id="eibdsN" name="C_MAP_Txt_Editor_Traits.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Txt_Editor_Traits.h"/>
       <FILE id="w1bxJh" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
       <FILE id="hjYOlw" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
       <FILE id="AgGiF7" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
@@ -54,6 +60,10 @@
       <FILE id="id8biM" name="C_SL_Tip_Matrix_Mod_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Matrix_Mod_P.h"/>
       <FILE id="AzFTav" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
+      <FILE id="YNSY57" name="D_BUILD_Tip_For_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_BUILD_Tip_For_P.cpp"/>
+      <FILE id="CVcEkO" name="D_BUILD_Tip_For_P.h" compile="0" resource="0"
+            file="_Project_Source/D_BUILD_Tip_For_P.h"/>
       <FILE id="Gn5Sui" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="ZgA4cd" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"
