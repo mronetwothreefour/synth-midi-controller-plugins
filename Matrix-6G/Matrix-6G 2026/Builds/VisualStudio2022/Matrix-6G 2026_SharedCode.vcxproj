@@ -3162,13 +3162,14 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Quick_Num_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_FONT_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_GET_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_ID_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Bounds_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Editor_Traits_P.h"/>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Exp_Name_And_Qnum_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Exp_Name_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MISC_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_NAME_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_PATH_Backdrop_Main_P.h"/>
