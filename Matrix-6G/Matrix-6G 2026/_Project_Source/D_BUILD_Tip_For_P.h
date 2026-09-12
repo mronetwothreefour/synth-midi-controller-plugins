@@ -37,6 +37,7 @@ namespace BUILD
 		static std::string exp_ramp_trig(const unsigned int ramp_num);
 
 		static std::string exp_track_point(const int point_num, int init_choice);
+
 	};
 
 }

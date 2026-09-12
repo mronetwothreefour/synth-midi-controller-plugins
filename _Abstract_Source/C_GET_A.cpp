@@ -2,13 +2,30 @@
 
 //#include "C_MAP_Choices_P.h"
 //#include "C_MAP_Ctrl_Name_P.h"
-//#include "C_MAP_Edit_Allowed_Chars_P.h"
-//#include "C_MAP_Edit_Char_Limit_P.h"
+#include "C_MAP_Editor_Traits_P.h"
 //#include "C_MAP_Exp_Name_P.h"
 #include "C_MAP_Init_Bounds_P.h"
 //#include "C_MAP_Init_Choice_P.h"
 //#include "C_MAP_Label_Name_P.h"
 //#include "C_MAP_Tip_P.h"
+
+const std::string GET_A::editor_allowed_chars_for(const std::string& id) {
+	if (MAP::editor_traits.find(id) != MAP::editor_traits.end())
+		return std::get<0>(MAP::editor_traits.at(id));
+	return {};
+}
+
+const int GET_A::editor_char_limit_for(const std::string& id) {
+	if (MAP::editor_traits.find(id) != MAP::editor_traits.end())
+		return std::get<1>(MAP::editor_traits.at(id));
+	return 0;
+}
+
+const std::string GET_A::editor_tip_for(const std::string& id) {
+	if (MAP::editor_traits.find(id) != MAP::editor_traits.end())
+		return std::get<2>(MAP::editor_traits.at(id));
+	return {};
+}
 
 const Rectangle<int> GET_A::init_bounds_for(const std::string& id) {
 	if (MAP::init_bounds.find(id) != MAP::init_bounds.end()) {
@@ -58,18 +75,6 @@ const int GET_A::init_y_for(const std::string& id) {
 //const std::string GET_A::ctrl_name_for(const std::string& id) {
 //	if (MAP::ctrl_name.find(id) != MAP::ctrl_name.end())
 //		return MAP::ctrl_name.at(id);
-//	return {};
-//}
-//
-//const std::string GET_A::edit_allowed_chars_for(const std::string& id) {
-//	if (MAP::edit_allowed_chars.find(id) != MAP::edit_allowed_chars.end())
-//		return MAP::edit_allowed_chars.at(id);
-//	return {};
-//}
-//
-//const int GET_A::edit_char_limit_for(const std::string& id) {
-//	if (MAP::edit_char_limit.find(id) != MAP::edit_char_limit.end())
-//		return MAP::edit_char_limit.at(id);
 //	return {};
 //}
 //

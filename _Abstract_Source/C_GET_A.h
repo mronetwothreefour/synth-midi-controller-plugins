@@ -4,6 +4,10 @@
 
 struct GET_A
 {
+	static const std::string editor_allowed_chars_for(const std::string& id);
+	static const int editor_char_limit_for(const std::string& id);
+	static const std::string editor_tip_for(const std::string& id);
+
 	static const Rectangle<int> init_bounds_for(const std::string& id);
 	static const int init_h_for(const std::string& id);
 	static const int init_w_for(const std::string& id);
@@ -12,8 +16,6 @@ struct GET_A
 
 	//static const StringArray choices_for(const String& id, const bool curt = false);
 	//static const String ctrl_name_for(const String& id);
-	//static const String edit_allowed_chars_for(const String& id);
-	//static const int edit_char_limit_for(const String& id);
 	//static const String exp_name_for(const String& id);
 	//static const int init_choice_for(const String& id);
 	//static const String label_name_for(const String& id);
