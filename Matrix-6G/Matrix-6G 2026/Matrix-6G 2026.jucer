@@ -50,6 +50,8 @@
             file="_Project_Source/C_MAP_Init_Bounds_P.h"/>
       <FILE id="eibdsN" name="C_MAP_Editor_Traits_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Editor_Traits_P.h"/>
+      <FILE id="UVk9Hz" name="C_MAP_Exp_Name_And_Qnum_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Exp_Name_And_Qnum_P.h"/>
       <FILE id="w1bxJh" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
       <FILE id="hjYOlw" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
       <FILE id="AgGiF7" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"

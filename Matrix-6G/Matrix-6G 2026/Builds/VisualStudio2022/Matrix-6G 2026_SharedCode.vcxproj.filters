@@ -4128,6 +4128,9 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Editor_Traits_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Exp_Name_And_Qnum_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MISC_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
