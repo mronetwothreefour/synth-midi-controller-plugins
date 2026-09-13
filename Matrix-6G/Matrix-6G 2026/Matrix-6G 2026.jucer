@@ -7,7 +7,8 @@
               pluginCharacteristicsValue="pluginEditorRequiresKeys,pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginDesc="Sound editor/librarian for use with the Oberheim Matrix-6R synthesizer"
               pluginManufacturerCode="TimD" pluginCode="Qp09" pluginVST3Category="Tools"
-              cppLanguageStandard="20" headerPath="..\..\..\..\_Abstract_Source&#10;..\..\_Project_Source">
+              cppLanguageStandard="20" headerPath="..\..\..\..\_Abstract_Source&#10;..\..\_Project_Source"
+              defines="USES_COMBOBOX=1&#10;">
   <MAINGROUP id="ijhAFi" name="Matrix-6G 2026">
     <GROUP id="{54D73992-EB15-EBD3-71EE-111D1AA76D60}" name="_Abstract_Source">
       <FILE id="G4aGYK" name="C_COLOR_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_COLOR_A.h"/>
@@ -64,6 +65,8 @@
             file="_Project_Source/C_MAP_Init_Bounds_P.h"/>
       <FILE id="Yij5vP" name="C_MAP_Label_Name_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Label_Name_P.h"/>
+      <FILE id="uGcVI8" name="C_MAP_Menu_Traits_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Menu_Traits_P.h"/>
       <FILE id="D1aulx" name="C_MAP_Quick_Num_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Quick_Num_P.h"/>
       <FILE id="w1bxJh" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>

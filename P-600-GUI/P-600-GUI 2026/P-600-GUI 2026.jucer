@@ -7,7 +7,8 @@
               pluginCharacteristicsValue="pluginEditorRequiresKeys,pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginDesc="Sound editor/librarian for use with the SCI Prophet-600 synthesizer"
               pluginManufacturerCode="TimD" pluginCode="F0ch" pluginVST3Category="Tools"
-              cppLanguageStandard="20" headerPath="..\..\..\..\_Abstract_Source&#10;..\..\_Project_Source">
+              cppLanguageStandard="20" headerPath="..\..\..\..\_Abstract_Source&#10;..\..\_Project_Source"
+              defines="USES_COMBOBOX=0&#10;">
   <MAINGROUP id="ZPn9H4" name="P-600-GUI 2026">
     <GROUP id="{FA64F6F3-3D30-572C-C215-830A2830B9A3}" name="_Abstract_Source">
       <FILE id="yfhtmJ" name="C_COLOR_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_COLOR_A.h"/>

@@ -6,7 +6,8 @@
               pluginFormats="buildStandalone,buildVST3" pluginCharacteristicsValue="pluginEditorRequiresKeys,pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginDesc="Sound editor/librarian for use with the Korg Minilogue synthesizer"
               pluginManufacturerCode="TimD" pluginCode="Kwvs" pluginVST3Category="Tools"
-              cppLanguageStandard="20" headerPath="..\..\..\..\_Abstract_Source&#10;..\..\_Project_Source">
+              cppLanguageStandard="20" headerPath="..\..\..\..\_Abstract_Source&#10;..\..\_Project_Source"
+              defines="USES_COMBOBOX=1&#10;">
   <MAINGROUP id="AhFawq" name="MiniloGUI 2026">
     <GROUP id="{C640CBB8-D505-F881-CC30-9DE23AB1916B}" name="_Abstract_Source">
       <FILE id="qKw3sP" name="C_COLOR_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_COLOR_A.h"/>

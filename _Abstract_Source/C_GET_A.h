@@ -19,5 +19,10 @@ struct GET_A
 	static const std::string exp_name_for(const std::string& id);
 	static const int init_choice_for(const std::string& id);
 	static const std::string label_name_for(const std::string& id);
+#if USES_COMBOBOX
+	static const bool menu_above_for(const std::string& id);
+	static const int menu_col_count_for(const std::string& id);
+	static const int menu_row_count_for(const std::string& id);
+#endif //USES_COMBOBOX
 	static const std::string tip_for(const std::string& id);
 };

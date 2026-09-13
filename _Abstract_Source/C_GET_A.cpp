@@ -3,6 +3,9 @@
 #include "C_MAP_Choices_P.h"
 #include "C_MAP_Ctrl_Traits_P.h"
 #include "C_MAP_Editor_Traits_P.h"
+#if USES_COMBOBOX
+#include "C_MAP_Menu_Traits_P.h"
+#endif //USES_COMBOBOX
 #include "C_MAP_Exp_Name_P.h"
 #include "C_MAP_Init_Bounds_P.h"
 #include "C_MAP_Label_Name_P.h"
@@ -93,6 +96,26 @@ const std::string GET_A::label_name_for(const std::string& id) {
 		return MAP::label_name.at(id);
 	return {};
 }
+
+#if USES_COMBOBOX
+const bool GET_A::menu_above_for(const std::string& id) {
+	if (MAP::menu_traits.find(id) != MAP::menu_traits.end())
+		return std::get<0>(MAP::menu_traits.at(id));
+	return {};
+}
+
+const int GET_A::menu_col_count_for(const std::string& id) {
+	if (MAP::menu_traits.find(id) != MAP::menu_traits.end())
+		return std::get<1>(MAP::menu_traits.at(id));
+	return {};
+}
+
+const int GET_A::menu_row_count_for(const std::string& id) {
+	if (MAP::menu_traits.find(id) != MAP::menu_traits.end())
+		return std::get<2>(MAP::menu_traits.at(id));
+	return {};
+}
+#endif //USES_COMBOBOX
 
 const std::string GET_A::tip_for(const std::string& id) {
 	if (MAP::ctrl_traits.find(id) != MAP::ctrl_traits.end())

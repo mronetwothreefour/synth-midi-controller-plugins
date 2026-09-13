@@ -7,7 +7,8 @@
               pluginCharacteristicsValue="pluginEditorRequiresKeys,pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginDesc="Sound editor/librarian for use with the DSI Mopho synthesizer"
               pluginManufacturerCode="TimD" pluginCode="Jvzx" pluginVST3Category="Tools"
-              cppLanguageStandard="20" headerPath="..\..\..\..\_Abstract_Source&#10;..\..\_Project_Source">
+              cppLanguageStandard="20" headerPath="..\..\..\..\_Abstract_Source&#10;..\..\_Project_Source"
+              defines="USES_COMBOBOX=1&#10;">
   <MAINGROUP id="zGS4Ui" name="MophoGUI 2026">
     <GROUP id="{0525C884-1975-8794-69CF-2CDC44691FAD}" name="_Abstract_Source">
       <FILE id="h31TvD" name="C_COLOR_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_COLOR_A.h"/>
