@@ -3,7 +3,7 @@
 //#include "C_MAP_Choices_P.h"
 //#include "C_MAP_Ctrl_Name_P.h"
 #include "C_MAP_Editor_Traits_P.h"
-//#include "C_MAP_Exp_Name_P.h"
+#include "C_MAP_Exp_Name_P.h"
 #include "C_MAP_Init_Bounds_P.h"
 //#include "C_MAP_Init_Choice_P.h"
 //#include "C_MAP_Label_Name_P.h"
@@ -77,13 +77,13 @@ const int GET_A::init_y_for(const std::string& id) {
 //		return MAP::ctrl_name.at(id);
 //	return {};
 //}
-//
-//const std::string GET_A::exp_name_for(const std::string& id) {
-//	if (MAP::exp_name.find(id) != MAP::exp_name.end())
-//		return MAP::exp_name.at(id);
-//	return {};
-//}
-//
+
+const std::string GET_A::exp_name_for(const std::string& id) {
+	if (MAP::exp_name.find(id) != MAP::exp_name.end())
+		return MAP::exp_name.at(id);
+	return {};
+}
+
 //const int GET_A::init_choice_for(const std::string& id) {
 //	if (MAP::init_choice.find(id) != MAP::init_choice.end())
 //		return MAP::init_choice.at(id);

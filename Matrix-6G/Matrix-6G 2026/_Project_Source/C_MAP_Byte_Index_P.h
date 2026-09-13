@@ -1,11 +1,14 @@
 #pragma once
 
+#include <string>
+#include <unordered_map>
+
 #include "C_ID_Main_P.h"
 
 namespace MAP
 {
 
-	static const std::unordered_map<String, int> byte_index{
+	static const std::unordered_map<std::string, int> byte_index{
 		//exposed osc
 		{ ID::exp_osc_1_pitch, 1 },
 		{ ID::exp_osc_1_type, 5 },
