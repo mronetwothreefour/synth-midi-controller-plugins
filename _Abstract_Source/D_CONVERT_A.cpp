@@ -1,8 +1,10 @@
 #include "D_CONVERT_A.h"
 
-String CONVERT_A::int_to_pitch(const int i) {
+#include <JuceHeader.h>
+
+std::string CONVERT_A::int_to_pitch(const int i) {
     auto note{ i % 12 };
-    String pitch;
+    std::string pitch;
     switch (note) {
     case 0:  pitch = "C "; break;
     case 1:  pitch = "C# "; break;
@@ -18,5 +20,5 @@ String CONVERT_A::int_to_pitch(const int i) {
     case 11: pitch = "B "; break;
     default: break;
     }
-    return pitch + String{ i / 12 };
+    return pitch + String{ i / 12 }.toStdString();
 }

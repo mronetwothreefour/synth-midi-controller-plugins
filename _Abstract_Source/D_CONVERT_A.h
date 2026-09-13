@@ -1,8 +1,8 @@
 #pragma once
 
-#include <JuceHeader.h>
+#include <string>
 
 struct CONVERT_A
 {
-    static String int_to_pitch(const int i);
+    static std::string int_to_pitch(const int i);
 };

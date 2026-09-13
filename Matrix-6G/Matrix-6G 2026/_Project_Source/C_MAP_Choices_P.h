@@ -1,5 +1,7 @@
 #pragma once
 
+#include <unordered_map>
+
 #include "C_ID_Main_P.h"
 #include "D_BUILD_Choices_For_P.h"
 
@@ -8,7 +10,7 @@ using namespace BUILD;
 namespace MAP
 {
 
-	static const std::unordered_map<String, StringArray> choices{
+	static const std::unordered_map<std::string, std::vector<std::string>> choices{
 		//exposed osc
 		{ ID::exp_osc_1_pitch, Choices_For::osc_pitch(64) },
 		{ ID::exp_osc_1_type, Choices_For::exp_osc_type(1) },

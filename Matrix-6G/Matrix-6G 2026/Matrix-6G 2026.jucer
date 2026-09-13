@@ -17,6 +17,10 @@
       <FILE id="xEjDSt" name="C_NAME_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_NAME_A.h"/>
       <FILE id="DxHwlF" name="C_SL_Tip_Widget_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/C_SL_Tip_Widget_A.h"/>
+      <FILE id="r5sF60" name="D_BUILD_Choices_For_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Choices_For_A.cpp"/>
+      <FILE id="Op7OTq" name="D_BUILD_Choices_For_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Choices_For_A.h"/>
       <FILE id="UCScRv" name="D_BUILD_Tip_For_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/D_BUILD_Tip_For_A.cpp"/>
       <FILE id="nRi9BF" name="D_BUILD_Tip_For_A.h" compile="0" resource="0"
@@ -48,8 +52,10 @@
       <FILE id="SvXo6I" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>
       <FILE id="PRYWou" name="C_MAP_Byte_Index_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Byte_Index_P.h"/>
-      <FILE id="eCyke1" name="C_MAP_Ctrl_Traits.h" compile="0" resource="0"
-            file="_Project_Source/C_MAP_Ctrl_Traits.h"/>
+      <FILE id="kGDJLs" name="C_MAP_Choices_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Choices_P.h"/>
+      <FILE id="eCyke1" name="C_MAP_Ctrl_Traits_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Ctrl_Traits_P.h"/>
       <FILE id="eibdsN" name="C_MAP_Editor_Traits_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Editor_Traits_P.h"/>
       <FILE id="UVk9Hz" name="C_MAP_Exp_Name_P.h" compile="0" resource="0"
@@ -68,6 +74,10 @@
       <FILE id="id8biM" name="C_SL_Tip_Matrix_Mod_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Matrix_Mod_P.h"/>
       <FILE id="AzFTav" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
+      <FILE id="UzUqxb" name="D_BUILD_Choices_For_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_BUILD_Choices_For_P.cpp"/>
+      <FILE id="nkd1RL" name="D_BUILD_Choices_For_P.h" compile="0" resource="0"
+            file="_Project_Source/D_BUILD_Choices_For_P.h"/>
       <FILE id="YNSY57" name="D_BUILD_Tip_For_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Tip_For_P.cpp"/>
       <FILE id="CVcEkO" name="D_BUILD_Tip_For_P.h" compile="0" resource="0"

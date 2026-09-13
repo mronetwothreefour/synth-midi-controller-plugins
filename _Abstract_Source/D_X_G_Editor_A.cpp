@@ -26,8 +26,6 @@ Editor_A::Editor_A(Audio_Processor& processor/*, Data_Hub* hub*/) :
     setSize(GET::init_w_for(gui_editor), GET::init_h_for(gui_editor));
     getConstrainer()->setFixedAspectRatio(editor_aspect_ratio);
     Timer::callAfterDelay(50, [this] { grabKeyboardFocus(); });
-    auto dingle{ GET::editor_tip_for(ID::exp_osc_1_pitch) };
-    DBG(dingle);
 }
 
 void Editor_A::paint(Graphics& /*g*/) {

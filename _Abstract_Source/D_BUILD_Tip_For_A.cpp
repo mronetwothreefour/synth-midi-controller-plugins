@@ -18,12 +18,12 @@ std::string Tip_For_A::txt_editor_pitch(const unsigned int example,
                                         const unsigned int max) 
 {
     String s{ from_SL(SL::edit_pitch_tip) };
-    s = s.replace("~", CONVERT_A::int_to_pitch(example).removeCharacters(" "))
-        .replace("!", (String)example)
-        .replace("@", CONVERT_A::int_to_pitch(min).removeCharacters(" "))
-        .replace("&", (String)min)
-        .replace("$", CONVERT_A::int_to_pitch(max).removeCharacters(" "))
-        .replace("%", (String)max);
+    s = s.replace("~", String{ CONVERT_A::int_to_pitch(example) }.removeCharacters(" "))
+         .replace("!", (String)example)
+         .replace("@", String{ CONVERT_A::int_to_pitch(min) }.removeCharacters(" "))
+         .replace("&", (String)min)
+         .replace("$", String{ CONVERT_A::int_to_pitch(max) }.removeCharacters(" "))
+         .replace("%", (String)max);
     return s.toStdString();
 }
 

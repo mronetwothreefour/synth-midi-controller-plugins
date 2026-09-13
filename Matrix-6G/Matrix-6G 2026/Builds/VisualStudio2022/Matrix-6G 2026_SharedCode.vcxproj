@@ -146,12 +146,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\_Abstract_Source\C_GET_A.cpp"/>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_For_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.cpp"/>
     <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Tip_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_CONVERT_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.cpp"/>
@@ -3158,6 +3160,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_MISC_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_NAME_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_SL_Tip_Widget_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_For_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.h"/>
@@ -3168,7 +3171,8 @@
     <ClInclude Include="..\..\_Project_Source\C_GET_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_ID_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Byte_Index_P.h"/>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Traits.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Traits_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Editor_Traits_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Exp_Name_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Bounds_P.h"/>
@@ -3180,6 +3184,7 @@
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Exposed_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Matrix_Mod_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_For_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Tip_For_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_CONVERT_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.h"/>
