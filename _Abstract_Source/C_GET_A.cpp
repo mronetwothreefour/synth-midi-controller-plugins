@@ -5,7 +5,7 @@
 #include "C_MAP_Editor_Traits_P.h"
 #include "C_MAP_Exp_Name_P.h"
 #include "C_MAP_Init_Bounds_P.h"
-//#include "C_MAP_Label_Name_P.h"
+#include "C_MAP_Label_Name_P.h"
 
 const std::string GET_A::editor_allowed_chars_for(const std::string& id) {
 	if (MAP::editor_traits.find(id) != MAP::editor_traits.end())
@@ -88,11 +88,11 @@ const int GET_A::init_choice_for(const std::string& id) {
 	return -1;
 }
 
-//const std::string GET_A::label_name_for(const std::string& id) {
-//	if (MAP::label_name.find(id) != MAP::label_name.end())
-//		return MAP::label_name.at(id);
-//	return {};
-//}
+const std::string GET_A::label_name_for(const std::string& id) {
+	if (MAP::label_name.find(id) != MAP::label_name.end())
+		return MAP::label_name.at(id);
+	return {};
+}
 
 const std::string GET_A::tip_for(const std::string& id) {
 	if (MAP::ctrl_traits.find(id) != MAP::ctrl_traits.end())

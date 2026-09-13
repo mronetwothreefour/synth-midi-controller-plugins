@@ -1,16 +1,14 @@
 #pragma once
 
-#include <tuple>
+#include <string>
 #include <unordered_map>
 
 #include "C_ID_Main_P.h"
 
-using namespace std;
-
 namespace MAP
 {
 
-	static const unordered_map<string, int> quick_num{
+	static const std::unordered_map<std::string, int> quick_num{
 		//exposed osc
 		{ ID::exp_osc_1_pitch, 0 },
 		{ ID::exp_osc_1_type, 6 },
