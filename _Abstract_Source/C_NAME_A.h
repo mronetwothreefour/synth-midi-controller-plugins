@@ -15,8 +15,10 @@ namespace NAME
 
 	constexpr auto gui_editor{ "gui_editor" };
 
-	constexpr auto state_tree_exp{ "state_tree_exp" };
-	constexpr auto state_xml_exp{ "state_xml_exp" };
+	constexpr auto state_app_tree{ "state_app_tree" };
+	constexpr auto state_app_xml{ "state_app_xml" };
+	constexpr auto state_exp_tree{ "state_exp_tree" };
+	constexpr auto state_exp_xml{ "state_exp_xml" };
 
 	constexpr auto txt_edit_filled{ "txt_edit_filled" };
 

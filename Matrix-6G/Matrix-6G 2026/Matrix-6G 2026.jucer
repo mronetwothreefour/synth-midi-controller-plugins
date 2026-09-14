@@ -14,6 +14,7 @@
       <FILE id="G4aGYK" name="C_COLOR_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_COLOR_A.h"/>
       <FILE id="SjOgmv" name="C_GET_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/C_GET_A.cpp"/>
       <FILE id="ojXuE8" name="C_GET_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_GET_A.h"/>
+      <FILE id="Q8BpiF" name="C_ID_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_ID_A.h"/>
       <FILE id="Ehwa6I" name="C_MISC_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_MISC_A.h"/>
       <FILE id="xEjDSt" name="C_NAME_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_NAME_A.h"/>
       <FILE id="DxHwlF" name="C_SL_Tip_Widget_A.h" compile="0" resource="0"
@@ -36,6 +37,10 @@
             file="../../_Abstract_Source/D_BUILD_Tip_For_A.h"/>
       <FILE id="WBvhOt" name="D_CONVERT_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/D_CONVERT_A.cpp"/>
       <FILE id="ccLzOZ" name="D_CONVERT_A.h" compile="0" resource="0" file="../../_Abstract_Source/D_CONVERT_A.h"/>
+      <FILE id="DmLxpL" name="D_TREE_App_Params_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_TREE_App_Params_A.cpp"/>
+      <FILE id="JQ81ZB" name="D_TREE_App_Params_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_TREE_App_Params_A.h"/>
       <FILE id="oRQdDO" name="D_X_G_Audio_Processor_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/D_X_G_Audio_Processor_A.cpp"/>
       <FILE id="x0x4eJ" name="D_X_G_Audio_Processor_A.h" compile="0" resource="0"
@@ -97,6 +102,10 @@
             file="_Project_Source/D_BUILD_Tip_For_P.h"/>
       <FILE id="qHYjtB" name="D_CONVERT_P.cpp" compile="1" resource="0" file="_Project_Source/D_CONVERT_P.cpp"/>
       <FILE id="xaIjg7" name="D_CONVERT_P.h" compile="0" resource="0" file="_Project_Source/D_CONVERT_P.h"/>
+      <FILE id="FEllpL" name="D_TREE_App_Params_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_TREE_App_Params_P.cpp"/>
+      <FILE id="mlcUVH" name="D_TREE_App_Params_P.h" compile="0" resource="0"
+            file="_Project_Source/D_TREE_App_Params_P.h"/>
       <FILE id="UqN6Ij" name="D_TREE_Matrix_Mod_Params_P.cpp" compile="1"
             resource="0" file="_Project_Source/D_TREE_Matrix_Mod_Params_P.cpp"/>
       <FILE id="TAbi70" name="D_TREE_Matrix_Mod_Params_P.h" compile="0" resource="0"

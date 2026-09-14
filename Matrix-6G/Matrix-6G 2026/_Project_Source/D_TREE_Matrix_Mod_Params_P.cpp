@@ -7,7 +7,7 @@
 using namespace TREE;
 
 Matrix_Mod_Params::Matrix_Mod_Params(UndoManager* u_m) :
-	tree{ NAME::state_tree_mmod },
+	tree{ NAME::state_mmod_tree },
 	u_m{ u_m }
 {
 	for (auto& id : ID::matrix_mod_params) {
@@ -33,7 +33,7 @@ Value Matrix_Mod_Params::get_param_as_value(const String& id) {
 std::unique_ptr<XmlElement> Matrix_Mod_Params::get_current_state() {
 	auto state{ tree.createXml() };
 	if (state)
-		state->setTagName(NAME::state_xml_mmod);
+		state->setTagName(NAME::state_mmod_xml);
 	return state;
 }
 
