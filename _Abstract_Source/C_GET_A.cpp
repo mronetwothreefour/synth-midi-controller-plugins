@@ -59,15 +59,15 @@ const int GET_A::init_y_for(const std::string& id) {
 	return init_bounds_for(id).getY();
 }
 
-const std::vector<std::string> GET_A::choices_for(const std::string& id, const bool curt) {
-	std::vector<std::string> out_list;
+const StringArray GET_A::choices_for(const std::string& id, const bool curt) {
+	StringArray out_list;
 	if (MAP::choices.find(id) != MAP::choices.end()) {
 		for (auto& in_choice : MAP::choices.at(id)) {
 			String out_choice{ in_choice };
 			if (out_choice.contains("__"))
 				out_choice = curt ? out_choice.upToFirstOccurrenceOf("__", false, true) :
 									out_choice.fromFirstOccurrenceOf("__", false, true);
-			out_list.push_back(out_choice.toStdString());
+			out_list.add(out_choice);
 		}
 	}
 	return out_list;

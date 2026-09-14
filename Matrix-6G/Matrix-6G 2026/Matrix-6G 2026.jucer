@@ -22,6 +22,14 @@
             file="../../_Abstract_Source/D_BUILD_Choices_For_A.cpp"/>
       <FILE id="Op7OTq" name="D_BUILD_Choices_For_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/D_BUILD_Choices_For_A.h"/>
+      <FILE id="k5khmZ" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_BUILD_Font_For_P.cpp"/>
+      <FILE id="yrtgkV" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
+            file="_Project_Source/D_BUILD_Font_For_P.h"/>
+      <FILE id="kjjJD1" name="D_BUILD_Layout_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Layout_A.cpp"/>
+      <FILE id="XzGjPe" name="D_BUILD_Layout_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Layout_A.h"/>
       <FILE id="UCScRv" name="D_BUILD_Tip_For_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/D_BUILD_Tip_For_A.cpp"/>
       <FILE id="nRi9BF" name="D_BUILD_Tip_For_A.h" compile="0" resource="0"

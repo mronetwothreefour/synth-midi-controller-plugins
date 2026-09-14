@@ -1,18 +1,17 @@
 #pragma once
 
-#include <string>
-#include <vector>
+#include <JuceHeader.h>
 
 namespace BUILD
 {
 
 	struct Choices_For_A
 	{
-		static const std::vector<std::string> fine_tune();
-		static const std::vector<std::string> off_on();
-		static const std::vector<std::string> osc_pitch(const int choice_count);
-		static const std::vector<std::string> signed_int(const int min, const int max);
-		static const std::vector<std::string> unsigned_int(const int max);
+		static const StringArray fine_tune();
+		static const StringArray off_on();
+		static const StringArray osc_pitch(const int choice_count);
+		static const StringArray signed_int(const int min, const int max);
+		static const StringArray unsigned_int(const int max);
 	};
 
 }

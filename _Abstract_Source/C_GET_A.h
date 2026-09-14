@@ -14,7 +14,7 @@ struct GET_A
 	static const int init_x_for(const std::string& id);
 	static const int init_y_for(const std::string& id);
 
-	static const std::vector<std::string> choices_for(const std::string& id, const bool curt = false);
+	static const StringArray choices_for(const std::string& id, const bool curt = false);
 	static const std::string ctrl_name_for(const std::string& id);
 	static const std::string exp_name_for(const std::string& id);
 	static const int init_choice_for(const std::string& id);
