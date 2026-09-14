@@ -1,8 +1,10 @@
 #include "D_X_G_Audio_Processor_A.h"
 
+#include "C_NAME_P.h"
+
 Audio_Processor_A::Audio_Processor_A() :
-    AudioProcessor{ BusesProperties{} }/*,
-    hub{ new Data_Hub{ this } }*/
+    AudioProcessor{ BusesProperties{} },
+    hub{ new Data_Hub{ this } }
 {}
 
 const String Audio_Processor_A::getName() const { return JucePlugin_Name; }
@@ -41,32 +43,37 @@ AudioProcessorEditor* Audio_Processor_A::createEditor() {
     return create_editor();
 }
 
-void Audio_Processor_A::getStateInformation(MemoryBlock& /*target_mem_block*/) {
-    //XmlElement plugin_state{ ID::xml_state_plugin };
-    //auto exposed_state{ hub->get_exposed_params_state()->copyState().createXml() };
-    //exposed_state->setTagName(ID::xml_state_exposed.toString());
-    //if (exposed_state)
-    //    plugin_state.addChildElement(exposed_state.release());
-    //plugin_state.setAttribute(ID::xml_att_scale_factor, hub->get_scale_factor());
-    //store_plugin_specific_param_state(plugin_state);
-    //copyXmlToBinary(plugin_state, target_mem_block);
+void Audio_Processor_A::getStateInformation(MemoryBlock& target_mem_block) {
+    XmlElement plugin_state{ NAME::state_plugin_xml };
+    auto app_params_state = hub->get_app_params().get_current_state();
+    if (app_params_state)
+        plugin_state.addChildElement(app_params_state.release());
+    auto exposed_state = hub->get_exposed_params_state()->copyState().createXml();
+    exposed_state->setTagName(NAME::state_exp_xml);
+    if (exposed_state)
+        plugin_state.addChildElement(exposed_state.release());
+    store_plugin_specific_param_state(plugin_state);
+    copyXmlToBinary(plugin_state, target_mem_block);
 }
 
-void Audio_Processor_A::setStateInformation(const void* /*stored_param_data*/, int /*data_size*/) {
-    //auto plugin_state{ getXmlFromBinary(stored_param_data, data_size) };
-    //if (plugin_state) {
-    //    auto exposed_state{ plugin_state->getChildByName(ID::xml_state_exposed.toString()) };
-    //    if (exposed_state) {
-    //        //transmitOptions->setParamChangesShouldBeTransmitted(false);
-    //        hub->get_exposed_params_state()->replaceState(ValueTree::fromXml(*exposed_state));
-    //        //transmitOptions->setParamChangesShouldBeTransmitted(true);
-    //    }
-    //    auto& scale_factor = hub->get_scale_factor();
-    //    scale_factor = (float)plugin_state->getDoubleAttribute(ID::xml_att_scale_factor.toString(), 1.0);
-    //    restore_plugin_specific_param_state(plugin_state.get());
-    //}
+void Audio_Processor_A::setStateInformation(const void* stored_param_data, int data_size) {
+    auto plugin_state{ getXmlFromBinary(stored_param_data, data_size) };
+    if (plugin_state) {
+        auto app_params_state = plugin_state->getChildByName(NAME::state_app_xml);
+        if (app_params_state) {
+            auto app_params_tree = ValueTree::fromXml(*app_params_state);
+            hub->get_app_params().replace_state(app_params_tree);
+        }
+        auto exposed_state{ plugin_state->getChildByName(NAME::state_exp_xml) };
+        if (exposed_state) {
+            //transmitOptions->setParamChangesShouldBeTransmitted(false);
+            hub->get_exposed_params_state()->replaceState(ValueTree::fromXml(*exposed_state));
+            //transmitOptions->setParamChangesShouldBeTransmitted(true);
+        }
+        restore_plugin_specific_param_state(plugin_state.get());
+    }
 }
 
 Audio_Processor_A::~Audio_Processor_A() {
-    //hub = nullptr;
+    hub = nullptr;
 }

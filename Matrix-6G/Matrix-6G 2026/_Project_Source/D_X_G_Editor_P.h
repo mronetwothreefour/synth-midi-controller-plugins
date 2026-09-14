@@ -13,7 +13,7 @@ class Editor :
 //private: Ctrls_Matrix_Mod ctrls_mmod;
 
 //==============================================================================
-public: Editor(Audio_Processor& processor/*, Data_Hub* hub*/);
+public: Editor(Audio_Processor& processor, Data_Hub* hub);
 
 public: void resized() override;
 public: ~Editor();

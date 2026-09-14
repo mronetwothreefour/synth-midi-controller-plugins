@@ -3,8 +3,7 @@
 Data_Hub::Data_Hub(AudioProcessor* processor) :
 	Data_Hub_A{ processor },
 	matrix_mod_params{ undo_mngr.get() }
-{
-}
+{}
 
 Matrix_Mod_Params& Data_Hub::get_matrix_mod_params() {
 	return matrix_mod_params;

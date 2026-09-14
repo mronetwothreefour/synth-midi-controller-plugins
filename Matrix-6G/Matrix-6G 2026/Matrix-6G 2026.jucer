@@ -45,6 +45,14 @@
             file="../../_Abstract_Source/D_X_G_Audio_Processor_A.cpp"/>
       <FILE id="x0x4eJ" name="D_X_G_Audio_Processor_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/D_X_G_Audio_Processor_A.h"/>
+      <FILE id="hUJCwu" name="D_X_G_Data_Hub_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_X_G_Data_Hub_A.cpp"/>
+      <FILE id="PCdqEa" name="D_X_G_Data_Hub_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_X_G_Data_Hub_A.h"/>
+      <FILE id="szrqxE" name="D_X_G_Data_User_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_X_G_Data_User_A.cpp"/>
+      <FILE id="TcvWBn" name="D_X_G_Data_User_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_X_G_Data_User_A.h"/>
       <FILE id="T8Czkb" name="D_X_G_Editor_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/D_X_G_Editor_A.cpp"/>
       <FILE id="gOq3kM" name="D_X_G_Editor_A.h" compile="0" resource="0"
@@ -70,8 +78,8 @@
             file="_Project_Source/C_MAP_Choices_P.h"/>
       <FILE id="eCyke1" name="C_MAP_Ctrl_Traits_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Ctrl_Traits_P.h"/>
-      <FILE id="eibdsN" name="C_MAP_Editor_Traits_P.h" compile="0" resource="0"
-            file="_Project_Source/C_MAP_Editor_Traits_P.h"/>
+      <FILE id="eibdsN" name="C_MAP_Txt_Editor_Traits_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Txt_Editor_Traits_P.h"/>
       <FILE id="UVk9Hz" name="C_MAP_Exp_Name_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Exp_Name_P.h"/>
       <FILE id="kDZztW" name="C_MAP_Init_Bounds_P.h" compile="0" resource="0"
@@ -114,6 +122,14 @@
             file="_Project_Source/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="ZgA4cd" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"
             file="_Project_Source/D_X_G_Audio_Processor_P.h"/>
+      <FILE id="s9vjWl" name="D_X_G_Data_Hub_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_X_G_Data_Hub_P.cpp"/>
+      <FILE id="XK8kdW" name="D_X_G_Data_Hub_P.h" compile="0" resource="0"
+            file="_Project_Source/D_X_G_Data_Hub_P.h"/>
+      <FILE id="onf1P6" name="D_X_G_Data_User_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_X_G_Data_User_P.cpp"/>
+      <FILE id="CulsaN" name="D_X_G_Data_User_P.h" compile="0" resource="0"
+            file="_Project_Source/D_X_G_Data_User_P.h"/>
       <FILE id="QxLcSH" name="D_X_G_Editor_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_X_G_Editor_P.cpp"/>
       <FILE id="u9HFhy" name="D_X_G_Editor_P.h" compile="0" resource="0"

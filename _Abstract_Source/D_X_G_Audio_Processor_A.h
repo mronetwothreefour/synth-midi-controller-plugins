@@ -2,12 +2,12 @@
 
 #include <JuceHeader.h>
 
-//#include "D_X_G_Data_Hub_P.h"
+#include "D_X_G_Data_Hub_P.h"
 
 class Audio_Processor_A :
     public AudioProcessor
 {
-//protected: std::unique_ptr<Data_Hub> hub;
+protected: std::unique_ptr<Data_Hub> hub;
 
 //==============================================================================
 public: Audio_Processor_A();

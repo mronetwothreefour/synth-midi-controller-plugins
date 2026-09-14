@@ -1,12 +1,9 @@
 #include "D_X_G_Editor_P.h"
 
-//#include "C_ID_Main_P.h"
-//#include "C_GET_P.h"
+#include "C_XYWH_P.h"
 
-//using namespace ID;
-
-Editor::Editor(Audio_Processor& processor/*, Data_Hub* hub*/) :
-    Editor_A{ processor/*, hub*/ }/*,
+Editor::Editor(Audio_Processor& processor, Data_Hub* hub) :
+    Editor_A{ processor, hub }/*,
     layer_envelopes{ hub },
     ctrls_mmod{ hub }*/
 {
@@ -16,12 +13,12 @@ Editor::Editor(Audio_Processor& processor/*, Data_Hub* hub*/) :
 }
 
 void Editor::resized() {
-    //scale_factor = (float)getWidth() / GET::init_w_for(gui_editor);
-    //auto bounds = getLocalBounds();
+    auto new_scale_factor = (float)getWidth() / XYWH::editor_init_w;
+    auto bounds = getLocalBounds();
     //ctrls_exp.setBounds(bounds);
     //layer_envelopes.setBounds(getLocalBounds());
     //ctrls_mmod.setBounds(bounds);
-    //app_options.set_scale_percentage_excluding(roundToInt(scale_factor * 100), this);
+    app_p.set_scale_factor_excluding(new_scale_factor, this);
 }
 
 Editor::~Editor() {

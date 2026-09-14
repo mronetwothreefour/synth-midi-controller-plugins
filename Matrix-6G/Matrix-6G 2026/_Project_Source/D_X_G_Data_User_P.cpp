@@ -3,5 +3,4 @@
 Data_User::Data_User(Data_Hub* hub) :
 	Data_User_A{ hub },
 	mmod{ hub->get_matrix_mod_params() }
-{
-}
+{}

@@ -871,6 +871,12 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.cpp">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.cpp">
+      <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Data_User_A.cpp">
+      <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.cpp">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClCompile>
@@ -896,6 +902,12 @@
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.cpp">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Data_Hub_P.cpp">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Data_User_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Editor_P.cpp">
@@ -4143,6 +4155,12 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.h">
+      <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Data_User_A.h">
+      <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClInclude>
@@ -4170,7 +4188,7 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Traits_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Editor_Traits_P.h">
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Txt_Editor_Traits_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Exp_Name_P.h">
@@ -4225,6 +4243,12 @@
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Data_Hub_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Data_User_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Editor_P.h">

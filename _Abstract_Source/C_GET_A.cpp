@@ -2,7 +2,7 @@
 
 #include "C_MAP_Choices_P.h"
 #include "C_MAP_Ctrl_Traits_P.h"
-#include "C_MAP_Editor_Traits_P.h"
+#include "C_MAP_Txt_Editor_Traits_P.h"
 #if USES_COMBOBOX
 #include "C_MAP_Menu_Traits_P.h"
 #endif //USES_COMBOBOX
@@ -11,20 +11,20 @@
 #include "C_MAP_Label_Name_P.h"
 
 const std::string GET_A::editor_allowed_chars_for(const std::string& id) {
-	if (MAP::editor_traits.find(id) != MAP::editor_traits.end())
-		return std::get<0>(MAP::editor_traits.at(id));
+	if (MAP::txt_editor_traits.find(id) != MAP::txt_editor_traits.end())
+		return std::get<0>(MAP::txt_editor_traits.at(id));
 	return {};
 }
 
 const int GET_A::editor_char_limit_for(const std::string& id) {
-	if (MAP::editor_traits.find(id) != MAP::editor_traits.end())
-		return std::get<1>(MAP::editor_traits.at(id));
+	if (MAP::txt_editor_traits.find(id) != MAP::txt_editor_traits.end())
+		return std::get<1>(MAP::txt_editor_traits.at(id));
 	return 0;
 }
 
 const std::string GET_A::editor_tip_for(const std::string& id) {
-	if (MAP::editor_traits.find(id) != MAP::editor_traits.end())
-		return std::get<2>(MAP::editor_traits.at(id));
+	if (MAP::txt_editor_traits.find(id) != MAP::txt_editor_traits.end())
+		return std::get<2>(MAP::txt_editor_traits.at(id));
 	return {};
 }
 

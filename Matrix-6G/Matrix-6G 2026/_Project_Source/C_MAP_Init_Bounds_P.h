@@ -112,8 +112,6 @@ namespace MAP
 		{ ID::exp_env_3_sustain, { true, env_3_stg_3_cx, ctr_main_r_15_cy, env_stg_ctr_w, ctr_h } },
 		{ ID::exp_env_3_release, { true, env_3_stg_4_cx, ctr_main_r_15_cy, env_stg_ctr_w, ctr_h } },
 
-		{ NAME::gui_editor, { false, 0, 0, editor_init_w, editor_init_h } },
-
 		{ ID::mmod_0_src, { true, mmod_col_src_cx, ctr_main_r_00_cy, mmod_ctr_src_dst_w, ctr_h } },
 		{ ID::mmod_0_amt, { true, mmod_col_amt_cx, ctr_main_r_00_cy, mmod_ctr_src_dst_w, ctr_h } },
 		{ ID::mmod_0_src, { true, mmod_col_dst_cx, ctr_main_r_00_cy, mmod_ctr_src_dst_w, ctr_h } },

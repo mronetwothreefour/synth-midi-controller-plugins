@@ -2,12 +2,13 @@
 
 #include "D_X_G_Data_Hub_P.h"
 
+using namespace TREE;
+
 class Data_User_A
 {
 protected: Data_Hub* hub;
-//protected: Tree_App_Options_P& app_options;
+protected: App_Params& app_p;
 protected: AudioProcessorValueTreeState* exp_state;
-protected: float& scale_factor;
 protected: UndoManager* u_m;
 
 //==============================================================================

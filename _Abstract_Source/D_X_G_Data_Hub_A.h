@@ -2,22 +2,24 @@
 
 #include <JuceHeader.h>
 
+#include "D_TREE_App_Params_P.h"
+
+using namespace TREE;
+
 using State = AudioProcessorValueTreeState;
 
 class Data_Hub_A
 {
-//protected: Tree_App_Options_P app_options;
+protected: App_Params app_params;
 protected: std::unique_ptr<UndoManager> undo_mngr;
 protected: std::unique_ptr<State> exposed_param_state;
-protected: float scale_factor;
 
 //==============================================================================
 public: explicit Data_Hub_A(AudioProcessor* processor);
 
-//public: Tree_App_Options_P& get_app_options();
-public: UndoManager* get_undo_mngr();
+public: App_Params& get_app_params();
 public: State* get_exposed_params_state();
-public: float& get_scale_factor();
+public: UndoManager* get_undo_mngr();
 public: ~Data_Hub_A();
 
 //==============================================================================

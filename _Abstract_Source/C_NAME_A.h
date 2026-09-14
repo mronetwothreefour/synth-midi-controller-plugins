@@ -13,12 +13,11 @@ namespace NAME
 	constexpr auto lbl_brws{ "lbl_brws" };
 	constexpr auto lbl_knb{ "lbl_knb" };
 
-	constexpr auto gui_editor{ "gui_editor" };
-
 	constexpr auto state_app_tree{ "state_app_tree" };
 	constexpr auto state_app_xml{ "state_app_xml" };
 	constexpr auto state_exp_tree{ "state_exp_tree" };
 	constexpr auto state_exp_xml{ "state_exp_xml" };
+	constexpr auto state_plugin_xml{ "state_plugin_xml" };
 
 	constexpr auto txt_edit_filled{ "txt_edit_filled" };
 

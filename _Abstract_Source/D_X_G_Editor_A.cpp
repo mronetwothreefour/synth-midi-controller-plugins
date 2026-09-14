@@ -1,18 +1,18 @@
 #include "D_X_G_Editor_A.h"
 
 #include "C_GET_P.h"
-#include "C_MISC_P.h"
+#include "C_ID_A.h"
 #include "C_NAME_P.h"
-//#include "G_DRAW_Paths_Main_P.h"
-#include "C_MAP_Editor_Traits_P.h"
+#include "C_XYWH_P.h"
+#include "G_DRAW_Paths_Main_P.h"
 
-using namespace MISC;
 using namespace NAME;
+using namespace XYWH;
 
-Editor_A::Editor_A(Audio_Processor& processor/*, Data_Hub* hub*/) :
+Editor_A::Editor_A(Audio_Processor& processor, Data_Hub* hub) :
     AudioProcessorEditor{ &processor },
-    processor{ processor }/*,
-    Data_User{ hub },
+    processor{ processor },
+    Data_User{ hub }/*,
     ctrls_exp{ hub },
     l_a_f{ scale_factor }*/
 {
@@ -21,30 +21,31 @@ Editor_A::Editor_A(Audio_Processor& processor/*, Data_Hub* hub*/) :
     tip_win.setMillisecondsBeforeTipAppears(50);
     tip_win.setComponentEffect(nullptr);
     setWantsKeyboardFocus(true);
-    //app_options.add_listener(this);
+    app_p.add_listener(this);
     setResizable(true, true);
-    setSize(GET::init_w_for(gui_editor), GET::init_h_for(gui_editor));
+    auto scale = app_p.scale_factor();
+    setSize(roundToInt(editor_init_w * scale), roundToInt(editor_init_h * scale));
     getConstrainer()->setFixedAspectRatio(editor_aspect_ratio);
     Timer::callAfterDelay(50, [this] { grabKeyboardFocus(); });
 }
 
-void Editor_A::paint(Graphics& /*g*/) {
-    //g.addTransform(AffineTransform::scale(scale_factor));
-    //DRAW::Paths_Main::backdrop(g);
+void Editor_A::paint(Graphics& g) {
+    g.addTransform(AffineTransform::scale(app_p.scale_factor()));
+    DRAW::Paths_Main::backdrop(g);
 }
 
 void Editor_A::modifierKeysChanged(const ModifierKeys& /*mods*/) {
     repaint();
 }
 
-void Editor_A::valueTreePropertyChanged(ValueTree& /*parent_tree*/, const Identifier& /*property_id*/) {
-    //if (property_id.toString() == String{(int)App_Option::scale_percentage}) {
-    //    scale_factor = app_options.scale_percentage() * 0.01f;
-    //    setSize(roundToInt(XYWH::editor_init_w * scale_factor), roundToInt(XYWH::editor_init_h * scale_factor));
-    //}
+void Editor_A::valueTreePropertyChanged(ValueTree& /*parent_tree*/, const Identifier& property_id) {
+    if (property_id.toString() == ID::app_scale_factor) {
+        auto scale = app_p.scale_factor();
+        setSize(roundToInt(editor_init_w * scale), roundToInt(editor_init_h * scale));
+    }
 }
 
 Editor_A::~Editor_A() {
-    //app_options.remove_listener(this);
+    app_p.remove_listener(this);
     LookAndFeel::setDefaultLookAndFeel(nullptr);
 }

@@ -9,7 +9,7 @@ App_Params_A::App_Params_A(UndoManager* u_m) :
 	tree{ NAME::state_app_tree },
 	u_m{ u_m }
 {
-	set_scale_factor(1.0f);
+	tree.setProperty(ID::app_scale_factor, 1.0f, nullptr);
 }
 
 const float App_Params_A::scale_factor() {
@@ -17,15 +17,15 @@ const float App_Params_A::scale_factor() {
 }
 
 void App_Params_A::set_scale_factor(const float new_setting) {
-	auto setting_clamped = std::clamp(new_setting, 25.0f, 200.0f);
+	auto setting_clamped = std::clamp(new_setting, 0.25f, 2.0f);
 	tree.setProperty(ID::app_scale_factor, setting_clamped, u_m);
 }
 
 void App_Params_A::set_scale_factor_excluding(const float new_setting,
 	ValueTree::Listener* listener)
 {
-	auto setting_clamped = std::clamp(new_setting, 25.0f, 200.0f);
-	tree.setPropertyExcludingListener(listener, ID::app_scale_factor, setting_clamped, u_m);
+	auto setting_clamped = std::clamp(new_setting, 0.25f, 2.0f);
+	tree.setPropertyExcludingListener(listener, ID::app_scale_factor, setting_clamped, nullptr);
 }
 
 void App_Params_A::add_listener(ValueTree::Listener* listener) {

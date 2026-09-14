@@ -232,7 +232,7 @@ namespace ID
 		exp_env_3_release
 	};
 
-	constexpr std::array<const char*, 96> matrix_mod_params{
+	constexpr std::array<const char*, 30> matrix_mod_params{
 		mmod_0_src,
 		mmod_0_amt,
 		mmod_0_dst,

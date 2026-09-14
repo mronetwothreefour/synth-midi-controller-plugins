@@ -15,7 +15,7 @@ using namespace std;
 namespace MAP
 {
 
-	static const unordered_map<string, tuple<string, int, string>> editor_traits {
+	static const unordered_map<string, tuple<string, int, string>> txt_editor_traits {
 		{ ID::exp_osc_1_pitch, { allowed_chars_pitch, 3, Tip_For::txt_editor_pitch(25, 0, 63) } },
 		{ ID::exp_osc_1_pulse_w, { allowed_chars_u_int, 2, Tip_For::txt_editor_u_int(63) } },
 		{ ID::exp_osc_1_saw_tri, { allowed_chars_u_int, 2, Tip_For::txt_editor_u_int(63) } },
