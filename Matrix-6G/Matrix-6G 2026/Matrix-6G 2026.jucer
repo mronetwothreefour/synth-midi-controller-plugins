@@ -97,6 +97,10 @@
             file="_Project_Source/D_BUILD_Tip_For_P.h"/>
       <FILE id="qHYjtB" name="D_CONVERT_P.cpp" compile="1" resource="0" file="_Project_Source/D_CONVERT_P.cpp"/>
       <FILE id="xaIjg7" name="D_CONVERT_P.h" compile="0" resource="0" file="_Project_Source/D_CONVERT_P.h"/>
+      <FILE id="UqN6Ij" name="D_TREE_Matrix_Mod_Params_P.cpp" compile="1"
+            resource="0" file="_Project_Source/D_TREE_Matrix_Mod_Params_P.cpp"/>
+      <FILE id="TAbi70" name="D_TREE_Matrix_Mod_Params_P.h" compile="0" resource="0"
+            file="_Project_Source/D_TREE_Matrix_Mod_Params_P.h"/>
       <FILE id="Gn5Sui" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="ZgA4cd" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"

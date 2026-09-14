@@ -2,11 +2,12 @@
 
 #include "C_GET_P.h"
 #include "C_ID_Main_P.h"
+#include "C_NAME_P.h"
 
 using namespace TREE;
 
 Matrix_Mod_Params::Matrix_Mod_Params(UndoManager* u_m) :
-	tree{ ID::tree_matrix_mod },
+	tree{ NAME::state_tree_mmod },
 	u_m{ u_m }
 {
 	for (auto& id : ID::matrix_mod_params) {
@@ -32,7 +33,7 @@ Value Matrix_Mod_Params::get_param_as_value(const String& id) {
 std::unique_ptr<XmlElement> Matrix_Mod_Params::get_current_state() {
 	auto state{ tree.createXml() };
 	if (state)
-		state->setTagName(ID::xml_state_matrix_mod);
+		state->setTagName(NAME::state_xml_mmod);
 	return state;
 }
 

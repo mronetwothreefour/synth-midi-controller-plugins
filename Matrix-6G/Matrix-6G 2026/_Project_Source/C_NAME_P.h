@@ -11,4 +11,7 @@ namespace NAME
 	constexpr auto lbl_led_knb = "lbl_led_knb";
 	constexpr auto lbl_led_osc_bal = "lbl_led_osc_bal";
 
+	constexpr auto state_tree_mmod{ "state_tree_mmod" };
+	constexpr auto state_xml_mmod{ "state_xml_mmod" };
+
 }
