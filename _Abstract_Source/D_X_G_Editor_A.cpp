@@ -12,12 +12,12 @@ using namespace XYWH;
 Editor_A::Editor_A(Audio_Processor& processor, Data_Hub* hub) :
     AudioProcessorEditor{ &processor },
     processor{ processor },
-    Data_User{ hub }/*,
-    ctrls_exp{ hub }*/,
+    Data_User{ hub },
+    ctrls_exp{ hub },
     l_a_f{ app_p }
 {
     LookAndFeel::setDefaultLookAndFeel(&l_a_f);
-    //addAndMakeVisible(ctrls_exp);
+    addAndMakeVisible(ctrls_exp);
     tip_win.setMillisecondsBeforeTipAppears(50);
     tip_win.setComponentEffect(nullptr);
     setWantsKeyboardFocus(true);

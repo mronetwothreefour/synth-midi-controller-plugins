@@ -12,9 +12,9 @@ Ctrls_Exposed::Ctrls_Exposed(Data_Hub* hub) :
 {
 	for (auto& param_id : ID::exp_params) {
 		auto ctrl_name = GET::ctrl_name_for(param_id);
-		if (ctrl_name.isNotEmpty()) {
+		if (!ctrl_name.empty()) {
 			auto param_val = exp_state->getParameterAsValue(param_id);
-			if (ctrl_name == NAME::cbox) {
+			if (ctrl_name == NAME::ctr_cbx) {
 				cboxes.add(new Ctrl_Cbox_A{ param_id, param_val, hub });
 				auto cbox = cboxes[cboxes.size() - 1];
 				if (cbox) {

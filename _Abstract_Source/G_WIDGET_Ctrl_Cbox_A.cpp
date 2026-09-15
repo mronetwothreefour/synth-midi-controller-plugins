@@ -7,6 +7,8 @@ using namespace WIDGET;
 Ctrl_Cbox_A::Ctrl_Cbox_A(const std::string& param_id, Value param_value, Data_Hub* hub) :
 	Ctrl_A{ param_id, param_value, hub }
 {
+	setComponentID(param_id);
+	setName(GET::ctrl_name_for(param_id));
 	addItemList(choices_curt, 1);
 	if (!param_ptr) {
 		onChange = [this] { param_val.setValue(getSelectedItemIndex()); };

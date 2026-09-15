@@ -170,6 +170,14 @@
             file="_Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="CpRtB3" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Main_P.h"/>
+      <FILE id="Ij0k7F" name="G_LAYER_Ctrls_Exp_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_Exp_P.cpp"/>
+      <FILE id="T4DPX3" name="G_LAYER_Ctrls_Exp_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_Exp_P.h"/>
+      <FILE id="erdPxd" name="G_LAYER_Ctrls_MMod_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_MMod_P.cpp"/>
+      <FILE id="UCHv1g" name="G_LAYER_Ctrls_MMod_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_MMod_P.h"/>
       <FILE id="vV5WcO" name="G_Look_And_Feel_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_Look_And_Feel_P.cpp"/>
       <FILE id="KrNZtr" name="G_Look_And_Feel_P.h" compile="0" resource="0"
