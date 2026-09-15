@@ -65,6 +65,10 @@
             file="../../_Abstract_Source/G_Look_And_Feel_A.cpp"/>
       <FILE id="Rf3Whm" name="G_Look_And_Feel_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_Look_And_Feel_A.h"/>
+      <FILE id="VE68ZB" name="G_WIDGET_Ctrl_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Ctrl_A.cpp"/>
+      <FILE id="kdDkzH" name="G_WIDGET_Ctrl_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Ctrl_A.h"/>
       <FILE id="jQ4Dbf" name="G_WIDGET_Sli_Label_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/G_WIDGET_Sli_Label_A.cpp"/>
       <FILE id="HFZXxc" name="G_WIDGET_Sli_Label_A.h" compile="0" resource="0"

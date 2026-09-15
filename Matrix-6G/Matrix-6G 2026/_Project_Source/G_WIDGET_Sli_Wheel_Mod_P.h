@@ -11,7 +11,7 @@ namespace WIDGET
 	private: const bool inverted_range;
 
 	//==============================================================================
-	public: Slider_Wheel_Mod(const std::string& param_id, UndoManager* u_m);
+	public: Slider_Wheel_Mod(const std::string& param_id, Value param_value, Data_Hub* hub);
 
 	public: double proportionOfLengthToValue(double proportion) override;
 

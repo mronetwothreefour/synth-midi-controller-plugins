@@ -4,8 +4,8 @@
 
 using namespace WIDGET;
 
-Slider_Wheel_Mod::Slider_Wheel_Mod(const std::string& param_id, UndoManager* u_m) :
-	Slider_Wheel_Mod_A{ param_id, u_m },
+Slider_Wheel_Mod::Slider_Wheel_Mod(const std::string& param_id, Value param_value, Data_Hub* hub) :
+	Slider_Wheel_Mod_A{ param_id, param_value, hub },
 	inverted_range{ param_id == ID::exp_osc_balance }
 {
 	if (inverted_range) {

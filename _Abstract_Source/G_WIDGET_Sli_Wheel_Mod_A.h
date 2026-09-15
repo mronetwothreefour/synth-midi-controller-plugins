@@ -1,6 +1,6 @@
 #pragma once
 
-#include <JuceHeader.h>
+#include "G_WIDGET_Ctrl_A.h"
 
 using Mods = ModifierKeys;
 
@@ -8,16 +8,15 @@ namespace WIDGET
 {
 
 	class Slider_Wheel_Mod_A :
+		public Ctrl_A,
 		public Slider
 	{
-	private: UndoManager* u_m;
 	public: bool for_pitch;
-	public: const StringArray choices;
-	public: const StringArray choices_curt;
 
 	//==============================================================================
-	public: explicit Slider_Wheel_Mod_A(const std::string& param_id, UndoManager* u_m);
+	public: Slider_Wheel_Mod_A(const std::string& param_id, Value param_value, Data_Hub* hub);
 
+	private: void update_ctrl_setting() override;
 	public: void mouseWheelMove(const MouseEvent& e, const MouseWheelDetails& wheel) override;
 	protected: virtual void mod_value(double increment, double& current_value);
 	protected: virtual void alt_mod_value(double /*increment*/, double& /*current_value*/) {}

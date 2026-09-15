@@ -6,17 +6,20 @@
 using namespace MISC;
 using namespace WIDGET;
 
-Slider_Wheel_Mod_A::Slider_Wheel_Mod_A(const std::string& param_id, UndoManager* u_m) :
-	u_m{ u_m },
-	for_pitch{ false },
-	choices{ GET::choices_for(param_id) },
-	choices_curt{ GET::choices_for(param_id, true) }
+Slider_Wheel_Mod_A::Slider_Wheel_Mod_A(const std::string& param_id, Value param_value,
+									   Data_Hub* hub) :
+	Ctrl_A{ param_id, param_value, hub },
+	for_pitch{ false }
 {
 	setComponentID(param_id);
 	setName(GET::ctrl_name_for(param_id));
 	setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
 	setRotaryParameters(knb_angle_0, knb_angle_1, true);
 	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
+}
+
+void WIDGET::Slider_Wheel_Mod_A::update_ctrl_setting() {
+	setValue((double)param_val.getValue(), dontSendNotification);
 }
 
 void Slider_Wheel_Mod_A::mouseWheelMove(const MouseEvent& e, const MouseWheelDetails& wheel) {
