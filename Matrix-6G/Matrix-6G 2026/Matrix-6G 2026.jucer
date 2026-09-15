@@ -69,6 +69,10 @@
             file="../../_Abstract_Source/G_WIDGET_Ctrl_A.cpp"/>
       <FILE id="kdDkzH" name="G_WIDGET_Ctrl_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_WIDGET_Ctrl_A.h"/>
+      <FILE id="kjdwro" name="G_WIDGET_Ctrl_Slider_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Ctrl_Slider_A.cpp"/>
+      <FILE id="YP4w2s" name="G_WIDGET_Ctrl_Slider_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Ctrl_Slider_A.h"/>
       <FILE id="jQ4Dbf" name="G_WIDGET_Sli_Label_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/G_WIDGET_Sli_Label_A.cpp"/>
       <FILE id="HFZXxc" name="G_WIDGET_Sli_Label_A.h" compile="0" resource="0"
@@ -166,6 +170,10 @@
             file="_Project_Source/G_Look_And_Feel_P.cpp"/>
       <FILE id="KrNZtr" name="G_Look_And_Feel_P.h" compile="0" resource="0"
             file="_Project_Source/G_Look_And_Feel_P.h"/>
+      <FILE id="HcIIMi" name="G_WIDGET_Ctrl_Slider_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_WIDGET_Ctrl_Slider_P.cpp"/>
+      <FILE id="pGbrPn" name="G_WIDGET_Ctrl_Slider_P.h" compile="0" resource="0"
+            file="_Project_Source/G_WIDGET_Ctrl_Slider_P.h"/>
       <FILE id="rAPPqY" name="G_WIDGET_Sli_Label_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_WIDGET_Sli_Label_P.cpp"/>
       <FILE id="MPklIt" name="G_WIDGET_Sli_Label_P.h" compile="0" resource="0"

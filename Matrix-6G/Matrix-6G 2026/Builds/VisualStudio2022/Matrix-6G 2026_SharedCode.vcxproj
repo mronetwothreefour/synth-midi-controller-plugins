@@ -159,6 +159,7 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_Look_And_Feel_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Ctrl_A.cpp"/>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Ctrl_Slider_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Label_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Wheel_Mod_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.cpp"/>
@@ -175,6 +176,7 @@
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_LED_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_Look_And_Feel_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\G_WIDGET_Ctrl_Slider_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_WIDGET_Sli_Label_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_WIDGET_Sli_Wheel_Mod_P.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -3192,6 +3194,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_Look_And_Feel_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Ctrl_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Ctrl_Slider_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Label_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Wheel_Mod_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.h"/>
@@ -3227,6 +3230,7 @@
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_LED_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_Look_And_Feel_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\G_WIDGET_Ctrl_Slider_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_WIDGET_Sli_Label_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_WIDGET_Sli_Wheel_Mod_P.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>

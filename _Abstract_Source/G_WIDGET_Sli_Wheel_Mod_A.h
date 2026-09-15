@@ -16,7 +16,7 @@ namespace WIDGET
 	//==============================================================================
 	public: Slider_Wheel_Mod_A(const std::string& param_id, Value param_value, Data_Hub* hub);
 
-	private: void update_ctrl_setting() override;
+	protected: void update_ctrl_setting() override;
 	public: void mouseWheelMove(const MouseEvent& e, const MouseWheelDetails& wheel) override;
 	protected: virtual void mod_value(double increment, double& current_value);
 	protected: virtual void alt_mod_value(double /*increment*/, double& /*current_value*/) {}

@@ -2,9 +2,8 @@
 
 using namespace WIDGET;
 
-Ctrl_Slider_A::Ctrl_Slider_A(const String& param_id, Value param_value, Data_Hub* hub) :
-	Ctrl_A{ param_id, param_value, hub },
-	Slider_Wheel_Mod{ param_id, Ctrl_A::u_m },
+Ctrl_Slider_A::Ctrl_Slider_A(const std::string& param_id, Value param_value, Data_Hub* hub) :
+	Slider_Wheel_Mod{ param_id, param_value, hub },
 	label{ param_id, hub, this }
 {
 	addAndMakeVisible(label);
@@ -35,14 +34,10 @@ void Ctrl_Slider_A::remove_attachment() {
 
 void Ctrl_Slider_A::set_drag_sensitivity() {
 	auto choice_count = Ctrl_A::choices.size();
-	auto sensitivity = 175.0f * scale_factor;
+	auto sensitivity = 175.0f * scale_factor();
 	if (choice_count < 128)
-		sensitivity = (80.0f + choice_count / 2.0f) * scale_factor;
+		sensitivity = (80.0f + choice_count / 2.0f) * scale_factor();
 	setMouseDragSensitivity(roundToInt(sensitivity));
-}
-
-void Ctrl_Slider_A::update_ctrl_setting() {
-	setValue((double)param_val.getValue(), dontSendNotification);
 }
 
 void Ctrl_Slider_A::mouseDoubleClick(const MouseEvent&/*e*/) {

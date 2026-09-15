@@ -9,7 +9,7 @@ using namespace WIDGET;
 Slider_Wheel_Mod_A::Slider_Wheel_Mod_A(const std::string& param_id, Value param_value,
 									   Data_Hub* hub) :
 	Ctrl_A{ param_id, param_value, hub },
-	for_pitch{ false }
+	for_pitch{ String{ param_id }.contains("pitch") }
 {
 	setComponentID(param_id);
 	setName(GET::ctrl_name_for(param_id));
