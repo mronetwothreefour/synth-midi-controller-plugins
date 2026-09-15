@@ -14,7 +14,7 @@ namespace WIDGET
 	protected: std::unique_ptr<Cbox_Attachment> attachment;
 
 	//==============================================================================
-	public: Ctrl_Cbox_A(const String& param_id, Value param_value, Data_Hub* hub);
+	public: Ctrl_Cbox_A(const std::string& param_id, Value param_value, Data_Hub* hub);
 
 	public: void attach_to_param() override;
 	public: void remove_attachment() override;

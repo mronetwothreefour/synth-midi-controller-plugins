@@ -4,7 +4,7 @@
 
 using namespace WIDGET;
 
-Ctrl_Cbox_A::Ctrl_Cbox_A(const String& param_id, Value param_value, Data_Hub* hub) :
+Ctrl_Cbox_A::Ctrl_Cbox_A(const std::string& param_id, Value param_value, Data_Hub* hub) :
 	Ctrl_A{ param_id, param_value, hub }
 {
 	addItemList(choices_curt, 1);
