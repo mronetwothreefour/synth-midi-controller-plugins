@@ -16,7 +16,7 @@ namespace WIDGET
 	public: const StringArray choices_curt;
 
 	//==============================================================================
-	public: explicit Slider_Wheel_Mod_A(const String& param_id, UndoManager* u_m);
+	public: explicit Slider_Wheel_Mod_A(const std::string& param_id, UndoManager* u_m);
 
 	public: void mouseWheelMove(const MouseEvent& e, const MouseWheelDetails& wheel) override;
 	protected: virtual void mod_value(double increment, double& current_value);

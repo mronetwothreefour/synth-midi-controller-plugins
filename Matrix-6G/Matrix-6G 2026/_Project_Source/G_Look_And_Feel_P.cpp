@@ -23,7 +23,6 @@ void Look_And_Feel::positionComboBoxText(ComboBox& cbox, Label& lbl) {
 PopupMenu::Options Look_And_Feel::getOptionsForComboBoxPopupMenu(ComboBox& cbox, Label& /*lbl*/) {
 	auto param_id = cbox.getComponentID().toStdString();
 	auto cbox_area = cbox.getBoundsInParent();
-	auto cbox_cntr_y = cbox_area.getCentreY();
 	auto target_area = cbox.getScreenBounds();
 	auto selected_item = cbox.getSelectedItemIndex();
 	auto item_h = roundToInt(XYWH::ctr_h * app_p.scale_factor());
