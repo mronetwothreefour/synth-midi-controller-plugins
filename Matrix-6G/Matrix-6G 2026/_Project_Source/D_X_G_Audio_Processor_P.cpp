@@ -13,10 +13,10 @@ AudioProcessorEditor* Audio_Processor::create_editor() {
     return new Editor{ *this, hub.get() };
 }
 
-void Audio_Processor::store_plugin_specific_param_state(XmlElement& /*plugin_state*/) {
+void Audio_Processor::store_param_state_p(XmlElement& /*plugin_state*/) {
 }
 
-void Audio_Processor::restore_plugin_specific_param_state(XmlElement* /*plugin_state*/) {
+void Audio_Processor::restore_param_state_p(XmlElement* /*plugin_state*/) {
 }
 
 Audio_Processor::~Audio_Processor() {

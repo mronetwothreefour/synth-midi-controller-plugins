@@ -14,6 +14,8 @@ protected: UndoManager* u_m;
 //==============================================================================
 public: explicit Data_User_A(Data_Hub* hub);
 
+public: const float scale_factor();
+
 //==============================================================================
 private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Data_User_A)
 };

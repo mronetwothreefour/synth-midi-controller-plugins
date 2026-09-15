@@ -52,7 +52,7 @@ void Audio_Processor_A::getStateInformation(MemoryBlock& target_mem_block) {
     exposed_state->setTagName(NAME::state_exp_xml);
     if (exposed_state)
         plugin_state.addChildElement(exposed_state.release());
-    store_plugin_specific_param_state(plugin_state);
+    store_param_state_p(plugin_state);
     copyXmlToBinary(plugin_state, target_mem_block);
 }
 
@@ -70,7 +70,7 @@ void Audio_Processor_A::setStateInformation(const void* stored_param_data, int d
             hub->get_exposed_params_state()->replaceState(ValueTree::fromXml(*exposed_state));
             //transmitOptions->setParamChangesShouldBeTransmitted(true);
         }
-        restore_plugin_specific_param_state(plugin_state.get());
+        restore_param_state_p(plugin_state.get());
     }
 }
 

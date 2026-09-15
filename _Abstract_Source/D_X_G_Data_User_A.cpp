@@ -8,3 +8,7 @@ Data_User_A::Data_User_A(Data_Hub* hub) :
 	exp_state{ hub->get_exposed_params_state() },
 	u_m{ hub->get_undo_mngr() }
 {}
+
+const float Data_User_A::scale_factor() {
+	return app_p.scale_factor();
+}

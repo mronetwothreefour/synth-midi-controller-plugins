@@ -65,10 +65,18 @@
             file="../../_Abstract_Source/G_Look_And_Feel_A.cpp"/>
       <FILE id="Rf3Whm" name="G_Look_And_Feel_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_Look_And_Feel_A.h"/>
+      <FILE id="jQ4Dbf" name="G_WIDGET_Sli_Label_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Sli_Label_A.cpp"/>
+      <FILE id="HFZXxc" name="G_WIDGET_Sli_Label_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Sli_Label_A.h"/>
       <FILE id="T0fHld" name="G_WIDGET_Sli_Wheel_Mod_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/G_WIDGET_Sli_Wheel_Mod_A.cpp"/>
       <FILE id="bvx0Jy" name="G_WIDGET_Sli_Wheel_Mod_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_WIDGET_Sli_Wheel_Mod_A.h"/>
+      <FILE id="u0D5ME" name="G_WIDGET_Tip_Updater_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Tip_Updater_A.cpp"/>
+      <FILE id="FloBIo" name="G_WIDGET_Tip_Updater_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Tip_Updater_A.h"/>
     </GROUP>
     <GROUP id="{184497C2-0BC4-A69C-3CF3-9218D550E5FD}" name="_Project_Source">
       <GROUP id="{E2CF511A-3BE4-2C85-8587-4B1D2DC29528}" name="binaries">
@@ -154,6 +162,10 @@
             file="_Project_Source/G_Look_And_Feel_P.cpp"/>
       <FILE id="KrNZtr" name="G_Look_And_Feel_P.h" compile="0" resource="0"
             file="_Project_Source/G_Look_And_Feel_P.h"/>
+      <FILE id="rAPPqY" name="G_WIDGET_Sli_Label_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_WIDGET_Sli_Label_P.cpp"/>
+      <FILE id="MPklIt" name="G_WIDGET_Sli_Label_P.h" compile="0" resource="0"
+            file="_Project_Source/G_WIDGET_Sli_Label_P.h"/>
       <FILE id="z4tXe1" name="G_WIDGET_Sli_Wheel_Mod_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_WIDGET_Sli_Wheel_Mod_P.cpp"/>
       <FILE id="n64Ydk" name="G_WIDGET_Sli_Wheel_Mod_P.h" compile="0" resource="0"

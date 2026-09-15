@@ -10,8 +10,8 @@ namespace WIDGET
 
     struct Tip_Updater_A
     {
-        String tip_info;
-        String tip_current_choice;
+        std::string tip_info;
+        std::string tip_current_choice;
 
         void on_mod_keys_changed(const Mods& mods, Tip_Client* client) const;
     };

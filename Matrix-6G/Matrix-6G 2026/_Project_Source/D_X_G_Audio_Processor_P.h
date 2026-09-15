@@ -11,8 +11,8 @@ public: Audio_Processor();
 
 public: void process_block(AudioBuffer<float>& audio, MidiBuffer& midi) override;
 public: AudioProcessorEditor* create_editor() override;
-public: void store_plugin_specific_param_state(XmlElement& plugin_state) override;
-public: void restore_plugin_specific_param_state(XmlElement* plugin_state) override;
+public: void store_param_state_p(XmlElement& plugin_state) override;
+public: void restore_param_state_p(XmlElement* plugin_state) override;
 
 public: ~Audio_Processor() override;
 

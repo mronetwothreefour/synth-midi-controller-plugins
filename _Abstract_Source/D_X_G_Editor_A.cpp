@@ -23,14 +23,14 @@ Editor_A::Editor_A(Audio_Processor& processor, Data_Hub* hub) :
     setWantsKeyboardFocus(true);
     app_p.add_listener(this);
     setResizable(true, true);
-    auto scale = app_p.scale_factor();
-    setSize(roundToInt(editor_init_w * scale), roundToInt(editor_init_h * scale));
+    auto s = scale_factor();
+    setSize(roundToInt(editor_init_w * s), roundToInt(editor_init_h * s));
     getConstrainer()->setFixedAspectRatio(editor_aspect_ratio);
     Timer::callAfterDelay(50, [this] { grabKeyboardFocus(); });
 }
 
 void Editor_A::paint(Graphics& g) {
-    g.addTransform(AffineTransform::scale(app_p.scale_factor()));
+    g.addTransform(AffineTransform::scale(scale_factor()));
     DRAW::Paths_Main::backdrop(g);
 }
 
@@ -40,8 +40,8 @@ void Editor_A::modifierKeysChanged(const ModifierKeys& /*mods*/) {
 
 void Editor_A::valueTreePropertyChanged(ValueTree& /*parent_tree*/, const Identifier& property_id) {
     if (property_id.toString() == ID::app_scale_factor) {
-        auto scale = app_p.scale_factor();
-        setSize(roundToInt(editor_init_w * scale), roundToInt(editor_init_h * scale));
+        auto s = scale_factor();
+        setSize(roundToInt(editor_init_w * s), roundToInt(editor_init_h * s));
     }
 }
 
