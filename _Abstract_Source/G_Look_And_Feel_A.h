@@ -2,13 +2,17 @@
 
 #include <JuceHeader.h>
 
+#include "D_TREE_App_Params_P.h"
+
+using namespace TREE;
+
 class Look_And_Feel_A :
 	public LookAndFeel_V4
 {
-protected: float& scale_factor;
+protected: App_Params& app_p;
 
 //==============================================================================
-public: explicit Look_And_Feel_A(float& scale_factor);
+public: explicit Look_And_Feel_A(App_Params& app_params);
 
 public: void drawComboBox(Graphics& /*g*/, int /*w*/, int /*h*/, bool /*down*/, int /*x*/,
 						  int /*y*/, int /*w*/, int /*h*/, ComboBox& /*cbox*/) override {}

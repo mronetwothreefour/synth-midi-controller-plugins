@@ -61,6 +61,10 @@
             file="../../_Abstract_Source/G_DRAW_Paths_A.cpp"/>
       <FILE id="TghLaW" name="G_DRAW_Paths_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_DRAW_Paths_A.h"/>
+      <FILE id="K5CapO" name="G_Look_And_Feel_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_Look_And_Feel_A.cpp"/>
+      <FILE id="Rf3Whm" name="G_Look_And_Feel_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_Look_And_Feel_A.h"/>
     </GROUP>
     <GROUP id="{184497C2-0BC4-A69C-3CF3-9218D550E5FD}" name="_Project_Source">
       <GROUP id="{E2CF511A-3BE4-2C85-8587-4B1D2DC29528}" name="binaries">
@@ -134,10 +138,18 @@
             file="_Project_Source/D_X_G_Editor_P.cpp"/>
       <FILE id="u9HFhy" name="D_X_G_Editor_P.h" compile="0" resource="0"
             file="_Project_Source/D_X_G_Editor_P.h"/>
+      <FILE id="chZZd5" name="G_DRAW_Paths_LED_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_DRAW_Paths_LED_P.cpp"/>
+      <FILE id="Dt4PMJ" name="G_DRAW_Paths_LED_P.h" compile="0" resource="0"
+            file="_Project_Source/G_DRAW_Paths_LED_P.h"/>
       <FILE id="KHGVlp" name="G_DRAW_Paths_Main_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="CpRtB3" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Main_P.h"/>
+      <FILE id="vV5WcO" name="G_Look_And_Feel_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_Look_And_Feel_P.cpp"/>
+      <FILE id="KrNZtr" name="G_Look_And_Feel_P.h" compile="0" resource="0"
+            file="_Project_Source/G_Look_And_Feel_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

@@ -6,13 +6,13 @@
 
 using Justify = Justification;
 
-Look_And_Feel_A::Look_And_Feel_A(float& scale_factor) :
-	scale_factor{ scale_factor }
+Look_And_Feel_A::Look_And_Feel_A(App_Params& app_params) :
+	app_p{ app_params }
 {
-	setColour(PopupMenu::backgroundColourId, COLOR::popup_ground);
-	setColour(TextEditor::textColourId, COLOR::text);
-	setColour(CaretComponent::caretColourId, COLOR::txt_caret);
-	setColour(TextEditor::highlightColourId, COLOR::txt_highlight);
+	setColour(PopupMenu::backgroundColourId, Colour{ COLOR::popup_ground });
+	setColour(TextEditor::textColourId, Colour{ COLOR::text });
+	setColour(CaretComponent::caretColourId, Colour{ COLOR::txt_caret });
+	setColour(TextEditor::highlightColourId, Colour{ COLOR::txt_highlight });
 }
 
 void Look_And_Feel_A::getIdealPopupMenuItemSizeWithOptions(const String& /*txt*/,
@@ -25,19 +25,20 @@ void Look_And_Feel_A::getIdealPopupMenuItemSizeWithOptions(const String& /*txt*/
 }
 
 void Look_And_Feel_A::drawPopupMenuBackground(Graphics& g, int /*w*/, int /*h*/) {
-	g.fillAll(COLOR::popup_ground);
+	g.fillAll(Colour{ COLOR::popup_ground });
 }
 
 void Look_And_Feel_A::drawLabel(Graphics& g, Label& lbl) {
-	g.setColour(lbl.isBeingEdited() ? COLOR::text.withAlpha(0.0f) : COLOR::text);
+	Colour txt_color{ COLOR::text };
+	g.setColour(lbl.isBeingEdited() ? txt_color.withAlpha(0.0f) : txt_color);
 	auto name = lbl.getName();
-	if (name == NAME::lbl_browser) {
+	if (name == NAME::lbl_brws) {
 		auto txt_area{ lbl.getLocalBounds().removeFromLeft(5) };
-		g.setFont(FONT::file_browser(scale_factor));
+		g.setFont(FONT::file_browser(app_p.scale_factor()));
 		g.drawFittedText(lbl.getText(), txt_area, Justify::centredLeft, 1, 1.0f);
 		return;
 	}
-	if (name == NAME::lbl_knob || name == NAME::lbl_cbox) {
+	if (name == NAME::lbl_knb || name == NAME::lbl_cbx) {
 		g.setFont(lbl.getFont());
 		g.drawFittedText(lbl.getText(), lbl.getLocalBounds().translated(0, 1),
 			Justify::centred, 1, 1.0f);
@@ -49,7 +50,7 @@ void Look_And_Feel_A::drawLabel(Graphics& g, Label& lbl) {
 void Look_And_Feel_A::fillTextEditorBackground(Graphics& g, int /*w*/, int /*h*/,
 											   TextEditor& editor)
 {
-	if (editor.getName() == NAME::txt_editor_filled)
+	if (editor.getName() == NAME::txt_edit_filled)
 		g.fillAll(findColour(TextEditor::backgroundColourId));
 }
 
@@ -60,9 +61,9 @@ void Look_And_Feel_A::drawToggleButton(Graphics& g, ToggleButton& btn, bool hili
 
 void Look_And_Feel_A::drawTooltip(Graphics& g, const String& txt, int w, int h) {
 	Rectangle<int> tip_box(w, h);
-	g.setColour(COLOR::popup_ground);
+	g.setColour(Colour{ COLOR::popup_ground });
 	g.fillRect(tip_box);
-	g.setColour(COLOR::tip_border);
+	g.setColour(Colour{ COLOR::tip_border });
 	g.drawRect(tip_box, 1);
 	layout_tip_text(txt).draw(g, { (float)w, (float)h });
 }
@@ -82,7 +83,7 @@ Rectangle<int> Look_And_Feel_A::getTooltipBounds(const String& txt, Point<int> p
 TextLayout Look_And_Feel_A::layout_tip_text(const String& txt) noexcept {
 	AttributedString attrib_txt;
 	attrib_txt.setJustification(Justify::centred);
-	attrib_txt.append(txt, FONT::tip(), COLOR::text);
+	attrib_txt.append(txt, FONT::tip(), Colour{ COLOR::text });
 	TextLayout layout;
 	auto max_w = 500.0f;
 	layout.createLayout(attrib_txt, max_w);

@@ -3,7 +3,7 @@
 #include "D_X_G_Audio_Processor_P.h"
 #include "D_X_G_Data_User_P.h"
 //#include "G_LAYER_Ctrls_Exp_P.h"
-//#include "G_Look_And_Feel_P.h"
+#include "G_Look_And_Feel_P.h"
 
 //using namespace LAYER;
 
@@ -14,7 +14,7 @@ class Editor_A :
 {
 protected: Audio_Processor& processor;
 //protected: Ctrls_Exposed ctrls_exp;
-//protected: Look_And_Feel l_a_f;
+protected: Look_And_Feel l_a_f;
 protected: TooltipWindow tip_win;
 
 //==============================================================================

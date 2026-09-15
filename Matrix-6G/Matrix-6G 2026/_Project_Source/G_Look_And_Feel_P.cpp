@@ -1,6 +1,7 @@
 #include "G_Look_And_Feel_P.h"
 
 #include "C_COLOR_P.h"
+#include "C_GET_P.h"
 #include "C_MISC_P.h"
 #include "C_NAME_P.h"
 #include "C_XYWH_P.h"
@@ -8,10 +9,10 @@
 
 using Justify = Justification;
 
-Look_And_Feel::Look_And_Feel(float& scale_factor) :
-	Look_And_Feel_A{ scale_factor }
+Look_And_Feel::Look_And_Feel(App_Params& app_params) :
+	Look_And_Feel_A{ app_params }
 {
-	setColour(TextEditor::backgroundColourId, COLOR::black);
+	setColour(TextEditor::backgroundColourId, Colour{ COLOR::black });
 }
 
 void Look_And_Feel::positionComboBoxText(ComboBox& cbox, Label& lbl) {
@@ -20,35 +21,34 @@ void Look_And_Feel::positionComboBoxText(ComboBox& cbox, Label& lbl) {
 }
 
 PopupMenu::Options Look_And_Feel::getOptionsForComboBoxPopupMenu(ComboBox& cbox, Label& /*lbl*/) {
+	auto param_id = cbox.getComponentID().toStdString();
 	auto cbox_area = cbox.getBoundsInParent();
 	auto cbox_cntr_y = cbox_area.getCentreY();
 	auto target_area = cbox.getScreenBounds();
 	auto selected_item = cbox.getSelectedItemIndex();
-	auto item_h = roundToInt(XYWH::ctrl_h * scale_factor);
-	auto col_count = 1;
-	auto item_count = cbox.getNumItems();
-	if (item_count == MISC::choice_count_mod_src || item_count == MISC::choice_count_mod_dst)
-		col_count = 3;
+	auto item_h = roundToInt(XYWH::ctr_h * app_p.scale_factor());
 	auto min_w = cbox.getWidth();
-	auto menu_above = cbox_cntr_y > XYWH::env_ctrl_row_0_y * scale_factor;
+	auto menu_above = GET::menu_above_for(param_id);
 	auto offset_y = 0;
 	auto offset_x = 0;
+	auto col_count = GET::menu_col_count_for(param_id);
+	auto row_count = GET::menu_row_count_for(param_id);
 	if (col_count == 1) {
 		if (menu_above)
-			offset_y = (selected_item - item_count) * item_h;
+			offset_y = (selected_item - row_count) * item_h;
 		else
 			offset_y = (selected_item + 1) * item_h;
 	}
 	else {
 		min_w += 8;
 		offset_x -= min_w * 2;
-		auto m = item_count == MISC::choice_count_mod_src ? 7 : 11;
-		offset_y = (selected_item % m + 1) * item_h;
+		offset_y = (selected_item % row_count + 1) * item_h;
 	}
+	auto scale = app_p.scale_factor();
 	if (menu_above)
-		target_area.translate(offset_x, offset_y - roundToInt(2 * scale_factor));
+		target_area.translate(offset_x, offset_y - roundToInt(2 * scale));
 	else
-		target_area.translate(offset_x, offset_y + roundToInt(3 * scale_factor));
+		target_area.translate(offset_x, offset_y + roundToInt(3 * scale));
 	return PopupMenu::Options().withTargetScreenArea(target_area)
 							   .withItemThatMustBeVisible(cbox.getSelectedId())
 							   .withMinimumWidth(min_w)
@@ -62,21 +62,22 @@ void Look_And_Feel::drawPopupMenuItemWithOptions(Graphics& g, const Rectangle<in
 												 const PopupMenu::Options& /*o*/)
 {
 	if (hilited) {
-		g.setColour(COLOR::popup_ground.brighter(0.05f));
+		g.setColour(Colour{ COLOR::popup_ground }.brighter(0.05f));
 		g.fillRect(area);
 	}
+	auto scale = app_p.scale_factor();
 	if (i.isTicked) {
-		g.setColour(COLOR::orange);
-		auto vert_bar = DRAW::Paths_LED::build_vert_bar(scale_factor);
-		g.fillPath(vert_bar, AffineTransform::translation(2.5f * scale_factor, 0.0f));
+		g.setColour(Colour{ COLOR::orange });
+		auto vert_bar = DRAW::Paths_LED::build_vert_bar(scale);
+		g.fillPath(vert_bar, AffineTransform::translation(2.5f * scale, 0.0f));
 	}
-	DRAW::Paths_LED::display_text(g, i.text, area.getWidth(), scale_factor, Justify::left, 1.0f);
+	DRAW::Paths_LED::display_text(g, i.text, area.getWidth(), scale, Justify::left, 1.0f);
 }
 
 void Look_And_Feel::draw_label_p(Graphics& g, Label& lbl, String& /*lbl_name*/) {
 	auto txt{ lbl.getText() };
 	auto alpha = lbl.isBeingEdited() ? 0.0f : 1.0f;
-	DRAW::Paths_LED::display_text(g, txt, lbl.getWidth(), scale_factor,
+	DRAW::Paths_LED::display_text(g, txt, lbl.getWidth(), app_p.scale_factor(),
 		lbl.getJustificationType(), alpha);
 }
 
@@ -84,5 +85,5 @@ void Look_And_Feel::drawLinearSlider(Graphics& g, int /*x*/, int /*y*/, int /*w*
 									 float pos, float /*min_pos*/, float /*max_pos*/,
 									 const Slider::SliderStyle /*style*/, Slider& /*s*/)
 {
-	DRAW::Paths_LED::slider_tab(g, pos, scale_factor);
+	DRAW::Paths_LED::slider_tab(g, pos, app_p.scale_factor());
 }
