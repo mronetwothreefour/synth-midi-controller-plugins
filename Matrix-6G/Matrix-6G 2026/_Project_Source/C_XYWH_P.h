@@ -88,7 +88,8 @@ namespace XYWH
 	constexpr auto mmod_col_dst_cx = 1191;
 	constexpr auto mmod_col_src_cx = 1057;
 	constexpr auto mmod_ctr_amt_w = 40;
-	constexpr auto mmod_ctr_src_dst_w = 82;
+	constexpr auto mmod_ctr_dst_w = 82;
+	constexpr auto mmod_ctr_src_w = mmod_ctr_dst_w;
 
 	constexpr auto osc_bal_cx = 163;
 	constexpr auto osc_bal_w = 126;

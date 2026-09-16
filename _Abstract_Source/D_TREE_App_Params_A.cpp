@@ -9,27 +9,25 @@ App_Params_A::App_Params_A(UndoManager* u_m) :
 	tree{ NAME::state_app_tree },
 	u_m{ u_m }
 {
-	tree.setProperty(ID::app_scale_factor, 1.0f, nullptr);
+	tree.setProperty(ID::app_scale_i, 1, nullptr);
 }
 
-const float App_Params_A::scale_factor() {
-	return (float)tree[ID::app_scale_factor];
+const int App_Params_A::scale_i() {
+	return (int)tree[ID::app_scale_i];
 }
 
-void App_Params_A::set_scale_factor(const float new_setting) {
-	auto setting_clamped = std::clamp(new_setting, 0.25f, 2.0f);
-	tree.setProperty(ID::app_scale_factor, setting_clamped, u_m);
+void App_Params_A::set_scale_i(const int new_setting) {
+	auto setting_clamped = std::clamp(new_setting, 25, 200);
+	tree.setProperty(ID::app_scale_i, setting_clamped, u_m);
 }
 
-void App_Params_A::set_scale_factor_excluding(const float new_setting,
-	ValueTree::Listener* listener)
-{
-	auto setting_clamped = std::clamp(new_setting, 0.25f, 2.0f);
-	tree.setPropertyExcludingListener(listener, ID::app_scale_factor, setting_clamped, nullptr);
+void App_Params_A::set_scale_i_excluding(const int new_setting, ValueTree::Listener* l) {
+	auto setting_clamped = std::clamp(new_setting, 25, 200);
+	tree.setPropertyExcludingListener(l, ID::app_scale_i, setting_clamped, nullptr);
 }
 
-void App_Params_A::add_listener(ValueTree::Listener* listener) {
-	tree.addListener(listener);
+void App_Params_A::add_listener(ValueTree::Listener* l) {
+	tree.addListener(l);
 }
 
 void App_Params_A::remove_listener(ValueTree::Listener* listener) {

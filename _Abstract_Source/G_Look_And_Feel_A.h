@@ -9,10 +9,10 @@ using namespace TREE;
 class Look_And_Feel_A :
 	public LookAndFeel_V4
 {
-protected: App_Params& app_p;
+protected: float& scale_f;
 
 //==============================================================================
-public: explicit Look_And_Feel_A(App_Params& app_params);
+public: explicit Look_And_Feel_A(float& scale_factor);
 
 public: void drawComboBox(Graphics& /*g*/, int /*w*/, int /*h*/, bool /*down*/, int /*x*/,
 						  int /*y*/, int /*w*/, int /*h*/, ComboBox& /*cbox*/) override {}

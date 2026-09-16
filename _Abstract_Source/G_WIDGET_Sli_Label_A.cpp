@@ -31,13 +31,13 @@ Slider_Label_A::Slider_Label_A(const std::string& param_id, Data_Hub* hub,
 }
 
 void Slider_Label_A::resized() {
-	setFont(Font_For::knob(scale_factor()));
+	setFont(Font_For::knob(scale_f));
 }
 
 void Slider_Label_A::on_editor_show() {
 	auto edit = getCurrentTextEditor();
 	edit->setBounds(getLocalBounds());
-	edit->applyFontToAllText(Font_For::knob_txt_editor(scale_factor()));
+	edit->applyFontToAllText(Font_For::knob_txt_editor(scale_f));
 	auto n = getName();
 	edit->setInputRestrictions(editor_char_limit, editor_allowed_chars);
 	edit->setTooltip(editor_tip);

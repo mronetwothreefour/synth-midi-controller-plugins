@@ -6,7 +6,7 @@ class Look_And_Feel :
 	public Look_And_Feel_A
 {
 //==============================================================================
-public: explicit Look_And_Feel(App_Params& app_params);
+public: explicit Look_And_Feel(float& scale_factor);
 
 public: void positionComboBoxText(ComboBox& cbox, Label& lbl) override;
 public: PopupMenu::Options getOptionsForComboBoxPopupMenu(ComboBox& cbox, Label& lbl) override;

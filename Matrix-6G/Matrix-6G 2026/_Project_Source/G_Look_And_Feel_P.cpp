@@ -9,8 +9,8 @@
 
 using Justify = Justification;
 
-Look_And_Feel::Look_And_Feel(App_Params& app_params) :
-	Look_And_Feel_A{ app_params }
+Look_And_Feel::Look_And_Feel(float& scale_factor) :
+	Look_And_Feel_A{ scale_factor }
 {
 	setColour(TextEditor::backgroundColourId, Colour{ COLOR::black });
 }
@@ -25,7 +25,7 @@ PopupMenu::Options Look_And_Feel::getOptionsForComboBoxPopupMenu(ComboBox& cbox,
 	auto cbox_area = cbox.getBoundsInParent();
 	auto target_area = cbox.getScreenBounds();
 	auto selected_item = cbox.getSelectedItemIndex();
-	auto item_h = roundToInt(XYWH::ctr_h * app_p.scale_factor());
+	auto item_h = roundToInt(XYWH::ctr_h * scale_f);
 	auto min_w = cbox.getWidth();
 	auto menu_above = GET::menu_above_for(param_id);
 	auto offset_y = 0;
@@ -43,11 +43,10 @@ PopupMenu::Options Look_And_Feel::getOptionsForComboBoxPopupMenu(ComboBox& cbox,
 		offset_x -= min_w * 2;
 		offset_y = (selected_item % row_count + 1) * item_h;
 	}
-	auto scale = app_p.scale_factor();
 	if (menu_above)
-		target_area.translate(offset_x, offset_y - roundToInt(2 * scale));
+		target_area.translate(offset_x, offset_y - roundToInt(2 * scale_f));
 	else
-		target_area.translate(offset_x, offset_y + roundToInt(3 * scale));
+		target_area.translate(offset_x, offset_y + roundToInt(3 * scale_f));
 	return PopupMenu::Options().withTargetScreenArea(target_area)
 							   .withItemThatMustBeVisible(cbox.getSelectedId())
 							   .withMinimumWidth(min_w)
@@ -64,25 +63,24 @@ void Look_And_Feel::drawPopupMenuItemWithOptions(Graphics& g, const Rectangle<in
 		g.setColour(Colour{ COLOR::popup_ground }.brighter(0.05f));
 		g.fillRect(area);
 	}
-	auto scale = app_p.scale_factor();
 	if (i.isTicked) {
 		g.setColour(Colour{ COLOR::orange });
-		auto vert_bar = DRAW::Paths_LED::build_vert_bar(scale);
-		g.fillPath(vert_bar, AffineTransform::translation(2.5f * scale, 0.0f));
+		auto vert_bar = DRAW::Paths_LED::build_vert_bar(scale_f);
+		g.fillPath(vert_bar, AffineTransform::translation(2.5f * scale_f, 0.0f));
 	}
-	DRAW::Paths_LED::display_text(g, i.text, area.getWidth(), scale, Justify::left, 1.0f);
+	DRAW::Paths_LED::display_text(g, i.text, area.getWidth(), scale_f, Justify::left, 1.0f);
 }
 
 void Look_And_Feel::draw_label_p(Graphics& g, Label& lbl, String& /*lbl_name*/) {
 	auto txt{ lbl.getText() };
 	auto alpha = lbl.isBeingEdited() ? 0.0f : 1.0f;
-	DRAW::Paths_LED::display_text(g, txt, lbl.getWidth(), app_p.scale_factor(),
-		lbl.getJustificationType(), alpha);
+	DRAW::Paths_LED::display_text(g, txt, lbl.getWidth(), scale_f,
+								  lbl.getJustificationType(), alpha);
 }
 
 void Look_And_Feel::drawLinearSlider(Graphics& g, int /*x*/, int /*y*/, int /*w*/, int /*h*/,
 									 float pos, float /*min_pos*/, float /*max_pos*/,
 									 const Slider::SliderStyle /*style*/, Slider& /*s*/)
 {
-	DRAW::Paths_LED::slider_tab(g, pos, app_p.scale_factor());
+	DRAW::Paths_LED::slider_tab(g, pos, scale_f);
 }

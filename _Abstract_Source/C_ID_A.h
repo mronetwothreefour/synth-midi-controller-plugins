@@ -3,6 +3,6 @@
 namespace ID
 {
 
-	constexpr auto app_scale_factor = "app_scale_factor";
+	constexpr auto app_scale_i = "app_scale_i";
 
 }

@@ -13,10 +13,10 @@ namespace TREE
 	//==============================================================================
 	public: App_Params_A(UndoManager* u_m);
 
-	public: const float scale_factor();
-	public: void set_scale_factor(const float new_setting);
-	public: void set_scale_factor_excluding(const float new_setting,
-											ValueTree::Listener* listener_to_exclude);
+	public: const int scale_i();
+	public: void set_scale_i(const int new_setting);
+	public: void set_scale_i_excluding(const int new_setting,
+									   ValueTree::Listener* listener_to_exclude);
 
 	public: void add_listener(ValueTree::Listener* listener);
 	public: void remove_listener(ValueTree::Listener* listener);

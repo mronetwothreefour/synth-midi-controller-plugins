@@ -25,7 +25,7 @@ void Ctrl_A::link_to_another_param(Value param_to_link_val) {
 }
 
 Rectangle<int> Ctrl_A::scaled_bounds() {
-	return init_bounds * scale_factor();
+	return init_bounds * scale_f;
 }
 
 void Ctrl_A::update_tip_current_choice() {

@@ -6,8 +6,8 @@
 
 using Justify = Justification;
 
-Look_And_Feel_A::Look_And_Feel_A(App_Params& app_params) :
-	app_p{ app_params }
+Look_And_Feel_A::Look_And_Feel_A(float& scale_factor) :
+	scale_f{ scale_factor }
 {
 	setColour(PopupMenu::backgroundColourId, Colour{ COLOR::popup_ground });
 	setColour(TextEditor::textColourId, Colour{ COLOR::text });
@@ -34,7 +34,7 @@ void Look_And_Feel_A::drawLabel(Graphics& g, Label& lbl) {
 	auto name = lbl.getName();
 	if (name == NAME::lbl_brws) {
 		auto txt_area{ lbl.getLocalBounds().removeFromLeft(5) };
-		g.setFont(FONT::file_browser(app_p.scale_factor()));
+		g.setFont(FONT::file_browser(scale_f));
 		g.drawFittedText(lbl.getText(), txt_area, Justify::centredLeft, 1, 1.0f);
 		return;
 	}

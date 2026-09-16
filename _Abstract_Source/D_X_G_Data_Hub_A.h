@@ -13,12 +13,14 @@ class Data_Hub_A
 protected: App_Params app_params;
 protected: std::unique_ptr<UndoManager> undo_mngr;
 protected: std::unique_ptr<State> exposed_param_state;
+protected: float scale_f;
 
 //==============================================================================
 public: explicit Data_Hub_A(AudioProcessor* processor);
 
 public: App_Params& get_app_params();
 public: State* get_exposed_params_state();
+public: float& get_scale_f();
 public: UndoManager* get_undo_mngr();
 public: ~Data_Hub_A();
 

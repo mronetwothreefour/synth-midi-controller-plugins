@@ -14,7 +14,7 @@ Editor_A::Editor_A(Audio_Processor& processor, Data_Hub* hub) :
     processor{ processor },
     Data_User{ hub },
     ctrls_exp{ hub },
-    l_a_f{ app_p }
+    l_a_f{ scale_f }
 {
     LookAndFeel::setDefaultLookAndFeel(&l_a_f);
     addAndMakeVisible(ctrls_exp);
@@ -23,14 +23,13 @@ Editor_A::Editor_A(Audio_Processor& processor, Data_Hub* hub) :
     setWantsKeyboardFocus(true);
     app_p.add_listener(this);
     setResizable(true, true);
-    auto s = scale_factor();
-    setSize(roundToInt(editor_init_w * s), roundToInt(editor_init_h * s));
+    setSize(roundToInt(editor_init_w * scale_f), roundToInt(editor_init_h * scale_f));
     getConstrainer()->setFixedAspectRatio(editor_aspect_ratio);
     Timer::callAfterDelay(50, [this] { grabKeyboardFocus(); });
 }
 
 void Editor_A::paint(Graphics& g) {
-    g.addTransform(AffineTransform::scale(scale_factor()));
+    g.addTransform(AffineTransform::scale(scale_f));
     DRAW::Paths_Main::backdrop(g);
 }
 
@@ -38,10 +37,10 @@ void Editor_A::modifierKeysChanged(const ModifierKeys& /*mods*/) {
     repaint();
 }
 
-void Editor_A::valueTreePropertyChanged(ValueTree& /*parent_tree*/, const Identifier& property_id) {
-    if (property_id.toString() == ID::app_scale_factor) {
-        auto s = scale_factor();
-        setSize(roundToInt(editor_init_w * s), roundToInt(editor_init_h * s));
+void Editor_A::valueTreePropertyChanged(ValueTree& /*parent_tree*/, const Identifier& id) {
+    if (id.toString() == ID::app_scale_i) {
+        scale_f = app_p.scale_i() * 0.01f;
+        setSize(roundToInt(editor_init_w * scale_f), roundToInt(editor_init_h * scale_f));
     }
 }
 

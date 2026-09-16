@@ -34,9 +34,9 @@ void Ctrl_Slider_A::remove_attachment() {
 
 void Ctrl_Slider_A::set_drag_sensitivity() {
 	auto choice_count = Ctrl_A::choices.size();
-	auto sensitivity = 175.0f * scale_factor();
+	auto sensitivity = 175.0f * scale_f;
 	if (choice_count < 128)
-		sensitivity = (80.0f + choice_count / 2.0f) * scale_factor();
+		sensitivity = (80.0f + choice_count / 2.0f) * scale_f;
 	setMouseDragSensitivity(roundToInt(sensitivity));
 }
 
