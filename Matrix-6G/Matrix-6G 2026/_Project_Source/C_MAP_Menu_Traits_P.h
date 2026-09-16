@@ -19,7 +19,7 @@ namespace MAP
 		{ ID::exp_osc_1_key_click, { false, 1, 2 } },
 		{ ID::exp_osc_1_key_track, { false, 1, 2 } },
 		{ ID::exp_osc_1_lever_ctrl, { false, 1, 4 } },
-		{ ID::exp_osc_1_type, { false, 1, 5 } },
+		{ ID::exp_osc_2_type, { false, 1, 5 } },
 		{ ID::exp_osc_2_key_click, { false, 1, 2 } },
 		{ ID::exp_osc_2_key_track, { false, 1, 3 } },
 		{ ID::exp_osc_2_lever_ctrl, { false, 1, 4 } },
