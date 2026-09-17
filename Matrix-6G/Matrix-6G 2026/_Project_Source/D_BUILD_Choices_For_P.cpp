@@ -171,7 +171,7 @@ const StringArray BUILD::Choices_For::mmod_destination() {
 	list.add("OSC2 W__oscillator 2 saw/tri wave shape");
 	list.add("OSC MIX__oscillator mix (balance)");
 	list.add("VCF FM__VCF FM amount");
-	list.add("VCF FM__VCF FQ cutoff frequency");
+	list.add("VCF FQ__VCF cutoff frequency");
 	list.add("VCF RES__VCF resonance");
 	list.add("VCA1LVL__VCA 1 level");
 	list.add("VCA2LVL__VCA 2 level");

@@ -146,7 +146,7 @@ Range: 0 (beginning of the cycle) to 63 (the cycle’s half-way point).)";
     constexpr auto lfo_sample_source_tip = u8R"(
 Selects the modulation source that LFO _ will
 periodically sample to calculate its output value
-(when its wave type (above) is set to sampled).)";
+when its wave type (above) is set to sampled.)";
 
     constexpr auto lfo_speed_tip = u8R"(
 Sets the cycle rate of low-frequency oscillator _.
