@@ -13,6 +13,11 @@ std::string Tip_For_A::from_SL(const char8_t* sl) {
     return s.toStdString();
 }
 
+std::string BUILD::Tip_For_A::from_SL_and_int(const char8_t* sl, const unsigned int n) {
+    String s{ from_SL(sl) };
+    return s.replace("_", (String)n).toStdString();
+}
+
 std::string Tip_For_A::txt_editor_pitch(const unsigned int example,
                                         const unsigned int min,
                                         const unsigned int max) 
