@@ -100,6 +100,10 @@
             file="_Project_Source/C_MAP_Choices_P.h"/>
       <FILE id="hMJnYe" name="C_MAP_Ctrl_Traits_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Ctrl_Traits_P.h"/>
+      <FILE id="H23XqV" name="C_MAP_Exp_Name_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Exp_Name_P.h"/>
+      <FILE id="uKtNB2" name="C_MAP_Init_Bounds_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Init_Bounds_P.h"/>
       <FILE id="CXwFXR" name="C_MAP_Label_Name_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Label_Name_P.h"/>
       <FILE id="hCdR3C" name="C_MAP_Txt_Editor_Traits_P.h" compile="0" resource="0"
@@ -110,6 +114,7 @@
             file="_Project_Source/C_SL_Tip_Exposed_P.h"/>
       <FILE id="rT5czF" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Widget_P.h"/>
+      <FILE id="ocfjT0" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
       <FILE id="AlCIIg" name="D_BUILD_Choices_For_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Choices_For_P.cpp"/>
       <FILE id="AJOCot" name="D_BUILD_Choices_For_P.h" compile="0" resource="0"

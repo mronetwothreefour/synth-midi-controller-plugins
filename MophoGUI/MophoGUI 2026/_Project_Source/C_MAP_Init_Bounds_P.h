@@ -1,15 +1,20 @@
 #pragma once
 
+#include <string>
+#include <tuple>
+#include <unordered_map>
+
 #include "C_ID_Main_P.h"
 #include "C_NAME_P.h"
 #include "C_XYWH_P.h"
 
+using namespace std;
 using namespace XYWH;
 
 namespace MAP
 {
 
-	static const std::unordered_map<String, Array<int>> init_bounds{
+	static const unordered_map<string, tuple<bool, int, int, int, int>> init_bounds{
 		{ ID::exp_osc_1_pitch,	   { 1, ctr_col_1_cx, osc_row_1_cy, knob_diam, knob_diam } },
 		{ ID::exp_osc_1_fine_tune, { 1, ctr_col_2_cx, osc_row_1_cy, knob_diam, knob_diam } },
 		{ ID::exp_osc_1_shape,	   { 1, ctr_col_3_cx, osc_row_1_cy, knob_diam, knob_diam } },
@@ -199,9 +204,6 @@ namespace MAP
 		{ ID::exp_voice_name_char_14, { 1, name_char_14_cx, name_char_cy, name_char_w, name_char_h } },
 		{ ID::exp_voice_name_char_15, { 1, name_char_15_cx, name_char_cy, name_char_w, name_char_h } },
 		{ ID::exp_voice_name_char_16, { 1, name_char_16_cx, name_char_cy, name_char_w, name_char_h } },
-
-		{ NAME::gui_editor, { 0, 0, 0, editor_init_w, editor_init_h } },
-
 	};
 
 }
