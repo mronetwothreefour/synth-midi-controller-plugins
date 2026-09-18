@@ -1,11 +1,14 @@
 #pragma once
 
+#include <string>
+#include <unordered_map>
+
 #include "C_ID_Main_P.h"
 
 namespace MAP
 {
 
-	static const std::unordered_map<String, int> nrpn{
+	static const std::unordered_map<std::string, int> nrpn{
 		//exposed osc
 		{ ID::exp_osc_1_pitch, 0 },
 		{ ID::exp_osc_1_fine_tune, 1 },
@@ -126,18 +129,6 @@ namespace MAP
 		{ ID::exp_flex_knob_2, 105 },
 		{ ID::exp_flex_knob_3, 106 },
 		{ ID::exp_flex_knob_4, 107 },
-		//exposed unassigned
-		{ ID::exp_unassigned_1, -1 },
-		{ ID::exp_unassigned_2, -1 },
-		{ ID::exp_unassigned_3, -1 },
-		{ ID::exp_unassigned_4, -1 },
-		{ ID::exp_unassigned_5, -1 },
-		{ ID::exp_unassigned_6, -1 },
-		{ ID::exp_unassigned_7, -1 },
-		{ ID::exp_unassigned_8, -1 },
-		{ ID::exp_unassigned_9, -1 },
-		{ ID::exp_unassigned_10, -1 },
-		{ ID::exp_unassigned_11, -1 },
 		//exposed seq step
 		{ ID::exp_seq_track_1_step_1, 120 },
 		{ ID::exp_seq_track_1_step_2, 121 },
