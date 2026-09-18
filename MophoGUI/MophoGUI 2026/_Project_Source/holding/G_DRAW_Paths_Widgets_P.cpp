@@ -1536,13 +1536,13 @@ Path Paths_Widgets::build_char_path(const uint8 char_num) {
 void Paths_Widgets::knob(Graphics& g, float& rotation, float& scale) {
 	auto knob = load_path(PATH::knob, sizeof(PATH::knob));
 	knob.applyTransform(AffineTransform::rotation(rotation, 19, 19));
-	g.setColour(COLOR::black);
+	g.setColour(Colour{ COLOR::black });
 	g.fillPath(knob, AffineTransform::scale(scale));
 }
 
 void Paths_Widgets::lcd_char(Graphics& g, uint8 char_num, float& scale) {
 	auto p = build_char_path(char_num);
-	g.setColour(COLOR::white);
+	g.setColour(Colour{ COLOR::white });
 	g.fillPath(p, AffineTransform::scale(scale));
 }
 
