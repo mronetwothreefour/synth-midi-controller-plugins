@@ -4194,6 +4194,12 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Traits_P.h">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Label_Name_P.h">
+      <Filter>MophoGUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Txt_Editor_Traits_P.h">
+      <Filter>MophoGUI 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MISC_P.h">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClInclude>

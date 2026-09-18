@@ -100,6 +100,10 @@
             file="_Project_Source/C_MAP_Choices_P.h"/>
       <FILE id="hMJnYe" name="C_MAP_Ctrl_Traits_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Ctrl_Traits_P.h"/>
+      <FILE id="CXwFXR" name="C_MAP_Label_Name_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Label_Name_P.h"/>
+      <FILE id="hCdR3C" name="C_MAP_Txt_Editor_Traits_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Txt_Editor_Traits_P.h"/>
       <FILE id="BXNjnd" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
       <FILE id="tw4mV9" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
       <FILE id="Es4bal" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
