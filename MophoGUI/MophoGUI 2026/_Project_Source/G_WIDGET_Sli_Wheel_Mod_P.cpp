@@ -1,20 +1,17 @@
 #include "G_WIDGET_Sli_Wheel_Mod_P.h"
 
-#include "C_GET_P.h"
-#include "C_NAME_P.h"
+#include "C_ID_Main_P.h"
 
 using namespace WIDGET;
 
 using Key = KeyPress;
 
-Slider_Wheel_Mod::Slider_Wheel_Mod(const String& param_id, UndoManager* u_m) :
-	Slider_Wheel_Mod_A{ param_id, u_m }
-{
-	auto n = getName();
-	for_osc_shape = n == NAME::knob_osc_shape;
-	for_seq_step = n == NAME::seq_step || getName() == NAME::seq_step_trk_1;
-	for_seq_trk_1 = n == NAME::seq_step_trk_1;
-}
+Slider_Wheel_Mod::Slider_Wheel_Mod(const std::string& param_id, Value param_value, Data_Hub* hub) :
+	Slider_Wheel_Mod_A{ param_id, param_value, hub },
+	for_osc_shape{ param_id == ID::exp_osc_1_shape || param_id == ID::exp_osc_2_shape },
+	for_seq_step{ String{ param_id }.contains("_step_") },
+	for_seq_trk_1{ String{ param_id }.contains("_track_1_step_") }
+{}
 
 void Slider_Wheel_Mod::shift_mod_value(double increment, double& curr_val) {
 	if (for_pitch)

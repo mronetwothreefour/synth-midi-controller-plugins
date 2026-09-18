@@ -126,6 +126,10 @@
             file="_Project_Source/D_BUILD_Choices_For_P.cpp"/>
       <FILE id="AJOCot" name="D_BUILD_Choices_For_P.h" compile="0" resource="0"
             file="_Project_Source/D_BUILD_Choices_For_P.h"/>
+      <FILE id="Sid4s1" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_BUILD_Font_For_P.cpp"/>
+      <FILE id="hW8yhU" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
+            file="_Project_Source/D_BUILD_Font_For_P.h"/>
       <FILE id="IpHB7n" name="D_BUILD_Tip_For_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Tip_For_P.cpp"/>
       <FILE id="lll14h" name="D_BUILD_Tip_For_P.h" compile="0" resource="0"
@@ -136,6 +140,10 @@
             file="_Project_Source/D_TREE_App_Params_P.cpp"/>
       <FILE id="q9qlfw" name="D_TREE_App_Params_P.h" compile="0" resource="0"
             file="_Project_Source/D_TREE_App_Params_P.h"/>
+      <FILE id="PdASfu" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_X_G_Audio_Processor_P.cpp"/>
+      <FILE id="YKMlNT" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"
+            file="_Project_Source/D_X_G_Audio_Processor_P.h"/>
       <FILE id="HDRNu5" name="D_X_G_Data_Hub_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_X_G_Data_Hub_P.cpp"/>
       <FILE id="h5f4hk" name="D_X_G_Data_Hub_P.h" compile="0" resource="0"
@@ -144,6 +152,10 @@
             file="_Project_Source/D_X_G_Data_User_P.cpp"/>
       <FILE id="nntusu" name="D_X_G_Data_User_P.h" compile="0" resource="0"
             file="_Project_Source/D_X_G_Data_User_P.h"/>
+      <FILE id="SaEVw4" name="D_X_G_Editor_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_X_G_Editor_P.cpp"/>
+      <FILE id="DmBIA0" name="D_X_G_Editor_P.h" compile="0" resource="0"
+            file="_Project_Source/D_X_G_Editor_P.h"/>
       <FILE id="Ps5bhF" name="G_DRAW_Paths_Main_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="qTKvqf" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
@@ -152,6 +164,14 @@
             file="_Project_Source/G_DRAW_Paths_Widgets_P.cpp"/>
       <FILE id="lAllhm" name="G_DRAW_Paths_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Widgets_P.h"/>
+      <FILE id="LtvInR" name="G_WIDGET_Sli_Label_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_WIDGET_Sli_Label_P.cpp"/>
+      <FILE id="aKjL0k" name="G_WIDGET_Sli_Label_P.h" compile="0" resource="0"
+            file="_Project_Source/G_WIDGET_Sli_Label_P.h"/>
+      <FILE id="AuYIRk" name="G_WIDGET_Sli_Wheel_Mod_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_WIDGET_Sli_Wheel_Mod_P.cpp"/>
+      <FILE id="sNxoSn" name="G_WIDGET_Sli_Wheel_Mod_P.h" compile="0" resource="0"
+            file="_Project_Source/G_WIDGET_Sli_Wheel_Mod_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

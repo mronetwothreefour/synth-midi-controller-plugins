@@ -13,7 +13,7 @@ namespace WIDGET
 	public: bool for_seq_trk_1;
 
 	//==============================================================================
-	public: Slider_Wheel_Mod(const String& param_id, UndoManager* u_m);
+	public: Slider_Wheel_Mod(const std::string& param_id, Value param_value, Data_Hub* hub);
 
 	private: void shift_mod_value(double increment, double& current_value) override;
 
