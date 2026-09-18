@@ -2,5 +2,4 @@
 
 Data_User::Data_User(Data_Hub* hub) :
 	Data_User_A{ hub }
-{
-}
+{}
