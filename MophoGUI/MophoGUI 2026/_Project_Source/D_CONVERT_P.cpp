@@ -1,8 +1,10 @@
 #include "D_CONVERT_P.h"
 
-String CONVERT::int_to_seq_step_pitch(const int i) {
+#include <JuceHeader.h>
+
+std::string CONVERT::int_to_seq_step_pitch(const int i) {
 	auto note{ i % 24 };
-	auto octave{ String(i / 24) };
+	auto octave{ String{ i / 24 }.toStdString() };
 	switch (note)
 	{
 	case 0: return "C" + octave;

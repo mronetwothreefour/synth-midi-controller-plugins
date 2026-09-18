@@ -8,7 +8,7 @@ using namespace BUILD;
 namespace MAP
 {
 
-	static const std::unordered_map<String, StringArray> choices{
+	static const std::unordered_map<std::string, StringArray> choices{
 		//exposed osc
 		{ ID::exp_osc_1_pitch, Choices_For::osc_pitch(121) },
 		{ ID::exp_osc_1_fine_tune, Choices_For::fine_tune() },

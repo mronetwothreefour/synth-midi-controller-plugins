@@ -31,7 +31,7 @@ namespace MAP
 		{ ID::exp_osc_1_key_track, { ctr_cbx, 0, Tip::exp_osc_key_track(1) } },
 		{ ID::exp_osc_1_lever_ctrl, { ctr_cbx, 3, Tip::from_SL_and_int(SL::osc_lever_control_tip, 1) } },
 		{ ID::exp_osc_2_pitch, { ctr_sli_knb, 0, Tip::from_SL_and_int(SL::osc_pitch_tip, 2) } },
-		{ ID::exp_osc_2_type, { ctr_cbx, 2, Tip::exp_osc_type(2) } },
+		{ ID::exp_osc_2_type, { ctr_cbx, 1, Tip::exp_osc_type(2) } },
 		{ ID::exp_osc_2_pulse_w, { ctr_sli_knb, 24, Tip::from_SL_and_int(SL::osc_pulse_w_tip, 2) } },
 		{ ID::exp_osc_2_saw_tri, { ctr_sli_knb, 31, Tip::from_SL_and_int(SL::osc_saw_tri_tip, 2) } },
 		{ ID::exp_osc_2_detune, { ctr_sli_knb, 33, Tip::from_SL(SL::osc_2_detune_tip) } },

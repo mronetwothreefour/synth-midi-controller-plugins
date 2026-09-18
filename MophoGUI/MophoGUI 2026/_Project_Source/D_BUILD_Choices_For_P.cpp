@@ -183,7 +183,7 @@ const StringArray Choices_For::exp_lfo_freq() {
     }
     for (int i = lfo_1st_pitch_freq; i < lfo_1st_sync_freq; ++i) {
         String n{ i };
-        auto pitch = CONVERT::int_to_pitch(i - lfo_1st_pitch_freq);
+        String pitch{ CONVERT::int_to_pitch(i - lfo_1st_pitch_freq) };
         list.add(pitch + "__" + n + " (pitch freq. " + pitch + ")");
     }
     list.add("1:32__synced 151 : 1 LFO cycle lasts 32 steps");
@@ -219,7 +219,7 @@ const StringArray Choices_For::exp_lpf_freq() {
     StringArray list;
     for (int i = 0; i < 165; ++i) {
         String n{ i };
-        auto p{ CONVERT::int_to_pitch(i) };
+        String p{ CONVERT::int_to_pitch(i) };
         list.add(p + "__" + n + " (pitch freq. " + p + ")");
     }
     return list;
@@ -345,7 +345,7 @@ const StringArray Choices_For::exp_seq_track_2_4_dest(const bool trk_2) {
 const StringArray Choices_For::exp_seq_track_step() {
     StringArray list;
     for (int i = 0; i < 126; ++i) {
-        auto p = CONVERT::int_to_seq_step_pitch(i);
+        String p{ CONVERT::int_to_seq_step_pitch(i) };
         list.add(p + "__" + (String)i + " (" + p + ")");
     }
     list.add("<__reset sequence");
