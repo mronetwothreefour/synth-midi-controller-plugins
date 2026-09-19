@@ -6,11 +6,13 @@
 
 using namespace WIDGET;
 
-Ctrl_Toggle::Ctrl_Toggle(const String& param_id, Value param_val, Data_Hub* hub) :
+Ctrl_Toggle::Ctrl_Toggle(const std::string& param_id, Value param_val, Data_Hub* hub) :
 	Ctrl_A{ param_id, param_val, hub }
 {
 	setInterceptsMouseClicks(true, false);
-	toggle.setName(GET::ctrl_name_for(param_id));
+auto n = GET::ctrl_name_for(param_id);
+	toggle.setName(n);
+	init_red_toggle_bounds = GET::init_red_toggle_bounds_for(n);
 	addAndMakeVisible(toggle);
 	if (param_id == ID::exp_arpeg_on_off) {
 		linked_param_val = exp_state->getParameterAsValue(ID::exp_seq_on_off);
@@ -25,8 +27,7 @@ Ctrl_Toggle::Ctrl_Toggle(const String& param_id, Value param_val, Data_Hub* hub)
 }
 
 void Ctrl_Toggle::resized() {
-	auto b = GET::init_bounds_for(toggle.getName()) * scale_factor;
-	toggle.setBounds(b);
+	toggle.setBounds(init_red_toggle_bounds * scale_f);
 }
 
 void Ctrl_Toggle::attach_to_param() {

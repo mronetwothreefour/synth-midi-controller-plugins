@@ -1,18 +1,17 @@
 #include "G_WIDGET_Ctrl_Slider_P.h"
 
-#include "C_NAME_P.h"
+#include "C_ID_Main_P.h"
 
 using namespace WIDGET;
 
-Ctrl_Slider::Ctrl_Slider(const String& param_id, Value param_val, Data_Hub* hub) :
+Ctrl_Slider::Ctrl_Slider(const std::string& param_id, Value param_val, Data_Hub* hub) :
 	Ctrl_Slider_A{ param_id, param_val, hub }
 {
-	auto n = getName();
-	if (n == NAME::knob_pitch)
+	if (param_id == ID::exp_lpf_freq)
 		for_pitch = true;
-	if (n == NAME::seq_step || n == NAME::seq_step_trk_1) {
-		auto track = param_id.fromFirstOccurrenceOf("_track_", false, false).
-					 upToFirstOccurrenceOf("_step_", false, false);
+	if (for_seq_step) {
+		auto track = String{ param_id }.fromFirstOccurrenceOf("_track_", false, false).
+										upToFirstOccurrenceOf("_step_", false, false);
 		auto linked_param_id = "exp_seq_track_" + track + "_dest";
 		linked_param_val = exp_state->getParameterAsValue(linked_param_id);
 		linked_param_val.addListener(this);
@@ -24,11 +23,11 @@ void Ctrl_Slider::update_tip_current_choice() {
 	auto choice_num = (int)param_val.getValue();
 	String tip{};
 	auto n = getName();
-	if ((n == NAME::seq_step || n == NAME::seq_step_trk_1) && !for_pitch && choice_num < 126)
-		tip = String{ choice_num };
+	if (for_seq_step && !for_pitch && choice_num < 126)
+		tip = (String)choice_num;
 	else
 		tip = Ctrl_A::choices[choice_num];
-	tip_update.tip_current_choice = tip;
+	tip_update.tip_current_choice = tip.toStdString();
 }
 
 void Ctrl_Slider::linked_param_changed() {

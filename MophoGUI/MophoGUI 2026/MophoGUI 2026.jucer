@@ -170,10 +170,18 @@
             file="_Project_Source/G_DRAW_Paths_Widgets_P.cpp"/>
       <FILE id="lAllhm" name="G_DRAW_Paths_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Widgets_P.h"/>
+      <FILE id="oizjYb" name="G_WIDGET_Ctrl_Slider_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_WIDGET_Ctrl_Slider_P.cpp"/>
+      <FILE id="iOLFXy" name="G_WIDGET_Ctrl_Slider_P.h" compile="0" resource="0"
+            file="_Project_Source/G_WIDGET_Ctrl_Slider_P.h"/>
       <FILE id="LtvInR" name="G_WIDGET_Sli_Label_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_WIDGET_Sli_Label_P.cpp"/>
       <FILE id="aKjL0k" name="G_WIDGET_Sli_Label_P.h" compile="0" resource="0"
             file="_Project_Source/G_WIDGET_Sli_Label_P.h"/>
+      <FILE id="IVcz4Z" name="G_WIDGET_Ctrl_Toggle_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_WIDGET_Ctrl_Toggle_P.cpp"/>
+      <FILE id="VZ2jmF" name="G_WIDGET_Ctrl_Toggle_P.h" compile="0" resource="0"
+            file="_Project_Source/G_WIDGET_Ctrl_Toggle_P.h"/>
       <FILE id="AuYIRk" name="G_WIDGET_Sli_Wheel_Mod_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_WIDGET_Sli_Wheel_Mod_P.cpp"/>
       <FILE id="sNxoSn" name="G_WIDGET_Sli_Wheel_Mod_P.h" compile="0" resource="0"

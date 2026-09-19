@@ -206,4 +206,14 @@ namespace MAP
 		{ ID::exp_voice_name_char_16, { 1, name_char_16_cx, name_char_cy, name_char_w, name_char_h } },
 	};
 
+	static const unordered_map<string, tuple<bool, int, int>> init_red_toggle_pos{
+		{ NAME::ctrl_tgl_arpeg, { true, 10, 7 } },
+		{ NAME::ctrl_tgl_env_3, { true, 18, 7 } },
+		{ NAME::ctrl_tgl_lfo, { true, 14, 7 } },
+		{ NAME::ctrl_tgl_lpf, { true, 18, 7 } },
+		{ NAME::ctrl_tgl_osc_trk, { true, 17, 7 } },
+		{ NAME::ctrl_tgl_osc_sync, { false, 186, 0 } },
+		{ NAME::ctrl_tgl_seq, { false, 0, 0 } },
+	};
+
 }

@@ -11,11 +11,12 @@ namespace WIDGET
 		public Ctrl_A,
 		public Component
 	{
-	protected: ToggleButton toggle;
-	protected: std::unique_ptr<Btn_Attachment> attachment;
+	private: ToggleButton toggle;
+	private: std::unique_ptr<Btn_Attachment> attachment;
+	private: Rectangle<int> init_red_toggle_bounds;
 
 	//==============================================================================
-	public: Ctrl_Toggle(const String& param_id, Value param_val, Data_Hub* hub);
+	public: Ctrl_Toggle(const std::string & param_id, Value param_val, Data_Hub* hub);
 
 	public: void resized() override;
 	public: void attach_to_param() override;
