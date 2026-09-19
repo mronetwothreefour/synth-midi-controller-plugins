@@ -904,6 +904,9 @@
     <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Matrix-6G\Matrix-6G 2026\_Project_Source\D_BUILD_Font_For_P.cpp">
+      <Filter>MophoGUI 2026\_Project_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_For_P.cpp">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClCompile>
@@ -4239,7 +4242,13 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Label_Name_P.h">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Menu_Traits_P.h">
+      <Filter>MophoGUI 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_NRPN_P.h">
+      <Filter>MophoGUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Matrix-6G\Matrix-6G 2026\_Project_Source\D_BUILD_Font_For_P.h">
       <Filter>MophoGUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Txt_Editor_Traits_P.h">

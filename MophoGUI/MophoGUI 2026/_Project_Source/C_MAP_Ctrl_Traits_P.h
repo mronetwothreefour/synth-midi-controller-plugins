@@ -17,6 +17,7 @@ namespace MAP
 {
 
 	static const unordered_map<string, tuple<string, int, string>> ctrl_traits{
+		// exposed osc
 		{ ID::exp_osc_1_pitch, { NAME::ctr_sli_knb, 24, Tip::from_SL_and_int(SL::osc_pitch_tip, 1) } },
 		{ ID::exp_osc_1_fine_tune, { NAME::ctr_sli_knb, 49, Tip::from_SL_and_int(SL::osc_fine_tip, 1) } },
 		{ ID::exp_osc_1_shape, { NAME::ctr_sli_knb, 1, Tip::from_SL_and_int(SL::osc_shape_tip, 1) } },

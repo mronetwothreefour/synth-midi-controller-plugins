@@ -108,7 +108,13 @@
             file="_Project_Source/C_MAP_Init_Bounds_P.h"/>
       <FILE id="CXwFXR" name="C_MAP_Label_Name_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Label_Name_P.h"/>
+      <FILE id="y5vA3U" name="C_MAP_Menu_Traits_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Menu_Traits_P.h"/>
       <FILE id="cDqBx3" name="C_MAP_NRPN_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_NRPN_P.h"/>
+      <FILE id="CbnPqa" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
+            file="../../Matrix-6G/Matrix-6G 2026/_Project_Source/D_BUILD_Font_For_P.cpp"/>
+      <FILE id="NQQ91f" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
+            file="../../Matrix-6G/Matrix-6G 2026/_Project_Source/D_BUILD_Font_For_P.h"/>
       <FILE id="hCdR3C" name="C_MAP_Txt_Editor_Traits_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Txt_Editor_Traits_P.h"/>
       <FILE id="BXNjnd" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
