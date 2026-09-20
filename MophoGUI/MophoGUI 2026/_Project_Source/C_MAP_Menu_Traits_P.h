@@ -56,10 +56,10 @@ namespace MAP
 		{ ID::exp_seq_track_3_dest, menu_traits_false_5_10 },
 		{ ID::exp_seq_track_4_dest, menu_traits_false_5_10 },
 		//exposed flex knob
-		{ ID::exp_flex_knob_1, menu_traits_true_10_17 },
-		{ ID::exp_flex_knob_2, menu_traits_true_10_17 },
-		{ ID::exp_flex_knob_3, menu_traits_true_10_17 },
-		{ ID::exp_flex_knob_4, menu_traits_true_10_17 },
+		{ ID::exp_flex_knob_1, menu_traits_true_5_34 },
+		{ ID::exp_flex_knob_2, menu_traits_true_5_34 },
+		{ ID::exp_flex_knob_3, menu_traits_true_5_34 },
+		{ ID::exp_flex_knob_4, menu_traits_true_5_34 },
 	};
 
 }

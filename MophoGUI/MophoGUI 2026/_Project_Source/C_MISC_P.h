@@ -31,7 +31,7 @@ namespace MISC
 	static const tuple<bool, int, int> menu_traits_false_5_10{ false, 5, 10 };
 	static const tuple<bool, int, int> menu_traits_true_1_5{ true, 1, 5 };
 	static const tuple<bool, int, int> menu_traits_true_5_10{ true, 5, 10 };
-	static const tuple<bool, int, int> menu_traits_true_10_17{ true, 10, 17 };
+	static const tuple<bool, int, int> menu_traits_true_5_34{ true, 5, 34 };
 
 	static const tuple<string, int, string>
 		txt_editor_traits_lfo_freq{ allowed_chars_lfo_freq, 5, Tip_For::from_SL(SL::edit_lfo_freq_tip) },

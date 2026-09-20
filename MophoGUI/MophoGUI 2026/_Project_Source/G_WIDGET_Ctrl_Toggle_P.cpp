@@ -10,7 +10,9 @@ Ctrl_Toggle::Ctrl_Toggle(const std::string& param_id, Value param_val, Data_Hub*
 	Ctrl_A{ param_id, param_val, hub }
 {
 	setInterceptsMouseClicks(true, false);
-auto n = GET::ctrl_name_for(param_id);
+	setComponentID(param_id);
+	auto n = GET::ctrl_name_for(param_id);
+	setName(n);
 	toggle.setName(n);
 	init_red_toggle_bounds = GET::init_red_toggle_bounds_for(n);
 	addAndMakeVisible(toggle);

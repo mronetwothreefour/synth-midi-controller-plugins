@@ -110,8 +110,8 @@ namespace MAP
 		{ ID::exp_push_it_pitch, { 1, push_it_pitch_cx, push_it_knb_cy, knob_diam, knob_diam } },
 		{ ID::exp_push_it_velo,  { 1, push_it_velo_cx, push_it_knb_cy, knob_diam, knob_diam } },
 		{ ID::exp_push_it_mode,  { 1, push_it_mode_cx, push_it_mode_cy, push_it_mode_w, cbox_h } },
-		{ ID::exp_clock_tempo, { 1, push_it_pitch_cx, push_it_knb_cy, knob_diam, knob_diam } },
-		{ ID::exp_clock_div,   { 1, push_it_pitch_cx, push_it_knb_cy, knob_diam, knob_diam } },
+		{ ID::exp_clock_tempo, { 1, 1236, clock_ctr_cy, knob_diam, knob_diam } },
+		{ ID::exp_clock_div,   { 1, 1139, clock_ctr_cy, 124, cbox_h } },
 		{ ID::exp_arp_mode, { 1, ctr_col_10_cx, 118, ctr_col_10_w, cbox_h } },
 		{ ID::exp_arpeg_on_off, { 0, 398, 103, 20, 27 } },
 		{ ID::exp_seq_trig_mode, { 1, 998, clock_ctr_cy, 114, cbox_h } },
@@ -212,7 +212,7 @@ namespace MAP
 		{ NAME::ctrl_tgl_lfo, { true, 14, 7 } },
 		{ NAME::ctrl_tgl_lpf, { true, 18, 7 } },
 		{ NAME::ctrl_tgl_osc_trk, { true, 17, 7 } },
-		{ NAME::ctrl_tgl_osc_sync, { false, 186, 0 } },
+		{ NAME::ctrl_tgl_osc_sync, { false, 66, 0 } },
 		{ NAME::ctrl_tgl_seq, { false, 0, 0 } },
 	};
 

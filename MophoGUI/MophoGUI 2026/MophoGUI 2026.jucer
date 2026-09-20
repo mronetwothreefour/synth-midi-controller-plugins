@@ -132,9 +132,9 @@
             file="_Project_Source/D_BUILD_Choices_For_P.cpp"/>
       <FILE id="AJOCot" name="D_BUILD_Choices_For_P.h" compile="0" resource="0"
             file="_Project_Source/D_BUILD_Choices_For_P.h"/>
-      <FILE id="Sid4s1" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
+      <FILE id="RVc5cf" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Font_For_P.cpp"/>
-      <FILE id="hW8yhU" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
+      <FILE id="jBQbhe" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
             file="_Project_Source/D_BUILD_Font_For_P.h"/>
       <FILE id="IpHB7n" name="D_BUILD_Tip_For_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Tip_For_P.cpp"/>
@@ -170,6 +170,10 @@
             file="_Project_Source/G_DRAW_Paths_Widgets_P.cpp"/>
       <FILE id="lAllhm" name="G_DRAW_Paths_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Widgets_P.h"/>
+      <FILE id="rTU3sL" name="G_LAYER_Ctrls_Exp_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_Exp_P.cpp"/>
+      <FILE id="RMI9wG" name="G_LAYER_Ctrls_Exp_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_Exp_P.h"/>
       <FILE id="zQBnAR" name="G_Look_And_Feel_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_Look_And_Feel_P.cpp"/>
       <FILE id="Aipejs" name="G_Look_And_Feel_P.h" compile="0" resource="0"

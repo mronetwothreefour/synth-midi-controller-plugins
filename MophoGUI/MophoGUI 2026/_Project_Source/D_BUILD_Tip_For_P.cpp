@@ -48,7 +48,7 @@ std::string Tip_For::exp_mod_src() {
 }
 
 std::string Tip_For::exp_seq_track_dest(const unsigned int track_num) {
-    auto s = String{ from_SL_replace_num(SL::seq_track_dest_tip_1, track_num) };
+    auto s = String{ from_SL_and_int(SL::seq_track_dest_tip_1, track_num) };
     if (track_num % 2 == 0) {
         s += "\n" + String{ from_SL(SL::seq_track_dest_tip_2) };
         s.replace("_", String{ track_num - 1 });
