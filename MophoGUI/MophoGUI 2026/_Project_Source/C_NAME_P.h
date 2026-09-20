@@ -16,5 +16,7 @@ namespace NAME
 	constexpr auto ctrl_tgl_osc_trk = "ctrl_tgl_osc_trk";
 	constexpr auto ctrl_tgl_seq = "ctrl_tgl_seq";
 	constexpr auto lbl_name_char = "lbl_name_char";
+	constexpr auto lbl_osc_shape = "lbl_osc_shape";
+	constexpr auto lbl_seq_step = "lbl_seq_step";
 
 }

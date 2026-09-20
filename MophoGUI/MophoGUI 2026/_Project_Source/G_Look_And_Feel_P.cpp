@@ -2,6 +2,8 @@
 
 #include "C_COLOR_P.h"
 #include "C_FONT_P.h"
+#include "C_GET_P.h"
+#include "C_ID_Main_P.h"
 #include "C_MISC_P.h"
 #include "C_NAME_P.h"
 #include "C_XYWH_P.h"
@@ -14,62 +16,35 @@ Look_And_Feel::Look_And_Feel(float& scale_factor) :
 {}
 
 void Look_And_Feel::positionComboBoxText(ComboBox& cbox, Label& lbl) {
-	auto icon_w = 11;
-	lbl.setBounds(0, 0, cbox.getWidth() - icon_w, cbox.getHeight());
+	lbl.setBounds(0, 0, cbox.getWidth() - 11, cbox.getHeight());
 }
 
 PopupMenu::Options Look_And_Feel::getOptionsForComboBoxPopupMenu(ComboBox& cbox, Label& /*lbl*/) {
+	auto param_id = cbox.getComponentID().toStdString();
 	auto cbox_area = cbox.getBoundsInParent();
-	auto cbox_area_cx = cbox_area.getCentreX();
-	auto cbox_area_cy = cbox_area.getCentreY();
 	auto target_area = cbox.getScreenBounds();
 	auto selected_item = cbox.getSelectedItemIndex();
-	auto item_h = roundToInt((XYWH::cbox_h - 2) * scale_factor);
-	auto col_count = 1;
-	auto item_count = cbox.getNumItems();
-	if (item_count == MISC::choice_count_mod_src)
-		col_count = 2;
-	if (item_count >= MISC::choice_count_mod_dest)
-		col_count = 5;
+	auto item_h = roundToInt((XYWH::cbox_h - 2) * scale_f);
 	auto min_w = cbox.getWidth();
-	auto menu_above = cbox_area_cy > XYWH::lfo_knob_cntr_y * scale_factor;
+	auto menu_above = GET::menu_above_for(param_id);
 	auto offset_y = 0;
 	auto offset_x = 0;
+	auto col_count = GET::menu_col_count_for(param_id);
+	auto row_count = GET::menu_row_count_for(param_id);
 	if (col_count == 1) {
 		if (menu_above)
-			offset_y = (selected_item - item_count) * item_h;
+			offset_y = (selected_item - row_count) * item_h;
 		else
 			offset_y = (selected_item + 1) * item_h;
 	}
 	else {
-		if (col_count == 2)
-			offset_y = (selected_item % 12 + 1) * item_h;
-		if (col_count == 5) {
-			if (item_count == MISC::choice_count_mod_dest ||
-				item_count == MISC::choice_count_seq_track_2_4_dest)
-			{
-				if (menu_above)
-					offset_y = (selected_item % 10 - 10) * item_h;
-				else
-					offset_y = (selected_item % 10 + 1) * item_h;
-				if (cbox_area.getX() >= XYWH::cc_dest_x * scale_factor &&
-					cbox_area_cx < XYWH::seq_step_0_x * scale_factor)
-				{
-					offset_x -= min_w;
-				}
-				if (cbox_area_cx > XYWH::seq_step_0_x * scale_factor)
-					offset_x -= min_w * (menu_above ? 2 : 3);
-			}
-			else {
-				offset_x -= min_w * 4;
-				offset_y = (selected_item % 34 - 34) * item_h;
-			}
-		}
+		offset_x -= min_w * (col_count - 1);
+		offset_y = (selected_item % row_count + 1) * item_h;
 	}
 	if (menu_above)
-		target_area.translate(offset_x, offset_y - roundToInt(scale_factor));
+		target_area.translate(offset_x, offset_y - roundToInt(scale_f));
 	else
-		target_area.translate(offset_x, offset_y + roundToInt(3 * scale_factor));
+		target_area.translate(offset_x, offset_y + roundToInt(3 * scale_f));
 	return PopupMenu::Options().withTargetScreenArea(target_area)
 							   .withItemThatMustBeVisible(cbox.getSelectedId())
 							   .withMinimumWidth(min_w)
@@ -85,52 +60,62 @@ void Look_And_Feel::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, c
 									  const Colour* const /*txt_clr*/)
 {
 	if (hilited && active) {
-		g.setColour(COLOR::popup_ground.brighter(0.05f));
+		g.setColour(Colour{ COLOR::popup_ground }.brighter(0.05f));
 		g.fillRect(area);
 	}
 	if (ticked) {
-		g.setColour(COLOR::yellow);
-		auto tick_diam = 4.0f * scale_factor;
-		g.fillEllipse(4.0f * scale_factor, 4.0f * scale_factor, tick_diam, tick_diam);
+		g.setColour(Colour{ COLOR::yellow });
+		auto tick_diam = 4.0f * scale_f;
+		g.fillEllipse(tick_diam, tick_diam, tick_diam, tick_diam);
 	}
-	auto txt_area = area.withTrimmedLeft(roundToInt(12 * scale_factor));
-	g.setFont(FONT::cbox(scale_factor));
-	g.setColour(COLOR::text);
+	auto txt_area = area.withTrimmedLeft(roundToInt(12 * scale_f));
+	g.setFont(FONT::cbox(scale_f));
+	g.setColour(Colour{ COLOR::text });
 	g.drawFittedText(txt, txt_area, Justification::centredLeft, 1);
 }
 
-void Look_And_Feel::draw_label_p(Graphics& g, Label& lbl, String& name) {
+void Look_And_Feel::draw_label_p(Graphics& g, Label& lbl, String& n) {
 	auto txt = lbl.getText();
-	g.setColour(COLOR::text.withAlpha(lbl.isBeingEdited() ? 0.0f : 1.0f));
-	if (name == NAME::lbl_osc_shape) {
+	g.setColour(Colour{ COLOR::text }.withAlpha(lbl.isBeingEdited() ? 0.0f : 1.0f));
+	if (n == NAME::lbl_cbx) {
+		g.setFont(FONT::cbox(scale_f));
+		g.drawFittedText(txt, lbl.getLocalBounds(), Justification::centred, 1, 1.0f);
+		return;
+	}
+	if (n == NAME::lbl_name_char) {
+		Draw_Widget::lcd_char(g, (uint8)txt[0], scale_f);
+		return;
+	}
+	if (n == NAME::lbl_osc_shape) {
 		if (txt == "SAW") {
-			Draw_Widget::wave_saw(g, scale_factor);
+			Draw_Widget::wave_saw(g, scale_f);
 			return;
 		}
 		if (txt == "TRI") {
-			Draw_Widget::wave_tri(g, scale_factor);
+			Draw_Widget::wave_tri(g, scale_f);
 			return;
 		}
 		if (txt == "S/T") {
-			Draw_Widget::wave_saw_tri(g, scale_factor);
+			Draw_Widget::wave_saw_tri(g, scale_f);
 			return;
 		}
 		if (txt == "SQR" || txt.startsWith("PW ")) {
 			auto w = 50;
 			if (txt.startsWith("PW "))
 				w = txt.fromFirstOccurrenceOf("PW ", false, false).getIntValue();
-			Draw_Widget::wave_pulse(g, w, scale_factor);
-			g.setFont(FONT::pulse_w_txt(scale_factor));
-			auto txt_area = Rectangle<int>{ 10, 23, 18, 11 }.transformedBy(AffineTransform::scale(scale_factor));
+			Draw_Widget::wave_pulse(g, w, scale_f);
+			g.setFont(FONT::pulse_w_txt(scale_f));
+			auto txt_area = Rectangle<int>{ 10, 23, 18, 11 }
+							.transformedBy(AffineTransform::scale(scale_f));
 			g.drawText((String)(w), txt_area, Justification::centred);
 			return;
 		}
-		g.setFont(FONT::knob(scale_factor));
+		g.setFont(FONT::knob(scale_f));
 		g.drawFittedText(txt == "OFF" ? txt : "ERR", lbl.getLocalBounds().translated(0, 1), Justification::centred, 1, 1.0f);
 		return;
 	}
-	if (name == NAME::lbl_seq_step || name == NAME::lbl_seq_step_trk_1) {
-		auto sf = scale_factor;
+	if (n == NAME::lbl_seq_step) {
+		auto sf = scale_f;
 		if (txt == "<") {
 			Line<float> l{ 20.0f, 13.0f, 5.0f, 13.0f };
 			l.applyTransform(AffineTransform::scale(sf));
@@ -141,39 +126,29 @@ void Look_And_Feel::draw_label_p(Graphics& g, Label& lbl, String& name) {
 			g.fillEllipse(10.0f * sf, 10.0f * sf, 6.0f * sf, 6.0f * sf);
 			return;
 		}
-		g.setFont(FONT::seq_step(scale_factor));
+		g.setFont(FONT::seq_step(sf));
 		g.drawFittedText(txt, lbl.getLocalBounds().translated(0, 1), Justification::centred, 1, 1.0f);
 		return;
 	}
-	if (name == NAME::lbl_voice_name_char) {
-		Draw_Widget::lcd_char(g, (uint8)txt[0], scale_factor);
-		return;
-	}
-	if (name == NAME::lbl_cbox) {
-		g.setFont(FONT::cbox(scale_factor));
-		g.drawFittedText(txt, lbl.getLocalBounds(), Justification::centred, 1, 1.0f);
-		return;
-	}
-	g.setFont(FONT::knob(scale_factor));
+	g.setFont(FONT::knob(scale_f));
 	g.drawFittedText(txt, lbl.getLocalBounds().translated(0, 1), Justification::centred, 1, 1.0f);
 }
 
 void Look_And_Feel::drawRotarySlider(Graphics& g, int /*x*/, int /*y*/, int /*w*/, int /*h*/, float pos,
 									   const float min_angle, const float max_angle, Slider& s)
 {
-	auto name = s.getName();
-	if (name == NAME::seq_step || name == NAME::seq_step_trk_1)
+	if (s.getName() == NAME::lbl_seq_step)
 		return;
 	auto rotation = min_angle + pos * (max_angle - min_angle);
-	Draw_Widget::knob(g, rotation, scale_factor);
+	Draw_Widget::knob(g, rotation, scale_f);
 }
 
 void Look_And_Feel::drawTickBox(Graphics& g, Component& c, float x, float y, 
 								  float w, float h, const bool ticked, const bool /*enabled*/,
 								  const bool /*hilited*/, const bool /*down*/)
 {
-	if (c.getName().startsWith("toggle_")) {
-		g.setColour(ticked ? COLOR::red_toggle_on : COLOR::red_toggle_off);
+	if (c.getName().startsWith("ctrl_tgl")) {
+		g.setColour(ticked ? Colour{ COLOR::red_tgl_on } : Colour{ COLOR::red_tgl_off });
 		g.fillEllipse(x, y, w, h);
 	}
 }
