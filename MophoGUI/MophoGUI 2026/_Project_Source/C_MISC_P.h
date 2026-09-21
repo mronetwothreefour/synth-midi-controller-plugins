@@ -27,12 +27,14 @@ namespace MISC
 
 	constexpr auto seq_2_4_dst_count = 48;
 
-	static const tuple<bool, int, int> menu_traits_false_2_12{ false, 2, 12 };
-	static const tuple<bool, int, int> menu_traits_false_5_10{ false, 5, 10 };
-	static const tuple<bool, int, int> menu_traits_true_1_5{ true, 1, 5 };
-	static const tuple<bool, int, int> menu_traits_true_5_10{ true, 5, 10 };
-	static const tuple<bool, int, int> menu_traits_true_5_34{ true, 5, 34 };
-
+	static const tuple<bool, int, int, bool> menu_above_1x5{ true, 1, 5, false };
+	static const tuple<bool, int, int, bool> menu_above_3x16{ true, 3, 16, false };
+	static const tuple<bool, int, int, bool> menu_above_3x16_to_left{ true, 3, 16, true };
+	static const tuple<bool, int, int, bool> menu_above_5x34_to_left{ true, 5, 34, true };
+	static const tuple<bool, int, int, bool> menu_above_6x29{ true, 6, 29, false };
+	static const tuple<bool, int, int, bool> menu_below_2x12{ false, 2, 12, false };
+	static const tuple<bool, int, int, bool> menu_below_3x16{ false, 3, 16, false };
+	static const tuple<bool, int, int, bool> menu_below_3x16_to_left{ false, 3, 16, true };
 	static const tuple<string, int, string>
 		txt_editor_traits_lfo_freq{ allowed_chars_lfo_freq, 5, Tip_For::from_SL(SL::edit_lfo_freq_tip) },
 		txt_editor_traits_osc_fine_tune{ allowed_chars_s_int, 3, Tip_For::txt_editor_s_int(50) },

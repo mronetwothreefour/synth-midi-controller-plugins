@@ -1,8 +1,15 @@
 #include "C_GET_P.h"
 
 #include "C_MAP_Init_Bounds_P.h"
+#include "C_MAP_Menu_Traits_P.h"
 #include "C_MAP_NRPN_P.h"
 #include "C_XYWH_P.h"
+
+const bool GET::menu_to_left_for(const std::string& id) {
+	if (MAP::menu_traits.find(id) != MAP::menu_traits.end())
+		return std::get<3>(MAP::menu_traits.at(id));
+	return {};
+}
 
 const int GET::nrpn_for(const std::string& id) {
 	if (MAP::nrpn.find(id) != MAP::nrpn.end())

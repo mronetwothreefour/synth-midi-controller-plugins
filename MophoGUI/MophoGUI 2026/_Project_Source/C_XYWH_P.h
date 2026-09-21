@@ -4,6 +4,7 @@ namespace XYWH
 {
 
 	constexpr auto cbox_h{ 16 };
+	constexpr auto cbox_item_h{ cbox_h - 2 };
 	constexpr auto knob_diam{ 38 };
 	constexpr auto toggle_diam{ 14 };
 

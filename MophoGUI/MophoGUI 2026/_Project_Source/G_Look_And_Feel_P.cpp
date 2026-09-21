@@ -21,12 +21,12 @@ void Look_And_Feel::positionComboBoxText(ComboBox& cbox, Label& lbl) {
 
 PopupMenu::Options Look_And_Feel::getOptionsForComboBoxPopupMenu(ComboBox& cbox, Label& /*lbl*/) {
 	auto param_id = cbox.getComponentID().toStdString();
-	auto cbox_area = cbox.getBoundsInParent();
 	auto target_area = cbox.getScreenBounds();
 	auto selected_item = cbox.getSelectedItemIndex();
-	auto item_h = roundToInt((XYWH::cbox_h - 2) * scale_f);
+	auto item_h = roundToInt((XYWH::cbox_item_h) * scale_f);
 	auto min_w = cbox.getWidth();
 	auto menu_above = GET::menu_above_for(param_id);
+	auto menu_to_left = GET::menu_to_left_for(param_id);
 	auto offset_y = 0;
 	auto offset_x = 0;
 	auto col_count = GET::menu_col_count_for(param_id);
@@ -35,16 +35,20 @@ PopupMenu::Options Look_And_Feel::getOptionsForComboBoxPopupMenu(ComboBox& cbox,
 		if (menu_above)
 			offset_y = (selected_item - row_count) * item_h;
 		else
-			offset_y = (selected_item + 1) * item_h;
+			offset_y = (row_count + 1) * item_h;
 	}
 	else {
-		offset_x -= min_w * (col_count - 1);
-		offset_y = (selected_item % row_count + 1) * item_h;
+		if (menu_to_left)
+			offset_x -= min_w * (col_count - 1);
+		if (menu_above)
+			offset_y = ((selected_item % row_count) - row_count) * item_h;
+		else
+			offset_y = (selected_item % row_count + 1) * item_h;
 	}
 	if (menu_above)
 		target_area.translate(offset_x, offset_y - roundToInt(scale_f));
 	else
-		target_area.translate(offset_x, offset_y + roundToInt(3 * scale_f));
+		target_area.translate(offset_x, offset_y + roundToInt(4 * scale_f));
 	return PopupMenu::Options().withTargetScreenArea(target_area)
 							   .withItemThatMustBeVisible(cbox.getSelectedId())
 							   .withMinimumWidth(min_w)
