@@ -3,9 +3,11 @@
 #include "C_GET_P.h"
 #include "C_ID_A.h"
 #include "C_NAME_P.h"
+#include "C_MISC_P.h"
 #include "C_XYWH_P.h"
 #include "G_DRAW_Paths_Main_P.h"
 
+using namespace MISC;
 using namespace NAME;
 using namespace XYWH;
 

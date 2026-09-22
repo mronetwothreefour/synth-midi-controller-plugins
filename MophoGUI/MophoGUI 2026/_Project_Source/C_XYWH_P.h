@@ -33,7 +33,6 @@ namespace XYWH
 	constexpr auto ctr_col_10_cx{ 500 };
 	constexpr auto ctr_col_10_w{ 124 };
 
-	constexpr auto editor_aspect_ratio = 2.03354;
 	constexpr auto editor_init_w{ 1273 }, editor_init_h{ 626 };
 
 	constexpr auto env_3_row_1_cy{ 531 };
