@@ -93,8 +93,11 @@
               file="_Project_Source/binaries/Overpass-SemiBold.ttf"/>
       </GROUP>
       <FILE id="pyWfxa" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
+      <FILE id="SmkJ3y" name="C_ENUM_P.h" compile="0" resource="0" file="_Project_Source/C_ENUM_P.h"/>
       <FILE id="PuHoML" name="C_FONT_P.h" compile="0" resource="0" file="_Project_Source/C_FONT_P.h"/>
       <FILE id="Zy9s4V" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>
+      <FILE id="Np4qwV" name="C_MAP_Ctrl_Traits_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Ctrl_Traits_P.h"/>
       <FILE id="rAu5Pr" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
       <FILE id="ZTHUWT" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
       <FILE id="l9asME" name="C_SL_Tip_Aux_Voice_P.h" compile="0" resource="0"
