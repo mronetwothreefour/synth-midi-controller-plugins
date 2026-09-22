@@ -901,6 +901,12 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.cpp">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_BUILD_Font_For_P.cpp">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_BUILD_Tip_For_P.cpp">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
     </ClCompile>
@@ -4185,7 +4191,16 @@
     <ClInclude Include="..\..\_Project_Source\C_NAME_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Exposed_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_BUILD_Font_For_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_BUILD_Tip_For_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

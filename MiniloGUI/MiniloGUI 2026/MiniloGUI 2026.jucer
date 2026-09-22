@@ -97,7 +97,21 @@
       <FILE id="Zy9s4V" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>
       <FILE id="rAu5Pr" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
       <FILE id="ZTHUWT" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
+      <FILE id="l9asME" name="C_SL_Tip_Aux_Voice_P.h" compile="0" resource="0"
+            file="_Project_Source/C_SL_Tip_Aux_Voice_P.h"/>
+      <FILE id="k5HRlI" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
+            file="_Project_Source/C_SL_Tip_Exposed_P.h"/>
+      <FILE id="zOyLtk" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
+            file="_Project_Source/C_SL_Tip_Widget_P.h"/>
       <FILE id="f6xZd4" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
+      <FILE id="vXhExd" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_BUILD_Font_For_P.cpp"/>
+      <FILE id="tolKVU" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
+            file="_Project_Source/D_BUILD_Font_For_P.h"/>
+      <FILE id="b1wwH3" name="D_BUILD_Tip_For_P.h" compile="0" resource="0"
+            file="_Project_Source/D_BUILD_Tip_For_P.h"/>
+      <FILE id="Bwkqfv" name="D_BUILD_Tip_For_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_BUILD_Tip_For_P.cpp"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
