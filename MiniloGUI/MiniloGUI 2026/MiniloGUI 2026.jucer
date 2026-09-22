@@ -104,6 +104,10 @@
       <FILE id="zOyLtk" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Widget_P.h"/>
       <FILE id="f6xZd4" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
+      <FILE id="RLOzCg" name="D_BUILD_Choices_For_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_BUILD_Choices_For_P.cpp"/>
+      <FILE id="x6wslT" name="D_BUILD_Choices_For_P.h" compile="0" resource="0"
+            file="_Project_Source/D_BUILD_Choices_For_P.h"/>
       <FILE id="vXhExd" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Font_For_P.cpp"/>
       <FILE id="tolKVU" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
@@ -112,6 +116,8 @@
             file="_Project_Source/D_BUILD_Tip_For_P.h"/>
       <FILE id="Bwkqfv" name="D_BUILD_Tip_For_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Tip_For_P.cpp"/>
+      <FILE id="TgzW9Y" name="D_CONVERT_P.cpp" compile="1" resource="0" file="_Project_Source/D_CONVERT_P.cpp"/>
+      <FILE id="S6WCpV" name="D_CONVERT_P.h" compile="0" resource="0" file="_Project_Source/D_CONVERT_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

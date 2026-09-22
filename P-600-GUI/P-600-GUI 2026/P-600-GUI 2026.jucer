@@ -100,6 +100,10 @@
       <FILE id="wWjUBr" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Exposed_P.h"/>
       <FILE id="Ewhi9M" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
+      <FILE id="UkUnBg" name="D_BUILD_Choices_For_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_BUILD_Choices_For_P.cpp"/>
+      <FILE id="pzQGcp" name="D_BUILD_Choices_For_P.h" compile="0" resource="0"
+            file="_Project_Source/D_BUILD_Choices_For_P.h"/>
       <FILE id="bnlN0l" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Font_For_P.cpp"/>
       <FILE id="ZxKBtV" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
@@ -108,6 +112,8 @@
             file="_Project_Source/D_BUILD_Tip_For_P.cpp"/>
       <FILE id="n4HCoQ" name="D_BUILD_Tip_For_P.h" compile="0" resource="0"
             file="_Project_Source/D_BUILD_Tip_For_P.h"/>
+      <FILE id="JxP0j6" name="D_CONVERT_P.cpp" compile="1" resource="0" file="_Project_Source/D_CONVERT_P.cpp"/>
+      <FILE id="F9Agt0" name="D_CONVERT_P.h" compile="0" resource="0" file="_Project_Source/D_CONVERT_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
