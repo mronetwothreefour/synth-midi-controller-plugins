@@ -141,7 +141,7 @@ void Look_And_Feel::draw_label_p(Graphics& g, Label& lbl, String& n) {
 void Look_And_Feel::drawRotarySlider(Graphics& g, int /*x*/, int /*y*/, int /*w*/, int /*h*/, float pos,
 									   const float min_angle, const float max_angle, Slider& s)
 {
-	if (s.getName() == NAME::lbl_seq_step)
+	if (s.getComponentID().contains("_step_"))
 		return;
 	auto rotation = min_angle + pos * (max_angle - min_angle);
 	Draw_Widget::knob(g, rotation, scale_f);
