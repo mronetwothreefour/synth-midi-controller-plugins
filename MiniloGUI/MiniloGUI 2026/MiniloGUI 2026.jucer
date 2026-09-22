@@ -11,12 +11,79 @@
   <MAINGROUP id="AhFawq" name="MiniloGUI 2026">
     <GROUP id="{C640CBB8-D505-F881-CC30-9DE23AB1916B}" name="_Abstract_Source">
       <FILE id="qKw3sP" name="C_COLOR_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_COLOR_A.h"/>
+      <FILE id="HfJr2U" name="C_GET_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/C_GET_A.cpp"/>
+      <FILE id="MKcA43" name="C_GET_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_GET_A.h"/>
+      <FILE id="w4vq8E" name="C_ID_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_ID_A.h"/>
       <FILE id="i2YEiW" name="C_MISC_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_MISC_A.h"/>
       <FILE id="es5tLc" name="C_NAME_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_NAME_A.h"/>
       <FILE id="L1mwV5" name="C_SL_Tip_Widget_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/C_SL_Tip_Widget_A.h"/>
+      <FILE id="ifYvr1" name="D_BUILD_Choices_For_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Choices_For_A.cpp"/>
+      <FILE id="cNfttL" name="D_BUILD_Choices_For_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Choices_For_A.h"/>
+      <FILE id="Dodb7j" name="D_BUILD_Layout_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Layout_A.cpp"/>
+      <FILE id="xCQFbB" name="D_BUILD_Layout_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Layout_A.h"/>
+      <FILE id="zNJuUE" name="D_BUILD_Tip_For_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Tip_For_A.cpp"/>
+      <FILE id="j1k7Vn" name="D_BUILD_Tip_For_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_BUILD_Tip_For_A.h"/>
       <FILE id="q6H57h" name="D_CONVERT_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/D_CONVERT_A.cpp"/>
       <FILE id="hu2HpM" name="D_CONVERT_A.h" compile="0" resource="0" file="../../_Abstract_Source/D_CONVERT_A.h"/>
+      <FILE id="tfAhHP" name="D_TREE_App_Params_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_TREE_App_Params_A.cpp"/>
+      <FILE id="qR5XJ9" name="D_TREE_App_Params_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_TREE_App_Params_A.h"/>
+      <FILE id="l5QxZn" name="D_X_G_Audio_Processor_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_X_G_Audio_Processor_A.cpp"/>
+      <FILE id="KwBzkc" name="D_X_G_Audio_Processor_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_X_G_Audio_Processor_A.h"/>
+      <FILE id="nJATY2" name="D_X_G_Data_Hub_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_X_G_Data_Hub_A.cpp"/>
+      <FILE id="diIiMr" name="D_X_G_Data_Hub_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_X_G_Data_Hub_A.h"/>
+      <FILE id="fNTLIE" name="D_X_G_Data_User_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_X_G_Data_User_A.cpp"/>
+      <FILE id="vQxc5h" name="D_X_G_Data_User_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_X_G_Data_User_A.h"/>
+      <FILE id="tkNu4S" name="D_X_G_Editor_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_X_G_Editor_A.cpp"/>
+      <FILE id="SPJQLk" name="D_X_G_Editor_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_X_G_Editor_A.h"/>
+      <FILE id="pEjaL3" name="G_DRAW_Paths_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_DRAW_Paths_A.cpp"/>
+      <FILE id="mypbMz" name="G_DRAW_Paths_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_DRAW_Paths_A.h"/>
+      <FILE id="lZ8M90" name="G_Look_And_Feel_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_Look_And_Feel_A.cpp"/>
+      <FILE id="WkCbdx" name="G_Look_And_Feel_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_Look_And_Feel_A.h"/>
+      <FILE id="Qrvqqb" name="G_WIDGET_Ctrl_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Ctrl_A.cpp"/>
+      <FILE id="f4LmSu" name="G_WIDGET_Ctrl_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Ctrl_A.h"/>
+      <FILE id="m6FbxX" name="G_WIDGET_Ctrl_Cbox_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Ctrl_Cbox_A.cpp"/>
+      <FILE id="ST6KSW" name="G_WIDGET_Ctrl_Cbox_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Ctrl_Cbox_A.h"/>
+      <FILE id="l5MN8X" name="G_WIDGET_Ctrl_Slider_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Ctrl_Slider_A.cpp"/>
+      <FILE id="j8V0aw" name="G_WIDGET_Ctrl_Slider_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Ctrl_Slider_A.h"/>
+      <FILE id="K0onAC" name="G_WIDGET_Sli_Label_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Sli_Label_A.cpp"/>
+      <FILE id="UHgEzS" name="G_WIDGET_Sli_Label_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Sli_Label_A.h"/>
+      <FILE id="v0q0hT" name="G_WIDGET_Sli_Wheel_Mod_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Sli_Wheel_Mod_A.cpp"/>
+      <FILE id="JgMoFq" name="G_WIDGET_Sli_Wheel_Mod_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Sli_Wheel_Mod_A.h"/>
+      <FILE id="SN6TVt" name="G_WIDGET_Tip_Updater_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Tip_Updater_A.cpp"/>
+      <FILE id="oJBt4e" name="G_WIDGET_Tip_Updater_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_WIDGET_Tip_Updater_A.h"/>
     </GROUP>
     <GROUP id="{32092108-0241-6FE8-7138-4212DA364901}" name="_Project_Source">
       <GROUP id="{89004418-210D-59FC-3949-84753EB32F24}" name="binaries">
@@ -25,22 +92,9 @@
         <FILE id="VVfRs0" name="Overpass-SemiBold.ttf" compile="0" resource="1"
               file="_Project_Source/binaries/Overpass-SemiBold.ttf"/>
       </GROUP>
-      <FILE id="ppBIZn" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
-      <FILE id="Wmdmqp" name="C_ENUM_P.h" compile="0" resource="0" file="_Project_Source/C_ENUM_P.h"/>
-      <FILE id="GWTfqq" name="C_FONT_P.h" compile="0" resource="0" file="_Project_Source/C_FONT_P.h"/>
-      <FILE id="H8kbmI" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>
-      <FILE id="JGn6Vj" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
-      <FILE id="sEugUC" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
-      <FILE id="ylZ2FJ" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
-            file="_Project_Source/C_PATH_Backdrop_Main_P.h"/>
-      <FILE id="l5fBhU" name="C_PATH_Widgets_P.h" compile="0" resource="0"
-            file="_Project_Source/C_PATH_Widgets_P.h"/>
-      <FILE id="qv0hCy" name="C_SL_Tip_Aux_Voice_P.h" compile="0" resource="0"
-            file="_Project_Source/C_SL_Tip_Aux_Voice_P.h"/>
-      <FILE id="w2n6JA" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
-            file="_Project_Source/C_SL_Tip_Exposed_P.h"/>
-      <FILE id="gkE2d6" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
-            file="_Project_Source/C_SL_Tip_Widget_P.h"/>
+      <FILE id="pyWfxa" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
+      <FILE id="PuHoML" name="C_FONT_P.h" compile="0" resource="0" file="_Project_Source/C_FONT_P.h"/>
+      <FILE id="Zy9s4V" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

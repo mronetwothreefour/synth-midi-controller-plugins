@@ -73,7 +73,7 @@ namespace ID
 	constexpr auto exp_vca_env_sustain = "exp_vca_env_sustain";
 	constexpr auto exp_voice_mode_depth = "exp_voice_mode_depth";
 
-	constexpr std::array<const char*, 19> exp_params{
+	constexpr std::array<const char*, 19> avp_params{
 		avp_amp_mod_by_velo_amt,
 		avp_fine_tune,
 		avp_flex_sli_bend_neg,
