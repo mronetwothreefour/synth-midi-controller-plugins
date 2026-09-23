@@ -74,25 +74,25 @@ namespace ID
 	constexpr auto exp_voice_mode_depth = "exp_voice_mode_depth";
 
 	constexpr std::array<const char*, 19> avp_params{
-		avp_amp_mod_by_velo_amt,
-		avp_fine_tune,
-		avp_flex_sli_bend_neg,
-		avp_flex_sli_bend_pos,
-		avp_flex_sli_range,
-		avp_flex_sli_target,
+		avp_name,
+		avp_voice_mode,
 		avp_keyboard_octave,
-		avp_level,
+		avp_flex_sli_target,
+		avp_flex_sli_range,
+		avp_flex_sli_bend_pos,
+		avp_flex_sli_bend_neg,
 		avp_lfo_sync_bpm_on,
 		avp_lfo_sync_key_on,
 		avp_lfo_sync_voice_on,
-		avp_microtune_scale,
-		avp_name,
+		avp_porta_time,
 		avp_porta_mode_on,
 		avp_porta_sync_bpm_on,
-		avp_porta_time,
+		avp_amp_mod_by_velo_amt,
+		avp_level,
+		avp_microtune_scale,
 		avp_scale_key,
+		avp_fine_tune,
 		avp_transpose,
-		avp_voice_mode
 	};
 
 	constexpr std::array<const char*, 39> exp_params{

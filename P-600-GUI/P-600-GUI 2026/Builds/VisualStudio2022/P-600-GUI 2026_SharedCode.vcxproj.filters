@@ -4200,6 +4200,9 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Exp_Name_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Bounds_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MISC_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>

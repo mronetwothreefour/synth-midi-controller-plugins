@@ -27,8 +27,6 @@ namespace XYWH
 
 	constexpr auto sw_2_pole_h = 32;
 	constexpr auto sw_2_pole_w = 20;
-	constexpr auto sw_3_pole_h = 48;
-	constexpr auto sw_3_pole_w = 46;
 	constexpr auto sw_row_1_cy = 177;
 	constexpr auto sw_row_2_cy = 315;
 
