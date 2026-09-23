@@ -4248,9 +4248,6 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Traits_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Txt_Editor_Traits_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Exp_Name_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
@@ -4264,6 +4261,9 @@
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Quick_Num_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Txt_Editor_Traits_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MISC_P.h">

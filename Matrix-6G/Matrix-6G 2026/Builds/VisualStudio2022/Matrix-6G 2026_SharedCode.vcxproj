@@ -3208,12 +3208,12 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Byte_Index_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Traits_P.h"/>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Txt_Editor_Traits_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Exp_Name_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Bounds_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Label_Name_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Menu_Traits_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Quick_Num_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Txt_Editor_Traits_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MISC_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_NAME_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_PATH_Backdrop_Main_P.h"/>

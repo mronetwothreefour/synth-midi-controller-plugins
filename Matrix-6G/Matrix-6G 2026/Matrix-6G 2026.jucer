@@ -102,8 +102,6 @@
             file="_Project_Source/C_MAP_Choices_P.h"/>
       <FILE id="eCyke1" name="C_MAP_Ctrl_Traits_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Ctrl_Traits_P.h"/>
-      <FILE id="eibdsN" name="C_MAP_Txt_Editor_Traits_P.h" compile="0" resource="0"
-            file="_Project_Source/C_MAP_Txt_Editor_Traits_P.h"/>
       <FILE id="UVk9Hz" name="C_MAP_Exp_Name_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Exp_Name_P.h"/>
       <FILE id="kDZztW" name="C_MAP_Init_Bounds_P.h" compile="0" resource="0"
@@ -114,6 +112,8 @@
             file="_Project_Source/C_MAP_Menu_Traits_P.h"/>
       <FILE id="D1aulx" name="C_MAP_Quick_Num_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Quick_Num_P.h"/>
+      <FILE id="eibdsN" name="C_MAP_Txt_Editor_Traits_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Txt_Editor_Traits_P.h"/>
       <FILE id="w1bxJh" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
       <FILE id="hjYOlw" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
       <FILE id="AgGiF7" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
