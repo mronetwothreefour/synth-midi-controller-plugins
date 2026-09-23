@@ -55,9 +55,9 @@ namespace MAP
 		{ exp_p_mod_dest_filter, { ctr_sli_sw_2, 0, Tip::from_SL(SL::poly_mod_dest_filter_freq_tip) } },
 		//lfo
 		{ exp_lfo_freq, { ctr_sli_knb, 0, Tip::from_SL(SL::lfo_freq_tip) } },
-		{ exp_lfo_shape, { ctr_sli_knb, 1, Tip::from_SL(SL::lfo_shape_tip) } },
+		{ exp_lfo_shape, { ctr_sli_sw_2, 1, Tip::from_SL(SL::lfo_shape_tip) } },
 		{ exp_lfo_init_amt, { ctr_sli_knb, 0, Tip::from_SL(SL::lfo_init_amt_tip) } },
-		{ exp_lfo_dest_osc_pitch, { ctr_sli_knb, 0, Tip::from_SL(SL::lfo_dest_osc_pitch_tip) } },
+		{ exp_lfo_dest_osc_pitch, { ctr_sli_sw_2, 0, Tip::from_SL(SL::lfo_dest_osc_pitch_tip) } },
 		{ exp_lfo_dest_osc_pw, { ctr_sli_sw_2, 0, Tip::from_SL(SL::lfo_dest_osc_pw_tip) } },
 		{ exp_lfo_dest_filter, { ctr_sli_sw_2, 0, Tip::from_SL(SL::lfo_dest_filter_tip) } },
 	};

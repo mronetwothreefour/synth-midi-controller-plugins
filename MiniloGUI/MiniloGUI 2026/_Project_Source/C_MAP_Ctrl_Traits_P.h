@@ -23,9 +23,9 @@ namespace MAP
 	static const unordered_map<string, tuple<string, int, string>> ctrl_traits{
 		{ ID::avp_amp_mod_by_velo_amt, { ctr_sli_knb, 0, Tip::from_SL(SL::amp_mod_by_velo_amt_tip) } },
 		{ ID::avp_fine_tune, { ctr_sli_knb, 50, Tip::from_SL(SL::fine_tune_tip) } },
-		{ ID::avp_flex_sli_bend_neg, { ctr_sli_knb, 200, Tip::from_SL(SL::flex_sli_bend_neg_tip) } },
-		{ ID::avp_flex_sli_bend_pos, { ctr_sli_knb, 0, Tip::from_SL(SL::flex_sli_bend_pos_tip) } },
-		{ ID::avp_flex_sli_range, { ctr_sli_knb, 0, Tip::from_SL(SL::flex_sli_range_tip) } },
+		{ ID::avp_flex_sli_bend_neg, { ctr_sli_knb, 1, Tip::from_SL(SL::flex_sli_bend_neg_tip) } },
+		{ ID::avp_flex_sli_bend_pos, { ctr_sli_knb, 1, Tip::from_SL(SL::flex_sli_bend_pos_tip) } },
+		{ ID::avp_flex_sli_range, { ctr_sli_knb, 200, Tip::from_SL(SL::flex_sli_range_tip) } },
 		{ ID::avp_flex_sli_target, { ctr_cbx, (int)Flex_Sli_Target::pitch_bend, Tip::from_SL(SL::flex_sli_target_tip) } },
 		{ ID::avp_keyboard_octave, { ctr_sli_sw_key_octv, 2, Tip::from_SL(SL::keyboard_octave_tip) } },
 		{ ID::avp_level, { ctr_sli_knb, 25, Tip::from_SL(SL::level_tip) } },
@@ -62,7 +62,7 @@ namespace MAP
 		{ ID::exp_lpf_freq, { ctr_sli_knb, 1023, Tip::from_SL(SL::lpf_freq_tip) } },
 		{ ID::exp_lpf_reso, { ctr_sli_knb, 0, Tip::from_SL(SL::lpf_reso_tip) } },
 		{ ID::exp_lpf_eg_int, { ctr_sli_knb, 512, Tip::from_SL(SL::lpf_eg_int_tip) } },
-		{ ID::exp_lpf_type, { ctr_sli_knb, 1, Tip::from_SL(SL::lpf_type_tip) } },
+		{ ID::exp_lpf_type, { ctr_sli_sw_lpf, 1, Tip::from_SL(SL::lpf_type_tip) } },
 		{ ID::exp_lpf_key_track, { ctr_sli_sw_3, 0, Tip::from_SL(SL::lpf_key_track_tip) } },
 		{ ID::exp_lpf_velo_amt, { ctr_sli_sw_3, 0, Tip::from_SL(SL::lpf_velo_amt_tip) } },
 		//vca env
