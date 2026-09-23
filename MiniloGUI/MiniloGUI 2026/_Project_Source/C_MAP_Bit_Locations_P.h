@@ -8,7 +8,7 @@ using namespace BUILD;
 namespace MAP
 {
 
-	static const std::unordered_map<String, StringArray> bit_locations{
+	static const std::unordered_map<std::string, StringArray> bit_locations{
 		{ ID::avp_amp_mod_by_velo_amt, Bit_Locations_For::avp_amp_mod_by_velo_amt() },
 		{ ID::avp_fine_tune, Bit_Locations_For::avp_fine_tune() },
 		{ ID::avp_flex_sli_bend_neg, Bit_Locations_For::avp_flex_sli_bend_limit() },
