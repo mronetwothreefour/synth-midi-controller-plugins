@@ -4224,6 +4224,12 @@
     <ClInclude Include="..\..\_Project_Source\C_NAME_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_PATH_Backdrop_Main_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_PATH_Widgets_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Exposed_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
