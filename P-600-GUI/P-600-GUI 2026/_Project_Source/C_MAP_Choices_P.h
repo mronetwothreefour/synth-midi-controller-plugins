@@ -1,5 +1,7 @@
 #pragma once
 
+#include <JuceHeader.h>
+
 #include "C_ID_Main_P.h"
 #include "D_BUILD_Choices_For_P.h"
 
@@ -8,7 +10,7 @@ using namespace BUILD;
 namespace MAP
 {
 
-	static const std::unordered_map<String, StringArray> choices{
+	static const std::unordered_map<std::string, StringArray> choices{
 		//osc
 		{ ID::exp_unison_track, Choices_For::off_on() },
 		{ ID::exp_osc_a_pitch, Choices_For::osc_pitch(49) },

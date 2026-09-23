@@ -95,8 +95,12 @@
       <FILE id="g0pGvY" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
       <FILE id="styMdP" name="C_FONT_P.h" compile="0" resource="0" file="_Project_Source/C_FONT_P.h"/>
       <FILE id="cc8bcf" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>
+      <FILE id="tlFyTP" name="C_MAP_Choices_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Choices_P.h"/>
       <FILE id="fuTlhu" name="C_MAP_Ctrl_Traits_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Ctrl_Traits_P.h"/>
+      <FILE id="RARZba" name="C_MAP_Exp_Name_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Exp_Name_P.h"/>
       <FILE id="P5Tby7" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
       <FILE id="VdNFHF" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
       <FILE id="wWjUBr" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"

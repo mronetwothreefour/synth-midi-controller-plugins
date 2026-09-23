@@ -1,11 +1,14 @@
 #pragma once
 
+#include <string>
+#include <unordered_map>
+
 #include "C_ID_Main_P.h"
 
 namespace MAP
 {
 
-	static const std::unordered_map<String, String> exp_name{
+	static const std::unordered_map<std::string, std::string> exp_name{
 		//osc
 		{ ID::exp_unison_track, "Unison Tracking" },
 		{ ID::exp_osc_a_pitch, "Oscillator A Frequency" },

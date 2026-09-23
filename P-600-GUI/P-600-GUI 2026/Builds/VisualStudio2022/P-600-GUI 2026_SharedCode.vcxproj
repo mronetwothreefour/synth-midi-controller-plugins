@@ -3189,7 +3189,9 @@
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_FONT_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_ID_Main_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Traits_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Exp_Name_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MISC_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_NAME_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Exposed_P.h"/>
