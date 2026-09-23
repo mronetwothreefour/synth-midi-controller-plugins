@@ -7,5 +7,5 @@
 struct GET :
 	public GET_A
 {
-	static const StringArray bit_locations_for(const String& id);
+	static const StringArray bit_locations_for(const std::string& id);
 };

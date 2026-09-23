@@ -2,7 +2,7 @@
 
 #include "C_MAP_Bit_Locations_P.h"
 
-const StringArray GET::bit_locations_for(const String& id) {
+const StringArray GET::bit_locations_for(const std::string& id) {
 	if (MAP::bit_locations.find(id) != MAP::bit_locations.end())
 		return MAP::bit_locations.at(id);
 	return {};

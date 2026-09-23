@@ -95,6 +95,8 @@
       <FILE id="pyWfxa" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
       <FILE id="SmkJ3y" name="C_ENUM_P.h" compile="0" resource="0" file="_Project_Source/C_ENUM_P.h"/>
       <FILE id="PuHoML" name="C_FONT_P.h" compile="0" resource="0" file="_Project_Source/C_FONT_P.h"/>
+      <FILE id="tvKvGu" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
+      <FILE id="VI35Pu" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
       <FILE id="Zy9s4V" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>
       <FILE id="L2BEIX" name="C_MAP_Bit_Locations_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Bit_Locations_P.h"/>

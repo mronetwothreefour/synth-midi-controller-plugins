@@ -163,6 +163,7 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Label_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Wheel_Mod_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Font_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Tip_For_P.cpp"/>
@@ -3188,6 +3189,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.h"/>
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_FONT_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_GET_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_ID_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Ctrl_Traits_P.h"/>
