@@ -1,11 +1,14 @@
 #pragma once
 
+#include <string>
+#include <unordered_map>
+
 #include "C_ID_Main_P.h"
 
 namespace MAP
 {
 
-	static const std::unordered_map<String, String> data_location{
+	static const std::unordered_map<std::string, std::string> data_location{
 		//osc
 		{ ID::exp_unison_track, "1st nybble:31__1st bit:3__bit count:1" },
 		{ ID::exp_osc_a_pitch, "1st nybble:8__1st bit:1__bit count:6" },
