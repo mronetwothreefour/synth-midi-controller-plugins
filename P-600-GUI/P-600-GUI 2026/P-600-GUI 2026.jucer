@@ -134,6 +134,14 @@
             file="_Project_Source/D_BUILD_Tip_For_P.h"/>
       <FILE id="JxP0j6" name="D_CONVERT_P.cpp" compile="1" resource="0" file="_Project_Source/D_CONVERT_P.cpp"/>
       <FILE id="F9Agt0" name="D_CONVERT_P.h" compile="0" resource="0" file="_Project_Source/D_CONVERT_P.h"/>
+      <FILE id="FZCbac" name="D_X_G_Data_Hub_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_X_G_Data_Hub_P.cpp"/>
+      <FILE id="TITswl" name="D_X_G_Data_Hub_P.h" compile="0" resource="0"
+            file="_Project_Source/D_X_G_Data_Hub_P.h"/>
+      <FILE id="Oj0tuG" name="D_X_G_Data_User_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_X_G_Data_User_P.cpp"/>
+      <FILE id="teumjP" name="D_X_G_Data_User_P.h" compile="0" resource="0"
+            file="_Project_Source/D_X_G_Data_User_P.h"/>
       <FILE id="IU666Y" name="G_DRAW_Paths_Main_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="iNjXbJ" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"

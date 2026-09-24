@@ -169,6 +169,9 @@
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Font_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Tip_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_CONVERT_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\D_TREE_Aux_Voice_Params_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Data_Hub_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Data_User_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -3214,6 +3217,9 @@
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_For_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Font_For_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Tip_For_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\D_TREE_Aux_Voice_Params_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Data_Hub_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Data_User_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_CONVERT_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.h"/>

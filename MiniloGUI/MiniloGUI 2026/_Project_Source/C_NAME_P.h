@@ -10,7 +10,7 @@ namespace NAME
 	static const auto ctr_sli_sw_osc_octv = "ctr_sli_sw_osc_octv";
 	static const auto ctr_voice_mode = "ctr_voice_mode";
 
-	static const auto state_tree_avp = "state_tree_avp";
-	static const auto state_xml_avp = "state_xml_avp";
+	static const auto state_avp_tree = "state_avp_tree";
+	static const auto state_avp_xml = "state_avp_xml";
 
 }

@@ -2,5 +2,4 @@
 
 Data_Hub::Data_Hub(AudioProcessor* processor) :
 	Data_Hub_A{ processor }
-{
-}
+{}

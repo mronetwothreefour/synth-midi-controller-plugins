@@ -142,6 +142,18 @@
       <FILE id="Bwkqfv" name="D_BUILD_Tip_For_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Tip_For_P.cpp"/>
       <FILE id="TgzW9Y" name="D_CONVERT_P.cpp" compile="1" resource="0" file="_Project_Source/D_CONVERT_P.cpp"/>
+      <FILE id="Fdvmk4" name="D_TREE_Aux_Voice_Params_P.cpp" compile="1"
+            resource="0" file="_Project_Source/D_TREE_Aux_Voice_Params_P.cpp"/>
+      <FILE id="YaofJJ" name="D_TREE_Aux_Voice_Params_P.h" compile="0" resource="0"
+            file="_Project_Source/D_TREE_Aux_Voice_Params_P.h"/>
+      <FILE id="oijzrE" name="D_X_G_Data_Hub_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_X_G_Data_Hub_P.cpp"/>
+      <FILE id="suk3O7" name="D_X_G_Data_Hub_P.h" compile="0" resource="0"
+            file="_Project_Source/D_X_G_Data_Hub_P.h"/>
+      <FILE id="nOMiVd" name="D_X_G_Data_User_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_X_G_Data_User_P.cpp"/>
+      <FILE id="z9p8CC" name="D_X_G_Data_User_P.h" compile="0" resource="0"
+            file="_Project_Source/D_X_G_Data_User_P.h"/>
       <FILE id="S6WCpV" name="D_CONVERT_P.h" compile="0" resource="0" file="_Project_Source/D_CONVERT_P.h"/>
       <FILE id="ZBv7pR" name="G_DRAW_Paths_Main_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_DRAW_Paths_Main_P.cpp"/>

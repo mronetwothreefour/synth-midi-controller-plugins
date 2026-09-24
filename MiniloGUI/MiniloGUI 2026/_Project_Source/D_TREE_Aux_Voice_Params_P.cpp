@@ -3,12 +3,13 @@
 #include "C_ENUM_P.h"
 #include "C_GET_P.h"
 #include "C_ID_Main_P.h"
+#include "C_NAME_P.h"
 
 using namespace ENUM;
 using namespace TREE;
 
 Aux_Voice_Params::Aux_Voice_Params(UndoManager* u_m) :
-	tree{ ID::tree_aux_voice },
+	tree{ NAME::state_avp_tree },
 	u_m{ u_m }
 {
 	for (auto& id : ID::aux_voice_params) {
@@ -118,7 +119,7 @@ void TREE::Aux_Voice_Params::set_microtune_scale(const int s) {
 }
 
 int TREE::Aux_Voice_Params::microtune_scale_hardware_index(const int scale) {
-	return scale < (int)Microtune_Scale::user_scale_1 ? (int)scale : (int)scale + 105;
+	return scale < (int)Micro_Scale::user_scale_1 ? (int)scale : (int)scale + 105;
 }
 
 const String TREE::Aux_Voice_Params::name() {
@@ -191,7 +192,7 @@ Value TREE::Aux_Voice_Params::get_param_as_value(const String& id) {
 std::unique_ptr<XmlElement> TREE::Aux_Voice_Params::get_current_state() {
 	auto state{ tree.createXml() };
 	if (state)
-		state->setTagName(ID::xml_state_aux_voice);
+		state->setTagName(NAME::state_avp_xml);
 	return state;
 }
 
