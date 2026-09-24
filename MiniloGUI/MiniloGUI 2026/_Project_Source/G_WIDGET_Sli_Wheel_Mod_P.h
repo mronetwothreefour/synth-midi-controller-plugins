@@ -11,13 +11,13 @@ namespace WIDGET
 	public: const bool for_lpf_eg_int;
 	public: const bool for_osc_2_pitch_eg_int;
 	public: const bool for_osc_pitch_fine;
-	public: const bool for_tempo;
+	//public: const bool for_tempo;
 	private: int for_voice_mode;
 	public: const bool for_non_standard_knob;
 	private: Array<int> display_values;
 
 	//==============================================================================
-	public: explicit Slider_Wheel_Mod(const String& param_id, UndoManager* u_m);
+	public: explicit Slider_Wheel_Mod(const std::string& param_id, Value param_value, Data_Hub* hub);
 
 	public: void update_for_voice_mode(int new_mode);
 	private: void mod_value(double increment, double& current_value) override;

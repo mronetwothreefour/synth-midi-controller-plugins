@@ -9,7 +9,7 @@ namespace WIDGET
 		public Slider_Wheel_Mod_A
 	{
 	//==============================================================================
-	public: Slider_Wheel_Mod(const String& param_id, UndoManager* u_m);
+	public: Slider_Wheel_Mod(const std::string& param_id, Value param_value, Data_Hub* hub);
 
 	//==============================================================================
 	private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Slider_Wheel_Mod)

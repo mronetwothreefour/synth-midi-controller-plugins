@@ -177,6 +177,10 @@
             file="_Project_Source/G_Look_And_Feel_P.cpp"/>
       <FILE id="QDoZrP" name="G_Look_And_Feel_P.h" compile="0" resource="0"
             file="_Project_Source/G_Look_And_Feel_P.h"/>
+      <FILE id="Ald1FC" name="G_WIDGET_Sli_Wheel_Mod_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_WIDGET_Sli_Wheel_Mod_P.cpp"/>
+      <FILE id="vt5f6f" name="G_WIDGET_Sli_Wheel_Mod_P.h" compile="0" resource="0"
+            file="_Project_Source/G_WIDGET_Sli_Wheel_Mod_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

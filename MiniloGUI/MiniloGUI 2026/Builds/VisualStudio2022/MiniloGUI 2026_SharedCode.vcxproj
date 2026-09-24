@@ -177,6 +177,7 @@
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_Look_And_Feel_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\G_WIDGET_Sli_Wheel_Mod_P.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -3230,6 +3231,7 @@
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_Look_And_Feel_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\G_WIDGET_Sli_Wheel_Mod_P.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

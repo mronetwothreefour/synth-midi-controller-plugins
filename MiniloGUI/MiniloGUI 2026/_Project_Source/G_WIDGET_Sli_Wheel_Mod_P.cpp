@@ -1,23 +1,22 @@
 #include "G_WIDGET_Sli_Wheel_Mod_P.h"
 
 #include "C_ENUM_P.h"
-#include "C_GET_P.h"
-#include "C_NAME_P.h"
+#include "C_ID_Main_P.h"
 
 using namespace ENUM;
-using namespace NAME;
 using namespace WIDGET;
 
-Slider_Wheel_Mod::Slider_Wheel_Mod(const String& param_id, UndoManager* u_m) :
-	Slider_Wheel_Mod_A{ param_id, u_m },
-	for_lpf_eg_int{ GET::ctrl_name_for(param_id) == knob_lpf_eg_int },
-	for_osc_2_pitch_eg_int{ GET::ctrl_name_for(param_id) == knob_osc_2_pitch_eg_int },
-	for_osc_pitch_fine{ GET::ctrl_name_for(param_id) == knob_osc_pitch_fine },
-	for_tempo{ GET::ctrl_name_for(param_id) == knob_tempo },
+Slider_Wheel_Mod::Slider_Wheel_Mod(const std::string& param_id, Value param_value, Data_Hub* hub) :
+	Slider_Wheel_Mod_A{ param_id, param_value, hub },
+	for_lpf_eg_int{ param_id == ID::exp_lpf_eg_int },
+	for_osc_2_pitch_eg_int{ param_id == ID::exp_osc_2_pitch_eg_int },
+	for_osc_pitch_fine{  param_id.ends_with("_pitch_fine") },
+	//for_tempo{ param_id == ID::seq_tempo },
 	for_voice_mode{ (int)Voice_Mode::none },
-	for_non_standard_knob{ GET::ctrl_name_for(param_id).startsWith("knob_")}
+	for_non_standard_knob{ for_lpf_eg_int || for_osc_2_pitch_eg_int || for_osc_pitch_fine ||
+						   /*for_tempo ||*/ for_voice_mode }
 {
-	if (getName().startsWith("switch_"))
+	if (getName().startsWith("ctr_sli_sw_"))
 		setSliderStyle(SliderStyle::LinearVertical);
 	if (for_non_standard_knob) {
 		for (int i = 0; i < 1024; ++i) 
