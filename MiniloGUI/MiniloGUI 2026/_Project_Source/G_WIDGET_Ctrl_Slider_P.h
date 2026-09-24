@@ -9,7 +9,7 @@ namespace WIDGET
 		public Ctrl_Slider_A
 	{
 	//==============================================================================
-	public: Ctrl_Slider(const String& param_id, Value param_val, Data_Hub* hub);
+	public: Ctrl_Slider(const std::string& param_id, Value param_val, Data_Hub* hub);
 
 	public: void update_tip_current_choice() override;
 	public: void linked_param_changed() override;

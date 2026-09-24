@@ -177,6 +177,10 @@
             file="_Project_Source/G_Look_And_Feel_P.cpp"/>
       <FILE id="QDoZrP" name="G_Look_And_Feel_P.h" compile="0" resource="0"
             file="_Project_Source/G_Look_And_Feel_P.h"/>
+      <FILE id="M3Yjpd" name="G_WIDGET_Ctrl_Slider_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_WIDGET_Ctrl_Slider_P.cpp"/>
+      <FILE id="WzaAvT" name="G_WIDGET_Ctrl_Slider_P.h" compile="0" resource="0"
+            file="_Project_Source/G_WIDGET_Ctrl_Slider_P.h"/>
       <FILE id="SU7Hb9" name="G_WIDGET_Sli_Label_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_WIDGET_Sli_Label_P.cpp"/>
       <FILE id="UPfiQz" name="G_WIDGET_Sli_Label_P.h" compile="0" resource="0"
