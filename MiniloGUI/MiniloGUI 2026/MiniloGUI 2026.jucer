@@ -143,6 +143,14 @@
             file="_Project_Source/D_BUILD_Tip_For_P.cpp"/>
       <FILE id="TgzW9Y" name="D_CONVERT_P.cpp" compile="1" resource="0" file="_Project_Source/D_CONVERT_P.cpp"/>
       <FILE id="S6WCpV" name="D_CONVERT_P.h" compile="0" resource="0" file="_Project_Source/D_CONVERT_P.h"/>
+      <FILE id="ZBv7pR" name="G_DRAW_Paths_Main_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_DRAW_Paths_Main_P.cpp"/>
+      <FILE id="clOgFc" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
+            file="_Project_Source/G_DRAW_Paths_Main_P.h"/>
+      <FILE id="wfK9WH" name="G_DRAW_Paths_Widgets_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_DRAW_Paths_Widgets_P.cpp"/>
+      <FILE id="e0AUJW" name="G_DRAW_Paths_Widgets_P.h" compile="0" resource="0"
+            file="_Project_Source/G_DRAW_Paths_Widgets_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
