@@ -25,7 +25,7 @@ void Paths_Widgets::draw_switch_h_led(Graphics& g, float& scale, char pos, Colou
 
 void Paths_Widgets::draw_switch_h_slot(Graphics& g, float& scale) {
 	Path slot{ load_path(switch_h_slot, sizeof(switch_h_slot)) };
-	g.setColour(COLOR::black);
+	g.setColour(Colour{ COLOR::black });
 	g.fillPath(slot, AffineTransform::scale(scale));
 }
 
@@ -41,7 +41,7 @@ void Paths_Widgets::draw_switch_h_tab(Graphics& g, float& scale, char pos) {
 	default: break;
 	}
 	if (!tab.isEmpty()) {
-		g.setColour(COLOR::grey_switch_tab);
+		g.setColour(Colour{ COLOR::grey_switch_tab });
 		g.fillPath(tab, AffineTransform::scale(scale));
 	}
 }
@@ -64,7 +64,7 @@ void Paths_Widgets::draw_switch_v_led(Graphics& g, float& scale, char pos, Colou
 
 void Paths_Widgets::draw_switch_v_slot(Graphics& g, float& scale) {
 	Path slot{ load_path(switch_v_slot, sizeof(switch_v_slot)) };
-	g.setColour(COLOR::black);
+	g.setColour(Colour{ COLOR::black });
 	g.fillPath(slot, AffineTransform::scale(scale));
 }
 
@@ -80,28 +80,28 @@ void Paths_Widgets::draw_switch_v_tab(Graphics& g, float& scale, char pos) {
 	default: break;
 	}
 	if (!tab.isEmpty()) {
-		g.setColour(COLOR::grey_switch_tab);
+		g.setColour(Colour{ COLOR::grey_switch_tab });
 		g.fillPath(tab, AffineTransform::scale(scale));
 	}
 }
 
 void Paths_Widgets::knob(Graphics& g, float& rotation, float& scale) {
 	auto body = load_path(knob_body, sizeof(knob_body));
-	g.setColour(COLOR::black);
+	g.setColour(Colour{ COLOR::black });
 	g.fillPath(body, AffineTransform::scale(scale));
 	auto indicator = load_path(knob_indicator, sizeof(knob_indicator));
 	indicator.applyTransform(AffineTransform::rotation(rotation, 17, 17));
-	g.setColour(COLOR::grey_knob_ptr);
+	g.setColour(Colour{ COLOR::grey_knob_ptr });
 	g.fillPath(indicator, AffineTransform::scale(scale));
 }
 
 void Paths_Widgets::knob_lpf_freq(Graphics& g, float& rotation, float& scale) {
 	auto body = load_path(knob_lpf_freq_body, sizeof(knob_lpf_freq_body));
-	g.setColour(COLOR::black);
+	g.setColour(Colour{ COLOR::black });
 	g.fillPath(body, AffineTransform::scale(scale));
 	auto indicator = load_path(knob_lpf_freq_indicator, sizeof(knob_lpf_freq_indicator));
 	indicator.applyTransform(AffineTransform::rotation(rotation, 25, 25));
-	g.setColour(COLOR::grey_knob_ptr);
+	g.setColour(Colour{ COLOR::grey_knob_ptr });
 	g.fillPath(indicator, AffineTransform::scale(scale));
 }
 
@@ -136,17 +136,17 @@ void Paths_Widgets::switch_osc_octave(Graphics& g, float& scale, int setting) {
 	case 3: draw_switch_v_tab(g, scale, 'e'); break;
 	default: break;
 	}
-	draw_switch_v_led(g, scale, 'a', setting == 0 ? COLOR::red_led_on : COLOR::red_led_off);
-	draw_switch_v_led(g, scale, 'b', setting == 1 ? COLOR::red_led_on : COLOR::red_led_off);
-	draw_switch_v_led(g, scale, 'c', setting == 2 ? COLOR::red_led_on : COLOR::red_led_off);
-	draw_switch_v_led(g, scale, 'd', setting == 3 ? COLOR::red_led_on : COLOR::red_led_off);
+	draw_switch_v_led(g, scale, 'a', setting == 0 ? Colour{ COLOR::red_led_on } : Colour{ COLOR::red_led_off });
+	draw_switch_v_led(g, scale, 'b', setting == 1 ? Colour{ COLOR::red_led_on } : Colour{ COLOR::red_led_off });
+	draw_switch_v_led(g, scale, 'c', setting == 2 ? Colour{ COLOR::red_led_on } : Colour{ COLOR::red_led_off });
+	draw_switch_v_led(g, scale, 'd', setting == 3 ? Colour{ COLOR::red_led_on } : Colour{ COLOR::red_led_off });
 }
 
 void Paths_Widgets::switch_lpf_type(Graphics& g, float& scale, int setting) {
 	auto t = AffineTransform::translation(8, 16);
 	auto slot = load_path(switch_v_slot, sizeof(switch_v_slot));
 	slot.applyTransform(t);
-	g.setColour(COLOR::black);
+	g.setColour(Colour{ COLOR::black });
 	g.fillPath(slot, AffineTransform::scale(scale));
 	Path tab{};
 	if (setting == 0)
@@ -155,7 +155,7 @@ void Paths_Widgets::switch_lpf_type(Graphics& g, float& scale, int setting) {
 		tab.addPath(load_path(switch_v_tab_e, sizeof(switch_v_tab_e)));
 	if (!tab.isEmpty()) {
 		tab.applyTransform(t);
-		g.setColour(COLOR::grey_switch_tab);
+		g.setColour(Colour{ COLOR::grey_switch_tab });
 		g.fillPath(tab, AffineTransform::scale(scale));
 	}
 }
@@ -171,9 +171,9 @@ void Paths_Widgets::switch_keyboard_octave(Graphics& g, float& scale, int settin
 	case 4: draw_switch_h_tab(g, scale, 'e'); break;
 	default: break;
 	}
-	draw_switch_h_led(g, scale, 'a', setting == 0 ? COLOR::red_led_on : COLOR::red_led_off);
-	draw_switch_h_led(g, scale, 'b', setting == 1 ? COLOR::red_led_on : COLOR::red_led_off);
-	draw_switch_h_led(g, scale, 'c', setting == 2 ? COLOR::red_led_on : COLOR::red_led_off);
-	draw_switch_h_led(g, scale, 'd', setting == 3 ? COLOR::red_led_on : COLOR::red_led_off);
-	draw_switch_h_led(g, scale, 'e', setting == 4 ? COLOR::red_led_on : COLOR::red_led_off);
+	draw_switch_h_led(g, scale, 'a', setting == 0 ? Colour{ COLOR::red_led_on } : Colour{ COLOR::red_led_off });
+	draw_switch_h_led(g, scale, 'b', setting == 1 ? Colour{ COLOR::red_led_on } : Colour{ COLOR::red_led_off });
+	draw_switch_h_led(g, scale, 'c', setting == 2 ? Colour{ COLOR::red_led_on } : Colour{ COLOR::red_led_off });
+	draw_switch_h_led(g, scale, 'd', setting == 3 ? Colour{ COLOR::red_led_on } : Colour{ COLOR::red_led_off });
+	draw_switch_h_led(g, scale, 'e', setting == 4 ? Colour{ COLOR::red_led_on } : Colour{ COLOR::red_led_off });
 }

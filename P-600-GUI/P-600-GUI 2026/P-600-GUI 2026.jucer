@@ -134,6 +134,10 @@
             file="_Project_Source/D_BUILD_Tip_For_P.h"/>
       <FILE id="JxP0j6" name="D_CONVERT_P.cpp" compile="1" resource="0" file="_Project_Source/D_CONVERT_P.cpp"/>
       <FILE id="F9Agt0" name="D_CONVERT_P.h" compile="0" resource="0" file="_Project_Source/D_CONVERT_P.h"/>
+      <FILE id="uTzMfC" name="D_TREE_App_Params_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_TREE_App_Params_P.cpp"/>
+      <FILE id="IvZd40" name="D_TREE_App_Params_P.h" compile="0" resource="0"
+            file="_Project_Source/D_TREE_App_Params_P.h"/>
       <FILE id="GqeEtf" name="D_X_G_Audio_Processor_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_X_G_Audio_Processor_P.cpp"/>
       <FILE id="tIZphr" name="D_X_G_Audio_Processor_P.h" compile="0" resource="0"
@@ -158,6 +162,10 @@
             file="_Project_Source/G_DRAW_Paths_Widgets_P.cpp"/>
       <FILE id="aoTVYE" name="G_DRAW_Paths_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Widgets_P.h"/>
+      <FILE id="Y4FiLt" name="G_LAYER_Ctrls_Exp_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_Exp_P.cpp"/>
+      <FILE id="LxSt5n" name="G_LAYER_Ctrls_Exp_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Ctrls_Exp_P.h"/>
       <FILE id="TcDNUf" name="G_Look_And_Feel_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_Look_And_Feel_P.cpp"/>
       <FILE id="jl0CNI" name="G_Look_And_Feel_P.h" compile="0" resource="0"
