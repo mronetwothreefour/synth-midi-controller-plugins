@@ -168,8 +168,10 @@
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Font_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Tip_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_CONVERT_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Data_Hub_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Data_User_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Editor_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_Look_And_Feel_P.cpp"/>
@@ -3213,8 +3215,10 @@
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Font_For_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Tip_For_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_CONVERT_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Data_Hub_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Data_User_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Editor_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_Look_And_Feel_P.h"/>

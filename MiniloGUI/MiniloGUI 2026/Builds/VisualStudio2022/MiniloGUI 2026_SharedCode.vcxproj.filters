@@ -922,10 +922,16 @@
     <ClCompile Include="..\..\_Project_Source\D_TREE_Aux_Voice_Params_P.cpp">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.cpp">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Data_Hub_P.cpp">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Data_User_P.cpp">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_X_G_Editor_P.cpp">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.cpp">
@@ -4281,7 +4287,13 @@
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Tip_For_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_CONVERT_P.h">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_TREE_Aux_Voice_Params_P.h">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Audio_Processor_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Data_Hub_P.h">
@@ -4290,7 +4302,7 @@
     <ClInclude Include="..\..\_Project_Source\D_X_G_Data_User_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\D_CONVERT_P.h">
+    <ClInclude Include="..\..\_Project_Source\D_X_G_Editor_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.h">
