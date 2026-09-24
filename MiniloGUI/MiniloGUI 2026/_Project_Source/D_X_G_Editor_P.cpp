@@ -8,13 +8,13 @@
 using namespace XYWH;
 
 Editor::Editor(Audio_Processor& processor, Data_Hub* hub) :
-    Editor_A{ processor, hub }/*,*/
-    //ctrls_aux_voice{ hub },
+    Editor_A{ processor, hub },
+    ctrls_aux_voice{ hub }/*,*/
     //layer_envelopes{ hub }
 {
     //addAndMakeVisible(layer_envelopes);
     //layer_envelopes.toBehind(ctrls_exp);
-    //addAndMakeVisible(ctrls_aux_voice);
+    addAndMakeVisible(ctrls_aux_voice);
     resized();
 }
 
@@ -23,6 +23,6 @@ void Editor::resized() {
     auto bounds = getLocalBounds();
     //layer_envelopes.setBounds(bounds);
     ctrls_exp.setBounds(bounds);
-    //ctrls_aux_voice.setBounds(bounds);
-    //app_options.set_scale_percentage_excluding(roundToInt(scale_factor * 100), this);
+    ctrls_aux_voice.setBounds(bounds);
+    app_p.set_scale_i_excluding(roundToInt(scale_f * 100), this);
 }

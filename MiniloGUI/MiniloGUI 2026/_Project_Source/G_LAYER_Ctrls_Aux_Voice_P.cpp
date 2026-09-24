@@ -13,9 +13,9 @@ Ctrls_Aux_Voice::Ctrls_Aux_Voice(Data_Hub* hub) :
 	setInterceptsMouseClicks(false, true);
 	for (auto& param_id : ID::aux_voice_params) {
 		auto ctrl_name = GET::ctrl_name_for(param_id);
-		if (ctrl_name.isNotEmpty()) {
+		if (!ctrl_name.empty()) {
 			auto param_val = avp.get_param_as_value(param_id);
-			if (ctrl_name == NAME::cbox) {
+			if (ctrl_name == NAME::ctr_cbx) {
 				cboxes.add(new Ctrl_Cbox_A{ param_id, param_val, hub });
 				auto cbox = cboxes[cboxes.size() - 1];
 				if (cbox)

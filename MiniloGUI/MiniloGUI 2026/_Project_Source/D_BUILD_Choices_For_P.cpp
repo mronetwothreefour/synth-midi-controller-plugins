@@ -107,14 +107,14 @@ const StringArray Choices_For::avp_porta_time() {
     list.add("OFF__off");
     for (int i = 1; i < 128; ++i)
         list.add((String)i);
-    return StringArray();
+    return list;
 }
 
 const StringArray Choices_For::avp_scale_key() {
     StringArray list;
     for (int i = 0; i < 25; ++i)
         list.add(CONVERT::int_to_pitch(i));
-    return StringArray();
+    return list;
 }
 
 const StringArray Choices_For::avp_transpose() {

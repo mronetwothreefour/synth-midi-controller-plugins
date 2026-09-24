@@ -14,4 +14,5 @@ void Editor::resized() {
     scale_f = (float)getWidth() / editor_init_w;
     auto bounds = getLocalBounds();
     ctrls_exp.setBounds(bounds);
+    app_p.set_scale_i_excluding(roundToInt(scale_f * 100), this);
 }
