@@ -6,6 +6,7 @@ namespace XYWH
 {
 
 	constexpr auto cbox_h = 16;
+	constexpr auto cbox_item_h = cbox_h - 2;
 	constexpr auto ctr_row_h = 94;
 	constexpr auto ctr_row_1_cy = 103;
 	constexpr auto ctr_row_2_cy = ctr_row_1_cy + ctr_row_h;

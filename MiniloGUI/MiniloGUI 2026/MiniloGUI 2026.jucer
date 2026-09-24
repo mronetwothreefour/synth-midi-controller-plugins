@@ -165,6 +165,10 @@
             file="_Project_Source/G_DRAW_Paths_Widgets_P.cpp"/>
       <FILE id="e0AUJW" name="G_DRAW_Paths_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Widgets_P.h"/>
+      <FILE id="jK69Su" name="G_Look_And_Feel_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_Look_And_Feel_P.cpp"/>
+      <FILE id="QDoZrP" name="G_Look_And_Feel_P.h" compile="0" resource="0"
+            file="_Project_Source/G_Look_And_Feel_P.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

@@ -928,6 +928,9 @@
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.cpp">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\G_Look_And_Feel_P.cpp">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
     </ClCompile>
@@ -4270,6 +4273,9 @@
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\G_Look_And_Feel_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
