@@ -11,7 +11,7 @@ namespace WIDGET
 	private: const bool for_osc_balance;
 
 	//==============================================================================
-	public: Slider_Label(const std::string & param_id, Data_Hub* hub, 
+	public: Slider_Label(const std::string& param_id, Data_Hub* hub, 
 						 Slider_Wheel_Mod* parent_slider);
 
 	private: void editor_mods_p(TextEditor* editor) override;

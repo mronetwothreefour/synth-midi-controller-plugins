@@ -11,6 +11,7 @@ namespace MISC
 {
 
 	constexpr auto allowed_chars_pitch{ "abcdefgABCDEFG0123456789#" };
+	constexpr auto allowed_chars_porta_time{ "0123456789foFO" };
 	constexpr auto allowed_chars_s_int{ "-0123456789" };
 	constexpr auto allowed_chars_u_int{ "0123456789" };
 	constexpr auto pitch_name_chars{ "abcdefgABCDEFG#" };
