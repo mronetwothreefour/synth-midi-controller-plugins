@@ -18,6 +18,7 @@ Slider_Label::Slider_Label(const std::string& param_id, Data_Hub* hub,
 }
 
 void Slider_Label::editor_mods_p(TextEditor* edit) {
+	edit->setBounds(getLocalBounds().translated(0, -1));
 	edit->setJustification(Justification::centred);
 	auto id = getComponentID();
 	auto txt = getText().removeCharacters(" ");

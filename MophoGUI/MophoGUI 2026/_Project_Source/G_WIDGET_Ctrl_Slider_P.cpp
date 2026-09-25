@@ -15,8 +15,11 @@ Ctrl_Slider::Ctrl_Slider(const std::string& param_id, Value param_val, Data_Hub*
 		auto linked_param_id = "exp_seq_track_" + track + "_dest";
 		linked_param_val = exp_state->getParameterAsValue(linked_param_id);
 		linked_param_val.addListener(this);
+		linked_param_changed();
+		return;
 	}
-	linked_param_changed();
+	update_tip_current_choice();
+	label.set_text_to_stored_choice();
 }
 
 void Ctrl_Slider::update_tip_current_choice() {

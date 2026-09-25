@@ -9,28 +9,28 @@ Range: 30 to 250.)";
 
 	constexpr auto edit_lfo_freq_tip = u8R"(
 Type in a new LFO frequency.
-Unsynced: â€˜0â€™..â€˜89â€™.
-Pitched: â€˜C0â€™..â€˜C5â€™ or â€˜90â€™..â€˜150â€™. 
-Synced: â€˜1:32â€™..â€˜16:1â€™ or â€˜151â€™..â€˜166â€™.)";
+Unsynced: ‘0’..‘89’.
+Pitched: ‘C0’..‘C5’ or ‘90’..‘150’. 
+Synced: ‘1:32’..‘16:1’ or ‘151’..‘166’.)";
 
 	constexpr auto edit_osc_shape_tip = u8R"(
 Type in a new shape setting.
-Off: â€˜OFFâ€™ or â€˜0â€™.
-Sawtooth: â€˜SAWâ€™ or â€˜1â€™. 
-Triangle: â€˜TRIâ€™ or â€˜2â€™. 
-Sawtooth/Triangle Mix: â€˜S/Tâ€™ or â€˜3â€™. 
-Pulse Width 0..99: â€˜PW0â€™..â€˜PW99â€™ or â€˜4â€™..â€˜104â€™.
-Square: â€˜SQRâ€™ or â€˜PW50â€™ or â€˜54â€™.)";
+Off: ‘OFF’ or ‘0’.
+Sawtooth: ‘SAW’ or ‘1’. 
+Triangle: ‘TRI’ or ‘2’. 
+Sawtooth/Triangle Mix: ‘S/T’ or ‘3’. 
+Pulse Width 0..99: ‘PW0’..‘PW99’ or ‘4’..‘104’.
+Square: ‘SQR’ or ‘PW50’ or ‘54’.)";
 
 	constexpr auto edit_seq_step_tip = u8R"(
 Type in a new setting, either as an
 integer or as a pitch name and octave
-number (add a â€˜+â€™ at the end to â€˜bendâ€™
+number (add a ‘+’ at the end to ‘bend’
 the pitch upward by 25 cents).
 Range: 0 (C0) to 125 (D5+).
-126 or â€˜<â€™ for track reset.)";
+126 or ‘<’ for track reset.)";
 
 	constexpr auto edit_seq_step_track_1_tip = u8R"(
-127 or â€˜.â€™ for a rest.)";
+127 or ‘.’ for a rest.)";
 
 }

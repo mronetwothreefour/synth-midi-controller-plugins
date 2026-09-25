@@ -29,18 +29,18 @@ const StringArray Choices_For::exp_arp_mode() {
 const StringArray Choices_For::exp_bend_range() {
     StringArray list;
     list.add("0__no bend");
-    list.add("+/-1__+ / -1 semitone");
-    list.add("+/-2__+ / -2 semitones");
-    list.add("+/-3__+ / -3 semitones");
-    list.add("+/-4__+ / -4 semitones");
-    list.add("+/-5__+ / -5 semitones");
-    list.add("+/-6__+ / -6 semitones");
-    list.add("+/-7__+ / -7 semitones");
-    list.add("+/-8__+ / -8 semitones");
-    list.add("+/-9__+ / -9 semitones");
-    list.add("+/-10__+ / -10 semitones");
-    list.add("+/-11__+ / -11 semitones");
-    list.add("+/-12__+ / -12 semitones");
+    list.add("+/-1__+/-1 semitone");
+    list.add("+/-2__+/-2 semitones");
+    list.add("+/-3__+/-3 semitones");
+    list.add("+/-4__+/-4 semitones");
+    list.add("+/-5__+/-5 semitones");
+    list.add("+/-6__+/-6 semitones");
+    list.add("+/-7__+/-7 semitones");
+    list.add("+/-8__+/-8 semitones");
+    list.add("+/-9__+/-9 semitones");
+    list.add("+/-10__+/-10 semitones");
+    list.add("+/-11__+/-11 semitones");
+    list.add("+/-12__+/-12 semitones");
     return list;
 }
 
@@ -177,7 +177,7 @@ const StringArray Choices_For::exp_glide_mode() {
 
 const StringArray Choices_For::exp_lfo_freq() {
     StringArray list;
-    for (int i = 1; i < lfo_1st_pitch_freq; ++i) {
+    for (int i = 0; i < lfo_1st_pitch_freq; ++i) {
         String n{ i };
         list.add(n + "__un-synced " + n);
     }
