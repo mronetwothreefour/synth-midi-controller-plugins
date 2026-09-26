@@ -54,6 +54,6 @@ void Ctrl_Toggle::modifierKeysChanged(const Mods& mods) {
 }
 
 void Ctrl_Toggle::linked_param_changed() {
-	if ((int)linked_param_val.getValue() != 1)
+	if ((int)linked_param_val.getValue() == 1)
 		toggle.setToggleState(false, sendNotification);
 }
