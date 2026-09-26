@@ -12,7 +12,7 @@ const FontOptions Font_For::semi() {
 }
 
 const Font Font_For::cbox(const float scale_factor) {
-	return Font{ semi() }.withPointHeight(10.5f * scale_factor);
+	return Font{ semi() }.withPointHeight(10.0f * scale_factor);
 }
 
 const Font Font_For::file_browser(const float scale_factor) {

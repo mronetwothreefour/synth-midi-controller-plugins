@@ -16,6 +16,8 @@ Look_And_Feel::Look_And_Feel(float& scale_factor) :
 {}
 
 void Look_And_Feel::positionComboBoxText(ComboBox& cbox, Label& lbl) {
+	lbl.setFont(FONT::cbox(scale_f));
+	lbl.setName(NAME::lbl_cbx);
 	lbl.setBounds(0, 0, cbox.getWidth() - 11, cbox.getHeight());
 }
 

@@ -15,8 +15,9 @@ Look_And_Feel::Look_And_Feel(float& scale_factor) :
 {}
 
 void Look_And_Feel::positionComboBoxText(ComboBox& cbox, Label& lbl) {
-	auto icon_w = 11;
-	lbl.setBounds(0, 0, cbox.getWidth() - icon_w, cbox.getHeight());
+	lbl.setFont(FONT::cbox(scale_f));
+	lbl.setName(NAME::lbl_cbx);
+	lbl.setBounds(0, 0, cbox.getWidth() - 11, cbox.getHeight());
 }
 
 PopupMenu::Options Look_And_Feel::getOptionsForComboBoxPopupMenu(ComboBox& cbox, Label& /*lbl*/) {

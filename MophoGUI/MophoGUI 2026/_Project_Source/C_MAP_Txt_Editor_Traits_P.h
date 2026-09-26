@@ -47,7 +47,7 @@ namespace MAP
 		{ ID::exp_lpf_release, txt_editor_traits_u_7_bit },
 		//exposed vca
 		{ ID::exp_vca_level, txt_editor_traits_u_7_bit },
-		{ ID::exp_vca_env_amt, txt_editor_traits_s_8_bit },
+		{ ID::exp_vca_env_amt, txt_editor_traits_u_7_bit },
 		{ ID::exp_vca_vel_amt, txt_editor_traits_u_7_bit },
 		{ ID::exp_vca_delay, txt_editor_traits_u_7_bit },
 		{ ID::exp_vca_attack, txt_editor_traits_u_7_bit },

@@ -76,7 +76,7 @@ namespace MAP
 		{ ID::exp_lfo_4_amt,      { 1, lfo_4_amt_cx, lfo_knb_cy, knob_diam, knob_diam } },
 		{ ID::exp_lfo_4_dest,     { 1, lfo_4_cbx_cx, lfo_dst_cy, lfo_cbx_w, cbox_h } },
 		{ ID::exp_lfo_4_key_sync, { 1, lfo_4_snc_cx, lfo_snc_cy, lfo_snc_w, lfo_snc_h } },
-		{ ID::exp_env_3_dest,    { 1, ctr_col_2_cx, env_3_row_2_cy, mod_cbx_w, knob_diam } },
+		{ ID::exp_env_3_dest,    { 1, ctr_col_2_cx, env_3_row_2_cy, mod_cbx_w, cbox_h } },
 		{ ID::exp_env_3_amount,  { 1, ctr_col_2_cx, env_3_row_1_cy, knob_diam, knob_diam } },
 		{ ID::exp_env_3_vel_amt, { 1, ctr_col_3_cx, env_3_row_1_cy, knob_diam, knob_diam } },
 		{ ID::exp_env_3_delay,   { 1, ctr_col_4_cx, env_3_row_2_cy, knob_diam, knob_diam } },
