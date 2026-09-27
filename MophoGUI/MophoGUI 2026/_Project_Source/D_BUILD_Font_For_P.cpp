@@ -20,19 +20,19 @@ const Font Font_For::file_browser(const float scale_factor) {
 }
 
 const Font Font_For::knob(const float scale_factor) {
-	return Font{ bold() }.withPointHeight(11.0f * scale_factor);
+	return Font{ bold() }.withPointHeight(10.5f * scale_factor);
 }
 
 const Font Font_For::knob_txt_editor(const float scale_factor) {
-	return Font{ bold() }.withPointHeight(11.0f * scale_factor);
+	return Font{ bold() }.withPointHeight(10.5f * scale_factor);
 }
 
 const Font Font_For::pulse_w_txt(const float scale_factor) {
-	return Font{ bold() }.withPointHeight(9.0f * scale_factor);
+	return Font{ bold() }.withPointHeight(8.5f * scale_factor);
 }
 
 const Font Font_For::seq_step(const float scale_factor) {
-	return Font{ bold() }.withPointHeight(9.5f * scale_factor);
+	return Font{ bold() }.withPointHeight(9.0f * scale_factor);
 }
 
 const Font Font_For::tip() {

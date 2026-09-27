@@ -48,7 +48,7 @@ void Slider_Label::on_text_change() {
 	if (new_text.isNotEmpty()) {
 		auto id = getComponentID();
 		auto basic_int = true;
-		if (id == ID::exp_osc_1_pitch || id == ID::exp_osc_2_pitch || id == ID::exp_lpf_freq) {
+		if (id.endsWith("_pitch") || id == ID::exp_lpf_freq) {
 			new_val = text_to_float_osc_pitch_and_lpf_freq(new_text);
 			basic_int = false;
 		}
