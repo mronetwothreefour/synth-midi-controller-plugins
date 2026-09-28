@@ -5,7 +5,7 @@
 namespace COLOR
 {
 
-	constexpr auto grey = 0xff505050;
+	constexpr auto grey = 0xff606060;
 	constexpr auto grey_dark = 0xff171717;
 	constexpr auto grey_lite = 0xffa6a6a6;
 	constexpr auto red_btn = 0xff7d0000;

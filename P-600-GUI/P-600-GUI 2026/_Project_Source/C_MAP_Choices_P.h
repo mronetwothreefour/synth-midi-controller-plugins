@@ -42,7 +42,7 @@ namespace MAP
 		{ ID::exp_amp_env_sustain, Choices_For::unsigned_int(15) },
 		{ ID::exp_amp_env_release, Choices_For::unsigned_int(15) },
 		//poly-mod
-		{ ID::exp_p_mod_amt_filter_env, Choices_For::unsigned_int(15) },
+		{ ID::exp_p_mod_amt_filter_env, Choices_For::unsigned_int(127) },
 		{ ID::exp_p_mod_amt_osc_b, Choices_For::unsigned_int(127) },
 		{ ID::exp_p_mod_dest_osc_a_freq, Choices_For::off_on() },
 		{ ID::exp_p_mod_dest_filter, Choices_For::off_on() },

@@ -33,7 +33,7 @@ namespace MAP
 		{ ID::exp_amp_env_decay, txt_editor_traits_u_4_bit },
 		{ ID::exp_amp_env_sustain, txt_editor_traits_u_4_bit },
 		{ ID::exp_amp_env_release, txt_editor_traits_u_4_bit },
-		{ ID::exp_p_mod_amt_filter_env, txt_editor_traits_u_4_bit },
+		{ ID::exp_p_mod_amt_filter_env, txt_editor_traits_u_7_bit },
 		{ ID::exp_p_mod_amt_osc_b, txt_editor_traits_u_7_bit },
 		{ ID::exp_lfo_freq, txt_editor_traits_u_4_bit },
 		{ ID::exp_lfo_init_amt, txt_editor_traits_u_5_bit },
