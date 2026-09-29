@@ -3181,6 +3181,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_ID_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_MISC_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_NAME_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\C_RES_Fonts_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_SL_Tip_Widget_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Layout_A.h"/>
@@ -3200,7 +3201,6 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Wheel_Mod_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.h"/>
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h"/>
-    <ClInclude Include="..\..\_Project_Source\C_FONT_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_GET_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_ID_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Choices_P.h"/>
@@ -4875,7 +4875,6 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h"/>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\_Project_Source\binaries\Overpass-Bold.ttf"/>
     <None Include="..\..\_Project_Source\binaries\texture.jpg"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\src\common\README.md"/>

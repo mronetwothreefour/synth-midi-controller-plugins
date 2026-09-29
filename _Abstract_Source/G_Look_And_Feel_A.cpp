@@ -1,8 +1,10 @@
 #include "G_Look_And_Feel_A.h"
 
 #include "C_COLOR_P.h"
-#include "C_FONT_P.h"
 #include "C_NAME_P.h"
+#include "D_BUILD_Font_For_P.h"
+
+using namespace BUILD;
 
 using Justify = Justification;
 
@@ -34,7 +36,7 @@ void Look_And_Feel_A::drawLabel(Graphics& g, Label& lbl) {
 	auto name = lbl.getName();
 	if (name == NAME::lbl_brws) {
 		auto txt_area{ lbl.getLocalBounds().removeFromLeft(5) };
-		g.setFont(FONT::file_browser(scale_f));
+		g.setFont(Font_For::file_browser(scale_f));
 		g.drawFittedText(lbl.getText(), txt_area, Justify::centredLeft, 1, 1.0f);
 		return;
 	}
@@ -83,7 +85,7 @@ Rectangle<int> Look_And_Feel_A::getTooltipBounds(const String& txt, Point<int> p
 TextLayout Look_And_Feel_A::layout_tip_text(const String& txt) noexcept {
 	AttributedString attrib_txt;
 	attrib_txt.setJustification(Justify::centred);
-	attrib_txt.append(txt, FONT::tip(), Colour{ COLOR::text });
+	attrib_txt.append(txt, Font_For::tip(), Colour{ COLOR::text });
 	TextLayout layout;
 	auto max_w = 500.0f;
 	layout.createLayout(attrib_txt, max_w);

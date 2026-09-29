@@ -16,6 +16,7 @@
       <FILE id="w4vq8E" name="C_ID_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_ID_A.h"/>
       <FILE id="i2YEiW" name="C_MISC_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_MISC_A.h"/>
       <FILE id="es5tLc" name="C_NAME_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_NAME_A.h"/>
+      <FILE id="SAplcp" name="C_RES_Fonts_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_RES_Fonts_A.h"/>
       <FILE id="L1mwV5" name="C_SL_Tip_Widget_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/C_SL_Tip_Widget_A.h"/>
       <FILE id="ifYvr1" name="D_BUILD_Choices_For_A.cpp" compile="1" resource="0"
@@ -86,15 +87,8 @@
             file="../../_Abstract_Source/G_WIDGET_Tip_Updater_A.h"/>
     </GROUP>
     <GROUP id="{32092108-0241-6FE8-7138-4212DA364901}" name="_Project_Source">
-      <GROUP id="{89004418-210D-59FC-3949-84753EB32F24}" name="binaries">
-        <FILE id="JtxvDh" name="Overpass-Bold.ttf" compile="0" resource="1"
-              file="_Project_Source/binaries/Overpass-Bold.ttf"/>
-        <FILE id="VVfRs0" name="Overpass-SemiBold.ttf" compile="0" resource="1"
-              file="_Project_Source/binaries/Overpass-SemiBold.ttf"/>
-      </GROUP>
       <FILE id="pyWfxa" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
       <FILE id="SmkJ3y" name="C_ENUM_P.h" compile="0" resource="0" file="_Project_Source/C_ENUM_P.h"/>
-      <FILE id="PuHoML" name="C_FONT_P.h" compile="0" resource="0" file="_Project_Source/C_FONT_P.h"/>
       <FILE id="tvKvGu" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
       <FILE id="VI35Pu" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
       <FILE id="Zy9s4V" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>
@@ -120,6 +114,7 @@
             file="_Project_Source/C_PATH_Backdrop_Main_P.h"/>
       <FILE id="aYTJTe" name="C_PATH_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/C_PATH_Widgets_P.h"/>
+      <FILE id="C8H36I" name="C_RES_Fonts_P.h" compile="0" resource="0" file="_Project_Source/C_RES_Fonts_P.h"/>
       <FILE id="l9asME" name="C_SL_Tip_Aux_Voice_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Aux_Voice_P.h"/>
       <FILE id="k5HRlI" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
@@ -135,9 +130,9 @@
             file="_Project_Source/D_BUILD_Choices_For_P.cpp"/>
       <FILE id="x6wslT" name="D_BUILD_Choices_For_P.h" compile="0" resource="0"
             file="_Project_Source/D_BUILD_Choices_For_P.h"/>
-      <FILE id="vXhExd" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
+      <FILE id="noCk1L" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Font_For_P.cpp"/>
-      <FILE id="tolKVU" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
+      <FILE id="swUaEN" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
             file="_Project_Source/D_BUILD_Font_For_P.h"/>
       <FILE id="b1wwH3" name="D_BUILD_Tip_For_P.h" compile="0" resource="0"
             file="_Project_Source/D_BUILD_Tip_For_P.h"/>

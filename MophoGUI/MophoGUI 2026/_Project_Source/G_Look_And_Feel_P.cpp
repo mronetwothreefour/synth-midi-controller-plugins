@@ -1,13 +1,15 @@
 #include "G_Look_And_Feel_P.h"
 
 #include "C_COLOR_P.h"
-#include "C_FONT_P.h"
 #include "C_GET_P.h"
 #include "C_ID_Main_P.h"
 #include "C_MISC_P.h"
 #include "C_NAME_P.h"
 #include "C_XYWH_P.h"
+#include "D_BUILD_Font_For_P.h"
 #include "G_DRAW_Paths_Widgets_P.h"
+
+using namespace BUILD;
 
 using Draw_Widget = DRAW::Paths_Widgets;
 
@@ -16,7 +18,7 @@ Look_And_Feel::Look_And_Feel(float& scale_factor) :
 {}
 
 void Look_And_Feel::positionComboBoxText(ComboBox& cbox, Label& lbl) {
-	lbl.setFont(FONT::cbox(scale_f));
+	lbl.setFont(Font_For::cbox(scale_f));
 	lbl.setName(NAME::lbl_cbx);
 	lbl.setBounds(0, 0, cbox.getWidth() - 11, cbox.getHeight());
 }
@@ -75,7 +77,7 @@ void Look_And_Feel::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, c
 		g.fillEllipse(tick_diam, tick_diam, tick_diam, tick_diam);
 	}
 	auto txt_area = area.withTrimmedLeft(roundToInt(12 * scale_f));
-	g.setFont(FONT::cbox(scale_f));
+	g.setFont(Font_For::cbox(scale_f));
 	g.setColour(Colour{ COLOR::text });
 	g.drawFittedText(txt, txt_area, Justification::centredLeft, 1);
 }
@@ -84,7 +86,7 @@ void Look_And_Feel::draw_label_p(Graphics& g, Label& lbl, String& n) {
 	auto txt = lbl.getText();
 	g.setColour(Colour{ COLOR::text }.withAlpha(lbl.isBeingEdited() ? 0.0f : 1.0f));
 	if (n == NAME::lbl_cbx) {
-		g.setFont(FONT::cbox(scale_f));
+		g.setFont(Font_For::cbox(scale_f));
 		g.drawFittedText(txt, lbl.getLocalBounds(), Justification::centred, 1, 1.0f);
 		return;
 	}
@@ -110,13 +112,13 @@ void Look_And_Feel::draw_label_p(Graphics& g, Label& lbl, String& n) {
 			if (txt.startsWith("PW "))
 				w = txt.fromFirstOccurrenceOf("PW ", false, false).getIntValue();
 			Draw_Widget::wave_pulse(g, w, scale_f);
-			g.setFont(FONT::pulse_w_txt(scale_f));
+			g.setFont(Font_For::pulse_w_txt(scale_f));
 			auto txt_area = Rectangle<int>{ 10, 23, 18, 11 }
 							.transformedBy(AffineTransform::scale(scale_f));
 			g.drawText((String)(w), txt_area, Justification::centred);
 			return;
 		}
-		g.setFont(FONT::knob(scale_f));
+		g.setFont(Font_For::knob(scale_f));
 		g.drawFittedText(txt == "OFF" ? txt : "ERR", lbl.getLocalBounds().translated(0, 1), Justification::centred, 1, 1.0f);
 		return;
 	}
@@ -132,11 +134,11 @@ void Look_And_Feel::draw_label_p(Graphics& g, Label& lbl, String& n) {
 			g.fillEllipse(10.0f * sf, 10.0f * sf, 6.0f * sf, 6.0f * sf);
 			return;
 		}
-		g.setFont(FONT::seq_step(sf));
+		g.setFont(Font_For::seq_step(sf));
 		g.drawFittedText(txt, lbl.getLocalBounds().translated(0, 1), Justification::centred, 1, 1.0f);
 		return;
 	}
-	g.setFont(FONT::knob(scale_f));
+	g.setFont(Font_For::knob(scale_f));
 	g.drawFittedText(txt, lbl.getLocalBounds().translated(0, 1), Justification::centred, 1, 1.0f);
 }
 

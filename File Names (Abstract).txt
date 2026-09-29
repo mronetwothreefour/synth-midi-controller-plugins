@@ -3,6 +3,7 @@ C_GET_A
 C_ID_A
 C_MISC_A
 C_NAME_A
+C_RES_Fonts_A
 C_SL_Tip_Widget_A
 D_BUILD_Choices_For_A
 D_BUILD_Init_Bounds_For_A

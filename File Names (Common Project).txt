@@ -1,5 +1,4 @@
 C_COLOR_P
-C_FONT_P
 C_GET_P
 C_ID_Main_P
 C_MAP_Choices_P
@@ -11,8 +10,9 @@ C_MAP_Menu_Traits_P
 C_MAP_Txt_Editor_Traits_P
 C_MISC_P
 C_NAME_P
-C_PATH_Backdrop_Main_P
-C_PATH_Widgets_P
+C_RES_Backdrop_Main_P
+C_RES_Fonts_P
+C_RES_Widgets_P
 C_SL_Tip_Exposed_P
 C_SL_Tip_Widget_P
 C_XYWH_P

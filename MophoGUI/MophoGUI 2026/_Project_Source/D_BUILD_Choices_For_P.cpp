@@ -105,12 +105,12 @@ const StringArray Choices_For::exp_flex_knob() {
     list.add("VCA initial level");
     list.add("VCA envelope amount");
     list.add("VCA env. vel. amt.__VCA envelope velocity amount");
-    list.add("VCA Envelope Delay");
-    list.add("VCA Envelope Attack");
-    list.add("VCA Envelope Decay");
-    list.add("VCA Envelope Sustain");
-    list.add("VCA Envelope Release");
-    list.add("Voice Volume");
+    list.add("VCA envelope delay");
+    list.add("VCA envelope attack");
+    list.add("VCA envelope decay");
+    list.add("VCA envelope sustain");
+    list.add("VCA envelope release");
+    list.add("voice volume");
     for (int i = 1; i < 5; ++i) {
         String lfo{ "LFO " + (String)i };
         list.add(lfo + " frequency");

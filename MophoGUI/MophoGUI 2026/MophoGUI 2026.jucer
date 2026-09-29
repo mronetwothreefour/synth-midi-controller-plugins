@@ -17,6 +17,7 @@
       <FILE id="f78q8W" name="C_ID_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_ID_A.h"/>
       <FILE id="uDPk9u" name="C_MISC_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_MISC_A.h"/>
       <FILE id="TNUQEu" name="C_NAME_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_NAME_A.h"/>
+      <FILE id="Ibk2tU" name="C_RES_Fonts_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_RES_Fonts_A.h"/>
       <FILE id="ShoKql" name="C_SL_Tip_Widget_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/C_SL_Tip_Widget_A.h"/>
       <FILE id="sXtaqS" name="D_BUILD_Choices_For_A.cpp" compile="1" resource="0"
@@ -87,14 +88,7 @@
             file="../../_Abstract_Source/G_WIDGET_Tip_Updater_A.h"/>
     </GROUP>
     <GROUP id="{254E4686-BC92-207B-DE29-DE75CD919E28}" name="_Project_Source">
-      <GROUP id="{A9F1A5B1-7BC0-A3B4-C605-CBCC7D8F6050}" name="binaries">
-        <FILE id="QSKeWv" name="Overpass-Bold.ttf" compile="0" resource="1"
-              file="_Project_Source/binaries/Overpass-Bold.ttf"/>
-        <FILE id="YaQDyG" name="Overpass-SemiBold.ttf" compile="0" resource="1"
-              file="_Project_Source/binaries/Overpass-SemiBold.ttf"/>
-      </GROUP>
       <FILE id="yUoBdz" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
-      <FILE id="S0UvTd" name="C_FONT_P.h" compile="0" resource="0" file="_Project_Source/C_FONT_P.h"/>
       <FILE id="kGCzg6" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
       <FILE id="T01mU3" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
       <FILE id="ha4Htx" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>
@@ -111,10 +105,6 @@
       <FILE id="y5vA3U" name="C_MAP_Menu_Traits_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Menu_Traits_P.h"/>
       <FILE id="cDqBx3" name="C_MAP_NRPN_P.h" compile="0" resource="0" file="_Project_Source/C_MAP_NRPN_P.h"/>
-      <FILE id="CbnPqa" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
-            file="../../Matrix-6G/Matrix-6G 2026/_Project_Source/D_BUILD_Font_For_P.cpp"/>
-      <FILE id="NQQ91f" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
-            file="../../Matrix-6G/Matrix-6G 2026/_Project_Source/D_BUILD_Font_For_P.h"/>
       <FILE id="hCdR3C" name="C_MAP_Txt_Editor_Traits_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Txt_Editor_Traits_P.h"/>
       <FILE id="BXNjnd" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
@@ -123,6 +113,7 @@
             file="_Project_Source/C_PATH_Backdrop_Main_P.h"/>
       <FILE id="csU4WN" name="C_PATH_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/C_PATH_Widgets_P.h"/>
+      <FILE id="S0UvTd" name="C_RES_Fonts_P.h" compile="0" resource="0" file="_Project_Source/C_RES_Fonts_P.h"/>
       <FILE id="Es4bal" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Exposed_P.h"/>
       <FILE id="rT5czF" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
@@ -132,9 +123,9 @@
             file="_Project_Source/D_BUILD_Choices_For_P.cpp"/>
       <FILE id="AJOCot" name="D_BUILD_Choices_For_P.h" compile="0" resource="0"
             file="_Project_Source/D_BUILD_Choices_For_P.h"/>
-      <FILE id="RVc5cf" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
+      <FILE id="FypakF" name="D_BUILD_Font_For_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Font_For_P.cpp"/>
-      <FILE id="jBQbhe" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
+      <FILE id="tbz1f6" name="D_BUILD_Font_For_P.h" compile="0" resource="0"
             file="_Project_Source/D_BUILD_Font_For_P.h"/>
       <FILE id="IpHB7n" name="D_BUILD_Tip_For_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Tip_For_P.cpp"/>

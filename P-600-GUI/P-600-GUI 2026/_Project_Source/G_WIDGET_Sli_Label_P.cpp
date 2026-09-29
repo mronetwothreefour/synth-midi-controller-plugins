@@ -3,10 +3,7 @@
 #include "C_GET_P.h"
 #include "C_MISC_P.h"
 #include "C_NAME_P.h"
-#include "D_BUILD_Font_For_P.h"
-#include "D_BUILD_Tip_For_P.h"
 
-using namespace BUILD;
 using namespace MISC;
 using namespace NAME;
 using namespace WIDGET;

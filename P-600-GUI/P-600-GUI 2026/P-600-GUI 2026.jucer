@@ -17,6 +17,7 @@
       <FILE id="UjFxEW" name="C_ID_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_ID_A.h"/>
       <FILE id="RZKUrh" name="C_MISC_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_MISC_A.h"/>
       <FILE id="mEJyMp" name="C_NAME_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_NAME_A.h"/>
+      <FILE id="yCcTSU" name="C_RES_Fonts_A.h" compile="0" resource="0" file="../../_Abstract_Source/C_RES_Fonts_A.h"/>
       <FILE id="OpSokD" name="C_SL_Tip_Widget_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/C_SL_Tip_Widget_A.h"/>
       <FILE id="qhHv1A" name="D_BUILD_Choices_For_A.cpp" compile="1" resource="0"
@@ -88,12 +89,9 @@
     </GROUP>
     <GROUP id="{2B6FF762-7DA6-E418-FBFF-644113FC53B6}" name="_Project_Source">
       <GROUP id="{B67082E3-4C7A-5DC5-7E05-9557F9987F02}" name="binaries">
-        <FILE id="dQNlYr" name="Overpass-Bold.ttf" compile="0" resource="1"
-              file="_Project_Source/binaries/Overpass-Bold.ttf"/>
         <FILE id="oIl9aN" name="texture.jpg" compile="0" resource="1" file="_Project_Source/binaries/texture.jpg"/>
       </GROUP>
       <FILE id="g0pGvY" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
-      <FILE id="styMdP" name="C_FONT_P.h" compile="0" resource="0" file="_Project_Source/C_FONT_P.h"/>
       <FILE id="V0WVOx" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
       <FILE id="F5CyFx" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
       <FILE id="cc8bcf" name="C_ID_Main_P.h" compile="0" resource="0" file="_Project_Source/C_ID_Main_P.h"/>

@@ -1,40 +1,33 @@
 #include "D_BUILD_Font_For_P.h"
 
-using namespace BinaryData;
+#include "C_RES_Fonts_P.h"
+
 using namespace BUILD;
 
-const FontOptions Font_For::bold() {
-	return Typeface::createSystemTypefaceFor(OverpassBold_ttf, OverpassBold_ttfSize);
-}
-
-const FontOptions Font_For::semi() {
-	return Typeface::createSystemTypefaceFor(OverpassSemiBold_ttf, OverpassSemiBold_ttfSize);
-}
-
 const Font Font_For::cbox(const float scale_factor) {
-	return Font{ semi() }.withPointHeight(10.0f * scale_factor);
+	return Font{ RES::semi }.withPointHeight(10.5f * scale_factor);
 }
 
 const Font Font_For::file_browser(const float scale_factor) {
-	return Font{ bold() }.withPointHeight(12.0f * scale_factor);
+	return Font{ RES::bold }.withPointHeight(12.0f * scale_factor);
 }
 
 const Font Font_For::knob(const float scale_factor) {
-	return Font{ bold() }.withPointHeight(10.5f * scale_factor);
+	return Font{ RES::bold }.withPointHeight(11.0f * scale_factor);
 }
 
-const Font Font_For::knob_txt_editor(const float scale_factor) {
-	return Font{ bold() }.withPointHeight(10.5f * scale_factor);
+const Font Font_For::knob_txt_edit(const float scale_factor) {
+	return Font{ RES::bold }.withPointHeight(11.0f * scale_factor);
 }
 
 const Font Font_For::pulse_w_txt(const float scale_factor) {
-	return Font{ bold() }.withPointHeight(8.5f * scale_factor);
+	return Font{ RES::bold }.withPointHeight(9.0f * scale_factor);
 }
 
 const Font Font_For::seq_step(const float scale_factor) {
-	return Font{ bold() }.withPointHeight(9.0f * scale_factor);
+	return Font{ RES::bold }.withPointHeight(9.5f * scale_factor);
 }
 
 const Font Font_For::tip() {
-	return Font{ bold() }.withPointHeight(12.0f);
+	return Font{ RES::bold }.withPointHeight(12.0f);
 }

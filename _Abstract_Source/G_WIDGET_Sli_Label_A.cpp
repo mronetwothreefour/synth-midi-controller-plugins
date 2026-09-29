@@ -37,7 +37,7 @@ void Slider_Label_A::resized() {
 void Slider_Label_A::on_editor_show() {
 	auto edit = getCurrentTextEditor();
 	edit->setBounds(getLocalBounds());
-	edit->applyFontToAllText(Font_For::knob_txt_editor(scale_f));
+	edit->applyFontToAllText(Font_For::knob_txt_edit(scale_f));
 	auto n = getName();
 	edit->setInputRestrictions(editor_char_limit, editor_allowed_chars);
 	edit->setTooltip(editor_tip);

@@ -22,13 +22,13 @@ namespace MAP
 		{ ID::exp_osc_1_lever_ctrl, menu_below_1x4 },
 		{ ID::exp_osc_2_type, { false, 1, 5 } },
 		{ ID::exp_osc_2_key_click, menu_below_1x2 },
-		{ ID::exp_osc_2_key_track, menu_below1x3 },
+		{ ID::exp_osc_2_key_track, menu_below_1x3 },
 		{ ID::exp_osc_2_lever_ctrl, menu_below_1x4 },
 		//exposed vcf
 		{ ID::exp_vcf_lever_ctrl, menu_below_1x4 },
-		{ ID::exp_vcf_key_track, menu_below1x3 },
+		{ ID::exp_vcf_key_track, menu_below_1x3 },
 		//exposed porta & keyboard mode
-		{ ID::exp_porta_mode, menu_below1x3 },
+		{ ID::exp_porta_mode, menu_below_1x3 },
 		{ ID::exp_porta_legato, menu_below_1x2 },
 		{ ID::exp_keyboard_mode, menu_below_1x4 },
 		//exposed lfo

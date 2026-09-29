@@ -1,12 +1,14 @@
 #include "G_Look_And_Feel_P.h"
 
 #include "C_COLOR_P.h"
-#include "C_FONT_P.h"
+#include "D_BUILD_Font_For_P.h"
 #include "C_GET_P.h"
 #include "C_ID_Main_P.h"
 #include "C_NAME_P.h"
 #include "C_XYWH_P.h"
 #include "G_DRAW_Paths_Widgets_P.h"
+
+using namespace BUILD;
 
 using Draw_Widget = DRAW::Paths_Widgets;
 
@@ -15,7 +17,7 @@ Look_And_Feel::Look_And_Feel(float& scale_factor) :
 {}
 
 void Look_And_Feel::positionComboBoxText(ComboBox& cbox, Label& lbl) {
-	lbl.setFont(FONT::cbox(scale_f));
+	lbl.setFont(Font_For::cbox(scale_f));
 	lbl.setName(NAME::lbl_cbx);
 	lbl.setBounds(0, 0, cbox.getWidth() - 11, cbox.getHeight());
 }
@@ -26,7 +28,6 @@ PopupMenu::Options Look_And_Feel::getOptionsForComboBoxPopupMenu(ComboBox& cbox,
 	auto target_area = cbox.getScreenBounds();
 	auto selected_item = cbox.getSelectedItemIndex();
 	auto item_h = roundToInt(XYWH::cbox_item_h * scale_f);
-	auto menu_above = GET::menu_above_for(param_id);
 	auto col_count = GET::menu_col_count_for(param_id);
 	auto row_count = GET::menu_row_count_for(param_id);
 	auto offset_y = (selected_item % row_count + 1) * item_h;
@@ -55,7 +56,7 @@ void Look_And_Feel::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, c
 		g.fillEllipse(4.0f * scale_f, 4.0f * scale_f, tick_diam, tick_diam);
 	}
 	auto txt_area = area.withTrimmedLeft(roundToInt(12 * scale_f));
-	g.setFont(FONT::cbox(scale_f));
+	g.setFont(Font_For::cbox(scale_f));
 	g.setColour(Colour{ COLOR::text });
 	g.drawFittedText(txt, txt_area, Justification::centredLeft, 1);
 }

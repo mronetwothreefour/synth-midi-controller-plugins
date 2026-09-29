@@ -3134,7 +3134,6 @@
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_midi_ci\juce_midi_ci.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_devices.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_formats.cpp"/>
@@ -3183,6 +3182,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_ID_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_MISC_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_NAME_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\C_RES_Fonts_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_SL_Tip_Widget_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Choices_For_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Layout_A.h"/>
@@ -3202,7 +3202,6 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Wheel_Mod_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.h"/>
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h"/>
-    <ClInclude Include="..\..\_Project_Source\C_FONT_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_GET_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_ID_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Byte_Index_P.h"/>
@@ -4877,12 +4876,10 @@
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_midi_ci\detail\juce_CIResponder.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_midi_ci\juce_midi_ci.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h"/>
-    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h"/>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\_Project_Source\binaries\Overpass-Bold.ttf"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\src\common\README.md"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\README.md"/>

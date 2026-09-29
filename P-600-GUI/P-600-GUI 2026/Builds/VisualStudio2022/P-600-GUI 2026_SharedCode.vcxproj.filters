@@ -4167,6 +4167,9 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_NAME_A.h">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\C_RES_Fonts_A.h">
+      <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\C_SL_Tip_Widget_A.h">
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClInclude>
@@ -4222,9 +4225,6 @@
       <Filter>P-600-GUI 2026\_Abstract_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h">
-      <Filter>P-600-GUI 2026\_Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_FONT_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_GET_P.h">
@@ -9245,9 +9245,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\_Project_Source\binaries\Overpass-Bold.ttf">
-      <Filter>P-600-GUI 2026\_Project_Source\binaries</Filter>
-    </None>
     <None Include="..\..\_Project_Source\binaries\texture.jpg">
       <Filter>P-600-GUI 2026\_Project_Source\binaries</Filter>
     </None>
