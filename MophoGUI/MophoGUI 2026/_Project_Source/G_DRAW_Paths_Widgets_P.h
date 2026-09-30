@@ -1,12 +1,11 @@
 #pragma once
 
-#include "G_DRAW_Paths_A.h"
+#include <JuceHeader.h>
 
 namespace DRAW
 {
 
-	struct Paths_Widgets :
-		public Paths_A
+	struct Paths_Widgets
 	{
 	public: static Path build_char_path(const uint8 char_num);
 	public: static void knob(Graphics& g, float& rotation, float& scale_factor);

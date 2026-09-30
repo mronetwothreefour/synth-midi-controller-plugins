@@ -1,15 +1,21 @@
 #pragma once
 
-#include <JuceHeader.h>
+#include "G_DRAW_Paths_A.h"
 
-namespace PATH
+using namespace DRAW;
+
+namespace RES
 {
 
-	constexpr unsigned char knob[] = {
+	constexpr unsigned char knob_data[] = {
 		110,109,0,0,152,65,0,0,24,66,108,0,72,180,65,0,84,6,66,98,75,233,232,65,77,241,255,65,0,0,8,66,255,135,208,65,0,0,8,66,0,0,152,65,98,0,0,8,66,164,112,43,65,174,71,218,65,0,0,128,64,0,0,152,65,0,0,128,64,98,188,116,43,65,0,0,128,64,0,0,128,64,164,112,
 		43,65,0,0,128,64,0,0,152,65,98,0,0,128,64,92,134,208,65,178,43,14,65,169,235,255,65,0,104,119,65,0,82,6,66,108,49,112,119,65,0,82,6,66,99,101,0,0
 	};
-	
+
+	constexpr auto knob_size = sizeof(knob_data);
+
+	static const Path knob{ Paths_A::load_path(knob_data, knob_size) };
+
 	static Path pixel(float x, float y) {
 		Path p;
 		p.addRectangle(x, y, 2.0f, 2.0f);

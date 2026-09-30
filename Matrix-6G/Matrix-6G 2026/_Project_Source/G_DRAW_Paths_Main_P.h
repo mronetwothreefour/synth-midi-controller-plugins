@@ -1,12 +1,11 @@
 #pragma once
 
-#include "G_DRAW_Paths_A.h"
+#include <JuceHeader.h>
 
 namespace DRAW
 {
 
-	struct Paths_Main :
-		public Paths_A
+	struct Paths_Main
 	{
 	public: static void backdrop(Graphics& g);
 	};
