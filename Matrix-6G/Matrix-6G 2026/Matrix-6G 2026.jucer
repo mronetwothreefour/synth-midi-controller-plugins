@@ -54,6 +54,10 @@
             file="../../_Abstract_Source/D_X_G_Editor_A.cpp"/>
       <FILE id="gOq3kM" name="D_X_G_Editor_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/D_X_G_Editor_A.h"/>
+      <FILE id="C76U8I" name="G_DRAW_Images_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_DRAW_Images_A.cpp"/>
+      <FILE id="WFEjYa" name="G_DRAW_Images_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_DRAW_Images_A.h"/>
       <FILE id="jDcfyX" name="G_DRAW_Paths_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/G_DRAW_Paths_A.cpp"/>
       <FILE id="TghLaW" name="G_DRAW_Paths_A.h" compile="0" resource="0"

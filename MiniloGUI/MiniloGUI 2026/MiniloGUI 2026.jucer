@@ -53,6 +53,10 @@
             file="../../_Abstract_Source/D_X_G_Editor_A.cpp"/>
       <FILE id="SPJQLk" name="D_X_G_Editor_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/D_X_G_Editor_A.h"/>
+      <FILE id="hWLTCq" name="G_DRAW_Images_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_DRAW_Images_A.cpp"/>
+      <FILE id="PBzYCT" name="G_DRAW_Images_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_DRAW_Images_A.h"/>
       <FILE id="pEjaL3" name="G_DRAW_Paths_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/G_DRAW_Paths_A.cpp"/>
       <FILE id="mypbMz" name="G_DRAW_Paths_A.h" compile="0" resource="0"
@@ -110,11 +114,11 @@
             file="_Project_Source/C_MAP_Txt_Editor_Traits_P.h"/>
       <FILE id="rAu5Pr" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
       <FILE id="ZTHUWT" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
-      <FILE id="IhUjgB" name="C_PATH_Backdrop_Main_P.h" compile="0" resource="0"
-            file="_Project_Source/C_PATH_Backdrop_Main_P.h"/>
-      <FILE id="aYTJTe" name="C_PATH_Widgets_P.h" compile="0" resource="0"
-            file="_Project_Source/C_PATH_Widgets_P.h"/>
+      <FILE id="IhUjgB" name="C_RES_Backdrop_Main_P.h" compile="0" resource="0"
+            file="_Project_Source/C_RES_Backdrop_Main_P.h"/>
       <FILE id="C8H36I" name="C_RES_Fonts_P.h" compile="0" resource="0" file="_Project_Source/C_RES_Fonts_P.h"/>
+      <FILE id="aYTJTe" name="C_RES_Widgets_P.h" compile="0" resource="0"
+            file="_Project_Source/C_RES_Widgets_P.h"/>
       <FILE id="l9asME" name="C_SL_Tip_Aux_Voice_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Aux_Voice_P.h"/>
       <FILE id="k5HRlI" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"

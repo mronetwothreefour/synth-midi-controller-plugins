@@ -15,6 +15,7 @@ D_X_G_Audio_Processor_A
 D_X_G_Data_Hub_A
 D_X_G_Data_User_A
 D_X_G_Editor_A
+G_DRAW_Images_A
 G_DRAW_Paths_A
 G_Look_And_Feel_A
 G_WIDGET_Ctrl_A

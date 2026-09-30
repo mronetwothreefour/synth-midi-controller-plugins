@@ -1,7 +1,7 @@
 #include "G_DRAW_Paths_Widgets_P.h"
 
 #include "C_COLOR_P.h"
-#include "C_PATH_Widgets_P.h"
+#include "C_RES_Widgets_P.h"
 
 using namespace DRAW;
 
@@ -9,9 +9,9 @@ void Paths_Widgets::draw_switch_tab(Graphics& g, float& scale, char pos) {
 	Path tab_dark{};
 	switch (pos)
 	{
-	case 'a': tab_dark.addPath(load_path(PATH::switch_tab_grey_dark_a, sizeof(PATH::switch_tab_grey_dark_a))); break;
-	case 'b': tab_dark.addPath(load_path(PATH::switch_tab_grey_dark_b, sizeof(PATH::switch_tab_grey_dark_b))); break;
-	case 'c': tab_dark.addPath(load_path(PATH::switch_tab_grey_dark_c, sizeof(PATH::switch_tab_grey_dark_c))); break;
+	case 'a': tab_dark.addPath(RES::switch_tab_grey_dark_a); break;
+	case 'b': tab_dark.addPath(RES::switch_tab_grey_dark_b); break;
+	case 'c': tab_dark.addPath(RES::switch_tab_grey_dark_c); break;
 	default: break;
 	}
 	if (!tab_dark.isEmpty()) {
@@ -21,9 +21,9 @@ void Paths_Widgets::draw_switch_tab(Graphics& g, float& scale, char pos) {
 	Path tab{};
 	switch (pos)
 	{
-	case 'a': tab.addPath(load_path(PATH::switch_tab_grey_a, sizeof(PATH::switch_tab_grey_a))); break;
-	case 'b': tab.addPath(load_path(PATH::switch_tab_grey_b, sizeof(PATH::switch_tab_grey_b))); break;
-	case 'c': tab.addPath(load_path(PATH::switch_tab_grey_c, sizeof(PATH::switch_tab_grey_c))); break;
+	case 'a': tab.addPath(RES::switch_tab_grey_a); break;
+	case 'b': tab.addPath(RES::switch_tab_grey_b); break;
+	case 'c': tab.addPath(RES::switch_tab_grey_c); break;
 	default: break;
 	}
 	if (!tab.isEmpty()) {
@@ -33,17 +33,17 @@ void Paths_Widgets::draw_switch_tab(Graphics& g, float& scale, char pos) {
 }
 
 void Paths_Widgets::knob(Graphics& g, float& rotation, float& scale) {
-	auto body = load_path(PATH::knob_body, sizeof(PATH::knob_body));
+	Path body{ RES::knob_body };
 	g.setColour(Colour{ COLOR::grey_dark });
 	g.fillPath(body, AffineTransform::scale(scale));
-	auto indicator = load_path(PATH::knob_indicator, sizeof(PATH::knob_indicator));
+	Path indicator{ RES::knob_indicator };
 	indicator.applyTransform(AffineTransform::rotation(rotation, 17, 17));
 	g.setColour(Colour{ COLOR::grey });
 	g.fillPath(indicator, AffineTransform::scale(scale));
 }
 
 void Paths_Widgets::switch_2_pole(Graphics& g, float& scale, int setting) {
-	Path slot{ load_path(PATH::switch_slot_2_pole, sizeof(PATH::switch_slot_2_pole)) };
+	Path slot{ RES::switch_slot_2_pole };
 	g.setColour(Colour{ COLOR::black });
 	g.fillPath(slot, AffineTransform::scale(scale));
 	switch (setting)
@@ -55,7 +55,7 @@ void Paths_Widgets::switch_2_pole(Graphics& g, float& scale, int setting) {
 }
 
 void Paths_Widgets::switch_3_pole(Graphics& g, float& scale, int setting) {
-	Path slot{ load_path(PATH::switch_slot_3_pole, sizeof(PATH::switch_slot_3_pole)) };
+	Path slot{ RES::switch_slot_3_pole };
 	g.setColour(Colour{ COLOR::black });
 	g.fillPath(slot, AffineTransform::scale(scale));
 	switch (setting)

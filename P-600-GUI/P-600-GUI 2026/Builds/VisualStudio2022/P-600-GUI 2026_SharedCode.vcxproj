@@ -155,6 +155,7 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Data_User_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.cpp"/>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\G_DRAW_Images_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_Look_And_Feel_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Ctrl_A.cpp"/>
@@ -3132,7 +3133,6 @@
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_midi_ci\juce_midi_ci.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_devices.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_formats.cpp"/>
@@ -3192,6 +3192,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Data_User_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Images_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_Look_And_Feel_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Ctrl_A.h"/>
@@ -3212,8 +3213,8 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Txt_Editor_Traits_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MISC_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_NAME_P.h"/>
-    <ClInclude Include="..\..\_Project_Source\C_PATH_Backdrop_Main_P.h"/>
-    <ClInclude Include="..\..\_Project_Source\C_PATH_Widgets_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_RES_Backdrop_Main_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_RES_Widgets_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Exposed_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_For_P.h"/>
@@ -4870,12 +4871,10 @@
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_midi_ci\detail\juce_CIResponder.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_midi_ci\juce_midi_ci.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h"/>
-    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h"/>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\_Project_Source\binaries\texture.jpg"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\src\common\README.md"/>
     <None Include="..\..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\README.md"/>

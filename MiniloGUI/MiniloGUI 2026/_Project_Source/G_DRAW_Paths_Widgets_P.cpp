@@ -1,20 +1,19 @@
 #include "G_DRAW_Paths_Widgets_P.h"
 
 #include "C_COLOR_P.h"
-#include "C_PATH_Widgets_P.h"
+#include "C_RES_Widgets_P.h"
 
 using namespace DRAW;
-using namespace PATH;
 
 void Paths_Widgets::draw_switch_h_led(Graphics& g, float& scale, char pos, Colour clr) {
 	Path led{};
 	switch (pos)
 	{
-	case 'a': led.addPath(load_path(switch_h_led_a, sizeof(switch_h_led_a))); break;
-	case 'b': led.addPath(load_path(switch_h_led_b, sizeof(switch_h_led_b))); break;
-	case 'c': led.addPath(load_path(switch_h_led_c, sizeof(switch_h_led_c))); break;
-	case 'd': led.addPath(load_path(switch_h_led_d, sizeof(switch_h_led_d))); break;
-	case 'e': led.addPath(load_path(switch_h_led_e, sizeof(switch_h_led_e))); break;
+	case 'a': led.addPath(RES::switch_h_led_a); break;
+	case 'b': led.addPath(RES::switch_h_led_b); break;
+	case 'c': led.addPath(RES::switch_h_led_c); break;
+	case 'd': led.addPath(RES::switch_h_led_d); break;
+	case 'e': led.addPath(RES::switch_h_led_e); break;
 	default: break;
 	}
 	if (!led.isEmpty()) {
@@ -24,7 +23,7 @@ void Paths_Widgets::draw_switch_h_led(Graphics& g, float& scale, char pos, Colou
 }
 
 void Paths_Widgets::draw_switch_h_slot(Graphics& g, float& scale) {
-	Path slot{ load_path(switch_h_slot, sizeof(switch_h_slot)) };
+	Path slot{ RES::switch_h_slot };
 	g.setColour(Colour{ COLOR::black });
 	g.fillPath(slot, AffineTransform::scale(scale));
 }
@@ -33,11 +32,11 @@ void Paths_Widgets::draw_switch_h_tab(Graphics& g, float& scale, char pos) {
 	Path tab{};
 	switch (pos)
 	{
-	case 'a': tab.addPath(load_path(switch_h_tab_a, sizeof(switch_h_tab_a))); break;
-	case 'b': tab.addPath(load_path(switch_h_tab_b, sizeof(switch_h_tab_b))); break;
-	case 'c': tab.addPath(load_path(switch_h_tab_c, sizeof(switch_h_tab_c))); break;
-	case 'd': tab.addPath(load_path(switch_h_tab_d, sizeof(switch_h_tab_d))); break;
-	case 'e': tab.addPath(load_path(switch_h_tab_e, sizeof(switch_h_tab_e))); break;
+	case 'a': tab.addPath(RES::switch_h_tab_a); break;
+	case 'b': tab.addPath(RES::switch_h_tab_b); break;
+	case 'c': tab.addPath(RES::switch_h_tab_c); break;
+	case 'd': tab.addPath(RES::switch_h_tab_d); break;
+	case 'e': tab.addPath(RES::switch_h_tab_e); break;
 	default: break;
 	}
 	if (!tab.isEmpty()) {
@@ -50,10 +49,10 @@ void Paths_Widgets::draw_switch_v_led(Graphics& g, float& scale, char pos, Colou
 	Path led{};
 	switch (pos)
 	{
-	case 'a': led.addPath(load_path(switch_v_led_a, sizeof(switch_v_led_a))); break;
-	case 'b': led.addPath(load_path(switch_v_led_b, sizeof(switch_v_led_b))); break;
-	case 'c': led.addPath(load_path(switch_v_led_c, sizeof(switch_v_led_c))); break;
-	case 'd': led.addPath(load_path(switch_v_led_d, sizeof(switch_v_led_d))); break;
+	case 'a': led.addPath(RES::switch_v_led_a); break;
+	case 'b': led.addPath(RES::switch_v_led_b); break;
+	case 'c': led.addPath(RES::switch_v_led_c); break;
+	case 'd': led.addPath(RES::switch_v_led_d); break;
 	default: break;
 	}
 	if (!led.isEmpty()) {
@@ -63,7 +62,7 @@ void Paths_Widgets::draw_switch_v_led(Graphics& g, float& scale, char pos, Colou
 }
 
 void Paths_Widgets::draw_switch_v_slot(Graphics& g, float& scale) {
-	Path slot{ load_path(switch_v_slot, sizeof(switch_v_slot)) };
+	Path slot{ RES::switch_v_slot };
 	g.setColour(Colour{ COLOR::black });
 	g.fillPath(slot, AffineTransform::scale(scale));
 }
@@ -72,11 +71,11 @@ void Paths_Widgets::draw_switch_v_tab(Graphics& g, float& scale, char pos) {
 	Path tab{};
 	switch (pos)
 	{
-	case 'a': tab.addPath(load_path(switch_v_tab_a, sizeof(switch_v_tab_a))); break;
-	case 'b': tab.addPath(load_path(switch_v_tab_b, sizeof(switch_v_tab_b))); break;
-	case 'c': tab.addPath(load_path(switch_v_tab_c, sizeof(switch_v_tab_c))); break;
-	case 'd': tab.addPath(load_path(switch_v_tab_d, sizeof(switch_v_tab_d))); break;
-	case 'e': tab.addPath(load_path(switch_v_tab_e, sizeof(switch_v_tab_e))); break;
+	case 'a': tab.addPath(RES::switch_v_tab_a); break;
+	case 'b': tab.addPath(RES::switch_v_tab_b); break;
+	case 'c': tab.addPath(RES::switch_v_tab_c); break;
+	case 'd': tab.addPath(RES::switch_v_tab_d); break;
+	case 'e': tab.addPath(RES::switch_v_tab_e); break;
 	default: break;
 	}
 	if (!tab.isEmpty()) {
@@ -86,20 +85,20 @@ void Paths_Widgets::draw_switch_v_tab(Graphics& g, float& scale, char pos) {
 }
 
 void Paths_Widgets::knob(Graphics& g, float& rotation, float& scale) {
-	auto body = load_path(knob_body, sizeof(knob_body));
+	Path body{ RES::knob_body };
 	g.setColour(Colour{ COLOR::black });
 	g.fillPath(body, AffineTransform::scale(scale));
-	auto indicator = load_path(knob_indicator, sizeof(knob_indicator));
+	Path indicator{ RES::knob_indicator };
 	indicator.applyTransform(AffineTransform::rotation(rotation, 17, 17));
 	g.setColour(Colour{ COLOR::grey_knob_ptr });
 	g.fillPath(indicator, AffineTransform::scale(scale));
 }
 
 void Paths_Widgets::knob_lpf_freq(Graphics& g, float& rotation, float& scale) {
-	auto body = load_path(knob_lpf_freq_body, sizeof(knob_lpf_freq_body));
+	Path body{ RES::knob_lpf_freq_body };
 	g.setColour(Colour{ COLOR::black });
 	g.fillPath(body, AffineTransform::scale(scale));
-	auto indicator = load_path(knob_lpf_freq_indicator, sizeof(knob_lpf_freq_indicator));
+	Path indicator{ RES::knob_lpf_freq_indicator };
 	indicator.applyTransform(AffineTransform::rotation(rotation, 25, 25));
 	g.setColour(Colour{ COLOR::grey_knob_ptr });
 	g.fillPath(indicator, AffineTransform::scale(scale));
@@ -144,15 +143,15 @@ void Paths_Widgets::switch_osc_octave(Graphics& g, float& scale, int setting) {
 
 void Paths_Widgets::switch_lpf_type(Graphics& g, float& scale, int setting) {
 	auto t = AffineTransform::translation(8, 16);
-	auto slot = load_path(switch_v_slot, sizeof(switch_v_slot));
+	Path slot{ RES::switch_v_slot };
 	slot.applyTransform(t);
 	g.setColour(Colour{ COLOR::black });
 	g.fillPath(slot, AffineTransform::scale(scale));
 	Path tab{};
 	if (setting == 0)
-		tab.addPath(load_path(switch_v_tab_a, sizeof(switch_v_tab_a)));
+		tab.addPath(RES::switch_v_tab_a);
 	if (setting == 1)
-		tab.addPath(load_path(switch_v_tab_e, sizeof(switch_v_tab_e)));
+		tab.addPath(RES::switch_v_tab_e);
 	if (!tab.isEmpty()) {
 		tab.applyTransform(t);
 		g.setColour(Colour{ COLOR::grey_switch_tab });

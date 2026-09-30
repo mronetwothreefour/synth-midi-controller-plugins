@@ -155,6 +155,7 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Data_User_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.cpp"/>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\G_DRAW_Images_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_Look_And_Feel_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Ctrl_A.cpp"/>
@@ -3194,6 +3195,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Data_User_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Images_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_Look_And_Feel_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Ctrl_A.h"/>
@@ -3216,9 +3218,9 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Txt_Editor_Traits_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MISC_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_NAME_P.h"/>
-    <ClInclude Include="..\..\_Project_Source\C_PATH_Backdrop_Main_P.h"/>
-    <ClInclude Include="..\..\_Project_Source\C_PATH_Widgets_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_RES_Backdrop_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_RES_Fonts_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_RES_Widgets_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Aux_Voice_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Exposed_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Widget_P.h"/>
