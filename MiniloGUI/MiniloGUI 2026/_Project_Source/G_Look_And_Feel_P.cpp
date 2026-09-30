@@ -24,20 +24,37 @@ void Look_And_Feel::positionComboBoxText(ComboBox& cbox, Label& lbl) {
 
 PopupMenu::Options Look_And_Feel::getOptionsForComboBoxPopupMenu(ComboBox& cbox, Label& /*lbl*/) {
 	auto param_id = cbox.getComponentID().toStdString();
-	auto cbox_area = cbox.getBoundsInParent();
-	auto target_area = cbox.getScreenBounds();
 	auto selected_item = cbox.getSelectedItemIndex();
+	auto selected_item_pos = cbox.getScreenBounds();
 	auto item_h = roundToInt(XYWH::cbox_item_h * scale_f);
+	auto min_w = cbox.getWidth();
+	auto menu_above = GET::menu_above_for(param_id);
+	auto offset_x = 0;
+	auto offset_y = 0;
 	auto col_count = GET::menu_col_count_for(param_id);
 	auto row_count = GET::menu_row_count_for(param_id);
-	auto offset_y = (selected_item % row_count + 1) * item_h;
-	target_area.translate(0, offset_y - roundToInt(scale_f));
-	return PopupMenu::Options().withTargetScreenArea(target_area)
-		.withItemThatMustBeVisible(cbox.getSelectedId())
-		.withMinimumWidth(cbox.getWidth())
-		.withMinimumNumColumns(col_count)
-		.withMaximumNumColumns(col_count)
-		.withStandardItemHeight(item_h);
+	if (col_count == 1) {
+		if (menu_above)
+			offset_y = (selected_item - row_count) * item_h;
+		else
+			offset_y = (selected_item + 1) * item_h;
+	}
+	else {
+		if (menu_above)
+			offset_y = ((selected_item % row_count) - row_count) * item_h;
+		else
+			offset_y = (selected_item % row_count + 1) * item_h;
+	}
+	if (menu_above)
+		selected_item_pos.translate(offset_x, offset_y - roundToInt(scale_f));
+	else
+		selected_item_pos.translate(offset_x, offset_y + roundToInt(4 * scale_f));
+	return PopupMenu::Options().withTargetScreenArea(selected_item_pos)
+							   .withItemThatMustBeVisible(cbox.getSelectedId())
+							   .withMinimumWidth(min_w)
+							   .withMinimumNumColumns(col_count)
+							   .withMaximumNumColumns(col_count)
+							   .withStandardItemHeight(item_h);
 }
 
 void Look_And_Feel::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, const bool /*separator*/, 
@@ -51,7 +68,7 @@ void Look_And_Feel::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, c
 		g.fillRect(area);
 	}
 	if (ticked) {
-		g.setColour(Colour{ COLOR::white });
+		g.setColour(Colour{ COLOR::red_led_on });
 		auto tick_diam = 4.0f * scale_f;
 		g.fillEllipse(4.0f * scale_f, 4.0f * scale_f, tick_diam, tick_diam);
 	}

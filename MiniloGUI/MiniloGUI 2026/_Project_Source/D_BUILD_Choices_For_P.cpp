@@ -228,7 +228,7 @@ const StringArray Choices_For::exp_osc_2_pitch_eg_int() {
     for (int i = 0; i < 5; ++i)
         list.add(n.replace("$", "-4800"));
     auto c = -4800;
-    for (int i = 0; i < 357; ++i) {
+    for (int i = 5; i < 357; ++i) {
         c += (i % 2 == 1 ? 13 : 12);
         list.add(n.replace("$", (String)c));
     }
@@ -300,7 +300,7 @@ const StringArray Choices_For::exp_osc_pitch_fine() {
     for (int i = 0; i < 5; ++i)
         list.add(n.replace("$", "-1200"));
     auto c = -1200;
-    for (int i = 0; i < 357; ++i) {
+    for (int i = 5; i < 357; ++i) {
         c += (i % 8 == 5 ? 4 : 3);
         list.add(n.replace("$", (String)c));
     }

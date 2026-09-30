@@ -71,7 +71,7 @@ namespace MAP
 		{ ID::exp_env_sustain, { true, 695, ctr_row_2_cy, knob_diam, knob_diam } },
 		{ ID::exp_env_release, { true, 763, ctr_row_2_cy, knob_diam, knob_diam } },
 		{ ID::exp_lfo_wave, { true, 540, ctr_row_3_cy, switch_w, switch_h } },
-		{ ID::exp_lfo_eg_mod, { true, 585, ctr_row_3_cy, switch_w, switch_h } },
+		{ ID::exp_lfo_eg_mod, { true, 584, ctr_row_3_cy, 39, switch_h } },
 		{ ID::exp_lfo_rate, { true, 627, ctr_row_3_cy, knob_diam, knob_diam } },
 		{ ID::exp_lfo_int, { true, 695, ctr_row_3_cy, knob_diam, knob_diam } },
 		{ ID::exp_lfo_target, { false, 744, 265, 50, switch_h } },

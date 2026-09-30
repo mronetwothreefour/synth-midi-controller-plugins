@@ -142,7 +142,7 @@ void Paths_Widgets::switch_osc_octave(Graphics& g, float& scale, int setting) {
 }
 
 void Paths_Widgets::switch_lpf_type(Graphics& g, float& scale, int setting) {
-	auto t = AffineTransform::translation(8, 16);
+	auto t = AffineTransform::translation(8, 14);
 	Path slot{ RES::switch_v_slot };
 	slot.applyTransform(t);
 	g.setColour(Colour{ COLOR::black });

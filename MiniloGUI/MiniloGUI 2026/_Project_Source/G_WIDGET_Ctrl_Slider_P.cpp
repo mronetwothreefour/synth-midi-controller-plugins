@@ -22,7 +22,7 @@ Ctrl_Slider::Ctrl_Slider(const std::string& param_id, Value param_val, Data_Hub*
 
 void Ctrl_Slider::update_tip_current_choice() {
 	auto id = getComponentID();
-	if (id == ID::exp_lfo_rate || ID::exp_voice_mode_depth) {
+	if (id == ID::exp_lfo_rate || id == ID::exp_voice_mode_depth) {
 		auto& choice = Ctrl_A::choices[roundToInt(getValue())];
 		String tip{};
 		if (id == ID::exp_lfo_rate) {

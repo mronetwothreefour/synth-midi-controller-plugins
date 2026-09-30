@@ -165,27 +165,27 @@ void Slider_Wheel_Mod::shift_mod_value(double incr, double& curr_val) {
 		auto v = roundToInt(curr_val);
 		auto i = roundToInt(incr);
 		if (for_lpf_eg_int) {
-			v = get_best_display_value_match(v, i * 5, -100, 100);
+			curr_val = get_best_display_value_match(v, i * 5, -100, 100);
 			return;
 		}
 		if (for_osc_2_pitch_eg_int) {
-			v = get_best_display_value_match(v, i * 25, -4800, 4800);
+			curr_val = get_best_display_value_match(v, i * 25, -4800, 4800);
 			return;
 		}
 		if (for_osc_pitch_fine) {
-			v = get_best_display_value_match(v, i * 25, -1200, 1200);
+			curr_val = get_best_display_value_match(v, i * 25, -1200, 1200);
 			return;
 		}
 		if (for_voice_mode > (int)Voice_Mode::none) {
 			if (for_voice_mode == (int)Voice_Mode::duo || for_voice_mode == (int)Voice_Mode::unison) {
-				v = get_best_display_value_match(v, i * 5, 0, 1023);
+				curr_val = get_best_display_value_match(v, i * 5, 0, 1023);
 				return;
 			}
 			if (for_voice_mode == (int)Voice_Mode::mono || for_voice_mode == (int)Voice_Mode::sidechain) {
-				v = get_best_display_value_match(v, i * 25, 0, 1023);
+				curr_val = get_best_display_value_match(v, i * 25, 0, 1023);
 				return;
 			}
-			v = get_best_display_value_match(v, i, 0, 1023);
+			curr_val = get_best_display_value_match(v, i, 0, 1023);
 			return;
 		}
 	}
