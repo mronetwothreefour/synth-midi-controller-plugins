@@ -14,12 +14,12 @@ Slider_Wheel_Mod::Slider_Wheel_Mod(const std::string& param_id, Value param_valu
 	//for_tempo{ param_id == ID::seq_tempo },
 	for_voice_mode{ (int)Voice_Mode::none },
 	for_non_standard_knob{ for_lpf_eg_int || for_osc_2_pitch_eg_int || for_osc_pitch_fine ||
-						   /*for_tempo ||*/ for_voice_mode }
+						   /*for_tempo ||*/ for_voice_mode > -1 }
 {
 	if (getName().startsWith("ctr_sli_sw_"))
 		setSliderStyle(SliderStyle::LinearVertical);
 	if (for_non_standard_knob) {
-		for (int i = 0; i < 1024; ++i) 
+		for (int i = 0; i < 1024; ++i)
 			display_values.add(choices_curt[i].getIntValue());
 	}
 }
@@ -89,169 +89,189 @@ void Slider_Wheel_Mod::update_for_voice_mode(int new_mode) {
 }
 
 void Slider_Wheel_Mod::mod_value(double incr, double& curr_sli_val) {
-	if (for_non_standard_knob) {
-		auto disp_val_index = roundToInt(curr_sli_val);
-		auto curr_disp_val = display_values[disp_val_index];
-		if ((for_lpf_eg_int))
-		{
-			if (curr_sli_val < 12 && incr > 0) {
-				curr_sli_val = 12;
-				return;
-			}
-			if (curr_sli_val > 1012 && incr < 0) {
-				curr_sli_val = 1012;
-				return;
-			}
-		}
-		if (for_osc_2_pitch_eg_int || for_osc_pitch_fine)
-		{
-			if (curr_sli_val < 5 && incr > 0) {
-				curr_sli_val = 5;
-				return;
-			}
-			if (curr_sli_val > 1019 && incr < 0) {
-				curr_sli_val = 1019;
-				return;
-			}
-		}
-		if (for_osc_2_pitch_eg_int && curr_disp_val == 0) {
-				if (incr < 0)
-					curr_sli_val = 491;
-				else
-					curr_sli_val = 531;
-				return;
-		}
-		if (for_lpf_eg_int) {
-			curr_sli_val = get_best_display_value_match(disp_val_index, roundToInt(incr), -100, 100);
-			return;
-		}
-		if (for_osc_pitch_fine && curr_disp_val > -100 && curr_disp_val < 100) {
-			curr_sli_val = get_best_display_value_match(disp_val_index, roundToInt(incr), -1200, 1200);
-			return;
-		}
-		if (for_voice_mode > (int)Voice_Mode::none) {
-			curr_sli_val = get_best_display_value_match(disp_val_index, roundToInt(incr), 0, 1023);
-			return;
-		}
-	}
 	curr_sli_val += incr;
+	//if (for_non_standard_knob) {
+	//	auto disp_val_index = roundToInt(curr_sli_val);
+	//	auto curr_disp_val = display_values[disp_val_index];
+	//	if ((for_lpf_eg_int))
+	//	{
+	//		if (curr_sli_val < 12 && incr > 0) {
+	//			curr_sli_val = 12;
+	//			return;
+	//		}
+	//		if (curr_sli_val > 1012 && incr < 0) {
+	//			curr_sli_val = 1012;
+	//			return;
+	//		}
+	//	}
+	//	if (for_osc_2_pitch_eg_int || for_osc_pitch_fine)
+	//	{
+	//		if (curr_sli_val < 5 && incr > 0) {
+	//			curr_sli_val = 5;
+	//			return;
+	//		}
+	//		if (curr_sli_val > 1019 && incr < 0) {
+	//			curr_sli_val = 1019;
+	//			return;
+	//		}
+	//	}
+	//	if (for_osc_2_pitch_eg_int && curr_disp_val == 0) {
+	//			if (incr < 0)
+	//				curr_sli_val = 491;
+	//			else
+	//				curr_sli_val = 531;
+	//			return;
+	//	}
+	//	if (for_lpf_eg_int) {
+	//		curr_sli_val = get_best_display_value_match(disp_val_index, roundToInt(incr), -100, 100);
+	//		return;
+	//	}
+	//	if (for_osc_2_pitch_eg_int) {
+	//		curr_sli_val = get_best_display_value_match(disp_val_index, roundToInt(incr), -4800, 4800);
+	//		return;
+	//	}
+	//	if (for_osc_pitch_fine && curr_disp_val > -100 && curr_disp_val < 100) {
+	//		curr_sli_val = get_best_display_value_match(disp_val_index, roundToInt(incr), -1200, 1200);
+	//		return;
+	//	}
+	//	if (for_voice_mode > (int)Voice_Mode::none) {
+	//		curr_sli_val = get_best_display_value_match(disp_val_index, roundToInt(incr), 0, 1023);
+	//		return;
+	//	}
+	//}
 }
 
 void Slider_Wheel_Mod::alt_mod_value(double incr, double& curr_val) {
-	if (for_osc_2_pitch_eg_int || for_osc_pitch_fine) {
-		curr_val = get_next_multiple_of_100(roundToInt(incr), roundToInt(curr_val));
-		return;
-	}
 	mod_value(incr, curr_val);
+	//if (for_osc_2_pitch_eg_int || for_osc_pitch_fine) {
+	//	curr_val = get_next_multiple_of_100(roundToInt(incr), roundToInt(curr_val));
+	//	return;
+	//}
 }
 
 void Slider_Wheel_Mod::ctrl_mod_value(double incr, double& curr_val) {
-	if (for_non_standard_knob) {
-		auto v = roundToInt(curr_val);
-		if (for_osc_2_pitch_eg_int) {
-			curr_val = get_best_display_value_match(v, roundToInt(incr) * 100, -4800, 4800);
-			return;
-		}
-		if (for_osc_pitch_fine) {
-			curr_val = get_best_display_value_match(v, roundToInt(incr) * 100, -1200, 1200);
-			return;
-		}
-	}
 	curr_val += incr * 100.0;
+	//if (for_non_standard_knob) {
+	//	auto v = roundToInt(curr_val);
+	//	if (for_osc_2_pitch_eg_int) {
+	//		curr_val = get_best_display_value_match(v, roundToInt(incr) * 100, -4800, 4800);
+	//		return;
+	//	}
+	//	if (for_osc_pitch_fine) {
+	//		curr_val = get_best_display_value_match(v, roundToInt(incr) * 100, -1200, 1200);
+	//		return;
+	//	}
+	//}
 }
 
 void Slider_Wheel_Mod::shift_mod_value(double incr, double& curr_val) {
-	if (for_non_standard_knob) {
-		auto v = roundToInt(curr_val);
-		auto i = roundToInt(incr);
-		if (for_lpf_eg_int) {
-			curr_val = get_best_display_value_match(v, i * 5, -100, 100);
-			return;
-		}
-		if (for_osc_2_pitch_eg_int) {
-			curr_val = get_best_display_value_match(v, i * 25, -4800, 4800);
-			return;
-		}
-		if (for_osc_pitch_fine) {
-			curr_val = get_best_display_value_match(v, i * 25, -1200, 1200);
-			return;
-		}
-		if (for_voice_mode > (int)Voice_Mode::none) {
-			if (for_voice_mode == (int)Voice_Mode::duo || for_voice_mode == (int)Voice_Mode::unison) {
-				curr_val = get_best_display_value_match(v, i * 5, 0, 1023);
-				return;
-			}
-			if (for_voice_mode == (int)Voice_Mode::mono || for_voice_mode == (int)Voice_Mode::sidechain) {
-				curr_val = get_best_display_value_match(v, i * 25, 0, 1023);
-				return;
-			}
-			curr_val = get_best_display_value_match(v, i, 0, 1023);
-			return;
-		}
-	}
 	curr_val += incr * 25.0;
+	//if (for_non_standard_knob) {
+	//	auto v = roundToInt(curr_val);
+	//	auto i = roundToInt(incr);
+	//	if (for_lpf_eg_int) {
+	//		curr_val = get_best_display_value_match(v, i * 5, -100, 100);
+	//		return;
+	//	}
+	//	if (for_osc_2_pitch_eg_int) {
+	//		curr_val = get_best_display_value_match(v, i * 25, -4800, 4800);
+	//		return;
+	//	}
+	//	if (for_osc_pitch_fine) {
+	//		curr_val = get_best_display_value_match(v, i * 25, -1200, 1200);
+	//		return;
+	//	}
+	//	if (for_voice_mode > (int)Voice_Mode::none) {
+	//		if (for_voice_mode == (int)Voice_Mode::duo || for_voice_mode == (int)Voice_Mode::unison) {
+	//			curr_val = get_best_display_value_match(v, i * 5, 0, 1023);
+	//			return;
+	//		}
+	//		if (for_voice_mode == (int)Voice_Mode::mono || for_voice_mode == (int)Voice_Mode::sidechain) {
+	//			curr_val = get_best_display_value_match(v, i * 25, 0, 1023);
+	//			return;
+	//		}
+	//		curr_val = get_best_display_value_match(v, i, 0, 1023);
+	//		return;
+	//	}
+	//}
 }
 
-int Slider_Wheel_Mod::get_best_display_value_match(int v, int incr, int min, int max) {
-	auto below = incr < 0;
-	auto above = incr > 0;
-	auto index = std::clamp(v, 0, 1023);
-	if ((index == 0 && below) || (index == 1023 && above))
-		return index;
-	auto current_val = display_values[index];
-	auto target_val = std::clamp(current_val + incr, min, max);
-	auto prev_i = index;
-	for (int i = index; above ? i < 1024 : i > -1; above ? ++i : --i) {
-		auto val = display_values[i];
-		if (val == target_val) {
-			index = i;
-			break;
-		}
-		if ((below && val < target_val) || (above && val > target_val)) {
-			index = prev_i;
-			break;
-		}
-		prev_i = i;
-	}
-	return index;
-}
+//int Slider_Wheel_Mod::get_best_display_value_match(int v, int incr, int min, int max) {
+//	auto below = incr < 0;
+//	auto above = incr > 0;
+//	auto index = std::clamp(v, 0, 1023);
+//	if ((index == 0 && below) || (index == 1023 && above))
+//		return index;
+//	auto current_val = display_values[index];
+//	auto target_val = std::clamp(current_val + incr, min, max);
+//	auto id = getComponentID();
+//	if (target_val == 0 &&
+//		(id == ID::exp_lpf_eg_int || id == ID::exp_osc_1_pitch_fine ||
+//		 id == ID::exp_osc_2_pitch_eg_int || id == ID::exp_osc_2_pitch_fine))
+//	{
+//		return 512;
+//	}
+//	auto prev_i = index;
+//	for (int i = index; above ? i < 1024 : i > -1; above ? ++i : --i) {
+//		auto val = display_values[i];
+//		if (val == target_val) {
+//			index = i;
+//			break;
+//		}
+//		if ((below && val < target_val) || (above && val > target_val)) {
+//			index = prev_i;
+//			break;
+//		}
+//		prev_i = i;
+//	}
+//	return index;
+//}
 
-int Slider_Wheel_Mod::get_best_display_value_match(int target) {
-	auto l = 0;
-	auto r = 1023;
-	while (l < r) {
-		if (abs(display_values[l] - target)
-			<= abs(display_values[r] - target)) {
-			r--;
-		}
-		else
-			l++;
-	}
-	return l;
-}
+//int Slider_Wheel_Mod::get_best_display_value_match(int target) {
+//	if (for_non_standard_knob) {
+//		auto id = getComponentID();
+//		if (target == 0 && 
+//				(id == ID::exp_lpf_eg_int || id == ID::exp_osc_1_pitch_fine ||
+//				 id == ID::exp_osc_2_pitch_fine || id == ID::exp_osc_2_pitch_eg_int))
+//		{
+//			return 512;
+//		}
+//	}
+//	auto l = 0;
+//	auto r = 1023;
+//	while (l < r) {
+//		if (abs(display_values[l] - target)
+//			<= abs(display_values[r] - target)) {
+//			r--;
+//		}
+//		else
+//			l++;
+//	}
+//	return l;
+//}
 
-int Slider_Wheel_Mod::get_next_multiple_of_100(int incr, int v) {
-	auto decreasing = incr < 0;
-	auto increasing = incr > 0;
-	incr *= 100;
-	auto index = std::clamp(v, 0, 1023);
-	if ((index == 0 && decreasing) || (index == 1023 && increasing))
-		return index;
-	auto target_val = display_values[index];
-	if (target_val % 100 == 0)
-		target_val += incr;
-	else {
-		if ((increasing && target_val > 0) || (decreasing && target_val < 0))
-			target_val += incr;
-		target_val -= target_val % 100;
-		index += increasing ? 1 : -1;
-	}
-	for (int i = index; increasing ? i < 1024 : i > -1; increasing ? ++i : --i) {
-		if (display_values[i] == target_val) {
-			index = i;
-			break;
-		}
-	}
-	return index;
-}
+//int Slider_Wheel_Mod::get_next_multiple_of_100(int incr, int v) {
+//	auto decreasing = incr < 0;
+//	auto increasing = incr > 0;
+//	incr *= 100;
+//	auto index = std::clamp(v, 0, 1023);
+//	if ((index == 0 && decreasing) || (index == 1023 && increasing))
+//		return index;
+//	auto target_val = display_values[index];
+//	if (target_val % 100 == 0)
+//		target_val += incr;
+//	else {
+//		if ((increasing && target_val > 0) || (decreasing && target_val < 0))
+//			target_val += incr;
+//		target_val -= target_val % 100;
+//		index += increasing ? 1 : -1;
+//	}
+//	for (int i = index; increasing ? i < 1024 : i > -1; increasing ? ++i : --i) {
+//		if (display_values[i] == target_val) {
+//			index = i;
+//			break;
+//		}
+//	}
+//	return index;
+//}
 

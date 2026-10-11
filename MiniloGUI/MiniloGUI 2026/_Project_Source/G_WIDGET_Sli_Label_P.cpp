@@ -111,8 +111,8 @@ void Slider_Label::on_text_change() {
 void Slider_Label::on_text_change_get_best_match() {
 	auto new_text{ getText() };
 	if (new_text.isNotEmpty()) {
-		auto input_val{ new_text.getIntValue() };
-		parent_sli->setValue(parent_sli->get_best_display_value_match(input_val));
+		//auto input_val{ new_text.getIntValue() };
+		//parent_sli->setValue(parent_sli->get_best_display_value_match(input_val));
 	}
 	set_text_to_stored_choice();
 }

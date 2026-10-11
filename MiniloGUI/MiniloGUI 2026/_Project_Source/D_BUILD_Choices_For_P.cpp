@@ -4,6 +4,13 @@
 
 using namespace BUILD;
 
+void BUILD::Choices_For::add_duplicate_strings_to_list(const String& s, const int c,
+                                                       StringArray& list)
+{
+    for (int i = 0; i < c; ++i)
+        list.add(s);
+}
+
 const StringArray Choices_For::avp_flex_sli_bend_limit(const bool pos) {
     StringArray list;
     String s{ pos ? "+" : "-" };
@@ -198,24 +205,214 @@ const StringArray Choices_For::exp_lfo_target() {
 
 const StringArray Choices_For::exp_lpf_eg_int() {
 	StringArray list;
-    String n{ "_%" };
-    for (int i = 0; i < 1024; ++i) {
-        if (i < 12)
-            list.add(n.replace("_","-100"));
-        if (i >= 12 && i < 492) {
-            auto v{ roundToInt(floor(pow(492.0f - i, 2.0f) * 0.0004322268f)) };
-            list.add(n.replace("_", "-" + (String)v));
-        }
-        if (i >= 492 && i < 533)
-            list.add(n.replace("_","0"));
-        if (i >= 533 && i < 1013) {
-            auto v{ roundToInt(floor(pow(i - 532.0f, 2.0f) * 0.0004322268f)) };
-            list.add(n.replace("_", "-" + (String)v));
-        }
-        if (i >= 1013)
-            list.add(n.replace("_","+100"));
+    add_duplicate_strings_to_list("-100%", 14, list);
+    auto v = -100;
+    for (int c = 14; c < 49; c += 5) { // -99 to -86
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 2, list);
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 3, list);
     }
-	return list;
+    for (int c = 49; c < 55; c += 3) { // -85 & -84
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 3, list);
+    }
+    for (int c = 55; c < 65; c += 5) { // -83 to -80
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 2, list);
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 3, list);
+    }
+    for (int c = 65; c < 87; c += 11) { // -79 to -72
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 3, list);
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 2, list);
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 3, list);
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 3, list);
+    }
+    for (int c = 87; c < 126; c += 3) { // -71 to -59
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 3, list);
+    }
+    v = -58;
+    add_duplicate_strings_to_list((String)v + "%", 4, list); // c 126 to 129
+    for (int c = 130; c < 142; c += 3) { // -57 to -54
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 3, list);
+    }
+    for (int c = 142; c < 163; c += 7) { // -53 to -48
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 4, list); // c 126 to 129
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 3, list);
+    }
+    for (int c = 163; c < 185; c += 11) { // -47 to -42
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 3, list);
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 4, list); // c 126 to 129
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 4, list); // c 126 to 129
+    }
+    for (int c = 185; c < 205; c += 4) { // -41 to -37
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 4, list);
+    }
+    v = -36;
+    add_duplicate_strings_to_list((String)v + "%", 3, list); // c 205 to 207
+    for (int c = 208; c < 220; c += 4) { // -35 to -33
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 4, list);
+    }
+    for (int c = 220; c < 248; c += 14) { // -32 to -27
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 5, list);
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 5, list);
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 4, list);
+    }
+    for (int c = 248; c < 278; c += 5) { // -26 to -21
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 5, list);
+    }
+    v = -20;
+    add_duplicate_strings_to_list((String)v + "%", 6, list); // c 278 to 283
+    v = -19;
+    add_duplicate_strings_to_list((String)v + "%", 5, list); // c 284 to 288
+    for (int c = 289; c < 313; c += 6) { // -18 to -15
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 6, list);
+    }
+    for (int c = 313; c < 341; c += 7) { // -14 to -11
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 7, list);
+    }
+    for (int c = 341; c < 357; c += 8) { // -10 & -9
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 8, list);
+    }
+    for (int c = 357; c < 375; c += 9) { // -8 & -7
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 9, list);
+    }
+    for (int c = 375; c < 397; c += 11) { // -6 & -5
+        v += 1;
+        add_duplicate_strings_to_list((String)v + "%", 11, list);
+    }
+    add_duplicate_strings_to_list("-4%", 12, list); // c 397 to 408
+    add_duplicate_strings_to_list("-3%", 15, list); // c 409 to 423
+    add_duplicate_strings_to_list("-2%", 21, list); // c 424 to 444
+    add_duplicate_strings_to_list("-1%", 41, list); // c 445 to 485
+    add_duplicate_strings_to_list("0%", 55, list); // c 486 to 540
+    add_duplicate_strings_to_list("+1%", 40, list); // c 541 to 580
+    add_duplicate_strings_to_list("+2%", 22, list); // c 581 to 602
+    add_duplicate_strings_to_list("+3%", 14, list); // c 603 to 616
+    add_duplicate_strings_to_list("+4%", 13, list); // c 617 to 629
+    add_duplicate_strings_to_list("+5%", 11, list); // c 630 to 640
+    v = 5;
+    for (int c = 641; c < 661; c += 10) { // 6 & 7
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 10, list);
+    }
+    v = 8;
+    add_duplicate_strings_to_list("+" + (String)v + "%", 9, list); // c 661 to 669
+    for (int c = 670; c < 686; c += 8) { // 9 & 10
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 8, list);
+    }
+    for (int c = 686; c < 714; c += 7) { // 11 to 14
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 7, list);
+    }
+    for (int c = 714; c < 738; c += 6) { // 15 to 18
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 6, list);
+    }
+    v = 19;
+    add_duplicate_strings_to_list("+" + (String)v + "%", 5, list); // c 738 to 742
+    v = 20;
+    add_duplicate_strings_to_list("+" + (String)v + "%", 6, list); // c 743 to 748
+    for (int c = 749; c < 779; c += 5) { // 21 to 26
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 5, list);
+    }
+    v = 27;
+    add_duplicate_strings_to_list("+" + (String)v + "%", 4, list); // c 779 to 782
+    for (int c = 783; c < 793; c += 5) { // 28 & 29
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 5, list);
+    }
+    for (int c = 793; c < 801; c += 4) { // 30 & 31
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 4, list);
+    }
+    v = 32;
+    add_duplicate_strings_to_list("+" + (String)v + "%", 5, list); // c 801 to 805
+    for (int c = 806; c < 842; c += 4) { // 33 to 41
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 4, list);
+    }
+    v = 42;
+    add_duplicate_strings_to_list("+" + (String)v + "%", 3, list); // c 842 to 844
+    for (int c = 845; c < 853; c += 4) { // 43 & 44
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 4, list);
+    }
+    for (int c = 853; c < 859; c += 3) { // 45 & 46
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 3, list);
+    }
+    for (int c = 859; c < 867; c += 4) { // 47 & 48
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 4, list);
+    }
+    v = 49;
+    add_duplicate_strings_to_list("+" + (String)v + "%", 3, list); // c 867 to 869
+    for (int c = 870; c < 890; c += 10) { // 50 to 55
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 4, list);
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 3, list);
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 3, list);
+    }
+    v = 56;
+    add_duplicate_strings_to_list("+" + (String)v + "%", 3, list); // c 890 to 892
+    v = 57;
+    add_duplicate_strings_to_list("+" + (String)v + "%", 4, list); // c 893 to 896
+    for (int c = 897; c < 945; c += 3) { // 58 to 73
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 3, list);
+    }
+    for (int c = 945; c < 961; c += 8) { // 74 to 79
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 2, list);
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 3, list);
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 3, list);
+    }
+    for (int c = 961; c < 985; c += 8) { // 80 to 88
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 3, list);
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 2, list);
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 3, list);
+    }
+    for (int c = 985; c < 1010; c += 5) { // 89 to 98
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 2, list);
+        v += 1;
+        add_duplicate_strings_to_list("+" + (String)v + "%", 3, list);
+    }
+    add_duplicate_strings_to_list("+99% ", 2, list); // c 1010 & 1011
+    add_duplicate_strings_to_list("+100% ", 12, list); // c 1012 & 1023
+    return list;
 }
 
 const StringArray Choices_For::exp_lpf_type() {
@@ -229,48 +426,48 @@ const StringArray Choices_For::exp_osc_2_pitch_eg_int() {
         list.add(n.replace("$", "-4800"));
     auto c = -4800;
     for (int i = 5; i < 357; ++i) {
-        c += (i % 2 == 1 ? 13 : 12);
+        c += 12 + (i % 2);
         list.add(n.replace("$", (String)c));
     }
     for (int i = 357; i < 477; ++i) {
         c += (i % 8 == 5 ? 4 : 3);
         list.add(n.replace("$", (String)c));
     }
-    list.add(n.replace("$", "-23"));
-    list.add(n.replace("$", "-21"));
-    list.add(n.replace("$", "-20"));
-    list.add(n.replace("$", "-18"));
-    list.add(n.replace("$", "-17"));
-    list.add(n.replace("$", "-15"));
-    list.add(n.replace("$", "-14"));
-    list.add(n.replace("$", "-12"));
-    list.add(n.replace("$", "-10"));
-    list.add(n.replace("$", "-9"));
-    list.add(n.replace("$", "-7"));
-    list.add(n.replace("$", "-5"));
-    list.add(n.replace("$", "-4"));
-    list.add(n.replace("$", "-3"));
-    list.add(n.replace("$", "-1"));
+    list.add(n.replace("$", "-23")); // 477
+    list.add(n.replace("$", "-21")); // 478
+    list.add(n.replace("$", "-20")); // 479
+    list.add(n.replace("$", "-18")); // 480
+    list.add(n.replace("$", "-17")); // 481
+    list.add(n.replace("$", "-15")); // 482
+    list.add(n.replace("$", "-14")); // 483
+    list.add(n.replace("$", "-12")); // 484
+    list.add(n.replace("$", "-10")); // 485
+    list.add(n.replace("$", "-9"));  // 486
+    list.add(n.replace("$", "-7"));  // 487
+    list.add(n.replace("$", "-5"));  // 488
+    list.add(n.replace("$", "-4"));  // 489
+    list.add(n.replace("$", "-3"));  // 490
+    list.add(n.replace("$", "-1"));  // 491
     for (int i = 492; i < 531; ++i)
         list.add(n.replace("$", "0"));
-    list.add(n.replace("$", "+1"));
-    list.add(n.replace("$", "+2"));
-    list.add(n.replace("$", "+3"));
-    list.add(n.replace("$", "+4"));
-    list.add(n.replace("$", "+5"));
-    list.add(n.replace("$", "+7"));
-    list.add(n.replace("$", "+8"));
-    list.add(n.replace("$", "+10"));
-    list.add(n.replace("$", "+11"));
-    list.add(n.replace("$", "+13"));
-    list.add(n.replace("$", "+15"));
-    list.add(n.replace("$", "+16"));
-    list.add(n.replace("$", "+18"));
-    list.add(n.replace("$", "+19"));
-    list.add(n.replace("$", "+21"));
-    list.add(n.replace("$", "+22"));
-    list.add(n.replace("$", "+24"));
-    list.add(n.replace("$", "+25"));
+    list.add(n.replace("$", "+1"));  // 531
+    list.add(n.replace("$", "+2"));  // 532
+    list.add(n.replace("$", "+3"));  // 533
+    list.add(n.replace("$", "+4"));  // 534
+    list.add(n.replace("$", "+5"));  // 535
+    list.add(n.replace("$", "+7"));  // 536
+    list.add(n.replace("$", "+8"));  // 537
+    list.add(n.replace("$", "+10")); // 538
+    list.add(n.replace("$", "+11")); // 539
+    list.add(n.replace("$", "+13")); // 540
+    list.add(n.replace("$", "+15")); // 541
+    list.add(n.replace("$", "+16")); // 542
+    list.add(n.replace("$", "+18")); // 543
+    list.add(n.replace("$", "+19")); // 544
+    list.add(n.replace("$", "+21")); // 545
+    list.add(n.replace("$", "+22")); // 546
+    list.add(n.replace("$", "+24")); // 547
+    list.add(n.replace("$", "+25")); // 548
     c = 25;
     n = n.replace("$", "+$");
     for (int i = 549; i < 669; ++i) {
@@ -278,11 +475,11 @@ const StringArray Choices_For::exp_osc_2_pitch_eg_int() {
         list.add(n.replace("$", (String)c));
     }
     for (int i = 669; i < 1020; ++i) {
-        c += (i % 2 == 1 ? 13 : 12);
+        c += 12 + (i % 2);
         list.add(n.replace("$", (String)c));
     }
     for (int i = 1020; i < 1024; ++i)
-        list.add(n.replace("$", "+4800"));
+        list.add(n.replace("$", "4800"));
     return list;
 }
 
@@ -305,56 +502,52 @@ const StringArray Choices_For::exp_osc_pitch_fine() {
         list.add(n.replace("$", (String)c));
     }
     for (int i = 357; i < 477; ++i) {
-        if (i % 32 != 0 && i % 32 != 4 && i % 32 != 9 && i % 32 != 14 &&
-            i % 32 != 18 && i % 32 != 23 && i % 32 != 27)
-        {
+        auto j = i % 32;
+        if (j != 0 && j != 4 && j != 9 && j != 14 && j != 18 && j != 23 && j != 27)
             ++c;
-        }
         list.add(n.replace("$", (String)c));
     }
-    list.add(n.replace("$", "-5"));
-    list.add(n.replace("$", "-5"));
-    list.add(n.replace("$", "-5"));
-    list.add(n.replace("$", "-4"));
-    list.add(n.replace("$", "-4"));
-    list.add(n.replace("$", "-3"));
-    list.add(n.replace("$", "-3"));
-    list.add(n.replace("$", "-3"));
-    list.add(n.replace("$", "-2"));
-    list.add(n.replace("$", "-2"));
-    list.add(n.replace("$", "-1"));
-    list.add(n.replace("$", "-1"));
-    list.add(n.replace("$", "-1"));
+    list.add(n.replace("$", "-5")); // 477
+    list.add(n.replace("$", "-5")); // 478
+    list.add(n.replace("$", "-5")); // 479
+    list.add(n.replace("$", "-4")); // 480
+    list.add(n.replace("$", "-4")); // 481
+    list.add(n.replace("$", "-3")); // 482
+    list.add(n.replace("$", "-3")); // 483
+    list.add(n.replace("$", "-3")); // 484
+    list.add(n.replace("$", "-2")); // 485
+    list.add(n.replace("$", "-2")); // 486
+    list.add(n.replace("$", "-1")); // 487
+    list.add(n.replace("$", "-1")); // 488
+    list.add(n.replace("$", "-1")); // 489
     for (int i = 490; i < 533; ++i)
         list.add(n.replace("$", "0"));
     n = n.replace("$", "+$");
-    list.add(n.replace("$", "1"));
-    list.add(n.replace("$", "1"));
-    list.add(n.replace("$", "2"));
-    list.add(n.replace("$", "2"));
-    list.add(n.replace("$", "2"));
-    list.add(n.replace("$", "3"));
-    list.add(n.replace("$", "3"));
-    list.add(n.replace("$", "4"));
-    list.add(n.replace("$", "4"));
-    list.add(n.replace("$", "4"));
-    list.add(n.replace("$", "5"));
-    list.add(n.replace("$", "5"));
-    list.add(n.replace("$", "6"));
-    list.add(n.replace("$", "6"));
-    list.add(n.replace("$", "6"));
-    list.add(n.replace("$", "7"));
-    list.add(n.replace("$", "8"));
-    list.add(n.replace("$", "8"));
-    list.add(n.replace("$", "9"));
-    list.add(n.replace("$", "10"));
+    list.add(n.replace("$", "1")); // 533
+    list.add(n.replace("$", "1")); // 534
+    list.add(n.replace("$", "2")); // 535
+    list.add(n.replace("$", "2")); // 536
+    list.add(n.replace("$", "2")); // 537
+    list.add(n.replace("$", "3")); // 538
+    list.add(n.replace("$", "3")); // 539
+    list.add(n.replace("$", "4")); // 540
+    list.add(n.replace("$", "4")); // 541
+    list.add(n.replace("$", "4")); // 542
+    list.add(n.replace("$", "5")); // 543
+    list.add(n.replace("$", "5")); // 544
+    list.add(n.replace("$", "6")); // 545
+    list.add(n.replace("$", "6")); // 546
+    list.add(n.replace("$", "6")); // 547
+    list.add(n.replace("$", "7")); // 548
+    list.add(n.replace("$", "8")); // 549
+    list.add(n.replace("$", "8")); // 550
+    list.add(n.replace("$", "9")); // 551
+    list.add(n.replace("$", "10")); // 552
     c = 10;
     for (int i = 553; i < 669; ++i) {
-        if (i % 32 != 1 && i % 32 != 5 && i % 32 != 10 && i % 32 != 15 &&
-            i % 32 != 19 && i % 32 != 24 && i % 32 != 28)
-        {
+        auto j = i % 32;
+        if (j != 1 && j != 6 && j != 10 && j != 15 && j != 19 && j != 24 && j != 28)
             ++c;
-        }
         list.add(n.replace("$", (String)c));
     }
     for (int i = 669; i < 1020; ++i) {
@@ -362,7 +555,7 @@ const StringArray Choices_For::exp_osc_pitch_fine() {
         list.add(n.replace("$", (String)c));
     }
     for (int i = 1020; i < 1024; ++i)
-        list.add(n.replace("$", "+1200"));
+        list.add(n.replace("$", "1200"));
     return list;
 }
 
