@@ -15,7 +15,7 @@ namespace WIDGET
 	//==============================================================================
 	public: Slider_Wheel_Mod(const std::string& param_id, Value param_value, Data_Hub* hub);
 
-	private: void shift_mod_value(double increment, double& current_value) override;
+	private: void shift_mod_value(bool increasing, double& current_value) override;
 
 	public: void mouseDown(const MouseEvent& e) override;
 

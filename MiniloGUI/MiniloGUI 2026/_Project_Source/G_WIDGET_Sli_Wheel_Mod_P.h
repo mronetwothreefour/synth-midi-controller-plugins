@@ -20,10 +20,10 @@ namespace WIDGET
 	public: explicit Slider_Wheel_Mod(const std::string& param_id, Value param_value, Data_Hub* hub);
 
 	public: void update_for_voice_mode(int new_mode);
-	private: void mod_value(double increment, double& current_value) override;
-	private: void alt_mod_value(double increment, double& current_value) override;
-	private: void ctrl_mod_value(double increment, double& current_value) override;
-	private: void shift_mod_value(double increment, double& current_value) override;
+	private: void mod_value(bool increasing, double& current_value) override;
+	private: void alt_mod_value(bool increasing, double& current_value) override;
+	private: void ctrl_mod_value(bool increasing, double& current_value) override;
+	private: void shift_mod_value(bool increasing, double& current_value) override;
 	private: int get_choice_that_best_matches_int(int target, int increment, int min, int max);
 	public: int get_next_choice_that_matches_int(int target);
 	//private: int get_next_multiple_of_100(int increment, int value);

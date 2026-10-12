@@ -13,12 +13,11 @@ Slider_Wheel_Mod::Slider_Wheel_Mod(const std::string& param_id, Value param_valu
 	for_seq_trk_1{ String{ param_id }.contains("_track_1_step_") }
 {}
 
-void Slider_Wheel_Mod::shift_mod_value(double increment, double& curr_val) {
+void Slider_Wheel_Mod::shift_mod_value(bool increasing, double& curr_val) {
+	auto increment = 10.0;
 	if (for_pitch)
-		increment *= for_seq_step ? 24.0 : 12.0;
-	else
-		increment *= 10.0;
-	curr_val += increment;
+		increment = for_seq_step ? 24.0 : 12.0;
+	curr_val += increasing ? increment : increment * -1.0;
 }
 
 void Slider_Wheel_Mod::mouseDown(const MouseEvent& e) {

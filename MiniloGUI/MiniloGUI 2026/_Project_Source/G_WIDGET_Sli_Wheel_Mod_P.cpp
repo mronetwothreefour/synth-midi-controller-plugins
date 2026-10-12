@@ -92,48 +92,49 @@ void Slider_Wheel_Mod::update_for_voice_mode(int new_mode) {
 	}
 }
 
-void Slider_Wheel_Mod::mod_value(double incr, double& curr_sli_val) {
+void Slider_Wheel_Mod::mod_value(bool increasing, double& curr_sli_val) {
 	if (for_non_standard_knob) {
 		auto curr_choice_index = roundToInt(curr_sli_val);
 		auto curr_choice_as_int = choices_as_ints[curr_choice_index];
 		if ((for_lpf_eg_int)) {
-			if (curr_choice_index < 14 && incr > 0) {
+			if (curr_choice_index < 14 && increasing) {
 				curr_sli_val = 14;
 				return;
 			}
 			if (curr_choice_as_int == 0) {
-				if (incr < 0)
-					curr_sli_val = 485;
-				else
+				if (increasing)
 					curr_sli_val = 541;
+				else
+					curr_sli_val = 485;
 				return;
 			}
-			if (curr_choice_index > 1011 && incr < 0) {
+			if (curr_choice_index > 1011 && !increasing) {
 				curr_sli_val = 1011;
 				return;
 			}
-			curr_sli_val = get_next_choice_that_matches_int(curr_choice_as_int + roundToInt(incr));
+			curr_sli_val = get_next_choice_that_matches_int(curr_choice_as_int + increasing ? 1 : -1);
 			return;
 		}
 		if (for_osc_2_pitch_eg_int || for_osc_pitch_fine) {
-			if (curr_choice_index < 5 && incr > 0) {
+			if (curr_choice_index < 5 && increasing) {
 				curr_sli_val = 5;
 				return;
 			}
 			if (curr_choice_as_int == 0) {
-					if (incr < 0)
-						curr_sli_val = for_osc_2_pitch_eg_int ? 491 : 489;
-					else
+					if (increasing)
 						curr_sli_val = for_osc_2_pitch_eg_int ? 531 : 533;
+					else
+						curr_sli_val = for_osc_2_pitch_eg_int ? 491 : 489;
 					return;
 			}
-			if (curr_choice_index > 1019 && incr < 0) {
+			if (curr_choice_index > 1019 && !increasing) {
 				curr_sli_val = 1019;
 				return;
 			}
 		}
 		if (for_osc_2_pitch_eg_int) {
-			curr_sli_val = get_choice_that_best_matches_int(curr_choice_index, roundToInt(incr), -4800, 4800);
+			curr_sli_val = get_choice_that_best_matches_int(curr_choice_index,
+															increasing ? 1 : -1, -4800, 4800);
 			return;
 		}
 	//	if (for_osc_pitch_fine && curr_choice_as_int > -100 && curr_choice_as_int < 100) {
@@ -145,19 +146,18 @@ void Slider_Wheel_Mod::mod_value(double incr, double& curr_sli_val) {
 	//		return;
 	//	}
 	}
-	curr_sli_val += incr;
+	curr_sli_val += increasing ? 1.0 : -1.0;
 }
 
-void Slider_Wheel_Mod::alt_mod_value(double incr, double& curr_val) {
-	mod_value(incr, curr_val);
+void Slider_Wheel_Mod::alt_mod_value(bool increasing, double& curr_val) {
 	//if (for_osc_2_pitch_eg_int || for_osc_pitch_fine) {
 	//	curr_val = get_next_multiple_of_100(roundToInt(incr), roundToInt(curr_val));
 	//	return;
 	//}
+	mod_value(increasing, curr_val);
 }
 
-void Slider_Wheel_Mod::ctrl_mod_value(double incr, double& curr_val) {
-	curr_val += incr * 100.0;
+void Slider_Wheel_Mod::ctrl_mod_value(bool increasing, double& curr_val) {
 	//if (for_non_standard_knob) {
 	//	auto v = roundToInt(curr_val);
 	//	if (for_osc_2_pitch_eg_int) {
@@ -169,10 +169,10 @@ void Slider_Wheel_Mod::ctrl_mod_value(double incr, double& curr_val) {
 	//		return;
 	//	}
 	//}
+	curr_val += increasing ? 100.0 : -100.0;
 }
 
-void Slider_Wheel_Mod::shift_mod_value(double incr, double& curr_val) {
-	curr_val += incr * 25.0;
+void Slider_Wheel_Mod::shift_mod_value(bool increasing, double& curr_val) {
 	//if (for_non_standard_knob) {
 	//	auto v = roundToInt(curr_val);
 	//	auto i = roundToInt(incr);
@@ -201,6 +201,7 @@ void Slider_Wheel_Mod::shift_mod_value(double incr, double& curr_val) {
 	//		return;
 	//	}
 	//}
+	curr_val += increasing ? 25.0 : -25.0;
 }
 
 int Slider_Wheel_Mod::get_choice_that_best_matches_int(int target, int incr, int min, int max) {
