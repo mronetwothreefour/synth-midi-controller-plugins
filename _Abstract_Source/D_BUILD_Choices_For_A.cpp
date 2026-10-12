@@ -4,6 +4,13 @@
 
 using namespace BUILD;
 
+void BUILD::Choices_For_A::add_duplicate_strings_to_list(const String& s, const int c, 
+														 StringArray& list)
+{
+	for (int i = 0; i < c; ++i)
+		list.add(s);
+}
+
 const StringArray Choices_For_A::fine_tune() {
 	StringArray list;
 	for (auto i = -50; i < 50; ++i) {

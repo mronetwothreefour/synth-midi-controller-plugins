@@ -4,13 +4,6 @@
 
 using namespace BUILD;
 
-void BUILD::Choices_For::add_duplicate_strings_to_list(const String& s, const int c,
-                                                       StringArray& list)
-{
-    for (int i = 0; i < c; ++i)
-        list.add(s);
-}
-
 const StringArray Choices_For::avp_flex_sli_bend_limit(const bool pos) {
     StringArray list;
     String s{ pos ? "+" : "-" };
@@ -160,41 +153,41 @@ const StringArray Choices_For::exp_lfo_eg_mod() {
 
 const StringArray Choices_For::exp_lfo_rate() {
 	StringArray list;
-    String n{ "$|%__unsynced: $|synced: 1 cycle lasts & beat" };
+    String n{ "$|%__unsynced: $|synced: 1 cycle lasts # beat" };
     for (int i = 0; i < 1024; ++i) {
         n = n.replace("$", (String)i);
         if (i < 64)
-            list.add(n.replace("%", "1:4(0)").replace("&", "4") + "s");
+            list.add(n.replace("%", "1:4(0)").replace("#", "4") + "s");
         if (i >= 64 && i < 128)
-            list.add(n.replace("%", "1:2(1)").replace("&", "2") + "s");
+            list.add(n.replace("%", "1:2(1)").replace("#", "2") + "s");
         if (i >= 128 && i < 192)
-            list.add(n.replace("%", "1:1(2)").replace("&", "1"));
+            list.add(n.replace("%", "1:1(2)").replace("#", "1"));
         if (i >= 192 && i < 256)
-            list.add(n.replace("%", "4:3(3)").replace("&", "3/4"));
+            list.add(n.replace("%", "4:3(3)").replace("#", "3/4"));
         if (i >= 256 && i < 320)
-            list.add(n.replace("%", "2:1(4)").replace("&", "1/2"));
+            list.add(n.replace("%", "2:1(4)").replace("#", "1/2"));
         if (i >= 320 && i < 384)
-            list.add(n.replace("%", "8:3(5)").replace("&", "3/8"));
+            list.add(n.replace("%", "8:3(5)").replace("#", "3/8"));
         if (i >= 384 && i < 448)
-            list.add(n.replace("%", "3:1(6)").replace("&", "1/3"));
+            list.add(n.replace("%", "3:1(6)").replace("#", "1/3"));
         if (i >= 448 && i < 512)
-            list.add(n.replace("%", "4:1(7)").replace("&", "1/4"));
+            list.add(n.replace("%", "4:1(7)").replace("#", "1/4"));
         if (i >= 512 && i < 576)
-            list.add(n.replace("%", "16:3(8)").replace("&", "3/16"));
+            list.add(n.replace("%", "16:3(8)").replace("#", "3/16"));
         if (i >= 576 && i < 640)
-            list.add(n.replace("%", "6:1(9)").replace("&", "1/6"));
+            list.add(n.replace("%", "6:1(9)").replace("#", "1/6"));
         if (i >= 640 && i < 704)
-            list.add(n.replace("%", "8:1(10)").replace("&", "1/8"));
+            list.add(n.replace("%", "8:1(10)").replace("#", "1/8"));
         if (i >= 704 && i < 768)
-            list.add(n.replace("%", "12:1(11)").replace("&", "1/12"));
+            list.add(n.replace("%", "12:1(11)").replace("#", "1/12"));
         if (i >= 768 && i < 832)
-            list.add(n.replace("%", "16:1(12)").replace("&", "1/16"));
+            list.add(n.replace("%", "16:1(12)").replace("#", "1/16"));
         if (i >= 832 && i < 896)
-            list.add(n.replace("%", "24:1(13)").replace("&", "1/24"));
+            list.add(n.replace("%", "24:1(13)").replace("#", "1/24"));
         if (i >= 896 && i < 960)
-            list.add(n.replace("%", "32:1(14)").replace("&", "1/32"));
+            list.add(n.replace("%", "32:1(14)").replace("#", "1/32"));
         if (i >= 960 && i < 1024)
-            list.add(n.replace("%", "64:1(15)").replace("&", "1/64"));
+            list.add(n.replace("%", "64:1(15)").replace("#", "1/64"));
     }
     return list;
 }
@@ -422,8 +415,7 @@ const StringArray Choices_For::exp_lpf_type() {
 const StringArray Choices_For::exp_osc_2_pitch_eg_int() {
 	StringArray list;
     String n{ "$__$ cents" };
-    for (int i = 0; i < 5; ++i)
-        list.add(n.replace("$", "-4800"));
+    add_duplicate_strings_to_list(n.replace("$", "-4800"), 5, list); // 0 to 4
     auto c = -4800;
     for (int i = 5; i < 357; ++i) {
         c += 12 + (i % 2);
@@ -448,8 +440,7 @@ const StringArray Choices_For::exp_osc_2_pitch_eg_int() {
     list.add(n.replace("$", "-4"));  // 489
     list.add(n.replace("$", "-3"));  // 490
     list.add(n.replace("$", "-1"));  // 491
-    for (int i = 492; i < 531; ++i)
-        list.add(n.replace("$", "0"));
+    add_duplicate_strings_to_list(n.replace("$", "0"), 39, list); // 492 to 530
     list.add(n.replace("$", "+1"));  // 531
     list.add(n.replace("$", "+2"));  // 532
     list.add(n.replace("$", "+3"));  // 533
@@ -478,8 +469,7 @@ const StringArray Choices_For::exp_osc_2_pitch_eg_int() {
         c += 12 + (i % 2);
         list.add(n.replace("$", (String)c));
     }
-    for (int i = 1020; i < 1024; ++i)
-        list.add(n.replace("$", "4800"));
+    add_duplicate_strings_to_list(n.replace("$", "4800"), 4, list); // 1020 to 1023
     return list;
 }
 
@@ -494,8 +484,7 @@ const StringArray Choices_For::exp_osc_octave() {
 const StringArray Choices_For::exp_osc_pitch_fine() {
 	StringArray list;
     String n{ "$__$ cents" };
-    for (int i = 0; i < 5; ++i)
-        list.add(n.replace("$", "-1200"));
+    add_duplicate_strings_to_list(n.replace("$", "-1200"), 5, list); // 0 to 4
     auto c = -1200;
     for (int i = 5; i < 357; ++i) {
         c += (i % 8 == 5 ? 4 : 3);
@@ -520,8 +509,7 @@ const StringArray Choices_For::exp_osc_pitch_fine() {
     list.add(n.replace("$", "-1")); // 487
     list.add(n.replace("$", "-1")); // 488
     list.add(n.replace("$", "-1")); // 489
-    for (int i = 490; i < 533; ++i)
-        list.add(n.replace("$", "0"));
+    add_duplicate_strings_to_list(n.replace("$", "0"), 43, list); // 490 to 532
     n = n.replace("$", "+$");
     list.add(n.replace("$", "1")); // 533
     list.add(n.replace("$", "1")); // 534
@@ -554,8 +542,7 @@ const StringArray Choices_For::exp_osc_pitch_fine() {
         c += (i % 8 == 5 ? 4 : 3);
         list.add(n.replace("$", (String)c));
     }
-    for (int i = 1020; i < 1024; ++i)
-        list.add(n.replace("$", "1200"));
+    add_duplicate_strings_to_list(n.replace("$", "1200"), 4, list); // 1020 to 1023
     return list;
 }
 

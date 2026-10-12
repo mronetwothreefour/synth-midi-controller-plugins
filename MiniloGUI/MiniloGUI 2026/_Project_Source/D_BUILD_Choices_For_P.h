@@ -8,9 +8,6 @@ namespace BUILD
 	struct Choices_For :
 		public Choices_For_A
 	{
-	private: static void add_duplicate_strings_to_list(const String& s, const int dupe_count,
-														StringArray& target_list);
-
 	public: static const StringArray avp_flex_sli_bend_limit(const bool pos_limit = false);
 	public: static const StringArray avp_flex_sli_range();
 	public: static const StringArray avp_flex_sli_target();
