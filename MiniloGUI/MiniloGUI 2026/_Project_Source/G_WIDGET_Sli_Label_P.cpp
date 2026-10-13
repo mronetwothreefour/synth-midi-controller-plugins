@@ -78,9 +78,9 @@ void Slider_Label::set_text_to_stored_choice() {
 			c = avp.lfo_sync_bpm_on() ? c.fromFirstOccurrenceOf("|", false, false) :
 										c.upToFirstOccurrenceOf("|", false, false);
 		else {
-			auto m = String{ avp.voice_mode() + 1 } + ":";
-			if (m == "2:" || m == "3:")
-				m = "2&3:";
+			auto m = (String)avp.voice_mode() + ":";
+			if (m == "1:" || m == "2:")
+				m = "1&2:";
 			c = c.fromFirstOccurrenceOf(m, false, false).upToFirstOccurrenceOf("|", false, false);
 		}
 	}
@@ -111,8 +111,8 @@ void Slider_Label::on_text_change() {
 void Slider_Label::on_text_change_get_best_match() {
 	auto new_text{ getText() };
 	if (new_text.isNotEmpty()) {
-		//auto input_val{ new_text.getIntValue() };
-		//parent_sli->setValue(parent_sli->get_choice_that_best_matches_int(input_val));
+		auto target_int{ new_text.getIntValue() };
+		parent_sli->setValue(parent_sli->get_choice_that_best_matches(target_int));
 	}
 	set_text_to_stored_choice();
 }
