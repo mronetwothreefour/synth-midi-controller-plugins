@@ -8,6 +8,7 @@ using namespace WIDGET;
 
 Slider_Wheel_Mod::Slider_Wheel_Mod(const std::string& param_id, Value param_value, Data_Hub* hub) :
 	Slider_Wheel_Mod_A{ param_id, param_value, hub },
+	for_lfo_rate{ param_id == ID::exp_lfo_rate },
 	for_lpf_eg_int{ param_id == ID::exp_lpf_eg_int },
 	for_osc_2_pitch_eg_int{ param_id == ID::exp_osc_2_pitch_eg_int },
 	for_osc_pitch_fine{  param_id.ends_with("_pitch_fine") },
@@ -16,6 +17,10 @@ Slider_Wheel_Mod::Slider_Wheel_Mod(const std::string& param_id, Value param_valu
 {
 	if (getName().startsWith("ctr_sli_sw_"))
 		setSliderStyle(SliderStyle::LinearVertical);
+	if (for_lfo_rate) {
+		for (int i = 0; i < 1024; ++i)
+			int_choices.add(i / 64);
+	}
 	if (for_signed_range) {
 		for (int i = 0; i < 1024; ++i)
 			int_choices.add(choices_curt[i].getIntValue());
@@ -88,7 +93,7 @@ void Slider_Wheel_Mod::update_for_voice_mode(int new_mode) {
 }
 
 void Slider_Wheel_Mod::mod_value(bool increasing, double& curr_sli_val) {
-	if (for_signed_range || for_voice_mode) {
+	if (for_signed_range || for_voice_mode || (for_lfo_rate && avp.lfo_sync_bpm_on())) {
 		auto curr_index = roundToInt(curr_sli_val);
 		auto curr_int = int_choices[curr_index];
 		auto increment = increasing ? 1 : -1;
@@ -136,7 +141,7 @@ void Slider_Wheel_Mod::mod_value(bool increasing, double& curr_sli_val) {
 			curr_sli_val = get_choice_that_best_matches(curr_index, increment, -1200, 1200);
 			return;
 		}
-		if (for_voice_mode) {
+		if (for_voice_mode || for_lfo_rate) {
 			curr_sli_val = get_choice_that_best_matches(curr_int + increment);
 			return;
 		}

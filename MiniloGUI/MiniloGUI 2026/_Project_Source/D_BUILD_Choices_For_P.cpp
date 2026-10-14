@@ -153,41 +153,41 @@ const StringArray Choices_For::exp_lfo_eg_mod() {
 
 const StringArray Choices_For::exp_lfo_rate() {
 	StringArray list;
-    String n{ "$|%__unsynced: $|synced: 1 cycle lasts # beat" };
+    String s{ "$|%__unsynced: $|synced: 1 cycle lasts # beat" };
     for (int i = 0; i < 1024; ++i) {
-        n = n.replace("$", (String)i);
-        if (i < 64)
-            list.add(n.replace("%", "1:4(0)").replace("#", "4") + "s");
-        if (i >= 64 && i < 128)
-            list.add(n.replace("%", "1:2(1)").replace("#", "2") + "s");
-        if (i >= 128 && i < 192)
-            list.add(n.replace("%", "1:1(2)").replace("#", "1"));
-        if (i >= 192 && i < 256)
-            list.add(n.replace("%", "4:3(3)").replace("#", "3/4"));
-        if (i >= 256 && i < 320)
-            list.add(n.replace("%", "2:1(4)").replace("#", "1/2"));
-        if (i >= 320 && i < 384)
-            list.add(n.replace("%", "8:3(5)").replace("#", "3/8"));
-        if (i >= 384 && i < 448)
-            list.add(n.replace("%", "3:1(6)").replace("#", "1/3"));
-        if (i >= 448 && i < 512)
-            list.add(n.replace("%", "4:1(7)").replace("#", "1/4"));
-        if (i >= 512 && i < 576)
-            list.add(n.replace("%", "16:3(8)").replace("#", "3/16"));
-        if (i >= 576 && i < 640)
-            list.add(n.replace("%", "6:1(9)").replace("#", "1/6"));
-        if (i >= 640 && i < 704)
-            list.add(n.replace("%", "8:1(10)").replace("#", "1/8"));
-        if (i >= 704 && i < 768)
-            list.add(n.replace("%", "12:1(11)").replace("#", "1/12"));
-        if (i >= 768 && i < 832)
-            list.add(n.replace("%", "16:1(12)").replace("#", "1/16"));
-        if (i >= 832 && i < 896)
-            list.add(n.replace("%", "24:1(13)").replace("#", "1/24"));
-        if (i >= 896 && i < 960)
-            list.add(n.replace("%", "32:1(14)").replace("#", "1/32"));
-        if (i >= 960 && i < 1024)
-            list.add(n.replace("%", "64:1(15)").replace("#", "1/64"));
+        auto n = s.replace("$", (String)i);
+        if (i / 64 == 0)
+            list.add(n.replace("%", "1:4").replace("#", "4") + "s");
+        if (i / 64 == 1)
+            list.add(n.replace("%", "1:2").replace("#", "2") + "s");
+        if (i / 64 == 2)
+            list.add(n.replace("%", "1:1").replace("#", "1"));
+        if (i / 64 == 3)
+            list.add(n.replace("%", "4:3").replace("#", "3/4"));
+        if (i / 64 == 4)
+            list.add(n.replace("%", "2:1").replace("#", "1/2"));
+        if (i / 64 == 5)
+            list.add(n.replace("%", "8:3").replace("#", "3/8"));
+        if (i / 64 == 6)
+            list.add(n.replace("%", "3:1").replace("#", "1/3"));
+        if (i / 64 == 7)
+            list.add(n.replace("%", "4:1").replace("#", "1/4"));
+        if (i / 64 == 8)
+            list.add(n.replace("%", "16:3").replace("#", "3/16"));
+        if (i / 64 == 9)
+            list.add(n.replace("%", "6:1").replace("#", "1/6"));
+        if (i / 64 == 10)
+            list.add(n.replace("%", "8:1").replace("#", "1/8"));
+        if (i / 64 == 11)
+            list.add(n.replace("%", "12:1").replace("#", "1/12"));
+        if (i / 64 == 12)
+            list.add(n.replace("%", "16:1").replace("#", "1/16"));
+        if (i / 64 == 13)
+            list.add(n.replace("%", "24:1").replace("#", "1/24"));
+        if (i / 64 == 14)
+            list.add(n.replace("%", "32:1").replace("#", "1/32"));
+        if (i / 64 == 15)
+            list.add(n.replace("%", "64:1").replace("#", "1/64"));
     }
     return list;
 }
