@@ -8,6 +8,12 @@
 
 using namespace BUILD;
 
+std::string BUILD::Tip_For::avp_flex_sli_bend(bool pos) {
+    String s{ from_SL(SL::knob_txt_edit_flex_sli_bend_tip) };
+    s = s.replace("_", pos ? "posi" : "nega");
+    return s.toStdString();
+}
+
 std::string Tip_For::exp_env_attack(bool vca) {
     String s{ from_SL(SL::env_attack_tip) };
     s = s.replace("_ ", vca ? "VCA " : "");

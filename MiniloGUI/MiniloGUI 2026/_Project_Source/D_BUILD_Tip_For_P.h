@@ -9,6 +9,8 @@ namespace BUILD
 		public Tip_For_A
 	{
 			
+		static std::string avp_flex_sli_bend(bool pos = false);
+
 		static std::string exp_env_attack(bool vca = false);
 		static std::string exp_env_decay(bool vca = false);
 		static std::string exp_env_release(bool vca = false);

@@ -14,7 +14,7 @@ Range: -50 to 50.)";
 	constexpr auto knob_txt_edit_flex_sli_bend_tip = u8R"(
 Type in a new maximum
 _tive pitch bend.
-Range: -50 to 50.)";
+Range: 1 to 12.)";
 
 	constexpr auto knob_txt_edit_flex_sli_range_tip = u8R"(
 Type in a new range.

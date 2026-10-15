@@ -8,22 +8,25 @@ using namespace WIDGET;
 
 Slider_Wheel_Mod::Slider_Wheel_Mod(const std::string& param_id, Value param_value, Data_Hub* hub) :
 	Slider_Wheel_Mod_A{ param_id, param_value, hub },
+	for_flex_sli_range{ param_id == ID::avp_flex_sli_range },
 	for_lfo_rate{ param_id == ID::exp_lfo_rate },
 	for_lpf_eg_int{ param_id == ID::exp_lpf_eg_int },
 	for_osc_2_pitch_eg_int{ param_id == ID::exp_osc_2_pitch_eg_int },
 	for_osc_pitch_fine{  param_id.ends_with("_pitch_fine") },
 	for_voice_mode{ param_id == ID::exp_voice_mode_depth },
-	for_signed_range{ for_lpf_eg_int || for_osc_2_pitch_eg_int || for_osc_pitch_fine }
+	for_signed_range{ for_flex_sli_range || for_lpf_eg_int || 
+					  for_osc_2_pitch_eg_int || for_osc_pitch_fine }
 {
 	if (getName().startsWith("ctr_sli_sw_"))
-		setSliderStyle(SliderStyle::LinearVertical);
+		setSliderStyle(param_id == ID::avp_keyboard_octave ? SliderStyle::LinearHorizontal :
+															 SliderStyle::LinearVertical);
+	if (for_signed_range && !for_flex_sli_range) {
+		for (auto& choice : choices_curt)
+			int_choices.add(choice.getIntValue());
+	}
 	if (for_lfo_rate) {
 		for (int i = 0; i < 1024; ++i)
 			int_choices.add(i / 64);
-	}
-	if (for_signed_range) {
-		for (int i = 0; i < 1024; ++i)
-			int_choices.add(choices_curt[i].getIntValue());
 	}
 	if (for_voice_mode)
 		update_for_voice_mode(avp.voice_mode());
@@ -161,8 +164,8 @@ void Slider_Wheel_Mod::ctrl_mod_value(bool increasing, double& curr_val) {
 	auto increment = increasing ? 100 : -100;
 	if (for_signed_range) {
 		auto curr_index = roundToInt(curr_val);
-		if (for_lpf_eg_int) {
-			curr_val = get_choice_that_best_matches(curr_index, increment / 10, -100, 100);
+		if (for_flex_sli_range || for_lpf_eg_int) {
+			curr_val = (double)get_choice_that_best_matches(curr_index, increment / 10, -100, 100);
 			return;
 		}
 		if (for_osc_2_pitch_eg_int) {
@@ -181,7 +184,7 @@ void Slider_Wheel_Mod::shift_mod_value(bool increasing, double& curr_val) {
 	if (for_signed_range || for_voice_mode) {
 		auto increment = increasing ? 1 : -1;
 		auto curr_index = roundToInt(curr_val);
-		if (for_lpf_eg_int) {
+		if (for_flex_sli_range || for_lpf_eg_int) {
 			curr_val = get_choice_that_best_matches(curr_index, increment * 5, -100, 100);
 			return;
 		}

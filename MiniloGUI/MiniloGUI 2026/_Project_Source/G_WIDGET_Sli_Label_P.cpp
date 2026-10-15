@@ -121,6 +121,11 @@ void Slider_Label::on_text_change_integer() {
 	auto new_text{ getText() };
 	if (new_text.isNotEmpty()) {
 		auto new_val{ new_text.getFloatValue() };
+		auto id = parent_sli->getComponentID();
+		if (id == ID::avp_flex_sli_range)
+			new_val += 100.0f;
+		if (id.contains("bend"))
+			new_val -= 1.0f;
 		parent_sli->setValue(new_val);
 	}
 	set_text_to_stored_choice();

@@ -8,6 +8,7 @@ namespace WIDGET
 	class Slider_Wheel_Mod :
 		public Slider_Wheel_Mod_A
 	{
+	public: const bool for_flex_sli_range;
 	public: const bool for_lfo_rate;
 	public: const bool for_lpf_eg_int;
 	public: const bool for_osc_2_pitch_eg_int;

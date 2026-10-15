@@ -20,8 +20,8 @@ namespace MAP
 	static const unordered_map<string, tuple<string, int, string>> txt_editor_traits{
 		{ ID::avp_amp_mod_by_velo_amt, txt_editor_traits_u_7_bit },
 		{ ID::avp_fine_tune, { allowed_chars_s_int, 3, Tip::txt_editor_s_int(50) } },
-		{ ID::avp_flex_sli_bend_neg, txt_editor_traits_flex_sli_bend },
-		{ ID::avp_flex_sli_bend_pos, txt_editor_traits_flex_sli_bend },
+		{ ID::avp_flex_sli_bend_neg, txt_editor_traits_flex_sli_bend_neg },
+		{ ID::avp_flex_sli_bend_pos, txt_editor_traits_flex_sli_bend_pos },
 		{ ID::avp_flex_sli_range, { allowed_chars_s_int, 4, Tip::txt_editor_s_int(100) } },
 		{ ID::avp_level, { allowed_chars_s_int, 3, Tip::txt_editor_s_int(25) } },
 		{ ID::avp_porta_time, { allowed_chars_porta_time, 3, Tip::from_SL(SL::knob_txt_edit_porta_time_tip) } },

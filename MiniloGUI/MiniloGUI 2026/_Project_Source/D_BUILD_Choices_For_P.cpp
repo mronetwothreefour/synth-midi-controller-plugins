@@ -8,8 +8,8 @@ const StringArray Choices_For::avp_flex_sli_bend_limit(const bool pos) {
     StringArray list;
     String s{ pos ? "+" : "-" };
     for (int i = 0; i < 12; ++i) {
-        s += String{ i + 1 };
-        auto n = s + "__" + s + " semitone" + (i > 0 ? "s" : "");
+        auto n = s + String{ i + 1 };
+        n += "__" + n + " semitone" + (i > 0 ? "s" : "");
         list.add(n);
     }
     return list;
@@ -17,10 +17,8 @@ const StringArray Choices_For::avp_flex_sli_bend_limit(const bool pos) {
 
 const StringArray Choices_For::avp_flex_sli_range() {
     StringArray list;
-    for (int i = -100; i < 101; ++i) {
-        String n{ (i > 0 ? "+" : "") + String{ i + 1 } + "%" };
-        list.add(n);
-    }
+    for (int i = -100; i < 101; ++i)
+        list.add((i > 0 ? "+" : "") + (String)i + "%");
     return list;
 }
 
@@ -37,8 +35,8 @@ const StringArray Choices_For::avp_flex_sli_target() {
         "osc 1 level__oscillator 1 level",
         "osc 2 level__oscillator 2 level",
         "noise level",
-        "lpf cutoff__lpf cutoff frequency",
-        "lpf resonance",
+        "LPF cutoff__LPF cutoff frequency",
+        "LPF resonance",
         "LPF EG intensity",
         "VCA EG attack",
         "VCA EG decay",
