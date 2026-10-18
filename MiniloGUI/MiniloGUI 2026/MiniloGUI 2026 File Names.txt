@@ -1,4 +1,5 @@
 C_MAP_Bit_Locations_P
+C_MAP_Init_Sli_Traits_P
 C_SL_Tip_Aux_Voice_P
 D_BUILD_Bit_Locations_For_P
 D_TREE_Aux_Voice_Params_P

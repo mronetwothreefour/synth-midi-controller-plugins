@@ -8,18 +8,19 @@ namespace WIDGET
 	class Slider_Wheel_Mod :
 		public Slider_Wheel_Mod_A
 	{
-	public: const bool for_flex_sli_range;
-	public: const bool for_lfo_rate;
-	public: const bool for_lpf_eg_int;
-	public: const bool for_osc_2_pitch_eg_int;
-	public: const bool for_osc_pitch_fine;
+	public: bool mapped;
+	public: int increment_shift;
+	public: int increment_ctrl;
+	public: bool alt_snaps;
+	public: int txt_editor_offset;
+	private: const bool for_lfo_rate;
 	private: const bool for_voice_mode;
-	public: const bool for_signed_range;
 	private: Array<int> int_choices;
 
 	//==============================================================================
 	public: explicit Slider_Wheel_Mod(const std::string& param_id, Value param_value, Data_Hub* hub);
 
+	public: void update_for_lfo_sync_bpm(bool on);
 	public: void update_for_voice_mode(int new_mode);
 	private: void mod_value(bool increasing, double& current_value) override;
 	private: void alt_mod_value(bool increasing, double& current_value) override;

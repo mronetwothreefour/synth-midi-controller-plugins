@@ -106,6 +106,8 @@
             file="_Project_Source/C_MAP_Exp_Name_P.h"/>
       <FILE id="beFFob" name="C_MAP_Init_Bounds_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Init_Bounds_P.h"/>
+      <FILE id="tdziOc" name="C_MAP_Init_Sli_Traits_P.h" compile="0" resource="0"
+            file="_Project_Source/C_MAP_Init_Sli_Traits_P.h"/>
       <FILE id="u9iHsk" name="C_MAP_Label_Name_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Label_Name_P.h"/>
       <FILE id="SomtUH" name="C_MAP_Menu_Traits_P.h" compile="0" resource="0"
