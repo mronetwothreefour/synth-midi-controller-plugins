@@ -25,6 +25,8 @@ Slider_Wheel_Mod::Slider_Wheel_Mod(const std::string& param_id, Value param_valu
 			int_choices.add(choice.getIntValue());
 	}
 	if (for_lfo_rate) {
+		for (int i = 0; i < 1024; ++i)
+			int_choices.add(i / 64);
 		update_for_lfo_sync_bpm(avp.lfo_sync_bpm_on());
 	}
 	if (for_voice_mode)
@@ -61,6 +63,8 @@ void Slider_Wheel_Mod::update_for_voice_mode(int new_mode) {
 				continue;
 			}
 			if (new_mode == (int)Voice_Mode::duo || new_mode == (int)Voice_Mode::unison) {
+				increment_shift = 5;
+				increment_ctrl = 10;
 				int_choices.add(std::clamp(i / 20, 0, 50));
 				continue;
 			}
@@ -182,7 +186,7 @@ void Slider_Wheel_Mod::alt_mod_value(bool increasing, double& curr_sli_val) {
 
 void Slider_Wheel_Mod::ctrl_mod_value(bool increasing, double& curr_val) {
 	auto increment = increment_ctrl * (increasing ? 1 : -1);
-	if (mapped && !for_voice_mode) {
+	if (mapped) {
 		auto curr_index = roundToInt(curr_val);
 		curr_val = (double)get_choice_that_best_matches(curr_index, increment, int_choices[0], int_choices[1023]);
 		return;
