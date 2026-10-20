@@ -1,6 +1,0 @@
-C_PATH_LED_P
-D_TREE_Matrix_Mod_P
-G_DRAW_Envelope_P
-G_DRAW_Paths_LED_P
-G_DRAW_Tracking_Env_P
-G_LAYER_Envelopes_P

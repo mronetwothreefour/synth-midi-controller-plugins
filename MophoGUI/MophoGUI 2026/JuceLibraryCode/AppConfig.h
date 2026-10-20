@@ -22,7 +22,7 @@
 
 #include "JucePluginDefines.h"
 
-#define JUCE_PROJUCER_VERSION 0x90001
+#define JUCE_PROJUCER_VERSION 0x90004
 
 //==============================================================================
 #define JUCE_MODULE_AVAILABLE_juce_audio_basics                   1
@@ -108,8 +108,16 @@
  //#define JUCE_USE_OGGVORBIS 1
 #endif
 
+#ifndef    JUCE_USE_OPUS
+ //#define JUCE_USE_OPUS 1
+#endif
+
+#ifndef    JUCE_INCLUDE_OPUS_CODE
+ //#define JUCE_INCLUDE_OPUS_CODE 1
+#endif
+
 #ifndef    JUCE_USE_MP3AUDIOFORMAT
- //#define JUCE_USE_MP3AUDIOFORMAT 0
+ //#define JUCE_USE_MP3AUDIOFORMAT 1
 #endif
 
 #ifndef    JUCE_USE_LAME_AUDIO_FORMAT
@@ -264,6 +272,14 @@
 
 #ifndef    JUCE_INCLUDE_JPEGLIB_CODE
  //#define JUCE_INCLUDE_JPEGLIB_CODE 1
+#endif
+
+#ifndef    JUCE_USE_WEBP
+ //#define JUCE_USE_WEBP 1
+#endif
+
+#ifndef    JUCE_INCLUDE_WEBPLIB_CODE
+ //#define JUCE_INCLUDE_WEBPLIB_CODE 1
 #endif
 
 //==============================================================================
