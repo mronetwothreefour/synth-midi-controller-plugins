@@ -181,7 +181,7 @@ void Slider_Wheel_Mod::alt_mod_value(bool increasing, double& curr_sli_val) {
 }
 
 void Slider_Wheel_Mod::ctrl_mod_value(bool increasing, double& curr_val) {
-	auto increment = increment_ctrl * increasing ? 1 : -1;
+	auto increment = increment_ctrl * (increasing ? 1 : -1);
 	if (mapped && !for_voice_mode) {
 		auto curr_index = roundToInt(curr_val);
 		curr_val = (double)get_choice_that_best_matches(curr_index, increment, int_choices[0], int_choices[1023]);
@@ -191,7 +191,7 @@ void Slider_Wheel_Mod::ctrl_mod_value(bool increasing, double& curr_val) {
 }
 
 void Slider_Wheel_Mod::shift_mod_value(bool increasing, double& curr_val) {
-	auto increment = increment_shift * increasing ? 1 : -1;
+	auto increment = increment_shift * (increasing ? 1 : -1);
 	if (mapped) {
 		auto curr_index = roundToInt(curr_val);
 		curr_val = (double)get_choice_that_best_matches(curr_index, increment, int_choices[0], int_choices[1023]);

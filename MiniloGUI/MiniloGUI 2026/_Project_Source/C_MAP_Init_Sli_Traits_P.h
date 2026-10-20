@@ -20,7 +20,7 @@ namespace MAP
 		{ ID::avp_flex_sli_bend_pos, init_sli_traits_flex_sli_bend },
 		{ ID::avp_flex_sli_range, { false, 5, 10, false, 100 } },
 		{ ID::avp_level, { false, 5, 10, false, 25 } },
-		{ ID::avp_porta_time, { false, 5, 10, false, -1 } },
+		{ ID::avp_porta_time, { false, 5, 10, false, 1 } },
 		{ ID::avp_scale_key, { false, 12, 12, false, 0 } },
 		{ ID::avp_transpose, { false, 12, 12, false, 12 } },
 

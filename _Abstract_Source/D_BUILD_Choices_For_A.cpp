@@ -13,7 +13,7 @@ void BUILD::Choices_For_A::add_duplicate_strings_to_list(const String& s, const 
 
 const StringArray Choices_For_A::fine_tune() {
 	StringArray list;
-	for (auto i = -50; i < 50; ++i) {
+	for (auto i = -50; i < 51; ++i) {
 		if (i >= -1 && i <= 1) {
 			list.add(i == -1 ? "-1__-1 cent" : i == 0 ? "0__no detune" : "+1__+1 cent");
 			continue;

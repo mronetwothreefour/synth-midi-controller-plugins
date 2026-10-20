@@ -103,7 +103,7 @@ const StringArray Choices_For::avp_porta_mode_on() {
 const StringArray Choices_For::avp_porta_time() {
     StringArray list;
     list.add("OFF__off");
-    for (int i = 1; i < 128; ++i)
+    for (int i = 0; i < 128; ++i)
         list.add((String)i);
     return list;
 }
@@ -117,7 +117,7 @@ const StringArray Choices_For::avp_scale_key() {
 
 const StringArray Choices_For::avp_transpose() {
     StringArray list;
-    for (auto i = -12; i < 12; ++i) {
+    for (auto i = -12; i < 13; ++i) {
         if (i >= -1 && i <= 1) {
             list.add(i == -1 ? "-1__-1 semitone" : i == 0 ? "0__no transpose" : "+1__+1 semitone");
             continue;

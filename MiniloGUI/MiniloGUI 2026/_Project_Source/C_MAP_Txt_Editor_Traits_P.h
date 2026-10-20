@@ -25,7 +25,7 @@ namespace MAP
 		{ ID::avp_flex_sli_range, { allowed_chars_s_int, 4, Tip::txt_editor_s_int(100) } },
 		{ ID::avp_level, { allowed_chars_s_int, 3, Tip::txt_editor_s_int(25) } },
 		{ ID::avp_porta_time, { allowed_chars_porta_time, 3, Tip::from_SL(SL::knob_txt_edit_porta_time_tip) } },
-		{ ID::avp_scale_key, { allowed_chars_u_int, 2, Tip::txt_editor_u_int(24) } },
+		{ ID::avp_scale_key, { allowed_chars_pitch, 3, Tip::from_SL(SL::knob_txt_edit_scale_key_tip) } },
 		{ ID::avp_transpose, { allowed_chars_s_int, 3, Tip::txt_editor_s_int(12) } },
 
 		{ ID::exp_osc_1_pitch_fine, txt_editor_traits_osc_pitch_fine },

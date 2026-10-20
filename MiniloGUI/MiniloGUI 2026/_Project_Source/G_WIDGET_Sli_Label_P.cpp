@@ -109,7 +109,7 @@ void Slider_Label::on_text_change() {
 }
 
 void Slider_Label::on_text_change_get_best_match() {
-	auto new_text{ getText() };
+	auto new_text{ getText().toLowerCase() };
 	if (new_text.isNotEmpty()) {
 		auto target_int{ new_text.getIntValue() };
 		parent_sli->setValue(parent_sli->get_choice_that_best_matches(target_int));
@@ -118,8 +118,12 @@ void Slider_Label::on_text_change_get_best_match() {
 }
 
 void Slider_Label::on_text_change_integer() {
-	auto new_text{ getText() };
+	auto new_text{ getText().toLowerCase() };
 	if (new_text.isNotEmpty()) {
+		if (parent_sli->getComponentID() == ID::avp_porta_time && new_text == "off") {
+			parent_sli->setValue(0);
+			return;
+		}
 		auto new_val{ new_text.getFloatValue() };
 		auto id = parent_sli->getComponentID();
 		parent_sli->setValue(new_val + parent_sli->txt_editor_offset);
@@ -142,7 +146,7 @@ void Slider_Label::on_text_change_scale_key() {
 	auto new_text{ getText() };
 	if (new_text.containsAnyOf(pitch_name_chars)) {
 		for (int i = 0; i < choices_curt.size(); ++i) {
-			if (choices_curt[i].removeCharacters(" ") == new_text)
+			if (choices_curt[i].removeCharacters(" ") == new_text.toUpperCase())
 				parent_sli->setValue((float)i);
 		}
 	}

@@ -26,8 +26,7 @@ Range: -25 to 25.)";
 
 	constexpr auto knob_txt_edit_porta_time_tip = u8R"(
 Type in a new setting.
-Range: 0 (or ‘off’),
-1 to 127.)";
+Range: ‘off’; 0 to 127.)";
 
 	constexpr auto knob_txt_edit_lfo_synced_tip = u8R"(
 Select a new BPM-synced LFO rate
