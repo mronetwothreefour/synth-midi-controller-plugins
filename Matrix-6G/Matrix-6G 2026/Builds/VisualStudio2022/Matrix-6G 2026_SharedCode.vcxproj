@@ -155,6 +155,7 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Data_User_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.cpp"/>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\G_DRAW_Envelope_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_DRAW_Images_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_Look_And_Feel_A.cpp"/>
@@ -175,10 +176,13 @@
     <ClCompile Include="..\..\_Project_Source\D_X_G_Data_Hub_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Data_User_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Editor_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\G_DRAW_Envelope_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_LED_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\G_DRAW_Tracking_Env_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_LAYER_Ctrls_MMod_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\G_LAYER_Envelopes_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_Look_And_Feel_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_WIDGET_Ctrl_Slider_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_WIDGET_Sli_Label_P.cpp"/>
@@ -4023,6 +4027,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Data_User_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Envelope_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Images_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_Look_And_Feel_A.h"/>
@@ -4061,9 +4066,12 @@
     <ClInclude Include="..\..\_Project_Source\D_X_G_Data_Hub_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Data_User_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Editor_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\G_DRAW_Envelope_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_LED_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\G_DRAW_Tracking_Env_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\G_LAYER_Envelopes_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_MMod_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_Look_And_Feel_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_WIDGET_Ctrl_Slider_P.h"/>

@@ -54,6 +54,10 @@
             file="../../_Abstract_Source/D_X_G_Editor_A.cpp"/>
       <FILE id="gOq3kM" name="D_X_G_Editor_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/D_X_G_Editor_A.h"/>
+      <FILE id="iyV6q5" name="G_DRAW_Envelope_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_DRAW_Envelope_A.cpp"/>
+      <FILE id="FfvjaT" name="G_DRAW_Envelope_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_DRAW_Envelope_A.h"/>
       <FILE id="C76U8I" name="G_DRAW_Images_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/G_DRAW_Images_A.cpp"/>
       <FILE id="WFEjYa" name="G_DRAW_Images_A.h" compile="0" resource="0"
@@ -162,6 +166,10 @@
             file="_Project_Source/D_X_G_Editor_P.cpp"/>
       <FILE id="u9HFhy" name="D_X_G_Editor_P.h" compile="0" resource="0"
             file="_Project_Source/D_X_G_Editor_P.h"/>
+      <FILE id="hlKYtW" name="G_DRAW_Envelope_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_DRAW_Envelope_P.cpp"/>
+      <FILE id="U8xcIW" name="G_DRAW_Envelope_P.h" compile="0" resource="0"
+            file="_Project_Source/G_DRAW_Envelope_P.h"/>
       <FILE id="chZZd5" name="G_DRAW_Paths_LED_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_DRAW_Paths_LED_P.cpp"/>
       <FILE id="Dt4PMJ" name="G_DRAW_Paths_LED_P.h" compile="0" resource="0"
@@ -170,12 +178,20 @@
             file="_Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="CpRtB3" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Main_P.h"/>
+      <FILE id="pZ836Q" name="G_DRAW_Tracking_Env_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_DRAW_Tracking_Env_P.cpp"/>
+      <FILE id="B0JwMj" name="G_DRAW_Tracking_Env_P.h" compile="0" resource="0"
+            file="_Project_Source/G_DRAW_Tracking_Env_P.h"/>
       <FILE id="Ij0k7F" name="G_LAYER_Ctrls_Exp_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_LAYER_Ctrls_Exp_P.cpp"/>
       <FILE id="T4DPX3" name="G_LAYER_Ctrls_Exp_P.h" compile="0" resource="0"
             file="_Project_Source/G_LAYER_Ctrls_Exp_P.h"/>
       <FILE id="erdPxd" name="G_LAYER_Ctrls_MMod_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_LAYER_Ctrls_MMod_P.cpp"/>
+      <FILE id="fI2r8p" name="G_LAYER_Envelopes_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_LAYER_Envelopes_P.cpp"/>
+      <FILE id="xa0VcY" name="G_LAYER_Envelopes_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Envelopes_P.h"/>
       <FILE id="UCHv1g" name="G_LAYER_Ctrls_MMod_P.h" compile="0" resource="0"
             file="_Project_Source/G_LAYER_Ctrls_MMod_P.h"/>
       <FILE id="vV5WcO" name="G_Look_And_Feel_P.cpp" compile="1" resource="0"

@@ -53,6 +53,10 @@
             file="../../_Abstract_Source/D_X_G_Editor_A.cpp"/>
       <FILE id="SPJQLk" name="D_X_G_Editor_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/D_X_G_Editor_A.h"/>
+      <FILE id="eSH4W5" name="G_DRAW_Envelope_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_DRAW_Envelope_A.cpp"/>
+      <FILE id="Nr6T3V" name="G_DRAW_Envelope_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_DRAW_Envelope_A.h"/>
       <FILE id="hWLTCq" name="G_DRAW_Images_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/G_DRAW_Images_A.cpp"/>
       <FILE id="PBzYCT" name="G_DRAW_Images_A.h" compile="0" resource="0"

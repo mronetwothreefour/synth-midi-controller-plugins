@@ -5,7 +5,7 @@ namespace SL
 
 	constexpr auto edit_pitch_tip = u8R"(
 Type in either a pitch name and octave number
-(e.g. ‘~’) or a MIDI note number (e.g. ‘!’).
+(e.g. â€˜~â€™) or a MIDI note number (e.g. â€˜!â€™).
 Range: @ (&) to $ (%).)";
 
 	constexpr auto edit_s_int_tip = u8R"(

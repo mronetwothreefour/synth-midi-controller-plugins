@@ -964,6 +964,9 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.cpp">
       <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\G_DRAW_Envelope_A.cpp">
+      <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_DRAW_Images_A.cpp">
       <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
     </ClCompile>
@@ -5149,6 +5152,9 @@
       <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.h">
+      <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Envelope_A.h">
       <Filter>MiniloGUI 2026\_Abstract_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Images_A.h">
