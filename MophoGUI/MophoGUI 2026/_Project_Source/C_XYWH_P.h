@@ -43,8 +43,8 @@ namespace XYWH
 	constexpr auto env_init_end_x = 205.0f;
 	constexpr auto env_init_max_y = 10.0f;
 	constexpr auto env_init_min_y = 80.0f;
-	constexpr auto env_stg_init_max_w = 43.0f;
-	constexpr auto env_sust_init_w = 28.0f;
+	constexpr auto env_stage_init_max_w = 43.0f;
+	constexpr auto env_sustain_init_w = 28.0f;
 	constexpr auto env_init_h = 90;
 	constexpr auto env_init_w = 210;
 	constexpr auto env_init_x = 168;

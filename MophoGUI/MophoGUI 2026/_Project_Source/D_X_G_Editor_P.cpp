@@ -5,10 +5,10 @@
 using namespace XYWH;
 
 Editor::Editor(Audio_Processor& processor, Data_Hub* hub) :
-    Editor_A{ processor, hub }/*,*/
-    //layer_envelopes{ hub }
+    Editor_A{ processor, hub },
+    envelopes{ hub }
 {
-    //addAndMakeVisible(layer_envelopes);
+    addAndMakeVisible(envelopes);
     resized();
 }
 
@@ -16,7 +16,7 @@ void Editor::resized() {
     scale_f = (float)getWidth() / editor_init_w;
     auto bounds = getLocalBounds();
     ctrls_exp.setBounds(bounds);
-    //layer_envelopes.setBounds(getLocalBounds());
+    envelopes.setBounds(getLocalBounds());
     app_p.set_scale_i_excluding(roundToInt(scale_f * 100), this);
 }
 

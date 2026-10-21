@@ -161,6 +161,10 @@
             file="_Project_Source/D_X_G_Editor_P.cpp"/>
       <FILE id="DmBIA0" name="D_X_G_Editor_P.h" compile="0" resource="0"
             file="_Project_Source/D_X_G_Editor_P.h"/>
+      <FILE id="RI5PxC" name="G_DRAW_Envelope_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_DRAW_Envelope_P.cpp"/>
+      <FILE id="neYNJx" name="G_DRAW_Envelope_P.h" compile="0" resource="0"
+            file="_Project_Source/G_DRAW_Envelope_P.h"/>
       <FILE id="Ps5bhF" name="G_DRAW_Paths_Main_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="qTKvqf" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
@@ -173,6 +177,10 @@
             file="_Project_Source/G_LAYER_Ctrls_Exp_P.cpp"/>
       <FILE id="RMI9wG" name="G_LAYER_Ctrls_Exp_P.h" compile="0" resource="0"
             file="_Project_Source/G_LAYER_Ctrls_Exp_P.h"/>
+      <FILE id="s4tIF6" name="G_LAYER_Envelopes_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_LAYER_Envelopes_P.cpp"/>
+      <FILE id="TdJxw8" name="G_LAYER_Envelopes_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Envelopes_P.h"/>
       <FILE id="zQBnAR" name="G_Look_And_Feel_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_Look_And_Feel_P.cpp"/>
       <FILE id="Aipejs" name="G_Look_And_Feel_P.h" compile="0" resource="0"
