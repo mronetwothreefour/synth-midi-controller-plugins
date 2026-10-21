@@ -5,6 +5,9 @@
 namespace ID
 {
 
+	constexpr auto app_show_env = "app_show_env";
+	constexpr auto app_show_vca_env = "app_show_vca_env";
+
 	constexpr auto avp_amp_mod_by_velo_amt = "avp_amp_mod_by_velo_amt";
 	constexpr auto avp_fine_tune = "avp_fine_tune";
 	constexpr auto avp_flex_sli_bend_neg = "avp_flex_sli_bend_neg";

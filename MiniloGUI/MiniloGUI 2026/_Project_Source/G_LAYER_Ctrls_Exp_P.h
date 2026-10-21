@@ -12,12 +12,17 @@ namespace LAYER
 		public Component,
 		public Data_User
 	{
+	private: Component trig_area_env;
+	private: Component trig_area_vca_env;
 	private: OwnedArray<Ctrl_Slider, CriticalSection> sliders;
 
 	//==============================================================================
 	public: explicit Ctrls_Exposed(Data_Hub* hub);
 
 	public: void resized() override;
+	public: void mouseEnter(const MouseEvent& e) override;
+	public: void mouseExit(const MouseEvent& e) override;
+	public: void mouseUp(const MouseEvent& e) override;
 	public: ~Ctrls_Exposed();
 
 	//==============================================================================

@@ -1030,6 +1030,9 @@
     <ClCompile Include="..\..\_Project_Source\D_X_G_Editor_P.cpp">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\G_DRAW_Envelope_P.cpp">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.cpp">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClCompile>
@@ -1040,6 +1043,9 @@
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.cpp">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\G_LAYER_Envelopes_P.cpp">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\G_Look_And_Feel_P.cpp">
@@ -5283,6 +5289,9 @@
     <ClInclude Include="..\..\_Project_Source\D_X_G_Editor_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\G_DRAW_Envelope_P.h">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
@@ -5293,6 +5302,9 @@
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.h">
+      <Filter>MiniloGUI 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\G_LAYER_Envelopes_P.h">
       <Filter>MiniloGUI 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\G_Look_And_Feel_P.h">

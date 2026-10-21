@@ -11,7 +11,8 @@ using Joint = PathStrokeType::JointStyle;
 using Stroke = PathStrokeType;
 
 Envelope_A::Envelope_A(Data_Hub* hub) :
-	Data_User{ hub }
+	Data_User{ hub },
+	param_delay{ nullptr }
 {}
 
 void Envelope_A::paint(Graphics& g) {
