@@ -9,6 +9,7 @@ class Data_User_A
 protected: Data_Hub* hub;
 protected: App_Params& app_p;
 protected: AudioProcessorValueTreeState* exp_state;
+protected: MidiBuffer& outgoing_midi;
 protected: float& scale_f;
 protected: UndoManager* u_m;
 

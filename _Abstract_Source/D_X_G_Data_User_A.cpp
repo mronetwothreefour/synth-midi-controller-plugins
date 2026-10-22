@@ -6,6 +6,7 @@ Data_User_A::Data_User_A(Data_Hub* hub) :
 	hub{ hub },
 	app_p{ hub->get_app_params() },
 	exp_state{ hub->get_exposed_params_state() },
+	outgoing_midi{ hub->get_outgoing_midi_buffer() },
 	scale_f{ hub->get_scale_f() },
 	u_m{ hub->get_undo_mngr() }
 {}

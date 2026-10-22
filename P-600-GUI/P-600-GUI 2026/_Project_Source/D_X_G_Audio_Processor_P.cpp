@@ -5,10 +5,6 @@
 Audio_Processor::Audio_Processor()
 {}
 
-void Audio_Processor::process_block(AudioBuffer<float>& audio, MidiBuffer& /*midi*/) {
-    audio.clear();
-}
-
 AudioProcessorEditor* Audio_Processor::create_editor() {
     return new Editor{ *this, hub.get() };
 }

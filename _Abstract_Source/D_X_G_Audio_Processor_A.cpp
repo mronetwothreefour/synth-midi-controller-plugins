@@ -4,7 +4,8 @@
 
 Audio_Processor_A::Audio_Processor_A() :
     AudioProcessor{ BusesProperties{} },
-    hub{ new Data_Hub{ this } }
+    hub{ new Data_Hub{ this } },
+    outgoing_midi{ hub->get_outgoing_midi_buffer() }
 {}
 
 const String Audio_Processor_A::getName() const { return JucePlugin_Name; }
@@ -26,7 +27,11 @@ const String Audio_Processor_A::getProgramName(int /*pgm_index*/) { return {}; }
 void Audio_Processor_A::changeProgramName(int /*pgm_index*/, const String& /*new_name*/) {}
 
 void Audio_Processor_A::processBlock(AudioBuffer<float>& audio, MidiBuffer& midi) {
-    process_block(audio, midi);
+    audio.clear();
+    if (!outgoing_midi.isEmpty()) {
+        midi.addEvents(outgoing_midi, 0, -1, 0);
+        outgoing_midi.clear();
+    }
 }
 
 bool Audio_Processor_A::isBusesLayoutSupported(const BusesLayout& /*layouts*/) const { return true; }

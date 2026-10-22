@@ -29,7 +29,12 @@ UndoManager* Data_Hub_A::get_undo_mngr() {
 	return undo_mngr.get();
 }
 
+MidiBuffer& Data_Hub_A::get_outgoing_midi_buffer() {
+	return outgoing_midi_buffer;
+}
+
 Data_Hub_A::~Data_Hub_A() {
+	outgoing_midi_buffer.clear();
 	exposed_param_state = nullptr;
 	undo_mngr = nullptr;
 }

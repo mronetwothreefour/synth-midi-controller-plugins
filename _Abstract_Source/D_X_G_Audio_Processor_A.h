@@ -8,6 +8,7 @@ class Audio_Processor_A :
     public AudioProcessor
 {
 protected: std::unique_ptr<Data_Hub> hub;
+protected: MidiBuffer& outgoing_midi;
 
 //==============================================================================
 public: Audio_Processor_A();
@@ -24,7 +25,6 @@ public: void setCurrentProgram(int pgm_index) override;
 public: const String getProgramName(int pgm_index) override;
 public: void changeProgramName(int pgm_index, const String& new_name) override;
 
-public: virtual void process_block(AudioBuffer<float>& audio, MidiBuffer& midi)=0;
 public: void processBlock(AudioBuffer<float>& audio, MidiBuffer& midi) override;
 public: bool isBusesLayoutSupported(const BusesLayout& layouts) const override;
 public: void prepareToPlay(double sample_rate, int samples_per_block) override;

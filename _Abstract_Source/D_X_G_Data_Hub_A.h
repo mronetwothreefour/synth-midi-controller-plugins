@@ -13,6 +13,7 @@ class Data_Hub_A
 protected: App_Params app_params;
 protected: std::unique_ptr<UndoManager> undo_mngr;
 protected: std::unique_ptr<State> exposed_param_state;
+protected: MidiBuffer outgoing_midi_buffer;
 protected: float scale_f;
 
 //==============================================================================
@@ -22,6 +23,7 @@ public: App_Params& get_app_params();
 public: State* get_exposed_params_state();
 public: float& get_scale_f();
 public: UndoManager* get_undo_mngr();
+public: MidiBuffer& get_outgoing_midi_buffer();
 public: ~Data_Hub_A();
 
 //==============================================================================
