@@ -118,6 +118,7 @@
             file="_Project_Source/C_MAP_Menu_Traits_P.h"/>
       <FILE id="a8GnfM" name="C_MAP_Txt_Editor_Traits_P.h" compile="0" resource="0"
             file="_Project_Source/C_MAP_Txt_Editor_Traits_P.h"/>
+      <FILE id="xaOiL6" name="C_MIDI_P.h" compile="0" resource="0" file="_Project_Source/C_MIDI_P.h"/>
       <FILE id="rAu5Pr" name="C_MISC_P.h" compile="0" resource="0" file="_Project_Source/C_MISC_P.h"/>
       <FILE id="ZTHUWT" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
       <FILE id="IhUjgB" name="C_RES_Backdrop_Main_P.h" compile="0" resource="0"
