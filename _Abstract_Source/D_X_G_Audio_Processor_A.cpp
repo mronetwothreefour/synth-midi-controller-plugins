@@ -29,8 +29,9 @@ void Audio_Processor_A::changeProgramName(int /*pgm_index*/, const String& /*new
 void Audio_Processor_A::processBlock(AudioBuffer<float>& audio, MidiBuffer& midi) {
     audio.clear();
     if (!outgoing_midi.isEmpty()) {
-        midi.addEvents(outgoing_midi, 0, -1, 0);
-        outgoing_midi.clear();
+        MidiBuffer holding_buffer;
+        holding_buffer.swapWith(outgoing_midi);
+        midi.addEvents(holding_buffer, 0, -1, 0);
     }
 }
 
