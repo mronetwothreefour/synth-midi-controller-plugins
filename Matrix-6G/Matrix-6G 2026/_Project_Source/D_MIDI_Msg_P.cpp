@@ -23,3 +23,8 @@ MidiMessage Msg::quick_edit_enable() {
 	unsigned char msg[]{ id_maker, id_device, msg_type_quick_edit_enable };
 	return MidiMessage::createSysExMessage(msg, sizeof(msg));
 }
+
+MidiMessage MIDI::Msg::quick_edit_param(const uint8 quick_num, const uint8 val) {
+	unsigned char msg[]{ id_maker, id_device, msg_type_quick_edit, quick_num, val };
+	return MidiMessage::createSysExMessage(msg, sizeof(msg));
+}
