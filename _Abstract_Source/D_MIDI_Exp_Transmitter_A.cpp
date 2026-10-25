@@ -7,7 +7,7 @@ MIDI::Exp_Transmitter_A::Exp_Transmitter_A(Value param_value, MidiBuffer& outgoi
 	param_val.addListener(this);
 }
 
-void MIDI::Exp_Transmitter_A::valueChanged(Value& v) {
+void MIDI::Exp_Transmitter_A::valueChanged(Value& /*value*/) {
 	transmit_change();
 }
 

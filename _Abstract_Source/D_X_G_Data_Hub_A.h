@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "D_TREE_App_Params_P.h"
+#include "D_MIDI_Exp_Transmitter_P.h"
 
 using namespace TREE;
 
@@ -15,6 +16,7 @@ protected: std::unique_ptr<UndoManager> undo_mngr;
 protected: std::unique_ptr<State> exposed_param_state;
 protected: MidiBuffer outgoing_midi_buffer;
 protected: float scale_f;
+protected: OwnedArray<MIDI::Exp_Transmitter> exp_transmitters;
 
 //==============================================================================
 public: explicit Data_Hub_A(AudioProcessor* processor);
