@@ -150,6 +150,7 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Layout_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_For_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.cpp"/>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_MIDI_Exp_Transmitter_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_TREE_App_Params_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.cpp"/>
@@ -165,6 +166,7 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Label_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Wheel_Mod_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\D_MIDI_Exp_Transmitter_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Font_For_P.cpp"/>
@@ -4023,6 +4025,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Layout_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_For_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_MIDI_Exp_Transmitter_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_TREE_App_Params_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.h"/>
@@ -4038,6 +4041,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Label_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Wheel_Mod_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.h"/>
+    <ClInclude Include="..\..\_Project_Source\D_MIDI_Exp_Transmitter_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_GET_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_ID_Main_P.h"/>
@@ -4048,7 +4052,7 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Init_Bounds_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Label_Name_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Menu_Traits_P.h"/>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Quick_Num_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Quick_Edit_Traits_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Txt_Editor_Traits_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MIDI_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_MISC_P.h"/>

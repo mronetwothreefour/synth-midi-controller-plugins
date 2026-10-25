@@ -1,0 +1,25 @@
+#pragma once
+
+#include "D_MIDI_Exp_Transmitter_A.h"
+
+namespace MIDI
+{
+
+	class Exp_Transmitter :
+		public Exp_Transmitter_A
+	{
+	private: const uint8 quick_num;
+	private: const bool range_is_s_6_bit;
+	private: const bool range_is_s_7_bit;
+
+	//==============================================================================
+	public: Exp_Transmitter(const std::string& param_id, Value param_value, 
+							MidiBuffer& outgoing_midi);
+
+	private: void transmit_change() override;
+
+	//==============================================================================
+	private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Exp_Transmitter)
+	};
+
+}

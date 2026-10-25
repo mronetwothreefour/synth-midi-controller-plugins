@@ -949,6 +949,9 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.cpp">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\D_MIDI_Exp_Transmitter_A.cpp">
+      <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_TREE_App_Params_A.cpp">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClCompile>
@@ -993,6 +996,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.cpp">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_MIDI_Exp_Transmitter_P.cpp">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
@@ -5148,6 +5154,9 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_MIDI_Exp_Transmitter_A.h">
+      <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_TREE_App_Params_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClInclude>
@@ -5193,6 +5202,9 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_MIDI_Exp_Transmitter_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
@@ -5223,7 +5235,7 @@
     <ClInclude Include="..\..\_Project_Source\C_MAP_Menu_Traits_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\C_MAP_Quick_Num_P.h">
+    <ClInclude Include="..\..\_Project_Source\C_MAP_Quick_Edit_Traits_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_MAP_Txt_Editor_Traits_P.h">
