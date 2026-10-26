@@ -4,6 +4,7 @@
 #include <tuple>
 #include <unordered_map>
 
+#include "C_ID_A.h"
 #include "C_ID_Main_P.h"
 #include "C_MISC_P.h"
 #include "D_BUILD_Tip_For_P.h"
@@ -16,6 +17,8 @@ namespace MAP
 {
 
 	static const unordered_map<string, tuple<string, int, string>> txt_editor_traits {
+		{ ID::app_curr_pgm_num, { allowed_chars_u_int, 2, Tip_For::txt_editor_u_int(99) } },
+
 		{ ID::exp_osc_1_pitch, txt_editor_traits_osc_pitch },
 		{ ID::exp_osc_1_pulse_w, txt_editor_traits_u_6_bit },
 		{ ID::exp_osc_1_saw_tri, txt_editor_traits_u_6_bit },

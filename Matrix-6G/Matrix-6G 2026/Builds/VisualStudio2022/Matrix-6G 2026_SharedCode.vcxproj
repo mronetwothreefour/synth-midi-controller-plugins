@@ -186,6 +186,7 @@
     <ClCompile Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_LAYER_Ctrls_MMod_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_LAYER_Envelopes_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\G_LAYER_Pgm_Num_And_Name_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_Look_And_Feel_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_WIDGET_Ctrl_Slider_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_WIDGET_Sli_Label_P.cpp"/>
@@ -4080,6 +4081,7 @@
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Envelopes_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_MMod_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\G_LAYER_Pgm_Num_And_Name_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_Look_And_Feel_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_WIDGET_Ctrl_Slider_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_WIDGET_Sli_Label_P.h"/>

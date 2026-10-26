@@ -10,6 +10,7 @@ namespace NAME
 	constexpr auto lbl_led_cbx = "lbl_led_cbx";
 	constexpr auto lbl_led_knb = "lbl_led_knb";
 	constexpr auto lbl_led_osc_bal = "lbl_led_osc_bal";
+	constexpr auto lbl_led_pgm_name = "lbl_led_pgm_name";
 
 	constexpr auto state_mmod_tree{ "state_mmod_tree" };
 	constexpr auto state_mmod_xml{ "state_mmod_xml" };

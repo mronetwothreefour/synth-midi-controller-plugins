@@ -206,6 +206,10 @@
             file="_Project_Source/G_LAYER_Envelopes_P.h"/>
       <FILE id="UCHv1g" name="G_LAYER_Ctrls_MMod_P.h" compile="0" resource="0"
             file="_Project_Source/G_LAYER_Ctrls_MMod_P.h"/>
+      <FILE id="NCBXwA" name="G_LAYER_Pgm_Num_And_Name_P.cpp" compile="1"
+            resource="0" file="_Project_Source/G_LAYER_Pgm_Num_And_Name_P.cpp"/>
+      <FILE id="yVtAXM" name="G_LAYER_Pgm_Num_And_Name_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Pgm_Num_And_Name_P.h"/>
       <FILE id="vV5WcO" name="G_Look_And_Feel_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_Look_And_Feel_P.cpp"/>
       <FILE id="KrNZtr" name="G_Look_And_Feel_P.h" compile="0" resource="0"
