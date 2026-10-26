@@ -13,6 +13,12 @@ namespace TREE
 	//==============================================================================
 	public: App_Params_A(UndoManager* u_m);
 
+	public: const String current_pgm_name();
+	public: void set_current_pgm_name(String new_setting);
+
+	public: const int current_pgm_num();
+	public: void set_current_pgm_num(const int new_setting);
+
 	public: const int scale_i();
 	public: void set_scale_i(const int new_setting);
 	public: void set_scale_i_excluding(const int new_setting,

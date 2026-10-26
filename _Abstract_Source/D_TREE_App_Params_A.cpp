@@ -1,6 +1,7 @@
 #include "D_TREE_App_Params_A.h"
 
 #include "C_ID_A.h"
+#include "C_MISC_P.h"
 #include "C_NAME_P.h"
 
 using namespace TREE;
@@ -9,7 +10,30 @@ App_Params_A::App_Params_A(UndoManager* u_m) :
 	tree{ NAME::state_app_tree },
 	u_m{ u_m }
 {
+	tree.setProperty(ID::app_curr_pgm_name, MISC::pgm_name_init, nullptr);
+	tree.setProperty(ID::app_curr_pgm_num, MISC::pgm_num_min, nullptr);
 	tree.setProperty(ID::app_scale_i, 1, nullptr);
+}
+
+const String TREE::App_Params_A::current_pgm_name() {
+	return tree[ID::app_curr_pgm_name].toString();
+}
+
+void TREE::App_Params_A::set_current_pgm_name(String n) {
+	if (n.length() > MISC::pgm_name_length)
+		n.dropLastCharacters(n.length() - MISC::pgm_name_length);
+	while (n.length() < MISC::pgm_name_length)
+		n += " ";
+	tree.setProperty(ID::app_curr_pgm_name, n, nullptr);
+}
+
+const int TREE::App_Params_A::current_pgm_num() {
+	return (int)tree[ID::app_curr_pgm_num];
+}
+
+void TREE::App_Params_A::set_current_pgm_num(const int new_setting) {
+	auto setting_clamped = std::clamp(new_setting, MISC::pgm_num_min, MISC::pgm_num_max);
+	tree.setProperty(ID::app_curr_pgm_num, setting_clamped, nullptr);
 }
 
 const int App_Params_A::scale_i() {
@@ -18,7 +42,7 @@ const int App_Params_A::scale_i() {
 
 void App_Params_A::set_scale_i(const int new_setting) {
 	auto setting_clamped = std::clamp(new_setting, 25, 200);
-	tree.setProperty(ID::app_scale_i, setting_clamped, u_m);
+	tree.setProperty(ID::app_scale_i, setting_clamped, nullptr);
 }
 
 void App_Params_A::set_scale_i_excluding(const int new_setting, ValueTree::Listener* l) {

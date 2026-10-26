@@ -10,6 +10,10 @@ namespace MISC
 	constexpr auto knb_angle_1 = degreesToRadians(495.0f);
 	constexpr auto mod_dst_count = 33;
 	constexpr auto mod_src_count = 21;
+	constexpr auto pgm_name_init = "BASIC   ";
+	constexpr auto pgm_name_length = 8;
+	constexpr auto pgm_num_max = 99;
+	constexpr auto pgm_num_min = 0;
 
 	static const tuple<bool, int, int> menu_below_1x2{ false, 1, 2 };
 	static const tuple<bool, int, int> menu_below_1x3{ false, 1, 3 };

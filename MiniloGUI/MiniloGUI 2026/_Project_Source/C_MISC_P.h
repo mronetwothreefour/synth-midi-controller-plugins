@@ -14,6 +14,11 @@ namespace MISC
 	constexpr auto knb_angle_0 = degreesToRadians(30.0f);
 	constexpr auto knb_angle_1 = degreesToRadians(330.0f);
 
+	constexpr auto pgm_name_init = "Basic Pgm   ";
+	constexpr auto pgm_name_length = 12;
+	constexpr auto pgm_num_max = 200;
+	constexpr auto pgm_num_min = 1;
+
 	static const tuple<bool, int, int, bool, int>
 		init_sli_traits_flex_sli_bend{ false, 1, 1, false, -1 },
 		init_sli_traits_osc_pitch_fine{ true, 25, 100, true, 0 },

@@ -25,6 +25,11 @@ namespace MISC
 	constexpr auto mod_dst_count = 47;
 	constexpr auto mod_src_count = 23;
 
+	constexpr auto pgm_name_init = "Basic Program   ";
+	constexpr auto pgm_name_length = 16;
+	constexpr auto pgm_num_max = 128;
+	constexpr auto pgm_num_min = 1;
+
 	constexpr auto seq_2_4_dst_count = 48;
 
 	static const tuple<bool, int, int, bool> menu_above_1x5{ true, 1, 5, false };

@@ -12,6 +12,11 @@ namespace MISC
 	constexpr auto knb_angle_0 = degreesToRadians(30.0f);
 	constexpr auto knb_angle_1 = degreesToRadians(330.0f);
 
+	constexpr auto pgm_name_init = "Basic Program       ";
+	constexpr auto pgm_name_length = 20;
+	constexpr auto pgm_num_max = 99;
+	constexpr auto pgm_num_min = 0;
+
 	static const tuple<string, int, string>
 		txt_editor_traits_osc_pitch{ allowed_chars_pitch, 3, Tip_For::txt_editor_pitch(37, 0, 48) },
 		txt_editor_traits_u_4_bit{ allowed_chars_u_int, 2, Tip_For::txt_editor_u_int(15) },
