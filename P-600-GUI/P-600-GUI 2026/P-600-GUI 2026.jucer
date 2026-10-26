@@ -34,6 +34,10 @@
             file="../../_Abstract_Source/D_BUILD_Tip_For_A.h"/>
       <FILE id="yZXpjg" name="D_CONVERT_A.cpp" compile="1" resource="0" file="../../_Abstract_Source/D_CONVERT_A.cpp"/>
       <FILE id="i6t1Nh" name="D_CONVERT_A.h" compile="0" resource="0" file="../../_Abstract_Source/D_CONVERT_A.h"/>
+      <FILE id="coHGxF" name="D_MIDI_Exp_Transmitter_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/D_MIDI_Exp_Transmitter_A.cpp"/>
+      <FILE id="e6ANQB" name="D_MIDI_Exp_Transmitter_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/D_MIDI_Exp_Transmitter_A.h"/>
       <FILE id="y5iIqd" name="D_TREE_App_Params_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/D_TREE_App_Params_A.cpp"/>
       <FILE id="hCkxyf" name="D_TREE_App_Params_A.h" compile="0" resource="0"
@@ -134,6 +138,10 @@
             file="_Project_Source/D_BUILD_Tip_For_P.h"/>
       <FILE id="JxP0j6" name="D_CONVERT_P.cpp" compile="1" resource="0" file="_Project_Source/D_CONVERT_P.cpp"/>
       <FILE id="F9Agt0" name="D_CONVERT_P.h" compile="0" resource="0" file="_Project_Source/D_CONVERT_P.h"/>
+      <FILE id="dv2uQj" name="D_MIDI_Exp_Transmitter_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_MIDI_Exp_Transmitter_P.cpp"/>
+      <FILE id="CBDvFF" name="D_MIDI_Exp_Transmitter_P.h" compile="0" resource="0"
+            file="_Project_Source/D_MIDI_Exp_Transmitter_P.h"/>
       <FILE id="uTzMfC" name="D_TREE_App_Params_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_TREE_App_Params_P.cpp"/>
       <FILE id="IvZd40" name="D_TREE_App_Params_P.h" compile="0" resource="0"
