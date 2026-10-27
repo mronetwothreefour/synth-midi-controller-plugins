@@ -136,6 +136,8 @@
             file="_Project_Source/C_SL_Tip_Exposed_P.h"/>
       <FILE id="id8biM" name="C_SL_Tip_Matrix_Mod_P.h" compile="0" resource="0"
             file="_Project_Source/C_SL_Tip_Matrix_Mod_P.h"/>
+      <FILE id="FqnI5S" name="C_SL_Tip_Widget_P.h" compile="0" resource="0"
+            file="_Project_Source/C_SL_Tip_Widget_P.h"/>
       <FILE id="AzFTav" name="C_XYWH_P.h" compile="0" resource="0" file="_Project_Source/C_XYWH_P.h"/>
       <FILE id="UzUqxb" name="D_BUILD_Choices_For_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_BUILD_Choices_For_P.cpp"/>

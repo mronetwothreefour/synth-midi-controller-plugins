@@ -15,6 +15,9 @@ namespace MAP
 {
     
 	static const unordered_map<string, tuple<bool, int, int, int, int>> init_bounds {
+		{ ID::app_curr_pgm_name,    { true, curr_pgm_name_cx, ctr_main_r_11_cy, curr_pgm_name_w, ctr_h } },
+		{ ID::app_curr_pgm_num,		{ true, curr_pgm_num_cx, ctr_main_r_11_cy, curr_pgm_num_w, ctr_h } },
+
 		{ ID::exp_osc_1_pitch,	    { true, osc_col_1_cx, ctr_main_r_00_cy, osc_ctr_w, ctr_h } },
 		{ ID::exp_osc_1_type,	    { true, osc_col_1_cx, ctr_main_r_01_cy, osc_ctr_w, ctr_h } },
 		{ ID::exp_osc_1_pulse_w,    { true, osc_col_1_cx, ctr_main_r_02_cy, osc_ctr_w, ctr_h } },

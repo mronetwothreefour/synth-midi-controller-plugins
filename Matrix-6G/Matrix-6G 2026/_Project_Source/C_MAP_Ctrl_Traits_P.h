@@ -3,10 +3,12 @@
 #include <tuple>
 #include <unordered_map>
 
+#include "C_ID_A.h"
 #include "C_ID_Main_P.h"
 #include "C_NAME_P.h"
 #include "C_SL_Tip_Exposed_P.h"
 #include "C_SL_Tip_Matrix_Mod_P.h"
+#include "C_SL_Tip_Widget_P.h"
 #include "D_BUILD_Tip_For_P.h"
 
 using namespace BUILD;
@@ -19,6 +21,9 @@ namespace MAP
 {
 
 	static const unordered_map<string, tuple<string, int, string>> ctrl_traits{
+		{ ID::app_curr_pgm_name, { lbl_led_pgm_name, 0, Tip::from_SL(SL::curr_pgm_name) } },
+		{ ID::app_curr_pgm_num, { ctr_sli_knb, 0, Tip::from_SL(SL::curr_pgm_num) } },
+
 		//exposed osc
 		{ ID::exp_osc_1_pitch, { ctr_sli_knb, 0, Tip::from_SL_and_int(SL::osc_pitch_tip, 1) } },
 		{ ID::exp_osc_1_type, { ctr_cbx, 2, Tip::exp_osc_type(1) } },

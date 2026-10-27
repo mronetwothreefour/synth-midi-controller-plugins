@@ -38,6 +38,11 @@ namespace XYWH
 	constexpr auto ctr_main_r_15_cy = ctr_main_r_14_cy + ctr_h_row;
 	constexpr auto ctr_main_r_16_cy = ctr_main_r_15_cy + ctr_h_row;
 
+	constexpr auto curr_pgm_name_w = 116;
+	constexpr auto curr_pgm_name_cx = 931;
+	constexpr auto curr_pgm_num_w = 28;
+	constexpr auto curr_pgm_num_cx = 854;
+
 	constexpr auto editor_init_w = 1252, editor_init_h = 596;
 
 	constexpr auto env_init_begin_x = 11.0f;

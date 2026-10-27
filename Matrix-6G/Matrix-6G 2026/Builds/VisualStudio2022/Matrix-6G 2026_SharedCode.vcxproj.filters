@@ -5265,6 +5265,9 @@
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Matrix_Mod_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Widget_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>

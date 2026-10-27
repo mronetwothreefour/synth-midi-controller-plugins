@@ -18,6 +18,11 @@ std::string BUILD::Tip_For_A::from_SL_and_int(const char8_t* sl, const unsigned 
     return s.replace("_", (String)n).toStdString();
 }
 
+std::string BUILD::Tip_For_A::txt_editor_pgm_name(const int max) {
+    String s{ from_SL(SL::edit_pgm_name_tip) };
+    return s.replace("_", (String)max).toStdString();
+}
+
 std::string Tip_For_A::txt_editor_pitch(const unsigned int example,
                                         const unsigned int min,
                                         const unsigned int max) 

@@ -1,5 +1,7 @@
 #include "G_WIDGET_Ctrl_Slider_A.h"
 
+#include "C_ID_A.h"
+
 using namespace WIDGET;
 
 Ctrl_Slider_A::Ctrl_Slider_A(const std::string& param_id, Value param_value, Data_Hub* hub) :
@@ -8,7 +10,13 @@ Ctrl_Slider_A::Ctrl_Slider_A(const std::string& param_id, Value param_value, Dat
 {
 	addAndMakeVisible(label);
 	if (!param_ptr) {
-		onValueChange = [this] { param_val.setValue(roundToInt(getValue())); };
+		onValueChange = [this] { 
+			auto new_val = roundToInt(getValue());
+			if (getComponentID() == ID::app_curr_pgm_num)
+					app_p.set_current_pgm_num(new_val);
+			else
+				param_val.setValue(new_val);
+		};
 		setRange(0.0, double(Ctrl_A::choices.size() - 1), 1.0);
 		update_ctrl_setting();
 		label.set_text_to_stored_choice();

@@ -17,12 +17,16 @@ namespace LAYER
 	private: Value val_pgm_name;
 	private: Ctrl_Slider sli_pgm_num;
 	private: Label lbl_pgm_name;
+	private: bool name_edited_by_label;
+	private: Rectangle<int> init_bounds_pgm_num;
+	private: Rectangle<int> init_bounds_pgm_name;
 
 	//==============================================================================
 	public: explicit Pgm_Num_And_Name(Data_Hub* hub);
 
 	public: void resized() override;
 	public: void valueChanged(Value& value) override;
+	public: void modifierKeysChanged(const Mods& mods) override;
 	public: ~Pgm_Num_And_Name();
 
 	//==============================================================================

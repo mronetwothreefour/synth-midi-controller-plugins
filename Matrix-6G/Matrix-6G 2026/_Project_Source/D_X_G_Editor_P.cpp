@@ -7,10 +7,12 @@ using namespace XYWH;
 Editor::Editor(Audio_Processor& processor, Data_Hub* hub) :
     Editor_A{ processor, hub },
     envelopes{ hub },
-    ctrls_mmod{ hub }
+    ctrls_mmod{ hub },
+    pgm_num_and_name{ hub }
 {
     addAndMakeVisible(envelopes);
     addAndMakeVisible(ctrls_mmod);
+    addAndMakeVisible(pgm_num_and_name);
     resized();
 }
 
@@ -20,6 +22,7 @@ void Editor::resized() {
     ctrls_exp.setBounds(bounds);
     envelopes.setBounds(getLocalBounds());
     ctrls_mmod.setBounds(bounds);
+    pgm_num_and_name.setBounds(bounds);
     app_p.set_scale_i_excluding(roundToInt(scale_f * 100), this);
 }
 

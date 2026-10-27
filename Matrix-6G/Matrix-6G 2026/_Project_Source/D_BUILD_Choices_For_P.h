@@ -8,6 +8,8 @@ namespace BUILD
 	struct Choices_For :
 		public Choices_For_A
 	{
+		static const StringArray app_curr_pgm_num();
+
 		static const StringArray exp_env_mode();
 		static const StringArray exp_env_trig_mode();
 		static const StringArray exp_env_lfo_1_trig();
