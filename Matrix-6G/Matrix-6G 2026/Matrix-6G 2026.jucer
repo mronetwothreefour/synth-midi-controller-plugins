@@ -100,6 +100,10 @@
             file="../../_Abstract_Source/G_WIDGET_Tip_Updater_A.h"/>
     </GROUP>
     <GROUP id="{184497C2-0BC4-A69C-3CF3-9218D550E5FD}" name="_Project_Source">
+      <FILE id="H5ie5z" name="G_LAYER_Buttons_Main_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_LAYER_Buttons_Main_P.cpp"/>
+      <FILE id="ZcdYVK" name="G_LAYER_Buttons_Main_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Buttons_Main_P.h"/>
       <FILE id="nf0Quu" name="D_MIDI_Exp_Transmitter_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_MIDI_Exp_Transmitter_P.cpp"/>
       <FILE id="gGV9Ew" name="D_MIDI_Exp_Transmitter_P.h" compile="0" resource="0"

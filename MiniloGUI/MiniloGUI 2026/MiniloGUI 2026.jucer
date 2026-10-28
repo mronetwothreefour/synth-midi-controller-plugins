@@ -195,6 +195,10 @@
             file="_Project_Source/G_DRAW_Paths_Widgets_P.cpp"/>
       <FILE id="e0AUJW" name="G_DRAW_Paths_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Widgets_P.h"/>
+      <FILE id="l5ngwf" name="G_LAYER_Buttons_Main_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_LAYER_Buttons_Main_P.cpp"/>
+      <FILE id="YwbvRb" name="G_LAYER_Buttons_Main_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Buttons_Main_P.h"/>
       <FILE id="P1nRyO" name="G_LAYER_Ctrls_Aux_Voice_P.cpp" compile="1"
             resource="0" file="_Project_Source/G_LAYER_Ctrls_Aux_Voice_P.cpp"/>
       <FILE id="OhObuf" name="G_LAYER_Ctrls_Aux_Voice_P.h" compile="0" resource="0"

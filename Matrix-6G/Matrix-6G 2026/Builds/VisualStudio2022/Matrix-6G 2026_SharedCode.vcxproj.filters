@@ -997,6 +997,9 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.cpp">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\G_LAYER_Buttons_Main_P.cpp">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_MIDI_Exp_Transmitter_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
@@ -5204,6 +5207,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\G_LAYER_Buttons_Main_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_MIDI_Exp_Transmitter_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>

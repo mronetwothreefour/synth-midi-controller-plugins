@@ -12,7 +12,7 @@ Ctrl_Slider_A::Ctrl_Slider_A(const std::string& param_id, Value param_value, Dat
 	if (!param_ptr) {
 		onValueChange = [this] { 
 			auto new_val = roundToInt(getValue());
-			if (getComponentID() == ID::app_curr_pgm_num)
+			if (getComponentID() == ID::app_curr_pgm_num) // not undoable
 					app_p.set_current_pgm_num(new_val);
 			else
 				param_val.setValue(new_val);

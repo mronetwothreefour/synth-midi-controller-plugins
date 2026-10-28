@@ -182,6 +182,10 @@
             file="_Project_Source/G_DRAW_Paths_Widgets_P.cpp"/>
       <FILE id="lAllhm" name="G_DRAW_Paths_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Widgets_P.h"/>
+      <FILE id="iRTxih" name="G_LAYER_Buttons_Main_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_LAYER_Buttons_Main_P.cpp"/>
+      <FILE id="AOY14v" name="G_LAYER_Buttons_Main_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Buttons_Main_P.h"/>
       <FILE id="rTU3sL" name="G_LAYER_Ctrls_Exp_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_LAYER_Ctrls_Exp_P.cpp"/>
       <FILE id="RMI9wG" name="G_LAYER_Ctrls_Exp_P.h" compile="0" resource="0"

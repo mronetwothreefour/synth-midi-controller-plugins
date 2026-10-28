@@ -12,7 +12,6 @@ Use the PUSH button to send the entire patch instead.)";
 Selects which patch storage slot
 on the hardware is targeted by the
 PUSH and PULL buttons to the left.
-Range: 0 to 99.)";
-
+Range: 00 to 99.)";
 
 }

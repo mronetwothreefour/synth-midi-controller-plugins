@@ -170,6 +170,10 @@
             file="_Project_Source/G_DRAW_Paths_Widgets_P.cpp"/>
       <FILE id="aoTVYE" name="G_DRAW_Paths_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Paths_Widgets_P.h"/>
+      <FILE id="QKEidB" name="G_LAYER_Buttons_Main_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_LAYER_Buttons_Main_P.cpp"/>
+      <FILE id="GA5ktJ" name="G_LAYER_Buttons_Main_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Buttons_Main_P.h"/>
       <FILE id="Y4FiLt" name="G_LAYER_Ctrls_Exp_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_LAYER_Ctrls_Exp_P.cpp"/>
       <FILE id="LxSt5n" name="G_LAYER_Ctrls_Exp_P.h" compile="0" resource="0"

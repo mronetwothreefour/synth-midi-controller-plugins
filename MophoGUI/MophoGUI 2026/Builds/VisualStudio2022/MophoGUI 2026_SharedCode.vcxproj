@@ -180,6 +180,7 @@
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Envelope_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\G_LAYER_Buttons_Main_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_LAYER_Envelopes_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_Look_And_Feel_P.cpp"/>
@@ -4071,6 +4072,7 @@
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Envelope_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\G_LAYER_Buttons_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Envelopes_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_Look_And_Feel_P.h"/>
