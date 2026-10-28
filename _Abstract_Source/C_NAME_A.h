@@ -3,6 +3,13 @@
 namespace NAME
 {
 
+	constexpr auto btn_main_global = "btn_main_global";
+	constexpr auto btn_main_pgm_bank = "btn_main_pgm_bank";
+	constexpr auto btn_main_pull = "btn_main_pull";
+	constexpr auto btn_main_push = "btn_main_push";
+	constexpr auto btn_main_redo = "btn_main_redo";
+	constexpr auto btn_main_undo = "btn_main_undo";
+
 	constexpr auto ctr_cbx{ "ctr_cbx" };
 	constexpr auto ctr_sli_knb{ "ctr_sli_knb" };
 	constexpr auto ctr_sli_sw_2{ "ctr_sli_sw_2" };

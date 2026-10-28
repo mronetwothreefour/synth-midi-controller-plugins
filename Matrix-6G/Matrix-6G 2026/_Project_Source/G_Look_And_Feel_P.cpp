@@ -15,6 +15,15 @@ Look_And_Feel::Look_And_Feel(float& scale_factor) :
 	setColour(TextEditor::backgroundColourId, Colour{ COLOR::black });
 }
 
+void Look_And_Feel::drawButtonBackground(Graphics& g, Button& btn, const Colour& /*ground*/, 
+										 bool /*hilited*/, bool down)
+{
+	if (btn.getName() == NAME::btn_main_quick_flash)
+		g.fillAll(Colour{ COLOR::btn_brighten });
+	if (down)
+		g.fillAll(Colour{ COLOR::btn_dim });
+}
+
 void Look_And_Feel::positionComboBoxText(ComboBox& cbox, Label& lbl) {
 	lbl.setJustificationType(Justify::right);
 	lbl.setBounds(0, 0, cbox.getWidth(), cbox.getHeight());

@@ -11,10 +11,15 @@ namespace LAYER
 		public Component,
 		public Data_User
 	{
+	private: TextButton btn_quick;
+
+	private: const Rectangle<int> init_bounds_btn_quick;
+
 	//==============================================================================
 	public: explicit Buttons_Main(Data_Hub* hub);
 
 	public: void resized() override;
+	private: void flash_btn_quick();
 	public: void modifierKeysChanged(const Mods& mods) override;
 
 	//==============================================================================

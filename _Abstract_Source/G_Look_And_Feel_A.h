@@ -14,6 +14,9 @@ protected: float& scale_f;
 //==============================================================================
 public: explicit Look_And_Feel_A(float& scale_factor);
 
+public: void drawButtonText(Graphics& /*g*/, TextButton& /*btn*/, bool /*hilited*/, 
+							bool /*down*/) override {};
+
 public: void drawComboBox(Graphics& /*g*/, int /*w*/, int /*h*/, bool /*down*/, int /*x*/,
 						  int /*y*/, int /*w*/, int /*h*/, ComboBox& /*cbox*/) override {}
 public: void getIdealPopupMenuItemSizeWithOptions(const String& txt, bool separator,

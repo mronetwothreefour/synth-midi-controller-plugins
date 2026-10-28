@@ -16,7 +16,7 @@ namespace WIDGET
 	protected: Tip_Updater_A tip_update;
 	public: const StringArray choices;
 	public: const StringArray choices_curt;
-	private: Rectangle<int> init_bounds;
+	private: const Rectangle<int> init_bounds;
 
 	//==============================================================================
 	public: Ctrl_A(const std::string& param_id, Value param_value, Data_Hub* hub);

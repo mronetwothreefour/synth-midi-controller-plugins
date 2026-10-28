@@ -7,6 +7,7 @@ namespace COLOR
 
 	constexpr auto blue = 0xff05239d;
 	constexpr auto blue_led = 0xff00bed6;
+	constexpr auto btn_brighten = 0x33ffffff;
 	constexpr auto env_stroke = blue_led;
 	constexpr auto grey = 0xff3f3f3f;
 	constexpr auto grey_line = 0xff656565;

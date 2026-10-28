@@ -18,8 +18,8 @@ namespace LAYER
 	private: Ctrl_Slider sli_pgm_num;
 	private: Label lbl_pgm_name;
 	private: bool name_edited_by_label;
-	private: Rectangle<int> init_bounds_pgm_num;
-	private: Rectangle<int> init_bounds_pgm_name;
+	private: const Rectangle<int> init_bounds_pgm_num;
+	private: const Rectangle<int> init_bounds_pgm_name;
 
 	//==============================================================================
 	public: explicit Pgm_Num_And_Name(Data_Hub* hub);

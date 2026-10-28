@@ -6,8 +6,8 @@ namespace XYWH
 	constexpr auto btn_main_big_cy = 372;
 	constexpr auto btn_main_big_h = 38;
 	constexpr auto btn_main_big_w = 68;
-	constexpr auto btn_main_master_cx = 1198;
-	constexpr auto btn_main_patches_cx = 1040;
+	constexpr auto btn_main_global_cx = 1198;
+	constexpr auto btn_main_pgm_banks_cx = 1040;
 	constexpr auto btn_main_pull_cx = 722;
 	constexpr auto btn_main_push_cx = 681;
 	constexpr auto btn_main_quick_w = 63;
@@ -15,7 +15,7 @@ namespace XYWH
 	constexpr auto btn_main_quick_y = 367;
 	constexpr auto btn_main_redo_cx = 804;
 	constexpr auto btn_main_splits_cx = 1119;
-	constexpr auto btn_main_tx_undo_w = 36;
+	constexpr auto btn_main_small_w = 36;
 	constexpr auto btn_main_undo_cx = 763;
 
 	constexpr auto ctr_h = 20;

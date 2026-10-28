@@ -145,6 +145,8 @@ namespace MAP
 		{ ID::mmod_9_src, { true, mmod_col_src_cx, ctr_main_r_09_cy, mmod_ctr_src_w, ctr_h } },
 		{ ID::mmod_9_amt, { true, mmod_col_amt_cx, ctr_main_r_09_cy, mmod_ctr_amt_w, ctr_h } },
 		{ ID::mmod_9_dst, { true, mmod_col_dst_cx, ctr_main_r_09_cy, mmod_ctr_dst_w, ctr_h } },
+
+		{ NAME::btn_main_quick, { false, btn_main_quick_x, btn_main_quick_y, btn_main_quick_w, ctr_h } }
 	};
 	
 }

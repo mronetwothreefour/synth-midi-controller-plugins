@@ -5,6 +5,10 @@
 namespace NAME
 {
 
+	constexpr auto btn_main_quick = "btn_main_quick";
+	constexpr auto btn_main_quick_flash = "btn_main_quick_flash";
+	constexpr auto btn_main_splits = "btn_main_splits";
+
 	constexpr auto ctr_sli_osc_bal = "ctr_sli_osc_bal";
 
 	constexpr auto lbl_led_cbx = "lbl_led_cbx";

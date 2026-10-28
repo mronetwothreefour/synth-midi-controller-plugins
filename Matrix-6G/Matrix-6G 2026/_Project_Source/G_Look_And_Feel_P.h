@@ -8,6 +8,9 @@ class Look_And_Feel :
 //==============================================================================
 public: explicit Look_And_Feel(float& scale_factor);
 
+public: void drawButtonBackground(Graphics& g, Button& btn, const Colour& ground, 
+								  bool hilited, bool down) override;
+
 public: void positionComboBoxText(ComboBox& cbox, Label& lbl) override;
 public: PopupMenu::Options getOptionsForComboBoxPopupMenu(ComboBox& cbox, Label& lbl) override;
 public: void drawPopupMenuItemWithOptions(Graphics& g, const Rectangle<int>& area, 
