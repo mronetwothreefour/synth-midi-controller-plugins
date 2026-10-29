@@ -3,6 +3,15 @@
 namespace SL
 {
 
+	constexpr auto btn_main_redo_tip = u8R"(
+Click this button to redo a pre-
+viously undone parameter change.
+Shortcut key: CTRL+SHIFT+Z)";
+
+	constexpr auto btn_main_undo_tip = u8R"(
+Click this button to undo the previous
+parameter change. Shortcut key: CTRL+Z.)";
+
 	constexpr auto edit_pgm_name_tip = u8R"(
 Type in a new name
 (_ characters maximum).)";

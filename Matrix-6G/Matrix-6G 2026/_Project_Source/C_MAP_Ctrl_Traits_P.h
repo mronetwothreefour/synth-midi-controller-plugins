@@ -21,8 +21,7 @@ namespace MAP
 {
 
 	static const unordered_map<string, tuple<string, int, string>> ctrl_traits{
-		{ ID::app_curr_pgm_name, { lbl_led_pgm_name, 0, Tip::from_SL(SL::curr_pgm_name) } },
-		{ ID::app_curr_pgm_num, { ctr_sli_knb, 0, Tip::from_SL(SL::curr_pgm_num) } },
+		{ ID::app_curr_pgm_num, { ctr_sli_knb, 0, Tip::from_SL(SL::curr_pgm_num_tip) } },
 
 		//exposed osc
 		{ ID::exp_osc_1_pitch, { ctr_sli_knb, 0, Tip::from_SL_and_int(SL::osc_pitch_tip, 1) } },

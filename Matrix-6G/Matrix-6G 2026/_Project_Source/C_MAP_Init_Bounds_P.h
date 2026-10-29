@@ -146,7 +146,11 @@ namespace MAP
 		{ ID::mmod_9_amt, { true, mmod_col_amt_cx, ctr_main_r_09_cy, mmod_ctr_amt_w, ctr_h } },
 		{ ID::mmod_9_dst, { true, mmod_col_dst_cx, ctr_main_r_09_cy, mmod_ctr_dst_w, ctr_h } },
 
-		{ NAME::btn_main_quick, { false, btn_main_quick_x, btn_main_quick_y, btn_main_quick_w, ctr_h } }
+		{ NAME::btn_main_quick, { false, btn_main_quick_x, btn_main_quick_y, btn_main_quick_w, ctr_h } },
+		{ NAME::btn_main_pull, { true, btn_main_pull_cx, ctr_main_r_11_cy, btn_main_small_w, ctr_h } },
+		{ NAME::btn_main_push, { true, btn_main_push_cx, ctr_main_r_11_cy, btn_main_small_w, ctr_h } },
+		{ NAME::btn_main_redo, { true, btn_main_redo_cx, ctr_main_r_11_cy, btn_main_small_w, ctr_h } },
+		{ NAME::btn_main_undo, { true, btn_main_undo_cx, ctr_main_r_11_cy, btn_main_small_w, ctr_h } },
 	};
 	
 }

@@ -64,7 +64,7 @@ void Pgm_Num_And_Name::valueChanged(Value& /*value*/) {
 
 void LAYER::Pgm_Num_And_Name::modifierKeysChanged(const Mods& mods) {
 	if (mods == Mods::ctrlAltCommandModifiers && lbl_pgm_name.isMouseOver())
-		lbl_pgm_name.setTooltip(Tip_For::from_SL(SL::curr_pgm_name));
+		lbl_pgm_name.setTooltip(Tip_For::from_SL(SL::curr_pgm_name_tip));
 	else
 		lbl_pgm_name.setTooltip("");
 }

@@ -70,6 +70,10 @@
             file="../../_Abstract_Source/G_DRAW_Paths_A.cpp"/>
       <FILE id="TghLaW" name="G_DRAW_Paths_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_DRAW_Paths_A.h"/>
+      <FILE id="jgWGFK" name="G_LAYER_Buttons_Main_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_LAYER_Buttons_Main_A.cpp"/>
+      <FILE id="qUPU3r" name="G_LAYER_Buttons_Main_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_LAYER_Buttons_Main_A.h"/>
       <FILE id="K5CapO" name="G_Look_And_Feel_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/G_Look_And_Feel_A.cpp"/>
       <FILE id="Rf3Whm" name="G_Look_And_Feel_A.h" compile="0" resource="0"

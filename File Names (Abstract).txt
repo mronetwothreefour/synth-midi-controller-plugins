@@ -19,6 +19,7 @@ D_X_G_Editor_A
 G_DRAW_Envelope_A
 G_DRAW_Images_A
 G_DRAW_Paths_A
+G_LAYER_Buttons_Main_A
 G_Look_And_Feel_A
 G_WIDGET_Ctrl_A
 G_WIDGET_Ctrl_Cbox_A

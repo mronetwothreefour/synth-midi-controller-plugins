@@ -1,6 +1,6 @@
 #pragma once
 
-#include "D_X_G_Data_User_P.h"
+#include "G_LAYER_Buttons_Main_A.h"
 
 using Mods = ModifierKeys;
 
@@ -8,8 +8,7 @@ namespace LAYER
 {
 
 	class Buttons_Main :
-		public Component,
-		public Data_User
+		public Buttons_Main_A
 	{
 	private: TextButton btn_quick;
 
