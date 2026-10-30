@@ -164,6 +164,10 @@
       <FILE id="fdYRa2" name="D_MIDI_Msg_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_MIDI_Msg_P.cpp"/>
       <FILE id="TTWoiU" name="D_MIDI_Msg_P.h" compile="0" resource="0" file="_Project_Source/D_MIDI_Msg_P.h"/>
+      <FILE id="GAdgOc" name="D_MIDI_Raw_Data_Tools_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_MIDI_Raw_Data_Tools_P.cpp"/>
+      <FILE id="k0cO2H" name="D_MIDI_Raw_Data_Tools_P.h" compile="0" resource="0"
+            file="_Project_Source/D_MIDI_Raw_Data_Tools_P.h"/>
       <FILE id="FEllpL" name="D_TREE_App_Params_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_TREE_App_Params_P.cpp"/>
       <FILE id="mlcUVH" name="D_TREE_App_Params_P.h" compile="0" resource="0"

@@ -1024,6 +1024,9 @@
     <ClCompile Include="..\..\_Project_Source\D_MIDI_Msg_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_MIDI_Raw_Data_Tools_P.cpp">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_TREE_App_Params_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
@@ -5296,6 +5299,9 @@
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_MIDI_Msg_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_MIDI_Raw_Data_Tools_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_TREE_App_Params_P.h">

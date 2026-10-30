@@ -24,6 +24,7 @@ D_CONVERT_P
 D_MIDI_Exp_Transmitter_P
 D_MIDI_Handle_Incoming_P
 D_MIDI_Msg_P
+D_MIDI_Raw_Data_Tools_P
 D_TREE_App_Params_P
 D_X_G_Audio_Processor_P
 D_X_G_Data_Hub_P
