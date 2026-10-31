@@ -2,6 +2,8 @@
 
 #include "D_MIDI_Exp_Transmitter_A.h"
 
+using namespace TREE;
+
 namespace MIDI
 {
 
@@ -14,7 +16,7 @@ namespace MIDI
 
 	//==============================================================================
 	public: Exp_Transmitter(const std::string& param_id, Value param_value, 
-							MidiBuffer& outgoing_midi);
+							MidiBuffer& outgoing_midi, App_Params& app_p);
 
 	private: void transmit_change() override;
 

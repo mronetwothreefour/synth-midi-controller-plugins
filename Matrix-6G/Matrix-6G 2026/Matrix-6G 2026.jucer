@@ -104,14 +104,6 @@
             file="../../_Abstract_Source/G_WIDGET_Tip_Updater_A.h"/>
     </GROUP>
     <GROUP id="{184497C2-0BC4-A69C-3CF3-9218D550E5FD}" name="_Project_Source">
-      <FILE id="H5ie5z" name="G_LAYER_Buttons_Main_P.cpp" compile="1" resource="0"
-            file="_Project_Source/G_LAYER_Buttons_Main_P.cpp"/>
-      <FILE id="ZcdYVK" name="G_LAYER_Buttons_Main_P.h" compile="0" resource="0"
-            file="_Project_Source/G_LAYER_Buttons_Main_P.h"/>
-      <FILE id="nf0Quu" name="D_MIDI_Exp_Transmitter_P.cpp" compile="1" resource="0"
-            file="_Project_Source/D_MIDI_Exp_Transmitter_P.cpp"/>
-      <FILE id="gGV9Ew" name="D_MIDI_Exp_Transmitter_P.h" compile="0" resource="0"
-            file="_Project_Source/D_MIDI_Exp_Transmitter_P.h"/>
       <FILE id="FPDXio" name="C_COLOR_P.h" compile="0" resource="0" file="_Project_Source/C_COLOR_P.h"/>
       <FILE id="vw8VLF" name="C_GET_P.cpp" compile="1" resource="0" file="_Project_Source/C_GET_P.cpp"/>
       <FILE id="VRy3hq" name="C_GET_P.h" compile="0" resource="0" file="_Project_Source/C_GET_P.h"/>
@@ -161,6 +153,10 @@
             file="_Project_Source/D_BUILD_Tip_For_P.h"/>
       <FILE id="qHYjtB" name="D_CONVERT_P.cpp" compile="1" resource="0" file="_Project_Source/D_CONVERT_P.cpp"/>
       <FILE id="xaIjg7" name="D_CONVERT_P.h" compile="0" resource="0" file="_Project_Source/D_CONVERT_P.h"/>
+      <FILE id="nf0Quu" name="D_MIDI_Exp_Transmitter_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_MIDI_Exp_Transmitter_P.cpp"/>
+      <FILE id="gGV9Ew" name="D_MIDI_Exp_Transmitter_P.h" compile="0" resource="0"
+            file="_Project_Source/D_MIDI_Exp_Transmitter_P.h"/>
       <FILE id="fdYRa2" name="D_MIDI_Msg_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_MIDI_Msg_P.cpp"/>
       <FILE id="TTWoiU" name="D_MIDI_Msg_P.h" compile="0" resource="0" file="_Project_Source/D_MIDI_Msg_P.h"/>
@@ -208,6 +204,10 @@
             file="_Project_Source/G_DRAW_Tracking_Env_P.cpp"/>
       <FILE id="B0JwMj" name="G_DRAW_Tracking_Env_P.h" compile="0" resource="0"
             file="_Project_Source/G_DRAW_Tracking_Env_P.h"/>
+      <FILE id="H5ie5z" name="G_LAYER_Buttons_Main_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_LAYER_Buttons_Main_P.cpp"/>
+      <FILE id="ZcdYVK" name="G_LAYER_Buttons_Main_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Buttons_Main_P.h"/>
       <FILE id="Ij0k7F" name="G_LAYER_Ctrls_Exp_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_LAYER_Ctrls_Exp_P.cpp"/>
       <FILE id="T4DPX3" name="G_LAYER_Ctrls_Exp_P.h" compile="0" resource="0"

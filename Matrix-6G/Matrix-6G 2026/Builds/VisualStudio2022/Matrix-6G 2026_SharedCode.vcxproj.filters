@@ -1000,12 +1000,6 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.cpp">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\_Project_Source\G_LAYER_Buttons_Main_P.cpp">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\_Project_Source\D_MIDI_Exp_Transmitter_P.cpp">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
@@ -1019,6 +1013,9 @@
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_CONVERT_P.cpp">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_MIDI_Exp_Transmitter_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_MIDI_Msg_P.cpp">
@@ -1055,6 +1052,9 @@
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Tracking_Env_P.cpp">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\G_LAYER_Buttons_Main_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.cpp">
@@ -5217,12 +5217,6 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\G_LAYER_Buttons_Main_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\D_MIDI_Exp_Transmitter_P.h">
-      <Filter>Matrix-6G 2026\_Project_Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
@@ -5298,6 +5292,9 @@
     <ClInclude Include="..\..\_Project_Source\D_CONVERT_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_MIDI_Exp_Transmitter_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_MIDI_Msg_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
@@ -5332,6 +5329,9 @@
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Tracking_Env_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\G_LAYER_Buttons_Main_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.h">

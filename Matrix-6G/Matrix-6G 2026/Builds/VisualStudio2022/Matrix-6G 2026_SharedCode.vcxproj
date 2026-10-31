@@ -167,13 +167,12 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Label_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Wheel_Mod_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.cpp"/>
-    <ClCompile Include="..\..\_Project_Source\G_LAYER_Buttons_Main_P.cpp"/>
-    <ClCompile Include="..\..\_Project_Source\D_MIDI_Exp_Transmitter_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\C_GET_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Choices_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Font_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Tip_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_CONVERT_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\D_MIDI_Exp_Transmitter_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_MIDI_Msg_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_MIDI_Raw_Data_Tools_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_TREE_App_Params_P.cpp"/>
@@ -186,6 +185,7 @@
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_LED_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Tracking_Env_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\G_LAYER_Buttons_Main_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_LAYER_Ctrls_MMod_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_LAYER_Envelopes_P.cpp"/>
@@ -4046,8 +4046,6 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Label_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Sli_Wheel_Mod_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Tip_Updater_A.h"/>
-    <ClInclude Include="..\..\_Project_Source\G_LAYER_Buttons_Main_P.h"/>
-    <ClInclude Include="..\..\_Project_Source\D_MIDI_Exp_Transmitter_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_COLOR_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_GET_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_ID_Main_P.h"/>
@@ -4073,6 +4071,7 @@
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Font_For_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Tip_For_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_CONVERT_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\D_MIDI_Exp_Transmitter_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_MIDI_Msg_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_MIDI_Raw_Data_Tools_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_TREE_App_Params_P.h"/>
@@ -4085,6 +4084,7 @@
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_LED_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Tracking_Env_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\G_LAYER_Buttons_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Envelopes_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_MMod_P.h"/>

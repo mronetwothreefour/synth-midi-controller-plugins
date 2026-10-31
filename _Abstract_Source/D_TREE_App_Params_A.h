@@ -19,6 +19,9 @@ namespace TREE
 	public: const int current_pgm_num();
 	public: void set_current_pgm_num(const int new_setting);
 
+	public: const bool exp_tx_allowed();
+	public: void set_exp_tx_allowed(const bool is_true);
+
 	public: const int scale_i();
 	public: void set_scale_i(const int new_setting);
 	public: void set_scale_i_excluding(const int new_setting,
