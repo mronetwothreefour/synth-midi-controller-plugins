@@ -1,5 +1,6 @@
 #include "D_MIDI_Raw_Data_Tools_P.h"
 
+#include "C_GET_P.h"
 #include "C_MIDI_P.h"
 
 using namespace MIDI;

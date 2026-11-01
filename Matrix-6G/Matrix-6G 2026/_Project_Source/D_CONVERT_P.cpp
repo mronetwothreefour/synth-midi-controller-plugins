@@ -11,7 +11,7 @@ const std::vector<uint8> CONVERT::to_data_vector(const String& hex_string) {
     return data;
 }
 
-const String& CONVERT::to_hex_string(const std::vector<uint8> data) {
+const String CONVERT::to_hex_string(const std::vector<uint8> data) {
     String hex_string;
     auto checksum_index{ data.size() - 1 };
     for (auto i = 0; i < checksum_index; ++i)

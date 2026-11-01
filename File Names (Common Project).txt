@@ -22,7 +22,7 @@ D_BUILD_Font_For_P
 D_BUILD_Tip_For_P
 D_CONVERT_P
 D_MIDI_Exp_Transmitter_P
-D_MIDI_Handle_Incoming_P
+D_MIDI_Incoming_Msg_Handler_P
 D_MIDI_Msg_P
 D_MIDI_Raw_Data_Tools_P
 D_TREE_App_Params_P

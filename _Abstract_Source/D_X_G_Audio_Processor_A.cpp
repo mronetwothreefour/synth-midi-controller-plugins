@@ -5,6 +5,7 @@
 Audio_Processor_A::Audio_Processor_A() :
     AudioProcessor{ BusesProperties{} },
     hub{ new Data_Hub{ this } },
+    midi_handler{ hub.get() },
     outgoing_midi{ hub->get_outgoing_midi_buffer() }
 {}
 
@@ -28,10 +29,14 @@ void Audio_Processor_A::changeProgramName(int /*pgm_index*/, const String& /*new
 
 void Audio_Processor_A::processBlock(AudioBuffer<float>& audio, MidiBuffer& midi) {
     audio.clear();
+    if (!midi.isEmpty()) {
+        auto irrelevant_midi = midi_handler.extract_and_handle_relevant_midi_from(midi);
+        midi.swapWith(irrelevant_midi);
+    }
     if (!outgoing_midi.isEmpty()) {
-        MidiBuffer holding_buffer;
-        holding_buffer.swapWith(outgoing_midi);
-        midi.addEvents(holding_buffer, 0, -1, 0);
+        MidiBuffer tmp_buf;
+        tmp_buf.swapWith(outgoing_midi);
+        midi.addEvents(tmp_buf, 0, -1, 0);
     }
 }
 

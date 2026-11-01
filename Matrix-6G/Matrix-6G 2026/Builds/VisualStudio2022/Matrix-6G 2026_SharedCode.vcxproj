@@ -173,6 +173,7 @@
     <ClCompile Include="..\..\_Project_Source\D_BUILD_Tip_For_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_CONVERT_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_MIDI_Exp_Transmitter_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\D_MIDI_Incoming_Msg_Handler_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_MIDI_Msg_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_MIDI_Raw_Data_Tools_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_TREE_App_Params_P.cpp"/>
@@ -4030,6 +4031,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_BUILD_Tip_For_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_CONVERT_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_MIDI_Exp_Transmitter_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_MIDI_Incoming_Msg_Handler_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_TREE_App_Params_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Audio_Processor_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Data_Hub_A.h"/>
@@ -4072,6 +4074,7 @@
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Tip_For_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_CONVERT_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_MIDI_Exp_Transmitter_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\D_MIDI_Incoming_Msg_Handler_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_MIDI_Msg_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_MIDI_Raw_Data_Tools_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_TREE_App_Params_P.h"/>
@@ -4086,8 +4089,8 @@
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Tracking_Env_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Buttons_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.h"/>
-    <ClInclude Include="..\..\_Project_Source\G_LAYER_Envelopes_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_MMod_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\G_LAYER_Envelopes_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Pgm_Num_And_Name_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_Look_And_Feel_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_WIDGET_Ctrl_Slider_P.h"/>

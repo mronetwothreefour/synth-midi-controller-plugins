@@ -1018,6 +1018,9 @@
     <ClCompile Include="..\..\_Project_Source\D_MIDI_Exp_Transmitter_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\_Project_Source\D_MIDI_Incoming_Msg_Handler_P.cpp">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\_Project_Source\D_MIDI_Msg_P.cpp">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClCompile>
@@ -5169,6 +5172,9 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_MIDI_Exp_Transmitter_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\D_MIDI_Incoming_Msg_Handler_A.h">
+      <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_TREE_App_Params_A.h">
       <Filter>Matrix-6G 2026\_Abstract_Source</Filter>
     </ClInclude>
@@ -5295,6 +5301,9 @@
     <ClInclude Include="..\..\_Project_Source\D_MIDI_Exp_Transmitter_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\D_MIDI_Incoming_Msg_Handler_P.h">
+      <Filter>Matrix-6G 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\D_MIDI_Msg_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
@@ -5337,10 +5346,10 @@
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\G_LAYER_Envelopes_P.h">
+    <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_MMod_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_MMod_P.h">
+    <ClInclude Include="..\..\_Project_Source\G_LAYER_Envelopes_P.h">
       <Filter>Matrix-6G 2026\_Project_Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Pgm_Num_And_Name_P.h">

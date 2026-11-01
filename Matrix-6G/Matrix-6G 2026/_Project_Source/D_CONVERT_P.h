@@ -8,5 +8,5 @@ struct CONVERT :
 	public CONVERT_A
 {
 public: static const std::vector<uint8> to_data_vector(const String& hex_string);
-public: static const String& to_hex_string(const std::vector<uint8> data_vector);
+public: static const String to_hex_string(const std::vector<uint8> data_vector);
 };

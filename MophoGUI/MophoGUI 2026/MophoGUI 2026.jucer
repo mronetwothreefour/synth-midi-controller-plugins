@@ -38,6 +38,8 @@
             file="../../_Abstract_Source/D_MIDI_Exp_Transmitter_A.cpp"/>
       <FILE id="qyeV8X" name="D_MIDI_Exp_Transmitter_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/D_MIDI_Exp_Transmitter_A.h"/>
+      <FILE id="DyFLVY" name="D_MIDI_Incoming_Msg_Handler_A.h" compile="0"
+            resource="0" file="../../_Abstract_Source/D_MIDI_Incoming_Msg_Handler_A.h"/>
       <FILE id="RUe2zv" name="D_TREE_App_Params_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/D_TREE_App_Params_A.cpp"/>
       <FILE id="UZwbrG" name="D_TREE_App_Params_A.h" compile="0" resource="0"
@@ -154,6 +156,17 @@
             file="_Project_Source/D_MIDI_Exp_Transmitter_P.cpp"/>
       <FILE id="QlxKOS" name="D_MIDI_Exp_Transmitter_P.h" compile="0" resource="0"
             file="_Project_Source/D_MIDI_Exp_Transmitter_P.h"/>
+      <FILE id="Ud041w" name="D_MIDI_Incoming_Msg_Handler_P.cpp" compile="1"
+            resource="0" file="_Project_Source/D_MIDI_Incoming_Msg_Handler_P.cpp"/>
+      <FILE id="m6Vfwl" name="D_MIDI_Incoming_Msg_Handler_P.h" compile="0"
+            resource="0" file="_Project_Source/D_MIDI_Incoming_Msg_Handler_P.h"/>
+      <FILE id="VCArQ2" name="D_MIDI_Msg_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_MIDI_Msg_P.cpp"/>
+      <FILE id="o3hmve" name="D_MIDI_Msg_P.h" compile="0" resource="0" file="_Project_Source/D_MIDI_Msg_P.h"/>
+      <FILE id="i26Gn0" name="D_MIDI_Raw_Data_Tools_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_MIDI_Raw_Data_Tools_P.cpp"/>
+      <FILE id="xgwj9a" name="D_MIDI_Raw_Data_Tools_P.h" compile="0" resource="0"
+            file="_Project_Source/D_MIDI_Raw_Data_Tools_P.h"/>
       <FILE id="Te4ixd" name="D_TREE_App_Params_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_TREE_App_Params_P.cpp"/>
       <FILE id="q9qlfw" name="D_TREE_App_Params_P.h" compile="0" resource="0"
