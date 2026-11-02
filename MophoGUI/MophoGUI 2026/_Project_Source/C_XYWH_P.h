@@ -3,6 +3,18 @@
 namespace XYWH
 {
 
+	constexpr auto btn_h = 20;
+	constexpr auto btn_main_global_x = 770;
+	constexpr auto btn_main_pgm_bank_x = 707;
+	constexpr auto btn_main_pull_x = 644;
+	constexpr auto btn_main_push_x = 581;
+	constexpr auto btn_main_redo_y = 56;
+	constexpr auto btn_main_row_w = 51;
+	constexpr auto btn_main_row_y = 84;
+	constexpr auto btn_main_undo_redo_x = 833;
+	constexpr auto btn_main_undo_w = 42;
+	constexpr auto btn_main_undo_y = 27;
+
 	constexpr auto cbox_h = 16;
 	constexpr auto cbox_item_h = cbox_h - 2;
 	constexpr auto knob_diam = 38;

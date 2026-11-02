@@ -205,10 +205,12 @@ namespace MAP
 		{ ID::exp_voice_name_char_15, { 1, name_char_15_cx, name_char_cy, name_char_w, name_char_h } },
 		{ ID::exp_voice_name_char_16, { 1, name_char_16_cx, name_char_cy, name_char_w, name_char_h } },
 
-		{ NAME::btn_main_pull, { true, btn_main_pull_x, ctr_main_r_11_cy, btn_main_small_w, ctr_h } },
-		{ NAME::btn_main_push, { true, btn_main_push_cx, ctr_main_r_11_cy, btn_main_small_w, ctr_h } },
-		{ NAME::btn_main_redo, { true, btn_main_redo_cx, ctr_main_r_11_cy, btn_main_small_w, ctr_h } },
-		{ NAME::btn_main_undo, { true, btn_main_undo_cx, ctr_main_r_11_cy, btn_main_small_w, ctr_h } },
+		{ NAME::btn_main_global, { false, btn_main_global_x, btn_main_row_y, btn_main_row_w, btn_h } },
+		{ NAME::btn_main_pgm_bank, { false, btn_main_pgm_bank_x, btn_main_row_y, btn_main_row_w, btn_h } },
+		{ NAME::btn_main_pull, { false, btn_main_pull_x, btn_main_row_y, btn_main_row_w, btn_h } },
+		{ NAME::btn_main_push, { false, btn_main_push_x, btn_main_row_y, btn_main_row_w, btn_h } },
+		{ NAME::btn_main_redo, { false, btn_main_undo_redo_x, btn_main_redo_y, btn_main_undo_w, btn_h } },
+		{ NAME::btn_main_undo, { false, btn_main_undo_redo_x, btn_main_undo_y, btn_main_undo_w, btn_h } },
 	};
 
 	static const unordered_map<string, tuple<bool, int, int>> init_red_toggle_pos{
