@@ -5,6 +5,8 @@
 namespace ID
 {
 
+	constexpr auto app_auto_push_enabled = "app_auto_push_enabled";
+
 	constexpr auto exp_amp_env_attack = "exp_amp_env_attack";
 	constexpr auto exp_amp_env_decay = "exp_amp_env_decay";
 	constexpr auto exp_amp_env_release = "exp_amp_env_release";

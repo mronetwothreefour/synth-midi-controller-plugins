@@ -52,6 +52,13 @@ namespace MAP
 		{ ID::exp_lfo_dest_osc_pitch, { true, 282, sw_row_2_cy, sw_2_pole_w, sw_2_pole_h } },
 		{ ID::exp_lfo_dest_osc_pw, { true, 342, sw_row_2_cy, sw_2_pole_w, sw_2_pole_h } },
 		{ ID::exp_lfo_dest_filter, { true, 402, sw_row_2_cy, sw_2_pole_w, sw_2_pole_h } },
+
+		{ NAME::btn_main_global, { true, btn_main_global_x, btn_main_row_y, btn_w, btn_h } },
+		{ NAME::btn_main_pgm_bank, { true, btn_main_pgm_bank_x, btn_main_row_y, btn_w, btn_h } },
+		{ NAME::btn_main_pull, { true, btn_main_pull_x, btn_main_row_y, btn_w, btn_h } },
+		{ NAME::btn_main_push, { true, btn_main_push_x, btn_main_row_y, btn_w, btn_h } },
+		{ NAME::btn_main_redo, { true, btn_main_redo_x, btn_main_row_y, btn_w, btn_h } },
+		{ NAME::btn_main_undo, { true, btn_main_undo_x, btn_main_row_y, btn_w, btn_h } },
 	};
 
 }

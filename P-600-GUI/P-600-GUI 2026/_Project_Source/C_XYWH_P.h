@@ -3,6 +3,16 @@
 namespace XYWH
 {
 
+	constexpr auto btn_main_global_x = 826;
+	constexpr auto btn_main_pgm_bank_x = 676;
+	constexpr auto btn_main_pull_x = 626;
+	constexpr auto btn_main_push_x = 576;
+	constexpr auto btn_main_redo_x = 776;
+	constexpr auto btn_main_row_y = 45;
+	constexpr auto btn_main_undo_x = 726;
+	constexpr auto btn_h = 40;
+	constexpr auto btn_w = btn_h;
+
 	constexpr auto editor_init_w = 1342, editor_init_h = 392;
 
 	constexpr auto fltr_amp_col_spacing = 75;

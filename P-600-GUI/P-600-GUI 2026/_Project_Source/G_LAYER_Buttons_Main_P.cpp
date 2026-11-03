@@ -10,5 +10,5 @@ Buttons_Main::Buttons_Main(Data_Hub* hub) :
 void Buttons_Main::resized() {
 }
 
-void Buttons_Main::modifierKeysChanged(const Mods& mods) {
+void Buttons_Main::modifierKeysChanged(const Mods& /*mods*/) {
 }

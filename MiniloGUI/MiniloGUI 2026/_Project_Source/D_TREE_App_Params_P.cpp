@@ -12,7 +12,7 @@ App_Params::App_Params(UndoManager* u_m) :
 }
 
 const bool TREE::App_Params::show_envelope() {
-	return (int)tree[ID::app_show_env];
+	return (bool)tree[ID::app_show_env];
 }
 
 void TREE::App_Params::set_show_envelope(const bool should_show) {
@@ -20,7 +20,7 @@ void TREE::App_Params::set_show_envelope(const bool should_show) {
 }
 
 const bool TREE::App_Params::show_vca_envelope() {
-	return (int)tree[ID::app_show_vca_env];
+	return (bool)tree[ID::app_show_vca_env];
 }
 
 void TREE::App_Params::set_show_vca_envelope(const bool should_show) {
