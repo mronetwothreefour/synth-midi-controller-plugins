@@ -4052,6 +4052,7 @@
     <ClInclude Include="..\..\_Project_Source\C_MISC_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_NAME_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_RES_Backdrop_Main_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_RES_Pgm_Num_LED_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_RES_Widgets_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Exposed_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h"/>

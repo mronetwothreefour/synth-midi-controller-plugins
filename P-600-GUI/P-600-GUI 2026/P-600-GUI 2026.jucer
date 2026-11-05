@@ -121,6 +121,8 @@
       <FILE id="VdNFHF" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
       <FILE id="aPd7MQ" name="C_RES_Backdrop_Main_P.h" compile="0" resource="0"
             file="_Project_Source/C_RES_Backdrop_Main_P.h"/>
+      <FILE id="Uu5lRV" name="C_RES_Pgm_Num_LED_P.h" compile="0" resource="0"
+            file="_Project_Source/C_RES_Pgm_Num_LED_P.h"/>
       <FILE id="ak9ytX" name="C_RES_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/C_RES_Widgets_P.h"/>
       <FILE id="wWjUBr" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"

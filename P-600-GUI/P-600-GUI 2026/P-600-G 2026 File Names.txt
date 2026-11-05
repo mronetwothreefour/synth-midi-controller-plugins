@@ -1,1 +1,2 @@
 C_MAP_Data_Location_P
+C_RES_Pgm_Num_LED_P

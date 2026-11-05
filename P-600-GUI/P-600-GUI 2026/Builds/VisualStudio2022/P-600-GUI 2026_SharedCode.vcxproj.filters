@@ -5235,6 +5235,9 @@
     <ClInclude Include="..\..\_Project_Source\C_RES_Backdrop_Main_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\_Project_Source\C_RES_Pgm_Num_LED_P.h">
+      <Filter>P-600-GUI 2026\_Project_Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\_Project_Source\C_RES_Widgets_P.h">
       <Filter>P-600-GUI 2026\_Project_Source</Filter>
     </ClInclude>
