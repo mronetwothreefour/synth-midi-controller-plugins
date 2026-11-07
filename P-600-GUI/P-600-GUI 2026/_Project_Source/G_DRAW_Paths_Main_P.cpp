@@ -13,8 +13,6 @@ void Paths_Main::backdrop(Graphics& g) {
 	g.fillPath(RES::main_grey_dark);
 	g.setColour(Colour{ COLOR::red_led_1 });
 	g.fillPath(RES::main_red_led_1);
-	g.setColour(Colour{ COLOR::red_led_2 });
-	g.fillPath(RES::main_red_led_2);
 	g.setColour(Colour{ COLOR::red_btn });
 	g.fillPath(RES::main_red_btn);
 	g.setColour(Colour{ COLOR::grey_lite });

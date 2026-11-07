@@ -179,10 +179,12 @@
     <ClCompile Include="..\..\_Project_Source\D_X_G_Data_Hub_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Data_User_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\D_X_G_Editor_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_LED_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_LAYER_Buttons_Main_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.cpp"/>
+    <ClCompile Include="..\..\_Project_Source\G_LAYER_Pgm_Num_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_Look_And_Feel_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_WIDGET_Ctrl_Slider_P.cpp"/>
     <ClCompile Include="..\..\_Project_Source\G_WIDGET_Sli_Label_P.cpp"/>
@@ -4052,7 +4054,7 @@
     <ClInclude Include="..\..\_Project_Source\C_MISC_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_NAME_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_RES_Backdrop_Main_P.h"/>
-    <ClInclude Include="..\..\_Project_Source\C_RES_Pgm_Num_LED_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_RES_LED_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_RES_Widgets_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Exposed_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h"/>
@@ -4069,10 +4071,12 @@
     <ClInclude Include="..\..\_Project_Source\D_X_G_Data_Hub_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Data_User_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_X_G_Editor_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_LED_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_DRAW_Paths_Widgets_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Buttons_Main_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_LAYER_Ctrls_Exp_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\G_LAYER_Pgm_Num_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_Look_And_Feel_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_WIDGET_Ctrl_Slider_P.h"/>
     <ClInclude Include="..\..\_Project_Source\G_WIDGET_Sli_Label_P.h"/>

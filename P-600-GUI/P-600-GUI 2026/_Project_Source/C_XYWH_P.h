@@ -13,6 +13,11 @@ namespace XYWH
 	constexpr auto btn_h = 40;
 	constexpr auto btn_w = btn_h;
 
+	constexpr auto curr_pgm_num_h = 50;
+	constexpr auto curr_pgm_num_w = 60;
+	constexpr auto curr_pgm_num_x = 506;
+	constexpr auto curr_pgm_num_y = 40;
+
 	constexpr auto editor_init_w = 1342, editor_init_h = 392;
 
 	constexpr auto fltr_amp_col_spacing = 75;

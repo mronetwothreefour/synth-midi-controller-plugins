@@ -121,8 +121,7 @@
       <FILE id="VdNFHF" name="C_NAME_P.h" compile="0" resource="0" file="_Project_Source/C_NAME_P.h"/>
       <FILE id="aPd7MQ" name="C_RES_Backdrop_Main_P.h" compile="0" resource="0"
             file="_Project_Source/C_RES_Backdrop_Main_P.h"/>
-      <FILE id="Uu5lRV" name="C_RES_Pgm_Num_LED_P.h" compile="0" resource="0"
-            file="_Project_Source/C_RES_Pgm_Num_LED_P.h"/>
+      <FILE id="Uu5lRV" name="C_RES_LED_P.h" compile="0" resource="0" file="_Project_Source/C_RES_LED_P.h"/>
       <FILE id="ak9ytX" name="C_RES_Widgets_P.h" compile="0" resource="0"
             file="_Project_Source/C_RES_Widgets_P.h"/>
       <FILE id="wWjUBr" name="C_SL_Tip_Exposed_P.h" compile="0" resource="0"
@@ -177,6 +176,10 @@
             file="_Project_Source/D_X_G_Editor_P.cpp"/>
       <FILE id="dFbeCO" name="D_X_G_Editor_P.h" compile="0" resource="0"
             file="_Project_Source/D_X_G_Editor_P.h"/>
+      <FILE id="PViVb0" name="G_DRAW_Paths_LED_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_DRAW_Paths_LED_P.cpp"/>
+      <FILE id="oB0Po7" name="G_DRAW_Paths_LED_P.h" compile="0" resource="0"
+            file="_Project_Source/G_DRAW_Paths_LED_P.h"/>
       <FILE id="IU666Y" name="G_DRAW_Paths_Main_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_DRAW_Paths_Main_P.cpp"/>
       <FILE id="iNjXbJ" name="G_DRAW_Paths_Main_P.h" compile="0" resource="0"
@@ -193,6 +196,10 @@
             file="_Project_Source/G_LAYER_Ctrls_Exp_P.cpp"/>
       <FILE id="LxSt5n" name="G_LAYER_Ctrls_Exp_P.h" compile="0" resource="0"
             file="_Project_Source/G_LAYER_Ctrls_Exp_P.h"/>
+      <FILE id="NaupXF" name="G_LAYER_Pgm_Num_P.cpp" compile="1" resource="0"
+            file="_Project_Source/G_LAYER_Pgm_Num_P.cpp"/>
+      <FILE id="tOrOwd" name="G_LAYER_Pgm_Num_P.h" compile="0" resource="0"
+            file="_Project_Source/G_LAYER_Pgm_Num_P.h"/>
       <FILE id="TcDNUf" name="G_Look_And_Feel_P.cpp" compile="1" resource="0"
             file="_Project_Source/G_Look_And_Feel_P.cpp"/>
       <FILE id="jl0CNI" name="G_Look_And_Feel_P.h" compile="0" resource="0"

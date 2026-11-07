@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "C_ID_A.h"
 #include "C_ID_Main_P.h"
 #include "D_BUILD_Choices_For_P.h"
 
@@ -11,6 +12,8 @@ namespace MAP
 {
 
 	static const std::unordered_map<std::string, StringArray> choices{
+		{ ID::app_curr_pgm_num, Choices_For::app_curr_pgm_num() },
+
 		//osc
 		{ ID::exp_unison_track, Choices_For::off_on() },
 		{ ID::exp_osc_a_pitch, Choices_For::osc_pitch(49) },

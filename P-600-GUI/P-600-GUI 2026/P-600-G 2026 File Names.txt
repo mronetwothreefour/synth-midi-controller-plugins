@@ -1,2 +1,4 @@
 C_MAP_Data_Location_P
-C_RES_Pgm_Num_LED_P
+C_RES_LED_P
+G_DRAW_Paths_LED_P
+G_LAYER_Pgm_Num_P

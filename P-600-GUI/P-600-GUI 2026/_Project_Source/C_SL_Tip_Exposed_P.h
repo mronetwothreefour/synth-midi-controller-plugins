@@ -3,6 +3,12 @@
 namespace SL
 {
 
+	constexpr auto curr_pgm_num_tip = u8R"(
+Selects which program storage slot
+in the hardware is targeted by
+push and pull operations.
+Range: 00 to 99.)";
+
     constexpr auto env_attack_tip = u8R"(
 Sets the amount of time it takes for the _type of_
 envelope to rise from zero to maximum level.

@@ -3,6 +3,7 @@
 #include <tuple>
 #include <unordered_map>
 
+#include "C_ID_A.h"
 #include "C_ID_Main_P.h"
 #include "C_NAME_P.h"
 #include "C_SL_Tip_Exposed_P.h"
@@ -18,6 +19,8 @@ namespace MAP
 {
 
 	static const unordered_map<string, tuple<string, int, string>> ctrl_traits{
+		{ ID::app_curr_pgm_num, { ctr_sli_led_num, 0, Tip::from_SL(SL::curr_pgm_num_tip) } },
+
 		//osc
 		{ ID::exp_unison_track, { ctr_sli_sw_2, 0, Tip::from_SL(SL::unison_track_tip) } },
 		{ ID::exp_osc_a_pitch, { ctr_sli_knb, 12, Tip::exp_osc_pitch("A") } },

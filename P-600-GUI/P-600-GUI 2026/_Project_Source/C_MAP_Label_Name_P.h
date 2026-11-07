@@ -10,6 +10,8 @@ namespace MAP
 {
 
 	static const std::unordered_map<std::string, std::string> label_name{
+		{ ID::app_curr_pgm_num, NAME::lbl_led_num },
+
 		//osc
 		{ ID::exp_osc_a_pitch, NAME::lbl_knb },
 		{ ID::exp_osc_a_pulse_w, NAME::lbl_knb },

@@ -29,7 +29,7 @@ Use the PUSH button to send the entire patch instead.)";
 
 	constexpr auto curr_pgm_num_tip = u8R"(
 Selects which patch storage slot
-on the hardware is targeted by the
+in the hardware is targeted by the
 PUSH and PULL buttons to the left.
 Range: 00 to 99.)";
 

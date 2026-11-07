@@ -4,6 +4,7 @@
 #include <tuple>
 #include <unordered_map>
 
+#include "C_ID_A.h"
 #include "C_ID_Main_P.h"
 #include "C_NAME_P.h"
 #include "C_XYWH_P.h"
@@ -15,6 +16,8 @@ namespace MAP
 {
 
 	static const unordered_map<string, tuple<bool, int, int, int, int>> init_bounds{
+		{ ID::app_curr_pgm_num, { true, curr_pgm_num_x, curr_pgm_num_y, curr_pgm_num_w, curr_pgm_num_h } },
+
 		{ ID::exp_unison_track, { true, 416, sw_row_1_cy, sw_2_pole_w, sw_2_pole_h } },
 		{ ID::exp_osc_a_pitch, { true, osc_col_1_cx, knob_row_2_cy, knob_diam, knob_diam } },
 		{ ID::exp_osc_a_sync, { true, osc_col_2_cx, sw_row_1_cy, sw_2_pole_w, sw_2_pole_h } },
