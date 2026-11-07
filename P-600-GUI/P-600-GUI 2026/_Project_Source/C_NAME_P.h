@@ -9,4 +9,6 @@ namespace NAME
 
 		constexpr auto lbl_led_num = "lbl_led_num";
 
+		constexpr auto txt_editor_led_num = "txt_editor_led_num";
+
 }

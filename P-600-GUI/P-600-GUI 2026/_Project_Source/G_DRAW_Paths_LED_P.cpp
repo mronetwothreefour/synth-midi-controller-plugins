@@ -5,22 +5,21 @@
 #include "C_RES_LED_P.h"
 
 void DRAW::Paths_LED::digit(Graphics& g, const int d, AffineTransform transform) {
-	auto flags = MISC::led_segment_flags[std::clamp(d, 0, 99)];
+	auto& flags = MISC::led_segment_flags[std::clamp(d, 0, 9)];
 	Colour off{ COLOR::red_led_2 };
 	Colour on{ COLOR::red_led_3 };
-	g.setColour(flags & 1 ? on : off);
+	g.setColour(std::get<0>(flags) ? on : off);
 	g.fillPath(RES::led_segment_a, transform);
-	g.setColour(flags & 2 ? on : off);
+	g.setColour(std::get<1>(flags) ? on : off);
 	g.fillPath(RES::led_segment_b, transform);
-	g.setColour(flags & 4 ? on : off);
+	g.setColour(std::get<2>(flags) ? on : off);
 	g.fillPath(RES::led_segment_c, transform);
-	g.setColour(flags & 8 ? on : off);
+	g.setColour(std::get<3>(flags) ? on : off);
 	g.fillPath(RES::led_segment_d, transform);
-	g.setColour(flags & 16 ? on : off);
+	g.setColour(std::get<4>(flags) ? on : off);
 	g.fillPath(RES::led_segment_e, transform);
-	g.setColour(flags & 32 ? on : off);
+	g.setColour(std::get<5>(flags) ? on : off);
 	g.fillPath(RES::led_segment_f, transform);
-	g.setColour(flags & 64 ? on : off);
+	g.setColour(std::get<6>(flags) ? on : off);
 	g.fillPath(RES::led_segment_g, transform);
-	g.setColour(flags & 128 ? on : off);
 }

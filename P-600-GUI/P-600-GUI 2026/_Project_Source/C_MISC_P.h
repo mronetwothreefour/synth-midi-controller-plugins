@@ -23,17 +23,18 @@ namespace MISC
 		txt_editor_traits_u_5_bit{ allowed_chars_u_int, 2, Tip_For::txt_editor_u_int(31) },
 		txt_editor_traits_u_6_bit{ allowed_chars_u_int, 2, Tip_For::txt_editor_u_int(63) };
 
-	constexpr array<int, 100> led_segment_flags{
-		/*00*/ 0b1111110,
-		/*01*/ 0b0110000,
-		/*02*/ 0b1101101,
-		/*03*/ 0b1111001,
-		/*04*/ 0b0110011,
-		/*05*/ 0b1011011,
-		/*06*/ 0b0011111,
-		/*07*/ 0b1110000,
-		/*08*/ 0b1111111,
-		/*09*/ 0b1110011,
+	constexpr array<tuple<bool, bool, bool, bool, bool, bool, bool>, 10> led_segment_flags{
+		//              a      b      c      d      e      f      g
+		/*00*/ tuple{ true,  true,  true,  true,  true,  true,  false },
+		/*01*/ tuple{ false, true,  true,  false, false, false, false },
+		/*02*/ tuple{ true,  true,  false, true,  true,  false, true  },
+		/*03*/ tuple{ true,  true,  true,  true,  false, false, true  },
+		/*04*/ tuple{ false, true,  true,  false, false, true,  true  },
+		/*05*/ tuple{ true,  false, true,  true,  false, true,  true  },
+		/*06*/ tuple{ false, false, true,  true,  true,  true,  true  },
+		/*07*/ tuple{ true,  true,  true,  false, false, false, false },
+		/*08*/ tuple{ true,  true,  true,  true,  true,  true,  true  },
+		/*09*/ tuple{ true,  true,  true,  false, false, true,  true  },
 	};
 
 }

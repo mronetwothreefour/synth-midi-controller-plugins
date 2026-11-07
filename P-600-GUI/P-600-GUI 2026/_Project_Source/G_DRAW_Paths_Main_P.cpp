@@ -6,7 +6,6 @@
 using namespace DRAW;
 
 void Paths_Main::backdrop(Graphics& g) {
-	g.drawImageAt(RES::main_texture, 0, 0);
 	g.setColour(Colour{ COLOR::translucent_white });
 	g.fillPath(RES::main_translucent_white);
 	g.setColour(Colour{ COLOR::grey_dark });

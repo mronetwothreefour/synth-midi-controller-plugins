@@ -1,8 +1,10 @@
 #include "G_WIDGET_Sli_Label_P.h"
 
+#include "C_ID_A.h"
 #include "C_GET_P.h"
 #include "C_MISC_P.h"
 #include "C_NAME_P.h"
+#include "D_BUILD_Font_For_P.h"
 
 using namespace MISC;
 using namespace NAME;
@@ -16,6 +18,8 @@ Slider_Label::Slider_Label(const std::string& param_id, Data_Hub* hub,
 }
 
 void Slider_Label::editor_mods_p(TextEditor* edit) {
+	if (getComponentID() == ID::app_curr_pgm_num)
+		edit->applyFontToAllText(BUILD::Font_For::led_knob_txt_editor(scale_f));
 	edit->setBounds(getLocalBounds().translated(0, -1));
 	edit->setJustification(Justification::centred);
 	edit->setText(getText().removeCharacters(" "));

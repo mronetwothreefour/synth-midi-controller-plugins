@@ -14,6 +14,7 @@ private: Pgm_Num pgm_num;
 public: Editor(Audio_Processor& processor, Data_Hub* hub);
 
 public: void resized() override;
+public: void paint(Graphics& g) override;
 
 //==============================================================================
 private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Editor)
