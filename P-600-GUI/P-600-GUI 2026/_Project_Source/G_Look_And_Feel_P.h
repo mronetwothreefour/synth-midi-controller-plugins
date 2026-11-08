@@ -8,6 +8,9 @@ class Look_And_Feel :
 //==============================================================================
 public: explicit Look_And_Feel(float& scale_factor);
 
+public: void drawButtonBackground(Graphics& g, Button& btn, const Colour& ground, 
+								  bool hilited, bool down) override;
+
 public: void draw_label_p(Graphics& g, Label& lbl, String& lbl_id) override;
 public: void drawRotarySlider(Graphics& g, int x, int y, int w, int h, float current_pos,
 							  const float min_angle, const float max_angle, Slider& s) override;

@@ -8,9 +8,11 @@ using namespace XYWH;
 
 Editor::Editor(Audio_Processor& processor, Data_Hub* hub) :
     Editor_A{ processor, hub },
-    pgm_num{ hub }
+    pgm_num{ hub },
+    buttons{ hub }
 {
     addAndMakeVisible(pgm_num);
+    addAndMakeVisible(buttons);
     resized();
 }
 
@@ -19,6 +21,7 @@ void Editor::resized() {
     auto bounds = getLocalBounds();
     ctrls_exp.setBounds(bounds);
     pgm_num.setBounds(bounds);
+    buttons.setBounds(bounds);
     app_p.set_scale_i_excluding(roundToInt(scale_f * 100), this);
 }
 

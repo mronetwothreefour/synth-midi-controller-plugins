@@ -1,5 +1,6 @@
 #include "G_Look_And_Feel_P.h"
 
+#include "C_COLOR_P.h"
 #include "C_ID_A.h"
 #include "C_NAME_P.h"
 #include "G_DRAW_Paths_LED_P.h"
@@ -10,6 +11,15 @@ using Draw_Widget = DRAW::Paths_Widgets;
 Look_And_Feel::Look_And_Feel(float& scale_factor) :
 	Look_And_Feel_A{ scale_factor }
 {}
+
+void Look_And_Feel::drawButtonBackground(Graphics& g, Button& btn, const Colour& /*ground*/, 
+										 bool /*hilited*/, bool down)
+{
+	if (down) {
+		g.setColour(Colour{ COLOR::btn_dim });
+		g.fillRoundedRectangle(0.0f, 0.0f, (float)btn.getWidth(), (float)btn.getHeight(), 6.0f);
+	}
+}
 
 void Look_And_Feel::draw_label_p(Graphics& g, Label& lbl, String& lbl_id) {
 	if (lbl_id == NAME::lbl_led_num) {

@@ -158,6 +158,7 @@
     <ClCompile Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_DRAW_Images_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.cpp"/>
+    <ClCompile Include="..\..\..\..\_Abstract_Source\G_LAYER_Buttons_Main_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_Look_And_Feel_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Ctrl_A.cpp"/>
     <ClCompile Include="..\..\..\..\_Abstract_Source\G_WIDGET_Ctrl_Cbox_A.cpp"/>
@@ -4033,6 +4034,7 @@
     <ClInclude Include="..\..\..\..\_Abstract_Source\D_X_G_Editor_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Images_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_DRAW_Paths_A.h"/>
+    <ClInclude Include="..\..\..\..\_Abstract_Source\G_LAYER_Buttons_Main_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_Look_And_Feel_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Ctrl_A.h"/>
     <ClInclude Include="..\..\..\..\_Abstract_Source\G_WIDGET_Ctrl_Cbox_A.h"/>
@@ -4057,6 +4059,7 @@
     <ClInclude Include="..\..\_Project_Source\C_RES_LED_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_RES_Widgets_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Exposed_P.h"/>
+    <ClInclude Include="..\..\_Project_Source\C_SL_Tip_Widget_P.h"/>
     <ClInclude Include="..\..\_Project_Source\C_XYWH_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Choices_For_P.h"/>
     <ClInclude Include="..\..\_Project_Source\D_BUILD_Font_For_P.h"/>
