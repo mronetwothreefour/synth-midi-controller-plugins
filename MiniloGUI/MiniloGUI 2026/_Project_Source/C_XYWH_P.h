@@ -5,6 +5,22 @@
 namespace XYWH
 {
 
+	constexpr auto btn_main_x_spacing = 37;
+	constexpr auto btn_main_0_x = 834;
+	constexpr auto btn_main_1_x = btn_main_0_x + btn_main_x_spacing;
+	constexpr auto btn_main_2_x = btn_main_1_x + btn_main_x_spacing;
+	constexpr auto btn_main_3_x = btn_main_2_x + btn_main_x_spacing;
+	constexpr auto btn_main_4_x = btn_main_3_x + btn_main_x_spacing;
+	constexpr auto btn_main_5_x = btn_main_4_x + btn_main_x_spacing;
+	constexpr auto btn_main_6_x = btn_main_5_x + btn_main_x_spacing;
+	constexpr auto btn_main_7_x = btn_main_6_x + btn_main_x_spacing;
+	constexpr auto btn_main_small_h = 16;
+	constexpr auto btn_main_small_w = 34;
+	constexpr auto btn_main_small_y = 252;
+	constexpr auto btn_main_vmode_h = 98;
+	constexpr auto btn_main_vmode_w = btn_main_small_w;
+	constexpr auto btn_main_vmode_y = 34;
+
 	constexpr auto cbox_h = 16;
 	constexpr auto cbox_item_h = cbox_h - 2;
 	constexpr auto ctr_row_h = 94;

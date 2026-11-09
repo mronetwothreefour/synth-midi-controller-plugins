@@ -80,6 +80,15 @@ namespace MAP
 		{ ID::exp_delay_feedback, { true, 968, ctr_row_1_cy, knob_diam, knob_diam } },
 		{ ID::exp_delay_routing, { false, 1008, 77, 50, switch_h } },
 		{ ID::exp_voice_mode_depth, { true, 1112, ctr_row_2_cy, knob_diam, knob_diam } },
+
+		{ NAME::btn_main_global, { true, btn_main_5_x, btn_main_small_y, btn_main_small_w, ctr_h } },
+		{ NAME::btn_main_microtune, { true, btn_main_8_x, btn_main_small_y, btn_main_small_w, ctr_h } },
+		{ NAME::btn_main_pgm_bank, { true, btn_main_7_x, btn_main_small_y, btn_main_small_w, ctr_h } },
+		{ NAME::btn_main_pull, { true, btn_main_2_x, btn_main_small_y, btn_main_small_w, ctr_h } },
+		{ NAME::btn_main_push, { true, btn_main_1_x, btn_main_small_y, btn_main_small_w, ctr_h } },
+		{ NAME::btn_main_redo, { true, btn_main_4_x, btn_main_small_y, btn_main_small_w, ctr_h } },
+		{ NAME::btn_main_seq, { true, btn_main_6_x, btn_main_small_y, btn_main_small_w, ctr_h } },
+		{ NAME::btn_main_undo, { true, btn_main_3_x, btn_main_small_y, btn_main_small_w, ctr_h } },
 	};
 
 }

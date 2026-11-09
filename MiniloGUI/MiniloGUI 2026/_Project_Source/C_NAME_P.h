@@ -5,6 +5,9 @@
 namespace NAME
 {
 
+	static const auto btn_main_microtune = "btn_main_microtune";
+	static const auto btn_main_seq = "btn_main_seq";
+
 	static const auto ctr_sli_sw_key_octv = "ctr_sli_sw_key_octv";
 	static const auto ctr_sli_sw_lpf = "ctr_sli_sw_lpf";
 	static const auto ctr_sli_sw_osc_octv = "ctr_sli_sw_osc_octv";

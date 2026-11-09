@@ -37,6 +37,8 @@
             file="../../_Abstract_Source/D_MIDI_Exp_Transmitter_A.cpp"/>
       <FILE id="jOmLuJ" name="D_MIDI_Exp_Transmitter_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/D_MIDI_Exp_Transmitter_A.h"/>
+      <FILE id="Bajn2v" name="D_MIDI_Incoming_Msg_Handler_A.h" compile="0"
+            resource="0" file="../../_Abstract_Source/D_MIDI_Incoming_Msg_Handler_A.h"/>
       <FILE id="tfAhHP" name="D_TREE_App_Params_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/D_TREE_App_Params_A.cpp"/>
       <FILE id="qR5XJ9" name="D_TREE_App_Params_A.h" compile="0" resource="0"
@@ -69,6 +71,10 @@
             file="../../_Abstract_Source/G_DRAW_Paths_A.cpp"/>
       <FILE id="mypbMz" name="G_DRAW_Paths_A.h" compile="0" resource="0"
             file="../../_Abstract_Source/G_DRAW_Paths_A.h"/>
+      <FILE id="n992jV" name="G_LAYER_Buttons_Main_A.cpp" compile="1" resource="0"
+            file="../../_Abstract_Source/G_LAYER_Buttons_Main_A.cpp"/>
+      <FILE id="AhsIEH" name="G_LAYER_Buttons_Main_A.h" compile="0" resource="0"
+            file="../../_Abstract_Source/G_LAYER_Buttons_Main_A.h"/>
       <FILE id="lZ8M90" name="G_Look_And_Feel_A.cpp" compile="1" resource="0"
             file="../../_Abstract_Source/G_Look_And_Feel_A.cpp"/>
       <FILE id="WkCbdx" name="G_Look_And_Feel_A.h" compile="0" resource="0"
@@ -159,6 +165,13 @@
             file="_Project_Source/D_MIDI_Exp_Transmitter_P.cpp"/>
       <FILE id="VMgfcr" name="D_MIDI_Exp_Transmitter_P.h" compile="0" resource="0"
             file="_Project_Source/D_MIDI_Exp_Transmitter_P.h"/>
+      <FILE id="PkN1Ge" name="D_MIDI_Msg_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_MIDI_Msg_P.cpp"/>
+      <FILE id="omaUSW" name="D_MIDI_Msg_P.h" compile="0" resource="0" file="_Project_Source/D_MIDI_Msg_P.h"/>
+      <FILE id="EeAooZ" name="D_MIDI_Raw_Data_Tools_P.cpp" compile="1" resource="0"
+            file="_Project_Source/D_MIDI_Raw_Data_Tools_P.cpp"/>
+      <FILE id="EYSvuZ" name="D_MIDI_Raw_Data_Tools_P.h" compile="0" resource="0"
+            file="_Project_Source/D_MIDI_Raw_Data_Tools_P.h"/>
       <FILE id="nKvxpU" name="D_TREE_App_Params_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_TREE_App_Params_P.cpp"/>
       <FILE id="ftb0NB" name="D_TREE_App_Params_P.h" compile="0" resource="0"
