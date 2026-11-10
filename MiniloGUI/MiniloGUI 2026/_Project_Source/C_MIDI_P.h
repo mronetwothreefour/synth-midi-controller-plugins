@@ -7,7 +7,7 @@ namespace MIDI
 	constexpr unsigned char id_maker = 66;
 
 	constexpr unsigned char msg_type_dump_global = 81;
-	constexpr unsigned char msg_type_dump_microtune_octave = 0x69;
+	constexpr unsigned char msg_type_dump_microtune_octave = 69;
 	constexpr unsigned char msg_type_dump_microtune_scale = 68;
 	constexpr unsigned char msg_type_dump_pgm = 76;
 	constexpr unsigned char msg_type_dump_pgm_buffer = 64;

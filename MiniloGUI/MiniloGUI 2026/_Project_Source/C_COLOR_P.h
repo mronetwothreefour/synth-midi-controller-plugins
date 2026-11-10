@@ -6,7 +6,7 @@ namespace COLOR
 {
 
 	constexpr auto env_stroke = white;
-	constexpr auto grey_btn = 0xff222123;
+	constexpr auto grey_btn = 0xff2a2729;
 	constexpr auto grey_cbox_arrow = 0xffc9c9c9;
 	constexpr auto grey_knob_ptr = 0xff484848;
 	constexpr auto grey_switch_tab = 0xffc9c9c9;

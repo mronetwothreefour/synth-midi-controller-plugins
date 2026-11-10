@@ -16,6 +16,20 @@ Look_And_Feel::Look_And_Feel(float& scale_factor) :
 	Look_And_Feel_A{ scale_factor }
 {}
 
+void Look_And_Feel::drawButtonBackground(Graphics& g, Button& btn, const Colour& /*ground*/, 
+										 bool /*hilited*/, bool down)
+{
+	auto n = btn.getName();
+	if (down) {
+		if (n.contains("vmode")) {
+			g.setColour(Colour{ COLOR::btn_dim });
+			g.fillRect(0, 0, XYWH::btn_main_vmode_w, XYWH::btn_main_vmode_dim_h);
+		}
+		else
+			g.fillAll(Colour{ COLOR::btn_dim });
+	}
+}
+
 void Look_And_Feel::positionComboBoxText(ComboBox& cbox, Label& lbl) {
 	lbl.setFont(Font_For::cbox(scale_f));
 	lbl.setName(NAME::lbl_cbx);

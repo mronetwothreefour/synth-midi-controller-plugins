@@ -3,6 +3,16 @@
 namespace SL
 {
 
+	constexpr auto btn_main_pull_tip = u8R"(
+Requests a program edit buffer dump from
+the Minilogue hardware and applies it to
+the plugin GUI. Shortcut key: CTRL+[)";
+
+	constexpr auto btn_main_push_tip = u8R"(
+Writes the plugin’s current program and sequencer
+settings into the Minilogue hardware’s program
+edit buffer. Shortcut key: CTRL+])";
+
 	constexpr auto knob_txt_edit_amp_mod_tip = u8R"(
 Type in a new setting.
 Range: 0 to 127.)";

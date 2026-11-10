@@ -1,6 +1,7 @@
 #pragma once
 
 #include "D_X_G_Editor_A.h"
+#include "G_LAYER_Buttons_Main_P.h"
 #include "G_LAYER_Ctrls_Aux_Voice_P.h"
 #include "G_LAYER_Envelopes_P.h"
 
@@ -11,6 +12,7 @@ class Editor :
 {
 private: Ctrls_Aux_Voice ctrls_aux_voice;
 private: Envelopes envelopes;
+private: Buttons_Main buttons;
 
 //==============================================================================
 public: Editor(Audio_Processor& processor, Data_Hub* hub);

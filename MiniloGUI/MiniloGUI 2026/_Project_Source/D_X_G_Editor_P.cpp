@@ -9,11 +9,13 @@ using namespace XYWH;
 Editor::Editor(Audio_Processor& processor, Data_Hub* hub) :
     Editor_A{ processor, hub },
     ctrls_aux_voice{ hub },
-    envelopes{ hub }
+    envelopes{ hub },
+    buttons{ hub }
 {
     addAndMakeVisible(envelopes);
     envelopes.toBehind(&ctrls_exp);
     addAndMakeVisible(ctrls_aux_voice);
+    addAndMakeVisible(buttons);
     resized();
 }
 
@@ -23,5 +25,6 @@ void Editor::resized() {
     envelopes.setBounds(bounds);
     ctrls_exp.setBounds(bounds);
     ctrls_aux_voice.setBounds(bounds);
+    buttons.setBounds(bounds);
     app_p.set_scale_i_excluding(roundToInt(scale_f * 100), this);
 }

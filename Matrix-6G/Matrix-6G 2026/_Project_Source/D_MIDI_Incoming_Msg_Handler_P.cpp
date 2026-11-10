@@ -10,8 +10,7 @@ Incoming_Msg_Handler::Incoming_Msg_Handler(Data_Hub* hub) :
 	Incoming_Msg_Handler_A{ hub }
 {}
 
-MidiBuffer Incoming_Msg_Handler::extract_and_handle_relevant_midi_from(const MidiBuffer& buf)
-{
+MidiBuffer Incoming_Msg_Handler::extract_and_handle_relevant_midi_from(const MidiBuffer& buf) {
 	MidiBuffer rtn_buf;
 	for (auto event : buf) {
 		auto msg = event.getMessage();

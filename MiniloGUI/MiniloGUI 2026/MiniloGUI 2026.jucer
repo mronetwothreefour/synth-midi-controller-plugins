@@ -165,6 +165,10 @@
             file="_Project_Source/D_MIDI_Exp_Transmitter_P.cpp"/>
       <FILE id="VMgfcr" name="D_MIDI_Exp_Transmitter_P.h" compile="0" resource="0"
             file="_Project_Source/D_MIDI_Exp_Transmitter_P.h"/>
+      <FILE id="bURSJL" name="D_MIDI_Incoming_Msg_Handler_P.cpp" compile="1"
+            resource="0" file="_Project_Source/D_MIDI_Incoming_Msg_Handler_P.cpp"/>
+      <FILE id="cDD4Lo" name="D_MIDI_Incoming_Msg_Handler_P.h" compile="0"
+            resource="0" file="_Project_Source/D_MIDI_Incoming_Msg_Handler_P.h"/>
       <FILE id="PkN1Ge" name="D_MIDI_Msg_P.cpp" compile="1" resource="0"
             file="_Project_Source/D_MIDI_Msg_P.cpp"/>
       <FILE id="omaUSW" name="D_MIDI_Msg_P.h" compile="0" resource="0" file="_Project_Source/D_MIDI_Msg_P.h"/>

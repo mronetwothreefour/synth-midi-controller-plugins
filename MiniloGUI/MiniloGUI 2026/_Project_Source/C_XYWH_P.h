@@ -17,6 +17,7 @@ namespace XYWH
 	constexpr auto btn_main_small_h = 16;
 	constexpr auto btn_main_small_w = 34;
 	constexpr auto btn_main_small_y = 252;
+	constexpr auto btn_main_vmode_dim_h = 28;
 	constexpr auto btn_main_vmode_h = 98;
 	constexpr auto btn_main_vmode_w = btn_main_small_w;
 	constexpr auto btn_main_vmode_y = 34;
