@@ -10,6 +10,8 @@ namespace LAYER
 	class Buttons_Main :
 		public Buttons_Main_A
 	{
+	private: OwnedArray<TextButton> vmode_buttons;
+
 	//==============================================================================
 	public: explicit Buttons_Main(Data_Hub* hub);
 

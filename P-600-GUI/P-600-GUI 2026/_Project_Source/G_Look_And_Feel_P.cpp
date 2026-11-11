@@ -17,7 +17,7 @@ void Look_And_Feel::drawButtonBackground(Graphics& g, Button& btn, const Colour&
 {
 	if (down) {
 		g.setColour(Colour{ COLOR::btn_dim });
-		g.fillRoundedRectangle(0.0f, 0.0f, (float)btn.getWidth(), (float)btn.getHeight(), 6.0f);
+		g.fillRoundedRectangle(0.0f, 0.0f, (float)btn.getWidth(), (float)btn.getHeight(), 6 * scale_f);
 	}
 }
 

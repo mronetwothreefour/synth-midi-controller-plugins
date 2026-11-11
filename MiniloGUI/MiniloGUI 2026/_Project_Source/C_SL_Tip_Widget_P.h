@@ -13,6 +13,54 @@ Writes the plugin’s current program and sequencer
 settings into the Minilogue hardware’s program
 edit buffer. Shortcut key: CTRL+])";
 
+	constexpr auto btn_main_vmode_0_tip = u8R"(
+POLY mode: Up to four distinct notes can
+play at once (i.e. one voice per note).
+Chords will be inverted according to the
+depth knob setting.)";
+
+	constexpr auto btn_main_vmode_1_tip = u8R"(
+DUO mode: Up to two distinct notes can
+play at once (i.e. two voices per note).
+Voices will be detuned according to the
+depth knob setting.)";
+
+	constexpr auto btn_main_vmode_2_tip = u8R"(
+UNISON mode: Only one note at a time
+can play, and it will use all four voices.
+Voices will be detuned according to the
+depth knob setting.)";
+
+	constexpr auto btn_main_vmode_3_tip = u8R"(
+MONO mode: Only one note at a time can play using voice 1.
+The other three voices act as sub-oscillators. Voices 2 & 3
+are one octave lower, and voice 4 is two octaves lower.
+Use the depth knob to set the sub-oscillator levels.)";
+
+	constexpr auto btn_main_vmode_4_tip = u8R"(
+CHORD mode: Only one note at a time can play,
+but it will produce a chord of up to four notes
+(with the played note as the root). Use the depth
+knob to select which type of chord is produced.)";
+
+	constexpr auto btn_main_vmode_5_tip = u8R"(
+DELAY mode: Only one note at a time can play
+using voice 1. The other three voices will
+repeat the note in sequence with a set
+delay between steps. Use the depth knob
+to select the length of the delay.)";
+
+	constexpr auto btn_main_vmode_6_tip = u8R"(
+ARP mode: Plays an arpeggiated sequence
+of up to four notes. Use the depth knob
+to select the arpeggio pattern.)";
+
+	constexpr auto btn_main_vmode_7_tip = u8R"(
+SIDE CHAIN mode: A newly-triggered voice
+lowers the volume of any voices that are
+already playing. Use the depth knob to
+control the degree of volume reduction.)";
+
 	constexpr auto knob_txt_edit_amp_mod_tip = u8R"(
 Type in a new setting.
 Range: 0 to 127.)";

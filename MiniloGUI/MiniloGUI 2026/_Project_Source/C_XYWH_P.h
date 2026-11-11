@@ -42,6 +42,10 @@ namespace XYWH
 	constexpr auto knob_diam = 34;
 	constexpr auto knob_diam_lpf_freq = 50;
 
+	constexpr auto led_vmode_diam = 8;
+	constexpr auto led_vmode_x = 13;
+	constexpr auto led_vmode_y = 62;
+
 	constexpr auto mix_knb_cx = 318;
 
 	constexpr auto switch_h = 52;
