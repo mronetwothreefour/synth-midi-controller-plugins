@@ -1,5 +1,7 @@
 #include "D_CONVERT_P.h"
 
+#include "C_MIDI_P.h"
+
 const std::vector<uint8> CONVERT::to_data_vector(const String& hex_string) {
     std::vector<uint8> data;
     for (auto i = 0; i < hex_string.length() - 2; ++i) {

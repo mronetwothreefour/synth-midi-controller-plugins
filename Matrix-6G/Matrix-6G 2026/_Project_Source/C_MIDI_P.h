@@ -7,6 +7,9 @@ namespace MIDI
 	constexpr auto data_size_m_mod = 60;
 	constexpr auto data_size_pgm = 268;
 
+	constexpr auto first_exp_data_byte = 16;
+	constexpr auto first_mmod_data_byte = 208;
+
 	constexpr unsigned char id_device = 6;
 	constexpr unsigned char id_maker = 16;
 	constexpr unsigned char id_xpander = 2;
@@ -20,6 +23,8 @@ namespace MIDI
 	constexpr unsigned char msg_type_quick_edit = 6;
 	constexpr unsigned char msg_type_quick_edit_enable = 5;
 
-	constexpr unsigned char tx_val_for_bar_char = 29;
+	constexpr auto pgm_hex_string_length = 270;
+
+	constexpr unsigned char stored_ascii_val_for_bar = 29;
 
 }
