@@ -21,14 +21,14 @@ void Look_And_Feel::drawButtonBackground(Graphics& g, Button& btn, const Colour&
 {
 	auto n = btn.getName();
 	if (down) {
-		if (n.contains("vmode")) {
+		if (n == NAME::ctr_btn_vmode) {
 			g.setColour(Colour{ COLOR::btn_dim });
 			g.fillRect(0.0f, 0.0f, (float)btn.getWidth(), XYWH::btn_main_vmode_dim_h * scale_f);
 		}
 		else
 			g.fillAll(Colour{ COLOR::btn_dim });
 	}
-	if (n.contains("vmode")) {
+	if (n == NAME::ctr_btn_vmode) {
 		g.setColour(Colour{ btn.getToggleState() ? COLOR::red_led_on : COLOR::red_led_off });
 		auto d = XYWH::led_vmode_diam * scale_f;
 		g.fillEllipse(XYWH::led_vmode_x * scale_f, XYWH::led_vmode_y * scale_f, d, d);

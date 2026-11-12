@@ -20,7 +20,7 @@ namespace XYWH
 	constexpr auto btn_main_vmode_dim_h = 28;
 	constexpr auto btn_main_vmode_h = 98;
 	constexpr auto btn_main_vmode_w = btn_main_small_w;
-	constexpr auto btn_main_vmode_y = 34;
+	constexpr auto btn_main_vmode_y = 307;
 
 	constexpr auto cbox_h = 16;
 	constexpr auto cbox_item_h = cbox_h - 2;
@@ -51,19 +51,6 @@ namespace XYWH
 	constexpr auto switch_h = 52;
 	constexpr auto switch_lpf_type_h = 80;
 	constexpr auto switch_w = 34;
-
-	constexpr auto vmode_btn_spacing = 37;
-	constexpr auto vmode_btn_0_x = 834;
-	constexpr auto vmode_btn_1_x = vmode_btn_0_x + vmode_btn_spacing;
-	constexpr auto vmode_btn_2_x = vmode_btn_1_x + vmode_btn_spacing;
-	constexpr auto vmode_btn_3_x = vmode_btn_2_x + vmode_btn_spacing;
-	constexpr auto vmode_btn_4_x = vmode_btn_3_x + vmode_btn_spacing;
-	constexpr auto vmode_btn_5_x = vmode_btn_4_x + vmode_btn_spacing;
-	constexpr auto vmode_btn_6_x = vmode_btn_5_x + vmode_btn_spacing;
-	constexpr auto vmode_btn_7_x = vmode_btn_6_x + vmode_btn_spacing;
-	constexpr auto vmode_btn_h = 28;
-	constexpr auto vmode_btn_row_y = 307;
-	constexpr auto vmode_btn_w = 34;
 
 	static Rectangle<int> env_backdrop_init_bounds{ 834, 167, 102, 58 };
 	static Rectangle<int> trig_area_env_init_bounds{ 542, 180, 238, 34 };

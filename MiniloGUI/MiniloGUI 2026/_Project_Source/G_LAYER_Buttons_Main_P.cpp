@@ -18,20 +18,41 @@ Buttons_Main::Buttons_Main(Data_Hub* hub) :
 	};
 
 	for (int i = 0; i < 8; ++i) {
-		String n{ "btn_main_vmode_" + (String)i };
-		vmode_buttons.add(new TextButton{ n });
+		auto id = String{ "avp_voice_mode_btn_" + (String)i }.toStdString();
+		vmode_buttons.add(new TextButton{ id });
 		if (vmode_buttons[i]) {
 			auto btn = vmode_buttons[i];
+			btn->setComponentID(id);
+			btn->setName(GET::ctrl_name_for(id));
 			btn->setClickingTogglesState(true);
+			btn->setToggleState(avp.voice_mode() == i, dontSendNotification);
 			btn->setRadioGroupId(1);
+			btn->onClick = [this, i] { avp.set_voice_mode(i); };
+			addAndMakeVisible(btn);
+			vmode_init_bounds.add(GET::init_bounds_for(id));
 		}
 	}
 }
 
 void Buttons_Main::resized() {
+	for (int i = 0; i < 8; ++i) {
+		auto* btn = vmode_buttons[i];
+		if (btn)
+			btn->setBounds(vmode_init_bounds[i].transformedBy(AffineTransform::scale(scale_f)));
+	}
 	Buttons_Main_A::resized();
 }
 
 void Buttons_Main::modifierKeysChanged(const Mods& mods) {
+	for (int i = 0; i < 8; ++i) {
+		auto* btn = vmode_buttons[i];
+		if (btn)
+			btn->setTooltip(btn->isMouseOver() ? GET::tip_for(btn->getComponentID().toStdString()) : "");
+	}
 	Buttons_Main_A::modifierKeysChanged(mods);
+}
+
+LAYER::Buttons_Main::~Buttons_Main() {
+	vmode_buttons.clear();
+	vmode_init_bounds.clear();
 }

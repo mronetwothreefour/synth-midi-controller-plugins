@@ -90,20 +90,5 @@ Adjusts the program’s overall
 pitch in semitone increments.
 Range: -12 to +12 semitones.)";
 
-    constexpr auto voice_mode_tip = u8R"(
-Determines how the synthesizer’s
-four voices are combined and allocated.
-• POLY: 4-note polyphony, one voice per note.
-• DUO: 2-note polyphony, two voices per note.
-• UNISON: Monophonic, 4 voices per note.
-• MONO: Monophonic with 2 or 3 of the voices
-pitched down 2 octaves as sub-oscillators.
-• CHORD: The 4 voices play together as a chord.
-• DELAY: Voices 2, 3, and 4 play in a delayed
-sequence after voice 1 plays.
-• ARP: Uses the arpeggiator to play up to 4 voices.
-• SIDE CHAIN: Lowers the volume of the previously-
-played voice when a new voice is played legato.)";
-
 }
 

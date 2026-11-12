@@ -128,19 +128,6 @@ const StringArray Choices_For::avp_transpose() {
     return list;
 }
 
-const StringArray Choices_For::avp_voice_mode() {
-    return {
-        "POLY",
-        "DUO",
-        "UNISON",
-        "MONO",
-        "CHORD",
-        "DELAY",
-        "ARP",
-        "SIDECHAIN"
-    };
-}
-
 const StringArray Choices_For::exp_delay_routing() {
 	return { "bypass", "pre-filter", "post-filter" };
 }

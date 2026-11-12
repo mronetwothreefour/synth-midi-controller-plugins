@@ -8,6 +8,7 @@
 #include "C_NAME_P.h"
 #include "C_SL_Tip_Aux_Voice_P.h"
 #include "C_SL_Tip_Exposed_P.h"
+#include "C_SL_Tip_Widget_P.h"
 #include "D_BUILD_Tip_For_P.h"
 
 using namespace BUILD;
@@ -38,7 +39,14 @@ namespace MAP
 		{ ID::avp_porta_time, { ctr_sli_knb, 0, Tip::from_SL(SL::porta_time_tip) } },
 		{ ID::avp_scale_key, { ctr_sli_knb, 12, Tip::from_SL(SL::scale_key_tip) } },
 		{ ID::avp_transpose, { ctr_sli_knb, 12, Tip::from_SL(SL::transpose_tip) } },
-		{ ID::avp_voice_mode, { ctr_voice_mode, (int)Voice_Mode::poly, Tip::from_SL(SL::voice_mode_tip) } },
+		{ ID::avp_voice_mode_btn_0, { ctr_btn_vmode, 1, Tip::from_SL(SL::btn_main_vmode_0_tip) } },
+		{ ID::avp_voice_mode_btn_1, { ctr_btn_vmode, 0, Tip::from_SL(SL::btn_main_vmode_1_tip) } },
+		{ ID::avp_voice_mode_btn_2, { ctr_btn_vmode, 0, Tip::from_SL(SL::btn_main_vmode_2_tip) } },
+		{ ID::avp_voice_mode_btn_3, { ctr_btn_vmode, 0, Tip::from_SL(SL::btn_main_vmode_3_tip) } },
+		{ ID::avp_voice_mode_btn_4, { ctr_btn_vmode, 0, Tip::from_SL(SL::btn_main_vmode_4_tip) } },
+		{ ID::avp_voice_mode_btn_5, { ctr_btn_vmode, 0, Tip::from_SL(SL::btn_main_vmode_5_tip) } },
+		{ ID::avp_voice_mode_btn_6, { ctr_btn_vmode, 0, Tip::from_SL(SL::btn_main_vmode_6_tip) } },
+		{ ID::avp_voice_mode_btn_7, { ctr_btn_vmode, 0, Tip::from_SL(SL::btn_main_vmode_7_tip) } },
 
 		//osc
 		{ ID::exp_osc_1_octave, { ctr_sli_sw_osc_octv, 1, Tip::exp_osc_octave(1) } },
@@ -87,7 +95,7 @@ namespace MAP
 		{ ID::exp_delay_feedback, { ctr_sli_knb, 512, Tip::from_SL(SL::delay_feedback_tip) } },
 		{ ID::exp_delay_routing, { ctr_sli_sw_3, 0, Tip::from_SL(SL::delay_routing_tip) } },
 		//voice mode depth
-		{ ID::exp_voice_mode_depth, { ctr_sli_knb, 0, Tip::from_SL(SL::voice_mode_depth_tip) } }
+		{ ID::exp_voice_mode_depth, { ctr_sli_knb, 0, Tip::from_SL(SL::voice_mode_depth_tip) } },
 	};
 
 }

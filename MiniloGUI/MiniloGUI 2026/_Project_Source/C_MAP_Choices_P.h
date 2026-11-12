@@ -28,7 +28,6 @@ namespace MAP
 		{ ID::avp_porta_time, Choices_For::avp_porta_time() },
 		{ ID::avp_scale_key, Choices_For::avp_scale_key() },
 		{ ID::avp_transpose, Choices_For::avp_transpose() },
-		{ ID::avp_voice_mode, Choices_For::avp_voice_mode() },
 
 		//osc
 		{ ID::exp_osc_1_octave, Choices_For::exp_osc_octave() },

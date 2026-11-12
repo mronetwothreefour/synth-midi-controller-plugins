@@ -56,7 +56,7 @@ of up to four notes. Use the depth knob
 to select the arpeggio pattern.)";
 
 	constexpr auto btn_main_vmode_7_tip = u8R"(
-SIDE CHAIN mode: A newly-triggered voice
+SIDECHAIN mode: A newly-triggered voice
 lowers the volume of any voices that are
 already playing. Use the depth knob to
 control the degree of volume reduction.)";

@@ -15,14 +15,14 @@ namespace MAP
 {
 
 	static const unordered_map<string, tuple<bool, int, int, int, int>> init_bounds{
-		{ ID::avp_voice_mode_btn_0, { false, vmode_btn_0_x, vmode_btn_row_y, vmode_btn_w, vmode_btn_h } },
-		{ ID::avp_voice_mode_btn_1, { false, vmode_btn_1_x, vmode_btn_row_y, vmode_btn_w, vmode_btn_h } },
-		{ ID::avp_voice_mode_btn_2, { false, vmode_btn_2_x, vmode_btn_row_y, vmode_btn_w, vmode_btn_h } },
-		{ ID::avp_voice_mode_btn_3, { false, vmode_btn_3_x, vmode_btn_row_y, vmode_btn_w, vmode_btn_h } },
-		{ ID::avp_voice_mode_btn_4, { false, vmode_btn_4_x, vmode_btn_row_y, vmode_btn_w, vmode_btn_h } },
-		{ ID::avp_voice_mode_btn_5, { false, vmode_btn_5_x, vmode_btn_row_y, vmode_btn_w, vmode_btn_h } },
-		{ ID::avp_voice_mode_btn_6, { false, vmode_btn_6_x, vmode_btn_row_y, vmode_btn_w, vmode_btn_h } },
-		{ ID::avp_voice_mode_btn_7, { false, vmode_btn_7_x, vmode_btn_row_y, vmode_btn_w, vmode_btn_h } },
+		{ ID::avp_voice_mode_btn_0, { false, btn_main_0_x, btn_main_vmode_y, btn_main_vmode_w, btn_main_vmode_h } },
+		{ ID::avp_voice_mode_btn_1, { false, btn_main_1_x, btn_main_vmode_y, btn_main_vmode_w, btn_main_vmode_h } },
+		{ ID::avp_voice_mode_btn_2, { false, btn_main_2_x, btn_main_vmode_y, btn_main_vmode_w, btn_main_vmode_h } },
+		{ ID::avp_voice_mode_btn_3, { false, btn_main_3_x, btn_main_vmode_y, btn_main_vmode_w, btn_main_vmode_h } },
+		{ ID::avp_voice_mode_btn_4, { false, btn_main_4_x, btn_main_vmode_y, btn_main_vmode_w, btn_main_vmode_h } },
+		{ ID::avp_voice_mode_btn_5, { false, btn_main_5_x, btn_main_vmode_y, btn_main_vmode_w, btn_main_vmode_h } },
+		{ ID::avp_voice_mode_btn_6, { false, btn_main_6_x, btn_main_vmode_y, btn_main_vmode_w, btn_main_vmode_h } },
+		{ ID::avp_voice_mode_btn_7, { false, btn_main_7_x, btn_main_vmode_y, btn_main_vmode_w, btn_main_vmode_h } },
 		{ ID::avp_keyboard_octave, { false, 42, 432, 64, 34 } },
 		{ ID::avp_flex_sli_target, { false, 132, 441, 104, cbox_h } },
 		{ ID::avp_flex_sli_range, { true, 269, ctr_row_4_cy, knob_diam, knob_diam } },
@@ -89,14 +89,6 @@ namespace MAP
 		{ NAME::btn_main_redo, { false, btn_main_3_x, btn_main_small_y, btn_main_small_w, btn_main_small_h } },
 		{ NAME::btn_main_seq, { false, btn_main_5_x, btn_main_small_y, btn_main_small_w, btn_main_small_h } },
 		{ NAME::btn_main_undo, { false, btn_main_2_x, btn_main_small_y, btn_main_small_w, btn_main_small_h } },
-		{ NAME::btn_main_vmode_0, { false, btn_main_0_x, btn_main_vmode_y, btn_main_vmode_w, btn_main_vmode_h } },
-		{ NAME::btn_main_vmode_1, { false, btn_main_1_x, btn_main_vmode_y, btn_main_vmode_w, btn_main_vmode_h } },
-		{ NAME::btn_main_vmode_2, { false, btn_main_2_x, btn_main_vmode_y, btn_main_vmode_w, btn_main_vmode_h } },
-		{ NAME::btn_main_vmode_3, { false, btn_main_3_x, btn_main_vmode_y, btn_main_vmode_w, btn_main_vmode_h } },
-		{ NAME::btn_main_vmode_4, { false, btn_main_4_x, btn_main_vmode_y, btn_main_vmode_w, btn_main_vmode_h } },
-		{ NAME::btn_main_vmode_5, { false, btn_main_5_x, btn_main_vmode_y, btn_main_vmode_w, btn_main_vmode_h } },
-		{ NAME::btn_main_vmode_6, { false, btn_main_6_x, btn_main_vmode_y, btn_main_vmode_w, btn_main_vmode_h } },
-		{ NAME::btn_main_vmode_7, { false, btn_main_7_x, btn_main_vmode_y, btn_main_vmode_w, btn_main_vmode_h } },
 	};
 
 }
