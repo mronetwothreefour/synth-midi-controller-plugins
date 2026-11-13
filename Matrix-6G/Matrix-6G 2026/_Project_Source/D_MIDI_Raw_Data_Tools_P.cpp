@@ -58,6 +58,27 @@ void Raw_Data_Tools::apply_raw_pgm_data_to_exp(const uint8* pgm_data, Data_Hub* 
 }
 
 void Raw_Data_Tools::apply_raw_pgm_data_to_mmod(const uint8* pgm_data, Data_Hub* hub) {
+    auto& mmod_p = hub->get_matrix_mod_params();
+    for (int mod_num = 0; mod_num < 10; ++mod_num) {
+        auto mod = "mmod_" + String{ mod_num };
+        auto first_byte = mod_num * 6;
+
+        auto src_ls_byte_val{ pgm_data[first_byte] };
+        auto src_ms_byte_val{ pgm_data[first_byte + 1] * 16 };
+        auto src_val{ src_ls_byte_val + src_ms_byte_val };
+        mmod_p.set_param(mod + "_src", (uint8)src_val);
+
+        auto amt_ls_byte_val{ pgm_data[first_byte + 2] };
+        auto amt_ms_byte_val{ pgm_data[first_byte + 3] * 16 };
+        auto amt_val{ uint8(amt_ls_byte_val + amt_ms_byte_val) };
+        CONVERT::signed_val_from_device_to_app_format(true, amt_val);
+        mmod_p.set_param(mod + "_amt", amt_val);
+
+        auto dst_ls_byte_val{ pgm_data[first_byte + 4] };
+        auto dst_ms_byte_val{ pgm_data[first_byte + 5] * 16 };
+        auto dst_val{ dst_ls_byte_val + dst_ms_byte_val };
+        mmod_p.set_param(mod + "_dst", (uint8)dst_val);
+    }
 }
 
 void Raw_Data_Tools::remove_bit_7_from_ascii_value(uint8& value) {
