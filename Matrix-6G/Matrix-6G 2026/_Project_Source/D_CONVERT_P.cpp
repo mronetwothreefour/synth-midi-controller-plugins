@@ -21,3 +21,18 @@ const String CONVERT::to_hex_string(const std::vector<uint8> data) {
     hex_string += String::toHexString(&data[checksum_index], 1, 0);
     return hex_string;
 }
+
+void CONVERT::signed_val_from_app_to_device_format(bool s_7_bit, uint8& v) {
+    auto formatted_val = v - (s_7_bit ? 63 : 31);
+    if (formatted_val < 0)
+        formatted_val += 256;
+    v = (uint8)formatted_val;
+}
+
+void CONVERT::signed_val_from_device_to_app_format(bool s_7_bit, uint8& v) {
+    int formatted_val{ v };
+    if (formatted_val > 127)
+        formatted_val -= 256;
+    formatted_val += (s_7_bit ? 63 : 31);
+    v = (uint8)formatted_val;
+}
