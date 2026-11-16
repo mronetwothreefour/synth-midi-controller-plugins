@@ -18,6 +18,7 @@ namespace LAYER
 	public: explicit Buttons_Main(Data_Hub* hub);
 
 	public: void resized() override;
+	private: void send_pgm_change_after(int delay_in_ms);
 	private: void flash_btn_quick();
 	public: void modifierKeysChanged(const Mods& mods) override;
 

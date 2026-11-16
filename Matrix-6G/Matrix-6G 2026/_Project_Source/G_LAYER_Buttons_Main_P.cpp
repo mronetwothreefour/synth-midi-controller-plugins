@@ -21,17 +21,16 @@ Buttons_Main::Buttons_Main(Data_Hub* hub) :
 	btn_quick.addShortcut(KeyPress{ 'q', ModifierKeys::ctrlModifier, 0 });
 	addAndMakeVisible(btn_quick);
 
+	btn_push.onClick = [this, hub] { 
+		outgoing_midi.addEvent(MIDI::Msg::dump_pgm(hub), 0);
+		send_pgm_change_after(10);
+	};
+
 	btn_pull.onClick = [this] {
 		auto pgm_num = (uint8)app_p.current_pgm_num();
 		outgoing_midi.addEvent(MIDI::Msg::dump_request_pgm(pgm_num), 0);
-		Timer::callAfterDelay(300, [this, pgm_num] {
-			// TODO: get basic channel from global parameters
-			outgoing_midi.addEvent(MidiMessage::programChange(1, pgm_num), 0);
-		});
-	};
-
-	btn_push.onClick = [this] { 
-		//TODO: add program dump message to outgoing_midi
+		// TODO: use program transmit time setting for delay
+		send_pgm_change_after(300);
 	};
 
 	flash_btn_quick();
@@ -40,6 +39,14 @@ Buttons_Main::Buttons_Main(Data_Hub* hub) :
 void Buttons_Main::resized() {
 	btn_quick.setBounds(init_bounds_btn_quick.transformedBy(AffineTransform::scale(scale_f)));
 	Buttons_Main_A::resized();
+}
+
+void LAYER::Buttons_Main::send_pgm_change_after(int delay) {
+	Timer::callAfterDelay(delay, [this] {
+		auto pgm_num = app_p.current_pgm_num();
+		// TODO: get basic channel from global parameters
+		outgoing_midi.addEvent(MidiMessage::programChange(1, pgm_num), 0);
+	});
 }
 
 void Buttons_Main::flash_btn_quick() {
