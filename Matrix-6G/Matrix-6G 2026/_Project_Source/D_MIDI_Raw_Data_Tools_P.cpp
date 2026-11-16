@@ -101,9 +101,6 @@ void Raw_Data_Tools::add_exp_to_raw_pgm_data(Data_Hub* hub, std::vector<uint8>& 
     for (auto i = 0; i < data_size_exp; ++i)
         exp_data.push_back((uint8)0);
     for (auto& param_id : ID::exp_params) {
-        if (param_id == ID::exp_lfo_1_trig_mode) {
-            auto dingle = 0;
-        }
         auto param = hub->get_exposed_params_state()->getParameterAsValue(param_id);
         auto v = (uint8)(int)param.getValue();
         auto ls_byte = GET::byte_index_for(param_id) * 2;

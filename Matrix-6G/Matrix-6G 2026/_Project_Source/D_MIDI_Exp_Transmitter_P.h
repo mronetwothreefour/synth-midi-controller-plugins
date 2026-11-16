@@ -15,10 +15,9 @@ namespace MIDI
 	private: const bool range_is_s_7_bit;
 
 	//==============================================================================
-	public: Exp_Transmitter(const std::string& param_id, Value param_value, 
-							MidiBuffer& outgoing_midi, App_Params& app_p);
+	public: Exp_Transmitter(const std::string& param_id, AudioProcessorValueTreeState* exp_state, MidiBuffer& outgoing_midi, App_Params& app_p);
 
-	private: void transmit_change() override;
+	private: void transmit_change(const uint8 new_val) override;
 
 	//==============================================================================
 	private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Exp_Transmitter)

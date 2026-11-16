@@ -19,7 +19,7 @@ MidiMessage Msg::dump_pgm(Data_Hub* hub) {
 	auto raw_pgm_data{ Data::extract_raw_pgm_data_from_app(hub) };
 	for (auto byte : raw_pgm_data)
 		msg.push_back(byte);
-	return MidiMessage::createSysExMessage(msg.data(), msg.size());
+	return MidiMessage::createSysExMessage(msg.data(), (int)msg.size());
 }
 
 MidiMessage Msg::dump_split(const uint8 /*split_num*/) {

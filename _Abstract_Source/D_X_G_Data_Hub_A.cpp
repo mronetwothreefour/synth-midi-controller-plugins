@@ -15,7 +15,7 @@ Data_Hub_A::Data_Hub_A(AudioProcessor* processor) :
 {
 	for (auto& param_id : ID::exp_params) {
 		auto param_val = exposed_param_state->getParameterAsValue(param_id);
-		exp_transmitters.add(new MIDI::Exp_Transmitter{ param_id, param_val,
+		exp_transmitters.add(new MIDI::Exp_Transmitter{ param_id, exposed_param_state.get(),
 														outgoing_midi_buffer, app_params });
 	}
 }
