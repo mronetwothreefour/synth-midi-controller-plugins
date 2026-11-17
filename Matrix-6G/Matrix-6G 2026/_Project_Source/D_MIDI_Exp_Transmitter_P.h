@@ -4,6 +4,8 @@
 
 using namespace TREE;
 
+using Exp_Param = RangedAudioParameter;
+
 namespace MIDI
 {
 
@@ -15,9 +17,10 @@ namespace MIDI
 	private: const bool range_is_s_7_bit;
 
 	//==============================================================================
-	public: Exp_Transmitter(const std::string& param_id, AudioProcessorValueTreeState* exp_state, MidiBuffer& outgoing_midi, App_Params& app_p);
+	public: Exp_Transmitter(const std::string& param_id, Exp_Param* exp_param_ptr,
+							MidiBuffer& outgoing_midi, App_Params& app_p);
 
-	private: void transmit_change(const uint8 new_val) override;
+	private: void transmit_change() override;
 
 	//==============================================================================
 	private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Exp_Transmitter)
