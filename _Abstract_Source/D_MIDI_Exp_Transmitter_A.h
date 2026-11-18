@@ -19,14 +19,17 @@ namespace MIDI
 	protected: MidiBuffer& outgoing_midi;
 	protected: App_Params& app_p;
 	protected: const NormalisableRange<float> norm_range;
-	protected: float val_buf;
+	protected: float last_norm_val;
+	protected: float last_choice;
+	protected: float max_choice_threshold;
+	protected: float min_choice_threshold;
 
 	//==============================================================================
 	public: Exp_Transmitter_A(Exp_Param* exp_param_ptr, MidiBuffer& outgoing_midi,
 							  App_Params& app_p);
 
 	protected: virtual void transmit_change() = 0;
-	public: void parameterValueChanged(int param_index, float new_val) override;
+	public: void parameterValueChanged(int param_index, float new_norm_val) override;
 	public: void parameterGestureChanged(int /*param_index*/, bool /*starting*/) override {}
 	public: void handleAsyncUpdate() override;
 	public: ~Exp_Transmitter_A();

@@ -15,7 +15,7 @@ Exp_Transmitter::Exp_Transmitter(const std::string& param_id, Exp_Param* exp_par
 {}
 
 void Exp_Transmitter::transmit_change() {
-	auto v = (uint8)roundToInt(val_buf);
+	auto v = (uint8)roundToInt(last_choice);
 	if (range_is_s_6_bit)
 		v -= 31;
 	if (range_is_s_7_bit)
