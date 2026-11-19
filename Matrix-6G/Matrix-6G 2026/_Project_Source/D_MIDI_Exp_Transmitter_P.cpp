@@ -11,8 +11,38 @@ Exp_Transmitter::Exp_Transmitter(const std::string& param_id, Exp_Param* exp_par
 	Exp_Transmitter_A{ exp_param_ptr, outgoing_midi, app_p },
 	quick_num{ (uint8)GET::quick_num_for(param_id) },
 	range_is_s_6_bit{ GET::range_is_s_6_bit_for(param_id) },
-	range_is_s_7_bit{ GET::range_is_s_7_bit_for(param_id) }
-{}
+	range_is_s_7_bit{ GET::range_is_s_7_bit_for(param_id) },
+	range_is_signed{ range_is_s_6_bit || range_is_s_7_bit }
+{
+	if (range_is_signed)
+		min_choice_threshold += 0.5f;
+}
+
+bool MIDI::Exp_Transmitter::should_transmit(const float new_norm_val) {
+	if (range_is_signed && new_norm_val < 0.5f) {
+		last_norm_val = new_norm_val;
+		return false;
+	}
+	auto v = norm_range.convertFrom0to1(new_norm_val);
+	if (new_norm_val > last_norm_val) {
+		if (new_norm_val < max_choice_threshold)
+			v = std::floor(v);
+		else
+			v = std::ceil(v);
+	}
+	if (new_norm_val < last_norm_val) {
+		if (new_norm_val > min_choice_threshold)
+			v = std::ceil(v);
+		else
+			v = std::floor(v);
+	}
+	last_norm_val = new_norm_val;
+	if (v != last_choice) {
+		last_choice = v;
+		return true;
+	}
+	return false;
+}
 
 void Exp_Transmitter::transmit_change() {
 	auto v = (uint8)roundToInt(last_choice);

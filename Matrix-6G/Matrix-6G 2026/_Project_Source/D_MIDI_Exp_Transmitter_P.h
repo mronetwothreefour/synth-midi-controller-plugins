@@ -15,11 +15,13 @@ namespace MIDI
 	private: const uint8 quick_num;
 	private: const bool range_is_s_6_bit;
 	private: const bool range_is_s_7_bit;
+	private: const bool range_is_signed;
 
 	//==============================================================================
 	public: Exp_Transmitter(const std::string& param_id, Exp_Param* exp_param_ptr,
 							MidiBuffer& outgoing_midi, App_Params& app_p);
 
+	private: bool should_transmit(const float new_norm_val) override;
 	private: void transmit_change() override;
 
 	//==============================================================================

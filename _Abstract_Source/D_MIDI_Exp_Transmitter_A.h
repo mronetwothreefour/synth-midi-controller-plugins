@@ -28,6 +28,7 @@ namespace MIDI
 	public: Exp_Transmitter_A(Exp_Param* exp_param_ptr, MidiBuffer& outgoing_midi,
 							  App_Params& app_p);
 
+	protected: virtual bool should_transmit(const float new_norm_val) = 0;
 	protected: virtual void transmit_change() = 0;
 	public: void parameterValueChanged(int param_index, float new_norm_val) override;
 	public: void parameterGestureChanged(int /*param_index*/, bool /*starting*/) override {}
