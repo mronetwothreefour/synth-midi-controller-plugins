@@ -12,7 +12,7 @@ using namespace MIDI;
 const bool Raw_Data_Tools::is_relevant_sysex(const MidiMessage& msg) {
 	if (msg.isSysEx()) {
 		auto d = msg.getSysExData();
-		return d[1] == id_maker && d[2] == id_device;
+		return d[0] == id_maker && d[1] == id_device;
 	}
 	return false;
 }
@@ -22,7 +22,7 @@ const bool Raw_Data_Tools::is_valid_pgm_hex_string(const String& hex_string) {
 }
 
 void Raw_Data_Tools::apply_raw_pgm_data_to_app(const int pgm_num, const uint8* pgm_data, 
-													 Data_Hub* hub) 
+											   Data_Hub* hub) 
 {
 	auto& app_p = hub->get_app_params();
 	app_p.set_current_pgm_num(pgm_num);

@@ -13,6 +13,7 @@ App_Params_A::App_Params_A(UndoManager* u_m) :
 	tree.setProperty(ID::app_curr_pgm_name, MISC::pgm_name_init, nullptr);
 	tree.setProperty(ID::app_curr_pgm_num, MISC::pgm_num_min, nullptr);
 	tree.setProperty(ID::app_exp_tx_allowed, true, nullptr);
+	tree.setProperty(ID::app_store_incoming_pgm_dump, false, nullptr);
 	tree.setProperty(ID::app_scale_i, 1, nullptr);
 }
 
@@ -43,6 +44,14 @@ const bool TREE::App_Params_A::exp_tx_allowed() {
 
 void TREE::App_Params_A::set_exp_tx_allowed(const bool is_true) {
 	tree.setProperty(ID::app_exp_tx_allowed, is_true, nullptr);
+}
+
+const bool TREE::App_Params_A::store_incoming_pgm_dump() {
+	return (bool)tree[ID::app_store_incoming_pgm_dump];
+}
+
+void TREE::App_Params_A::set_store_incoming_pgm_dump(const bool is_true) {
+	tree.setProperty(ID::app_store_incoming_pgm_dump, is_true, nullptr);
 }
 
 const int App_Params_A::scale_i() {

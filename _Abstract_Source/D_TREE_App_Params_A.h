@@ -22,6 +22,9 @@ namespace TREE
 	public: const bool exp_tx_allowed();
 	public: void set_exp_tx_allowed(const bool is_true);
 
+	public: const bool store_incoming_pgm_dump();
+	public: void set_store_incoming_pgm_dump(const bool is_true);
+
 	public: const int scale_i();
 	public: void set_scale_i(const int new_setting);
 	public: void set_scale_i_excluding(const int new_setting,
