@@ -10,7 +10,7 @@ Exp_Transmitter_A::Exp_Transmitter_A(Exp_Param* exp_param_ptr, MidiBuffer& outgo
 	app_p{ app_p },
 	norm_range{ param_ptr->getNormalisableRange() },
 	last_norm_val{ 0.5f },
-	last_choice{ 0.0f },
+	last_choice{ -1.0f },
 	max_choice_threshold{ param_ptr->getNumSteps() > 15 ? 0.999f : 0.99f },
 	min_choice_threshold{ param_ptr->getNumSteps() > 15 ? 0.0001f : 0.01f }
 {
