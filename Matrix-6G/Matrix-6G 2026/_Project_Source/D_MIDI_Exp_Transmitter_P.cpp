@@ -18,7 +18,7 @@ Exp_Transmitter::Exp_Transmitter(const std::string& param_id, Exp_Param* exp_par
 		min_choice_threshold += 0.5f;
 }
 
-bool MIDI::Exp_Transmitter::should_transmit(const float new_norm_val) {
+bool Exp_Transmitter::should_transmit(const float new_norm_val) {
 	if (range_is_signed && new_norm_val < 0.5f) {
 		last_norm_val = new_norm_val;
 		return false;

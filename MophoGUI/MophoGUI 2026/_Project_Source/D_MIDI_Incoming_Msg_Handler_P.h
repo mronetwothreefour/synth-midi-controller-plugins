@@ -14,8 +14,8 @@ namespace MIDI
 	public: MidiBuffer extract_and_handle_relevant_midi_from(const MidiBuffer& buf) override;
 	private: void handle_nrpn_msg(const MidiMessage msg);
 	private: void handle_sysex_data(const uint8* data, const int size) override;
-	private: void handle_pgm_data(const uint8* data, const int size) override;
-	private: void handle_global_data(const uint8* data, const int size) override;
+	private: void handle_pgm_dump(const uint8* data, const int size) override;
+	private: void handle_global_dump(const uint8* data, const int size) override;
 
 	//==============================================================================
 	private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Incoming_Msg_Handler)

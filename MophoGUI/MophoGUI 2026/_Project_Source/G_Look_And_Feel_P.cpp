@@ -17,7 +17,7 @@ Look_And_Feel::Look_And_Feel(float& scale_factor) :
 	Look_And_Feel_A{ scale_factor }
 {}
 
-void Look_And_Feel::drawButtonBackground(Graphics& g, Button& btn, const Colour& /*ground*/, 
+void Look_And_Feel::drawButtonBackground(Graphics& g, Button& /*btn*/, const Colour& /*ground*/, 
 										 bool /*hilited*/, bool down)
 {
 	if (down)

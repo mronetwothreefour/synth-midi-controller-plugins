@@ -35,10 +35,10 @@ void Incoming_Msg_Handler::handle_sysex_data(const uint8* /*data*/, const int /*
 {
 }
 
-void Incoming_Msg_Handler::handle_pgm_data(const uint8* /*data*/, const int /*size*/)
+void Incoming_Msg_Handler::handle_pgm_dump(const uint8* /*data*/, const int /*size*/)
 {
 }
 
-void Incoming_Msg_Handler::handle_global_data(const uint8* /*data*/, const int /*size*/)
+void Incoming_Msg_Handler::handle_global_dump(const uint8* /*data*/, const int /*size*/)
 {
 }

@@ -3,6 +3,8 @@
 namespace MIDI
 {
 
+	constexpr auto cc_msg_prefix = 176;
+
 	constexpr auto data_size_pgm = 298;
 
 	constexpr unsigned char id_device = 37;
@@ -14,4 +16,10 @@ namespace MIDI
 	constexpr unsigned char msg_type_request_global = 14;
 	constexpr unsigned char msg_type_request_pgm = 5;
 	constexpr unsigned char msg_type_request_pgm_buffer = 6;
+
+	constexpr unsigned char nrpn_id_lsb = 98;
+	constexpr unsigned char nrpn_id_msb = 99;
+	constexpr unsigned char nrpn_val_lsb = 38;
+	constexpr unsigned char nrpn_val_msb = 6;
+
 }
