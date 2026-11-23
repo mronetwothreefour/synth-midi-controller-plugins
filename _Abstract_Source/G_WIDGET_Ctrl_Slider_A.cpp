@@ -48,6 +48,11 @@ void Ctrl_Slider_A::set_drag_sensitivity() {
 	setMouseDragSensitivity(roundToInt(sensitivity));
 }
 
+void WIDGET::Ctrl_Slider_A::update_ctrl_setting() {
+	setValue((double)param_val.getValue(), dontSendNotification);
+	label.set_text_to_stored_choice();
+}
+
 void Ctrl_Slider_A::mouseDoubleClick(const MouseEvent&/*e*/) {
 	if (label.editable)
 		label.showEditor();

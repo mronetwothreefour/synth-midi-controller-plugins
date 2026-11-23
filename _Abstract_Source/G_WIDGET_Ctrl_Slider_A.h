@@ -21,6 +21,7 @@ namespace WIDGET
 	public: void attach_to_param() override;
 	public: void remove_attachment() override;
 	protected: virtual void set_drag_sensitivity();
+	protected: void update_ctrl_setting() override;
 	protected: void mouseDoubleClick(const MouseEvent& e) override;
 	public: void modifierKeysChanged(const Mods& mods) override;
 

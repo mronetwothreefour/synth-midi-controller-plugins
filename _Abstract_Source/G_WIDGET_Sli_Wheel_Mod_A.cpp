@@ -18,10 +18,6 @@ Slider_Wheel_Mod_A::Slider_Wheel_Mod_A(const std::string& param_id, Value param_
 	setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
 }
 
-void WIDGET::Slider_Wheel_Mod_A::update_ctrl_setting() {
-	setValue((double)param_val.getValue(), dontSendNotification);
-}
-
 void Slider_Wheel_Mod_A::mouseWheelMove(const MouseEvent& e, const MouseWheelDetails& wheel) {
 	if (isEnabled()) {
 		u_m->beginNewTransaction();
