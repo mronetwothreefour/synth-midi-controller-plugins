@@ -5,6 +5,18 @@
 #include "C_MAP_NRPN_P.h"
 #include "C_XYWH_P.h"
 
+const int GET::ls_byte_for(const int& param_index) {
+	return ms_bit_pack_byte_for(param_index) + (param_index % 7) + 1;
+}
+
+const int GET::ms_bit_pack_byte_for(const int& param_index) {
+	return (param_index / 7) * 8;
+}
+
+const int GET::ms_bit_mask_for(const int& param_index) {
+	return roundToInt(pow(2, param_index % 7));
+}
+
 const bool GET::menu_to_left_for(const std::string& id) {
 	if (MAP::menu_traits.find(id) != MAP::menu_traits.end())
 		return std::get<3>(MAP::menu_traits.at(id));

@@ -10,6 +10,7 @@ using namespace std;
 namespace MISC
 {
 
+	constexpr auto allowed_chars_hex{ "abcdefABCDEF1234567890" };
 	constexpr auto allowed_chars_pgm_name{ "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ?<>;:.,-+*/=()'\"&%$#!_^\\|[" };
 	constexpr auto allowed_chars_pitch{ "abcdefgABCDEFG0123456789#" };
 	constexpr auto allowed_chars_porta_time{ "0123456789foFO" };

@@ -10,7 +10,7 @@ using namespace LAYER;
 Buttons_Main::Buttons_Main(Data_Hub* hub) :
 	Buttons_Main_A{ hub }
 {
-	btn_pull.onClick = [this] { outgoing_midi.addEvent(MIDI::Msg::request_pgm_buffer(), 0); };
+	btn_pull.onClick = [this] { outgoing_midi.addEvent(MIDI::Msg::dump_request_pgm_buffer(), 0); };
 
 	btn_push.onClick = [this] {
 		//TODO: add program buffer dump message to outgoing_midi

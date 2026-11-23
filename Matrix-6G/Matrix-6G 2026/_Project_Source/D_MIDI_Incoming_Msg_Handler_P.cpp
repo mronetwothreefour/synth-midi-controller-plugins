@@ -33,7 +33,7 @@ void Incoming_Msg_Handler::handle_sysex_data(const uint8* data, const int size) 
 		handle_global_dump(data, size);
 }
 
-void Incoming_Msg_Handler::handle_pgm_dump(const uint8* data, const int size) {
+void Incoming_Msg_Handler::handle_pgm_dump(const uint8* data, const int /*size*/) {
 	auto pgm_num = data[3];
 	Data::apply_raw_pgm_data_to_app(pgm_num, data + 4, hub);
 	if (app_p.store_incoming_pgm_dump()) {

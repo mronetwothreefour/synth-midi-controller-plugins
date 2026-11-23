@@ -22,4 +22,6 @@ namespace MIDI
 	constexpr unsigned char nrpn_val_lsb = 38;
 	constexpr unsigned char nrpn_val_msb = 6;
 
+	constexpr auto pgm_hex_string_length = 458;
+
 }
