@@ -19,13 +19,12 @@ Exp_Transmitter_A::Exp_Transmitter_A(Exp_Param* exp_param_ptr, MidiBuffer& outgo
 }
 
 void Exp_Transmitter_A::parameterValueChanged(int /*param_index*/, float new_norm_val) {
-	if (should_transmit(new_norm_val))
+	if (should_transmit(new_norm_val) && app_p.exp_tx_allowed())
 		triggerAsyncUpdate();
 }
 
 void Exp_Transmitter_A::handleAsyncUpdate() {
-	if (app_p.exp_tx_allowed())
-		transmit_change();
+	transmit_change();
 }
 
 Exp_Transmitter_A::~Exp_Transmitter_A() {
