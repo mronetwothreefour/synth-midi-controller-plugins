@@ -31,8 +31,8 @@ void MIDI::Incoming_Msg_Handler::handle_nrpn_msg(const MidiMessage /*msg*/)
 {
 }
 
-void Incoming_Msg_Handler::handle_sysex_data(const uint8* /*data*/, const int /*size*/)
-{
+void Incoming_Msg_Handler::handle_sysex_data(const uint8* /*data*/, const int /*size*/) {
+
 }
 
 void Incoming_Msg_Handler::handle_pgm_dump(const uint8* /*data*/, const int /*size*/)

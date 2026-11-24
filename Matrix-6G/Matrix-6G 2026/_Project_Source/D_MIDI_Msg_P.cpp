@@ -16,7 +16,7 @@ MidiMessage Msg::dump_global() {
 MidiMessage Msg::dump_pgm(Data_Hub* hub) {
 	auto pgm_num = (uint8)hub->get_app_params().current_pgm_num();
 	std::vector<uint8> msg{ id_maker, id_device, msg_type_dump_pgm, pgm_num };
-	auto raw_pgm_data{ Data::extract_raw_pgm_data_from_app(hub) };
+	auto raw_pgm_data{ Data::extract_raw_data_from_current_pgm(hub) };
 	for (auto byte : raw_pgm_data)
 		msg.push_back(byte);
 	return MidiMessage::createSysExMessage(msg.data(), (int)msg.size());

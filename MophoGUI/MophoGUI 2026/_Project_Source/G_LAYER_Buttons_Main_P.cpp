@@ -10,11 +10,8 @@ using namespace LAYER;
 Buttons_Main::Buttons_Main(Data_Hub* hub) :
 	Buttons_Main_A{ hub }
 {
+	btn_push.onClick = [this, hub] { outgoing_midi.addEvent(MIDI::Msg::dump_pgm_buffer(hub), 0); };
 	btn_pull.onClick = [this] { outgoing_midi.addEvent(MIDI::Msg::dump_request_pgm_buffer(), 0); };
-
-	btn_push.onClick = [this] {
-		//TODO: add program buffer dump message to outgoing_midi
-	};
 }
 
 void Buttons_Main::resized() {

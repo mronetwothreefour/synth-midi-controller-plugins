@@ -83,7 +83,7 @@ void Raw_Data_Tools::apply_raw_pgm_data_to_mmod(const uint8* pgm_data, Data_Hub*
     }
 }
 
-const vector<uint8> MIDI::Raw_Data_Tools::extract_raw_pgm_data_from_app(Data_Hub* hub) {
+const vector<uint8> MIDI::Raw_Data_Tools::extract_raw_data_from_current_pgm(Data_Hub* hub) {
     std::vector<uint8> pgm_data;
     uint8 checksum{ 0 };
     auto curr_pgm_name = hub->get_app_params().current_pgm_name();
@@ -102,8 +102,9 @@ void Raw_Data_Tools::add_exp_to_raw_pgm_data(Data_Hub* hub, std::vector<uint8>& 
     std::vector<uint8> exp_data;
     for (auto i = 0; i < data_size_exp; ++i)
         exp_data.push_back((uint8)0);
+    auto state = hub->get_exposed_params_state();
     for (auto& param_id : ID::exp_params) {
-        auto param = hub->get_exposed_params_state()->getParameterAsValue(param_id);
+        auto param = state->getParameterAsValue(param_id);
         auto v = (uint8)(int)param.getValue();
         auto ls_byte = GET::byte_index_for(param_id) * 2;
         auto ms_byte = ls_byte + 1;

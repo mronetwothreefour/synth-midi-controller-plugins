@@ -13,8 +13,8 @@ const int GET::ms_bit_pack_byte_for(const int& param_index) {
 	return (param_index / 7) * 8;
 }
 
-const int GET::ms_bit_mask_for(const int& param_index) {
-	return roundToInt(pow(2, param_index % 7));
+const uint8 GET::ms_bit_mask_for(const int& param_index) {
+	return (uint8)roundToInt(pow(2, param_index % 7));
 }
 
 const bool GET::menu_to_left_for(const std::string& id) {

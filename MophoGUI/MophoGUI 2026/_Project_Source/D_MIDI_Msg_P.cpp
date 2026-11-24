@@ -1,19 +1,30 @@
 #include "D_MIDI_Msg_P.h"
 
 #include "C_MIDI_P.h"
+#include "D_MIDI_Raw_Data_Tools_P.h"
+
+#include "D_X_G_Data_Hub_P.h"
 
 using namespace MIDI;
+
+using Data = Raw_Data_Tools;
 
 MidiMessage MIDI::Msg::dump_global() {
 	return MidiMessage();
 }
 
-MidiMessage MIDI::Msg::dump_pgm(const uint8 bnk, const uint8 pgm, Data_Hub* hub) {
+MidiMessage MIDI::Msg::dump_pgm(const uint8 /*bnk*/, const uint8 /*pgm*/, Data_Hub* /*hub*/) {
 	return MidiMessage();
 }
 
 MidiMessage MIDI::Msg::dump_pgm_buffer(Data_Hub* hub) {
-	return MidiMessage();
+	std::vector<uint8> msg{ id_maker, id_device, msg_type_dump_pgm_buffer };
+	auto raw_pgm_data{ Data::extract_raw_data_from_current_pgm(hub) };
+	for (auto byte : raw_pgm_data)
+		msg.push_back(byte);
+	for (auto pad_byte = raw_pgm_data.size(); pad_byte < data_size_pgm; ++pad_byte)
+		msg.push_back((uint8)0);
+	return MidiMessage::createSysExMessage(msg.data(), (int)msg.size());
 }
 
 MidiMessage Msg::dump_request_global() {
