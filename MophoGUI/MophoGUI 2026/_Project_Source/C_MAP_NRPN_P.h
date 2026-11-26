@@ -120,10 +120,10 @@ namespace MAP
 		//exposed seq
 		{ ID::exp_seq_trig_mode, 94 },
 		{ ID::exp_seq_on_off, 101 },
-		{ ID::exp_seq_track_1_dest, 76 },
-		{ ID::exp_seq_track_2_dest, 77 },
-		{ ID::exp_seq_track_3_dest, 78 },
-		{ ID::exp_seq_track_4_dest, 79 },
+		{ ID::exp_seq_track_1_dest, 77 },
+		{ ID::exp_seq_track_2_dest, 78 },
+		{ ID::exp_seq_track_3_dest, 79 },
+		{ ID::exp_seq_track_4_dest, 80 },
 		//exposed flex knob
 		{ ID::exp_flex_knob_1, 104 },
 		{ ID::exp_flex_knob_2, 105 },

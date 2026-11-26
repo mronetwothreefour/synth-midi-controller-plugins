@@ -5,7 +5,7 @@ namespace MIDI
 
 	constexpr auto cc_msg_prefix = 176;
 
-	constexpr auto data_size_pgm = 298;
+	constexpr auto data_size_pgm = 293;
 
 	constexpr unsigned char id_device = 37;
 	constexpr unsigned char id_maker = 1;
