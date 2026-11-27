@@ -21,7 +21,7 @@ namespace MIDI
 	public: Exp_Transmitter(const std::string& param_id, Exp_Param* exp_param_ptr,
 							MidiBuffer& outgoing_midi, App_Params& app_p);
 
-	private: bool should_transmit(const float new_norm_val) override;
+	private: bool should_transmit_p(const float new_norm_val) override;
 	private: void transmit_change() override;
 
 	//==============================================================================

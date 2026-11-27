@@ -13,23 +13,16 @@ Exp_Transmitter::Exp_Transmitter(const std::string& param_id, Exp_Param* exp_par
 {}
 
 bool Exp_Transmitter::should_transmit(const float new_norm_val) {
-	auto v = norm_range.convertFrom0to1(new_norm_val);
-	if (new_norm_val > last_norm_val) {
-		if (new_norm_val < max_choice_threshold)
-			v = std::floor(v);
-		else
-			v = std::ceil(v);
-	}
-	if (new_norm_val < last_norm_val) {
-		if (new_norm_val > min_choice_threshold)
-			v = std::ceil(v);
-		else
-			v = std::floor(v);
-	}
-	last_norm_val = new_norm_val;
-	if (v != last_choice) {
-		last_choice = v;
-		return true;
+	auto unsnapped_val = norm_range.convertFrom0to1(new_norm_val);
+	auto int_part = 0.0f;
+	auto fract_part = std::modf(unsnapped_val, &int_part);
+	if (fract_part > lower_threshold || fract_part < upper_threshold)	{
+		auto snapped_val = param_ptr->convertFrom0to1(new_norm_val);
+		last_norm_val = new_norm_val;
+		if (snapped_val != last_choice) {
+			last_choice = snapped_val;
+			return true;
+		}
 	}
 	return false;
 }
